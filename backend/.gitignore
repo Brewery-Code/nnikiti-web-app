@@ -1,0 +1,10 @@
+# virtual enviroment
+.venv/
+
+# Byte compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# enviroment variables
+.env
