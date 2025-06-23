@@ -1,0 +1,76 @@
+[
+{
+  "model": "core.mainslideritem",
+  "pk": 12,
+  "fields": {
+    "image": "banners/john-towner-3Kv48NS4WUU-unsplash.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 13,
+  "fields": {
+    "image": "banners/lukasz-szmigiel-2ShvY8Lf6l0-unsplash.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 14,
+  "fields": {
+    "image": "banners/pexels-catlises-23547.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 15,
+  "fields": {
+    "image": "banners/pexels-eberhardgross-1292115.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 16,
+  "fields": {
+    "image": "banners/pexels-rpnickson-2559941.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 17,
+  "fields": {
+    "image": "banners/pexels-tracehudson-2529973.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 18,
+  "fields": {
+    "image": "banners/pexels-rpnickson-2885320.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 19,
+  "fields": {
+    "image": "banners/pine-watt-2Hzmz15wGik-unsplash.jpg"
+  }
+},
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$vcm3KjLvwvx3NiEXKRPNMh$r5ZB8H+jEJ8doGfvuxLfXINJVCBbLOQQLTEpOv9lskY=",
+    "last_login": "2025-06-23T15:15:26.355Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-06-23T15:15:14.654Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
