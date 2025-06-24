@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "social_django",
     "oauth2_provider",
     "drf_social_oauth2",
+    "rest_framework.authtoken",
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
 ]
@@ -32,7 +33,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsgeaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -117,7 +118,20 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "picture",
 ]
 
-LOGIN_REDIRECT_URL = "/api/v1/auth/callback/"
+# LOGIN_REDIRECT_URL = "/api/v1/auth/callback/"
+
+SOCIAL_AUTH_PIPELINE = (
+    "social_core.pipeline.social_auth.social_details",
+    "social_core.pipeline.social_auth.social_uid",
+    "social_core.pipeline.social_auth.auth_allowed",
+    "social_core.pipeline.social_auth.social_user",
+    "social_core.pipeline.social_auth.associate_by_email",
+    "social_core.pipeline.user.create_user",
+    "social_core.pipeline.social_auth.associate_user",
+    "social_core.pipeline.social_auth.load_extra_data",
+    "social_core.pipeline.user.user_details",
+    "users.pipeline.get_token_google_oauth",
+)
 
 # REST Framework general settings
 REST_FRAMEWORK = {
