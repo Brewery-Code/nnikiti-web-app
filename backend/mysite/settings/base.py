@@ -21,6 +21,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "drf_yasg",
+    "social_django",
+    "oauth2_provider",
+    "drf_social_oauth2",
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
 ]
@@ -89,3 +92,35 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # General settings
 AUTH_USER_MODEL = "users.User"
+
+# OAuth2 general settings
+SOCIAL_AUTH_JSONFIELD_ENABLED = True
+
+SOCIAL_AUTH_URL_NAMESPACE = "social"
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "social_core.backends.google.GoogleOAuth2",
+    "drf_social_oauth2.backends.DjangoOAuth2",
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config("GOOGLE_OAUTH_CLIENT_ID")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config("GOOGLE_OAUTH_CLIENT_SECRET")
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ["email", "profile"]
+SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
+    "email",
+    "first_name",
+    "last_name",
+    "picture",
+]
+
+LOGIN_REDIRECT_URL = "http://127.0.0.1:5173"
+
+# REST Framework general settings
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        "drf_social_oauth2.authentication.SocialAuthentication",
+    )
+}
