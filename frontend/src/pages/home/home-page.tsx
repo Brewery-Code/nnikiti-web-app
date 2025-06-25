@@ -1,4 +1,4 @@
-import { HeroSection } from "@/widgets";
+import { HeroSection } from "./widgets";
 
 export function HomePage() {
   return (
