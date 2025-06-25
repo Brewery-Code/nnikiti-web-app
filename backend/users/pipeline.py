@@ -9,7 +9,7 @@ def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
         access_token = str(refresh.access_token)
         refresh_token = str(refresh)
 
-        frontend_url = f"http://127.0.0.1:5173/login/google/"
+        frontend_url = f"http://127.0.0.1:5173/"
         response = redirect(frontend_url)
         response.set_cookie(
             "refresh_token",

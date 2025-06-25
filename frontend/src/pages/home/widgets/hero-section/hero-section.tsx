@@ -1,6 +1,7 @@
 import { rqClient } from "@/shared/api/instance";
 import NavigationButton from "./ui/navigation-button";
 import studentImg from "./icons/student.svg";
+import Arrow from "./icons/arrow.svg?react";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
@@ -73,8 +74,8 @@ export default function HeroSection() {
           url(${sliderImg.data?.[nextImg]?.image})
           `,
         }}
-      ></div>
-      <div className="container-base flex flex-col justify-between h-full">
+      />
+      <div className="container-base flex flex-col align-center gap-0 h-full">
         <div className="z-10 mt-[6dvh]">
           <h1 className="text-4xl md:text-7xl xl:text-8xl  font-bold -tracking-tighter">
             EVERY GIANT LEAP STARTS WITH ONE SMALL STEP
@@ -83,7 +84,7 @@ export default function HeroSection() {
             EVERY GIANT LEAP STARTS WITH ONE SMALL STEP EVERY{" "}
           </h2>
         </div>
-        <div className="grid grid-cols-2 justify-items-center gap-y-6 md:flex justify-between mb-[10dvh]">
+        <div className="grid grid-cols-2 justify-items-center gap-y-6 md:flex justify-between mt-auto">
           {navigationButtons.map((btn, idx) => (
             <NavigationButton
               key={idx}
@@ -94,6 +95,7 @@ export default function HeroSection() {
             />
           ))}
         </div>
+        <Arrow className=" mx-auto mb-6 mt-32 animate-bounce" />
       </div>
     </div>
   );
