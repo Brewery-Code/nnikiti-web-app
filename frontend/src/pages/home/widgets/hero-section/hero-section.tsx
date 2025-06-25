@@ -1,31 +1,30 @@
-import { rqClient } from "@/shared/api/instance";
-import NavigationButton from "./ui/navigation-button";
-import studentImg from "./icons/student.svg";
-import Arrow from "./icons/arrow.svg?react";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import { rqClient } from "@/shared/api/instance";
+import { NavigationButton } from "./ui";
+import { Arrow, student } from "./icons";
 
 const navigationButtons = [
   {
-    img: studentImg,
+    img: student,
     mainTitle: "Student",
     subTitle: "Secondary Title",
     description: "Description for student",
   },
   {
-    img: studentImg,
+    img: student,
     mainTitle: "Teacher",
     subTitle: "Secondary Title",
     description: "Description for teacher",
   },
   {
-    img: studentImg,
+    img: student,
     mainTitle: "Parent",
     subTitle: "Secondary Title",
     description: "Description for parent",
   },
   {
-    img: studentImg,
+    img: student,
     mainTitle: "Guest",
     subTitle: "Secondary Title",
     description: "Description for guest",
@@ -54,8 +53,8 @@ export default function HeroSection() {
   }, [sliderImg.data]);
 
   return (
-    <div
-      className="relative w-full h-[calc(100dvh-80px)] bg-cover bg-center bg-no-repeat"
+    <section
+      className="relative w-full h-[calc(100dvh-80px)] bg-cover bg-center bg-no-repeat before:absolute before:h-24 before:w-full before:-bottom-24 before:bg-gradient-to-b before:from-black before:to-transparent"
       style={{
         backgroundImage: `
           linear-gradient(to bottom, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.1) 90%, rgba(0,0,0,1) 100%),
@@ -97,6 +96,6 @@ export default function HeroSection() {
         </div>
         <Arrow className=" mx-auto mb-6 mt-32 animate-bounce" />
       </div>
-    </div>
+    </section>
   );
 }

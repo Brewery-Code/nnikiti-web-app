@@ -15,6 +15,10 @@ body {
   padding: 0 16px;
 }
 
+.m-section {
+  margin-top: 96px;
+}
+
 .font-open-sans {
   font-family: "Open Sans", sans-serif;
 }
