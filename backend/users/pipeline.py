@@ -16,11 +16,18 @@ def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
             refresh_token,
             httponly=True,
             secure=False,
-            samesite="Lax",
+            samesite="Lax",  # Strix, None
             path="/api/v1/auth/token/refresh/",
         )
-        response["Content-Type"] = "application/json"
-        response.content = f'{{"access": "{access_token}"}}'.encode()
+
+        response.set_cookie(
+            "access_token",
+            access_token,
+            httponly=False,
+            secure=False,
+            samesite="Lax",
+        )
+
         return response
     else:
         error_redirect_url = "http://127.0.0.1:5173/auth/error"

@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "oauth2_provider",
     "drf_social_oauth2",
     "rest_framework.authtoken",
+    "rest_framework_simplejwt.token_blacklist",
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
 ]

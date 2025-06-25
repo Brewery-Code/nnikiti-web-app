@@ -8,6 +8,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework_simplejwt.views import TokenRefreshView
 
+from users.views import TokenRefreshFromCookieView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -37,7 +38,9 @@ urlpatterns = [
     path("api/v1/auth/", include("social_django.urls", namespace="social")),
     path("api/v1/auth/token/", include("drf_social_oauth2.urls", namespace="oauth2")),
     path(
-        "api/v1/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"
+        "api/v1/auth/token/refresh/",
+        TokenRefreshFromCookieView.as_view(),
+        name="token_refresh",
     ),
 ]
 
