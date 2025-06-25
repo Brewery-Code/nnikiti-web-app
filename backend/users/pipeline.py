@@ -1,0 +1,27 @@
+from django.shortcuts import redirect
+from rest_framework.authtoken.models import Token
+from rest_framework_simplejwt.tokens import RefreshToken
+
+
+def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
+    if user:
+        refresh = RefreshToken.for_user(user)
+        access_token = str(refresh.access_token)
+        refresh_token = str(refresh)
+
+        frontend_url = f"http://127.0.0.1:5173/login/google/"
+        response = redirect(frontend_url)
+        response.set_cookie(
+            "refresh_token",
+            refresh_token,
+            httponly=True,
+            secure=False,
+            samesite="Lax",
+            path="/api/v1/auth/token/refresh/",
+        )
+        response["Content-Type"] = "application/json"
+        response.content = f'{{"access": "{access_token}"}}'.encode()
+        return response
+    else:
+        error_redirect_url = "http://127.0.0.1:5173/auth/error"
+        return redirect(error_redirect_url)

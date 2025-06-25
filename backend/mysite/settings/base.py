@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 from decouple import config
 
@@ -115,8 +116,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "picture",
 ]
 
-# LOGIN_REDIRECT_URL = "/api/v1/auth/callback/"
-
 SOCIAL_AUTH_PIPELINE = (
     "social_core.pipeline.social_auth.social_details",
     "social_core.pipeline.social_auth.social_uid",
@@ -133,7 +132,6 @@ SOCIAL_AUTH_PIPELINE = (
 # REST Framework general settings
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
-        "drf_social_oauth2.authentication.SocialAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     )
 }
