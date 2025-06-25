@@ -1,7 +1,7 @@
-import { ROUTES } from "../../shared/model/routes";
+import { ROUTES } from "../shared/model/routes";
 import { createBrowserRouter } from "react-router-dom";
-import { Providers } from "../provider/provider";
-import App from "../App";
+import { Providers } from "./provider";
+import App from "./App";
 
 export const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTES.HOME,
-        lazy: () => import("@/pages/home-page"),
+        lazy: () => import("@/pages/home/home-page"),
       },
     ],
   },

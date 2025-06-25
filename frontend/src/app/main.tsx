@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./router/router.tsx";
+import { router } from "./router.tsx";
 
 async function enableMocking() {
-  if (import.meta.env.PROD) {
+  if (import.meta.env.PROD || import.meta.env.VITE_API_MOCKING !== "true") {
     return;
   }
 
