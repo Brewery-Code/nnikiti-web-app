@@ -5,7 +5,7 @@ from .models import MainSliderItem
 
 
 class MainSliderView(ListAPIView):
-    """ListApiView для отримання всіх фото слайдера"""
+    """Returns a list of all images in the main slider."""
 
     queryset = MainSliderItem.objects.all()
     serializer_class = MainSliderItemSerializer

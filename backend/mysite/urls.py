@@ -36,7 +36,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include((v1_patterns, "v1"))),
     path("api/v1/auth/", include("social_django.urls", namespace="social")),
-    path("api/v1/auth/token/", include("drf_social_oauth2.urls", namespace="oauth2")),
     path(
         "api/v1/auth/token/refresh/",
         TokenRefreshFromCookieView.as_view(),
