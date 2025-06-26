@@ -4,7 +4,7 @@ from .models import MainSliderItem
 
 
 class MainSliderItemSerializer(serializers.ModelSerializer):
-    """Серіалізатор моделі ModelSliderItem"""
+    """Serializer for the MainSliderItem model."""
 
     class Meta:
         model = MainSliderItem

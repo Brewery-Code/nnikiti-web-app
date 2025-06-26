@@ -4,6 +4,10 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 
 def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
+    """
+    Custom pipeline function for social-auth that
+    generates JWT tokens after successful Google OAuth login.
+    """
     if user:
         refresh = RefreshToken.for_user(user)
         access_token = str(refresh.access_token)

@@ -5,7 +5,7 @@ from .models import MainSliderItem
 
 @admin.register(MainSliderItem)
 class MainSliderItemAdmin(admin.ModelAdmin):
-    """Адмін-панель для моделі MainSliderItem"""
+    """Admin configuration for the MainSliderItem model."""
 
     list_display = ("pk",)
     list_display_links = ("pk",)

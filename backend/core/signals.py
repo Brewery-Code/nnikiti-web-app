@@ -6,6 +6,9 @@ from .models import MainSliderItem
 
 @receiver(post_delete, sender=MainSliderItem)
 def delete_main_slider_image(sender, instance, **kwargs):
-    """Сигнал для видалення фото після очищення запису в БД"""
+    """
+    Automatically deletes the image file from
+    storage when a MainSliderItem is deleted.
+    """
     if instance.image:
         instance.image.delete(save=False)

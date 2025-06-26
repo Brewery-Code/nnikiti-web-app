@@ -3,7 +3,10 @@ from django.db import models
 
 class MainSliderItem(models.Model):
     """
-    Модель для зберігання фото до слайдера головної сторінки
+    Represents an image used in the main page slider.
+
+    This model stores a single banner image that appears in a carousel or
+    slider on the website's homepage. Each record corresponds to one slide.
     """
 
     image = models.ImageField(upload_to="banners/")

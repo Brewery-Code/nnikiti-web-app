@@ -6,6 +6,11 @@ from rest_framework.exceptions import AuthenticationFailed
 
 
 class TokenRefreshFromCookieView(APIView):
+    """
+    Custom view for refreshing JWT tokens using
+    a refresh token from cookies or request body.
+    """
+
     def post(self, request, *args, **kwargs):
         refresh = request.data.get("refresh") or request.COOKIES.get("refresh_token")
         if not refresh:

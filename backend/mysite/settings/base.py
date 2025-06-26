@@ -21,9 +21,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "drf_yasg",
     "social_django",
-    "oauth2_provider",
-    "drf_social_oauth2",
-    "rest_framework.authtoken",
     "rest_framework_simplejwt.token_blacklist",
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
@@ -103,7 +100,6 @@ SOCIAL_AUTH_URL_NAMESPACE = "social"
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "social_core.backends.google.GoogleOAuth2",
-    "drf_social_oauth2.backends.DjangoOAuth2",
 )
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config("GOOGLE_OAUTH_CLIENT_ID")
