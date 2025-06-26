@@ -1,128 +1,86 @@
-{
-  "openapi": "3.0.1",
-  "info":
-    {
-      "title": "NNIKITI API",
-      "description": "Documentation for the NNIKITI API, which allows you to see all working endpoints.",
-      "version": "v1",
-    },
-  "servers": [{ "url": "http://127.0.0.1:8000/api/v1" }],
-  "security": [{ "Basic": [] }],
-  "paths":
-    {
-      "/auth/token/convert-token/":
-        {
-          "post":
-            {
-              "tags": ["auth"],
-              "summary": "Implements an endpoint to convert a provider token to an access token",
-              "description": "The endpoint is used in the following flows:\n\n* Authorization code\n* Client credentials",
-              "operationId": "auth_token_convert-token_create",
-              "responses": { "201": { "description": "", "content": {} } },
-            },
-        },
-      "/auth/token/disconnect-backend/":
-        {
-          "post":
-            {
-              "tags": ["auth"],
-              "description": "An endpoint for disconnect social auth backend providers such as Facebook.",
-              "operationId": "auth_token_disconnect-backend_create",
-              "responses": { "201": { "description": "", "content": {} } },
-            },
-        },
-      "/auth/token/invalidate-refresh-tokens/":
-        {
-          "post":
-            {
-              "tags": ["auth"],
-              "description": "Invalidate all refresh tokens associated with a client id.",
-              "operationId": "auth_token_invalidate-refresh-tokens_create",
-              "responses": { "201": { "description": "", "content": {} } },
-            },
-        },
-      "/auth/token/invalidate-sessions/":
-        {
-          "post":
-            {
-              "tags": ["auth"],
-              "description": "Delete all access tokens associated with a client id.",
-              "operationId": "auth_token_invalidate-sessions_create",
-              "responses": { "201": { "description": "", "content": {} } },
-            },
-        },
-      "/auth/token/revoke-token/":
-        {
-          "post":
-            {
-              "tags": ["auth"],
-              "description": "Implements an endpoint to revoke access or refresh tokens",
-              "operationId": "auth_token_revoke-token_create",
-              "responses": { "201": { "description": "", "content": {} } },
-            },
-        },
-      "/auth/token/token/":
-        {
-          "post":
-            {
-              "tags": ["auth"],
-              "summary": "Implements an endpoint to provide access tokens",
-              "description": "The endpoint is used in the following flows:\n\n* Authorization code\n* Password\n* Client credentials",
-              "operationId": "auth_token_token_create",
-              "responses": { "201": { "description": "", "content": {} } },
-            },
-        },
-      "/core/main-slider-item/":
-        {
-          "get":
-            {
-              "tags": ["core"],
-              "description": "ListApiView для отримання всіх фото слайдера",
-              "operationId": "core_main-slider-item_list",
-              "responses":
-                {
-                  "200":
-                    {
-                      "description": "",
-                      "content":
-                        {
-                          "application/json":
-                            {
-                              "schema":
-                                {
-                                  "type": "array",
-                                  "items":
-                                    {
-                                      "$ref": "#/components/schemas/MainSliderItem",
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    },
-  "components":
-    {
-      "schemas":
-        {
-          "MainSliderItem":
-            {
-              "type": "object",
-              "properties":
-                {
-                  "image":
-                    {
-                      "title": "Image",
-                      "type": "string",
-                      "format": "uri",
-                      "readOnly": true,
-                    },
-                },
-            },
-        },
-      "securitySchemes": { "Basic": { "type": "http", "scheme": "basic" } },
-    },
-  "x-original-swagger-version": "2.0",
-}
+openapi: 3.0.1
+info:
+  title: NNIKITI API
+  description:
+    "Documentation for the NNIKITI API, which allows you to see all working\
+    \ endpoints."
+  version: v1
+servers:
+  - url: http://127.0.0.1:8000/api/v1
+security:
+  - Basic: []
+paths:
+  /auth/token/refresh/:
+    post:
+      tags:
+        - auth
+      operationId: auth_token_refresh_create
+      responses:
+        "201":
+          description: ""
+          content: {}
+  /core/main-slider-item/:
+    get:
+      tags:
+        - core
+      description: ListApiView для отримання всіх фото слайдера
+      operationId: core_main-slider-item_list
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MainSliderItem"
+  /core/statistic-block/:
+    get:
+      tags:
+        - core
+      description: ListApiView для отримання всіх блоків статистики
+      operationId: core_statistic-block_list
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StatisticBlock"
+components:
+  schemas:
+    MainSliderItem:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        image:
+          title: Image
+          type: string
+          format: uri
+          readOnly: true
+    StatisticBlock:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        start_value:
+          title: Start Value
+          type: integer
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
+x-original-swagger-version: "2.0"

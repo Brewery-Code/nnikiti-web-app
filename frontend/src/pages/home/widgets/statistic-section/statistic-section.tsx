@@ -1,17 +1,35 @@
 import { Title } from "@/shared/ui";
 import { StatisticBlock } from "./ui";
+import { gradientAnimation } from "./styles";
+import clsx from "clsx";
 
 const statisticData = [
-  { title: "3.4K+", subtitle: "Studying now" },
-  { title: "Top 1 in Rivne", col: 2 },
-  { title: "81", subtitle: "Teaching staff" },
-  { title: "29K+", subtitle: "Graduated", row: 2 },
-  { title: "12", subtitle: "Education programs" },
   {
+    id: 0,
+    title: "3400+",
+    subtitle: "Studying now",
+    start_value: 0,
+  },
+  { id: 1, title: "Top 1 in Rivne" },
+  { id: 2, title: "81", subtitle: "Teaching staff", start_value: 0 },
+  {
+    id: 3,
     title: "40+",
     subtitle: "Partners university and companies around the world",
+    start_value: 0,
   },
-  { title: "Top 44 in Ukraine", col: 2 },
+  {
+    id: 4,
+    title: "29000+",
+    subtitle: "Graduated",
+    start_value: 0,
+  },
+  { id: 5, title: "12", subtitle: "Education programs", start_value: 0 },
+  {
+    id: 6,
+    title: "Top 44 in Ukraine",
+    start_value: 200,
+  },
 ];
 
 export default function StatisticSection() {
@@ -19,14 +37,17 @@ export default function StatisticSection() {
     <section className="container-base m-section">
       <Title title="By the numbers" />
       <div className="relative grid grid-cols-5 grid-rows-2 gap-4 h-[500px] mt-8">
-        {statisticData.map((item, index) => (
+        {statisticData.map((item) => (
           <StatisticBlock
-            className="bg-[linear-gradient(135deg,_#ffdd55,_#ff55cc,_#88f,_#55ffff)]"
-            key={index}
+            key={item.id}
+            className={clsx(
+              gradientAnimation.gradientAnimation,
+              item.id === 1 || item.id === 6 ? "col-span-2" : "",
+              item.id === 3 ? "row-span-2" : ""
+            )}
             title={item.title}
             subtitle={item.subtitle}
-            col={item.col}
-            row={item.row}
+            start_value={item.start_value}
           />
         ))}
       </div>
