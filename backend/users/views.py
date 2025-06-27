@@ -27,9 +27,7 @@ class TokenRefreshFromCookieView(APIView):
         access = serializer.validated_data.get("access")
         new_refresh = serializer.validated_data.get("refresh", refresh)
 
-        response = Response(
-            {"detail": "Token successfully updated."}, status=status.HTTP_200_OK
-        )
+        response = Response({"access": access}, status=status.HTTP_200_OK)
 
         response.set_cookie(
             "refresh_token",

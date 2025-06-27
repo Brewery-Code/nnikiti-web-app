@@ -167,7 +167,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  detail:
+                  access:
                     type: string
         '401':
           description: Unauthorized - no valid refresh token
