@@ -21,7 +21,7 @@ def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
             httponly=True,
             secure=False,
             samesite="Lax",  # Strix, None
-            path="/api/v1/auth",
+            path="/api/v1/users",
         )
 
         response.set_cookie(
@@ -36,3 +36,11 @@ def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
     else:
         error_redirect_url = "http://127.0.0.1:5173/auth/error"
         return redirect(error_redirect_url)
+
+
+def save_avatar(backend, user, response, *args, **kwargs):
+    """Custom pipeline function for saving user avatar"""
+    picture_url = response.get("picture")
+    if picture_url and user.avatar != picture_url:
+        user.avatar = picture_url
+        user.save()

@@ -56,11 +56,18 @@
   }
 },
 {
+  "model": "core.mainslideritem",
+  "pk": 20,
+  "fields": {
+    "image": "banners/nuwm_1920x900.jpg"
+  }
+},
+{
   "model": "users.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$vcm3KjLvwvx3NiEXKRPNMh$r5ZB8H+jEJ8doGfvuxLfXINJVCBbLOQQLTEpOv9lskY=",
-    "last_login": "2025-06-23T15:15:26.355Z",
+    "last_login": "2025-06-27T15:47:20.813Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -69,6 +76,7 @@
     "is_staff": true,
     "is_active": true,
     "date_joined": "2025-06-23T15:15:14.654Z",
+    "avatar": null,
     "groups": [],
     "user_permissions": []
   }

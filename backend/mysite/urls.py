@@ -6,13 +6,13 @@ from django.conf.urls.static import static
 
 v1_patterns = [
     path("core/", include(("core.urls", "core"))),
-    path("auth/", include(("users.urls", "users"))),
+    path("users/", include(("users.urls", "users"))),
 ]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include((v1_patterns, "v1"))),
-    path("api/v1/auth/", include("social_django.urls", namespace="social")),
+    path("api/v1/users/", include("social_django.urls", namespace="social")),
 ]
 
 if settings.DEBUG:

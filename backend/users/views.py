@@ -1,3 +1,4 @@
+from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,6 +7,8 @@ from rest_framework.views import APIView
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
+
+from .models import User
 
 
 class TokenRefreshFromCookieView(APIView):
@@ -74,3 +77,23 @@ class LogoutView(APIView):
             return Response(
                 {"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST
             )
+
+
+class UserAPIView(APIView):
+    """API view to retrieve the authenticated user's profile data."""
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+
+        response = Response(
+            {
+                "id": user.pk,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "email": user.email,
+                "avatar": user.avatar,
+            }
+        )
+        return response
