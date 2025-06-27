@@ -1,10 +1,9 @@
-from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.serializers import TokenRefreshSerializer
 from rest_framework.views import APIView
-from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.exceptions import APIException, AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 
@@ -80,20 +79,23 @@ class LogoutView(APIView):
 
 
 class UserAPIView(APIView):
-    """API view to retrieve the authenticated user's profile data."""
+    """
+    API view to retrieve the authenticated user's profile data.
+    Requires a valid JWT token (expected in cookies).
+    """
 
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        user = request.user
-
-        response = Response(
-            {
+        try:
+            user = request.user
+            data = {
                 "id": user.pk,
                 "first_name": user.first_name,
                 "last_name": user.last_name,
                 "email": user.email,
                 "avatar": user.avatar,
             }
-        )
-        return response
+            return Response(data, status=status.HTTP_200_OK)
+        except Exception as e:
+            raise APIException(f"Failed to retrieve user profile: {str(e)}")
