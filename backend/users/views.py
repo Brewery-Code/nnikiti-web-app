@@ -66,7 +66,7 @@ class LogoutView(APIView):
         try:
             token = RefreshToken(refresh_token)
             token.blacklist()
-            response = Response(status=status.HTTP_205_RESET_CONTENT)
+            response = Response(status=status.HTTP_204_NO_CONTENT)
             response.delete_cookie("refresh_token", path="/api/v1/auth/token/refresh/")
             response.delete_cookie("access_token")
             return response
