@@ -6,7 +6,6 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from rest_framework_simplejwt.views import TokenRefreshView
 
 from users.views import TokenRefreshFromCookieView
 
@@ -30,17 +29,13 @@ v1_patterns = [
         "swagger.<format>/", schema_view.without_ui(cache_timeout=0), name="schema-json"
     ),
     path("core/", include(("core.urls", "core"))),
+    path("auth/", include(("users.urls", "users"))),
 ]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include((v1_patterns, "v1"))),
     path("api/v1/auth/", include("social_django.urls", namespace="social")),
-    path(
-        "api/v1/auth/token/refresh/",
-        TokenRefreshFromCookieView.as_view(),
-        name="token_refresh",
-    ),
 ]
 
 if settings.DEBUG:

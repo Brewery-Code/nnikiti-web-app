@@ -1,0 +1,86 @@
+openapi: 3.0.1
+info:
+  title: NNIKITI API
+  description:
+    "Documentation for the NNIKITI API, which allows you to see all working\
+    \ endpoints."
+  version: v1
+servers:
+  - url: http://127.0.0.1:8000/api/v1
+security:
+  - Basic: []
+paths:
+  /auth/token/refresh/:
+    post:
+      tags:
+        - auth
+      operationId: auth_token_refresh_create
+      responses:
+        "201":
+          description: ""
+          content: {}
+  /core/main-slider-item/:
+    get:
+      tags:
+        - core
+      description: ListApiView для отримання всіх фото слайдера
+      operationId: core_main-slider-item_list
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MainSliderItem"
+  /core/statistic-block/:
+    get:
+      tags:
+        - core
+      description: ListApiView для отримання всіх блоків статистики
+      operationId: core_statistic-block_list
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StatisticBlock"
+components:
+  schemas:
+    MainSliderItem:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        image:
+          title: Image
+          type: string
+          format: uri
+          readOnly: true
+    StatisticBlock:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        start_value:
+          title: Start Value
+          type: integer
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
+x-original-swagger-version: "2.0"
