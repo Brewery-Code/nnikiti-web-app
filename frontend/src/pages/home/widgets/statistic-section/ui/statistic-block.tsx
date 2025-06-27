@@ -1,5 +1,17 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+function parseTitle(title?: string) {
+  if (!title) return { value: 0, before: "", after: "" };
+  const matchValue = title.match(/\d+/);
+  const matchBefore = title.match(/^[^\d]+/);
+  const matchAfter = title.match(/[^\d]+$/);
+  return {
+    value: matchValue ? parseInt(matchValue[0]) : 0,
+    before: matchBefore ? matchBefore[0] : "",
+    after: matchAfter ? matchAfter[0] : "",
+  };
+}
 
 export default function StatisticBlock({
   className,
@@ -13,49 +25,51 @@ export default function StatisticBlock({
   start_value?: number;
 }) {
   const [current, setCurrent] = useState(start_value || 0);
-  const [value, setValue] = useState(0);
-  const [textBeforeValue, setTextBeforeValue] = useState("");
-  const [textAfterValue, setTextAfterValue] = useState("");
+  const [{ value, before, after }, setParsed] = useState(() =>
+    parseTitle(title)
+  );
+  const animationRef = useRef<number | null>(null);
+
+  const [isElementVisible, setIsElementVisible] = useState<boolean>();
+  const blockRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (title) {
-      const matchValue = title.match(/\d+/);
-      const matchBeforeValue = title.match(/^[^\d]+/);
-      const matchAfterValue = title.match(/[^\d]+$/);
-      if (matchValue) setValue(parseInt(matchValue[0]));
-      if (matchBeforeValue) setTextBeforeValue(matchBeforeValue[0]);
-      if (matchAfterValue) setTextAfterValue(matchAfterValue[0]);
-    }
+    setParsed(parseTitle(title));
   }, [title]);
 
-  const startTime = Date.now();
-  function animateValue(start: number, end: number, duration: number) {
-    const startTime = Date.now();
-
-    function step() {
-      const now = Date.now();
-      const elapsed = now - startTime;
-      const linearProgress = Math.min(elapsed / duration, 1);
-
-      // 👇 Easing-функція: ease-out (сповільнення в кінці)
-      const easeOutProgress = 1 - Math.pow(1 - linearProgress, 3); // cubic ease-out
-
-      const currentValue = start + (end - start) * easeOutProgress;
-      setCurrent(Math.round(currentValue));
-
-      if (linearProgress < 1) {
-        requestAnimationFrame(step);
-      }
-    }
-
-    step(); // запускаємо
-  }
-
   useEffect(() => {
-    if (value !== 0) {
-      animateValue(current, value, 4000);
-    }
-  }, [value]);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        if (start_value === undefined) return;
+        setIsElementVisible(true);
+        observer.disconnect();
+
+        const start = start_value ?? 0;
+        const end = value;
+        const duration = 4000;
+        const startTime = Date.now();
+
+        function step() {
+          const now = Date.now();
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const currentValue = start + (end - start) * easeOut;
+          setCurrent(Math.round(currentValue));
+          if (progress < 1) {
+            animationRef.current = requestAnimationFrame(step);
+          }
+        }
+
+        step();
+      }
+    });
+    if (blockRef.current) observer.observe(blockRef.current);
+    return () => {
+      observer.disconnect();
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, []);
 
   return (
     <div
@@ -66,11 +80,14 @@ export default function StatisticBlock({
       style={{
         boxShadow: "0 0 10px 2px rgba(256, 256, 256, 0.7)",
       }}
+      ref={blockRef}
     >
-      <div className="text-6xl leading-20 font-bold">
-        {current ? textBeforeValue + current + textAfterValue : title}
+      <div className="text-4xl lg:text-5xl xl:text-6xl leading-9 lg:leading-12 xl:leading-20 font-bold">
+        {start_value !== undefined ? before + current + after : title}
       </div>
-      <p className="text-2xl leading-6 font-bold">{subtitle}</p>
+      <p className="text-base lg:text-xl xl:text-2xl leading-6 font-bold">
+        {subtitle}
+      </p>
     </div>
   );
 }
