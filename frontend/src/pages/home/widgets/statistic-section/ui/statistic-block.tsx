@@ -82,10 +82,10 @@ export default function StatisticBlock({
       }}
       ref={blockRef}
     >
-      <div className="text-4xl lg:text-5xl xl:text-6xl leading-9 lg:leading-12 xl:leading-20 font-bold">
+      <div className="text-4xl lg:text-5xl xl:text-6xl leading-9 sm:leading-10 lg:leading-12 xl:leading-20 font-bold">
         {start_value !== undefined ? before + current + after : title}
       </div>
-      <p className="text-base lg:text-xl xl:text-2xl leading-6 font-bold">
+      <p className="text-base lg:text-xl xl:text-2xl leading-4 lg:leading-6 font-bold">
         {subtitle}
       </p>
     </div>
