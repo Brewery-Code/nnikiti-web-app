@@ -159,8 +159,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
-
+                type: object
+                properties:
+                  detail:
+                    type: string
 components:
   securitySchemes:
     JWTAuthCookies:
