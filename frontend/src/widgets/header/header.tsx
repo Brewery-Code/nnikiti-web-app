@@ -4,38 +4,10 @@ import Search from "./icons/search.svg?react";
 import Profile from "./icons/profile.svg?react";
 import Arrow from "./icons/arrow.svg?react";
 import { rqClient } from "@/shared/api/instance";
-import { useEffect } from "react";
 
 export default function Header() {
   const user = rqClient.useQuery("get", "/users/me/");
   console.log(user.data);
-
-  const handleRefreshToken = async () => {
-    try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/v1/users/token/refresh/",
-        {
-          method: "POST",
-          credentials: "include", // Додає cookie до запиту
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to refresh token");
-      }
-
-      const data = await response.json();
-      console.log("New access token:", data.access);
-      // Обробка відповіді, наприклад, збереження нового токена
-    } catch (error) {
-      console.error("Error refreshing token:", error);
-      // Обробка помилки
-    }
-  };
 
   return (
     <header className="fixed z-[100] flex justify-center w-full h-20 bg-black before:absolute before:-bottom-5 before:w-full before:h-5 before:bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0)_100%)]">
@@ -44,9 +16,7 @@ export default function Header() {
         <div className="grow flex justify-center items-center gap-4">
           <ul className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm xl:text-base leading-6 font-semibold">
             <li className="flex items-center gap-1.5">
-              <span className=" " onClick={handleRefreshToken}>
-                Navigation Item
-              </span>
+              <span className=" ">Navigation Item</span>
               <Arrow className="mt-0.5" />
             </li>
             <li className="flex items-center gap-1.5">

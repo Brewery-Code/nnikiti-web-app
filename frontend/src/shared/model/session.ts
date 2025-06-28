@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import { fetchClient, publicFetchClient } from "@/shared/api/instance";
+import { publicFetchClient } from "@/shared/api/instance";
 
 type Session = {
   userId: string;
@@ -13,8 +12,6 @@ const TOKEN_KEY = "access_token";
 
 let refreshTokenPromise: Promise<string | null> | null = null;
 
-// const [token, setToken] = useState(() => localStorage.getItem(TOKEN_KEY));
-
 function getToken() {
   const match = document.cookie.match(
     RegExp("(?:^|;\\s*)" + escape(TOKEN_KEY) + "=([^;]*)")
@@ -22,25 +19,12 @@ function getToken() {
   return match ? match[1] : null;
 }
 
-// function deleteCookie(name: string, path: string, domain: string) {
-//   if (getCookie(name)) {
-//     document.cookie =
-//       name +
-//       "=" +
-//       (path ? ";path=" + path : "") +
-//       (domain ? ";domain=" + domain : "") +
-//       ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
-//   }
-// }
-
-// export const getToken = () => localStorage.getItem(TOKEN_KEY);
-
-export const login = (token: string) => {
-  localStorage.setItem(TOKEN_KEY, token);
-};
-
 export const logout = () => {
-  localStorage.removeItem(TOKEN_KEY);
+  document.cookie.split(";").forEach((cookie) => {
+    document.cookie = cookie
+      .replace(/^ +/, "")
+      .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`);
+  });
 };
 
 export const getSession = (): Session | null => {
@@ -54,21 +38,17 @@ export const refreshToken = async () => {
     return null;
   }
 
-  const session = jwtDecode<Session>(token);
+  const session = jwtDecode<Session>(token!);
 
   if (session.exp < Date.now() / 1000) {
     if (!refreshTokenPromise) {
-      refreshTokenPromise = fetchClient
+      refreshTokenPromise = publicFetchClient
         .POST("/users/token/refresh/", {
           credentials: "include",
         })
-        .then((r) => {
-          return r.data?.access ?? null;
-        })
+        .then((r) => r.data?.access ?? null)
         .then((newToken) => {
           if (newToken) {
-            console.log(newToken);
-            login(newToken);
             return newToken;
           } else {
             logout();
