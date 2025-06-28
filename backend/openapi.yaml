@@ -155,7 +155,8 @@ paths:
                   access:
                     type: string
         "401":
-          description: Unauthorized - no valid refresh token
+        '400':
+          description: Bad request
           content:
             application/json:
               schema:
@@ -163,6 +164,18 @@ paths:
                 properties:
                   detail:
                     type: string
+        '401':
+          description: Unauthorized - no valid refresh token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+                type: object
+                properties:
+                  detail:
+                    type: string
+      
 components:
   securitySchemes:
     JWTAuthCookies:
