@@ -35,7 +35,7 @@ class TokenRefreshFromCookieView(APIView):
             httponly=True,
             secure=False,  # True на проді
             samesite="Lax",  # або 'None' з HTTPS
-            path="/api/v1/auth/token/refresh/",
+            path="/api/v1/users",
         )
 
         response.set_cookie(
