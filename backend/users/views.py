@@ -1,4 +1,4 @@
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.serializers import TokenRefreshSerializer
@@ -16,13 +16,26 @@ class TokenRefreshFromCookieView(APIView):
     a refresh token from cookies or request body.
     """
 
+    authentication_classes = []
+    permission_classes = [AllowAny]
+
     def post(self, request, *args, **kwargs):
         refresh = request.data.get("refresh") or request.COOKIES.get("refresh_token")
         if not refresh:
             raise AuthenticationFailed("No refresh token provided.")
 
         serializer = TokenRefreshSerializer(data={"refresh": refresh})
-        serializer.is_valid(raise_exception=True)
+        try:
+            serializer.is_valid(raise_exception=True)
+        except TokenError as e:
+            return Response(
+                {"detail": "Token is expired"}, status=status.HTTP_401_UNAUTHORIZED
+            )
+        except Exception as e:
+            return Response(
+                {"detail": "Something went wrong during token refresh."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         access = serializer.validated_data.get("access")
         new_refresh = serializer.validated_data.get("refresh", refresh)
@@ -33,8 +46,8 @@ class TokenRefreshFromCookieView(APIView):
             "refresh_token",
             new_refresh,
             httponly=True,
-            secure=False,  # True на проді
-            samesite="Lax",  # або 'None' з HTTPS
+            secure=False,  # На проді: True
+            samesite="Lax",
             path="/api/v1/users",
         )
 
