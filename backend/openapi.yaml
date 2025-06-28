@@ -14,86 +14,77 @@ tags:
   - name: core
     description: Core endpoints
 
-paths: 
+paths:
   /core/main-slider-item/:
     get:
       tags:
         - core
       description: Returns a list of slider images
       responses:
-        '200':
+        "200":
           description: Successfully returned a list of slider images
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MainSliderItem'
-        '400':
+                  $ref: "#/components/schemas/MainSliderItem"
+        "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+                $ref: "#/components/schemas/Error" # Використовуємо схему Error
   /core/statistic-block/:
     get:
       tags:
         - core
       description: Returns a list of data for statistic block
       responses:
-        '200':
+        "200":
           description: Successfully returned a list of data for statictic block
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/StatisticBlock'
-        '400':
+                  $ref: "#/components/schemas/StatisticBlock"
+        "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+                $ref: "#/components/schemas/Error"
   /users/login/google-oauth2/:
     get:
       tags:
         - users
       description: Starts the OAuth2 flow for Google authorization.
-                    The user will be redirected to the Google login page.
-                    After authorization, the user will be redirected to the callback URL, 
-                    where the access token will be processed.
+        The user will be redirected to the Google login page.
+        After authorization, the user will be redirected to the callback URL,
+        where the access token will be processed.
       responses:
-        '302':
+        "302":
           description: Redirect to Google OAuth2 consent screen
           headers:
             Location:
               description: Google OAuth2 consent screen URL
               schema:
                 type: string
-        '400':
+        "400":
           description: Invalid request
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-  
+                $ref: "#/components/schemas/Error"
+
   /users/logout/:
     post:
       tags:
         - users
       description: Logs out the user. Requires `refresh_token` cookie
       security:
-       - JWTAuthCookies: []
+        - JWTAuthCookies: []
       requestBody:
         description: No body required; cookie is used
         required: false
@@ -102,44 +93,38 @@ paths:
             schema:
               type: object
       responses:
-        '204':
+        "204":
           description: No content (logout successful).
-        '400':
+        "400":
           description: Invalid token or refresh token not provided.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  detail:
-                    type: string
-                    
+                $ref: "#/components/schemas/Error"
+
   /users/me/:
     get:
       tags:
         - users
       description: Returns information about the current user. Requires `access_token` cookie
-      security: 
+      security:
         - JWTAuthCookies: []
       responses:
-        '200':
+        "200":
           description: Successfully returned a user information
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
-        '500':
+                  $ref: "#/components/schemas/User"
+        "500":
           description: Failed to retrieve user profile
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  detail:
-                    type: string
-        
+                $ref: "#/components/schemas/Error"
+
   /users/token/refresh/:
     post:
       tags:
@@ -155,7 +140,7 @@ paths:
             schema:
               type: object
       responses:
-        '200':
+        "200":
           description: Token successfully updated.
           headers:
             Set-Cookie:
@@ -169,15 +154,13 @@ paths:
                 properties:
                   access:
                     type: string
-        '401':
+        "401":
           description: Unauthorized - no valid refresh token
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  detail:
-                    type: string
+                $ref: "#/components/schemas/Error"
+
 components:
   securitySchemes:
     JWTAuthCookies:
@@ -186,6 +169,19 @@ components:
       name: access_token
 
   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Human readable error message
+      required:
+        - code
+        - message
+
     MainSliderItem:
       type: object
       properties:
@@ -193,7 +189,7 @@ components:
           title: ID
           type: integer
           readOnly: true
-        image: 
+        image:
           title: Image
           type: string
           format: uri
@@ -242,9 +238,3 @@ components:
           type: string
           format: uri
           readOnly: true
-      
-          
-          
-          
-          
-        

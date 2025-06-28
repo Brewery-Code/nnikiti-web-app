@@ -1,7 +1,20 @@
-export default function Title({ title }: { title: string }) {
+import clsx from "clsx";
+
+export default function Title({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <h2 className="font-open-sans text-white text-4xl font-bold uppercase">
-      {title}
+    <h2
+      className={clsx(
+        "font-open-sans text-white text-4xl font-bold uppercase",
+        className
+      )}
+    >
+      {children}
     </h2>
   );
 }

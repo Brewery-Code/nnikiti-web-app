@@ -1,10 +1,11 @@
-import { HeroSection, StatisticSection } from "./widgets";
+import { HeroSection, StatisticSection, SpecialtiesSection } from "./widgets";
 
 export function HomePage() {
   return (
     <>
       <HeroSection />
       <StatisticSection />
+      <SpecialtiesSection />
     </>
   );
 }

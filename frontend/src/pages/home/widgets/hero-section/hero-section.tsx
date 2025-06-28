@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import { rqClient } from "@/shared/api/instance";
+import { publicRqClient } from "@/shared/api/instance";
 import { NavigationButton } from "./ui";
 import { Arrow, student } from "./icons";
 
@@ -32,7 +32,7 @@ const navigationButtons = [
 ];
 
 export default function HeroSection() {
-  const sliderImg = rqClient.useQuery("get", "/core/main-slider-item/");
+  const sliderImg = publicRqClient.useQuery("get", "/core/main-slider-item/");
   const [currentImg, setCurrentImg] = useState(0);
   const [nextImg, setNextImg] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);

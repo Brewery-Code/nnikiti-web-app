@@ -35,7 +35,7 @@ const statisticData = [
 export default function StatisticSection() {
   return (
     <section className="container-base m-section">
-      <Title title="By the numbers" />
+      <Title>By the numbers</Title>
       <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-8 sm:grid-rows-4 md:grid-rows-2 gap-4 h-[700px] sm:h-[390px] md:h-[360px] xl:h-[480px] mt-8">
         {statisticData.map((item, index) => (
           <StatisticBlock
