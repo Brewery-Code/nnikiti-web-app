@@ -1,24 +1,42 @@
 @import url("./fonts.css");
 @import "tailwindcss";
 
-body {
-  color: #fff;
-  line-height: 100%;
-  font-family: "Open Sans", sans-serif;
-  background-color: #e21515; /* For test */
+@layer base {
+  body {
+    color: #fff;
+    line-height: 100%;
+    font-family: "Open Sans", sans-serif;
+    background-color: #e21515; /* For test */
+  }
 }
 
-.container-base {
-  max-width: 1564px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 16px;
+@layer components {
+  .container-base {
+    max-width: 1564px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .m-section {
+    margin-top: 96px;
+  }
 }
 
-.m-section {
-  margin-top: 96px;
-}
+@layer utilities {
+  .font-open-sans {
+    font-family: "Open Sans", sans-serif;
+  }
 
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .overflow-clip-m-4 {
+    overflow-clip-margin: 16px;
+  }
+}
+/* 
 .font-open-sans {
   font-family: "Open Sans", sans-serif;
-}
+} */
