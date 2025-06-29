@@ -1,4 +1,4 @@
-import { LogoLion } from "@/shared/icons";
+import { logoLion } from "@/shared/icons";
 import bgWaveImg from "./wave.png";
 
 export default function Footer() {
@@ -9,13 +9,17 @@ export default function Footer() {
     >
       <div className="container-base flex">
         <div className="flex justify-center items-center gap-5">
-          <LogoLion className="w-28 h-32" />
-          <p className="max-w-[428px] text-[28px] leading-[30px] font-bold uppercase ">
+          <img
+            className="w-20 lg:w-28 h-23 lg:h-32"
+            src={logoLion}
+            alt="Logo"
+          />
+          <p className="max-w-[428px] text-xl lg:text-[28px] leading-[30px] font-bold uppercase ">
             The National University of Water and Environmental Engineering
           </p>
         </div>
       </div>
-      <p className="mt-12 text-xs text-center text-[#807F7F]">
+      <p className="mt-6 lg:mt-12 text-xs text-center text-[#807F7F]">
         © 2025 The National University of Water and Environmental Engineering.
         All rights reserved.
       </p>
