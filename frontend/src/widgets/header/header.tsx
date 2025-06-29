@@ -3,12 +3,8 @@ import ChangeLanguage from "./widgets/change-language";
 import Search from "./icons/search.svg?react";
 import Profile from "./icons/profile.svg?react";
 import Arrow from "./icons/arrow.svg?react";
-import { rqClient } from "@/shared/api/instance";
 
 export default function Header() {
-  const user = rqClient.useQuery("get", "/users/me/");
-  console.log(user.data);
-
   return (
     <header className="fixed z-[100] flex justify-center w-full h-20 bg-black before:absolute before:-bottom-5 before:w-full before:h-5 before:bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0)_100%)]">
       <div className="container-base flex justify-between items-center h-full">

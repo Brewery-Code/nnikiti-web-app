@@ -10,7 +10,7 @@ export default function NavigationButton({
   description: string;
 }) {
   return (
-    <div className=" w-40 h-25 lg:w-64 lg:h-40 relative rounded-[10px] shadow-lg overflow-hidden cursor-pointer group">
+    <div className=" w-full h-25 lg:w-64 lg:h-40 relative rounded-[10px] shadow-lg overflow-hidden cursor-pointer group">
       <div className="w-full h-full rounded-inherit flex items-center justify-center bg-[#181413] transition-transform duration-600 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-x-[30%]">
         <img
           className="hidden lg:block lg:w-24 lg:h-24"

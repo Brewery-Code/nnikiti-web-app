@@ -269,6 +269,17 @@ export interface paths {
                         };
                     };
                 };
+                /** @description Bad request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
                 /** @description Unauthorized - no valid refresh token */
                 401: {
                     headers: {
@@ -314,6 +325,8 @@ export interface components {
             readonly description?: string;
             /** Start Value */
             readonly start_value?: number;
+            /** Order */
+            readonly order?: number;
         };
         User: {
             /** ID */

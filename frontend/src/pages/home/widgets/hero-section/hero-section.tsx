@@ -83,7 +83,7 @@ export default function HeroSection() {
             EVERY GIANT LEAP STARTS WITH ONE SMALL STEP EVERY{" "}
           </h2>
         </div>
-        <div className="grid grid-cols-2 justify-items-center gap-y-6 md:flex justify-between mt-auto">
+        <div className="grid grid-cols-2 justify-items-center gap-2 md:flex justify-between mt-auto">
           {navigationButtons.map((btn, idx) => (
             <NavigationButton
               key={idx}
@@ -94,7 +94,7 @@ export default function HeroSection() {
             />
           ))}
         </div>
-        <Arrow className=" mx-auto mb-6 mt-32 animate-bounce" />
+        <Arrow className=" mx-auto mb-6 mt-20 animate-bounce" />
       </div>
     </section>
   );
