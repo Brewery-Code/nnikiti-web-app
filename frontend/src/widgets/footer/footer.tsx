@@ -1,3 +1,24 @@
+import { LogoLion } from "@/shared/icons";
+import bgWaveImg from "./wave.png";
+
 export default function Footer() {
-  return <footer>Footer</footer>;
+  return (
+    <footer
+      className="relative m-section py-8 bg-black bg-center bg-cover bg-no-repeat before:absolute before:-top-16 before:w-full before:h-16 before:bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0)_100%)]"
+      style={{ backgroundImage: `url(${bgWaveImg})` }}
+    >
+      <div className="container-base flex">
+        <div className="flex justify-center items-center gap-5">
+          <LogoLion className="w-28 h-32" />
+          <p className="max-w-[428px] text-[28px] leading-[30px] font-bold uppercase ">
+            The National University of Water and Environmental Engineering
+          </p>
+        </div>
+      </div>
+      <p className="mt-12 text-xs text-center text-[#807F7F]">
+        © 2025 The National University of Water and Environmental Engineering.
+        All rights reserved.
+      </p>
+    </footer>
+  );
 }
