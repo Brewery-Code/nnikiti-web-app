@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
-from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.tokens import RefreshToken
+from social_core.exceptions import AuthForbidden
 
 
 def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
@@ -44,3 +44,9 @@ def save_avatar(backend, user, response, *args, **kwargs):
     if picture_url and user.avatar != picture_url:
         user.avatar = picture_url
         user.save()
+
+
+def validate_email_domain(backend, details, *args, **kwargs):
+    email = details.get("email")
+    if not email or not email.endswith("@nuwm.edu.ua"):
+        raise AuthForbidden("Only nuwm.edu.ua accounts are allowed.")

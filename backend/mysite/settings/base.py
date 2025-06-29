@@ -112,11 +112,14 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "last_name",
     "picture",
 ]
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {"hd": "nuwm.edu.ua"}
+
 
 SOCIAL_AUTH_PIPELINE = (
     "social_core.pipeline.social_auth.social_details",
     "social_core.pipeline.social_auth.social_uid",
     "social_core.pipeline.social_auth.auth_allowed",
+    "users.pipeline.validate_email_domain",
     "social_core.pipeline.social_auth.social_user",
     "social_core.pipeline.social_auth.associate_by_email",
     "social_core.pipeline.user.create_user",
