@@ -11,6 +11,7 @@ v1_patterns = [
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("rosetta/", include("rosetta.urls")),
     path("api/v1/", include((v1_patterns, "v1"))),
     path("api/v1/users/", include("social_django.urls", namespace="social")),
 ]

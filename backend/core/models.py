@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+from parler.models import TranslatableModel, TranslatedFields
 
 
 class MainSliderItem(models.Model):
@@ -9,12 +11,37 @@ class MainSliderItem(models.Model):
     slider on the website's homepage. Each record corresponds to one slide.
     """
 
-    image = models.ImageField(upload_to="banners/")
+    image = models.ImageField(upload_to="banners/", verbose_name=_("Slider image"))
 
     class Meta:
-        verbose_name = "Slider item"
-        verbose_name_plural = "Slider items"
+        verbose_name = _("Slider item")
+        verbose_name_plural = _("Slider items")
         db_table = "MainSliderItem"
 
     def __str__(self):
-        return f"Slide #{self.pk}"
+        return _("Slide #%s") % self.pk
+
+
+class StatisticBlock(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(max_length=150, verbose_name=_("Title")),
+        description=models.TextField(blank=True, verbose_name=_("Description")),
+    )
+    start_value = models.IntegerField(
+        blank=True,
+        null=True,
+        verbose_name=_("Start value"),
+        help_text=_("Values for proper animation operation"),
+    )
+    order = models.PositiveIntegerField(
+        verbose_name=_("Order item"),
+        help_text=_("Determines yhe order in which elements will be passed"),
+    )
+
+    class Meta:
+        verbose_name = _("Statistic block item")
+        verbose_name_plural = _("Statistic block items")
+        db_table = "StatistickBlock"
+
+    def __str__(self):
+        return _("Statistic block item #%s") % self.pk

@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import User
+
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    """Admin configuration for the User model."""
+
+    list_display = ["id", "first_name", "email"]

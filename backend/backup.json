@@ -63,11 +63,207 @@
   }
 },
 {
+  "model": "core.statisticblocktranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "en",
+    "title": "3400+",
+    "description": "Stydying now",
+    "master": 1
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "uk",
+    "title": "3400+",
+    "description": "Зараз навчається",
+    "master": 1
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "en",
+    "title": "Top 1 in Rivne",
+    "description": "",
+    "master": 2
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "uk",
+    "title": "Топ 1 в Рівному",
+    "description": "",
+    "master": 2
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "en",
+    "title": "81",
+    "description": "Teaching staff",
+    "master": 3
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "uk",
+    "title": "81",
+    "description": "Викладач",
+    "master": 3
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "en",
+    "title": "40+",
+    "description": "Partners around the world",
+    "master": 4
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "uk",
+    "title": "40+",
+    "description": "Партнерів по всьому світу",
+    "master": 4
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "title": "29000+",
+    "description": "Випускників",
+    "master": 5
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "title": "29000+",
+    "description": "Graduated",
+    "master": 5
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "en",
+    "title": "12",
+    "description": "Education programs",
+    "master": 6
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "uk",
+    "title": "12",
+    "description": "Освітніх програм",
+    "master": 6
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "en",
+    "title": "Top 44 in Ukraine",
+    "description": "",
+    "master": 7
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "uk",
+    "title": "44 місце в рейтингу України",
+    "description": "",
+    "master": 7
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 1,
+  "fields": {
+    "start_value": 0,
+    "order": 1
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 2,
+  "fields": {
+    "start_value": null,
+    "order": 2
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 3,
+  "fields": {
+    "start_value": 0,
+    "order": 3
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 4,
+  "fields": {
+    "start_value": 0,
+    "order": 4
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 5,
+  "fields": {
+    "start_value": 0,
+    "order": 5
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 6,
+  "fields": {
+    "start_value": 0,
+    "order": 6
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 7,
+  "fields": {
+    "start_value": 200,
+    "order": 7
+  }
+},
+{
   "model": "users.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$vcm3KjLvwvx3NiEXKRPNMh$r5ZB8H+jEJ8doGfvuxLfXINJVCBbLOQQLTEpOv9lskY=",
-    "last_login": "2025-06-27T15:47:20.813Z",
+    "last_login": "2025-06-29T08:07:21.754Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",

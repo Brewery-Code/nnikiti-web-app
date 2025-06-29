@@ -228,6 +228,10 @@ components:
           title: Start Value
           type: integer
           readOnly: True
+        order:
+          title: Order
+          type: integer
+          readOnly: True
     User:
       type: object
       properties:

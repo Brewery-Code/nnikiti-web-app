@@ -18,18 +18,23 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # installed
     "corsheaders",
     "drf_yasg",
     "social_django",
     "rest_framework_simplejwt.token_blacklist",
+    "rosetta",
+    "parler",
+    # my custom
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -49,6 +54,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.i18n",
             ],
         },
     },
@@ -76,8 +82,23 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
+LANGUAGES = [
+    ("en", "English"),
+    ("uk", "Ukrainian"),
+]
 
-LANGUAGE_CODE = "en-us"
+PARLER_LANGUAGES = {
+    None: (
+        {"code": "en"},
+        {"code": "uk"},
+    ),
+    "default": {
+        "fallback": "en",
+        "hide_untranslated": False,
+    },
+}
+
+LANGUAGE_CODE = "en"
 
 TIME_ZONE = "UTC"
 
