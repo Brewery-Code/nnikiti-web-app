@@ -2,35 +2,20 @@ import MicrocircuitLabelLogo from "./widgets/microcircuit-label-logo";
 import ChangeLanguage from "./widgets/change-language";
 import Search from "./icons/search.svg?react";
 import Profile from "./icons/profile.svg?react";
-import Arrow from "./icons/arrow.svg?react";
+import NavigationMenuItem from "./widgets/navigation-menu-item";
 
 export default function Header() {
   return (
-    <header className="fixed z-[100] flex justify-center w-full h-20 bg-black before:absolute before:-bottom-5 before:w-full before:h-5 before:bg-[linear-gradient(180deg,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0)_100%)]">
+    <header className="fixed z-[100] flex justify-center w-full h-16 bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] before:fixed before:-z-1 before:inset-0 before:w-full before:h-16 before:backdrop-blur-md">
       <div className="container-base flex justify-between items-center h-full">
         <MicrocircuitLabelLogo />
-        <div className="grow flex justify-center items-center gap-4">
-          <ul className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm xl:text-base leading-6 font-semibold">
-            <li className="flex items-center gap-1.5">
-              <span className=" ">Navigation Item</span>
-              <Arrow className="mt-0.5" />
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className=" ">Navigation Item</span>
-              <Arrow className="mt-0.5" />
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className=" ">Navigation Item</span>
-              <Arrow className="mt-0.5" />
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className=" ">Navigation Item</span>
-              <Arrow className="mt-0.5" />
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className=" ">Navigation Item</span>
-              <Arrow className="mt-0.5" />
-            </li>
+        <nav className="grow flex justify-center items-center gap-4 h-full">
+          <ul className="hidden lg:flex items-center gap-4 xl:gap-6 h-full text-sm xl:text-base leading-6 font-semibold">
+            <NavigationMenuItem />
+            <NavigationMenuItem />
+            <NavigationMenuItem />
+            <NavigationMenuItem />
+            <NavigationMenuItem />
           </ul>
           <form
             action=""
@@ -43,11 +28,11 @@ export default function Header() {
             />
             <Search className="absolute lg:static left-[calc(50%+32px)] top-1.5 lg:flex w-4.5 h-4.5 text-[#959b98]" />
           </form>
-        </div>
+        </nav>
         <div className="hidden lg:flex items-center gap-4">
           <ChangeLanguage />
           <Profile
-            className="w-8 h-8 stroke-white"
+            className="w-8 h-8 stroke-white "
             onClick={() =>
               (window.location.href =
                 "http://127.0.0.1:8000/api/v1/users/login/google-oauth2/")

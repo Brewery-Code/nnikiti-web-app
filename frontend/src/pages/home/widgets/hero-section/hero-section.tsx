@@ -54,10 +54,10 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full h-[calc(100dvh-80px)] bg-cover bg-center bg-no-repeat before:absolute before:h-24 before:w-full before:-bottom-24 before:bg-gradient-to-b before:from-black before:to-transparent"
+      className="relative w-full h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat before:absolute before:h-24 before:w-full before:-bottom-24 before:bg-gradient-to-b before:from-black before:to-transparent"
       style={{
         backgroundImage: `
-          linear-gradient(to bottom, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.1) 90%, rgba(0,0,0,1) 100%),
+          linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 2%, rgba(0,0,0,0.1) 90%, rgba(0,0,0,1) 100%),
           url(${sliderImg.data?.[currentImg]?.image})
           `,
       }}
@@ -69,7 +69,7 @@ export default function HeroSection() {
         )}
         style={{
           backgroundImage: `
-          linear-gradient(to bottom, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.1) 90%, rgba(0,0,0,1) 100%),
+          linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 2%, rgba(0,0,0,0.1) 90%, rgba(0,0,0,1) 100%),
           url(${sliderImg.data?.[nextImg]?.image})
           `,
         }}
