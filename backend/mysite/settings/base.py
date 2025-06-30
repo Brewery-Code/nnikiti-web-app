@@ -25,9 +25,11 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
     "rosetta",
     "parler",
+    "mdeditor",
     # my custom
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
+    "events.apps.EventsConfig",
 ]
 
 MIDDLEWARE = [
@@ -155,3 +157,83 @@ SOCIAL_AUTH_PIPELINE = (
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": ("users.authentication.CookieJWTAuthentication",)
 }
+
+# MDEditor settings
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
+MDEDITOR_CONFIGS = {
+    "default": {
+        "width": "90% ",
+        "height": 500,
+        "toolbar": [
+            "undo",
+            "redo",
+            "|",
+            "bold",
+            "del",
+            "italic",
+            "quote",
+            "ucwords",
+            "uppercase",
+            "lowercase",
+            "|",
+            "h1",
+            "h2",
+            "h3",
+            "h5",
+            "h6",
+            "|",
+            "list-ul",
+            "list-ol",
+            "hr",
+            "|",
+            "link",
+            "reference-link",
+            "image",
+            "code",
+            "preformatted-text",
+            "code-block",
+            "table",
+            "datetime",
+            "emoji",
+            "html-entities",
+            "pagebreak",
+            "goto-line",
+            "|",
+            "help",
+            "info",
+            "||",
+            "preview",
+            "watch",
+            "fullscreen",
+        ],
+        "upload_image_formats": [
+            "jpg",
+            "jpeg",
+            "gif",
+            "png",
+            "bmp",
+            "webp",
+        ],
+        "image_folder": "editor",
+        "theme": "dark",
+        "preview_theme": "default",
+        "editor_theme": "default",
+        "toolbar_autofixed": True,
+        "search_replace": True,
+        "emoji": True,
+        "tex": True,
+        "flow_chart": True,
+        "sequence": True,
+        "watch": True,
+        "lineWrapping": False,
+        "lineNumbers": False,
+        "language": "en",
+    }
+}
+
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    "markdown.extensions.extra",
+    "markdown.extensions.codehilite",
+    "markdown.extensions.toc",
+]

@@ -7,11 +7,13 @@ from django.conf.urls.static import static
 v1_patterns = [
     path("core/", include(("core.urls", "core"))),
     path("users/", include(("users.urls", "users"))),
+    path("events/", include(("events.urls", "news"))),
 ]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("rosetta/", include("rosetta.urls")),
+    path("mdeditor/", include("mdeditor.urls")),
     path("api/v1/", include((v1_patterns, "v1"))),
     path("api/v1/users/", include("social_django.urls", namespace="social")),
 ]
