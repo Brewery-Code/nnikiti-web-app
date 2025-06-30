@@ -13,6 +13,8 @@ tags:
     description: Users endpoints
   - name: core
     description: Core endpoints
+  - name: events
+    description: Events endpoints
 
 paths:
   /core/main-slider-item/:
@@ -34,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error" # Використовуємо схему Error
+                $ref: "#/components/schemas/Error"
   /core/statistic-block/:
     get:
       tags:
@@ -154,7 +156,6 @@ paths:
                 properties:
                   access:
                     type: string
-        "401":
         '400':
           description: Bad request
           content:
@@ -170,12 +171,33 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-
                 type: object
                 properties:
                   detail:
                     type: string
-      
+  /events/:
+    get:
+      tags: 
+        - events
+      description: Returns list of the events.
+      responses:
+        "200":
+          description: Event list successfully returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Events"
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
 components:
   securitySchemes:
     JWTAuthCookies:
@@ -257,3 +279,45 @@ components:
           type: string
           format: uri
           readOnly: true
+    Events:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          readOnly: true
+        body:
+          title: Body
+          type: string
+          readOnly: true
+        body_html:
+          title: HTML Body
+          type: string
+          readOnly: true
+        category:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            rgb_color:
+              type: string
+              example: "(244,255,244,0.1)"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-06-30T11:39:01.957067Z"
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          example: "2025-06-30T12:10:46.028492Z"
+          readOnly: true
+
+
+          
