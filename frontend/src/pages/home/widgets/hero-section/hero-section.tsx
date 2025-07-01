@@ -33,6 +33,7 @@ const navigationButtons = [
 
 export default function HeroSection() {
   const sliderImg = publicRqClient.useQuery("get", "/core/main-slider-item/");
+  console.log(sliderImg.data);
   const [currentImg, setCurrentImg] = useState(0);
   const [nextImg, setNextImg] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);

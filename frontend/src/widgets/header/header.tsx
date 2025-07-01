@@ -1,43 +1,92 @@
 import MicrocircuitLabelLogo from "./widgets/microcircuit-label-logo";
 import ChangeLanguage from "./widgets/change-language";
 import Search from "./icons/search.svg?react";
-import Profile from "./icons/profile.svg?react";
 import NavigationMenuItem from "./widgets/navigation-menu-item";
+import { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 
 export default function Header() {
+  const [isSearchBarActive, setIsSearchBarActive] = useState(false);
+  const searchBarRef = useRef<HTMLLabelElement>(null);
+  const searchIconRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        !searchBarRef.current?.contains(event.target as Node | null) &&
+        !searchIconRef.current?.contains(event.target as Node | null)
+      ) {
+        setIsSearchBarActive(false);
+      }
+    }
+
+    if (isSearchBarActive) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isSearchBarActive]);
+
+  const searchIconHandler = () => {
+    if (!isSearchBarActive) {
+      setIsSearchBarActive(true);
+    } else {
+      return;
+    }
+  };
+
   return (
     <header className="fixed z-[100] flex justify-center w-full h-16 bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] before:fixed before:-z-1 before:inset-0 before:w-full before:h-16 before:backdrop-blur-md">
-      <div className="container-base flex justify-between items-center h-full">
+      <div className="container-base grid grid-cols-[auto_auto_auto] justify-between items-center h-full">
         <MicrocircuitLabelLogo />
-        <nav className="grow flex justify-center items-center gap-4 h-full">
-          <ul className="hidden lg:flex items-center gap-4 xl:gap-6 h-full text-sm xl:text-base leading-6 font-semibold">
+        <nav className="relative grow flex justify-center items-center gap-4 w-auto h-full">
+          <ul className="lg:flex items-center gap-4 xl:gap-6 h-full text-sm xl:text-base leading-6 font-semibold">
             <NavigationMenuItem />
             <NavigationMenuItem />
             <NavigationMenuItem />
             <NavigationMenuItem />
             <NavigationMenuItem />
           </ul>
-          <form
-            action=""
-            className="relative flex justify-center align-middle w-2/3 lg:w-auto"
+          <label
+            className={clsx(
+              "absolute flex items-center w-[calc(100%+1rem)] px-3 py-1 border border-transparent rounded-xl bg-[#3D3D3D] cursor-text hover:border-gray-500 focus-within:bg-[#464646] focus-within:border-gray-500 transition-transform duration-300 ease-in-out",
+              isSearchBarActive
+                ? "pointer-events-auto translate-y-0"
+                : "pointer-events-none -translate-y-20"
+            )}
+            onClick={() => setIsSearchBarActive(true)}
+            ref={searchBarRef}
           >
             <input
               type="text"
-              placeholder="Search"
-              className="grow block lg:hidden w-full p-0.5 pl-2 pr-2 bg-[#74747479] rounded-md border-[1px] border-[#858585]  placeholder:text-center"
+              name="text"
+              required
+              placeholder="Type here..."
+              className="w-full outline-none border-none bg-transparent text-[#a2a2a2] placeholder:text-[#a2a2a2]"
             />
-            <Search className="absolute lg:static left-[calc(50%+32px)] top-1.5 lg:flex w-4.5 h-4.5 text-[#959b98]" />
-          </form>
+            {/* <Search className="w-6 h-6 cursor-pointer" /> */}
+          </label>
+          <Search
+            className="z-10 w-6 h-6 cursor-pointer"
+            onClick={searchIconHandler}
+            ref={searchIconRef}
+          />
         </nav>
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:grid grid-cols-2 items-center gap-4">
           <ChangeLanguage />
-          <Profile
-            className="w-8 h-8 stroke-white "
+          <button
+            className="px-2 py-1 rounded-4xl bg-[#3d3d3d] text-base leading-6 font-semibold cursor-pointer"
             onClick={() =>
               (window.location.href =
                 "http://127.0.0.1:8000/api/v1/users/login/google-oauth2/")
             }
-          />
+          >
+            Sign In
+          </button>
         </div>
         <div className="relative flex lg:hidden justify-center items-center w-8 h-8">
           <span className="w-7 h-[1px] bg-white before:absolute before:top-1 before:w-7 before:h-[1px] before:bg-white after:absolute after:bottom-1 after:w-7 after:h-[1px] after:bg-white"></span>
