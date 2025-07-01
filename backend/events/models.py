@@ -5,6 +5,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
 from mdeditor.fields import MDTextField
+from parler.managers import TranslatableManager
 
 from .validators import validate_rgba
 
@@ -15,6 +16,11 @@ def events_upload_to(instance, filename):
     """
     date_str = datetime.date.today().strftime("%y.%m.%d")
     return os.path.join("events", date_str, filename)
+
+
+class PublishedManager(TranslatableManager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=Events.Status.PUBLISHED)
 
 
 class EventsCategory(TranslatableModel):
@@ -53,6 +59,10 @@ class Events(TranslatableModel):
     and is associated with an EventsCategory.
     """
 
+    class Status(models.TextChoices):
+        DRAFT = "DF", _("Draft")
+        PUBLISHED = "PB", _("Published")
+
     translations = TranslatedFields(
         title=models.CharField(max_length=255, verbose_name=_("Event title")),
         body=MDTextField(verbose_name=_("Event body")),
@@ -63,10 +73,18 @@ class Events(TranslatableModel):
         related_name="events",
         verbose_name=_("Category"),
     )
+    status = models.CharField(
+        max_length=2,
+        choices=Status.choices,
+        default=Status.DRAFT,
+        verbose_name=_("Status"),
+    )
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name=_("Creation date")
     )
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Last updated"))
+    objects = TranslatableManager()
+    published = PublishedManager()
 
     class Meta:
         verbose_name = _("Event")

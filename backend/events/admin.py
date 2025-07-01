@@ -38,5 +38,8 @@ class EventsAdmin(TranslatableAdmin):
 
     form = EventsAdminForm
 
-    list_display = ["id", "title", "category", "created_at"]
+    list_display = ["id", "title", "category", "status", "created_at"]
+    list_filter = [
+        "status",
+    ]
     inlines = [EventsImageInline]

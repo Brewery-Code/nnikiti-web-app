@@ -6,5 +6,5 @@ from .serializers import EventsSerializer
 
 
 class EventsView(ListAPIView):
-    queryset = Events.objects.all()
+    queryset = Events.published.all()
     serializer_class = EventsSerializer

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-30 12:19+0000\n"
-"PO-Revision-Date: 2025-06-30 12:19+0000\n"
+"POT-Creation-Date: 2025-07-01 08:09+0000\n"
+"PO-Revision-Date: 2025-07-01 08:10+0000\n"
 "Last-Translator:   <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,82 +19,92 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: models.py:27
+#: models.py:32
 msgid "Event name"
 msgstr "Назва події"
 
-#: models.py:32
+#: models.py:37
 msgid "RGB color value"
 msgstr "RGB значення"
 
-#: models.py:34
+#: models.py:39
 msgid ""
 "Required RGBA color in format like (255,255,255,0.5) for client-side design"
 msgstr ""
 "Необхідний колір RGBA у форматі (255,255,255,0.5) для дизайну на стороні "
 "клієнта"
 
-#: models.py:38 models.py:67
+#: models.py:43 models.py:82
 msgid "Creation date"
 msgstr "Дата створення"
 
-#: models.py:42 models.py:64
+#: models.py:47 models.py:73
 msgid "Category"
 msgstr "Категорія"
 
-#: models.py:43
-#| msgid "Category"
+#: models.py:48
 msgid "Categories"
 msgstr "Категорії"
 
-#: models.py:47
+#: models.py:52
 #, python-format
-#| msgid "Event category #%s. %s"
 msgid "Category #%s. %s"
 msgstr "Категорія #%s. %s"
 
-#: models.py:57
+#: models.py:62
+msgid "Draft"
+msgstr "Чернетка"
+
+#: models.py:63
+msgid "Published"
+msgstr "Опубліковано"
+
+#: models.py:66
 msgid "Event title"
 msgstr "Заголовок події"
 
-#: models.py:58
+#: models.py:67
 msgid "Event body"
 msgstr "Опис події"
 
-#: models.py:69
+#: models.py:79
+msgid "Status"
+msgstr "Статус"
+
+#: models.py:84
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
-#: models.py:72 models.py:91
+#: models.py:89 models.py:108
 msgid "Event"
 msgstr "Подія"
 
-#: models.py:73
+#: models.py:90
 msgid "Events"
 msgstr "Події"
 
-#: models.py:78
+#: models.py:95
 #, python-format
 msgid "Event #%s. Title: %s"
 msgstr "Подія #%s. Заголовок: %s"
 
-#: models.py:93
+#: models.py:110
 msgid "Image"
 msgstr "Зображення"
 
-#: models.py:94
+#: models.py:111
 msgid "Uploaded at"
 msgstr "Дата завантаження"
 
-#: models.py:97
+#: models.py:114
 msgid "Event image"
 msgstr "Зображення події"
 
-#: models.py:98
+#: models.py:115
 msgid "Events images"
 msgstr "Зображення подій"
 
-#: models.py:102
+#: models.py:119
 #, python-format
 msgid "Image for event #%s"
 msgstr "Зображення до події #%s"
