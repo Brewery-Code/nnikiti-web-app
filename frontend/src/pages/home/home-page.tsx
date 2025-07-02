@@ -3,6 +3,7 @@ import {
   StatisticSection,
   SpecialtiesSection,
   NewsSection,
+  PartnersSection,
 } from "./widgets";
 
 export function HomePage() {
@@ -12,6 +13,7 @@ export function HomePage() {
       <StatisticSection />
       <SpecialtiesSection />
       <NewsSection />
+      <PartnersSection />
     </>
   );
 }

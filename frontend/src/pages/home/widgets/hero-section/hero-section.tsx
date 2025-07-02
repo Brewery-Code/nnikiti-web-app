@@ -55,7 +55,9 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat before:absolute before:h-24 before:w-full before:-bottom-24 before:bg-gradient-to-b before:from-black before:to-transparent"
+      className="relative w-full h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat 
+      before:absolute before:-top-16 before:w-full before:h-16 before:bg-black
+      after:absolute after:-bottom-32 after:w-full after:h-32 after:bg-gradient-to-b after:from-black after:to-transparent"
       style={{
         backgroundImage: `
           linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 2%, rgba(0,0,0,0.1) 90%, rgba(0,0,0,1) 100%),
@@ -95,7 +97,7 @@ export default function HeroSection() {
             />
           ))}
         </div>
-        <Arrow className=" mx-auto mb-6 mt-20 animate-bounce" />
+        <Arrow className="mx-auto mb-6 mt-20 animate-bounce" />
       </div>
     </section>
   );

@@ -8,7 +8,8 @@ export default function NewsCard({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative flex flex-col  p-4 bg-cover bg-center bg-no-repeat rounded-[10px] shadow-[0px_0px_16px_0px_rgba(13,134,0,0.4)] cursor-pointer hover:shadow-[0px_0px_16px_1px_rgba(13,134,0,0.8)] transition-shadow duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.3)] before:transition-opacity before:duration-300 before:ease-in-out",
+        "relative flex flex-col  p-4 bg-cover bg-center bg-no-repeat rounded-[10px] shadow-[0px_0px_16px_0px_rgba(13,134,0,0.4)] cursor-pointer hover:shadow-[0px_0px_16px_1px_rgba(13,134,0,0.8)] transition-shadow duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
+        "before:absolute before:inset-0 before:bg-[rgba(0,0,0,0.3)] before:transition-opacity before:duration-300 before:ease-in-out",
         isCardHovered ? "before:opacity-100" : "before:opacity-0",
         className
       )}
@@ -19,7 +20,7 @@ export default function NewsCard({ className }: { className?: string }) {
       onMouseLeave={() => setIsCardHovered(false)}
     >
       <div className="flex">
-        <OvalLabel className="w-auto" bgColor="bg-[rgba(13,134,0,0.8)]">
+        <OvalLabel className="z-10 w-auto" bgColor="bg-[rgba(13,134,0,0.8)]">
           News
         </OvalLabel>
       </div>
@@ -46,7 +47,7 @@ export default function NewsCard({ className }: { className?: string }) {
           </p>
         </div>
       </div>
-      <div className="mt-4 text-[#b9b9b9] text-[14px]">May 9, 2025</div>
+      <div className="z-10 mt-4 text-[#b9b9b9] text-[14px]">May 9, 2025</div>
     </div>
   );
 }
