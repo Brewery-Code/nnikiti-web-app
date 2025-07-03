@@ -1,9 +1,7 @@
-import MicrocircuitLabelLogo from "./widgets/microcircuit-label-logo";
-import ChangeLanguage from "./widgets/change-language";
-import Search from "./icons/search.svg?react";
-import NavigationMenuItem from "./widgets/navigation-menu-item";
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
+import { ChangeLanguage, MicrocircuitLabelLogo, NavigationMenu } from "./ui";
+import { SearchIcon } from "./icons";
 
 export default function Header() {
   const [isSearchBarActive, setIsSearchBarActive] = useState(false);
@@ -46,15 +44,9 @@ export default function Header() {
     >
       <div className="container-base grid grid-cols-[auto_auto_auto] justify-between items-center h-full">
         <MicrocircuitLabelLogo />
-        <nav className="relative grow flex justify-center items-center gap-4 w-auto h-full">
-          <ul className="hidden lg:flex items-center gap-4 xl:gap-6 h-full text-sm xl:text-base leading-6 font-semibold">
-            <NavigationMenuItem />
-            <NavigationMenuItem />
-            <NavigationMenuItem />
-            <NavigationMenuItem />
-            <NavigationMenuItem />
-          </ul>
-          <label
+        <nav className="grow flex justify-center items-center gap-4 w-auto h-full">
+          <NavigationMenu />
+          {/* <label
             className={clsx(
               "lg:absolute flex items-center w-[calc(100%+1rem)] px-3 py-1 border border-transparent rounded-xl bg-[#3D3D3D] cursor-text hover:border-gray-500 focus-within:bg-[#464646] focus-within:border-gray-500 transition-transform duration-300 ease-in-out",
               isSearchBarActive
@@ -72,11 +64,11 @@ export default function Header() {
               className="w-full outline-none border-none bg-transparent text-[#a2a2a2] placeholder:text-[#a2a2a2]"
             />
           </label>
-          <Search
+          <SearchIcon
             className="z-10 w-6 h-6 cursor-pointer"
             onClick={searchIconHandler}
             ref={searchIconRef}
-          />
+          /> */}
         </nav>
         <div className="hidden lg:grid grid-cols-2 items-center gap-4">
           <ChangeLanguage />

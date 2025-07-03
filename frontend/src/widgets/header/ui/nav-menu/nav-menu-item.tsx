@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Arrow from "../icons/arrow.svg?react";
+import { ArrowIcon } from "../../icons";
 import DropdownMenu from "./dropdown-menu";
 
 export default function NavigationMenuItem() {
@@ -12,8 +12,8 @@ export default function NavigationMenuItem() {
       onMouseLeave={() => setIsMenuOpen(false)}
     >
       <span className="up">Navigation</span>
-      <Arrow className="mt-0.5" />
-      <DropdownMenu isMenuOpen={isMenuOpen} />
+      <ArrowIcon className="mt-0.5" />
+      {/* <DropdownMenu isMenuOpen={isMenuOpen} /> */}
     </li>
   );
 }
