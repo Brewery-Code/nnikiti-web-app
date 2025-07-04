@@ -1,41 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
 import { ChangeLanguage, MicrocircuitLabelLogo, NavigationMenu } from "./ui";
-import { SearchIcon } from "./icons";
+import { useTranslation } from "react-i18next";
+import { loadTranslations } from "./locales";
+import { useLoadNamespace } from "@/shared/hooks";
 
 export default function Header() {
-  const [isSearchBarActive, setIsSearchBarActive] = useState(false);
-  const searchBarRef = useRef<HTMLLabelElement>(null);
-  const searchIconRef = useRef<SVGSVGElement>(null);
+  const { t, i18n } = useTranslation("header");
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        !searchBarRef.current?.contains(event.target as Node | null) &&
-        !searchIconRef.current?.contains(event.target as Node | null)
-      ) {
-        setIsSearchBarActive(false);
-      }
-    }
-
-    if (isSearchBarActive) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isSearchBarActive]);
-
-  const searchIconHandler = () => {
-    if (!isSearchBarActive) {
-      setIsSearchBarActive(true);
-    } else {
-      return;
-    }
-  };
+  useLoadNamespace("header", loadTranslations);
 
   return (
     <header
@@ -46,29 +17,6 @@ export default function Header() {
         <MicrocircuitLabelLogo />
         <nav className="grow flex justify-center items-center gap-4 w-auto h-full">
           <NavigationMenu />
-          {/* <label
-            className={clsx(
-              "lg:absolute flex items-center w-[calc(100%+1rem)] px-3 py-1 border border-transparent rounded-xl bg-[#3D3D3D] cursor-text hover:border-gray-500 focus-within:bg-[#464646] focus-within:border-gray-500 transition-transform duration-300 ease-in-out",
-              isSearchBarActive
-                ? "lg:pointer-events-auto lg:translate-y-0"
-                : "lg:pointer-events-none lg:-translate-y-20"
-            )}
-            onClick={() => setIsSearchBarActive(true)}
-            ref={searchBarRef}
-          >
-            <input
-              type="text"
-              name="text"
-              required
-              placeholder="Type here..."
-              className="w-full outline-none border-none bg-transparent text-[#a2a2a2] placeholder:text-[#a2a2a2]"
-            />
-          </label>
-          <SearchIcon
-            className="z-10 w-6 h-6 cursor-pointer"
-            onClick={searchIconHandler}
-            ref={searchIconRef}
-          /> */}
         </nav>
         <div className="hidden lg:grid grid-cols-2 items-center gap-4">
           <ChangeLanguage />

@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { ArrowIcon } from "../../icons";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 
 interface NavItem {
   title: string;
@@ -8,53 +9,74 @@ interface NavItem {
   list?: { title: string; link: string }[];
 }
 
-const navigationMenuData: NavItem[] = [
-  {
-    title: "About us",
-    link: "#",
-    list: [
-      { title: "History", link: "#" },
-      { title: "Strategy", link: "#" },
-      { title: "Team", link: "#" },
-    ],
-  },
-  {
-    title: "Departments",
-    link: "#",
-    list: [
-      { title: "Higher mathematics", link: "#" },
-      { title: "Physics", link: "#" },
-      { title: "Chemistry", link: "#" },
-      { title: "Biology", link: "#" },
-      { title: "Computer Science", link: "#" },
-    ],
-  },
-  {
-    title: "Events",
-    link: "#",
-    list: [
-      { title: "Conferences", link: "#" },
-      { title: "Workshops", link: "#" },
-      { title: "Seminars", link: "#" },
-    ],
-  },
-  {
-    title: "Resources",
-    link: "#",
-    list: [
-      { title: "Publications", link: "#" },
-      { title: "Research", link: "#" },
-      { title: "Data", link: "#" },
-    ],
-  },
-  {
-    title: "Contact & FAQ",
-    link: "#",
-    list: [{ title: "", link: "#" }],
-  },
-];
-
 export default function NavigationMenu() {
+  const { t } = useTranslation("header");
+
+  const navigationMenuData: NavItem[] = [
+    {
+      title: t("navigationMenu.aboutUs.title"),
+      link: "#",
+      list: [
+        { title: t("navigationMenu.aboutUs.history"), link: "#" },
+        { title: t("navigationMenu.aboutUs.strategy"), link: "#" },
+        { title: t("navigationMenu.aboutUs.team"), link: "#" },
+        { title: t("navigationMenu.aboutUs.gallery"), link: "#" },
+      ],
+    },
+    {
+      title: t("navigationMenu.departments.title"),
+      link: "#",
+      list: [
+        { title: t("navigationMenu.departments.higherMathematics"), link: "#" },
+        {
+          title: t(
+            "navigationMenu.departments.computerTechnologiesAndEconomicCybernetics"
+          ),
+          link: "#",
+        },
+        {
+          title: t("navigationMenu.departments.computingEngineering"),
+          link: "#",
+        },
+        {
+          title: t(
+            "navigationMenu.departments.computerScienceAndAppliedMathematics"
+          ),
+          link: "#",
+        },
+      ],
+    },
+    {
+      title: t("navigationMenu.events.title"),
+      link: "#",
+      list: [
+        { title: t("navigationMenu.events.eventsCalendar"), link: "#" },
+        { title: t("navigationMenu.events.news"), link: "#" },
+        { title: t("navigationMenu.events.announcements"), link: "#" },
+        { title: t("navigationMenu.events.activities"), link: "#" },
+      ],
+    },
+    {
+      title: t("navigationMenu.science.title"),
+      link: "#",
+      list: [
+        { title: t("navigationMenu.science.publications"), link: "#" },
+        { title: t("navigationMenu.science.research"), link: "#" },
+        { title: t("navigationMenu.science.conferences"), link: "#" },
+        { title: t("navigationMenu.science.grants"), link: "#" },
+      ],
+    },
+    {
+      title: t("navigationMenu.partners.title"),
+      link: "#",
+      list: [
+        { title: t("navigationMenu.partners.academicMobility"), link: "#" },
+        { title: t("navigationMenu.partners.businessPartners"), link: "#" },
+        { title: t("navigationMenu.partners.undergraduateStudies"), link: "#" },
+      ],
+    },
+  ];
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [dimensions, setDimensions] = useState({
     listWidth: 30,
@@ -93,7 +115,12 @@ export default function NavigationMenu() {
             >
               {item.title}
             </span>
-            <ArrowIcon className="mt-0.5" />
+            <ArrowIcon
+              className={clsx(
+                "mt-0.5 transition-transform duration-400 ease-in-out",
+                index === activeIndex && "rotate-90"
+              )}
+            />
           </li>
         ))}
       </ul>

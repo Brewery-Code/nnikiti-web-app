@@ -1,0 +1,38 @@
+{
+  "navigationMenu": {
+    "aboutUs": {
+      "title": "About us",
+      "history": "History",
+      "strategy": "Strategy",
+      "team": "Team",
+      "gallery": "Gallery"
+    },
+    "departments": {
+      "title": "Departments",
+      "higherMathematics": "Department of Higher Mathematics",
+      "computerTechnologiesAndEconomicCybernetics": "Department of Computer Technologies and Economic Cybernetics",
+      "computingEngineering": "Department of Computing Engineering",
+      "computerScienceAndAppliedMathematics": "Department of Computer Science and Applied Mathematics"
+    },
+    "events": {
+      "title": "Events",
+      "eventsCalendar": "Events Calendar",
+      "news": "News",
+      "announcements": "Announcements",
+      "activities": "Activities"
+    },
+    "science": {
+      "title": "Science",
+      "publications": "Publications",
+      "research": "Research",
+      "conferences": "Conferences",
+      "grants": "Grants"
+    },
+    "partners": {
+      "title": "Partners",
+      "academicMobility": "Academic Mobility",
+      "businessPartners": "Business and Enterprise",
+      "undergraduateStudies": "Undergraduate Studies"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "navigationMenu": {
+    "aboutUs": {
+      "title": "Про нас",
+      "history": "Історія",
+      "strategy": "Стратегія",
+      "team": "Команда",
+      "gallery": "Галерея"
+    },
+    "departments": {
+      "title": "Кафедри",
+      "higherMathematics": "Кафедра вищої математики",
+      "computerTechnologiesAndEconomicCybernetics": "Кафедра комп'ютерних технологій та економічної кібернетики",
+      "computingEngineering": "Кафедра обчислювальної техніки",
+      "computerScienceAndAppliedMathematics": "Кафедра комп'ютерних наук та прикладної математики"
+    },
+    "events": {
+      "title": "Події",
+      "eventsCalendar": "Календар подій",
+      "news": "Новини",
+      "announcements": "Оголошення",
+      "activities": "Заходи"
+    },
+    "science": {
+      "title": "Наука",
+      "publications": "Публікації",
+      "research": "Дослідження",
+      "conferences": "Конференції",
+      "grants": "Гранти"
+    },
+    "partners": {
+      "title": "Партнери",
+      "academicMobility": "Академічна мобільність",
+      "businessPartners": "Бізнес і підприємство",
+      "undergraduateStudies": "Додипломна освіта"
+    }
+  }
+}
