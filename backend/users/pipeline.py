@@ -1,7 +1,10 @@
+import re
+
 from django.shortcuts import redirect
 from rest_framework_simplejwt.tokens import RefreshToken
 from social_core.exceptions import AuthForbidden
 
+from .models import User
 
 def get_token_google_oauth(strategy, details, user=None, *args, **kwargs):
     """
@@ -46,7 +49,17 @@ def save_avatar(backend, user, response, *args, **kwargs):
         user.save()
 
 
-def validate_email_domain(backend, details, *args, **kwargs):
-    email = details.get("email")
-    if not email or not email.endswith("@nuwm.edu.ua"):
-        raise AuthForbidden("Only nuwm.edu.ua accounts are allowed.")
+def get_user_role(backend, details, user, *args, **kwargs):
+    email = (details.get("email") or "").lower()
+
+    if not email.endswith("@nuwm.edu.ua"):
+        user.role = User.Role.GUEST
+    elif re.match(r"^[a-z]+\_[a-z]+\d{2}@nuwm\.edu\.ua$", email):
+        user.role = User.Role.STUDENT
+    elif re.match(r"^[a-z](\.[a-z]+)+@nuwm\.edu\.ua$", email):
+        user.role = User.Role.TEACHER
+    else:
+        user.role = User.Role.GUEST
+
+    user.save()
+    return {"user": user}
