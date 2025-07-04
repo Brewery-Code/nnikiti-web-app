@@ -144,28 +144,30 @@ export default function NavigationMenu() {
           height: `${dimensions.listHeight}px`,
         }}
       >
-        {navigationMenuData.map((item, index) => (
-          <ul
-            className={clsx(
-              "absolute p-2",
-              item.list?.[0].title === "" ? "bg-transparent" : ""
-            )}
-            key={index}
-            ref={index === activeIndex ? listRef : null}
-          >
-            {item.list?.map((subItem, subIndex) => (
-              <li
-                className={clsx(
-                  "p-x-2 text-xl text-black font-semibold cursor-pointer transition-[opacity] duration-200 ease-in-out",
-                  index === activeIndex ? "opacity-100 " : "opacity-0 "
-                )}
-                key={subIndex}
-              >
-                {subItem.title}
-              </li>
-            ))}
-          </ul>
-        ))}
+        <div className="overflow-hidden relative w-full h-full">
+          {navigationMenuData.map((item, index) => (
+            <ul
+              className={clsx(
+                "overflow-hidden absolute p-2",
+                item.list?.[0].title === "" ? "bg-transparent" : ""
+              )}
+              key={index}
+              ref={index === activeIndex ? listRef : null}
+            >
+              {item.list?.map((subItem, subIndex) => (
+                <li
+                  className={clsx(
+                    "p-x-2 text-xl text-black font-semibold cursor-pointer transition-[opacity] duration-200 ease-in-out",
+                    index === activeIndex ? "opacity-100 " : "opacity-0 "
+                  )}
+                  key={subIndex}
+                >
+                  {subItem.title}
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
       </div>
     </nav>
   );
