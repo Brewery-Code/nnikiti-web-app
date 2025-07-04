@@ -1,7 +1,7 @@
 from rest_framework.generics import ListAPIView
 
-from .serializers import MainSliderItemSerializer, StatisticBlockSerializer
-from .models import MainSliderItem, StatisticBlock
+from .serializers import MainSliderItemSerializer, StatisticBlockSerializer, PartnersSerializer
+from .models import MainSliderItem, StatisticBlock, Partners
 
 
 class MainSliderView(ListAPIView):
@@ -16,3 +16,9 @@ class StatisticBlockView(ListAPIView):
 
     queryset = StatisticBlock.objects.all()
     serializer_class = StatisticBlockSerializer
+
+
+class PartnersView(ListAPIView):
+    """Returns a list of all images in the partners."""
+    queryset = Partners.objects.all()
+    serializer_class = PartnersSerializer

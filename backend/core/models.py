@@ -23,6 +23,7 @@ class MainSliderItem(models.Model):
 
 
 class StatisticBlock(TranslatableModel):
+    """Represents a numeric/statistical block displayed on the homepage."""
     translations = TranslatedFields(
         title=models.CharField(max_length=150, verbose_name=_("Title")),
         description=models.TextField(blank=True, verbose_name=_("Description")),
@@ -45,3 +46,20 @@ class StatisticBlock(TranslatableModel):
 
     def __str__(self):
         return _("Statistic block item #%s") % self.pk
+
+
+class Partners(TranslatableModel):
+    """Represents partners displayed on the homepage."""
+    translations = TranslatedFields(
+        name=models.CharField(max_length=150, verbose_name=_("Name")),
+    )
+    image = models.ImageField(upload_to="partners/", verbose_name=_("Partner image"))
+    site_link = models.URLField(verbose_name=_("Site link"), help_text=_("Link to partner site"))
+
+    class Meta:
+        verbose_name = _("Partner")
+        verbose_name_plural = _("Partners")
+        db_table = "Partner"
+
+    def __str__(self):
+        return _("Partner #%s") % self.pk

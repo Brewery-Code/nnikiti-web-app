@@ -57,6 +57,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /core/partners/:
+    get:
+      tags:
+        - core
+      description: Returns a list of data for partners block
+      responses:
+        "200":
+          description: Successfully returned a list of data for partners block
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Partners"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   /users/login/google-oauth2/:
     get:
       tags:
@@ -317,4 +338,25 @@ components:
           type: string
           format: date-time
           example: "2025-06-30T12:10:46.028492Z"
+          readOnly: true
+    Partners:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        image:
+          title: Image
+          type: string
+          format: uri
+          readOnly: true
+        site_url:
+          title: Site url
+          type: string
+          format: uri
           readOnly: true
