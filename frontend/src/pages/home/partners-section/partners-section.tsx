@@ -6,12 +6,16 @@ import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 
-export default function PartnersSection() {
+export default function PartnersSection({
+  className = "",
+}: {
+  className?: string;
+}) {
   const { t } = useTranslation("home");
   useLoadNamespace("home", loadTranslations);
 
   return (
-    <div className="m-section">
+    <div className={className}>
       <Title className="container-base mb-4">{t("partners.title")}</Title>
       <div className="overflow-x-scroll flex flex-col gap-4 mt-8 px-8 scrollbar-hidden">
         <div className="flex gap-4">

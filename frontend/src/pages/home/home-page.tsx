@@ -8,10 +8,10 @@ export function HomePage() {
   return (
     <>
       <HeroSection />
-      <StatisticSection />
-      <SpecialtiesSection />
-      <EventsSection />
-      <PartnersSection />
+      <StatisticSection className="m-section" />
+      <SpecialtiesSection className="m-section" />
+      <EventsSection className="m-section" />
+      <PartnersSection className="m-section" />
     </>
   );
 }

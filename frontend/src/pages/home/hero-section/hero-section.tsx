@@ -31,7 +31,11 @@ const navigationButtons = [
   },
 ];
 
-export default function HeroSection() {
+export default function HeroSection({
+  className = "",
+}: {
+  className?: string;
+}) {
   const sliderImg = publicRqClient.useQuery("get", "/core/main-slider-item/");
   const [currentImg, setCurrentImg] = useState(0);
   const [nextImg, setNextImg] = useState(0);
@@ -54,9 +58,12 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat 
-      before:absolute before:-top-16 before:w-full before:h-16 before:bg-black
-      after:absolute after:-bottom-32 after:w-full after:h-32 after:bg-gradient-to-b after:from-black after:to-transparent"
+      className={clsx(
+        "relative w-full h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat",
+        "before:absolute before:-top-16 before:w-full before:h-16 before:bg-black",
+        "after:absolute after:-bottom-32 after:w-full after:h-32 after:bg-gradient-to-b after:from-black after:to-transparent",
+        className
+      )}
       style={{
         backgroundImage: `
           linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 2%, rgba(0,0,0,0.1) 90%, rgba(0,0,0,1) 100%),
