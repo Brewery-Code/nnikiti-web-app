@@ -7,12 +7,20 @@
       "team": "Команда",
       "gallery": "Галерея"
     },
+    "entrant": {
+      "title": "Вступникам",
+      "undergraduateStudies": "Додипломна освіта",
+      "bachelorDegree": "Бакалаврат",
+      "masterDegree": "Магістратура",
+      "postgraduateStudies": "Аспірантура",
+      "graduates": "Випускники"
+    },
     "departments": {
       "title": "Кафедри",
-      "higherMathematics": "Кафедра вищої математики",
-      "computerTechnologiesAndEconomicCybernetics": "Кафедра комп'ютерних технологій та економічної кібернетики",
-      "computingEngineering": "Кафедра обчислювальної техніки",
-      "computerScienceAndAppliedMathematics": "Кафедра комп'ютерних наук та прикладної математики"
+      "higherMathematics": "Вищої математики",
+      "computerTechnologiesAndEconomicCybernetics": "Комп'ютерних технологій та економічної кібернетики",
+      "computingEngineering": "Обчислювальної техніки",
+      "computerScienceAndAppliedMathematics": "Комп'ютерних наук та прикладної математики"
     },
     "events": {
       "title": "Події",
@@ -31,8 +39,14 @@
     "partners": {
       "title": "Партнери",
       "academicMobility": "Академічна мобільність",
-      "businessPartners": "Бізнес і підприємство",
-      "undergraduateStudies": "Додипломна освіта"
+      "businessPartners": "Бізнес і підприємство"
+    },
+    "contacts": {
+      "title": "Контакти & FAQ",
+      "contacts": "Контакти",
+      "FAQ": "FAQ",
+      "question": "Задати питання",
+      "socialMedia": "Соціальні мережі"
     }
   },
   "languageSwitcher": {

@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { ArrowIcon } from "../icons";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
@@ -21,6 +20,17 @@ export default function NavigationMenu() {
         { title: t("navigationMenu.aboutUs.strategy"), link: "#" },
         { title: t("navigationMenu.aboutUs.team"), link: "#" },
         { title: t("navigationMenu.aboutUs.gallery"), link: "#" },
+      ],
+    },
+    {
+      title: t("navigationMenu.entrant.title"),
+      link: "#",
+      list: [
+        { title: t("navigationMenu.entrant.undergraduateStudies"), link: "#" },
+        { title: t("navigationMenu.entrant.bachelorDegree"), link: "#" },
+        { title: t("navigationMenu.entrant.masterDegree"), link: "#" },
+        { title: t("navigationMenu.entrant.postgraduateStudies"), link: "#" },
+        { title: t("navigationMenu.entrant.graduates"), link: "#" },
       ],
     },
     {
@@ -72,7 +82,16 @@ export default function NavigationMenu() {
       list: [
         { title: t("navigationMenu.partners.academicMobility"), link: "#" },
         { title: t("navigationMenu.partners.businessPartners"), link: "#" },
-        { title: t("navigationMenu.partners.undergraduateStudies"), link: "#" },
+      ],
+    },
+    {
+      title: t("navigationMenu.contacts.title"),
+      link: "#",
+      list: [
+        { title: t("navigationMenu.contacts.contacts"), link: "#" },
+        { title: t("navigationMenu.contacts.FAQ"), link: "#" },
+        { title: t("navigationMenu.contacts.question"), link: "#" },
+        { title: t("navigationMenu.contacts.socialMedia"), link: "#" },
       ],
     },
   ];
@@ -115,24 +134,18 @@ export default function NavigationMenu() {
             >
               {item.title}
             </span>
-            <ArrowIcon
-              className={clsx(
-                "mt-0.5 transition-transform duration-400 ease-in-out",
-                index === activeIndex && "rotate-90"
-              )}
-            />
           </li>
         ))}
       </ul>
       <div
         className={clsx(
-          "absolute top-[calc(100%+1rem)] left-0 rounded-md whitespace-nowrap transition-[transform,width,height,opacity,background] duration-200 ease-in-out",
+          "absolute top-[calc(100%+1rem)] left-0 rounded-md whitespace-nowrap transition-[transform,width,height,opacity,background] duration-200 ease-in-out backdrop-blur-md",
           "before:transition-[border] before:duration-300 before:ease-in-out",
           activeIndex !== null &&
             navigationMenuData?.[activeIndex].list?.[0].title === ""
             ? "bg-transparent before:border-transparent before:border-x-2 before:border-b-2"
-            : "bg-white ",
-          "before:absolute before:-top-1 before:left-1/2 before:-translate-1/2 before:border-x-transparent before:border-x-12 before:border-b-12 before:border-t-black",
+            : "bg-[#0000006e]",
+          "before:absolute before:-top-1.5 before:left-1/2 before:-translate-1/2 before:border-x-transparent before:border-x-12 before:border-b-12 before:border-b-[#0000006e]",
           "after:absolute after:-top-4 after:w-full after:h-4",
           activeIndex !== null
             ? "opacity-100 pointer-events-auto "
@@ -144,12 +157,15 @@ export default function NavigationMenu() {
           height: `${dimensions.listHeight}px`,
         }}
       >
-        <div className="overflow-hidden relative w-full h-full">
+        <div className="overflow-hidden relative w-full h-full rounded-l-md">
           {navigationMenuData.map((item, index) => (
             <ul
               className={clsx(
-                "overflow-hidden absolute p-2",
-                item.list?.[0].title === "" ? "bg-transparent" : ""
+                "overflow-hidden absolute flex flex-col gap-1 py-4",
+                "before:z-30 before:absolute before:left-0 before:top-0 before:w-2 before:h-full before:bg-[#ff1a7a] before:rounded-l-md before:transition-[opacity] before:duration-200 before:ease-in-out",
+                index === activeIndex
+                  ? "before:opacity-100"
+                  : "before:opacity-0"
               )}
               key={index}
               ref={index === activeIndex ? listRef : null}
@@ -157,8 +173,11 @@ export default function NavigationMenu() {
               {item.list?.map((subItem, subIndex) => (
                 <li
                   className={clsx(
-                    "p-x-2 text-xl text-black font-semibold cursor-pointer transition-[opacity] duration-200 ease-in-out",
-                    index === activeIndex ? "opacity-100 " : "opacity-0 "
+                    "overflow-hidden relative px-4 text-xl text-white font-semibold cursor-pointer transition-[opacity] duration-200 ease-in-out",
+                    "before:absolute before:-z-10 before:left-[7px] before:w-0 before:h-full before:bg-[linear-gradient(to_right,_#ff1a7a_8px,_#f8982e)] before:transition-[width] before:duration-200 before:ease-in-out hover:before:w-full",
+                    index === activeIndex
+                      ? "opacity-100 pointer-events-auto z-30"
+                      : "opacity-0 pointer-events-none z-10"
                   )}
                   key={subIndex}
                 >

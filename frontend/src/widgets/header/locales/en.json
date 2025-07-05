@@ -7,12 +7,20 @@
       "team": "Team",
       "gallery": "Gallery"
     },
+    "entrant": {
+      "title": "For entrant",
+      "undergraduateStudies": "Undergraduate Studies",
+      "bachelorDegree": "Bachelor's degree",
+      "masterDegree": "Master's degree",
+      "postgraduateStudies": "Postgraduate Studies",
+      "graduates": "Graduates"
+    },
     "departments": {
       "title": "Departments",
-      "higherMathematics": "Department of Higher Mathematics",
-      "computerTechnologiesAndEconomicCybernetics": "Department of Computer Technologies and Economic Cybernetics",
-      "computingEngineering": "Department of Computing Engineering",
-      "computerScienceAndAppliedMathematics": "Department of Computer Science and Applied Mathematics"
+      "higherMathematics": "Higher Mathematics",
+      "computerTechnologiesAndEconomicCybernetics": "Computer Technologies and Economic Cybernetics",
+      "computingEngineering": "Computing Engineering",
+      "computerScienceAndAppliedMathematics": "Computer Science and Applied Mathematics"
     },
     "events": {
       "title": "Events",
@@ -31,8 +39,14 @@
     "partners": {
       "title": "Partners",
       "academicMobility": "Academic Mobility",
-      "businessPartners": "Business and Enterprise",
-      "undergraduateStudies": "Undergraduate Studies"
+      "businessPartners": "Business and Enterprise"
+    },
+    "contacts": {
+      "title": "Contacts & FAQ",
+      "contacts": "Contacts",
+      "FAQ": "FAQ",
+      "question": "Ask a question",
+      "socialMedia": "Social media"
     }
   },
   "languageSwitcher": {
