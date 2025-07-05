@@ -1,7 +1,7 @@
 import { HeroSection } from "./hero-section";
 import { StatisticSection } from "./statistic-section";
 import { SpecialtiesSection } from "./specialties-section";
-import { NewsSection } from "./news-section";
+import { EventsSection } from "./events-section";
 import { PartnersSection } from "./partners-section";
 
 export function HomePage() {
@@ -10,7 +10,7 @@ export function HomePage() {
       <HeroSection />
       <StatisticSection />
       <SpecialtiesSection />
-      <NewsSection />
+      <EventsSection />
       <PartnersSection />
     </>
   );

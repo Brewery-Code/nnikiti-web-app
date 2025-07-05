@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export default function PartnerBlock({
+export default function PartnerCard({
   className,
   children,
   colSpan,

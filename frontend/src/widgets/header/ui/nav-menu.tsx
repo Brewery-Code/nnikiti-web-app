@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { ArrowIcon } from "../../icons";
+import { ArrowIcon } from "../icons";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 

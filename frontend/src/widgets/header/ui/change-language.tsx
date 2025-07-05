@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
 export default function ChangeLanguage() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation("header");
 
   const languageHandler = () => {
     i18n.changeLanguage(i18n.language === "uk" ? "en" : "uk");

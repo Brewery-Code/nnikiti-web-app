@@ -3,8 +3,14 @@ import { StatisticBlock } from "./ui";
 import { gradientAnimation } from "./styles";
 import clsx from "clsx";
 import { publicRqClient } from "@/shared/api/instance";
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 
 export default function StatisticSection() {
+  const { t } = useTranslation("home");
+  useLoadNamespace("home", loadTranslations);
+
   const statisticData = publicRqClient.useQuery(
     "get",
     "/core/statistic-block/"
@@ -12,7 +18,7 @@ export default function StatisticSection() {
 
   return (
     <section className="container-base m-section">
-      <Title>By the numbers</Title>
+      <Title>{t("statistic.title")}</Title>
       <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-6 sm:grid-rows-4 md:grid-rows-2 gap-4 h-[632px] sm:h-[390px] md:h-[360px] xl:h-[480px] mt-8">
         {statisticData?.map((item) => (
           <StatisticBlock

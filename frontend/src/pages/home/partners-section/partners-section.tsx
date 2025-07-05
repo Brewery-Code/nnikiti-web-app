@@ -1,15 +1,21 @@
 import { Title } from "@/shared/ui";
-import PartnerBlock from "./partner-block";
+import PartnerCard from "./partner-card";
 import partnerImg from "./softserve-logo-big..png";
 import partner1Img from "./gallaudet.png";
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 
 export default function PartnersSection() {
+  const { t } = useTranslation("home");
+  useLoadNamespace("home", loadTranslations);
+
   return (
     <div className="m-section">
-      <Title className="container-base mb-4">Partners</Title>
+      <Title className="container-base mb-4">{t("partners.title")}</Title>
       <div className="overflow-x-scroll flex flex-col gap-4 mt-8 px-8 scrollbar-hidden">
         <div className="flex gap-4">
-          <PartnerBlock
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -19,8 +25,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -30,8 +36,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -41,8 +47,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -52,8 +58,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -63,8 +69,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -74,8 +80,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -85,8 +91,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -96,8 +102,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -107,8 +113,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -118,8 +124,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -129,8 +135,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -140,10 +146,10 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
+          </PartnerCard>
         </div>
         <div className="flex gap-4">
-          <PartnerBlock
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -153,8 +159,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -164,8 +170,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -175,8 +181,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -186,8 +192,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -197,8 +203,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -208,8 +214,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -219,8 +225,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -230,8 +236,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -241,8 +247,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -252,8 +258,8 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -263,8 +269,8 @@ export default function PartnersSection() {
               src={partnerImg}
               alt=""
             />
-          </PartnerBlock>
-          <PartnerBlock
+          </PartnerCard>
+          <PartnerCard
             className="shrink-0"
             colSpan={Math.floor(Math.random() * 3)}
             rowSpan={Math.floor(Math.random() * 3)}
@@ -274,7 +280,7 @@ export default function PartnersSection() {
               src={partner1Img}
               alt=""
             />
-          </PartnerBlock>
+          </PartnerCard>
         </div>
       </div>
     </div>

@@ -1,8 +1,9 @@
-import { OvalLabel } from "@/shared/ui";
-import bgImg from "./test-bg.jpeg";
 import { useState } from "react";
 import clsx from "clsx";
-export default function NewsCard({ className }: { className?: string }) {
+import { OvalLabel } from "@/shared/ui";
+import bgImg from "./test-bg.jpeg";
+
+export default function EventCard({ className }: { className?: string }) {
   const [isCardHovered, setIsCardHovered] = useState(false);
 
   return (

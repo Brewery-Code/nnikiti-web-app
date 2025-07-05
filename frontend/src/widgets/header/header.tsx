@@ -4,7 +4,7 @@ import { loadTranslations } from "./locales";
 import { useLoadNamespace } from "@/shared/hooks";
 
 export default function Header() {
-  const { t, i18n } = useTranslation("header");
+  const { t } = useTranslation("header");
 
   useLoadNamespace("header", loadTranslations);
 
@@ -27,7 +27,7 @@ export default function Header() {
                 "http://127.0.0.1:8000/api/v1/users/login/google-oauth2/")
             }
           >
-            Sign In
+            {t("signIn")}
           </button>
         </div>
         <div className="relative flex lg:hidden justify-center items-center w-8 h-8">

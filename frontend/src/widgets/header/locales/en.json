@@ -34,5 +34,10 @@
       "businessPartners": "Business and Enterprise",
       "undergraduateStudies": "Undergraduate Studies"
     }
-  }
+  },
+  "languageSwitcher": {
+    "en": "En",
+    "uk": "Uk"
+  },
+  "signIn": "Sign In"
 }

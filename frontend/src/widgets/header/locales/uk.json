@@ -34,5 +34,10 @@
       "businessPartners": "Бізнес і підприємство",
       "undergraduateStudies": "Додипломна освіта"
     }
-  }
+  },
+  "languageSwitcher": {
+    "en": "Aнгл",
+    "uk": "Укр"
+  },
+  "signIn": "Вхід"
 }
