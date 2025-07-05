@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header
       className="fixed z-[100] flex justify-center w-full h-16 bg-[#3333335e] bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] 
-    before:fixed before:-z-1 before:inset-0 before:w-full before:h-16 before:backdrop-blur-md"
+      before:fixed before:-z-1 before:inset-0 before:w-full before:h-16 before:backdrop-blur-md"
     >
       <div className="container-base grid grid-cols-[auto_auto_auto] justify-between items-center h-full">
         <MicrocircuitLabelLogo />
@@ -21,7 +21,10 @@ export default function Header() {
         <div className="hidden lg:grid grid-cols-2 items-center gap-4">
           <ChangeLanguage />
           <button
-            className="px-2 py-1 rounded-4xl bg-[#3d3d3d] text-base leading-6 font-semibold cursor-pointer transition-shadow duration-500 ease hover:shadow-[0_0_10px_0_rgba(0,0,0,0.5)]"
+            className="overflow-hidden relative w-25 px-3 py-1 text-base rounded-2xl outline-2 outline-white text-white font-bold tracking-widest uppercase cursor-pointer 
+            transition-[scale,shadow,outline,color] duration-300 hover:text-black hover:scale-110 hover:outline-black hover:shadow-[4px_5px_17px_-4px_#268391]
+            before:absolute before:-left-full before:top-0 before:w-0 before:h-full before:bg-white
+            before:skew-x-12 before:-z-10 before:transition-[width] before:duration-500 hover:before:w-[250%]"
             onClick={() =>
               (window.location.href =
                 "http://127.0.0.1:8000/api/v1/users/login/google-oauth2/")

@@ -124,28 +124,25 @@ export default function NavigationMenu() {
       <ul className="hidden lg:flex items-center gap-4 xl:gap-6 h-full text-sm xl:text-base leading-6 font-semibold">
         {navigationMenuData.map((item, index) => (
           <li
-            className="flex items-center gap-2 h-full cursor-pointer"
+            className={clsx(
+              "flex items-center gap-2 h-full cursor-pointer",
+              "transition-transform duration-200 ease-in-out",
+              index === activeIndex && "scale-110"
+            )}
             key={item.title}
+            ref={index === activeIndex ? menuItemRef : null}
             onMouseEnter={() => setActiveIndex(index)}
           >
-            <span
-              className="flex items-center cursor-pointer"
-              ref={index === activeIndex ? menuItemRef : null}
-            >
-              {item.title}
-            </span>
+            {item.title}
           </li>
         ))}
       </ul>
       <div
         className={clsx(
-          "absolute top-[calc(100%+1rem)] left-0 rounded-md whitespace-nowrap transition-[transform,width,height,opacity,background] duration-200 ease-in-out backdrop-blur-md",
-          "before:transition-[border] before:duration-300 before:ease-in-out",
-          activeIndex !== null &&
-            navigationMenuData?.[activeIndex].list?.[0].title === ""
-            ? "bg-transparent before:border-transparent before:border-x-2 before:border-b-2"
-            : "bg-[#0000006e]",
+          "absolute top-[calc(100%+1rem)] left-0 rounded-md bg-[#0000006e] whitespace-nowrap",
+          "transition-[transform,width,height,opacity,background] duration-200 ease-in-out backdrop-blur-md",
           "before:absolute before:-top-1.5 before:left-1/2 before:-translate-1/2 before:border-x-transparent before:border-x-12 before:border-b-12 before:border-b-[#0000006e]",
+          "before:transition-[border] before:duration-300 before:ease-in-out",
           "after:absolute after:-top-4 after:w-full after:h-4",
           activeIndex !== null
             ? "opacity-100 pointer-events-auto "
@@ -162,7 +159,8 @@ export default function NavigationMenu() {
             <ul
               className={clsx(
                 "overflow-hidden absolute flex flex-col gap-1 py-4",
-                "before:z-30 before:absolute before:left-0 before:top-0 before:w-2 before:h-full before:bg-[#ff1a7a] before:rounded-l-md before:transition-[opacity] before:duration-200 before:ease-in-out",
+                "before:absolute before:left-0 before:top-0 before:w-2 before:h-full before:bg-[#ff1a7a] before:rounded-l-md",
+                "before:transition-[opacity] before:duration-200 before:ease-in-out",
                 index === activeIndex
                   ? "before:opacity-100"
                   : "before:opacity-0"
@@ -173,11 +171,13 @@ export default function NavigationMenu() {
               {item.list?.map((subItem, subIndex) => (
                 <li
                   className={clsx(
-                    "overflow-hidden relative px-4 text-xl text-white font-semibold cursor-pointer transition-[opacity] duration-200 ease-in-out",
-                    "before:absolute before:-z-10 before:left-[7px] before:w-0 before:h-full before:bg-[linear-gradient(to_right,_#ff1a7a_8px,_#f8982e)] before:transition-[width] before:duration-200 before:ease-in-out hover:before:w-full",
+                    "overflow-hidden relative px-4 text-xl text-white font-semibold cursor-pointer",
+                    "transition-opacity duration-200 ease-in-out",
+                    "before:absolute before:-z-1 before:left-[7px] before:w-0 before:h-full before:bg-[linear-gradient(to_right,_#ff1a7a_8px,_#f8982e)]",
+                    "before:transition-[width] before:duration-200 before:ease-in-out hover:before:w-full",
                     index === activeIndex
-                      ? "opacity-100 pointer-events-auto z-30"
-                      : "opacity-0 pointer-events-none z-10"
+                      ? "opacity-100 pointer-events-auto z-10"
+                      : "opacity-0 pointer-events-none"
                   )}
                   key={subIndex}
                 >
