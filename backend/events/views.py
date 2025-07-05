@@ -1,10 +1,13 @@
-from django.shortcuts import render
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 from .models import Events
 from .serializers import EventsSerializer
 
 
-class EventsView(ListAPIView):
+class EventsListView(ListAPIView):
+    queryset = Events.published.all()
+    serializer_class = EventsSerializer
+
+class EventsDetailView(RetrieveAPIView):
     queryset = Events.published.all()
     serializer_class = EventsSerializer
