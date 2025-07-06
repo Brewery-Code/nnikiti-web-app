@@ -1,9 +1,7 @@
 import "react-router-dom";
 export const ROUTES = {
   HOME: "/",
-  LOGIN: "/login",
-  REGISTER: "/register",
-  PROFILE: "/profile",
+  CONTACTS: "/contacts",
   NOT_FOUND: "*",
 } as const;
 
