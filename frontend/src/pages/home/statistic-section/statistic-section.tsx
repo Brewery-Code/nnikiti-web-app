@@ -23,25 +23,24 @@ export default function StatisticSection({
   return (
     <section className={clsx("container-base", className)}>
       <Title>{t("statistic.title")}</Title>
-      <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-6 sm:grid-rows-4 md:grid-rows-2 gap-4 h-[632px] sm:h-[390px] md:h-[360px] xl:h-[480px] mt-8">
+      <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-[1fr_1fr_1fr_1fr_1fr] sm:grid-rows-[1fr_1fr_1fr_fr] md:grid-rows-2 gap-4 h-[524px] sm:h-[390px] md:h-[300px] xl:h-[480px] mt-8">
         {statisticData?.map((item) => (
           <StatisticBlock
             key={item.id}
             className={clsx(
               gradientAnimation.gradientAnimation,
               item.order === 1 &&
-                "order-0 md:order-none row-span-2 md:row-span-1",
-              item.order === 2 &&
-                "order-4 sm:order-1 md:order-none col-span-2 md:row-span-1",
+                "order-4 md:order-none sm:row-span-2 md:row-span-1",
+              item.order === 2 && "order-6 sm:order-1 md:order-none col-span-2",
               item.order === 3 &&
-                "order-3 sm:order-6 md:order-none md:col-span-1 md:row-span-1",
+                "order-1 sm:order-4 md:order-none md:col-span-1",
               item.order === 4 &&
-                "order-2 sm:order-3 md:order-none row-span-2 md:col-span-1 md:row-span-2",
+                "order-2 sm:order-3 md:order-none md:col-span-1 sm:row-span-2",
               item.order === 5 &&
-                "order-2 md:order-none row-span-2 md:col-span-1 md:row-span-1",
+                "order-3 md:order-none col-span-2 sm:col-span-1 sm:row-span-2 md:row-span-1",
               item.order === 6 &&
-                "order-1 sm:order-4 md:order-none md:col-span-1 md:row-span-1",
-              item.order === 7 && "order-5 sm:order-5 md:order-none col-span-2"
+                "order-4 sm:order-5 md:order-none md:col-span-1",
+              item.order === 7 && "order-0 sm:order-6 md:order-none col-span-2"
             )}
             title={item.title}
             subtitle={item.description}

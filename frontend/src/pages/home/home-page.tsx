@@ -7,7 +7,7 @@ import { PartnersSection } from "./partners-section";
 export function HomePage() {
   return (
     <>
-      <HeroSection />
+      {/* <HeroSection /> */}
       <StatisticSection className="m-section" />
       <SpecialtiesSection className="m-section" />
       <EventsSection className="m-section" />
