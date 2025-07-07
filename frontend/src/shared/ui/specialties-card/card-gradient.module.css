@@ -6,7 +6,6 @@
     rgba(108, 10, 168, 0.1),
     rgba(10, 86, 168, 0.1)
   );
-  /* transition: background-image 0.3s ease-in-out; */
 }
 
 .gradient:hover {

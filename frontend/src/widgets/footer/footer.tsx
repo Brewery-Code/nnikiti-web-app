@@ -3,14 +3,18 @@ import bgWaveImg from "./wave.png";
 import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
+import clsx from "clsx";
 
-export default function Footer() {
+export default function Footer({ className }: { className?: string }) {
   const { t } = useTranslation("footer");
   useLoadNamespace("footer", loadTranslations);
   return (
     <footer
-      className="relative m-section py-8 bg-black bg-center bg-cover bg-no-repeat before:absolute before:-top-16 before:w-full before:h-16 before:bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0)_100%)]"
-      style={{ backgroundImage: `url(${bgWaveImg})` }}
+      className={clsx(
+        "relative py-8 bg-black bg-center bg-cover bg-no-repeat before:absolute before:-top-16 before:w-full before:h-16 before:bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0)_100%)]",
+        className
+      )}
+      // style={{ backgroundImage: `url(${bgWaveImg})` }}
     >
       <div className="container-base flex">
         <div className="flex justify-center items-center gap-5">

@@ -2,6 +2,7 @@ import { ChangeLanguage, MicrocircuitLabelLogo, NavigationMenu } from "./ui";
 import { useTranslation } from "react-i18next";
 import { loadTranslations } from "./locales";
 import { useLoadNamespace } from "@/shared/hooks";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -10,11 +11,13 @@ export default function Header() {
 
   return (
     <header
-      className="fixed z-[100] flex justify-center w-full h-16 bg-[#3333335e] bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] 
+      className="fixed z-[100] flex justify-center w-full h-16 bg-[#0000006e] bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] 
       before:fixed before:-z-1 before:inset-0 before:w-full before:h-16 before:backdrop-blur-md"
     >
       <div className="container-base grid grid-cols-[auto_auto_auto] justify-between items-center h-full">
-        <MicrocircuitLabelLogo />
+        <Link to="/">
+          <MicrocircuitLabelLogo />
+        </Link>
         <nav className="grow flex justify-center items-center gap-4 w-auto h-full">
           <NavigationMenu />
         </nav>

@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface NavItem {
   title: string;
@@ -88,7 +89,7 @@ export default function NavigationMenu() {
       title: t("navigationMenu.contacts.title"),
       link: "#",
       list: [
-        { title: t("navigationMenu.contacts.contacts"), link: "#" },
+        { title: t("navigationMenu.contacts.contacts"), link: "/contacts" },
         { title: t("navigationMenu.contacts.FAQ"), link: "#" },
         { title: t("navigationMenu.contacts.question"), link: "#" },
         { title: t("navigationMenu.contacts.socialMedia"), link: "#" },
@@ -169,7 +170,8 @@ export default function NavigationMenu() {
               ref={index === activeIndex ? listRef : null}
             >
               {item.list?.map((subItem, subIndex) => (
-                <li
+                <Link
+                  to={subItem.link}
                   className={clsx(
                     "overflow-hidden relative px-4 text-xl text-white font-semibold cursor-pointer",
                     "transition-opacity duration-200 ease-in-out",
@@ -182,7 +184,7 @@ export default function NavigationMenu() {
                   key={subIndex}
                 >
                   {subItem.title}
-                </li>
+                </Link>
               ))}
             </ul>
           ))}

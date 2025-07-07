@@ -43,17 +43,26 @@ export default function HeroSection({
 
   useEffect(() => {
     if (!sliderImg.data || sliderImg.data.length === 0) return;
-    const interval = setInterval(() => {
+
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const runSlider = () => {
       setIsTransitioning(true);
-      setTimeout(() => {
+      setNextImg((prev) => (prev + 1 < sliderImg.data.length ? prev + 1 : 0));
+
+      timeoutId = setTimeout(() => {
         setCurrentImg((prev) =>
           prev + 1 < sliderImg.data.length ? prev + 1 : 0
         );
         setIsTransitioning(false);
+
+        timeoutId = setTimeout(runSlider, 4000);
       }, 1000);
-      setNextImg((prev) => (prev + 1 < sliderImg.data.length ? prev + 1 : 0));
-    }, 5000);
-    return () => clearInterval(interval);
+    };
+
+    timeoutId = setTimeout(runSlider, 5000);
+
+    return () => clearTimeout(timeoutId);
   }, [sliderImg.data]);
 
   return (
