@@ -5,7 +5,7 @@ from .models import Events, EventsCategory
 
 
 class EventsCategorySerializer(serializers.ModelSerializer):
-    """--"""
+    """Serializer for EventsCategory objects"""
 
     class Meta:
         model = EventsCategory
@@ -13,7 +13,7 @@ class EventsCategorySerializer(serializers.ModelSerializer):
 
 
 class EventsSerializer(serializers.ModelSerializer):
-    """--"""
+    """Serializer for an Events objects"""
 
     body_html = serializers.SerializerMethodField()
     category = EventsCategorySerializer()
@@ -32,6 +32,7 @@ class EventsSerializer(serializers.ModelSerializer):
         ]
 
     def get_body_html(self, obj):
+        """Return the HTML body of the event"""
         return markdown.markdown(
             obj.body or "",
             extensions=[
