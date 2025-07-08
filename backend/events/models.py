@@ -21,10 +21,10 @@ def events_upload_to(instance, filename):
 
 class PublishedManager(TranslatableManager):
     def get_queryset(self):
-        return super().get_queryset().filter(status=Events.Status.PUBLISHED)
+        return super().get_queryset().filter(status=Event.Status.PUBLISHED)
 
 
-class EventsCategory(TranslatableModel):
+class EventCategory(TranslatableModel):
     """
     Represents a specific event. Contains translatable title and body fields,
     and is associated with an EventsCategory.
@@ -48,13 +48,13 @@ class EventsCategory(TranslatableModel):
     class Meta:
         verbose_name = _("Category")
         verbose_name_plural = _("Categories")
-        db_table = "EventsCategory"
+        db_table = "EventCategory"
 
     def __str__(self) -> str:
         return _("Category #%s. %s") % (self.pk, self.name)
 
 
-class Events(TranslatableModel):
+class Event(TranslatableModel):
     """
     Represents a specific event. Contains translatable title and body fields,
     and is associated with an EventsCategory.
@@ -70,7 +70,7 @@ class Events(TranslatableModel):
     )
     slug = models.SlugField(blank=True, max_length=255, verbose_name=_("Event slug"))
     category = models.ForeignKey(
-        EventsCategory,
+        EventCategory,
         on_delete=models.CASCADE,
         related_name="events",
         verbose_name=_("Category"),
@@ -92,20 +92,20 @@ class Events(TranslatableModel):
         verbose_name = _("Event")
         verbose_name_plural = _("Events")
         ordering = ["-created_at"]
-        db_table = "Events"
+        db_table = "Event"
 
     def __str__(self) -> str:
         return _("Event #%s. Title: %s") % (self.pk, self.title)
 
 
-class EventsImage(models.Model):
+class EventImage(models.Model):
     """
     Represents an image associated with a specific event.
     Images are uploaded to a date-structured subfolder within an 'events' directory.
     """
 
     event = models.ForeignKey(
-        Events,
+        Event,
         on_delete=models.CASCADE,
         related_name="images",
         verbose_name=_("Event"),
@@ -116,7 +116,7 @@ class EventsImage(models.Model):
     class Meta:
         verbose_name = _("Event image")
         verbose_name_plural = _("Events images")
-        db_table = "EventsImage"
+        db_table = "EventImage"
 
     def __str__(self) -> str:
         return _("Image for event #%s") % self.event.pk

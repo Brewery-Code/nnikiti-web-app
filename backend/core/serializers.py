@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import MainSliderItem, StatisticBlock, Partners
+from .models import MainSliderItem, StatisticBlock, Partner
 
 
 class MainSliderItemSerializer(serializers.ModelSerializer):
@@ -22,5 +22,5 @@ class PartnersSerializer(serializers.ModelSerializer):
     """Serializer for the Partners model."""
 
     class Meta:
-        model = Partners
+        model = Partner
         fields = ["id", "name", "image", "site_link"]

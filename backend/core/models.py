@@ -48,7 +48,7 @@ class StatisticBlock(TranslatableModel):
         return _("Statistic block item #%s") % self.pk
 
 
-class Partners(TranslatableModel):
+class Partner(TranslatableModel):
     """Represents partners displayed on the homepage."""
     translations = TranslatedFields(
         name=models.CharField(max_length=150, verbose_name=_("Name")),

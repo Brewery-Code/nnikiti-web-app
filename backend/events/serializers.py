@@ -1,14 +1,14 @@
 import markdown
 from rest_framework import serializers
 
-from .models import Events, EventsCategory
+from .models import Event, EventCategory
 
 
 class EventsCategorySerializer(serializers.ModelSerializer):
     """Serializer for EventsCategory objects"""
 
     class Meta:
-        model = EventsCategory
+        model = EventCategory
         fields = ["id", "name", "rgb_color"]
 
 
@@ -19,7 +19,7 @@ class EventsSerializer(serializers.ModelSerializer):
     category = EventsCategorySerializer()
 
     class Meta:
-        model = Events
+        model = Event
         fields = [
             "id",
             "title",
