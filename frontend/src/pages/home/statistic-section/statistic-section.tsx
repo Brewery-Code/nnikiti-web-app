@@ -1,4 +1,4 @@
-import { Title } from "@/shared/ui";
+import { SpinnerLoader, Title } from "@/shared/ui";
 import { StatisticBlock } from "./ui";
 import { gradientAnimation } from "./styles";
 import clsx from "clsx";
@@ -6,6 +6,7 @@ import { publicRqClient } from "@/shared/api/instance";
 import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
+import { QueryHandler } from "@/widgets";
 
 export default function StatisticSection({
   className = "",
@@ -15,39 +16,44 @@ export default function StatisticSection({
   const { t } = useTranslation("home");
   useLoadNamespace("home", loadTranslations);
 
-  const statisticData = publicRqClient.useQuery(
-    "get",
-    "/core/statistic-block/"
-  ).data;
+  const {
+    data: statisticData,
+    isLoading,
+    isError,
+  } = publicRqClient.useQuery("get", "/core/statistic-block/");
 
   return (
     <section className={clsx("container-base", className)}>
       <Title>{t("statistic.title")}</Title>
-      <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-[1fr_1fr_1fr_1fr_1fr] sm:grid-rows-[1fr_1fr_1fr_fr] md:grid-rows-2 gap-4 h-[524px] sm:h-[390px] md:h-[300px] xl:h-[480px] mt-8">
-        {statisticData?.map((item) => (
-          <StatisticBlock
-            key={item.id}
-            className={clsx(
-              gradientAnimation.gradientAnimation,
-              item.order === 1 &&
-                "order-4 md:order-none sm:row-span-2 md:row-span-1",
-              item.order === 2 && "order-6 sm:order-1 md:order-none col-span-2",
-              item.order === 3 &&
-                "order-1 sm:order-4 md:order-none md:col-span-1",
-              item.order === 4 &&
-                "order-2 sm:order-3 md:order-none md:col-span-1 sm:row-span-2",
-              item.order === 5 &&
-                "order-3 md:order-none col-span-2 sm:col-span-1 sm:row-span-2 md:row-span-1",
-              item.order === 6 &&
-                "order-4 sm:order-5 md:order-none md:col-span-1",
-              item.order === 7 && "order-0 sm:order-6 md:order-none col-span-2"
-            )}
-            title={item.title}
-            subtitle={item.description}
-            start_value={item.start_value}
-          />
-        ))}
-      </div>
+      <QueryHandler isLoading={isLoading} isError={isError}>
+        <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-[1fr_1fr_1fr_1fr_1fr] sm:grid-rows-[1fr_1fr_1fr_fr] md:grid-rows-2 gap-4 h-[524px] sm:h-[390px] md:h-[300px] xl:h-[480px] mt-8">
+          {statisticData?.map((item) => (
+            <StatisticBlock
+              key={item.id}
+              className={clsx(
+                gradientAnimation.gradientAnimation,
+                item.order === 1 &&
+                  "order-4 md:order-none sm:row-span-2 md:row-span-1",
+                item.order === 2 &&
+                  "order-6 sm:order-1 md:order-none col-span-2",
+                item.order === 3 &&
+                  "order-1 sm:order-4 md:order-none md:col-span-1",
+                item.order === 4 &&
+                  "order-2 sm:order-3 md:order-none md:col-span-1 sm:row-span-2",
+                item.order === 5 &&
+                  "order-3 md:order-none col-span-2 sm:col-span-1 sm:row-span-2 md:row-span-1",
+                item.order === 6 &&
+                  "order-4 sm:order-5 md:order-none md:col-span-1",
+                item.order === 7 &&
+                  "order-0 sm:order-6 md:order-none col-span-2"
+              )}
+              title={item.title}
+              subtitle={item.description}
+              start_value={item.start_value}
+            />
+          ))}
+        </div>
+      </QueryHandler>
     </section>
   );
 }

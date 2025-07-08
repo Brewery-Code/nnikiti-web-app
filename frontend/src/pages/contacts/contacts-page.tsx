@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import MobileImg from "./mobile.svg?react";
+import { Title } from "@/shared/ui";
 
 function ContactBLock({
   children,
@@ -34,8 +35,9 @@ function ContactBLock({
 
 export function ContactsPage() {
   return (
-    <div className="container-base grow flex justify-center items-center">
-      <div className="grid grid-cols-[1fr_1fr_1fr] grid-rows-[auto_auto] gap-4 ">
+    <div className="container-base grow flex flex-col justify-center items-center">
+      <Title className="self-start">Contacts</Title>
+      <div className="grid grid-cols-[1fr_1fr_1fr] grid-rows-[auto_auto] gap-4 mt-8">
         <ContactBLock className="order-0"></ContactBLock>
         <ContactBLock className="order-1"></ContactBLock>
         <ContactBLock className="order-3 col-span-2"></ContactBLock>
