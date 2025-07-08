@@ -50,6 +50,7 @@ def save_avatar(backend, user, response, *args, **kwargs):
 
 
 def get_user_role(backend, details, user, *args, **kwargs):
+    """Custom pipeline function for a retrieving user role"""
     email = (details.get("email") or "").lower()
 
     if not email.endswith("@nuwm.edu.ua"):

@@ -63,7 +63,7 @@ class TokenRefreshFromCookieView(APIView):
 
 
 class LogoutView(APIView):
-    """Custom view for logout user"""
+    """API view to log out a user."""
 
     permission_classes = [IsAuthenticated]
 
