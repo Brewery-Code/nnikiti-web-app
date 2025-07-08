@@ -2,6 +2,7 @@ import datetime
 import os
 
 from django.db import models
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
 from mdeditor.fields import MDTextField
@@ -67,6 +68,7 @@ class Events(TranslatableModel):
         title=models.CharField(max_length=255, verbose_name=_("Event title")),
         body=MDTextField(verbose_name=_("Event body")),
     )
+    slug = models.SlugField(blank=True, max_length=255, verbose_name=_("Event slug"))
     category = models.ForeignKey(
         EventsCategory,
         on_delete=models.CASCADE,

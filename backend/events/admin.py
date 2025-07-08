@@ -22,7 +22,7 @@ class EventsImageInline(admin.TabularInline):
 
 
 class EventsAdminForm(TranslatableModelForm):
-    """Custom admin form for Events model using the MDEditor widget."""
+    """Custom admin form for an Events model using the MDEditor widget."""
 
     class Meta:
         model = Events
@@ -38,7 +38,8 @@ class EventsAdmin(TranslatableAdmin):
 
     form = EventsAdminForm
 
-    list_display = ["id", "title", "category", "status", "created_at"]
+    list_display = ["id", "title", "slug", "category", "status", "created_at"]
+    readonly_fields = ["slug",]
     list_filter = [
         "status",
     ]

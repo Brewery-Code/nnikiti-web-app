@@ -23,6 +23,7 @@ class EventsSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "title",
+            "slug",
             "body",
             "body_html",
             "category",
