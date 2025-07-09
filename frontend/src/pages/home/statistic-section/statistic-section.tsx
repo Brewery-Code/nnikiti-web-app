@@ -1,4 +1,4 @@
-import { SpinnerLoader, Title } from "@/shared/ui";
+import { Title } from "@/shared/ui";
 import { StatisticBlock } from "./ui";
 import { gradientAnimation } from "./styles";
 import clsx from "clsx";

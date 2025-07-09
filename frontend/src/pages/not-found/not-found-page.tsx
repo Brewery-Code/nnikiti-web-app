@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import styles from "./gradientAnimation.module.css";
+import { PageTransition } from "@/widgets";
 
 function ErrorElement({ children }: { children: React.ReactNode }) {
   return (
@@ -24,24 +25,26 @@ export function NotFoundPage() {
   useLoadNamespace("notFound", loadTranslations);
 
   return (
-    <div className="grow flex flex-col items-center justify-center text-white">
-      <div className="text-9xl font-bold flex items-center justify-center">
-        <ErrorElement>4</ErrorElement>
-        <ErrorElement>0</ErrorElement>
-        <ErrorElement>4</ErrorElement>
-      </div>
-      <p className="mt-4 text-lg text-center">
-        {t("notExist")}.{" "}
-        <Link
-          to="/"
-          className="relative text-pink-500
+    <PageTransition>
+      <div className="grow flex flex-col items-center justify-center text-white">
+        <div className="text-9xl font-bold flex items-center justify-center">
+          <ErrorElement>4</ErrorElement>
+          <ErrorElement>0</ErrorElement>
+          <ErrorElement>4</ErrorElement>
+        </div>
+        <p className="mt-4 text-lg text-center">
+          {t("notExist")}.{" "}
+          <Link
+            to="/"
+            className="relative text-pink-500
           before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:scale-x-0 before:h-0.5 before:w-full before:bg-pink-500 
           before:transition-transform before:duration-500 before:ease-out hover:before:scale-x-100"
-        >
-          {t("goHome")}.
-        </Link>
-      </p>
-    </div>
+          >
+            {t("goHome")}.
+          </Link>
+        </p>
+      </div>
+    </PageTransition>
   );
 }
 
