@@ -26,7 +26,7 @@ export default function StatisticSection({
     <section className={clsx("container-base", className)}>
       <Title>{t("statistic.title")}</Title>
       <QueryHandler isLoading={isLoading} isError={isError}>
-        <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-[1fr_1fr_1fr_1fr_1fr] sm:grid-rows-[1fr_1fr_1fr_fr] md:grid-rows-2 gap-4 h-[524px] sm:h-[390px] md:h-[300px] xl:h-[480px] mt-8">
+        <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 grid-rows-[1fr_1fr_1fr_1fr_1fr] sm:grid-rows-[1fr_1fr_1fr_fr] md:grid-rows-2 gap-4 h-[524px] sm:h-[390px] md:h-[300px] xl:h-[480px]">
           {statisticData?.map((item) => (
             <StatisticBlock
               key={item.id}

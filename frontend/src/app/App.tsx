@@ -16,7 +16,7 @@ function App() {
       <AnimatePresence mode="wait" initial={false}>
         {element && React.cloneElement(element, { key: location.pathname })}
       </AnimatePresence>
-      <Footer className="m-section" />
+      <Footer className="" />
     </div>
   );
 }

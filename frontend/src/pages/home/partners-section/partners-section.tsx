@@ -15,9 +15,9 @@ export default function PartnersSection({
   useLoadNamespace("home", loadTranslations);
 
   return (
-    <div className={className}>
-      <Title className="container-base mb-4">{t("partners.title")}</Title>
-      <div className="overflow-x-scroll flex flex-col gap-4 mt-8 px-8 scrollbar-hidden">
+    <section className={className}>
+      <Title className="container-base">{t("partners.title")}</Title>
+      <div className="overflow-x-scroll flex flex-col gap-4 px-8 scrollbar-hidden">
         <div className="flex gap-4">
           <PartnerCard
             className="shrink-0"
@@ -287,6 +287,6 @@ export default function PartnersSection({
           </PartnerCard>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -6,7 +6,7 @@ import { PartnersSection } from "./partners-section";
 import { PageTransition } from "@/widgets";
 export function HomePage() {
   return (
-    <PageTransition>
+    <PageTransition className="!pt-0">
       <HeroSection />
       <StatisticSection className="m-section " />
       <SpecialtiesSection className="m-section " />

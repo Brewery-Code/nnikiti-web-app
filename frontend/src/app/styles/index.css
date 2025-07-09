@@ -30,6 +30,10 @@
     margin-top: 96px;
   }
 
+  .m-block {
+    margin-top: 32px;
+  }
+
   .fade-animation {
     animation: fade-animation both;
     animation-timeline: view(90% 0%);

@@ -13,9 +13,9 @@ export function FAQPage() {
   };
   return (
     <PageTransition>
-      <section className="container-base grow flex flex-col justify-center ">
+      <section className="container-base grow flex flex-col">
         <Title className="">FAQ</Title>
-        <div className="flex flex-col gap-2 m-section">
+        <div className="flex flex-col gap-2">
           {Array.from({ length: 10 }).map((_, i) => (
             <Accordion
               isAccordionOpen={i === whichAccordionIsOpen}

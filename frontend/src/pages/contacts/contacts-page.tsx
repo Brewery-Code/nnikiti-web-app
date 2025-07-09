@@ -37,9 +37,9 @@ function ContactBLock({
 export function ContactsPage() {
   return (
     <PageTransition>
-      <div className="container-base grow flex flex-col justify-center items-center">
+      <div className="container-base grow flex flex-col items-center">
         <Title className="self-start">Contacts</Title>
-        <div className="grid grid-cols-[1fr_1fr_1fr] grid-rows-[auto_auto] gap-4 mt-8">
+        <div className="grid grid-cols-[1fr_1fr_1fr] grid-rows-[auto_auto] gap-4">
           <ContactBLock className="order-0"></ContactBLock>
           <ContactBLock className="order-1"></ContactBLock>
           <ContactBLock className="order-3 col-span-2"></ContactBLock>

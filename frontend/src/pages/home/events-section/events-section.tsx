@@ -14,15 +14,15 @@ export default function NewsSection({
   useLoadNamespace("home", loadTranslations);
 
   return (
-    <div className={clsx("container-base", className)}>
+    <section className={clsx("container-base", className)}>
       <Title>{t("events.title")}</Title>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-8 h-[790px] md:h-[590px] mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-8 h-[790px] md:h-[590px]">
         <EventCard className="md:row-span-2" />
         <EventCard />
         <EventCard />
         <EventCard className="hidden lg:flex" />
         <EventCard className="hidden lg:flex" />
       </div>
-    </div>
+    </section>
   );
 }

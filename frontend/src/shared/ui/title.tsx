@@ -10,7 +10,7 @@ export default function Title({
   return (
     <h2
       className={clsx(
-        "font-open-sans text-white text-4xl font-bold uppercase",
+        "mb-8 font-open-sans text-white text-4xl font-bold uppercase",
         className
       )}
     >
