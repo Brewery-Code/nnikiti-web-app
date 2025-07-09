@@ -91,6 +91,9 @@ class Event(TranslatableModel):
         verbose_name = _("Event")
         verbose_name_plural = _("Events")
         ordering = ["-created_at"]
+        indexes = [
+            models.Index(fields=["created_at",])
+        ]
         db_table = "Event"
 
     def __str__(self) -> str:
