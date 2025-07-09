@@ -10,10 +10,10 @@ export default function PageTransition({
 }) {
   return (
     <motion.main
-      className={clsx("grow flex flex-col mt-16", className)}
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -100 }}
+      className={clsx("grow flex flex-col mt-16 ", className)}
+      initial={{ filter: "blur(10px)", opacity: 0 }}
+      animate={{ filter: "blur(0px)", opacity: 1 }}
+      exit={{ filter: "blur(10px)", opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
       {children}

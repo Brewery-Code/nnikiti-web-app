@@ -90,7 +90,7 @@ export default function NavigationMenu() {
       link: "#",
       list: [
         { title: t("navigationMenu.contacts.contacts"), link: "/contacts" },
-        { title: t("navigationMenu.contacts.FAQ"), link: "#" },
+        { title: t("navigationMenu.contacts.FAQ"), link: "/faq" },
         { title: t("navigationMenu.contacts.question"), link: "#" },
         { title: t("navigationMenu.contacts.socialMedia"), link: "#" },
       ],

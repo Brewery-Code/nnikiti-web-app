@@ -2,16 +2,24 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+  }
+
   body {
     color: #fff;
     line-height: 100%;
     font-family: "Open Sans", sans-serif;
     background-color: #e21515; /* For test */
   }
+
+  main {
+  }
 }
 
 @layer components {
   .container-base {
+    position: relative;
+    left: calc((100vw - 100%) / 2);
     max-width: 1564px;
     width: 100%;
     margin: 0 auto;
@@ -20,6 +28,22 @@
 
   .m-section {
     margin-top: 96px;
+  }
+
+  .fade-animation {
+    animation: fade-animation both;
+    animation-timeline: view(90% 0%);
+  }
+
+  @keyframes fade-animation {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
   }
 }
 
@@ -36,7 +60,3 @@
     overflow-clip-margin: 16px;
   }
 }
-/* 
-.font-open-sans {
-  font-family: "Open Sans", sans-serif;
-} */

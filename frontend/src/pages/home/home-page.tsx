@@ -8,9 +8,9 @@ export function HomePage() {
   return (
     <PageTransition>
       <HeroSection />
-      <StatisticSection className="m-section" />
-      <SpecialtiesSection className="m-section" />
-      <EventsSection className="m-section" />
+      <StatisticSection className="m-section " />
+      <SpecialtiesSection className="m-section " />
+      <EventsSection className="m-section fade-animation" />
       <PartnersSection className="m-section" />
     </PageTransition>
   );

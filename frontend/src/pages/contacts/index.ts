@@ -1,1 +1,1 @@
-export { default as ContactsPage } from "./contacts-page.tsx";
+export { ContactsPage } from "./contacts-page.tsx";

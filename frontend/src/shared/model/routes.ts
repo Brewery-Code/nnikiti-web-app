@@ -2,6 +2,7 @@ import "react-router-dom";
 export const ROUTES = {
   HOME: "/",
   CONTACTS: "/contacts",
+  FAQ: "/faq",
   NOT_FOUND: "*",
 } as const;
 
