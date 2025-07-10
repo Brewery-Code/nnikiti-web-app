@@ -11,7 +11,8 @@ class MainSliderItem(models.Model):
     slider on the website's homepage. Each record corresponds to one slide.
     """
 
-    image = models.ImageField(upload_to="banners/", verbose_name=_("Slider image"))
+    image = models.ImageField(upload_to="banners/",
+                              verbose_name=_("Slider image"))
 
     class Meta:
         verbose_name = _("Slider item")
@@ -53,8 +54,10 @@ class Partner(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(max_length=150, verbose_name=_("Name")),
     )
-    image = models.ImageField(upload_to="partners/", verbose_name=_("Partner image"))
-    site_link = models.URLField(verbose_name=_("Site link"), help_text=_("Link to partner site"))
+    image = models.ImageField(upload_to="partners/",
+                              verbose_name=_("Partner image"))
+    site_link = models.URLField(verbose_name=_("Site link"),
+                                help_text=_("Link to partner site"))
 
     class Meta:
         verbose_name = _("Partner")
@@ -63,3 +66,19 @@ class Partner(TranslatableModel):
 
     def __str__(self):
         return _("Partner #%s") % self.pk
+
+
+class FAQ(TranslatableModel):
+    """Represents FAQ displayed on the homepage."""
+    translations = TranslatedFields(
+        question=models.CharField(max_length=255, verbose_name=_("Question")),
+        answer=models.CharField(max_length=255, verbose_name=_("Answer")),
+    )
+
+    class Meta:
+        verbose_name = _("FAQ")
+        verbose_name_plural = _("FAQs")
+        db_table = "FAQ"
+
+    def __str__(self):
+        return _("FAQ #%s") % self.pk
