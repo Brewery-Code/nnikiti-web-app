@@ -9,7 +9,7 @@ interface NavItem {
   list?: { title: string; link: string }[];
 }
 
-export default function NavigationMenu() {
+export default function NavigationMenu({ className }: { className?: string }) {
   const { t } = useTranslation("header");
 
   const navigationMenuData: NavItem[] = [
@@ -121,8 +121,11 @@ export default function NavigationMenu() {
   }, [activeIndex]);
 
   return (
-    <nav className="h-full" onMouseLeave={() => setActiveIndex(null)}>
-      <ul className="hidden lg:flex items-center gap-4 xl:gap-6 h-full text-sm xl:text-base leading-6 font-semibold">
+    <nav
+      className={clsx("h-full", className)}
+      onMouseLeave={() => setActiveIndex(null)}
+    >
+      <ul className="flex items-center gap-4 xl:gap-6 h-full text-sm xl:text-base leading-6 font-semibold">
         {navigationMenuData.map((item, index) => (
           <li
             className={clsx(

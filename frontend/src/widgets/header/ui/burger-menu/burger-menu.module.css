@@ -1,0 +1,129 @@
+.burger-button {
+  position: relative;
+  justify-self: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.burger-button_active span {
+  animation: burgerMainLineActive 0.5s ease forwards;
+}
+
+@keyframes burgerMainLineActive {
+  0% {
+    background: white;
+  }
+  50% {
+    background: transparent;
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+.burger-button_inactive span {
+  animation: burgerMainLineInactive 0.5s ease forwards;
+}
+
+@keyframes burgerMainLineInactive {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: white;
+  }
+  100% {
+    background: white;
+  }
+}
+
+.burger-button span {
+  width: 28px;
+  height: 2px;
+  background: white;
+}
+
+.burger-button span::before,
+.burger-button span::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: white;
+}
+
+.burger-button span::before {
+  transform: translateY(-12px);
+}
+
+.burger-button_active span::before {
+  animation: burgerButtonTopActive 0.5s ease forwards;
+}
+
+@keyframes burgerButtonTopActive {
+  0% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(-45deg);
+  }
+}
+
+.burger-button_inactive span::before {
+  animation: burgerButtonTopLineInactive 0.5s ease forwards;
+}
+
+@keyframes burgerButtonTopLineInactive {
+  0% {
+    transform: translateY(0%) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(0%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+}
+
+.burger-button span::after {
+  transform: translateY(12px);
+}
+
+.burger-button_active span::after {
+  animation: burgerButtonBottomActive 0.5s ease forwards;
+}
+
+@keyframes burgerButtonBottomActive {
+  0% {
+    transform: translateY(12px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(45deg);
+  }
+}
+
+.burger-button_inactive span::after {
+  animation: burgerButtonBottomLineInactive 0.5s ease forwards;
+}
+
+@keyframes burgerButtonBottomLineInactive {
+  0% {
+    transform: translateY(0%) rotate(45deg);
+  }
+  50% {
+    transform: translateY(0%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(12px) rotate(0deg);
+  }
+}
