@@ -11,7 +11,7 @@ export default function ChangeLanguage() {
   return (
     <button
       className={clsx(
-        "relative flex justify-around items-center gap-3 px-2 py-1 rounded-4xl text-base leading-6 text-black font-bold cursor-pointer outline-2 outline-[white]",
+        "relative flex justify-around items-center gap-3 w-25 px-2 py-1 rounded-4xl text-base leading-6 text-black font-bold cursor-pointer outline-2 outline-[white]",
         "transition-shadow duration-300 ease hover:shadow-[0px_2px_18px_-4px_#fff]",
         "before:absolute before:w-[50%] before:h-4/5 before:rounded-xl before:bg-white",
         "before:transition-transform before:duration-500 before:ease-[cubic-bezier(0.23,1,0.32,1)]",

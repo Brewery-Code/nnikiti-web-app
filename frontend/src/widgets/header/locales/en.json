@@ -53,5 +53,8 @@
     "en": "En",
     "uk": "Uk"
   },
-  "signIn": "Sign In"
+  "signIn": "Sign In",
+  "burgerMenu": {
+    "home": "To home"
+  }
 }

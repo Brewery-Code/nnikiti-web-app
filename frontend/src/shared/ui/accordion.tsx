@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 
 export default function Accordion({
   isAccordionOpen,
@@ -11,38 +12,31 @@ export default function Accordion({
   title: string;
   description: string;
 }) {
-  const titleRef = useRef<HTMLDivElement>(null);
-  const [titleHeight, setTitleHeight] = useState(0);
-
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [descriptionHeight, setDescriptionHeight] = useState(0);
 
   useEffect(() => {
-    if (titleRef.current) {
-      setTitleHeight(titleRef.current.scrollHeight);
-    }
-
     if (descriptionRef.current) {
       setDescriptionHeight(descriptionRef.current.scrollHeight);
     }
-  }, []);
-
-  console.log(descriptionHeight);
+  }, [isAccordionOpen]);
 
   return (
     <div
-      className="p-4 bg-[#E8E8E8] rounded-2xl  text-black cursor-pointer transition-[height] duration-300 ease-in-out"
-      style={{
-        height: isAccordionOpen
-          ? descriptionHeight + titleHeight + 42
-          : titleHeight + 32,
-      }}
+      className="overflow-hidden p-4 bg-[#E8E8E8] rounded-2xl  text-black cursor-pointer"
       onClick={onClick}
     >
-      <h2 className="text-2xl font-bold" ref={titleRef}>
-        {title}
-      </h2>
-      <p className="mt-2.5 text-xl" ref={descriptionRef}>
+      <h2 className="text-2xl font-bold">{title}</h2>
+      <p
+        className={clsx(
+          "relative text-xl transition-[height,translate] duration-300 ease-in-out",
+          isAccordionOpen ? "translate-y-4" : "translate-y-4 "
+        )}
+        style={{
+          height: isAccordionOpen ? descriptionHeight + 16 : 0,
+        }}
+        ref={descriptionRef}
+      >
         {description}
       </p>
     </div>

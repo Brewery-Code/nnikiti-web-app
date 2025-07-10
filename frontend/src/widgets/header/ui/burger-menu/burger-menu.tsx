@@ -1,11 +1,30 @@
 import clsx from "clsx";
 import { useState } from "react";
 import style from "./burger-menu.module.css";
+import type { NavigationMenuData } from "../../types";
+import Accordion from "./accordion";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import ChangeLanguage from "../change-language";
+import SignInButton from "../sign-in-button";
 
-export default function BurgerMenu({ className }: { className?: string }) {
+export default function BurgerMenu({
+  className,
+  burgerMenuData,
+}: {
+  className?: string;
+  burgerMenuData: NavigationMenuData[];
+}) {
+  const { t } = useTranslation("header");
   const [isBurgerOpen, setIsBurgerOpen] = useState<boolean | null>(null);
   const handleBurgerClick = () => {
     setIsBurgerOpen((prev) => (prev === true ? false : true));
+  };
+
+  const [whichAccordionIsOpen, setWhichAccordionIsOpen] = useState(-1);
+  const toggleAccordion = (index: number) => {
+    if (index === whichAccordionIsOpen) setWhichAccordionIsOpen(-1);
+    else setWhichAccordionIsOpen(index);
   };
 
   const burgerButtonClass = () => {
@@ -15,19 +34,50 @@ export default function BurgerMenu({ className }: { className?: string }) {
   };
 
   return (
-    <div className={className}>
+    <div className={clsx(className)}>
       <div
         className={clsx("z-10", style["burger-button"], burgerButtonClass())}
-        onClick={handleBurgerClick}
+        onClick={() => {
+          handleBurgerClick();
+          toggleAccordion(-1);
+        }}
       >
         <span />
       </div>
       <div
         className={clsx(
-          "absolute left-0 top-0 w-dvw h-dvh bg-amber-900 transition-transform duration-500 ease-in-out",
+          "overflow-y-auto absolute left-0 top-0 flex w-dvw h-dvh py-16 bg-black",
+          "transition-transform duration-500 ease-in-out",
           isBurgerOpen ? "translate-x-0" : "translate-x-full"
         )}
-      ></div>
+      >
+        <ul className="container-base flex flex-col gap-4">
+          {burgerMenuData.map((item, index) => (
+            <Accordion
+              key={index}
+              data={item}
+              isAccordionOpen={index === whichAccordionIsOpen}
+              toggleAccordion={() => toggleAccordion(index)}
+              whichAccordionIsOpen={whichAccordionIsOpen}
+              handleBurgerClick={handleBurgerClick}
+            />
+          ))}
+          <Link
+            to="/"
+            className="text-3xl font-bold"
+            onClick={() => {
+              handleBurgerClick();
+              toggleAccordion(-1);
+            }}
+          >
+            {t("burgerMenu.home")}
+          </Link>
+          <div className="flex justify-center gap-4 mt-auto">
+            <ChangeLanguage />
+            <SignInButton />
+          </div>
+        </ul>
+      </div>
     </div>
   );
 }

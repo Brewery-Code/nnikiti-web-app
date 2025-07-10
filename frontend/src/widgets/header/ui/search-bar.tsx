@@ -7,8 +7,8 @@ export default function SearchBar({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative justify-self-center flex justify-center items-center w-[calc(100%-64px)] leading-7",
-        "transition-[width] duration-300 ease focus-within:w-[calc(100%+64px)]",
+        "relative justify-self-center flex justify-center items-center w-[calc(100%-16px)] sm:w-[calc(100%-32px)] leading-7",
+        "transition-[width] duration-300 ease focus-within:w-[calc(100%+16px)] sm:focus-within:w-[calc(100%+32px)]",
         className
       )}
     >

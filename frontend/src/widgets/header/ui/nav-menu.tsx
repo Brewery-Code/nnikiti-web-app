@@ -1,102 +1,15 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import clsx from "clsx";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import type { NavigationMenuData } from "../types";
 
-interface NavItem {
-  title: string;
-  link: string;
-  list?: { title: string; link: string }[];
-}
-
-export default function NavigationMenu({ className }: { className?: string }) {
-  const { t } = useTranslation("header");
-
-  const navigationMenuData: NavItem[] = [
-    {
-      title: t("navigationMenu.aboutUs.title"),
-      link: "#",
-      list: [
-        { title: t("navigationMenu.aboutUs.history"), link: "#" },
-        { title: t("navigationMenu.aboutUs.strategy"), link: "#" },
-        { title: t("navigationMenu.aboutUs.team"), link: "#" },
-        { title: t("navigationMenu.aboutUs.gallery"), link: "#" },
-      ],
-    },
-    {
-      title: t("navigationMenu.entrant.title"),
-      link: "#",
-      list: [
-        { title: t("navigationMenu.entrant.undergraduateStudies"), link: "#" },
-        { title: t("navigationMenu.entrant.bachelorDegree"), link: "#" },
-        { title: t("navigationMenu.entrant.masterDegree"), link: "#" },
-        { title: t("navigationMenu.entrant.postgraduateStudies"), link: "#" },
-        { title: t("navigationMenu.entrant.graduates"), link: "#" },
-      ],
-    },
-    {
-      title: t("navigationMenu.departments.title"),
-      link: "#",
-      list: [
-        { title: t("navigationMenu.departments.higherMathematics"), link: "#" },
-        {
-          title: t(
-            "navigationMenu.departments.computerTechnologiesAndEconomicCybernetics"
-          ),
-          link: "#",
-        },
-        {
-          title: t("navigationMenu.departments.computingEngineering"),
-          link: "#",
-        },
-        {
-          title: t(
-            "navigationMenu.departments.computerScienceAndAppliedMathematics"
-          ),
-          link: "#",
-        },
-      ],
-    },
-    {
-      title: t("navigationMenu.events.title"),
-      link: "#",
-      list: [
-        { title: t("navigationMenu.events.eventsCalendar"), link: "#" },
-        { title: t("navigationMenu.events.news"), link: "#" },
-        { title: t("navigationMenu.events.announcements"), link: "#" },
-        { title: t("navigationMenu.events.activities"), link: "#" },
-      ],
-    },
-    {
-      title: t("navigationMenu.science.title"),
-      link: "#",
-      list: [
-        { title: t("navigationMenu.science.publications"), link: "#" },
-        { title: t("navigationMenu.science.research"), link: "#" },
-        { title: t("navigationMenu.science.conferences"), link: "#" },
-        { title: t("navigationMenu.science.grants"), link: "#" },
-      ],
-    },
-    {
-      title: t("navigationMenu.partners.title"),
-      link: "#",
-      list: [
-        { title: t("navigationMenu.partners.academicMobility"), link: "#" },
-        { title: t("navigationMenu.partners.businessPartners"), link: "#" },
-      ],
-    },
-    {
-      title: t("navigationMenu.contacts.title"),
-      link: "#",
-      list: [
-        { title: t("navigationMenu.contacts.contacts"), link: "/contacts" },
-        { title: t("navigationMenu.contacts.FAQ"), link: "/faq" },
-        { title: t("navigationMenu.contacts.question"), link: "#" },
-        { title: t("navigationMenu.contacts.socialMedia"), link: "#" },
-      ],
-    },
-  ];
-
+export default function NavigationMenu({
+  className,
+  navigationMenuData,
+}: {
+  className?: string;
+  navigationMenuData: NavigationMenuData[];
+}) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [dimensions, setDimensions] = useState({
     listWidth: 30,
