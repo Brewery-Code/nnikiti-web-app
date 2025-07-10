@@ -77,6 +77,26 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /core/faq/:
+    get:
+      tags:
+        - core
+      description: Returns a list of data for the FAQ block
+      responses:
+        "200":
+          description: Successfully returned a list of data for the FAQ block
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FAQs"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
 
   /users/login/google-oauth2/:
     get:
@@ -396,4 +416,19 @@ components:
           title: Site url
           type: string
           format: uri
+          readOnly: true
+    FAQs:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        question:
+          title: Question
+          type: string
+          readOnly: true
+        answer:
+          title: Question
+          type: string
           readOnly: true
