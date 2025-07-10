@@ -64,7 +64,10 @@ export default function BurgerMenu({
           ))}
           <Link
             to="/"
-            className="text-3xl font-bold"
+            className={clsx(
+              "text-3xl font-bold transition-colors duration-200 ease-in-out",
+              whichAccordionIsOpen !== -1 && "text-gray-500"
+            )}
             onClick={() => {
               handleBurgerClick();
               toggleAccordion(-1);

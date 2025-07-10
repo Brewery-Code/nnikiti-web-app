@@ -9,8 +9,8 @@ export default function Accordion({
 }: {
   isAccordionOpen: boolean;
   onClick: () => void;
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }) {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [descriptionHeight, setDescriptionHeight] = useState(0);

@@ -1,3 +1,4 @@
+import { queryClient } from "@/shared/api/query-client";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
@@ -5,7 +6,9 @@ export default function ChangeLanguage() {
   const { i18n } = useTranslation("header");
 
   const languageHandler = () => {
-    i18n.changeLanguage(i18n.language === "uk" ? "en" : "uk");
+    i18n.changeLanguage(i18n.language === "uk" ? "en" : "uk").then(() => {
+      queryClient.invalidateQueries();
+    });
   };
 
   return (
