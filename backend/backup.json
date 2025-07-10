@@ -259,11 +259,186 @@
   }
 },
 {
+  "model": "core.faqtranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "question": "Які документи потрібні для вступу до інституту?",
+    "answer": "Потрібен атестат про повну загальну середню освіту, паспорт та сертифікати ЗНО або НМТ.",
+    "master": 1
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "question": "What documents are required for admission to the institute?",
+    "answer": "You need a high school diploma, a passport, and standardized test certificates (ZNO or NMT).",
+    "master": 1
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "question": "Чи є в інституті гуртожиток?",
+    "answer": "Так, інститут надає місця у гуртожитку для іногородніх студентів.",
+    "master": 2
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "question": "Does the institute provide dormitory accommodation?",
+    "answer": "Yes, the institute offers dormitory places for non-local students.",
+    "master": 2
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "question": "Які спеціальності доступні для навчання?",
+    "answer": "Інститут пропонує спеціальності у сфері ІТ, економіки, права, інженерії та гуманітарних наук.",
+    "master": 3
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "question": "What majors are available at the institute?",
+    "answer": "The institute offers programs in IT, economics, law, engineering, and humanities.",
+    "master": 3
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "question": "Чи можна навчатися заочно?",
+    "answer": "Так, є як денна, так і заочна форма навчання.",
+    "master": 4
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "question": "Is part-time study available?",
+    "answer": "Yes, both full-time and part-time study options are available.",
+    "master": 4
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "question": "Якою мовою ведеться навчання?",
+    "answer": "Навчання ведеться українською мовою, але деякі програми доступні англійською.",
+    "master": 5
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "question": "What is the language of instruction?",
+    "answer": "The primary language is Ukrainian, but some programs are available in English.",
+    "master": 5
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "question": "Чи є можливість отримати стипендію?",
+    "answer": "Так, академічна стипендія надається за високі результати в навчанні.",
+    "master": 6
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "question": "Can I get a scholarship?",
+    "answer": "Yes, academic scholarships are available for high-performing students.",
+    "master": 6
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "uk",
+    "question": "Як подати документи онлайн?",
+    "answer": "Ви можете подати документи через електронний кабінет вступника на офіційному сайті.",
+    "master": 7
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "en",
+    "question": "How can I apply online?",
+    "answer": "You can apply through the applicant's electronic portal on the official website.",
+    "master": 7
+  }
+},
+{
+  "model": "core.faq",
+  "pk": 1,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 2,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 3,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 4,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 5,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 6,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 7,
+  "fields": {}
+},
+{
   "model": "users.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$vcm3KjLvwvx3NiEXKRPNMh$r5ZB8H+jEJ8doGfvuxLfXINJVCBbLOQQLTEpOv9lskY=",
-    "last_login": "2025-06-29T08:07:21.754Z",
+    "last_login": "2025-07-10T09:13:32.439Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -271,8 +446,29 @@
     "email": "admin@admin.com",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2025-06-23T15:15:14.654Z",
+    "date_joined": "2025-06-23T15:15:14Z",
     "avatar": null,
+    "role": "OP",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 2,
+  "fields": {
+    "password": "!XMnFIRdPNwnsOcafLQygO62TPlT1oXpPpo3yXxqf",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "yakymchuk_ak22",
+    "first_name": "Олександр Сергійович",
+    "last_name": "Якимчук",
+    "email": "yakymchuk_ak22@nuwm.edu.ua",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-04T08:03:39.634Z",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocK2zQ2thuLlnKz6hCMijIon0lcPZlDDESchRsdcZoQsXlZ9cy7B=s96-c",
+    "role": "ST",
     "groups": [],
     "user_permissions": []
   }
