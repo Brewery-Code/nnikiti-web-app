@@ -6,10 +6,9 @@ i18n
   .use(detector)
   .use(initReactI18next)
   .init({
-    lng: "uk",
-    // fallbackLng: "",
+    lng: "",
+    fallbackLng: ["uk"],
     supportedLngs: ["en", "uk"],
-    saveMissing: true,
     // debug: true,
   });
 

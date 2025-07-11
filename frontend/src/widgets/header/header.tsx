@@ -11,6 +11,7 @@ import { useLoadNamespace } from "@/shared/hooks";
 import { Link } from "react-router-dom";
 import type { NavigationMenuData } from "./types";
 import SignInButton from "./ui/sign-in-button";
+import { ROUTES } from "@/shared/model/routes";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -92,9 +93,12 @@ export default function Header() {
       title: t("navigationMenu.contacts.title"),
       link: "#",
       list: [
-        { title: t("navigationMenu.contacts.contacts"), link: "/contacts" },
-        { title: t("navigationMenu.contacts.FAQ"), link: "/faq" },
-        { title: t("navigationMenu.contacts.question"), link: "#" },
+        { title: t("navigationMenu.contacts.contacts"), link: ROUTES.CONTACTS },
+        { title: t("navigationMenu.contacts.FAQ"), link: ROUTES.FAQ },
+        {
+          title: t("navigationMenu.contacts.question"),
+          link: ROUTES.ASK_QUESTION,
+        },
         { title: t("navigationMenu.contacts.socialMedia"), link: "#" },
       ],
     },
