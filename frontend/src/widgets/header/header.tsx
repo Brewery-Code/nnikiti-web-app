@@ -12,6 +12,10 @@ import { Link } from "react-router-dom";
 import type { NavigationMenuData } from "./types";
 import SignInButton from "./ui/sign-in-button";
 import { ROUTES } from "@/shared/model/routes";
+import { GoogleLogin, type CredentialResponse } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { publicRqClient } from "@/shared/api/instance";
+import { useLogin } from "@/features/auth";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -106,6 +110,8 @@ export default function Header() {
 
   useLoadNamespace("header", loadTranslations);
 
+  const login = useLogin();
+
   return (
     <header
       className="fixed z-[100] flex justify-center w-full h-16 bg-[#0000006e] bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] 
@@ -122,7 +128,7 @@ export default function Header() {
         <SearchBar className="flex lg:hidden" />
         <div className="hidden lg:grid grid-cols-2 justify-end items-center gap-4">
           <ChangeLanguage />
-          <SignInButton />
+          <SignInButton onClick={() => login()} />
         </div>
         <BurgerMenu className="lg:hidden" burgerMenuData={navigationMenuData} />
       </div>

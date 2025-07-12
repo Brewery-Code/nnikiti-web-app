@@ -11,7 +11,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of slider images */
+        /**
+         * Returns a list of slider images.
+         * @description Returns a list of slider images
+         */
         get: {
             parameters: {
                 query?: never;
@@ -56,7 +59,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of data for statistic block */
+        /**
+         * Returns a list of data for the statistic block.
+         * @description Returns a list of data for statistic block
+         */
         get: {
             parameters: {
                 query?: never;
@@ -101,7 +107,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of data for partners block */
+        /**
+         * Returns a list of partners.
+         * @description Returns a list of data for partners block
+         */
         get: {
             parameters: {
                 query?: never;
@@ -146,7 +155,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of data for the FAQ block */
+        /**
+         * Returns a list of FAQs (questions and answers).
+         * @description Returns a list of data for the FAQ block
+         */
         get: {
             parameters: {
                 query?: never;
@@ -184,33 +196,52 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/login/google-oauth2/": {
+    "/auth/google/": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** @description Starts the OAuth2 flow for Google authorization. The user will be redirected to the Google login page. After authorization, the user will be redirected to the callback URL, where the access token will be processed. */
-        get: {
+        get?: never;
+        put?: never;
+        /**
+         * Login using Google OAuth2 with PKCE
+         * @description Exchanges authorization `code` and `code_verifier` with Google and returns access token (in body) and sets refresh token as HttpOnly cookie.
+         *
+         */
+        post: {
             parameters: {
                 query?: never;
                 header?: never;
                 path?: never;
                 cookie?: never;
             };
-            requestBody?: never;
+            requestBody: {
+                content: {
+                    "application/json": {
+                        code: string;
+                        code_verifier: string;
+                    };
+                };
+            };
             responses: {
-                /** @description Redirect to Google OAuth2 consent screen */
-                302: {
+                /** @description Authenticated and tokens issued */
+                200: {
                     headers: {
-                        /** @description Google OAuth2 consent screen URL */
-                        Location?: string;
+                        /** @description Refresh token is set in a cookie named `refresh_token` */
+                        "Set-Cookie"?: string;
                         [name: string]: unknown;
                     };
-                    content?: never;
+                    content: {
+                        "application/json": {
+                            access_token?: string;
+                            expires_in?: number;
+                            token_type?: string;
+                        };
+                    };
                 };
-                /** @description Invalid request */
+                /** @description Missing code or code_verifier, or Google exchange error */
                 400: {
                     headers: {
                         [name: string]: unknown;
@@ -221,15 +252,13 @@ export interface paths {
                 };
             };
         };
-        put?: never;
-        post?: never;
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/logout/": {
+    "/auth/token/": {
         parameters: {
             query?: never;
             header?: never;
@@ -238,7 +267,11 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Logs out the user. Requires `refresh_token` cookie */
+        /**
+         * Refresh access token using refresh_token cookie
+         * @description Uses `refresh_token` stored in HttpOnly cookie to issue a new access token.   Requires `grant_type=refresh_token` in POST body.
+         *
+         */
         post: {
             parameters: {
                 query?: never;
@@ -246,21 +279,31 @@ export interface paths {
                 path?: never;
                 cookie?: never;
             };
-            /** @description No body required; cookie is used */
-            requestBody?: {
+            requestBody: {
                 content: {
-                    "application/json": Record<string, never>;
+                    "application/x-www-form-urlencoded": {
+                        /** @enum {string} */
+                        grant_type?: "refresh_token";
+                    };
                 };
             };
             responses: {
-                /** @description No content (logout successful). */
-                204: {
+                /** @description Access token successfully refreshed */
+                200: {
                     headers: {
+                        /** @description New refresh_token set in cookie */
+                        "Set-Cookie"?: string;
                         [name: string]: unknown;
                     };
-                    content?: never;
+                    content: {
+                        "application/json": {
+                            access_token?: string;
+                            expires_in?: number;
+                            token_type?: string;
+                        };
+                    };
                 };
-                /** @description Invalid token or refresh token not provided. */
+                /** @description Invalid request or missing refresh token */
                 400: {
                     headers: {
                         [name: string]: unknown;
@@ -284,7 +327,11 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns information about the current user. Requires `access_token` cookie */
+        /**
+         * Get current authenticated user information
+         * @description Returns information about the currently authenticated user.   Requires a valid access token (e.g., via Authorization header or cookie).
+         *
+         */
         get: {
             parameters: {
                 query?: never;
@@ -294,16 +341,25 @@ export interface paths {
             };
             requestBody?: never;
             responses: {
-                /** @description Successfully returned a user information */
+                /** @description Successfully returned user info */
                 200: {
                     headers: {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["User"][];
+                        "application/json": components["schemas"]["User"];
                     };
                 };
-                /** @description Failed to retrieve user profile */
+                /** @description Unauthorized or token missing/invalid */
+                401: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+                /** @description Internal server error during profile fetching */
                 500: {
                     headers: {
                         [name: string]: unknown;
@@ -322,71 +378,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/token/refresh/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Refreshes the access token by taking the refresh token from the `refresh_token` cookie */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            /** @description No body required; cookie is used */
-            requestBody?: {
-                content: {
-                    "application/json": Record<string, never>;
-                };
-            };
-            responses: {
-                /** @description Token successfully updated. */
-                200: {
-                    headers: {
-                        /** @description A new access token in a cookie named `access_token`. */
-                        "Set-Cookie"?: string;
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": {
-                            access?: string;
-                        };
-                    };
-                };
-                /** @description Bad request */
-                400: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": {
-                            detail?: string;
-                        };
-                    };
-                };
-                /** @description Unauthorized - no valid refresh token */
-                401: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["Error"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/events/": {
         parameters: {
             query?: never;
@@ -394,7 +385,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns list of the events. */
+        /**
+         * Returns a list of events.
+         * @description Returns list of the events.
+         */
         get: {
             parameters: {
                 query?: never;
@@ -441,7 +435,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a single event object by its unique ID. */
+        /**
+         * Returns details of a single event by its unique ID.
+         * @description Returns a single event object by its unique ID.
+         */
         get: {
             parameters: {
                 query?: never;
