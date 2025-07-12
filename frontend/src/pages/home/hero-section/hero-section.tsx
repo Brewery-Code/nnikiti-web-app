@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { publicRqClient } from "@/shared/api/instance";
-import { NavigationButton } from "./ui";
+import { SearchBar } from "./ui";
 import { Arrow, student } from "./icons";
 
 const navigationButtons = [
@@ -68,7 +68,7 @@ export default function HeroSection({
   return (
     <section
       className={clsx(
-        "relative w-full h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat",
+        "fade-out-animation relative h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat",
         "before:absolute before:-top-16 before:w-full before:h-16 before:bg-black",
         "after:absolute after:-bottom-32 after:w-full after:h-32 after:bg-gradient-to-b after:from-black after:to-transparent",
         className
@@ -92,27 +92,19 @@ export default function HeroSection({
           `,
         }}
       />
-      <div className="container-base flex flex-col align-center gap-0 h-full">
-        <div className="z-10 mt-[6dvh]">
-          <h1 className="text-4xl md:text-7xl xl:text-8xl  font-bold -tracking-tighter">
+      <div className="container-base flex flex-col justify-between items-center gap-0 h-full">
+        <div className="flex flex-col items-center z-10 mt-16">
+          <h1 className="text-4xl md:text-7xl xl:text-8xl  font-bold -tracking-tighter text-center">
             EVERY GIANT LEAP STARTS WITH ONE SMALL STEP
           </h1>
-          <h2 className="mt-4 text-base md:text-2xl leading-6 font-bold tracking-[0.12em]">
+          <h2 className="mt-4 text-base md:text-2xl leading-6 font-bold tracking-[0.12em] text-center">
             EVERY GIANT LEAP STARTS WITH ONE SMALL STEP EVERY{" "}
           </h2>
         </div>
-        <div className="grid grid-cols-2 justify-items-center gap-2 md:flex justify-between mt-auto">
-          {navigationButtons.map((btn, idx) => (
-            <NavigationButton
-              key={idx}
-              img={btn.img}
-              title={btn.mainTitle}
-              subtitle={btn.subTitle}
-              description={btn.description}
-            />
-          ))}
-        </div>
-        <Arrow className="mx-auto mb-6 mt-20 animate-bounce" />
+        <SearchBar className={"flex justify-center mt-0"} />
+
+        <div className="flex gap-2 justify-center"></div>
+        <Arrow className="mx-auto mb-6 mt-32 animate-bounce" />
       </div>
     </section>
   );

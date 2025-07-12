@@ -56,6 +56,23 @@
       transform: translateY(0px) scale(1);
     }
   }
+
+  .fade-out-animation {
+    animation: fade-out-animation both;
+    animation-timeline: view();
+    animation-range: exit 40% exit 100%;
+  }
+
+  @keyframes fade-out-animation {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
 }
 
 @layer utilities {
