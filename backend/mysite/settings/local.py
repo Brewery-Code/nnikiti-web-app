@@ -1,10 +1,16 @@
 from .base import *
 
+
+###########################
+# General
+###########################
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+###########################
 # Database
+###########################
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -16,19 +22,26 @@ DATABASES = {
     }
 }
 
-# Static files (CSS, JavaScript, Images)
+###########################
+# Static files
+# (CSS, JavaScript, Images)
+###########################
 STATIC_URL = "static/"
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# CORS settings
+###########################
+# CORS
+###########################
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
 
-# Oauth2 provider settings
+###########################
+# OAuth2 provider
+###########################
 OAUTH2_PROVIDER = {
     "ACCESS_TOKEN_EXPIRE_SECONDS": 3600,
     "REFRESH_TOKEN_EXPIRE_SECONDS": 2592000,

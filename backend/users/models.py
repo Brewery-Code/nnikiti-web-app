@@ -25,3 +25,4 @@ class User(AbstractUser):
     class Meta:
         verbose_name = _("User")
         verbose_name_plural = _("Users")
+        db_table = "User"

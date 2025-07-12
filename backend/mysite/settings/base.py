@@ -1,4 +1,3 @@
-from datetime import timedelta
 from pathlib import Path
 from decouple import config
 
@@ -10,7 +9,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
 
-# Application definition
+###########################
+# Applications
+###########################
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -31,6 +32,9 @@ INSTALLED_APPS = [
     "events.apps.EventsConfig",
 ]
 
+###########################
+# Middleware
+###########################
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
@@ -43,8 +47,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "mysite.urls"
-
+###########################
+# Templates
+###########################
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -61,11 +66,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "mysite.wsgi.application"
-
-
+###########################
 # Password validation
-
+###########################
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -81,8 +84,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
+###########################
+# Languages and timezone
+###########################
 LANGUAGES = [
     ("en", "English"),
     ("uk", "Ukrainian"),
@@ -107,18 +111,20 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Default primary key field type
+###########################
+# General
+###########################
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# General settings
 AUTH_USER_MODEL = "users.User"
 
-# OAuth2 general settings
-SOCIAL_AUTH_JSONFIELD_ENABLED = True
+ROOT_URLCONF = "mysite.urls"
 
-SOCIAL_AUTH_URL_NAMESPACE = "social"
+WSGI_APPLICATION = "mysite.wsgi.application"
 
+###########################
+# OAuth2
+###########################
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "social_core.backends.google.GoogleOAuth2",
@@ -135,22 +141,9 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "picture",
 ]
 
-# SOCIAL_AUTH_PIPELINE = (
-#     "social_core.pipeline.social_auth.social_details",
-#     "social_core.pipeline.social_auth.social_uid",
-#     "social_core.pipeline.social_auth.auth_allowed",
-#     "social_core.pipeline.social_auth.social_user",
-#     "social_core.pipeline.social_auth.associate_by_email",
-#     "social_core.pipeline.user.create_user",
-#     "social_core.pipeline.social_auth.associate_user",
-#     "social_core.pipeline.social_auth.load_extra_data",
-#     "users.pipeline.save_avatar",
-#     'users.pipeline.get_user_role',
-#     "social_core.pipeline.user.user_details",
-#     "users.pipeline.get_token_google_oauth",
-# )
-
-# REST Framework general settings
+###########################
+# REST-framework
+###########################
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
@@ -158,7 +151,9 @@ REST_FRAMEWORK = {
     )
 }
 
-# MDEditor settings
+###########################
+# MDEditor
+###########################
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
 MDEDITOR_CONFIGS = {

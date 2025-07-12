@@ -3,7 +3,7 @@ import re
 from .models import User
 
 def assign_user_role(user):
-    """Визначає роль користувача за email і зберігає в базі"""
+    """Defines the user role for email and stores it in the database"""
     email = (user.email or "").lower()
 
     if not email.endswith("@nuwm.edu.ua"):

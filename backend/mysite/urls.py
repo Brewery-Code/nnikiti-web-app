@@ -7,19 +7,19 @@ from users.views import google_login, CustomTokenView
 import oauth2_provider.views as oauth2_views
 
 v1_patterns = [
-    path("core/", include(("core.urls", "core"))),
-    path("users/", include(("users.urls", "users"))),
-    path("events/", include(("events.urls", "news"))),
+    path("core/", include("core.urls")),
+    path("users/", include("users.urls" )),
+    path("events/", include("events.urls")),
+    path('auth/authorize/', oauth2_views.AuthorizationView.as_view(), name="authorize"),
+    path('auth/token/', CustomTokenView.as_view(), name="token"),
+    path("auth/google/", google_login, name='google_login'),
 ]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("rosetta/", include("rosetta.urls")),
     path("mdeditor/", include("mdeditor.urls")),
-    path("api/v1/", include((v1_patterns, "v1"))),
-    path('api/v1/o/authorize/', oauth2_views.AuthorizationView.as_view(), name="authorize"),
-    path('api/v1/o/token/', CustomTokenView.as_view(), name="token"),
-    path("api/v1/auth/google/", google_login),
+    path("api/v1/", include(v1_patterns)),
 ]
 
 if settings.DEBUG:
