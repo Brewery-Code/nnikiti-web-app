@@ -20,9 +20,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # installed
     "corsheaders",
-    "drf_yasg",
-    "social_django",
-    "rest_framework_simplejwt.token_blacklist",
+    'rest_framework',
+    'oauth2_provider',
     "rosetta",
     "parler",
     "mdeditor",
@@ -136,24 +135,27 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "picture",
 ]
 
-SOCIAL_AUTH_PIPELINE = (
-    "social_core.pipeline.social_auth.social_details",
-    "social_core.pipeline.social_auth.social_uid",
-    "social_core.pipeline.social_auth.auth_allowed",
-    "social_core.pipeline.social_auth.social_user",
-    "social_core.pipeline.social_auth.associate_by_email",
-    "social_core.pipeline.user.create_user",
-    "social_core.pipeline.social_auth.associate_user",
-    "social_core.pipeline.social_auth.load_extra_data",
-    "users.pipeline.save_avatar",
-    'users.pipeline.get_user_role',
-    "social_core.pipeline.user.user_details",
-    "users.pipeline.get_token_google_oauth",
-)
+# SOCIAL_AUTH_PIPELINE = (
+#     "social_core.pipeline.social_auth.social_details",
+#     "social_core.pipeline.social_auth.social_uid",
+#     "social_core.pipeline.social_auth.auth_allowed",
+#     "social_core.pipeline.social_auth.social_user",
+#     "social_core.pipeline.social_auth.associate_by_email",
+#     "social_core.pipeline.user.create_user",
+#     "social_core.pipeline.social_auth.associate_user",
+#     "social_core.pipeline.social_auth.load_extra_data",
+#     "users.pipeline.save_avatar",
+#     'users.pipeline.get_user_role',
+#     "social_core.pipeline.user.user_details",
+#     "users.pipeline.get_token_google_oauth",
+# )
 
 # REST Framework general settings
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": ("users.authentication.CookieJWTAuthentication",)
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        "drf_social_oauth2.authentication.SocialAuthentication",
+    )
 }
 
 # MDEditor settings

@@ -1,14 +1,9 @@
 from django.urls import path
 
-from .views import TokenRefreshFromCookieView, LogoutView, UserAPIView
+from .views import LogoutView, UserAPIView
 
 
 urlpatterns = [
-    path(
-        "token/refresh/",
-        TokenRefreshFromCookieView.as_view(),
-        name="token_refresh",
-    ),
     path("logout/", LogoutView.as_view(), name="logout"),
     path("me/", UserAPIView.as_view()),
 ]

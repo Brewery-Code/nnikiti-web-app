@@ -28,16 +28,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
 
-# JWT settings
-DRFSO2_ACTIVATE_JWT = True
-
-
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=10),
-    "REFRESH_TOKEN_LIFETIME": timedelta(seconds=20),
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": True,
-    "AUTH_COOKIE": "access_token",
-    "AUTH_COOKIE_HTTP_ONLY": True,
-    "AUTH_COOKIE_SAMESITE": "Lax",
+# Oauth2 provider settings
+OAUTH2_PROVIDER = {
+    "ACCESS_TOKEN_EXPIRE_SECONDS": 3600,
+    "REFRESH_TOKEN_EXPIRE_SECONDS": 2592000,
+    "ROTATE_REFRESH_TOKEN": True,
 }
