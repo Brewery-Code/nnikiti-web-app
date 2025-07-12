@@ -9,6 +9,8 @@ servers:
     description: Local development
 
 tags:
+  - name: auth
+    description: Auth endpoints
   - name: users
     description: Users endpoints
   - name: core
@@ -21,6 +23,7 @@ paths:
     get:
       tags:
         - core
+      summary: Returns a list of slider images.
       description: Returns a list of slider images
       responses:
         "200":
@@ -41,6 +44,7 @@ paths:
     get:
       tags:
         - core
+      summary: Returns a list of data for the statistic block.
       description: Returns a list of data for statistic block
       responses:
         "200":
@@ -61,6 +65,7 @@ paths:
     get:
       tags:
         - core
+      summary: Returns a list of partners.
       description: Returns a list of data for partners block
       responses:
         "200":
@@ -81,6 +86,7 @@ paths:
     get:
       tags:
         - core
+      summary: Returns a list of FAQs (questions and answers).
       description: Returns a list of data for the FAQ block
       responses:
         "200":
@@ -98,48 +104,91 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
-  /users/login/google-oauth2/:
-    get:
+  /auth/google/:
+    post:
       tags:
-        - users
-      description: Starts the OAuth2 flow for Google authorization.
-        The user will be redirected to the Google login page.
-        After authorization, the user will be redirected to the callback URL,
-        where the access token will be processed.
+        - auth
+      summary: Login using Google OAuth2 with PKCE
+      description: >
+        Exchanges authorization `code` and `code_verifier` with Google and returns access token (in body)
+        and sets refresh token as HttpOnly cookie.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [ code, code_verifier ]
+              properties:
+                code:
+                  type: string
+                code_verifier:
+                  type: string
       responses:
-        "302":
-          description: Redirect to Google OAuth2 consent screen
+        "200":
+          description: Authenticated and tokens issued
           headers:
-            Location:
-              description: Google OAuth2 consent screen URL
+            Set-Cookie:
+              description: Refresh token is set in a cookie named `refresh_token`
               schema:
                 type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  expires_in:
+                    type: integer
+                  token_type:
+                    type: string
         "400":
-          description: Invalid request
+          description: Missing code or code_verifier, or Google exchange error
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
 
-  /users/logout/:
+  /auth/token/:
     post:
       tags:
-        - users
-      description: Logs out the user. Requires `refresh_token` cookie
-      security:
-        - JWTAuthCookies: []
+         - auth
+      summary: Refresh access token using refresh_token cookie
+      description: >
+        Uses `refresh_token` stored in HttpOnly cookie to issue a new access token.  
+        Requires `grant_type=refresh_token` in POST body.
       requestBody:
-        description: No body required; cookie is used
-        required: false
+        required: true
         content:
-          application/json:
+          application/x-www-form-urlencoded:
             schema:
               type: object
+              properties:
+                grant_type:
+                  type: string
+                  enum: [ refresh_token ]
       responses:
-        "204":
-          description: No content (logout successful).
+        "200":
+          description: Access token successfully refreshed
+          headers:
+            Set-Cookie:
+              description: New refresh_token set in cookie
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  expires_in:
+                    type: integer
+                  token_type:
+                    type: string
         "400":
-          description: Invalid token or refresh token not provided.
+          description: Invalid request or missing refresh token
           content:
             application/json:
               schema:
@@ -149,77 +198,36 @@ paths:
     get:
       tags:
         - users
-      description: Returns information about the current user. Requires `access_token` cookie
+      summary: Get current authenticated user information
+      description: >
+        Returns information about the currently authenticated user.  
+        Requires a valid access token (e.g., via Authorization header or cookie).
       security:
-        - JWTAuthCookies: []
+        - JWTAuthCookies: [ ]
       responses:
         "200":
-          description: Successfully returned a user information
+          description: Successfully returned user info
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/User"
-        "500":
-          description: Failed to retrieve user profile
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-
-  /users/token/refresh/:
-    post:
-      tags:
-        - users
-      description: Refreshes the access token by taking the refresh token from the `refresh_token` cookie
-      security:
-        - JWTAuthCookies: []
-      requestBody:
-        description: No body required; cookie is used
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-      responses:
-        "200":
-          description: Token successfully updated.
-          headers:
-            Set-Cookie:
-              description: A new access token in a cookie named `access_token`.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  access:
-                    type: string
-        "400":
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  detail:
-                    type: string
+                $ref: "#/components/schemas/User"
         "401":
-          description: Unauthorized - no valid refresh token
+          description: Unauthorized or token missing/invalid
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-                type: object
-                properties:
-                  detail:
-                    type: string
+        "500":
+          description: Internal server error during profile fetching
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /events/:
     get:
       tags:
         - events
+      summary: Returns a list of events.
       description: Returns list of the events.
       responses:
         "200":
@@ -243,6 +251,7 @@ paths:
     get:
       tags:
         - events
+      summary: Returns details of a single event by its unique ID.
       description: Returns a single event object by its unique ID.
       parameters:
         - name: id
