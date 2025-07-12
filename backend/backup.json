@@ -438,7 +438,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$vcm3KjLvwvx3NiEXKRPNMh$r5ZB8H+jEJ8doGfvuxLfXINJVCBbLOQQLTEpOv9lskY=",
-    "last_login": "2025-07-10T09:13:32.439Z",
+    "last_login": "2025-07-12T14:15:42.413Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -454,23 +454,23 @@
   }
 },
 {
-  "model": "users.user",
-  "pk": 2,
+  "model": "oauth2_provider.application",
+  "pk": 1,
   "fields": {
-    "password": "!XMnFIRdPNwnsOcafLQygO62TPlT1oXpPpo3yXxqf",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "yakymchuk_ak22",
-    "first_name": "Олександр Сергійович",
-    "last_name": "Якимчук",
-    "email": "yakymchuk_ak22@nuwm.edu.ua",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-07-04T08:03:39.634Z",
-    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocK2zQ2thuLlnKz6hCMijIon0lcPZlDDESchRsdcZoQsXlZ9cy7B=s96-c",
-    "role": "ST",
-    "groups": [],
-    "user_permissions": []
+    "client_id": "r8pY1u08ouPEzYoSNrsSUoG9mDpsGil63WL1t7bZ",
+    "user": null,
+    "redirect_uris": "http://127.0.0.1:5173/",
+    "post_logout_redirect_uris": "",
+    "client_type": "public",
+    "authorization_grant_type": "authorization-code",
+    "client_secret": "pbkdf2_sha256$1000000$F93IBuP9JvidXVRnj4uDwi$LF0Q9Gl5Ohf3lnoo2MtsHH0d6eGOqu+ksp1un82hZIc=",
+    "hash_client_secret": true,
+    "name": "React SPA",
+    "skip_authorization": true,
+    "created": "2025-07-12T11:03:19.475Z",
+    "updated": "2025-07-12T12:51:33.926Z",
+    "algorithm": "",
+    "allowed_origins": ""
   }
 }
 ]
