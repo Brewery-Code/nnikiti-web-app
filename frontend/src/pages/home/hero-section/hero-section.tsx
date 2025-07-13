@@ -68,7 +68,7 @@ export default function HeroSection({
   return (
     <section
       className={clsx(
-        "fade-out-animation relative h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat",
+        "relative h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat",
         "before:absolute before:-top-16 before:w-full before:h-16 before:bg-black",
         "after:absolute after:-bottom-32 after:w-full after:h-32 after:bg-gradient-to-b after:from-black after:to-transparent",
         className

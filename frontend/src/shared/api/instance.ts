@@ -7,7 +7,7 @@ import { refreshToken } from "../model/session";
 
 export const fetchClient = createFetchClient<ApiPaths>({
   baseUrl: CONFIG.API_BASE_URL,
-  credentials: "include",
+  // credentials: "include",
   headers: {
     "Accept-Language": i18n.language,
   },

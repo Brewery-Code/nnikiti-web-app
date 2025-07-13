@@ -12,12 +12,12 @@ const TOKEN_KEY = "access_token";
 
 let refreshTokenPromise: Promise<string | null> | null = null;
 
-function getToken() {
-  const match = document.cookie.match(
-    RegExp("(?:^|;\\s*)" + escape(TOKEN_KEY) + "=([^;]*)")
-  );
-  return match ? match[1] : null;
-}
+// function getToken() {
+//   const match = document.cookie.match(
+//     RegExp("(?:^|;\\s*)" + escape(TOKEN_KEY) + "=([^;]*)")
+//   );
+//   return match ? match[1] : null;
+// }
 
 export const logout = () => {
   document.cookie.split(";").forEach((cookie) => {
@@ -28,25 +28,37 @@ export const logout = () => {
 };
 
 export const getSession = (): Session | null => {
-  const token = getToken();
+  const token = localStorage.getItem(TOKEN_KEY);
   return token ? jwtDecode<Session>(token) : null;
 };
 
 export const refreshToken = async () => {
-  const token = getToken();
-  if (!token) {
+  const token = localStorage.getItem(TOKEN_KEY);
+  const exp = localStorage.getItem("access_token_exp");
+
+  if (!token || !exp) {
     return null;
   }
 
-  const session = jwtDecode<Session>(token!);
-
-  if (session.exp < Date.now() / 1000) {
+  if (Number(exp) < Date.now() / 1000) {
     if (!refreshTokenPromise) {
       refreshTokenPromise = publicFetchClient
-        .POST("/users/token/refresh/", {
+        .POST("/auth/token/", {
           credentials: "include",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: {
+            client_id: "client_backend",
+            grant_type: "refresh_token",
+          },
         })
-        .then((r) => r.data?.access ?? null)
+        // .then((r) => r.data?.access_token ?? null)
+        .then((r) => {
+          if (!r.data?.access_token) {
+            console.log(r);
+          }
+        })
         .then((newToken) => {
           if (newToken) {
             return newToken;
