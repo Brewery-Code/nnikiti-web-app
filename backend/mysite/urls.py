@@ -4,13 +4,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from users.views import google_login, CustomTokenView
-import oauth2_provider.views as oauth2_views
+
 
 v1_patterns = [
     path("core/", include("core.urls")),
     path("users/", include("users.urls" )),
     path("events/", include("events.urls")),
-    path('auth/authorize/', oauth2_views.AuthorizationView.as_view(), name="authorize"),
     path('auth/token/', CustomTokenView.as_view(), name="token"),
     path("auth/google/", google_login, name='google_login'),
 ]

@@ -129,10 +129,10 @@ def google_login(request):
     response.set_cookie(
         "refresh_token",
         refresh_token_obj.token,
-        httponly=False,
+        httponly=True,
         secure=False,  # True on prod
-        samesite="Strict",
-        path="/api/v1/auth/token/"
+        samesite="Lax",
+        path="/api/v1/auth/token/",
     )
 
     return response
@@ -203,7 +203,7 @@ class CustomTokenView(OAuthLibMixin, APIView):
 class UserAPIView(APIView):
     """
     API view to retrieve the authenticated user's profile data.
-    Requires a valid JWT token (expected in cookies).
+    Requires a valid access token (expected in headers).
     """
 
     permission_classes = [IsAuthenticated]
@@ -221,3 +221,19 @@ class UserAPIView(APIView):
             return Response(data, status=status.HTTP_200_OK)
         except Exception as e:
             raise APIException(f"Failed to retrieve user profile: {str(e)}")
+
+
+class UserRoleAPIView(APIView):
+    """API view to retrieve the user's role."""
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        try:
+            user = request.user
+            data = {
+                "id": user.pk,
+                "role": user.role,
+            }
+            return Response(data, status=status.HTTP_200_OK)
+        except Exception as e:
+            raise APIException(f"Failed to retrieve user role: {str(e)}")
