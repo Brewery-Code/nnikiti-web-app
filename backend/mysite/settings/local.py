@@ -6,7 +6,7 @@ from .base import *
 ###########################
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost",]
 
 ###########################
 # Database
@@ -34,10 +34,10 @@ MEDIA_ROOT = BASE_DIR / "media"
 ###########################
 # CORS
 ###########################
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
+CORS_ALLOW_CREDENTIALS = True
 
 ###########################
 # OAuth2 provider
