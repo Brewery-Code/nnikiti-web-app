@@ -12,9 +12,9 @@ import { Link } from "react-router-dom";
 import type { NavigationMenuData } from "./types";
 import SignInButton from "./ui/sign-in-button";
 import { ROUTES } from "@/shared/model/routes";
-import { login } from "@/features/auth";
-import { publicRqClient, rqClient } from "@/shared/api/instance";
-import { useEffect } from "react";
+import { googleLogin } from "@/features/auth";
+import { rqClient } from "@/shared/api/instance";
+import UserMenu from "./ui/user-menu";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -109,17 +109,7 @@ export default function Header() {
 
   useLoadNamespace("header", loadTranslations);
 
-  const { data, isLoading, refetch, isFetching } = rqClient.useQuery(
-    "get",
-    "/users/me/",
-    {
-      enabled: false,
-    }
-  );
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const userData = rqClient.useQuery("get", "/users/me/").data;
 
   return (
     <header
@@ -134,13 +124,14 @@ export default function Header() {
           className="hidden lg:flex"
           navigationMenuData={navigationMenuData}
         />
-        <div className="" onClick={() => refetch()}>
-          Test
-        </div>
         <SearchBar className="flex lg:hidden" />
         <div className="hidden lg:grid grid-cols-2 justify-end items-center gap-4">
           <ChangeLanguage />
-          <SignInButton onClick={() => login()} />
+          {!userData ? (
+            <SignInButton onClick={() => googleLogin()} />
+          ) : (
+            <UserMenu />
+          )}
         </div>
         <BurgerMenu className="lg:hidden" burgerMenuData={navigationMenuData} />
       </div>

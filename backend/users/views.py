@@ -129,13 +129,14 @@ def google_login(request):
     response.set_cookie(
         "refresh_token",
         refresh_token_obj.token,
-        httponly=True,
-        secure=False, # True on prod
-        samesite="Lax",
+        httponly=False,
+        secure=False,  # True on prod
+        samesite="Strict",
         path="/api/v1/auth/token/"
     )
 
     return response
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class CustomTokenView(OAuthLibMixin, APIView):
@@ -197,6 +198,7 @@ class CustomTokenView(OAuthLibMixin, APIView):
             return response
 
         return HttpResponse(content=body, status=status, headers=headers)
+
 
 class UserAPIView(APIView):
     """

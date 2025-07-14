@@ -12,24 +12,12 @@ const TOKEN_KEY = "access_token";
 
 let refreshTokenPromise: Promise<string | null> | null = null;
 
-// function getToken() {
-//   const match = document.cookie.match(
-//     RegExp("(?:^|;\\s*)" + escape(TOKEN_KEY) + "=([^;]*)")
-//   );
-//   return match ? match[1] : null;
-// }
-
 export const logout = () => {
   document.cookie.split(";").forEach((cookie) => {
-    document.cookie = cookie
-      .replace(/^ +/, "")
-      .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`);
+    const eqPos = cookie.indexOf("=");
+    const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
   });
-};
-
-export const getSession = (): Session | null => {
-  const token = localStorage.getItem(TOKEN_KEY);
-  return token ? jwtDecode<Session>(token) : null;
 };
 
 export const refreshToken = async () => {
@@ -49,19 +37,18 @@ export const refreshToken = async () => {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: {
-            client_id: "client_backend",
+            client_id: import.meta.env.VITE_BACKEND_CLIENT_ID,
             grant_type: "refresh_token",
           },
         })
-        // .then((r) => r.data?.access_token ?? null)
-        .then((r) => {
-          if (!r.data?.access_token) {
-            console.log(r);
-          }
-        })
-        .then((newToken) => {
-          if (newToken) {
-            return newToken;
+        .then((res) => {
+          if (res.data?.access_token && res.data?.expires_in) {
+            localStorage.setItem("access_token", res.data.access_token);
+            localStorage.setItem(
+              "access_token_exp",
+              String(Date.now() / 1000 + res.data.expires_in)
+            );
+            return res.data.access_token;
           } else {
             logout();
             return null;

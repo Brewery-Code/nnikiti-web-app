@@ -3,10 +3,10 @@ import { ROUTES } from "@/shared/model/routes";
 import { getSession, refreshToken } from "@/shared/model/session";
 
 export function ProtectedRoute() {
-  const session = getSession();
+  const token = refreshToken();
 
-  if (!session) {
-    return <Navigate to={ROUTES.LOGIN} />;
+  if (!token) {
+    return <Navigate to={ROUTES.HOME} />;
   }
 
   return <Outlet />;
@@ -16,7 +16,7 @@ export async function protectedLoader() {
   const token = await refreshToken();
 
   if (!token) {
-    return redirect(ROUTES.LOGIN);
+    return redirect(ROUTES.HOME);
   }
 
   return null;
