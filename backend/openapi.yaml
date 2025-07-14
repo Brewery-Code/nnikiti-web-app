@@ -110,8 +110,17 @@ paths:
         - auth
       summary: Login using Google OAuth2 with PKCE
       description: >
-        Exchanges authorization `code` and `code_verifier` with Google and returns access token (in body)
-        and sets refresh token as HttpOnly cookie.
+        1) Send JSON body with:
+           - `code` (authorization code received from Google after redirect)
+           - `code_verifier` (PKCE code verifier generated on frontend)
+        2) Backend exchanges the `code` and `code_verifier` for Google access token.
+        
+        3) User is created or updated in the local database, and app-specific access and refresh tokens are generated.
+        
+        4) **Access token is returned in the JSON response body.**
+        
+        5) **Refresh token is set as a secure HttpOnly cookie named `refresh_token`.**
+        *This endpoint does NOT require an Authorization header (no token required) since it is the login endpoint.*
       requestBody:
         required: true
         content:
@@ -122,14 +131,16 @@ paths:
               properties:
                 code:
                   type: string
+                  description: Authorization code received from Google (provided by frontend)
                 code_verifier:
                   type: string
+                  description: PKCE code verifier matching the code_challenge sent initially
       responses:
         "200":
-          description: Authenticated and tokens issued
+          description: Successfully authenticated, tokens issued
           headers:
             Set-Cookie:
-              description: Refresh token is set in a cookie named `refresh_token`
+              description: Refresh token is set in a HttpOnly, Secure cookie
               schema:
                 type: string
           content:
@@ -139,12 +150,15 @@ paths:
                 properties:
                   access_token:
                     type: string
+                    description: OAuth2 access token to use in Authorization header
                   expires_in:
                     type: integer
+                    description: Access token lifetime in seconds
                   token_type:
                     type: string
+                    example: Bearer
         "400":
-          description: Missing code or code_verifier, or Google exchange error
+          description: Missing code or code_verifier, or Google token exchange error
           content:
             application/json:
               schema:
@@ -153,27 +167,41 @@ paths:
   /auth/token/:
     post:
       tags:
-         - auth
+        - auth
       summary: Refresh access token using refresh_token cookie
       description: >
-        Uses `refresh_token` stored in HttpOnly cookie to issue a new access token.  
-        Requires `grant_type=refresh_token` in POST body.
+        1) Send POST with body:
+           - `client_id=client_id`
+           - `grant_type=refresh_token`
+        
+        2) **Refresh token is NOT sent in the body; it is automatically read from the HttpOnly cookie `refresh_token`.**
+        
+        3) If the refresh token is valid, a new access token is returned in the response body.
+        
+        4) A new refresh token cookie is also set to replace the old one.
+        *This endpoint does NOT require an Authorization header because refresh token is taken from the cookie.*
       requestBody:
         required: true
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
+              required: [ client_id ,grant_type ]
               properties:
+                client_id:
+                  type: string
+                  enum: [client_id]
+                  description: Client token from API
                 grant_type:
                   type: string
                   enum: [ refresh_token ]
+                  description: Must be exactly `refresh_token`
       responses:
         "200":
           description: Access token successfully refreshed
           headers:
             Set-Cookie:
-              description: New refresh_token set in cookie
+              description: Updated refresh token set in cookie
               schema:
                 type: string
           content:
@@ -183,12 +211,15 @@ paths:
                 properties:
                   access_token:
                     type: string
+                    description: New access token
                   expires_in:
                     type: integer
+                    description: Access token lifetime in seconds
                   token_type:
                     type: string
+                    example: Bearer
         "400":
-          description: Invalid request or missing refresh token
+          description: Invalid request or missing/invalid refresh token
           content:
             application/json:
               schema:
@@ -201,9 +232,9 @@ paths:
       summary: Get current authenticated user information
       description: >
         Returns information about the currently authenticated user.  
-        Requires a valid access token (e.g., via Authorization header or cookie).
+        Requires a valid `access` token via Authorization header.
       security:
-        - JWTAuthCookies: [ ]
+        - AccessTokenAuth: []
       responses:
         "200":
           description: Successfully returned user info
@@ -219,6 +250,32 @@ paths:
                 $ref: "#/components/schemas/Error"
         "500":
           description: Internal server error during profile fetching
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /users/role/:
+    get:
+      tags:
+        - users
+      summary: Get current user role
+      description: Returns information about role current user. (Required `access` token in headers)
+      security:
+        - AccessTokenAuth: []
+      responses:
+        "200":
+          description: Successfully returned information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  role:
+                    type: string
+        "401":
+          description: Unauthorized or token missing/invalid
           content:
             application/json:
               schema:
@@ -287,10 +344,9 @@ paths:
                     type: string
 components:
   securitySchemes:
-    JWTAuthCookies:
-      type: apiKey
-      in: cookie
-      name: access_token
+    AccessTokenAuth:
+      type: http
+      scheme: bearer
 
   schemas:
     Error:
