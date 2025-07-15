@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import { useState } from "react";
-import style from "./burger-menu.module.css";
-import type { NavigationMenuData } from "../../types";
-import Accordion from "./accordion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import ChangeLanguage from "../change-language";
-import SignInButton from "../sign-in-button";
+import { rqClient } from "@/shared/api/instance";
+import type { NavigationMenuData } from "../../types";
+import { SignInButton, ChangeLanguage } from "../../ui";
+import Accordion from "./accordion";
+import style from "./burger-menu.module.css";
 
 export default function BurgerMenu({
   className,
@@ -16,6 +16,28 @@ export default function BurgerMenu({
   burgerMenuData: NavigationMenuData[];
 }) {
   const { t } = useTranslation("header");
+  const userData = rqClient.useQuery("get", "/users/me/").data;
+
+  const extendedBurgerMenuData = [...burgerMenuData];
+
+  if (userData?.first_name) {
+    extendedBurgerMenuData.push({
+      title: userData.first_name,
+      link: "#",
+      list: [
+        {
+          title: t("studentAccount.schedule"),
+          link: "https://desk.nuwm.edu.ua/cgi-bin/timetable.cgi",
+        },
+        {
+          title: t("studentAccount.journal"),
+          link: "https://desk.nuwm.edu.ua/cgi-bin/kaf.cgi?n=999&t=98",
+        },
+        { title: t("studentAccount.logout"), link: "/sign-up" },
+      ],
+    });
+  }
+
   const [isBurgerOpen, setIsBurgerOpen] = useState<boolean | null>(null);
   const handleBurgerClick = () => {
     setIsBurgerOpen((prev) => (prev === true ? false : true));
@@ -52,7 +74,7 @@ export default function BurgerMenu({
         )}
       >
         <ul className="container-base flex flex-col gap-4">
-          {burgerMenuData.map((item, index) => (
+          {extendedBurgerMenuData.map((item, index) => (
             <Accordion
               key={index}
               data={item}
