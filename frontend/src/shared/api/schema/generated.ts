@@ -207,7 +207,13 @@ export interface paths {
         put?: never;
         /**
          * Login using Google OAuth2 with PKCE
-         * @description Exchanges authorization `code` and `code_verifier` with Google and returns access token (in body) and sets refresh token as HttpOnly cookie.
+         * @description 1) Send JSON body with:
+         *        - `code` (authorization code received from Google after redirect)
+         *        - `code_verifier` (PKCE code verifier generated on frontend)
+         *     2) Backend exchanges the `code` and `code_verifier` for Google access token.
+         *     3) User is created or updated in the local database, and app-specific access and refresh tokens are generated.
+         *     4) **Access token is returned in the JSON response body.**
+         *     5) **Refresh token is set as a secure HttpOnly cookie named `refresh_token`.** *This endpoint does NOT require an Authorization header (no token required) since it is the login endpoint.*
          *
          */
         post: {
@@ -220,28 +226,33 @@ export interface paths {
             requestBody: {
                 content: {
                     "application/json": {
+                        /** @description Authorization code received from Google (provided by frontend) */
                         code: string;
+                        /** @description PKCE code verifier matching the code_challenge sent initially */
                         code_verifier: string;
                     };
                 };
             };
             responses: {
-                /** @description Authenticated and tokens issued */
+                /** @description Successfully authenticated, tokens issued */
                 200: {
                     headers: {
-                        /** @description Refresh token is set in a cookie named `refresh_token` */
+                        /** @description Refresh token is set in a HttpOnly, Secure cookie */
                         "Set-Cookie"?: string;
                         [name: string]: unknown;
                     };
                     content: {
                         "application/json": {
+                            /** @description OAuth2 access token to use in Authorization header */
                             access_token?: string;
+                            /** @description Access token lifetime in seconds */
                             expires_in?: number;
+                            /** @example Bearer */
                             token_type?: string;
                         };
                     };
                 };
-                /** @description Missing code or code_verifier, or Google exchange error */
+                /** @description Missing code or code_verifier, or Google token exchange error */
                 400: {
                     headers: {
                         [name: string]: unknown;
@@ -269,7 +280,13 @@ export interface paths {
         put?: never;
         /**
          * Refresh access token using refresh_token cookie
-         * @description Uses `refresh_token` stored in HttpOnly cookie to issue a new access token.   Requires `grant_type=refresh_token` in POST body.
+         * @description 1) Send POST with body:
+         *        - `client_id=client_id`
+         *        - `grant_type=refresh_token`
+         *
+         *     2) **Refresh token is NOT sent in the body; it is automatically read from the HttpOnly cookie `refresh_token`.**
+         *     3) If the refresh token is valid, a new access token is returned in the response body.
+         *     4) A new refresh token cookie is also set to replace the old one. *This endpoint does NOT require an Authorization header because refresh token is taken from the cookie.*
          *
          */
         post: {
@@ -282,8 +299,16 @@ export interface paths {
             requestBody: {
                 content: {
                     "application/x-www-form-urlencoded": {
-                        /** @enum {string} */
-                        grant_type?: "refresh_token";
+                        /**
+                         * @description Client token from API
+                         * @enum {string}
+                         */
+                        client_id: "client_id";
+                        /**
+                         * @description Must be exactly `refresh_token`
+                         * @enum {string}
+                         */
+                        grant_type: "refresh_token";
                     };
                 };
             };
@@ -291,19 +316,22 @@ export interface paths {
                 /** @description Access token successfully refreshed */
                 200: {
                     headers: {
-                        /** @description New refresh_token set in cookie */
+                        /** @description Updated refresh token set in cookie */
                         "Set-Cookie"?: string;
                         [name: string]: unknown;
                     };
                     content: {
                         "application/json": {
+                            /** @description New access token */
                             access_token?: string;
+                            /** @description Access token lifetime in seconds */
                             expires_in?: number;
+                            /** @example Bearer */
                             token_type?: string;
                         };
                     };
                 };
-                /** @description Invalid request or missing refresh token */
+                /** @description Invalid request or missing/invalid refresh token */
                 400: {
                     headers: {
                         [name: string]: unknown;
@@ -329,7 +357,7 @@ export interface paths {
         };
         /**
          * Get current authenticated user information
-         * @description Returns information about the currently authenticated user.   Requires a valid access token (e.g., via Authorization header or cookie).
+         * @description Returns information about the currently authenticated user.   Requires a valid `access` token via Authorization header.
          *
          */
         get: {
@@ -361,6 +389,57 @@ export interface paths {
                 };
                 /** @description Internal server error during profile fetching */
                 500: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/users/role/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current user role
+         * @description Returns information about role current user. (Required `access` token in headers)
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned information */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            id?: number;
+                            role?: string;
+                        };
+                    };
+                };
+                /** @description Unauthorized or token missing/invalid */
+                401: {
                     headers: {
                         [name: string]: unknown;
                     };

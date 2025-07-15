@@ -54,6 +54,11 @@
     "uk": "Укр"
   },
   "signIn": "Вхід",
+  "studentAccount": {
+    "schedule": "Розклад",
+    "journal": "Журнал успішності",
+    "logout": "Вийти"
+  },
   "burgerMenu": {
     "home": "На головну"
   }

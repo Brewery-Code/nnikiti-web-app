@@ -1,20 +1,21 @@
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { googleLogin } from "@/features/auth";
+import { ROUTES } from "@/shared/model/routes";
+import { rqClient } from "@/shared/api/instance";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
+import type { NavigationMenuData } from "./types";
 import {
   ChangeLanguage,
   MicrocircuitLabelLogo,
   NavigationMenu,
   SearchBar,
   BurgerMenu,
+  SignInButton,
+  UserMenu,
 } from "./ui";
-import { useTranslation } from "react-i18next";
-import { loadTranslations } from "./locales";
-import { useLoadNamespace } from "@/shared/hooks";
-import { Link } from "react-router-dom";
-import type { NavigationMenuData } from "./types";
-import SignInButton from "./ui/sign-in-button";
-import { ROUTES } from "@/shared/model/routes";
-import { googleLogin } from "@/features/auth";
-import { rqClient } from "@/shared/api/instance";
-import UserMenu from "./ui/user-menu";
+import { useEffect } from "react";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -109,7 +110,13 @@ export default function Header() {
 
   useLoadNamespace("header", loadTranslations);
 
-  const userData = rqClient.useQuery("get", "/users/me/").data;
+  const userRole = rqClient.useQuery("get", "/users/role/").data;
+  const isUserLogin = () => {
+    if (userRole?.role === "GU") {
+      return false;
+    }
+    return true;
+  };
 
   return (
     <header
@@ -127,7 +134,7 @@ export default function Header() {
         <SearchBar className="flex lg:hidden" />
         <div className="hidden lg:grid grid-cols-2 justify-end items-center gap-4">
           <ChangeLanguage />
-          {!userData ? (
+          {isUserLogin() ? (
             <SignInButton onClick={() => googleLogin()} />
           ) : (
             <UserMenu />

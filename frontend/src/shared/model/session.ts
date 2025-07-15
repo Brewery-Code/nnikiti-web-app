@@ -1,12 +1,4 @@
-import { jwtDecode } from "jwt-decode";
 import { publicFetchClient } from "@/shared/api/instance";
-
-type Session = {
-  userId: string;
-  email: string;
-  exp: number;
-  iat: number;
-};
 
 const TOKEN_KEY = "access_token";
 

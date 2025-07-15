@@ -54,6 +54,11 @@
     "uk": "Uk"
   },
   "signIn": "Sign In",
+  "studentAccount": {
+    "schedule": "Schedule",
+    "journal": "The journal of success",
+    "logout": "Logout"
+  },
   "burgerMenu": {
     "home": "To home"
   }
