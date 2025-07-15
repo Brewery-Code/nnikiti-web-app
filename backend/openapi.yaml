@@ -259,9 +259,7 @@ paths:
       tags:
         - users
       summary: Get current user role
-      description: Returns information about role current user. (Required `access` token in headers)
-      security:
-        - AccessTokenAuth: []
+      description: Returns information about role current user. (Required `access` token in headers for auth user)
       responses:
         "200":
           description: Successfully returned information
@@ -274,6 +272,27 @@ paths:
                     type: integer
                   role:
                     type: string
+              examples:
+                guest:
+                  summary: Guest
+                  value:
+                    id: null
+                    role: GU
+                student:
+                  summary: Student
+                  value:
+                    id: 42
+                    role: ST
+                teacher:
+                  summary: Teacher
+                  value:
+                    id: 1
+                    role: TE
+                data_operator:
+                  summary: Data Operator
+                  value:
+                    id: 4
+                    role: OP
         "401":
           description: Unauthorized or token missing/invalid
           content:

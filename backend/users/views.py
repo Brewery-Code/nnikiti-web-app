@@ -8,12 +8,14 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import AnonymousUser
+from django.contrib.auth import get_user_model
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.exceptions import APIException
 
 from oauthlib.common import generate_token
@@ -26,7 +28,6 @@ from oauth2_provider.models import (
     RefreshToken,
     get_access_token_model,
 )
-from django.contrib.auth import get_user_model
 
 from mysite.settings import base
 from .utils import assign_user_role
@@ -225,11 +226,18 @@ class UserAPIView(APIView):
 
 class UserRoleAPIView(APIView):
     """API view to retrieve the user's role."""
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request):
+        user = request.user
+
+        if isinstance(user, AnonymousUser):
+            return Response({
+                "id": None,
+                "role": "GU"
+            }, status=status.HTTP_200_OK)
+
         try:
-            user = request.user
             data = {
                 "id": user.pk,
                 "role": user.role,
