@@ -75,13 +75,21 @@ export default function UserMenu() {
         first:pt-2 last-child:pb-2"
         >
           {userRole?.role === "ST"
-            ? studentMenuData.map((item) => (
-                <Link className="px-2 hover:bg-gray-800" to={item.link}>
+            ? studentMenuData.map((item, index) => (
+                <Link
+                  className="px-2 hover:bg-gray-800"
+                  key={index}
+                  to={item.link}
+                >
                   {item.title}
                 </Link>
               ))
-            : teacherMenuData.map((item) => (
-                <Link className="px-2 hover:bg-gray-600" to={item.link}>
+            : teacherMenuData.map((item, index) => (
+                <Link
+                  className="px-2 hover:bg-gray-600"
+                  key={index}
+                  to={item.link}
+                >
                   {item.title}
                 </Link>
               ))}
