@@ -30,7 +30,7 @@ from oauth2_provider.models import (
 )
 
 from mysite.settings import base
-from .utils import assign_user_role
+from .utils import assign_user_role, check_user_email
 
 
 User = get_user_model()
@@ -93,6 +93,8 @@ def google_login(request):
     if not email:
         return Response({"error": "No email returned by Google",
                          "userinfo": userinfo}, status=400)
+
+    check_user_email(email)
 
     user, _ = User.objects.get_or_create(email=email, defaults={
         "username": email,

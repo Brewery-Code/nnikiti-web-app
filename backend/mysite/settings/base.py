@@ -19,17 +19,21 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     # installed
     "corsheaders",
-    'rest_framework',
-    'oauth2_provider',
+    "rest_framework",
+    "oauth2_provider",
     "rosetta",
     "parler",
     "mdeditor",
+    "taggit",
+
     # my custom
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
     "events.apps.EventsConfig",
+    "departments.apps.DepartmentsConfig",
 ]
 
 ###########################
@@ -140,6 +144,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "last_name",
     "picture",
 ]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {
+    'hd': 'nuwm.edu.ua'
+}
 
 ###########################
 # REST-framework
