@@ -19,17 +19,21 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     # installed
     "corsheaders",
-    'rest_framework',
-    'oauth2_provider',
+    "rest_framework",
+    "oauth2_provider",
     "rosetta",
     "parler",
     "mdeditor",
+    "taggit",
+
     # my custom
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
     "events.apps.EventsConfig",
+    "departments.apps.DepartmentsConfig",
 ]
 
 ###########################

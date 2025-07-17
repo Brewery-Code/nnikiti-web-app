@@ -10,6 +10,7 @@ v1_patterns = [
     path("core/", include("core.urls")),
     path("users/", include("users.urls" )),
     path("events/", include("events.urls")),
+    # path("departments/", include("departments.urls")),
     path('auth/token/', CustomTokenView.as_view(), name="token"),
     path("auth/google/", google_login, name='google_login'),
 ]
