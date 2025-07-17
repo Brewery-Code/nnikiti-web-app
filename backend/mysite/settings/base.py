@@ -141,6 +141,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "picture",
 ]
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {
+    'hd': 'nuwm.edu.ua'
+}
+
 ###########################
 # REST-framework
 ###########################
