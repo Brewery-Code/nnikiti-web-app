@@ -1,53 +1,38 @@
 {
   "navigationMenu": {
-    "aboutUs": {
-      "title": "About us",
-      "history": "History",
-      "strategy": "Strategy",
-      "team": "Team",
-      "gallery": "Gallery"
-    },
-    "entrant": {
-      "title": "For entrant",
-      "undergraduateStudies": "Undergraduate Studies",
-      "bachelorDegree": "Bachelor's degree",
-      "masterDegree": "Master's degree",
-      "postgraduateStudies": "Postgraduate Studies",
-      "graduates": "Graduates"
-    },
-    "departments": {
-      "title": "Departments",
-      "higherMathematics": "Higher Mathematics",
-      "computerTechnologiesAndEconomicCybernetics": "Computer Technologies and Economic Cybernetics",
-      "computingEngineering": "Computing Engineering",
-      "computerScienceAndAppliedMathematics": "Computer Science and Applied Mathematics"
-    },
-    "events": {
-      "title": "Events",
-      "eventsCalendar": "Events Calendar",
-      "news": "News",
-      "announcements": "Announcements",
-      "activities": "Activities"
-    },
-    "science": {
-      "title": "Science",
-      "publications": "Publications",
-      "research": "Research",
-      "conferences": "Conferences",
-      "grants": "Grants"
-    },
-    "partners": {
-      "title": "Partners",
-      "academicMobility": "Academic Mobility",
-      "businessPartners": "Business and Enterprise"
-    },
-    "contacts": {
-      "title": "Contacts & FAQ",
-      "contacts": "Contacts",
-      "FAQ": "FAQ",
-      "question": "Ask a question",
-      "socialMedia": "Social media"
-    }
+    "aboutUs": "About us",
+    "history": "History",
+    "strategy": "Strategy",
+    "team": "Team",
+    "gallery": "Gallery",
+    "forEntrant": "For entrant",
+    "undergraduateStudies": "Undergraduate Studies",
+    "bachelorDegree": "Bachelor's degree",
+    "masterDegree": "Master's degree",
+    "postgraduateStudies": "Postgraduate Studies",
+    "graduates": "Graduates",
+    "departments": "Departments",
+    "higherMathematics": "Higher Mathematics",
+    "computerTechnologiesAndEconomicCybernetics": "Computer Technologies and Economic Cybernetics",
+    "computingEngineering": "Computing Engineering",
+    "computerScienceAndAppliedMathematics": "Computer Science and Applied Mathematics",
+    "events": "Events",
+    "eventsCalendar": "Events Calendar",
+    "news": "News",
+    "announcements": "Announcements",
+    "activities": "Activities",
+    "science": "Science",
+    "publications": "Publications",
+    "research": "Research",
+    "conferences": "Conferences",
+    "grants": "Grants",
+    "partners": "Partners",
+    "academicMobility": "Academic Mobility",
+    "businessPartners": "Business and Enterprise",
+    "contacts&FAQ": "Contacts & FAQ",
+    "contacts": "Contacts",
+    "FAQ": "FAQ",
+    "question": "Ask a question"
   },
   "languageSwitcher": {
     "en": "En",

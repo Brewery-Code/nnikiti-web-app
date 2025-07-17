@@ -1,0 +1,32 @@
+{
+  "administration": {
+    "title": "Contact the Administration",
+    "description": "Send us a message and we’ll get back to you as soon as possible, or visit us in person.",
+    "director": "Director",
+    "deputyDirectorForScientificWork": "Deputy Director for Scientific Work",
+    "deputyDirectorForEducationalAndMethodologicalWork": "Deputy Director for Educational and Methodological Work",
+    "deputyDirectorOfEducationalWork": "Deputy Director for Educational Work",
+    "martyniukPetroMykolayovych": "Martyniuk Petro Mykolayovych",
+    "oksanaVolodymyrivnaPryshchepa": "Pryshchepa Oksana Volodymyrivna",
+    "babychTetyanaYuriivna": "Babych Tetyana Yuriivna",
+    "gerusVolodymyrAndriyovych": "Herus Volodymyr Andriyovych"
+  },
+  "deanery": {
+    "title": "Contact the Dean’s Office",
+    "description": "You can send us a message or visit us during working hours.",
+    "dailyEducation": "Full-time Education",
+    "distanceEducation": "Distance Education",
+    "svitlanaPetrivnaKovalchuk": "Kovalchuk Svitlana Petrivna",
+    "galinnaMykhailivnaSachuk": "Sachuk Galinna Mykhailivna",
+    "natalyaAnatoliivnaKarpan": "Karpan Natalya Anatoliivna"
+  },
+  "location": {
+    "title": "We’re on the Map",
+    "description": "Come visit us :)",
+    "address": "Soborna Street, 11, Rivne, Rivne region, 33000."
+  },
+  "audience": "Audience",
+  "email": "Email",
+  "phone": "Phone",
+  "address": "Address"
+}
