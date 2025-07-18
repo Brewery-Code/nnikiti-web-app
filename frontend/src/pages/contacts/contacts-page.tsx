@@ -82,7 +82,7 @@ export function ContactsPage() {
 
   return (
     <PageTransition>
-      <div className="container-base flex flex-col items-center">
+      <div className="container-base flex flex-col">
         <Title className="self-start">Contacts</Title>
         <div className="flex gap-4 w-full">
           <div className="grid grid-cols-1 gap-4">
@@ -110,6 +110,13 @@ export function ContactsPage() {
               links={locationData.links}
             />
           </div>
+        </div>
+        <div className="flex gap-4 mt-8">
+          <SocialLinkButton type="facebook" />
+          <SocialLinkButton type="instagram" />
+          <SocialLinkButton type="telegram" />
+          <SocialLinkButton type="tiktok" />
+          <SocialLinkButton type="youtube" />
         </div>
       </div>
     </PageTransition>
