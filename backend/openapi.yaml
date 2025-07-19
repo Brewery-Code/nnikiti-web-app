@@ -19,7 +19,7 @@ tags:
     description: Events endpoints
 
 paths:
-  /core/main-slider-item/:
+  /core/main-slider-items/:
     get:
       tags:
         - core
@@ -97,6 +97,27 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/FAQs"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /core/educational-programs/:
+    get:
+      tags:
+        - core
+      summary: Returns a list of educational programs.
+      description: Returns a list of data for the edu-programs block.
+      responses:
+        "200":
+          description: Successfully returned a list of data for the edu-programs block
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EducationalProgram"
         "400":
           description: Invalid request
           content:
@@ -516,3 +537,43 @@ components:
           title: Question
           type: string
           readOnly: true
+    CategorizedTag:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+    EducationalProgram:
+      type: object
+      properties:
+        id:
+          type: integer
+          title: ID
+          readOnly: true
+        code:
+          type: string
+          title: Program code
+        name:
+          type: string
+          title: Educational program name
+        subject:
+          type: array
+          title: Subjects
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/CategorizedTag'
+        education_forms:
+          type: array
+          title: Education Forms
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/CategorizedTag'
+        education_levels:
+          type: array
+          title: Education Levels
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/CategorizedTag'
+

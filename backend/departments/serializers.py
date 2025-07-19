@@ -7,7 +7,7 @@ class CategorizedTagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CategorizedTag
-        fields = ['id', 'name', 'category']
+        fields = ['id', 'name',]
 
     def get_name(self, obj):
         return obj.safe_translation_getter('name', any_language=True)
@@ -25,11 +25,6 @@ class EducationalProgramSerializer(serializers.ModelSerializer):
             'id',
             'code',
             'name',
-            'description',
-            'bachelor',
-            'magistracy',
-            'postgraduate',
-            'department',
             'subject',
             'education_forms',
             'education_levels',
