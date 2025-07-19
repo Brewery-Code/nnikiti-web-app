@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
 import { useLoadNamespace } from "@/shared/hooks";
-import { SocialLinkButton, Title } from "@/shared/ui";
+import { SocialLinkButtonGlassy, Title } from "@/shared/ui";
 import { loadTranslations } from "./locales";
-import type { Contacts } from "./types";
+import type { ContactInfo, LocationInfo } from "./types";
 import ContactBlock from "./contacts-block";
 import { CallIcon, MapIcon, ChatIcon } from "./icons";
 
@@ -11,7 +11,7 @@ export function ContactsPage() {
   const { t } = useTranslation("contacts");
   useLoadNamespace("contacts", loadTranslations);
 
-  const contactsData: Contacts[] = [
+  const contactsData: ContactInfo[] = [
     {
       icon: <ChatIcon className="w-8 h-8" />,
       title: t("administration.title"),
@@ -19,13 +19,13 @@ export function ContactsPage() {
       links: [
         {
           position: t("administration.director"),
-          name: t("administration.martyniukPetroMykolayovych"),
+          name: t("administration.directorName"),
           email: "p.m.martyniuk@nuwm.edu.ua",
           audience: "124",
         },
         {
           position: t("administration.deputyDirectorForScientificWork"),
-          name: t("administration.oksanaVolodymyrivnaPryshchepa"),
+          name: t("administration.deputyDirectorForScientificWorkName"),
           email: "o.v.pryshchepa@nuwm.edu.ua",
           audience: "129",
         },
@@ -33,13 +33,15 @@ export function ContactsPage() {
           position: t(
             "administration.deputyDirectorForEducationalAndMethodologicalWork"
           ),
-          name: t("administration.babychTetyanaYuriivna"),
+          name: t(
+            "administration.deputyDirectorForEducationalAndMethodologicalWorkName"
+          ),
           email: "t.iu.babych@nuwm.edu.ua",
           audience: "129",
         },
         {
           position: t("administration.deputyDirectorOfEducationalWork"),
-          name: t("administration.gerusVolodymyrAndriyovych"),
+          name: t("administration.deputyDirectorOfEducationalWorkName"),
           email: "v.a.gerus@nuwm.edu.ua",
           audience: "129",
         },
@@ -66,7 +68,7 @@ export function ContactsPage() {
     },
   ];
 
-  const locationData: Contacts = {
+  const locationData: LocationInfo = {
     icon: <MapIcon className="w-8 h-8" />,
     title: t("location.title"),
     description: t("location.description"),
@@ -82,9 +84,9 @@ export function ContactsPage() {
 
   return (
     <PageTransition>
-      <div className="container-base flex flex-col">
+      <div className="container-base flex flex-col w-full">
         <Title className="self-start">Contacts</Title>
-        <div className="flex gap-4 w-full">
+        <div className="flex gap-4">
           <div className="grid grid-cols-1 gap-4">
             {contactsData.map((item, index) => (
               <ContactBlock
@@ -92,8 +94,15 @@ export function ContactsPage() {
                 icon={item.icon}
                 title={item.title}
                 description={item.description}
-                links={item.links}
-              />
+              >
+                {item.links.map((link, index) => (
+                  <ContactBlock.Item
+                    key={index}
+                    title={`${link.position}: ${link.name}`}
+                    subtitle={link.email}
+                  />
+                ))}
+              </ContactBlock>
             ))}
           </div>
           <div className="row-span-2 flex flex-col">
@@ -107,16 +116,24 @@ export function ContactsPage() {
               className="rounded-t-none"
               title={locationData.title}
               description={locationData.description}
-              links={locationData.links}
-            />
+            >
+              {locationData.links.map((link, index) => (
+                <ContactBlock.Item
+                  key={index}
+                  title={link.title}
+                  subtitle={link.address}
+                  className="!flex gap-2"
+                />
+              ))}
+            </ContactBlock>
           </div>
         </div>
         <div className="flex gap-4 mt-8">
-          <SocialLinkButton type="facebook" />
-          <SocialLinkButton type="instagram" />
-          <SocialLinkButton type="telegram" />
-          <SocialLinkButton type="tiktok" />
-          <SocialLinkButton type="youtube" />
+          <SocialLinkButtonGlassy type="telegram" link="#" />
+          <SocialLinkButtonGlassy type="facebook" link="#" />
+          <SocialLinkButtonGlassy type="tiktok" link="#" />
+          <SocialLinkButtonGlassy type="instagram" link="#" />
+          <SocialLinkButtonGlassy type="youtube" link="#" />
         </div>
       </div>
     </PageTransition>

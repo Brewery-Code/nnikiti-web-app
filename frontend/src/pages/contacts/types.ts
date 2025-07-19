@@ -1,19 +1,27 @@
-export interface Contacts {
+interface BaseContacts {
   icon: React.ReactNode;
   title: string;
   description: string;
-  links: Contact[] | Location[];
 }
 
-export interface Contact {
+interface Contact {
   position: string;
   name: string;
   email: string;
-  audience: string;
+  audience?: string;
+  link?: string;
 }
 
-export interface Location {
+interface Location {
   title: string;
   address: string;
   addressLink: string;
+}
+
+export interface ContactInfo extends BaseContacts {
+  links: Contact[];
+}
+
+export interface LocationInfo extends BaseContacts {
+  links: Location[];
 }

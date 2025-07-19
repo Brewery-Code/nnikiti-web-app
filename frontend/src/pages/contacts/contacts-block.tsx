@@ -1,57 +1,26 @@
 import clsx from "clsx";
-import type { Contact, Location } from "./types";
 
 interface ContactBlockProps {
   className?: string;
   icon: React.ReactNode;
   title: string;
   description: string;
-  links: Contact[] | Location[];
+  children: React.ReactNode;
 }
 
-export default function ContactBlock({
+interface ContactBlockItemProps {
+  className?: string;
+  title: string;
+  subtitle: string;
+}
+
+const ContactBlockComponent = ({
   className,
   icon,
   title,
   description,
-  links,
-}: ContactBlockProps) {
-  function isContactArray(data: Contact[] | Location[]): data is Contact[] {
-    return "position" in data[0];
-  }
-
-  function isLocationArray(data: Contact[] | Location[]): data is Location[] {
-    return "address" in data[0];
-  }
-
-  const renderContacts = () => {
-    if (isContactArray(links)) {
-      return links.map((contact, index) => (
-        <li key={index}>
-          {contact.position} – {contact.name}:{" "}
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>{" "}
-          {contact.audience && `(${contact.audience})`}
-        </li>
-      ));
-    }
-
-    if (isLocationArray(links)) {
-      return links.map((location, index) => (
-        <li key={index}>
-          {location.title}:{" "}
-          <a
-            href={location.addressLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            {location.address}
-          </a>
-        </li>
-      ));
-    }
-  };
-
+  children,
+}: ContactBlockProps) => {
   return (
     <div
       className={clsx(
@@ -59,12 +28,40 @@ export default function ContactBlock({
         className
       )}
     >
-      <div className="flex items-center gap-2 text-[18px] font-semibold">
+      <div className="flex items-center gap-4">
         {icon}
-        {title}
+        <h2 className="text-2xl font-semibold">{title}</h2>
       </div>
-      <p className="grow">{description}</p>
-      <ul className="flex flex-col gap-1 text-gray-400">{renderContacts()}</ul>
+      <p className="">{description}</p>
+      <div className="flex flex-col gap-2">{children}</div>
     </div>
   );
-}
+};
+
+const ContactBlockItem = ({
+  title,
+  subtitle,
+  className,
+}: ContactBlockItemProps) => {
+  return (
+    <div
+      className={clsx(
+        className,
+        "grid grid-cols-[70%_30%] content-start",
+        className
+      )}
+    >
+      <p className="text-sm text-gray-300">{title}</p>
+      <p className="font-medium">{subtitle}</p>
+    </div>
+  );
+};
+
+type ContactBlockType = typeof ContactBlockComponent & {
+  Item: typeof ContactBlockItem;
+};
+
+const ContactBlock = ContactBlockComponent as ContactBlockType;
+ContactBlock.Item = ContactBlockItem;
+
+export default ContactBlock;

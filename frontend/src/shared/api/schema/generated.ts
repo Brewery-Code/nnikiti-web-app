@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-    "/core/main-slider-item/": {
+    "/core/main-slider-items/": {
         parameters: {
             query?: never;
             header?: never;
@@ -175,6 +175,54 @@ export interface paths {
                     };
                     content: {
                         "application/json": components["schemas"]["FAQs"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/educational-programs/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of educational programs.
+         * @description Returns a list of data for the edu-programs block.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of data for the edu-programs block */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["EducationalProgram"][];
                     };
                 };
                 /** @description Invalid request */
@@ -415,7 +463,7 @@ export interface paths {
         };
         /**
          * Get current user role
-         * @description Returns information about role current user. (Required `access` token in headers)
+         * @description Returns information about role current user. (Required `access` token in headers for auth user)
          */
         get: {
             parameters: {
@@ -669,6 +717,24 @@ export interface components {
             readonly question?: string;
             /** Question */
             readonly answer?: string;
+        };
+        CategorizedTag: {
+            readonly id?: number;
+            name?: string;
+        };
+        EducationalProgram: {
+            /** ID */
+            readonly id?: number;
+            /** Program code */
+            code?: string;
+            /** Educational program name */
+            name?: string;
+            /** Subjects */
+            readonly subject?: components["schemas"]["CategorizedTag"][];
+            /** Education Forms */
+            readonly education_forms?: components["schemas"]["CategorizedTag"][];
+            /** Education Levels */
+            readonly education_levels?: components["schemas"]["CategorizedTag"][];
         };
     };
     responses: never;

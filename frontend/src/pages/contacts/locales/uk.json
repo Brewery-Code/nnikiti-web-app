@@ -6,10 +6,10 @@
     "deputyDirectorForScientificWork": "Заступник директора з наукових робіт",
     "deputyDirectorForEducationalAndMethodologicalWork": "Заступник директора з навчально-методичної роботи",
     "deputyDirectorOfEducationalWork": "Заступник директора з виховної роботи",
-    "martyniukPetroMykolayovych": "Мартинюк Петро Миколайович",
-    "oksanaVolodymyrivnaPryshchepa": "Прищепа Оксана Володимирівна",
-    "babychTetyanaYuriivna": "Бабич Тетяна Юріївна",
-    "gerusVolodymyrAndriyovych": "Герус Володимир Андрійович"
+    "directorName": "Мартинюк Петро Миколайович",
+    "deputyDirectorForScientificWorkName": "Прищепа Оксана Володимирівна",
+    "deputyDirectorForEducationalAndMethodologicalWorkName": "Бабич Тетяна Юріївна",
+    "deputyDirectorOfEducationalWorkName": "Герус Володимир Андрійович"
   },
   "deanery": {
     "title": "Зв'язок з деканатом",
