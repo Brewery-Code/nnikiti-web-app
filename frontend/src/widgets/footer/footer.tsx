@@ -3,8 +3,11 @@ import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import clsx from "clsx";
+import { SocialMediaLinks, useContactsData } from "@/pages/contacts";
 
 export default function Footer({ className }: { className?: string }) {
+  const { deaneryData } = useContactsData();
+
   const { t } = useTranslation("footer");
   useLoadNamespace("footer", loadTranslations);
   return (
@@ -15,7 +18,7 @@ export default function Footer({ className }: { className?: string }) {
         className
       )}
     >
-      <div className="container-base flex">
+      <div className="container-base flex justify-between">
         <div className="flex justify-center items-center gap-5">
           <img
             className="w-20 lg:w-28 h-23 lg:h-32"
@@ -25,6 +28,13 @@ export default function Footer({ className }: { className?: string }) {
           <p className="max-w-[428px] text-xl lg:text-[28px] leading-[30px] font-bold uppercase ">
             The National University of Water and Environmental Engineering
           </p>
+        </div>
+        <div className="flex flex-col gap-4">
+          <SocialMediaLinks />
+          <div className="flex justify-between">
+            <span>Деканат: </span>
+            <span>{deaneryData.dailyEducation.email}</span>
+          </div>
         </div>
       </div>
       <p className="mt-6 lg:mt-12 text-xs text-center text-[#807F7F]">

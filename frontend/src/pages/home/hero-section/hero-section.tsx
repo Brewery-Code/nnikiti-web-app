@@ -36,7 +36,7 @@ export default function HeroSection({
 }: {
   className?: string;
 }) {
-  const sliderImg = publicRqClient.useQuery("get", "/core/main-slider-item/");
+  const sliderImg = publicRqClient.useQuery("get", "/core/main-slider-items/");
   const [currentImg, setCurrentImg] = useState(0);
   const [nextImg, setNextImg] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);

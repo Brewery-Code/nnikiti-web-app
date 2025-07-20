@@ -1,32 +1,31 @@
 {
   "administration": {
     "title": "Contact the Administration",
-    "description": "Send us a message and we’ll get back to you as soon as possible, or visit us in person.",
+    "description": "Send us a message and we will contact you shortly, or visit us in person.",
     "director": "Director",
+    "directorName": "Martyniuk Petro Mykolaiovych",
     "deputyDirectorForScientificWork": "Deputy Director for Scientific Work",
-    "deputyDirectorForEducationalAndMethodologicalWork": "Deputy Director for Educational and Methodological Work",
-    "deputyDirectorOfEducationalWork": "Deputy Director for Educational Work",
-    "directorName": "Martyniuk Petro Mykolayovych",
     "deputyDirectorForScientificWorkName": "Pryshchepa Oksana Volodymyrivna",
-    "deputyDirectorForEducationalAndMethodologicalWorkName": "Babych Tetyana Yuriivna",
+    "deputyDirectorForEducationalAndMethodologicalWork": "Deputy Director for Educational and Methodological Work",
+    "deputyDirectorForEducationalAndMethodologicalWorkName": "Babych Tetiana Yuriyivna",
+    "deputyDirectorOfEducationalWork": "Deputy Director for Educational Work",
     "deputyDirectorOfEducationalWorkName": "Herus Volodymyr Andriyovych"
   },
   "deanery": {
-    "title": "Contact the Dean’s Office",
+    "title": "Contact the Dean's Office",
     "description": "You can send us a message or visit us during working hours.",
     "dailyEducation": "Full-time Education",
-    "distanceEducation": "Distance Education",
-    "svitlanaPetrivnaKovalchuk": "Kovalchuk Svitlana Petrivna",
-    "galinnaMykhailivnaSachuk": "Sachuk Galinna Mykhailivna",
-    "natalyaAnatoliivnaKarpan": "Karpan Natalya Anatoliivna"
+    "dailyEducationName": "Kovalchuk Svitlana Petrivna and Sachuk Halynna Mykhailivna",
+    "distanceEducation": "Part-time Education",
+    "distanceEducationName": "Karpan Nataliia Anatoliivna"
   },
   "location": {
-    "title": "We’re on the Map",
-    "description": "Come visit us :)",
-    "address": "Soborna Street, 11, Rivne, Rivne region, 33000."
+    "title": "We Are on the Map",
+    "description": "Always happy to meet you!",
+    "address": "Soborna Street, 11, Rivne, Rivne Region, 33000."
   },
-  "audience": "Audience",
-  "email": "Email",
+  "audience": "Room",
+  "email": "E-mail",
   "phone": "Phone",
   "address": "Address"
 }

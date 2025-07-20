@@ -3,21 +3,22 @@ import clsx from "clsx";
 interface ContactBlockProps {
   className?: string;
   icon: React.ReactNode;
-  title: string;
+  label: string;
   description: string;
   children: React.ReactNode;
 }
 
 interface ContactBlockItemProps {
   className?: string;
-  title: string;
-  subtitle: string;
+  label: string;
+  contact: string;
+  contactClassName?: string;
 }
 
 const ContactBlockComponent = ({
   className,
   icon,
-  title,
+  label,
   description,
   children,
 }: ContactBlockProps) => {
@@ -30,7 +31,7 @@ const ContactBlockComponent = ({
     >
       <div className="flex items-center gap-4">
         {icon}
-        <h2 className="text-2xl font-semibold">{title}</h2>
+        <h2 className="text-2xl font-semibold">{label}</h2>
       </div>
       <p className="">{description}</p>
       <div className="flex flex-col gap-2">{children}</div>
@@ -39,20 +40,23 @@ const ContactBlockComponent = ({
 };
 
 const ContactBlockItem = ({
-  title,
-  subtitle,
+  label,
+  contact,
   className,
+  contactClassName,
 }: ContactBlockItemProps) => {
   return (
-    <div
-      className={clsx(
-        className,
-        "grid grid-cols-[70%_30%] content-start",
-        className
-      )}
-    >
-      <p className="text-sm text-gray-300">{title}</p>
-      <p className="font-medium">{subtitle}</p>
+    <div className={clsx("flex justify-between gap-2", className)}>
+      <p className="text-sm text-gray-300">{label}</p>
+      <p className={clsx("font-medium", contactClassName)}>
+        <span
+          className="relative cursor-pointer
+          before:absolute before:top-[calc(100%+1px)] before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-[1px] before:bg-gray-300 
+          before:transition-[width] before:duration-200 before:ease-in-out hover:before:w-full"
+        >
+          {contact}
+        </span>
+      </p>
     </div>
   );
 };
@@ -61,7 +65,5 @@ type ContactBlockType = typeof ContactBlockComponent & {
   Item: typeof ContactBlockItem;
 };
 
-const ContactBlock = ContactBlockComponent as ContactBlockType;
+export const ContactBlock = ContactBlockComponent as ContactBlockType;
 ContactBlock.Item = ContactBlockItem;
-
-export default ContactBlock;

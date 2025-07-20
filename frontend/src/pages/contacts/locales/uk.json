@@ -3,26 +3,25 @@
     "title": "Зв'язок з адміністрацією",
     "description": "Надішліть нам повідомлення та ми зв'яжемося з вами найближчим часом або завітайте особисто.",
     "director": "Директор",
-    "deputyDirectorForScientificWork": "Заступник директора з наукових робіт",
-    "deputyDirectorForEducationalAndMethodologicalWork": "Заступник директора з навчально-методичної роботи",
-    "deputyDirectorOfEducationalWork": "Заступник директора з виховної роботи",
-    "directorName": "Мартинюк Петро Миколайович",
-    "deputyDirectorForScientificWorkName": "Прищепа Оксана Володимирівна",
-    "deputyDirectorForEducationalAndMethodologicalWorkName": "Бабич Тетяна Юріївна",
-    "deputyDirectorOfEducationalWorkName": "Герус Володимир Андрійович"
+    "directorWorker": "Мартинюк Петро Миколайович",
+    "depDirScienWork": "Заступник директора з наукових робіт",
+    "depDirScienWorkWorker": "Прищепа Оксана Володимирівна",
+    "depDirEducAndMethWork": "Заступник директора з навчально-методичної роботи",
+    "depDirEducAndMethWorkWorker": "Бабич Тетяна Юріївна",
+    "depDirEducWork": "Заступник директора з виховної роботи",
+    "depDirEducWorkWorker": "Герус Володимир Андрійович"
   },
   "deanery": {
     "title": "Зв'язок з деканатом",
     "description": "Можете надіслати нам повідомлення або завітати до нас особисто в робочий час.",
     "dailyEducation": "Денна форма навчання",
+    "dailyEducationWorker": "Ковалчук Світлана Петрівна та Сачук Галинна Михайлівна",
     "distanceEducation": "Заочна форма навчання",
-    "svitlanaPetrivnaKovalchuk": "Ковалчук Світлана Петрівна",
-    "galinnaMykhailivnaSachuk": "Сачук Галинна Михайлівна",
-    "natalyaAnatoliivnaKarpan": "Карпан Наталія Анатоліївна"
+    "distanceEducationWorker": "Карпан Наталія Анатоліївна"
   },
   "location": {
     "title": "Ми на карті",
-    "description": "Заходьте в гості :)",
+    "description": "Завжди раді зустрічі!",
     "address": "вулиця Соборна, 11, Рівне, Рівненська область, 33000."
   },
   "audience": "Аудиторія",

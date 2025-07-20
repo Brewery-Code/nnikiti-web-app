@@ -40,7 +40,7 @@ const SOCIAL_STYLES: Record<
     icon: <InstagramIcon className="w-8 h-8" />,
   },
   tiktok: {
-    bg: "bg-[#000000]",
+    bg: "bg-[#222111]",
     label: "TikTok",
     icon: <TikTokIcon className="w-8 h-8" />,
   },
