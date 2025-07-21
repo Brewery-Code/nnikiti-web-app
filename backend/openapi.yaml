@@ -17,6 +17,8 @@ tags:
     description: Core endpoints
   - name: events
     description: Events endpoints
+  - name: departments
+    description: Departments endpoints
 
 paths:
   /core/main-slider-items/:
@@ -124,7 +126,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-
+  /core/alumni/:
+    get:
+      tags:
+        - core
+      summary: Returns a list of Alumni
+      description: Returns a list of Alumni
+      responses:
+        "200":
+          description: Successfully returned a list of Alumni
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Alumnus"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /auth/google/:
     post:
       tags:
@@ -382,6 +404,68 @@ paths:
                 properties:
                   detail:
                     type: string
+  /departments/:
+    get:
+      tags:
+        - departments
+      summary: Returns a list of departments
+      description: Returns a list of departments
+      responses:
+        "200":
+          description: Departments list successfully returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Departments"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+  /departments/{id}/:
+    get:
+      tags:
+        - departments
+      summary: Returns details of a single department by its unique ID.
+      description: Returns a single department object by its unique ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique identifier of the event
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Department object successfully returned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DepartmentDetail"
+        "400":
+          description: Bad request (invalid ID or malformed request)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+        "404":
+          description: Event not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
 components:
   securitySchemes:
     AccessTokenAuth:
@@ -576,4 +660,143 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/CategorizedTag'
+    EducationalProgramFull:
+      allOf:
+        - $ref: '#/components/schemas/EducationalProgram'
+        - type: object
+          properties:
+            description:
+              type: string
+            bachelor:
+              type: object
+              nullable: true
+              properties:
+                code:
+                  type: string
+                specialty:
+                  type: string
+                program:
+                  type: string
+            magistracy:
+              type: object
+              nullable: true
+              properties:
+                code:
+                  type: string
+                specialty:
+                  type: string
+                program:
+                  type: string
+            postgraduate:
+              type: object
+              nullable: true
+              properties:
+                code:
+                  type: string
+                specialty:
+                  type: string
+                program:
+                  type: string
+    Departments:
+      type: object
+      properties:
+        id:
+          type: integer
+          title : ID
+          readOnly: true
+        name:
+          type: string
+          title: Department name
+    DepartmentDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          title: ID
+          readOnly: true
+        name:
+          type: string
+          title: Department name
+          description: Translated name of the department
+        description:
+          type: string
+          title: Department description
+          description: Translated description of the department
+        address:
+          type: string
+          title: Department address
+          description: Translated address of the department
+        email:
+          type: string
+          format: email
+          title: Email address
+        head_of_department:
+          type: array
+          title: Head(s) of Department
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                title: ID
+              regalia:
+                type: string
+                title: Regalia
+                description: Translated regalia/title of the head
+              full_name:
+                type: string
+                title: Full name
+                description: Translated full name
+              email:
+                type: string
+                format: email
+                title: Email
+              audience:
+                type: string
+                title: Audience
+        educational_program:
+          type: array
+          title: Educational Programs
+          items:
+            $ref: '#/components/schemas/EducationalProgramFull'
+    Alumnus:
+      type: object
+      properties:
+        id:
+          type: integer
+          title: ID
+          readOnly: true
+        full_name:
+          type: string
+          title: Full name
+          readOnly: true
+        text:
+          type: string
+          title: About student
+          readOnly: true
+        image:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          title: Created at
+          readOnly: true
+        date_of_graduation:
+          type: string
+          format: date
+          title: Date of graduation
+          readOnly: true
+        links:
+          type: object
+          title: Social links or publications
+          description: Dictionary of social/profile links
+          additionalProperties:
+            type: string
+            format: uri
+          example:
+            instagram: "https://instagram.com/example"
+            telegram: "https://t.me/example"
+            facebook: "https://facebook.com/example"
 

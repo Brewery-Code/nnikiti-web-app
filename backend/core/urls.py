@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import MainSliderView, StatisticBlockView, PartnersView, FAQView
-from departments.views import EducationalProgramListAPIView
+from .views import MainSliderView, StatisticBlockView, PartnersView, FAQView, AlumnusView
+from departments.views import EducationalProgramListView
 
 
 urlpatterns = [
@@ -9,5 +9,6 @@ urlpatterns = [
     path("statistic-block/", StatisticBlockView.as_view(), name="statistic-block"),
     path("partners/", PartnersView.as_view(), name="partners"),
     path("faq/", FAQView.as_view(), name="faq"),
-    path("educational-programs/", EducationalProgramListAPIView.as_view(), name="educational-programs"),
+    path("educational-programs/", EducationalProgramListView.as_view(), name="educational-programs"),
+    path("alumni/", AlumnusView.as_view(), name="alumni"),
 ]

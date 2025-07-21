@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NNIKITI API 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 09:12+0000\n"
-"PO-Revision-Date: 2025-07-10 09:19+0000\n"
+"POT-Creation-Date: 2025-07-21 09:02+0000\n"
+"PO-Revision-Date: 2025-07-21 09:27+0000\n"
 "Last-Translator:   <admin@admin.com>\n"
 "Language-Team: Ukrainian <uk@example.com>\n"
 "Language: uk\n"
@@ -14,107 +14,146 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 10 == 0 || (n % 10 >= 5 && n % 10 <= 9) || (n % 100 >= 11 && n % 100 <= 14) ? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: models.py:15
+#: models.py:16
 msgid "Slider image"
 msgstr "Зображення слайдера"
 
-#: models.py:18
+#: models.py:19
 msgid "Slider item"
 msgstr "Елемент слайдера"
 
-#: models.py:19
+#: models.py:20
 msgid "Slider items"
 msgstr "Елементи слайдера"
 
-#: models.py:23
+#: models.py:24
 #, python-format
 msgid "Slide #%s"
 msgstr "Слайд #%s"
 
-#: models.py:29
+#: models.py:30
 msgid "Title"
 msgstr "Заголовок"
 
-#: models.py:30
+#: models.py:31
 msgid "Description"
 msgstr "Опис"
 
-#: models.py:35
+#: models.py:36
 msgid "Start value"
 msgstr "Початкове значення"
 
-#: models.py:36
+#: models.py:37
 msgid "Values for proper animation operation"
 msgstr "Початкове значення для правильної роботи анімацій"
 
-#: models.py:39
+#: models.py:40
 msgid "Order item"
 msgstr "Елемент слайдера"
 
-#: models.py:40
+#: models.py:41
 msgid "Determines yhe order in which elements will be passed"
 msgstr "Визначає в якому порядку будуть передаватись елементи"
 
-#: models.py:44
+#: models.py:45
 msgid "Statistic block item"
 msgstr "Елемент statistic block "
 
-#: models.py:45
+#: models.py:46
 msgid "Statistic block items"
 msgstr "Елементи statistic block "
 
-#: models.py:49
+#: models.py:50
 #, python-format
 msgid "Statistic block item #%s"
 msgstr "Елемент #%s , statistic block"
 
-#: models.py:55
+#: models.py:56
 msgid "Name"
 msgstr "Ім'я"
 
-#: models.py:58
+#: models.py:59
 msgid "Partner image"
 msgstr "Зображення слайдера"
 
-#: models.py:59
+#: models.py:60
 msgid "Site link"
 msgstr "Посилання на сайт"
 
-#: models.py:60
+#: models.py:61
 msgid "Link to partner site"
 msgstr "Посилання на сайт партнерів"
 
-#: models.py:63
+#: models.py:64
 msgid "Partner"
 msgstr "Партнер"
 
-#: models.py:64
+#: models.py:65
 msgid "Partners"
 msgstr "Партнери"
 
-#: models.py:68
+#: models.py:69
 #, python-format
 msgid "Partner #%s"
 msgstr "Партнер #%s"
 
-#: models.py:74
-#| msgid "Description"
+#: models.py:75
 msgid "Question"
 msgstr "Питання"
 
-#: models.py:75
+#: models.py:76
 msgid "Answer"
 msgstr "Відповідь"
 
-#: models.py:79
+#: models.py:80
 msgid "FAQ"
 msgstr "FAQ"
 
-#: models.py:80
+#: models.py:81
 msgid "FAQs"
 msgstr "FAQs"
 
-#: models.py:84
+#: models.py:85
 #, python-format
 msgid "FAQ #%s"
 msgstr "FAQ #%s"
+
+#: models.py:92
+msgid "Full name"
+msgstr "ПІБ"
+
+#: models.py:93
+msgid "About student"
+msgstr "Про студента"
+
+#: models.py:97
+msgid "Social links or other publication"
+msgstr "Посилання на соц. мережі або інше"
+
+#: models.py:100
+msgid ""
+"Structure like: {'instagram': 'link', 'telegram': 'link', 'facebook': "
+"'link'}"
+msgstr ""
+"Наприклад: {'instagram': 'link', 'telegram': 'link', 'facebook': 'link'}"
+
+#: models.py:102
+msgid "Created at"
+msgstr "Дата створення"
+
+#: models.py:103
+msgid "Date of graduation"
+msgstr "Дата випуску"
+
+#: models.py:106
+msgid "Alumnus"
+msgstr "Випускник"
+
+#: models.py:107
+msgid "Alumni"
+msgstr "Випускники"
+
+#: models.py:114
+#, python-format
+msgid "%s - #%s"
+msgstr "%s - #%s"
