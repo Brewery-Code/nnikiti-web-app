@@ -25,4 +25,4 @@ function useLoadNamespace(
   return loaded;
 }
 
-export default useLoadNamespace;
+export { useLoadNamespace };

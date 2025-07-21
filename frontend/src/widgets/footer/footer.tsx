@@ -1,9 +1,9 @@
-import { logoLion } from "@/shared/icons";
 import { useTranslation } from "react-i18next";
-import { useLoadNamespace } from "@/shared/hooks";
+import { useContactsData, useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import clsx from "clsx";
-import { SocialMediaLinks, useContactsData } from "@/pages/contacts";
+import { SocialMediaLinks } from "@/widgets/social-media-links";
+import { Logo } from "./ui";
 
 export default function Footer({ className }: { className?: string }) {
   const { deaneryData } = useContactsData();
@@ -18,20 +18,11 @@ export default function Footer({ className }: { className?: string }) {
         className
       )}
     >
-      <div className="container-base flex justify-between">
-        <div className="flex justify-center items-center gap-5">
-          <img
-            className="w-20 lg:w-28 h-23 lg:h-32"
-            src={logoLion}
-            alt="Logo"
-          />
-          <p className="max-w-[428px] text-xl lg:text-[28px] leading-[30px] font-bold uppercase ">
-            The National University of Water and Environmental Engineering
-          </p>
-        </div>
+      <div className="container-base flex flex-col md:flex-row justify-between">
+        <Logo />
         <div className="flex flex-col gap-4">
           <SocialMediaLinks />
-          <div className="flex justify-between">
+          <div className="flex flex-wrap justify-center gap-1">
             <span>Деканат: </span>
             <span>{deaneryData.dailyEducation.email}</span>
           </div>

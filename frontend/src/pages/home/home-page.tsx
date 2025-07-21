@@ -1,10 +1,10 @@
+import { PageTransition } from "@/widgets";
+import { useServerLogin } from "@/features/auth";
 import { HeroSection } from "./hero-section";
 import { StatisticSection } from "./statistic-section";
 import { SpecialtiesSection } from "./specialties-section";
 import { EventsSection } from "./events-section";
 import { PartnersSection } from "./partners-section";
-import { PageTransition } from "@/widgets";
-import { useServerLogin } from "@/features/auth";
 
 export function HomePage() {
   useServerLogin();

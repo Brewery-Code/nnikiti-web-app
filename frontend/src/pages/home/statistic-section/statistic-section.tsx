@@ -1,6 +1,5 @@
 import { Title } from "@/shared/ui";
 import { StatisticBlock } from "./ui";
-import { gradientAnimation } from "./styles";
 import clsx from "clsx";
 import { publicRqClient } from "@/shared/api/instance";
 import { useTranslation } from "react-i18next";
@@ -31,7 +30,7 @@ export default function StatisticSection({
             <StatisticBlock
               key={item.id}
               className={clsx(
-                gradientAnimation.gradientAnimation,
+                "bg-[linear-gradient(135deg,_rgba(255,221,85,0.95)_0%,_rgba(255,85,204,0.95)_33%,_rgba(136,136,255,0.95)_66%,_rgba(85,255,255,0.95)_100%)] gradient-animation",
                 item.order === 1 &&
                   "order-4 md:order-none sm:row-span-2 md:row-span-1",
                 item.order === 2 &&

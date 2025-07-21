@@ -1,0 +1,19 @@
+{
+  "title": "Contacts",
+  "administration": {
+    "title": "Contact the Administration",
+    "description": "Send us a message and we will contact you shortly, or visit us in person."
+  },
+  "deanery": {
+    "title": "Contact the Dean's Office",
+    "description": "You can send us a message or visit us during working hours."
+  },
+  "location": {
+    "title": "We Are on the Map",
+    "description": "Always happy to meet you!"
+  },
+  "audience": "Room",
+  "email": "E-mail",
+  "phone": "Phone",
+  "address": "Address"
+}

@@ -1,7 +1,5 @@
 {
   "administration": {
-    "title": "Contact the Administration",
-    "description": "Send us a message and we will contact you shortly, or visit us in person.",
     "director": "Director",
     "directorName": "Martyniuk Petro Mykolaiovych",
     "deputyDirectorForScientificWork": "Deputy Director for Scientific Work",
@@ -12,16 +10,12 @@
     "deputyDirectorOfEducationalWorkName": "Herus Volodymyr Andriyovych"
   },
   "deanery": {
-    "title": "Contact the Dean's Office",
-    "description": "You can send us a message or visit us during working hours.",
     "dailyEducation": "Full-time Education",
     "dailyEducationName": "Kovalchuk Svitlana Petrivna and Sachuk Halynna Mykhailivna",
     "distanceEducation": "Part-time Education",
     "distanceEducationName": "Karpan Nataliia Anatoliivna"
   },
   "location": {
-    "title": "We Are on the Map",
-    "description": "Always happy to meet you!",
     "address": "Soborna Street, 11, Rivne, Rivne Region, 33000."
   },
   "audience": "Room",
