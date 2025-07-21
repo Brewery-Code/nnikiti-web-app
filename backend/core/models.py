@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation.trans_real import translation
 from parler.models import TranslatableModel, TranslatedFields
 
 
@@ -82,3 +83,32 @@ class FAQ(TranslatableModel):
 
     def __str__(self):
         return _("FAQ #%s") % self.pk
+
+
+class Alumnus(TranslatableModel):
+    """Represents alumnus object"""
+
+    translations = TranslatedFields(
+        full_name = models.CharField(max_length=255, verbose_name=_("Full name")),
+        text = models.TextField(blank=True, verbose_name=_("About student")),
+    )
+    image = models.ImageField(upload_to="alumnus/",)
+    links = models.JSONField(
+            verbose_name=_("Social links or other publication"),
+            blank=True,
+            null=True,
+            help_text=_("Structure like: {'instagram': 'link', 'telegram': 'link', 'facebook': 'link'}")
+        )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    date_of_graduation = models.DateField(verbose_name=_("Date of graduation"))
+
+    class Meta:
+        verbose_name = _("Alumnus")
+        verbose_name_plural = _("Alumni")
+        db_table = "Alumnus"
+        ordering = ("-date_of_graduation",)
+        indexes = [
+            models.Index(fields=['date_of_graduation'],)]
+
+    def __str__(self):
+        return _("%s - #%s") % (self.safe_translation_getter('full_name', any_language=True), self.pk)
