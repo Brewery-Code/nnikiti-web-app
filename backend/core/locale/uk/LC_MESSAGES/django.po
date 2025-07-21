@@ -4,16 +4,14 @@ msgstr ""
 "Project-Id-Version: NNIKITI API 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-21 09:02+0000\n"
-"PO-Revision-Date: 2025-07-10 09:19+0000\n"
+"PO-Revision-Date: 2025-07-21 09:27+0000\n"
 "Last-Translator:   <admin@admin.com>\n"
 "Language-Team: Ukrainian <uk@example.com>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 "
-">= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 10 == 0 || "
-"(n % 10 >= 5 && n % 10 <= 9) || (n % 100 >= 11 && n % 100 <= 14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 10 == 0 || (n % 10 >= 5 && n % 10 <= 9) || (n % 100 >= 11 && n % 100 <= 14) ? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
 #: models.py:16
@@ -122,38 +120,40 @@ msgstr "FAQ #%s"
 
 #: models.py:92
 msgid "Full name"
-msgstr ""
+msgstr "ПІБ"
 
 #: models.py:93
 msgid "About student"
-msgstr ""
+msgstr "Про студента"
 
 #: models.py:97
 msgid "Social links or other publication"
-msgstr ""
+msgstr "Посилання на соц. мережі або інше"
 
 #: models.py:100
 msgid ""
-"Structure like: {'instagram': 'link', 'telegram': 'link', 'facebook': 'link'}"
+"Structure like: {'instagram': 'link', 'telegram': 'link', 'facebook': "
+"'link'}"
 msgstr ""
+"Наприклад: {'instagram': 'link', 'telegram': 'link', 'facebook': 'link'}"
 
 #: models.py:102
 msgid "Created at"
-msgstr ""
+msgstr "Дата створення"
 
 #: models.py:103
 msgid "Date of graduation"
-msgstr ""
+msgstr "Дата випуску"
 
 #: models.py:106
 msgid "Alumnus"
-msgstr ""
+msgstr "Випускник"
 
 #: models.py:107
 msgid "Alumni"
-msgstr ""
+msgstr "Випускники"
 
 #: models.py:114
 #, python-format
 msgid "%s - #%s"
-msgstr ""
+msgstr "%s - #%s"
