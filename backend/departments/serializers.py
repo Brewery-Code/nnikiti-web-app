@@ -1,5 +1,8 @@
 from rest_framework import serializers
-from .models import EducationalProgram, CategorizedTag
+
+from .models.departments import EducationalProgram
+from .models.tagged import CategorizedTag
+
 
 class CategorizedTagSerializer(serializers.ModelSerializer):
     """Serializer for CategorizedTag."""

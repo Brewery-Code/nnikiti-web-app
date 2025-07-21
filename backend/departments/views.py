@@ -1,6 +1,8 @@
 from rest_framework import generics
-from .models import EducationalProgram
+
+from .models.departments import EducationalProgram
 from .serializers import EducationalProgramSerializer
+
 
 class EducationalProgramListAPIView(generics.ListAPIView):
     """ListAPIView for EducationalProgram."""

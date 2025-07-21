@@ -1,10 +1,10 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
-from .models import (Department, HeadOfDepartment, EducationalProgram,
-                     CategorizedTag, SubjectTaggedItem, FormTaggedItem, LevelTaggedItem)
-
 from django import forms
 from django.forms.models import BaseInlineFormSet
+
+from .models.departments import Department, HeadOfDepartment, EducationalProgram
+from .models.tagged import CategorizedTag, SubjectTaggedItem, FormTaggedItem, LevelTaggedItem
 
 
 #########################
