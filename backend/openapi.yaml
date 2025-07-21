@@ -126,7 +126,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-
+  /core/alumni/:
+    get:
+      tags:
+        - core
+      summary: Returns a list of Alumni
+      description: Returns a list of Alumni
+      responses:
+        "200":
+          description: Successfully returned a list of Alumni
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Alumnus"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /auth/google/:
     post:
       tags:
@@ -739,5 +759,44 @@ components:
           title: Educational Programs
           items:
             $ref: '#/components/schemas/EducationalProgramFull'
-
+    Alumnus:
+      type: object
+      properties:
+        id:
+          type: integer
+          title: ID
+          readOnly: true
+        full_name:
+          type: string
+          title: Full name
+          readOnly: true
+        text:
+          type: string
+          title: About student
+          readOnly: true
+        image:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          title: Created at
+          readOnly: true
+        date_of_graduation:
+          type: string
+          format: date
+          title: Date of graduation
+          readOnly: true
+        links:
+          type: object
+          title: Social links or publications
+          description: Dictionary of social/profile links
+          additionalProperties:
+            type: string
+            format: uri
+          example:
+            instagram: "https://instagram.com/example"
+            telegram: "https://t.me/example"
+            facebook: "https://facebook.com/example"
 
