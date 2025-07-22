@@ -21,6 +21,10 @@ export const router = createBrowserRouter([
         lazy: () => import("@/pages/home/home-page"),
       },
       {
+        path: ROUTES.GRADUATES,
+        lazy: () => import("@/pages/graduates/graduates-page"),
+      },
+      {
         path: ROUTES.CONTACTS,
         lazy: () => import("@/pages/contacts/contacts-page"),
       },

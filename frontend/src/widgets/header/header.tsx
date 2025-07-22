@@ -31,7 +31,7 @@ export default function Header() {
         { title: t("navigationMenu.gallery"), link: "#" },
         {
           title: t("navigationMenu.graduates"),
-          link: "#",
+          link: ROUTES.GRADUATES,
         },
       ],
     },

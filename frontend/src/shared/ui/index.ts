@@ -5,3 +5,4 @@ export { SpinnerLoader } from "./spinner-loader";
 export { default as ErrorMessage } from "./error-message";
 export { default as SocialLinkButton } from "./social-link-button";
 export { default as SocialLinkButtonGlassy } from "./social-link-button-glassy";
+export { PersonCard } from "./person-card";
