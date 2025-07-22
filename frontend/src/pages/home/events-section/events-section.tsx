@@ -10,8 +10,8 @@ export default function NewsSection({
 }: {
   className?: string;
 }) {
-  const { t } = useTranslation("home");
   useLoadNamespace("home", loadTranslations);
+  const { t } = useTranslation("home");
 
   return (
     <section className={clsx("container-base", className)}>

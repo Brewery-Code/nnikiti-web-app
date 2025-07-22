@@ -6,6 +6,6 @@ export default async function loadTranslations() {
     import("./uk.json"),
   ]);
 
-  i18n.addResourceBundle("en", "contacts-data", en.default, true, false);
-  i18n.addResourceBundle("uk", "contacts-data", uk.default, true, false);
+  i18n.addResourceBundle("en", "home", en.default, true, false);
+  i18n.addResourceBundle("uk", "home", uk.default, true, false);
 }

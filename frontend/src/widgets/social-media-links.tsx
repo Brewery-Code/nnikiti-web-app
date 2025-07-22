@@ -9,9 +9,7 @@ interface SocialMediaLinksProps {
 export function SocialMediaLinks({ className }: SocialMediaLinksProps) {
   const { socialMediaLinks } = useContactsData();
   return (
-    <div
-      className={clsx("flex flex-wrap justify-center gap-4 mt-8", className)}
-    >
+    <div className={clsx("flex gap-4", className)}>
       <SocialLinkButtonGlassy
         type="telegram"
         link={socialMediaLinks.telegram}

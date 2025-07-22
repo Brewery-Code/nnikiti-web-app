@@ -3,8 +3,8 @@ import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 
 export function useContactsData() {
-  useLoadNamespace("contacts", loadTranslations);
-  const { t } = useTranslation("contacts");
+  useLoadNamespace("contacts-data", loadTranslations);
+  const { t } = useTranslation("contacts-data");
 
   const administrationData = {
     director: {

@@ -8,8 +8,8 @@ export default function SpecialtiesSection({
 }: {
   className?: string;
 }) {
-  const { t } = useTranslation("home");
   useLoadNamespace("home", loadTranslations);
+  const { t } = useTranslation("home");
   return (
     <div className={className}>
       <Title className="container-base !mb-0">{t("specialties.title")}</Title>

@@ -24,7 +24,7 @@ export function ContactsSection() {
 
   return (
     <div className="container-base flex flex-col">
-      <Title className="self-start">{t("title")}</Title>{" "}
+      <Title className="self-start">{t("title")}</Title>
       <section className="flex flex-col w-full md:flex-row gap-4">
         <div className="grow flex flex-col gap-4">
           <ContactBlock
