@@ -21,8 +21,8 @@ export const router = createBrowserRouter([
         lazy: () => import("@/pages/home/home-page"),
       },
       {
-        path: ROUTES.GRADUATES,
-        lazy: () => import("@/pages/graduates/graduates-page"),
+        path: ROUTES.ALUMNI,
+        lazy: () => import("@/pages/alumni/alumni-page"),
       },
       {
         path: ROUTES.CONTACTS,
