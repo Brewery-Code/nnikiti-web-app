@@ -12,9 +12,9 @@ import {
   NavigationMenu,
   SearchBar,
   BurgerMenu,
-  SignInButton,
   UserMenu,
 } from "./ui";
+import { BlackAndWhiteButton } from "@/shared/ui";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -131,7 +131,9 @@ export default function Header() {
         <div className="hidden lg:grid grid-cols-2 justify-end items-center gap-4">
           <ChangeLanguage />
           {isUserLogin() ? (
-            <SignInButton onClick={() => googleLogin()} />
+            <BlackAndWhiteButton color="black" onClick={googleLogin}>
+              {t("signIn")}
+            </BlackAndWhiteButton>
           ) : (
             <UserMenu />
           )}

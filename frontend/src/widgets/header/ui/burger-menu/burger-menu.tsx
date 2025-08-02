@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { rqClient } from "@/shared/api/instance";
 import type { NavigationMenuData } from "../../types";
-import { SignInButton, ChangeLanguage } from "../../ui";
+import { ChangeLanguage } from "../../ui";
 import Accordion from "./accordion";
 import style from "./burger-menu.module.css";
+import { BlackAndWhiteButton } from "@/shared/ui";
+import { googleLogin } from "@/features/auth";
 
 export default function BurgerMenu({
   className,
@@ -97,9 +99,11 @@ export default function BurgerMenu({
           >
             {t("burgerMenu.home")}
           </Link>
-          <div className="flex justify-center gap-4 mt-auto">
+          <div className="grid grid-cols-[100px_100px] gap-4 justify-center  mt-auto">
             <ChangeLanguage />
-            <SignInButton />
+            <BlackAndWhiteButton color="black" onClick={googleLogin}>
+              {t("signIn")}
+            </BlackAndWhiteButton>
           </div>
         </ul>
       </div>

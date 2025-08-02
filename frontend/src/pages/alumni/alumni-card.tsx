@@ -1,7 +1,8 @@
-import { OvalLabel, SocialLinkButtonGlassy } from "@/shared/ui";
-import testImg from "./test.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
+import { OvalLabel, BlackAndWhiteButton } from "@/shared/ui";
+import styles from "./alumni-card.module.css";
+import testImg from "./test.png";
 
 export function AlumniCard() {
   const [isCardHovered, setIsCardHovered] = useState(false);
@@ -9,44 +10,55 @@ export function AlumniCard() {
   return (
     <div
       className={clsx(
-        "overflow-hidden relative flex flex-col items-center w-full max-w-80 h-90 p-8 bg-[linear-gradient(135deg,_rgba(72,72,72,0.7)_0%,_rgba(50,50,50,1)_50%,_rgba(72,72,72,0.7)_100%)] backdrop-blur-3xl rounded-2xl border-2 border-[rgba(100,100,100,0.5)] shadow-[2px_4px_12px_rgba(255,255,255,0.2)] cursor-pointer",
-        "before:-z-10 before:absolute before:-inset-15 before:rotate-45 before:bg-[rgba(200,200,200,0.1)] before:transition-transform before:duration-1000",
+        styles.cardWrapper,
+        "overflow-hidden relative w-full max-w-90 min-h-104 p-0.5 cursor-pointer rounded-2xl",
+        "before:-z-1 before:absolute before:-inset-15 before:rotate-45 before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)]",
+        "before:transition-transform before:duration-1000",
         !isCardHovered
           ? "before:-translate-x-full before:-translate-y-full"
-          : "before:translate-x-full before:translate-y-full"
+          : "before:translate-x-full before:translate-y-full",
+        "after:-z-10 after:absolute after:left-1/2 after:-translate-x-1/2 after:top-1/2 after:-translate-y-1/2",
+        "after:w-4/6 after:h-[160%] after:bg-[linear-gradient(90deg,_transparent_0%,_#6C0AA8_50%,_transparent_100%)]"
       )}
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
     >
-      <OvalLabel
-        className="absolute top-6 right-6 text-gray-100 font-medium "
-        bgColor="bg-[#902348]"
-      >
-        2022
-      </OvalLabel>
       <div
-        className={clsx(
-          "relative max-w-32 p-1 border-2 border-gray-100 rounded-full transition-[translate,width]"
-        )}
+        className="flex flex-col items-center w-full h-full px-6 pt-8 pb-6 bg-[radial-gradient(circle,_rgba(21,21,21,1)_0%,_rgba(21,21,21,0.80)_50%,_rgba(21,21,21,1)_100%)] 
+        backdrop-blur-3xl rounded-2xl shadow-[0px_0px_12px_rgba(255,255,255,0.3)]"
       >
-        <img
-          className="w-full h-full object-contain rounded-full"
-          src={testImg}
-          alt="alumni photo"
-        />
-      </div>
-      <div className="flex flex-col gap-2 mt-2">
-        <h2 className="text-xl font-bold">Pidr Pensionerskiy</h2>
-        <span className="w-full h-0.5 bg-gray-400"></span>
-        <h3 className="">Svarchik tretigo rosriada</h3>
-      </div>
-      <div className="relative">
-        <p
+        <OvalLabel
+          className="absolute top-6 right-6 text-gray-100 font-medium "
+          bgColor="bg-[#6C0AA8]"
+        >
+          2022
+        </OvalLabel>
+        <div
           className={clsx(
-            "overflow-hidden line-clamp-3 mt-4 indent-4 leading-5",
-            "transition-transform duration-300",
-            !isCardHovered ? "scale-100" : "scale-0"
+            "relative max-w-32 p-1 border-2 border-gray-100 rounded-full transition-[translate,width]"
           )}
+        >
+          <img
+            className="w-full h-full object-contain rounded-full"
+            src={testImg}
+            alt="alumni photo"
+          />
+        </div>
+        <div className="flex flex-col items-center gap-1 mt-2">
+          <h2 className="text-xl font-bold">Surname Name</h2>
+          <span className="w-full h-0.5 bg-gray-400"></span>
+          <div className="line-clamp-1 text-center font-medium leading-5">
+            Google worker
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-2 mt-3">
+          <OvalLabel bgColor="bg-[#0A56A8]">Computer Since</OvalLabel>
+          <OvalLabel className="w-auto" bgColor="bg-[#A80A30]">
+            Magister
+          </OvalLabel>
+        </div>
+        <p
+          className={clsx("mt-3 line-clamp-3 text-gray-300 indent-4 leading-5")}
         >
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
           facere debitis porro, ipsa obcaecati error doloremque quis ut eius
@@ -59,21 +71,15 @@ export function AlumniCard() {
           delectus consequuntur repellat enim at nemo ipsa debitis similique
           odio aliquid placeat nulla reprehenderit! Perferendis, perspiciatis!
         </p>
-        <button
-          className={clsx(
-            "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-2 bg-white rounded-3xl text-black font-bold cursor-pointer",
-            "transition-[scale,color,text,background-color] duration-300",
-            "hover:bg-black hover:text-white",
-            !isCardHovered ? "scale-0" : "scale-100"
-          )}
+        <BlackAndWhiteButton
+          className="h-7 mt-auto"
+          color="white"
+          size="s"
+          isHovered={isCardHovered}
         >
           Read more
-        </button>
+        </BlackAndWhiteButton>
       </div>
-      <span
-        className="before:absolute before:-left-10 before:-bottom-4 before:opacity-40 before:bg-gray-500 before:w-24 before:h-12 before:rotate-45
-            after:absolute after:-right-10 after:-bottom-4 after:opacity-40 after:bg-gray-500 after:w-24 after:h-12 after:-rotate-45"
-      />
     </div>
   );
 }

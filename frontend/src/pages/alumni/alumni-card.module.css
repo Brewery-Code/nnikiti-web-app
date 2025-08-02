@@ -1,0 +1,9 @@
+.cardWrapper::after {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
