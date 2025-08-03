@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import { OvalLabel, BlackAndWhiteButton } from "@/shared/ui";
 import styles from "./alumni-card.module.css";
@@ -58,7 +58,9 @@ export function AlumniCard() {
           </OvalLabel>
         </div>
         <p
-          className={clsx("mt-3 line-clamp-3 text-gray-300 indent-4 leading-5")}
+          className={clsx(
+            "overflow-hidden mt-3 line-clamp-3 text-gray-300 indent-4 leading-5"
+          )}
         >
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
           facere debitis porro, ipsa obcaecati error doloremque quis ut eius
@@ -71,14 +73,16 @@ export function AlumniCard() {
           delectus consequuntur repellat enim at nemo ipsa debitis similique
           odio aliquid placeat nulla reprehenderit! Perferendis, perspiciatis!
         </p>
-        <BlackAndWhiteButton
-          className="h-7 mt-auto"
-          color="white"
-          size="s"
-          isHovered={isCardHovered}
-        >
-          Read more
-        </BlackAndWhiteButton>
+        <div className="pt-6">
+          <BlackAndWhiteButton
+            className="h-7 mt-auto"
+            color="white"
+            size="s"
+            isHovered={isCardHovered}
+          >
+            Read more
+          </BlackAndWhiteButton>
+        </div>
       </div>
     </div>
   );

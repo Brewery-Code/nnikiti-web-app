@@ -37,6 +37,7 @@
     "react-router-dom": "^7.6.2",
     "react-transition-group": "^4.4.5",
     "redux": "^5.0.1",
+    "styled-components": "^6.1.19",
     "tailwindcss": "^4.1.10",
     "vite-plugin-svgr": "^4.3.0",
     "zod": "^4.0.5"
