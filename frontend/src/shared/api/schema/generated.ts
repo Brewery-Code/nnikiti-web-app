@@ -244,6 +244,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/core/alumni/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of Alumni
+         * @description Returns a list of Alumni
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of Alumni */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Alumnus"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/auth/google/": {
         parameters: {
             query?: never;
@@ -619,6 +667,120 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/departments/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of departments
+         * @description Returns a list of departments
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Departments list successfully returned */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Departments"][];
+                    };
+                };
+                /** @description Bad request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/departments/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns details of a single department by its unique ID.
+         * @description Returns a single department object by its unique ID.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Unique identifier of the event */
+                    id: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Department object successfully returned */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["DepartmentDetail"];
+                    };
+                };
+                /** @description Bad request (invalid ID or malformed request) */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+                /** @description Event not found */
+                404: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -735,6 +897,110 @@ export interface components {
             readonly education_forms?: components["schemas"]["CategorizedTag"][];
             /** Education Levels */
             readonly education_levels?: components["schemas"]["CategorizedTag"][];
+        };
+        EducationalProgramFull: components["schemas"]["EducationalProgram"] & {
+            description?: string;
+            bachelor?: {
+                code?: string;
+                specialty?: string;
+                program?: string;
+            } | null;
+            magistracy?: {
+                code?: string;
+                specialty?: string;
+                program?: string;
+            } | null;
+            postgraduate?: {
+                code?: string;
+                specialty?: string;
+                program?: string;
+            } | null;
+        };
+        Departments: {
+            /** ID */
+            readonly id?: number;
+            /** Department name */
+            name?: string;
+        };
+        DepartmentDetail: {
+            /** ID */
+            readonly id?: number;
+            /**
+             * Department name
+             * @description Translated name of the department
+             */
+            name?: string;
+            /**
+             * Department description
+             * @description Translated description of the department
+             */
+            description?: string;
+            /**
+             * Department address
+             * @description Translated address of the department
+             */
+            address?: string;
+            /**
+             * Email address
+             * Format: email
+             */
+            email?: string;
+            /** Head(s) of Department */
+            head_of_department?: {
+                /** ID */
+                id?: number;
+                /**
+                 * Regalia
+                 * @description Translated regalia/title of the head
+                 */
+                regalia?: string;
+                /**
+                 * Full name
+                 * @description Translated full name
+                 */
+                full_name?: string;
+                /**
+                 * Email
+                 * Format: email
+                 */
+                email?: string;
+                /** Audience */
+                audience?: string;
+            }[];
+            /** Educational Programs */
+            educational_program?: components["schemas"]["EducationalProgramFull"][];
+        };
+        Alumnus: {
+            /** ID */
+            readonly id?: number;
+            /** Full name */
+            readonly full_name?: string;
+            /** About student */
+            readonly text?: string;
+            /** Format: uri */
+            readonly image?: string;
+            /**
+             * Created at
+             * Format: date-time
+             */
+            readonly created_at?: string;
+            /**
+             * Date of graduation
+             * Format: date
+             */
+            readonly date_of_graduation?: string;
+            /**
+             * Social links or publications
+             * @description Dictionary of social/profile links
+             * @example {
+             *       "instagram": "https://instagram.com/example",
+             *       "telegram": "https://t.me/example",
+             *       "facebook": "https://facebook.com/example"
+             *     }
+             */
+            links?: {
+                [key: string]: string;
+            };
         };
     };
     responses: never;

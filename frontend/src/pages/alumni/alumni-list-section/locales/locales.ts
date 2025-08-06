@@ -6,6 +6,6 @@ export default async function loadTranslations() {
     import("./uk.json"),
   ]);
 
-  i18n.addResourceBundle("en", "graduates", en.default, true, false);
-  i18n.addResourceBundle("uk", "graduates", uk.default, true, false);
+  i18n.addResourceBundle("en", "alumni", en.default, true, false);
+  i18n.addResourceBundle("uk", "alumni", uk.default, true, false);
 }

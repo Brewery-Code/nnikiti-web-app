@@ -3,9 +3,14 @@ import clsx from "clsx";
 import { OvalLabel, BlackAndWhiteButton } from "@/shared/ui";
 import styles from "./alumni-card.module.css";
 import testImg from "./test.png";
+import { AlumniModal } from "./alumni-modal";
 
 export function AlumniCard() {
   const [isCardHovered, setIsCardHovered] = useState(false);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const toggleModal = () => {
+    setIsDescriptionOpen((prev) => !prev);
+  };
 
   return (
     <div
@@ -26,6 +31,7 @@ export function AlumniCard() {
       <div
         className="flex flex-col items-center w-full h-full px-6 pt-8 pb-6 bg-[radial-gradient(circle,_rgba(21,21,21,1)_0%,_rgba(21,21,21,0.80)_50%,_rgba(21,21,21,1)_100%)] 
         backdrop-blur-3xl rounded-2xl shadow-[0px_0px_12px_rgba(255,255,255,0.3)]"
+        onClick={toggleModal}
       >
         <OvalLabel
           className="absolute top-6 right-6 text-gray-100 font-medium "
@@ -83,6 +89,7 @@ export function AlumniCard() {
             Read more
           </BlackAndWhiteButton>
         </div>
+        <AlumniModal isOpen={isDescriptionOpen} toggleModal={toggleModal} />
       </div>
     </div>
   );
