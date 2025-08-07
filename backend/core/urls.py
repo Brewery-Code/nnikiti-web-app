@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import MainSliderView, StatisticBlockView, PartnersView, FAQView, AlumnusView
+from .views import MainSliderView, StatisticBlockView, PartnersView, FAQView, AlumnusView, AlumniSliderView
 from departments.views import EducationalProgramListView
 
 
@@ -11,4 +11,5 @@ urlpatterns = [
     path("faq/", FAQView.as_view(), name="faq"),
     path("educational-programs/", EducationalProgramListView.as_view(), name="educational-programs"),
     path("alumni/", AlumnusView.as_view(), name="alumni"),
+    path("alumni-slider-items/", AlumniSliderView.as_view(), name="alumni_slider_items"),
 ]

@@ -112,3 +112,18 @@ class Alumnus(TranslatableModel):
 
     def __str__(self):
         return _("%s - #%s") % (self.safe_translation_getter('full_name', any_language=True), self.pk)
+
+
+class AlumniSlider(models.Model):
+    """
+    Represents alumni slider displayed on the alumni page
+    """
+    image = models.ImageField(upload_to="alumni-slider/",)
+
+    class Meta:
+        verbose_name = _("Alumni slider item")
+        verbose_name_plural = _("Alumni slider items")
+        db_table = "AlumniSlider"
+
+    def __str__(self):
+        return _("Alumni slide #%s") % self.pk

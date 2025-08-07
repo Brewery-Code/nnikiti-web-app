@@ -39,3 +39,10 @@ class AlumnusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Alumnus
         fields = ["id", "full_name", "text", "date_of_graduation", "created_at", "links"]
+
+
+class AlumniSliderSerializer(serializers.ModelSerializer):
+    """Serializer for the AlumniSlider model."""
+    class Meta:
+        model = Alumnus
+        fields = ["id", "image"]

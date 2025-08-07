@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NNIKITI API 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 09:02+0000\n"
-"PO-Revision-Date: 2025-07-21 09:27+0000\n"
+"POT-Creation-Date: 2025-08-07 06:39+0000\n"
+"PO-Revision-Date: 2025-08-07 06:41+0000\n"
 "Last-Translator:   <admin@admin.com>\n"
 "Language-Team: Ukrainian <uk@example.com>\n"
 "Language: uk\n"
@@ -157,3 +157,19 @@ msgstr "Випускники"
 #, python-format
 msgid "%s - #%s"
 msgstr "%s - #%s"
+
+#: models.py:124
+#| msgid "Slider item"
+msgid "Alumni slider item"
+msgstr "Об'єкт слайдера випускників"
+
+#: models.py:125
+#| msgid "Slider items"
+msgid "Alumni slider items"
+msgstr "Об'єкти слайдера випускників"
+
+#: models.py:129
+#, python-format
+#| msgid "Slide #%s"
+msgid "Alumni slide #%s"
+msgstr "Слайд випускників #%s"

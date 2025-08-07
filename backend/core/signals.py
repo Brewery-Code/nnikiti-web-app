@@ -1,7 +1,7 @@
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
-from .models import MainSliderItem, Partner, Alumnus
+from .models import MainSliderItem, Partner, Alumnus, AlumniSlider
 
 
 @receiver(post_delete, sender=MainSliderItem)
@@ -28,6 +28,16 @@ def delete_alumnus_images(sender, instance, **kwargs):
     """
     Automatically deletes the image file from
     storage when an Alumnus is deleted.
+    """
+    if instance.image:
+        instance.image.delete(save=False)
+
+
+@receiver(post_delete, sender=AlumniSlider)
+def delete_alumni_slider_image(sender, instance, **kwargs):
+    """
+    Automatically deletes the image file from
+    storage when an AlumniSlider object is deleted.
     """
     if instance.image:
         instance.image.delete(save=False)

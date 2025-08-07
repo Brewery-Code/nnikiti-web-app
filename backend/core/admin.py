@@ -1,7 +1,7 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
 
-from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus
+from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus, AlumniSlider
 
 
 @admin.register(MainSliderItem)
@@ -35,3 +35,10 @@ class FAQAdmin(TranslatableAdmin):
 class AlumnusAdmin(TranslatableAdmin):
     """Admin configuration for the Alumnus model."""
     list_display = ["id", "full_name"]
+
+
+@admin.register(AlumniSlider)
+class AlumniSliderAdmin(admin.ModelAdmin):
+    """Admin configuration for the AlumniSlider model."""
+    list_display = ["pk",]
+    list_display_links = ("pk",)
