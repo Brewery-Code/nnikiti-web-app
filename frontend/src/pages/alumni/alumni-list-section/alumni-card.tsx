@@ -4,8 +4,14 @@ import { OvalLabel, BlackAndWhiteButton } from "@/shared/ui";
 import styles from "./alumni-card.module.css";
 import testImg from "./test.png";
 import { AlumniModal } from "./alumni-modal";
+import { type Alumni } from "./types";
 
-export function AlumniCard() {
+interface AlumniCardProps {
+  alumni: Alumni;
+  color: string;
+}
+
+export function AlumniCard({ alumni, color }: AlumniCardProps) {
   const [isCardHovered, setIsCardHovered] = useState(false);
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const toggleModal = () => {
@@ -23,8 +29,11 @@ export function AlumniCard() {
           ? "before:-translate-x-full before:-translate-y-full"
           : "before:translate-x-full before:translate-y-full",
         "after:-z-10 after:absolute after:left-1/2 after:-translate-x-1/2 after:top-1/2 after:-translate-y-1/2",
-        "after:w-4/6 after:h-[160%] after:bg-[linear-gradient(90deg,_transparent_0%,_#6C0AA8_50%,_transparent_100%)]"
+        "after:w-4/6 after:h-[160%]"
       )}
+      style={{
+        ["--after-gradient" as any]: `linear-gradient(90deg, transparent 0%, ${color} 50%, transparent 100%)`,
+      }}
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
     >
@@ -35,9 +44,9 @@ export function AlumniCard() {
       >
         <OvalLabel
           className="absolute top-6 right-6 text-gray-100 font-medium "
-          bgColor="bg-[#6C0AA8]"
+          style={{ background: color }}
         >
-          2022
+          {alumni.date_of_graduation}
         </OvalLabel>
         <div
           className={clsx(
@@ -51,16 +60,16 @@ export function AlumniCard() {
           />
         </div>
         <div className="flex flex-col items-center gap-1 mt-2">
-          <h2 className="text-xl font-bold">Surname Name</h2>
+          <h2 className="text-xl font-bold">{alumni.full_name}</h2>
           <span className="w-full h-0.5 bg-gray-400"></span>
           <div className="line-clamp-1 text-center font-medium leading-5">
-            Google worker
+            {alumni.workplace}, {alumni.position}
           </div>
         </div>
         <div className="flex flex-wrap justify-center gap-2 mt-3">
-          <OvalLabel bgColor="bg-[#0A56A8]">Computer Since</OvalLabel>
+          <OvalLabel bgColor="bg-[#0A56A8]">{alumni.major}</OvalLabel>
           <OvalLabel className="w-auto" bgColor="bg-[#A80A30]">
-            Magister
+            {alumni.degree}
           </OvalLabel>
         </div>
         <p
@@ -68,16 +77,7 @@ export function AlumniCard() {
             "overflow-hidden mt-3 line-clamp-3 text-gray-300 indent-4 leading-5"
           )}
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
-          facere debitis porro, ipsa obcaecati error doloremque quis ut eius
-          asperiores deleniti harum tempore velit labore quasi doloribus, veniam
-          voluptate? Esse?Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Libero at, id esse perferendis illum error similique facere
-          eius, neque dolor sed quibusdam, dignissimos odit nulla necessitatibus
-          possimus alias minima officia. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Provident incidunt sit ducimus maxime, recusandae
-          delectus consequuntur repellat enim at nemo ipsa debitis similique
-          odio aliquid placeat nulla reprehenderit! Perferendis, perspiciatis!
+          {alumni.text}
         </p>
         <div className="pt-6">
           <BlackAndWhiteButton

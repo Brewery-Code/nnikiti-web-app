@@ -1,246 +1,330 @@
 import { BlackAndWhiteButton, Title } from "@/shared/ui";
 import { AlumniCard } from "./alumni-card";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
+import { useTranslation } from "react-i18next";
+import type { Alumni } from "./types";
 
-interface AlumniData {
-  id: number;
-  full_name: string;
-  text: string;
-  image: string;
-  created_at: string;
-  date_of_graduation: string;
-  links: {
-    instagram?: string;
-    telegram?: string;
-    facebook?: string;
-  };
-}
+type AlumniList = {
+  [year: number]: Alumni[];
+};
 
-const alumniData: AlumniData[] = [
-  {
-    id: 0,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2025-08-06T19:56:45.650Z",
-    date_of_graduation: "2025-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+const alumniData: AlumniList = {
+  2028: [
+    {
+      id: 6,
+      full_name: "Ольга Тимошенко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2028-07-20T00:00:00",
+      date_of_graduation: "2028-07-20",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-  {
-    id: 1,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2025-08-06T19:56:45.650Z",
-    date_of_graduation: "2025-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+    {
+      id: 11,
+      full_name: "Людмила Гордієнко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2028-06-10T00:00:00",
+      date_of_graduation: "2028-06-10",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-  {
-    id: 2,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2024-08-06T19:56:45.650Z",
-    date_of_graduation: "2025-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+    {
+      id: 19,
+      full_name: "Валентина Проценко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2028-06-09T00:00:00",
+      date_of_graduation: "2028-06-09",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-  {
-    id: 3,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2025-08-06T19:56:45.650Z",
-    date_of_graduation: "2025-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+  ],
+  2027: [
+    {
+      id: 5,
+      full_name: "Ірина Петренко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2027-06-10T00:00:00",
+      date_of_graduation: "2027-06-10",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-  {
-    id: 4,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2020-08-06T19:56:45.650Z",
-    date_of_graduation: "2020-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+    {
+      id: 10,
+      full_name: "Наталія Задорожна",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2027-05-06T00:00:00",
+      date_of_graduation: "2027-05-06",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-  {
-    id: 5,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2022-08-06T19:56:45.650Z",
-    date_of_graduation: "2023-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+    {
+      id: 15,
+      full_name: "Аліна Коваль",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2027-05-12T00:00:00",
+      date_of_graduation: "2027-05-12",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-  {
-    id: 6,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2025-08-06T19:56:45.650Z",
-    date_of_graduation: "2021-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+  ],
+  2026: [
+    {
+      id: 4,
+      full_name: "Олена Литвин",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2026-07-17T00:00:00",
+      date_of_graduation: "2026-07-17",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-  {
-    id: 7,
-    full_name: "Пархомчук Віталій",
-    text: `If someone had told me five years ago that I’d find true fulfillment making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans, trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires, select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love my job. I get paid well to do something I’m passionate about, and I’m surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.`,
-    image: "string",
-    created_at: "2025-08-06T19:56:45.650Z",
-    date_of_graduation: "2025-08-06",
-    links: {
-      instagram: "https://instagram.com/example",
-      telegram: "https://t.me/example",
-      facebook: "https://facebook.com/example",
+    {
+      id: 8,
+      full_name: "Катерина Романюк",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2026-07-03T00:00:00",
+      date_of_graduation: "2026-07-03",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
     },
-  },
-];
+    {
+      id: 16,
+      full_name: "Тарас Ющенко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2026-07-27T00:00:00",
+      date_of_graduation: "2026-07-27",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+  ],
+  2025: [
+    {
+      id: 0,
+      full_name: "Марія Іваненко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2025-05-24T00:00:00",
+      date_of_graduation: "2025-05-24",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+    {
+      id: 3,
+      full_name: "Юрій Мельник",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2025-05-18T00:00:00",
+      date_of_graduation: "2025-05-18",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+    {
+      id: 14,
+      full_name: "Богдан Черненко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2025-06-14T00:00:00",
+      date_of_graduation: "2025-06-14",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+    {
+      id: 18,
+      full_name: "Євген Сидоренко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2025-05-27T00:00:00",
+      date_of_graduation: "2025-05-27",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+  ],
+  2023: [
+    {
+      id: 1,
+      full_name: "Олексій Шевченко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2023-06-26T00:00:00",
+      date_of_graduation: "2023-06-26",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+    {
+      id: 2,
+      full_name: "Андрій Савченко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2023-05-21T00:00:00",
+      date_of_graduation: "2023-05-21",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+    {
+      id: 7,
+      full_name: "Сергій Павленко",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2023-05-25T00:00:00",
+      date_of_graduation: "2023-05-25",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+    {
+      id: 9,
+      full_name: "Максим Вовк",
+      text: "Університет навчив мене багато чому, але найбільше — бути собою. Сьогодні я займаюсь тим, що дійсно люблю, і вдячний(а) за кожен пройдений крок.",
+      image: "string",
+      created_at: "2023-07-08T00:00:00",
+      date_of_graduation: "2023-07-08",
+      major: "Computer Since",
+      degree: "Magister",
+      workplace: "Honeycomb",
+      position: "Frontend developer",
+
+      links: {
+        instagram: "https://instagram.com/example",
+        telegram: "https://t.me/example",
+        facebook: "https://facebook.com/example",
+      },
+    },
+  ],
+};
 
 const yearColor = [
   "#F42272",
@@ -257,7 +341,7 @@ const yearColor = [
 
 const getColor = (year: number) => {
   const lastDigit = year % 10;
-  const color = `bg-[${yearColor[lastDigit]}]`;
+  const color = yearColor[lastDigit];
   return color;
 };
 
@@ -266,43 +350,37 @@ function RenderAlumniList() {
 }
 
 export function AlumniListSection() {
+  useLoadNamespace("alumni", loadTranslations);
+  const { t } = useTranslation("alumni");
+
   return (
     <div className="container-base">
-      {/* <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 mt-24">
-        {Array.from({ length: 2024 - 2000 + 1 }, (_, i) => {
-          const year = 2024 - i;
-          return <BlackAndWhiteButton>{year}</BlackAndWhiteButton>;
-        })}
-      </div> */}
-      <div className="relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white">
-        <Title className="mt-8">ВИПУСК 2024</Title>
+      <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 mt-24">
+        {Object.keys(alumniData)
+          .map(Number)
+          .sort((a, b) => b - a)
+          .map((year) => (
+            <BlackAndWhiteButton>{year}</BlackAndWhiteButton>
+          ))}
       </div>
-      <div className="grid grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-      </div>
-      <div className="relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white">
-        <Title className="mt-8">ВИПУСК 2023</Title>
-      </div>
-      <div className="grid grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-      </div>
-      <div className="relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white">
-        <Title className="mt-8">ВИПУСК 2022</Title>
-      </div>
-      <div className="grid grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-        <AlumniCard />
-      </div>
+      {Object.keys(alumniData)
+        .map(Number)
+        .sort((a, b) => b - a)
+        .map((year) => (
+          <div className="">
+            <div className="relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white">
+              <Title className="mt-8">
+                {t("alumniList.title")}
+                {year}
+              </Title>
+            </div>
+            <div className="grid grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
+              {alumniData[year].map((alumni) => (
+                <AlumniCard alumni={alumni} color={getColor(year)} />
+              ))}
+            </div>
+          </div>
+        ))}
     </div>
   );
 }
