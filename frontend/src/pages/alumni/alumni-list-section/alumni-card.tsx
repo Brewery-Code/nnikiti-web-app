@@ -1,27 +1,47 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import clsx from "clsx";
 import { OvalLabel, BlackAndWhiteButton } from "@/shared/ui";
-import styles from "./alumni-card.module.css";
 import testImg from "./test.png";
 import { AlumniModal } from "./alumni-modal";
 import { type Alumni } from "./types";
+import styled, { keyframes } from "styled-components";
+import { useScrollDownAnimation } from "@/shared/hooks";
 
 interface AlumniCardProps {
   alumni: Alumni;
   color: string;
 }
 
+const spin = keyframes`
+    to {
+      transform: rotate(360deg);
+    }
+  `;
+
+const CardWrapper = styled.div<{ color: string }>`
+  &::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      ${({ color }) => color} 50%,
+      transparent 100%
+    );
+    animation: ${spin} 8s linear infinite;
+  }
+`;
+
 export function AlumniCard({ alumni, color }: AlumniCardProps) {
   const [isCardHovered, setIsCardHovered] = useState(false);
+
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const toggleModal = () => {
     setIsDescriptionOpen((prev) => !prev);
   };
 
   return (
-    <div
+    <CardWrapper
+      color={color}
       className={clsx(
-        styles.cardWrapper,
         "overflow-hidden relative w-full max-w-90 min-h-104 p-0.5 cursor-pointer rounded-2xl",
         "before:-z-1 before:absolute before:-inset-15 before:rotate-45 before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)]",
         "before:transition-transform before:duration-1000",
@@ -31,9 +51,6 @@ export function AlumniCard({ alumni, color }: AlumniCardProps) {
         "after:-z-10 after:absolute after:left-1/2 after:-translate-x-1/2 after:top-1/2 after:-translate-y-1/2",
         "after:w-4/6 after:h-[160%]"
       )}
-      style={{
-        ["--after-gradient" as any]: `linear-gradient(90deg, transparent 0%, ${color} 50%, transparent 100%)`,
-      }}
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
     >
@@ -89,8 +106,12 @@ export function AlumniCard({ alumni, color }: AlumniCardProps) {
             Read more
           </BlackAndWhiteButton>
         </div>
-        <AlumniModal isOpen={isDescriptionOpen} toggleModal={toggleModal} />
+        <AlumniModal
+          isOpen={isDescriptionOpen}
+          toggleModal={toggleModal}
+          alumni={alumni}
+        />
       </div>
-    </div>
+    </CardWrapper>
   );
 }

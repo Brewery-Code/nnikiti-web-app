@@ -13,7 +13,7 @@ export function HomePage() {
       <HeroSection />
       <StatisticSection className="m-section " />
       <SpecialtiesSection className="m-section " />
-      <EventsSection className="m-section fade-animation" />
+      <EventsSection className="m-section" />
       <PartnersSection className="m-section" />
     </PageTransition>
   );

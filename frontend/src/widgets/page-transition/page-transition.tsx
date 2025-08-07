@@ -1,5 +1,7 @@
-import clsx from "clsx";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -12,6 +14,18 @@ export default function PageTransition({
   className,
   isPaddingOn = true,
 }: PageTransitionProps) {
+  const location = useLocation();
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 200);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [location]);
+
   return (
     <motion.main
       className={clsx(

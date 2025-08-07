@@ -1,3 +1,4 @@
+import { useScrollDownAnimation } from "@/shared/hooks";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 
@@ -30,8 +31,8 @@ export default function StatisticBlock({
   );
   const animationRef = useRef<number | null>(null);
 
-  const [isElementVisible, setIsElementVisible] = useState<boolean>();
   const blockRef = useRef<HTMLDivElement>(null);
+  // useScrollDownAnimation({ elementRef: blockRef });
 
   useEffect(() => {
     setParsed(parseTitle(title));
@@ -41,7 +42,6 @@ export default function StatisticBlock({
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         if (start_value === undefined) return;
-        setIsElementVisible(true);
         observer.disconnect();
 
         const start = start_value ?? 0;
@@ -64,7 +64,9 @@ export default function StatisticBlock({
         step();
       }
     });
+
     if (blockRef.current) observer.observe(blockRef.current);
+
     return () => {
       observer.disconnect();
       if (animationRef.current) cancelAnimationFrame(animationRef.current);

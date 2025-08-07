@@ -1,9 +1,11 @@
 import { BlackAndWhiteButton, Title } from "@/shared/ui";
 import { AlumniCard } from "./alumni-card";
-import { useLoadNamespace } from "@/shared/hooks";
+import { useLoadNamespace, useScrollDownAnimation } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import { useTranslation } from "react-i18next";
 import type { Alumni } from "./types";
+import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 type AlumniList = {
   [year: number]: Alumni[];
@@ -341,17 +343,15 @@ const yearColor = [
 
 const getColor = (year: number) => {
   const lastDigit = year % 10;
-  const color = yearColor[lastDigit];
-  return color;
+  return yearColor[lastDigit];
 };
-
-function RenderAlumniList() {
-  return <div className=""></div>;
-}
 
 export function AlumniListSection() {
   useLoadNamespace("alumni", loadTranslations);
   const { t } = useTranslation("alumni");
+
+  const listRef = useRef<HTMLDivElement>(null);
+  const isVisible = useScrollDownAnimation({ elementRef: listRef });
 
   return (
     <div className="container-base">
@@ -360,27 +360,39 @@ export function AlumniListSection() {
           .map(Number)
           .sort((a, b) => b - a)
           .map((year) => (
-            <BlackAndWhiteButton>{year}</BlackAndWhiteButton>
+            <a href={"#" + year}>
+              <BlackAndWhiteButton>{year}</BlackAndWhiteButton>
+            </a>
           ))}
       </div>
       {Object.keys(alumniData)
         .map(Number)
         .sort((a, b) => b - a)
-        .map((year) => (
-          <div className="">
-            <div className="relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white">
-              <Title className="mt-8">
-                {t("alumniList.title")}
-                {year}
-              </Title>
+        .map((year) => {
+          const listRef = useRef<HTMLDivElement>(null);
+          const isVisible = useScrollDownAnimation({ elementRef: listRef });
+          return (
+            <div
+              className={`transition duration-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+              ref={listRef}
+            >
+              <div
+                className="relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white"
+                id={year.toString()}
+              >
+                <Title className="mt-8">
+                  {t("alumniList.title")}
+                  {year}
+                </Title>
+              </div>
+              <div className="grid grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
+                {alumniData[year].map((alumni) => (
+                  <AlumniCard alumni={alumni} color={getColor(year)} />
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
-              {alumniData[year].map((alumni) => (
-                <AlumniCard alumni={alumni} color={getColor(year)} />
-              ))}
-            </div>
-          </div>
-        ))}
+          );
+        })}
     </div>
   );
 }

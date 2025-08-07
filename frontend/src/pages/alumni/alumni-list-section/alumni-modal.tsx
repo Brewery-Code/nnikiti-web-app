@@ -1,19 +1,14 @@
 import { ModalWrapper } from "@/widgets";
 import testImg from "./test2.png";
+import type { Alumni } from "./types";
 
 interface AlumniModalProps {
   isOpen: boolean;
   toggleModal: () => void;
-  name?: string;
-  description?: string;
+  alumni: Alumni;
 }
 
-export function AlumniModal({
-  isOpen,
-  toggleModal,
-  name,
-  description,
-}: AlumniModalProps) {
+export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
   return (
     <ModalWrapper
       className="flex justify-center items-center"
@@ -36,46 +31,15 @@ export function AlumniModal({
             alt=""
           />
         </div>
-        <div className="text-4xl font-bold">Surname Name</div>
+        <div className="text-4xl font-bold">{alumni.full_name}</div>
         <ul className="flex flex-col gap-2 mt-4 text-gray-100 font-semibold">
-          <li>Graduated year: 2023</li>
-          <li>Work place: gulugulu</li>
-          <li>Position: coffee man</li>
-          <li>Education program: computer since</li>
+          <li>Graduated year: {alumni.date_of_graduation}</li>
+          <li>Work place: {alumni.workplace}</li>
+          <li>Position: {alumni.position}</li>
+          <li>Education program: {alumni.major}</li>
         </ul>
         <p className="mt-4 indent-4 text-gray-100 leading-6">
-          If someone had told me five years ago that I’d find true fulfillment
-          making cappuccinos at a giant tech firm, I would’ve laughed. Back
-          then, I was drowning in lectures, assignments, and student loans,
-          trying to earn a business degree. I was convinced I needed a fancy
-          title, a corner office, and a shiny LinkedIn profile to feel
-          “successful.” But life had other plans. University taught me many
-          things — economics, management theory, a bit of coding — but what
-          stuck most was what I did between classes. I always had a cup of
-          coffee in hand. Not the burned cafeteria kind — I mean real, carefully
-          crafted coffee. I started brewing my own at home. First a French
-          press, then an AeroPress, then a pour-over. Before I knew it, I was
-          reading about beans from Ethiopia like people read poetry. By
-          graduation, while my friends scrambled for internships, I bought my
-          first espresso machine. I started small. A stand outside the metro
-          station. Rain or shine, I was there with my thermoses and hand
-          grinders, chatting with tired commuters and giving them a reason to
-          smile before their 9-to-5. It wasn’t glamorous, but every day, I was
-          doing what I loved — and people noticed. One morning, a guy in a suit
-          with the Gulugulu Company logo on his backpack stopped for a flat
-          white. He came back the next day. And the day after that. Eventually,
-          he asked if I’d ever thought about running a coffee bar… inside an
-          office. That’s how it started. Today, I’m the head barista at Gulugulu
-          HQ. My team serves hundreds of employees every day. I train new hires,
-          select our beans, design seasonal menus, and yes — I still make the
-          drinks myself. Because that’s where the magic is. In the foam, the
-          smile, the moment someone says, “This made my day.” I don’t wear a
-          suit. I don’t have a LinkedIn title that’ll blow your mind. But I love
-          my job. I get paid well to do something I’m passionate about, and I’m
-          surrounded by people who appreciate it. Success doesn’t always look
-          like what you imagined in school. Sometimes, it smells like freshly
-          ground coffee and starts at 6:30 AM — with joy. And honestly? I
-          wouldn’t trade it for anything.
+          {alumni.text}
           <p className="mt-2 italic">— Alex, Coffee Man at Gulugulu Company</p>
         </p>
       </div>
