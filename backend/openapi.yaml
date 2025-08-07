@@ -147,6 +147,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /core/alumni-slider-items/:
+    get:
+      tags:
+        - core
+      summary: Returns a list of alumni slider objects.
+      description: Returns a list of alumni slider objects
+      responses:
+        "200":
+          description: Successfully returned a list of slider images
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AlumniSliderItem"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /auth/google/:
     post:
       tags:
@@ -799,4 +820,16 @@ components:
             instagram: "https://instagram.com/example"
             telegram: "https://t.me/example"
             facebook: "https://facebook.com/example"
+    AlumniSliderItem:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        image:
+          title: Image
+          type: string
+          format: uri
+          readOnly: true
 

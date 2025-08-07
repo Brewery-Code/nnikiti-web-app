@@ -1,8 +1,8 @@
 from rest_framework.generics import ListAPIView
 
 from .serializers import MainSliderItemSerializer, StatisticBlockSerializer, \
-    PartnersSerializer, FAQSerializer, AlumnusSerializer
-from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus
+    PartnersSerializer, FAQSerializer, AlumnusSerializer, AlumniSliderSerializer
+from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus, AlumniSlider
 
 
 class MainSliderView(ListAPIView):
@@ -35,3 +35,9 @@ class AlumnusView(ListAPIView):
     """Returns a list of all Alumni."""
     queryset = Alumnus.objects.all()
     serializer_class = AlumnusSerializer
+
+
+class AlumniSliderView(ListAPIView):
+    """Returns a list of all AlumniSlider."""
+    queryset = AlumniSlider.objects.all()
+    serializer_class = AlumniSliderSerializer
