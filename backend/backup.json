@@ -406,63 +406,325 @@
   "fields": {}
 },
 {
-  "model": "users.user",
+  "model": "core.alumnislider",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$vcm3KjLvwvx3NiEXKRPNMh$r5ZB8H+jEJ8doGfvuxLfXINJVCBbLOQQLTEpOv9lskY=",
-    "last_login": "2025-07-16T08:38:04.621Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "email": "admin@admin.com",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2025-06-23T15:15:14Z",
-    "avatar": null,
-    "role": "OP",
-    "groups": [],
-    "user_permissions": []
+    "image": "alumni-slider/photo_1_2025-08-07_09-47-11.jpg"
   }
 },
 {
-  "model": "users.user",
+  "model": "core.alumnislider",
+  "pk": 2,
+  "fields": {
+    "image": "alumni-slider/photo_1_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 3,
+  "fields": {
+    "image": "alumni-slider/photo_2_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 4,
+  "fields": {
+    "image": "alumni-slider/photo_2_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
   "pk": 5,
   "fields": {
-    "password": "",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "yakymchuk.oleksandr.dev@gmail.com",
-    "first_name": "Oleksandr",
-    "last_name": "",
-    "email": "yakymchuk.oleksandr.dev@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-07-13T15:46:23.228Z",
-    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLI4p9i57VIJWo9oDGxL4bKtX5yM0-28V8xv_7rXrGmaidOzOs=s96-c",
-    "role": "GU",
-    "groups": [],
-    "user_permissions": []
+    "image": "alumni-slider/photo_3_2025-08-07_09-47-11.jpg"
   }
 },
 {
-  "model": "users.user",
+  "model": "core.alumnislider",
   "pk": 6,
   "fields": {
-    "password": "",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "yakymchuk_ak22@nuwm.edu.ua",
-    "first_name": "Олександр Сергійович",
-    "last_name": "Якимчук",
-    "email": "yakymchuk_ak22@nuwm.edu.ua",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-07-13T16:17:32.693Z",
-    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocK2zQ2thuLlnKz6hCMijIon0lcPZlDDESchRsdcZoQsXlZ9cy7B=s96-c",
-    "role": "ST",
-    "groups": [],
-    "user_permissions": []
+    "image": "alumni-slider/photo_3_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 7,
+  "fields": {
+    "image": "alumni-slider/photo_4_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 8,
+  "fields": {
+    "image": "alumni-slider/photo_4_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 9,
+  "fields": {
+    "image": "alumni-slider/photo_5_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 10,
+  "fields": {
+    "image": "alumni-slider/photo_5_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 11,
+  "fields": {
+    "image": "alumni-slider/photo_6_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 12,
+  "fields": {
+    "image": "alumni-slider/photo_6_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 13,
+  "fields": {
+    "image": "alumni-slider/photo_7_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 14,
+  "fields": {
+    "image": "alumni-slider/photo_7_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 15,
+  "fields": {
+    "image": "alumni-slider/photo_8_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 16,
+  "fields": {
+    "image": "alumni-slider/photo_8_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 17,
+  "fields": {
+    "image": "alumni-slider/photo_9_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 18,
+  "fields": {
+    "image": "alumni-slider/photo_9_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 19,
+  "fields": {
+    "image": "alumni-slider/photo_10_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 20,
+  "fields": {
+    "image": "alumni-slider/photo_10_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 21,
+  "fields": {
+    "image": "alumni-slider/photo_11_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 22,
+  "fields": {
+    "image": "alumni-slider/photo_12_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 23,
+  "fields": {
+    "image": "alumni-slider/photo_13_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 24,
+  "fields": {
+    "image": "alumni-slider/photo_14_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 25,
+  "fields": {
+    "image": "alumni-slider/photo_15_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 26,
+  "fields": {
+    "image": "alumni-slider/photo_16_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 27,
+  "fields": {
+    "image": "alumni-slider/photo_17_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 28,
+  "fields": {
+    "image": "alumni-slider/photo_18_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 29,
+  "fields": {
+    "image": "alumni-slider/photo_19_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 30,
+  "fields": {
+    "image": "alumni-slider/photo_20_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 31,
+  "fields": {
+    "image": "alumni-slider/photo_21_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 32,
+  "fields": {
+    "image": "alumni-slider/photo_22_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 33,
+  "fields": {
+    "image": "alumni-slider/photo_23_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 34,
+  "fields": {
+    "image": "alumni-slider/photo_24_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 35,
+  "fields": {
+    "image": "alumni-slider/photo_25_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 36,
+  "fields": {
+    "image": "alumni-slider/photo_26_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 37,
+  "fields": {
+    "image": "alumni-slider/photo_27_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 38,
+  "fields": {
+    "image": "alumni-slider/photo_28_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 39,
+  "fields": {
+    "image": "alumni-slider/photo_29_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 40,
+  "fields": {
+    "image": "alumni-slider/photo_30_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 41,
+  "fields": {
+    "image": "alumni-slider/photo_31_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 42,
+  "fields": {
+    "image": "alumni-slider/photo_32_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 43,
+  "fields": {
+    "image": "alumni-slider/photo_33_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 44,
+  "fields": {
+    "image": "alumni-slider/photo_34_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 45,
+  "fields": {
+    "image": "alumni-slider/photo_35_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 46,
+  "fields": {
+    "image": "alumni-slider/photo_36_2025-08-07_09-47-24.jpg"
   }
 },
 {
