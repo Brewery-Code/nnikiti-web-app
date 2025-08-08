@@ -292,6 +292,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/core/alumni-slider-items/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of alumni slider objects.
+         * @description Returns a list of alumni slider objects
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of slider images */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["AlumniSliderItem"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/auth/google/": {
         parameters: {
             query?: never;
@@ -1001,6 +1049,19 @@ export interface components {
             links?: {
                 [key: string]: string;
             };
+            readonly major?: string;
+            readonly degree?: string;
+            readonly workplace?: string;
+            readonly position?: string;
+        };
+        AlumniSliderItem: {
+            /** ID */
+            readonly id?: number;
+            /**
+             * Image
+             * Format: uri
+             */
+            readonly image?: string;
         };
     };
     responses: never;

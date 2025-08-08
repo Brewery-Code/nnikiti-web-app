@@ -1,6 +1,6 @@
 import { ModalWrapper } from "@/widgets";
-import testImg from "./test2.png";
-import type { Alumni } from "./types";
+import testImg from "./../test2.png";
+import type { Alumni } from "../types";
 
 interface AlumniModalProps {
   isOpen: boolean;

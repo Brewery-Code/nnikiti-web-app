@@ -1,11 +1,10 @@
 import { BlackAndWhiteButton, Title } from "@/shared/ui";
-import { AlumniCard } from "./alumni-card";
 import { useLoadNamespace, useScrollDownAnimation } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import { useTranslation } from "react-i18next";
 import type { Alumni } from "./types";
-import { Link } from "react-router-dom";
 import { useRef } from "react";
+import { AlumniCard } from "./ui";
 
 type AlumniList = {
   [year: number]: Alumni[];
@@ -350,12 +349,18 @@ export function AlumniListSection() {
   useLoadNamespace("alumni", loadTranslations);
   const { t } = useTranslation("alumni");
 
-  const listRef = useRef<HTMLDivElement>(null);
-  const isVisible = useScrollDownAnimation({ elementRef: listRef });
+  const navigationListRef = useRef<HTMLDivElement>(null);
+  useScrollDownAnimation({
+    elementRef: navigationListRef,
+    isDefaultAnimationOn: true,
+  });
 
   return (
     <div className="container-base">
-      <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 mt-24">
+      <div
+        className="flex flex-wrap justify-center gap-x-4 gap-y-3 mt-24"
+        ref={navigationListRef}
+      >
         {Object.keys(alumniData)
           .map(Number)
           .sort((a, b) => b - a)
@@ -370,25 +375,38 @@ export function AlumniListSection() {
         .sort((a, b) => b - a)
         .map((year) => {
           const listRef = useRef<HTMLDivElement>(null);
-          const isVisible = useScrollDownAnimation({ elementRef: listRef });
+          const isVisible = useScrollDownAnimation({
+            elementRef: listRef,
+          });
           return (
-            <div
-              className={`transition duration-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-              ref={listRef}
-            >
+            <div ref={listRef}>
               <div
-                className="relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white"
+                className={`relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white
+                before:transition-opacity before:duration-600 ${isVisible ? "before:opacity-100" : "before:opacity-0"}`}
                 id={year.toString()}
               >
-                <Title className="mt-8">
+                <Title
+                  className={`mt-8 transition-[translate,opacity] duration-600 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"}`}
+                >
                   {t("alumniList.title")}
                   {year}
                 </Title>
               </div>
               <div className="grid grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
-                {alumniData[year].map((alumni) => (
-                  <AlumniCard alumni={alumni} color={getColor(year)} />
-                ))}
+                {alumniData[year].map((alumni) => {
+                  const cardRef = useRef<HTMLDivElement>(null);
+                  const isVisible = useScrollDownAnimation({
+                    elementRef: cardRef,
+                  });
+                  return (
+                    <AlumniCard
+                      className={`transition duration-600 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+                      ref={cardRef}
+                      alumni={alumni}
+                      color={getColor(year)}
+                    />
+                  );
+                })}
               </div>
             </div>
           );

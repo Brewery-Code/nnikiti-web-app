@@ -1,13 +1,14 @@
-import { useRef, useState } from "react";
+import { useState, type RefObject } from "react";
 import clsx from "clsx";
 import { OvalLabel, BlackAndWhiteButton } from "@/shared/ui";
-import testImg from "./test.png";
-import { AlumniModal } from "./alumni-modal";
-import { type Alumni } from "./types";
+import testImg from "./../test.png";
 import styled, { keyframes } from "styled-components";
-import { useScrollDownAnimation } from "@/shared/hooks";
+import type { Alumni } from "../types";
+import { AlumniModal } from "./alumni-modal";
 
 interface AlumniCardProps {
+  className?: string;
+  ref?: RefObject<HTMLDivElement | null>;
   alumni: Alumni;
   color: string;
 }
@@ -30,7 +31,7 @@ const CardWrapper = styled.div<{ color: string }>`
   }
 `;
 
-export function AlumniCard({ alumni, color }: AlumniCardProps) {
+export function AlumniCard({ alumni, color, className, ref }: AlumniCardProps) {
   const [isCardHovered, setIsCardHovered] = useState(false);
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
@@ -40,8 +41,10 @@ export function AlumniCard({ alumni, color }: AlumniCardProps) {
 
   return (
     <CardWrapper
+      ref={ref}
       color={color}
       className={clsx(
+        className,
         "overflow-hidden relative w-full max-w-90 min-h-104 p-0.5 cursor-pointer rounded-2xl",
         "before:-z-1 before:absolute before:-inset-15 before:rotate-45 before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)]",
         "before:transition-transform before:duration-1000",

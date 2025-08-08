@@ -14,7 +14,6 @@ export function ModalWrapper({
   isModalOpen,
   toggleModal,
 }: ModalWrapperProps) {
-  console.log(isModalOpen);
   return createPortal(
     <div
       className={clsx(
