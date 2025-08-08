@@ -12,7 +12,7 @@ class MainSliderItemSerializer(serializers.ModelSerializer):
 
 
 class StatisticBlockSerializer(serializers.ModelSerializer):
-    """Serializer for the StatistickBlock model."""
+    """Serializer for the StatisticBlock model."""
 
     class Meta:
         model = StatisticBlock
@@ -38,7 +38,8 @@ class AlumnusSerializer(serializers.ModelSerializer):
     """Serializer for the Alumnus model."""
     class Meta:
         model = Alumnus
-        fields = ["id", "full_name", "text", "date_of_graduation", "created_at", "links"]
+        fields = ["id", "full_name", "text", "date_of_graduation", "created_at", "links", "image", "major", "degree",
+                  "workplace", "position"]
 
 
 class AlumniSliderSerializer(serializers.ModelSerializer):

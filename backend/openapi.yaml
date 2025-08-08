@@ -820,6 +820,18 @@ components:
             instagram: "https://instagram.com/example"
             telegram: "https://t.me/example"
             facebook: "https://facebook.com/example"
+        major:
+          type: string
+          readOnly: true
+        degree:
+          type: string
+          readOnly: true
+        workplace:
+          type: string
+          readOnly: true
+        position:
+          type: string
+          readOnly: true
     AlumniSliderItem:
       type: object
       properties:
