@@ -93,8 +93,8 @@ class Alumnus(TranslatableModel):
         text = models.TextField(blank=True, verbose_name=_("About student")),
         major=models.CharField(max_length=50, verbose_name=_("Major")),
         degree = models.CharField(max_length=50, verbose_name=_("Degree")),
-        workplace = models.CharField(max_length=255, verbose_name=_("Workplace")),
-        position = models.CharField(max_length=100, verbose_name=_("Position")),
+        workplace = models.CharField(max_length=255,blank=True, verbose_name=_("Workplace")),
+        position = models.CharField(max_length=100,blank=True, verbose_name=_("Position")),
     )
     image = models.ImageField(upload_to="alumnus/",)
     links = models.JSONField(
