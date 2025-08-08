@@ -406,6 +406,83 @@
   "fields": {}
 },
 {
+  "model": "core.alumnustranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Пархомчук Віталій Сергійович",
+    "text": "Молодий перспективний ass пенетратор. Працює tslint рабом в ноунейм компанії. Заробляю грижу.",
+    "major": "Інженерія програмного забезпечення",
+    "degree": "Бакалавр",
+    "workplace": "Здолбунівський полупокер",
+    "position": "Зам голови відділу кадрів",
+    "master": 1
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Пархомчук Віталіна Сергіївна",
+    "text": "Сетсра Віталіка",
+    "major": "Інженерія програмного забезпечення",
+    "degree": "Бакалавр",
+    "workplace": "Безробітній",
+    "position": "Відсутня",
+    "master": 2
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Чін Чіл Чінчілович",
+    "text": "Чін Чіл, студент-програміст з невеликого українського міста, завжди мріяв про велике. Після випуску з університету, де він відзначився своїми новаторськими ідеями в галузі штучного інтелекту, він відправився до Каліфорнії. Там він приєднався до Google як рядовий інженер. Завдяки своїй винятковій працездатності, глибоким знанням та унікальному баченню майбутнього технологій, Ілон швидко піднявся кар'єрними сходами. Він очолив кілька ключових проєктів, які змінили підхід компанії до пошукових алгоритмів та аналізу даних. Його сміливість в ухваленні рішень і здатність надихати команду зрештою привели його до найвищої посади. У 35 років Ілон став головою CEO Google, довівши, що амбіції, талант і наполеглива праця можуть подолати будь-які межі.",
+    "major": "Інженерія програмного забезпечення",
+    "degree": "Магістр",
+    "workplace": "Google",
+    "position": "Голова CEO відділу",
+    "master": 3
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 1,
+  "fields": {
+    "image": "alumnus/vitalik.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-08T08:45:01.102Z",
+    "date_of_graduation": "2026-06-04"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 2,
+  "fields": {
+    "image": "alumnus/vitalik_UeynY06.jpg",
+    "links": null,
+    "created_at": "2025-08-08T08:45:58.394Z",
+    "date_of_graduation": "2025-08-08"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 3,
+  "fields": {
+    "image": "alumnus/chin-chila.jpg",
+    "links": {
+      "linkedin": "https://docs.astral.sh/uv/getting-started/first-steps/",
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-08T08:48:01.433Z",
+    "date_of_graduation": "2023-10-12"
+  }
+},
+{
   "model": "core.alumnislider",
   "pk": 1,
   "fields": {
@@ -725,6 +802,66 @@
   "pk": 46,
   "fields": {
     "image": "alumni-slider/photo_36_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$vcm3KjLvwvx3NiEXKRPNMh$r5ZB8H+jEJ8doGfvuxLfXINJVCBbLOQQLTEpOv9lskY=",
+    "last_login": "2025-08-07T06:39:49.494Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-06-23T15:15:14Z",
+    "avatar": null,
+    "role": "OP",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 5,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "yakymchuk.oleksandr.dev@gmail.com",
+    "first_name": "Oleksandr",
+    "last_name": "",
+    "email": "yakymchuk.oleksandr.dev@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-13T15:46:23.228Z",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLI4p9i57VIJWo9oDGxL4bKtX5yM0-28V8xv_7rXrGmaidOzOs=s96-c",
+    "role": "GU",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 6,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "yakymchuk_ak22@nuwm.edu.ua",
+    "first_name": "Олександр Сергійович",
+    "last_name": "Якимчук",
+    "email": "yakymchuk_ak22@nuwm.edu.ua",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-13T16:17:32.693Z",
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocK2zQ2thuLlnKz6hCMijIon0lcPZlDDESchRsdcZoQsXlZ9cy7B=s96-c",
+    "role": "ST",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
