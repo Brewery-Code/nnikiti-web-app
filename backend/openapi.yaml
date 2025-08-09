@@ -131,7 +131,15 @@ paths:
       tags:
         - core
       summary: Returns a list of Alumni
-      description: Returns a list of Alumni
+      description: Returns a list of Alumni, optionally filtered by graduation year
+      parameters:
+        - in: query
+          name: year
+          schema:
+            type: integer
+            example: 2024
+          description: Graduation year to filter alumni
+          required: false
       responses:
         "200":
           description: Successfully returned a list of Alumni
