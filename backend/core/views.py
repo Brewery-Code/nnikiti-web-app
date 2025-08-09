@@ -36,8 +36,20 @@ class FAQView(ListAPIView):
 
 class AlumnusView(ListAPIView):
     """Returns a list of all Alumni."""
-    queryset = Alumnus.objects.all()
     serializer_class = AlumnusSerializer
+
+    def get_queryset(self):
+        queryset = Alumnus.objects.all()
+        year = self.request.GET.get('year')
+
+        if year is not None:
+            try:
+               year = int(year)
+               queryset = queryset.filter(date_of_graduation__year=year)
+            except ValueError:
+                pass
+        return queryset
+
 
 
 class GraduationYearsView(APIView):
