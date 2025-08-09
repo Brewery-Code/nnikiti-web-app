@@ -1,10 +1,11 @@
-import { useState, type RefObject } from "react";
+import { useRef, useState, type RefObject } from "react";
 import clsx from "clsx";
 import { OvalLabel, BlackAndWhiteButton } from "@/shared/ui";
-import testImg from "./../test.png";
 import styled, { keyframes } from "styled-components";
 import type { Alumni } from "../types";
 import { AlumniModal } from "./alumni-modal";
+import { useScrollDownAnimation } from "@/shared/hooks";
+import { getYear } from "../alumni-list-section";
 
 interface AlumniCardProps {
   className?: string;
@@ -31,7 +32,10 @@ const CardWrapper = styled.div<{ color: string }>`
   }
 `;
 
-export function AlumniCard({ alumni, color, className, ref }: AlumniCardProps) {
+export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isVisible = useScrollDownAnimation({ elementRef: cardRef });
+
   const [isCardHovered, setIsCardHovered] = useState(false);
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
@@ -41,13 +45,16 @@ export function AlumniCard({ alumni, color, className, ref }: AlumniCardProps) {
 
   return (
     <CardWrapper
-      ref={ref}
+      ref={cardRef}
       color={color}
       className={clsx(
         className,
         "overflow-hidden relative w-full max-w-90 min-h-104 p-0.5 cursor-pointer rounded-2xl",
         "before:-z-1 before:absolute before:-inset-15 before:rotate-45 before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)]",
         "before:transition-transform before:duration-1000",
+        `transition duration-600 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`,
         !isCardHovered
           ? "before:-translate-x-full before:-translate-y-full"
           : "before:translate-x-full before:translate-y-full",
@@ -66,7 +73,7 @@ export function AlumniCard({ alumni, color, className, ref }: AlumniCardProps) {
           className="absolute top-6 right-6 text-gray-100 font-medium "
           style={{ background: color }}
         >
-          {alumni.date_of_graduation}
+          {getYear(alumni.date_of_graduation)}
         </OvalLabel>
         <div
           className={clsx(
@@ -75,12 +82,12 @@ export function AlumniCard({ alumni, color, className, ref }: AlumniCardProps) {
         >
           <img
             className="w-full h-full object-contain rounded-full"
-            src={testImg}
+            src={alumni.image}
             alt="alumni photo"
           />
         </div>
         <div className="flex flex-col items-center gap-1 mt-2">
-          <h2 className="text-xl font-bold">{alumni.full_name}</h2>
+          <h2 className="text-xl font-bold text-center">{alumni.full_name}</h2>
           <span className="w-full h-0.5 bg-gray-400"></span>
           <div className="line-clamp-1 text-center font-medium leading-5">
             {alumni.workplace}, {alumni.position}
