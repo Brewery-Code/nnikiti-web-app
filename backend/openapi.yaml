@@ -147,6 +147,28 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /core/alumni/years/:
+    get:
+      tags:
+        - core
+      summary: Returns a list of graduation years
+      description: Returns a list of graduation years
+      responses:
+        "200":
+          description: Successfully returned a list of alumni
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                  example: 2024, 2025
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /core/alumni-slider-items/:
     get:
       tags:

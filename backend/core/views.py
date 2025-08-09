@@ -1,4 +1,7 @@
+from django.db.models.functions import ExtractYear
 from rest_framework.generics import ListAPIView
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .serializers import MainSliderItemSerializer, StatisticBlockSerializer, \
     PartnersSerializer, FAQSerializer, AlumnusSerializer, AlumniSliderSerializer
@@ -35,6 +38,17 @@ class AlumnusView(ListAPIView):
     """Returns a list of all Alumni."""
     queryset = Alumnus.objects.all()
     serializer_class = AlumnusSerializer
+
+
+class GraduationYearsView(APIView):
+    """
+    Returns a list of all Graduation years.
+    """
+    def get(self, request):
+        years = (Alumnus.objects.annotate(year=ExtractYear("date_of_graduation")).values_list("year", flat=True)
+                 .distinct().order_by("-year"))
+
+        return Response(years)
 
 
 class AlumniSliderView(ListAPIView):
