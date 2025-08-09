@@ -1,5 +1,4 @@
 import { ModalWrapper } from "@/widgets";
-import testImg from "./../test2.png";
 import type { Alumni } from "../types";
 
 interface AlumniModalProps {
@@ -11,11 +10,11 @@ interface AlumniModalProps {
 export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
   return (
     <ModalWrapper
-      className="flex justify-center items-center"
+      className="flex justify-center h-full"
       isModalOpen={isOpen}
       toggleModal={toggleModal}
     >
-      <div className="relative h-11/12 w-200 p-4 bg-[#1E201E] rounded-3xl">
+      <div className="relative w-full md:w-192 p-4 bg-[#1E201E] rounded-3xl">
         <div
           className="absolute top-4 right-4 w-8 h-8 cursor-pointer
             before:absolute before:top-1/2 before:-translate-y-1/2 before:rotate-45 before:w-full before:h-1 before:bg-red-900 before:rounded-4xl 
@@ -27,7 +26,7 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
         <div className="float-left w-64 h-64 mr-4 mb-4">
           <img
             className="w-full h-full object-cover rounded-3xl"
-            src={testImg}
+            src={alumni.image}
             alt=""
           />
         </div>

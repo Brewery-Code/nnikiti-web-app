@@ -1,17 +1,17 @@
 export type Alumni = {
-  id: number;
-  full_name: string;
-  text: string;
-  image: string;
-  created_at: string;
-  date_of_graduation: string;
-  major: string;
-  degree: string;
-  workplace: string;
-  position: string;
-  links: {
-    instagram?: string;
-    telegram?: string;
-    facebook?: string;
-  };
+  readonly id?: number | undefined;
+  readonly full_name?: string | undefined;
+  readonly text?: string | undefined;
+  readonly image?: string | undefined;
+  readonly created_at?: string | undefined;
+  readonly date_of_graduation?: string | undefined;
+  links?:
+    | {
+        [key: string]: string;
+      }
+    | undefined;
+  readonly major?: string | undefined;
+  readonly degree?: string | undefined;
+  readonly workplace?: string | undefined;
+  readonly position?: string | undefined;
 };
