@@ -21,13 +21,13 @@ export default function OvalLabel({
         size === "s" && "text-xs",
         size === "m" && "text-base",
         size === "l" && "text-lg",
-        "flex justify-center items-center font-bold uppercase py-1 px-2 rounded-full",
+        "font-bold uppercase py-1 px-2 rounded-full text-center",
         className && className,
         bgColor && bgColor
       )}
       style={style}
     >
-      {children}
+      <div className="overflow-hidden line-clamp-1">{children}</div>
     </span>
   );
 }

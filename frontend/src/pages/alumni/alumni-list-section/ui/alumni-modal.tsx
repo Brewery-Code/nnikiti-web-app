@@ -14,7 +14,7 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
       isModalOpen={isOpen}
       toggleModal={toggleModal}
     >
-      <div className="relative w-full md:w-192 p-4 bg-[#1E201E] rounded-3xl">
+      <div className="relative w-full md:w-192 h-full md:h-auto md:p-4 bg-[#1E201E] md:rounded-3xl">
         <div
           className="absolute top-4 right-4 w-8 h-8 cursor-pointer
             before:absolute before:top-1/2 before:-translate-y-1/2 before:rotate-45 before:w-full before:h-1 before:bg-red-900 before:rounded-4xl 

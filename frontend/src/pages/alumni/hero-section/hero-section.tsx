@@ -10,9 +10,9 @@ export function HeroSection() {
   const { t } = useTranslation("alumni");
 
   return (
-    <div className="flex flex-col h-dvh max-h-185 sm:max-h-210 min-h-180 sm:min-h-200">
+    <div className="flex flex-col">
       <Slider className="mt-8" />
-      <div className="container-base mt-16 text-3xl sm:text-6xl lg:text-8xl font-bold text-center uppercase">
+      <div className="container-base mt-16 text-3xl sm:text-6xl xl:text-8xl font-bold text-center uppercase">
         {t("heroSection.title")} <br />
         та наша гордість
       </div>
@@ -24,7 +24,7 @@ export function HeroSection() {
           {t("heroSection.fillForm")}
         </BlackAndWhiteButton>
       </div>
-      <div className="grow flex justify-center items-center sm:mt-6">
+      <div className="grow flex justify-center items-center mt-12 sm:mt-20">
         <Arrow className="animate-bounce" />
       </div>
     </div>
