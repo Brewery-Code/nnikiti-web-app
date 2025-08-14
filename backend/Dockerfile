@@ -1,15 +1,21 @@
-FROM python:latest
+FROM python:3.14.0rc1-bookworm
 
 WORKDIR /app
 
-EXPOSE 8000
+ENV PYTHONDONTWRITEBYTECODE=1 \
+PYTHONUNBUFFERED=1
+
+RUN apt-get install -y curl
+RUN apt-get install -y gettext
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 COPY requirements.txt ./
-
-RUN apt-get update && apt-get install -y gettext
-
-RUN pip install -r requirements.txt
+RUN uv pip install -r requirements.txt --system
 
 COPY . .
 
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000", "--settings=mysite.settings.local" ]
+RUN chmod +x ./entrypoint.sh
+
+EXPOSE 8000
+
+ENTRYPOINT ["/app/entrypoint.sh"]
