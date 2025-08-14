@@ -93,11 +93,9 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
             {alumni.workplace}, {alumni.position}
           </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-2 mt-3">
+        <div className="flex flex-wrap justify-center items-center gap-2 mt-3">
           <OvalLabel bgColor="bg-[#0A56A8]">{alumni.major}</OvalLabel>
-          <OvalLabel className="w-auto" bgColor="bg-[#A80A30]">
-            {alumni.degree}
-          </OvalLabel>
+          <OvalLabel bgColor="bg-[#A80A30]">{alumni.degree}</OvalLabel>
         </div>
         <p
           className={clsx(

@@ -32,11 +32,14 @@ export function Slider({ className }: SliderProps) {
 
   return (
     <div
-      className={clsx("relative overflow-hidden h-86 -my-3 py-3", className)}
+      className={clsx(
+        "relative overflow-hidden h-64 sm:h-86 -my-3 py-3",
+        className
+      )}
     >
       <SliderWrapper
         sliderLength={sliderData.length}
-        className={clsx(`absolute flex flex-col gap-4`)}
+        className={clsx(`absolute flex flex-col gap-2 sm:gap-4`)}
       >
         <RenderSlider sliderData={firstSliderLine} />
         <RenderSlider

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 import { publicRqClient } from "@/shared/api/instance";
 import { AlumniList } from "./ui";
+import clsx from "clsx";
 
 const yearColor = [
   "#F42272",
@@ -30,7 +31,11 @@ export function getYear(dateStr?: string) {
   return Number(dateStr.split("-")[0]);
 }
 
-export function AlumniListSection() {
+interface AlumniListSectionProps {
+  className: string;
+}
+
+export function AlumniListSection({ className }: AlumniListSectionProps) {
   useLoadNamespace("alumni", loadTranslations);
   const { t } = useTranslation("alumni");
 
@@ -47,9 +52,9 @@ export function AlumniListSection() {
   });
 
   return (
-    <div className="container-base">
+    <div className={clsx(className, "container-base")}>
       <div
-        className="flex flex-wrap justify-center gap-x-4 gap-y-3 mt-24"
+        className="flex flex-wrap justify-center gap-x-4 gap-y-3"
         ref={navigationListRef}
       >
         {graduationYears.map((year, index) => (

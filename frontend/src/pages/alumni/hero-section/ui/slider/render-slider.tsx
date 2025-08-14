@@ -5,7 +5,7 @@ function SliderItem({ className, sliderItem }: SliderItemProps) {
   return (
     <div
       className={clsx(
-        "grow min-w-68 h-38 shadow-[0px_2px_8px_rgba(255,255,255,0.15)]",
+        "grow w-48 sm:w-68 h-28 sm:h-38 shadow-[0px_2px_8px_rgba(255,255,255,0.15)]",
         className
       )}
     >
@@ -20,7 +20,7 @@ function SliderItem({ className, sliderItem }: SliderItemProps) {
 
 function RenderSlider({ className, sliderData }: RenderSliderProps) {
   return (
-    <div className={clsx("flex gap-4", className)}>
+    <div className={clsx("flex gap-2 sm:gap-4", className)}>
       {sliderData.map((item) => (
         <SliderItem sliderItem={item} />
       ))}

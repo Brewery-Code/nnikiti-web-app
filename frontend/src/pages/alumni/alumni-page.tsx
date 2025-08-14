@@ -6,7 +6,7 @@ function AlumniPage() {
   return (
     <PageTransition className="pb-24" isPaddingOn={false}>
       <HeroSection />
-      <AlumniListSection />
+      <AlumniListSection className="m-section" />
     </PageTransition>
   );
 }
