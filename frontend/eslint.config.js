@@ -3,7 +3,7 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
-import { ESLintUtils } from "@typescript-eslint/utils";
+import eslintPluginImport from "eslint-plugin-import";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -17,6 +17,7 @@ export default tseslint.config(
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      import: eslintPluginImport,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -24,8 +25,13 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
+      "import/no-default-export": "error",
+      "max-len": [
+        "error",
+        { code: 110, ignoreComments: false, ignoreUrls: true },
+      ],
+      "func-style": ["error", "declaration", { allowArrowFunctions: false }],
+      quotes: ["error", "double", { avoidEscape: true }],
     },
   }
 );
-
-export const rule = createRule

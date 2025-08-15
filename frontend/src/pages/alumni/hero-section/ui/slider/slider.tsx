@@ -16,9 +16,9 @@ const sliderAnimation = keyframes`
   }
 `;
 
-const SliderWrapper = styled.div<{ sliderLength: number }>`
-  ${({ sliderLength }) => css`
-    animation: ${sliderAnimation} ${sliderLength * 6}s linear infinite;
+const SliderWrapper = styled.div<{ $sliderLength: number }>`
+  ${({ $sliderLength }) => css`
+    animation: ${sliderAnimation} ${$sliderLength * 6}s linear infinite;
   `}
 `;
 
@@ -38,7 +38,7 @@ export function Slider({ className }: SliderProps) {
       )}
     >
       <SliderWrapper
-        sliderLength={sliderData.length}
+        $sliderLength={sliderData.length}
         className={clsx(`absolute flex flex-col gap-2 sm:gap-4`)}
       >
         <RenderSlider sliderData={firstSliderLine} />

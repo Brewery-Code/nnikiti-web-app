@@ -19,7 +19,7 @@ export function AlumniList({
   return (
     <div ref={sectionRef} id={year.toString()}>
       <div
-        className={`relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white
+        className={`overflow-hidden relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white
           before:transition-opacity before:duration-600 ${isVisible ? "before:opacity-100" : "before:opacity-0"}`}
       >
         <Title
