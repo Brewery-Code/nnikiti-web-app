@@ -22,10 +22,10 @@ function RenderSlider({ className, sliderData }: RenderSliderProps) {
   return (
     <div className={clsx("flex gap-2 sm:gap-4", className)}>
       {sliderData.map((item) => (
-        <SliderItem sliderItem={item} />
+        <SliderItem sliderItem={item} key={item.id} />
       ))}
       {sliderData.map((item) => (
-        <SliderItem sliderItem={item} />
+        <SliderItem sliderItem={item} key={item.id} />
       ))}
     </div>
   );

@@ -10,16 +10,15 @@ interface ContactsProps {
 interface ListItemRenderProps {
   label: string;
   contacts: string[];
-  key?: number;
 }
 
-function ListItems({ label, contacts, key }: ListItemRenderProps) {
+function ListItems({ label, contacts }: ListItemRenderProps) {
   return (
-    <li className="flex flex-wrap md:flex-nowrap gap-1" key={key}>
+    <li className="flex flex-wrap md:flex-nowrap gap-1">
       <span className="text-nowrap">{label}:</span>
       <ul className="flex gap-1">
-        {contacts.map((item, index) => (
-          <li key={index}>{item}</li>
+        {contacts.map((item, subIndex) => (
+          <li key={subIndex}>{item}</li>
         ))}
       </ul>
     </li>
@@ -38,9 +37,9 @@ export function Contacts({ className }: ContactsProps) {
       <ul className={clsx("flex flex-col gap-1 mt-2 text-xs font-medium")}>
         {Object.values(deaneryData).map((item, index) => (
           <ListItems
+            key={index}
             label={item.label}
             contacts={[item.email, item.phone]}
-            key={index}
           />
         ))}
         <ListItems

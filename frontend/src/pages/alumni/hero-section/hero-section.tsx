@@ -4,10 +4,19 @@ import { BlackAndWhiteButton } from "@/shared/ui";
 import { Slider } from "./ui/slider/slider";
 import { loadTranslations } from "./locales";
 import { Arrow } from "@/pages/home/hero-section/icons";
+import { useEffect, useState } from "react";
+import { NewAlumniModalForm } from "./ui";
 
 export function HeroSection() {
   useLoadNamespace("alumni", loadTranslations);
   const { t } = useTranslation("alumni");
+
+  const [isNewAlumniFormOpen, setIsNewAlumniFormOpen] = useState(false);
+  const toggleAlumniForm = () => {
+    setIsNewAlumniFormOpen((prev) => !prev);
+  };
+
+  useEffect(() => console.log(isNewAlumniFormOpen), [isNewAlumniFormOpen]);
 
   return (
     <div className="flex flex-col">
@@ -20,8 +29,12 @@ export function HeroSection() {
         <p className="text-base sm:text-xl font-semibold text-center">
           {t("heroSection.formTitle")}
         </p>
-        <BlackAndWhiteButton color="white">
+        <BlackAndWhiteButton color="white" onClick={toggleAlumniForm}>
           {t("heroSection.fillForm")}
+          <NewAlumniModalForm
+            isFormOpen={isNewAlumniFormOpen}
+            toggleForm={toggleAlumniForm}
+          />
         </BlackAndWhiteButton>
       </div>
       <div className="grow flex justify-center items-center mt-12 sm:mt-20">
