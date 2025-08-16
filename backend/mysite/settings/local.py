@@ -1,15 +1,16 @@
+import colorlog
+
 from .base import *
 
-
 ###########################
-# General
+# GENERAL
 ###########################
 DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost",]
 
 ###########################
-# Database
+# DATABASE
 ###########################
 DATABASES = {
     "default": {
@@ -23,7 +24,7 @@ DATABASES = {
 }
 
 ###########################
-# Static files
+# STATIC FILES
 # (CSS, JavaScript, Images)
 ###########################
 STATIC_URL = "static/"
@@ -41,10 +42,57 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 ###########################
-# OAuth2 provider
+# OAUTH2 PROVIDER
 ###########################
 OAUTH2_PROVIDER = {
     "ACCESS_TOKEN_EXPIRE_SECONDS": 10,
     "REFRESH_TOKEN_EXPIRE_SECONDS": 2592000,
     "ROTATE_REFRESH_TOKEN": True,
+}
+
+###########################
+# LOGGERS
+###########################
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {name} {funcName} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+        "colored": {
+            "()": "colorlog.ColoredFormatter",
+            "format": "%(log_color)s%(levelname)s %(asctime)s %(name)s %(funcName)s %(message)s",
+            "log_colors": {
+                "DEBUG":    "white",
+                "INFO":     "green",
+                "WARNING":  "yellow",
+                "ERROR":    "red",
+                "CRITICAL": "bold_red",
+            }
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "colored",
+        }
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": config("DJANGO_LOG_LEVEL", default="INFO"),
+            "propagate": False,
+        },
+        "users": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    }
 }
