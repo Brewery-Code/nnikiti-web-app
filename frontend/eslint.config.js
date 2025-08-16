@@ -28,10 +28,17 @@ export default tseslint.config(
       "import/no-default-export": "error",
       "max-len": [
         "error",
-        { code: 110, ignoreComments: false, ignoreUrls: true },
+        { code: 120, ignoreComments: false, ignoreUrls: true },
       ],
-      "func-style": ["error", "declaration", { allowArrowFunctions: false }],
+      "func-style": ["error", "declaration", { allowArrowFunctions: true }],
       quotes: ["error", "double", { avoidEscape: true }],
+      semi: ["error", "always"],
+      indent: ["error", 2],
+      eqeqeq: ["error", "always"],
+      curly: ["error", "all"],
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-var": "error",
+      "prefer-const": "error",
     },
   }
 );

@@ -12,9 +12,9 @@ export function HeroSection() {
   const { t } = useTranslation("alumni");
 
   const [isNewAlumniFormOpen, setIsNewAlumniFormOpen] = useState(false);
-  const toggleAlumniForm = () => {
+  function toggleAlumniForm() {
     setIsNewAlumniFormOpen((prev) => !prev);
-  };
+  }
 
   useEffect(() => console.log(isNewAlumniFormOpen), [isNewAlumniFormOpen]);
 

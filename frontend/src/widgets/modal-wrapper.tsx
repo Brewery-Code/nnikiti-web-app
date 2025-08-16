@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
@@ -21,16 +20,11 @@ export function ModalWrapper({
 
   return createPortal(
     <div
-      className={clsx(
-        "-z-50 overflow-auto fixed top-0 flex justify-center items-center w-dvw min-h-dvh md:pt-16 bg-[rgba(0,0,0,0.3)] backdrop-blur-xs opacity-0",
-        "transition-opacity duration-300 ease-in",
-        isModalOpen && "opacity-100 z-100"
-      )}
+      className={`-z-50 overflow-y-auto fixed inset-0 flex justify-center md:pt-28 
+      bg-[rgba(0,0,0,0.3)] backdrop-blur-xs opacity-0 transition-opacity duration-300 ease-in
+      ${isModalOpen && "opacity-100 z-100"}`}
     >
-      <div
-        className="md:mt-[10dvh]"
-        onClick={(event) => event.stopPropagation()}
-      >
+      <div className="" onClick={(event) => event.stopPropagation()}>
         {children}
       </div>
     </div>,
