@@ -1,3 +1,4 @@
+import logging
 import json
 import hashlib
 from datetime import timedelta
@@ -34,6 +35,7 @@ from .utils import assign_user_role, check_user_email
 
 
 User = get_user_model()
+logger = logging.getLogger(__name__)
 
 GOOGLE_CLIENT_ID = base.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
 GOOGLE_CLIENT_SECRET = base.SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
@@ -67,19 +69,25 @@ def google_login(request):
     code_verifier = request.data.get("code_verifier")
 
     if not code or not code_verifier:
+        logger.error(f"Missing code or code verifier.")
         return Response({"error": "Missing code or code_verifier"}, status=400)
 
     # Google token exchange
-    token_resp = requests.post("https://oauth2.googleapis.com/token", data={
-        "client_id": GOOGLE_CLIENT_ID,
-        "client_secret": GOOGLE_CLIENT_SECRET,
-        "code": code,
-        "code_verifier": code_verifier,
-        "grant_type": "authorization_code",
-        "redirect_uri": REDIRECT_URI,
-    }).json()
+    try:
+        token_resp = requests.post("https://oauth2.googleapis.com/token", data={
+            "client_id": GOOGLE_CLIENT_ID,
+            "client_secret": GOOGLE_CLIENT_SECRET,
+            "code": code,
+            "code_verifier": code_verifier,
+            "grant_type": "authorization_code",
+            "redirect_uri": REDIRECT_URI,
+        }).json()
+    except ValueError:
+        logger.error(f"Google token endpoint did not return JSON.")
+        return Response({"error": "Invalid response from Google"}, status=502)
 
     if "error" in token_resp:
+        logger.warning(f"Google exchange failed. Details: {token_resp}")
         return Response({"error": "Google exchange failed",
                          "details": token_resp}, status=400)
 
@@ -91,17 +99,30 @@ def google_login(request):
 
     email = userinfo.get("email")
     if not email:
+        logger.warning(f"No information returned from Google.")
         return Response({"error": "No email returned by Google",
                          "userinfo": userinfo}, status=400)
 
     check_user_email(email)
 
-    user, _ = User.objects.get_or_create(email=email, defaults={
-        "username": email,
+    user, created = User.objects.get_or_create(email=email, defaults={
+        "email": email,
         "first_name": userinfo.get("given_name", ""),
         "last_name": userinfo.get("family_name", ""),
         "avatar": userinfo.get("picture", ""),
     })
+
+    if created:
+        logger.info(f"New user registered: id={user.pk} | email={user.email}")
+    else:
+        logger.info(f"User logged in: id={user.pk} | email={user.email}")
+        user.first_name = userinfo.get("given_name", user.first_name)
+        user.last_name = userinfo.get("family_name", user.last_name)
+        user.avatar = userinfo.get("picture", user.avatar)
+
+    user.last_login = timezone.now()
+    user.save()
+
     assign_user_role(user)
 
     # token generation
