@@ -10,7 +10,23 @@ export function AlumniList({
   titleText,
 }: {
   year: number;
-  alumniList: any[];
+  alumniList: {
+    readonly id?: number | undefined;
+    readonly full_name?: string | undefined;
+    readonly text?: string | undefined;
+    readonly image?: string | undefined;
+    readonly created_at?: string | undefined;
+    readonly date_of_graduation?: string | undefined;
+    links?:
+      | {
+          [key: string]: string;
+        }
+      | undefined;
+    readonly major?: string | undefined;
+    readonly degree?: string | undefined;
+    readonly workplace?: string | undefined;
+    readonly position?: string | undefined;
+  }[];
   titleText: string;
 }) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -20,15 +36,19 @@ export function AlumniList({
     <div ref={sectionRef} id={year.toString()}>
       <div
         className={`overflow-hidden relative before:absolute before:bottom-0 before:w-full before:h-0.5 before:bg-white
-          before:transition-opacity before:duration-600 ${isVisible ? "before:opacity-100" : "before:opacity-0"}`}
+        before:transition-opacity before:duration-600 ${isVisible ? "before:opacity-100" : "before:opacity-0"}`}
       >
         <Title
-          className={`mt-8 transition-[translate,opacity] duration-600 text-center sm:text-start ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"}`}
+          className={`mt-8 transition-[translate,opacity] duration-600 text-center sm:text-start 
+          ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"}`}
         >
           {titleText} {year}
         </Title>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center place-items-center sm:place-items-baseline gap-8 mt-4">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center place-items-center 
+        sm:place-items-baseline gap-8 mt-4"
+      >
         {alumniList.map((alumni, i) => (
           <AlumniCard
             key={i}
