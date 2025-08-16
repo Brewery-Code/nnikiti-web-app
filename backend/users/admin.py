@@ -7,4 +7,4 @@ from .models import User
 class UserAdmin(admin.ModelAdmin):
     """Admin configuration for the User model."""
 
-    list_display = ["id", "first_name", "email"]
+    list_display = ["id", "get_full_name", "email"]

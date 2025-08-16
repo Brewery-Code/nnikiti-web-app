@@ -1,9 +1,13 @@
+import logging
 import re
 
-from social_core.exceptions import AuthForbidden
 from rest_framework.exceptions import PermissionDenied
 
 from .models import User
+
+
+logger = logging.getLogger(__name__)
+
 
 def assign_user_role(user):
     """Defines the user role for email and stores it in the database"""
@@ -16,8 +20,10 @@ def assign_user_role(user):
 
     user.save()
 
+
 def check_user_email(email):
     """Checks if the email is valid"""
 
     if not email.endswith("@nuwm.edu.ua"):
+        logger.warning(f"Unauthorized login attempt: email={email}")
         raise PermissionDenied("Only @nuwm.edu.ua emails are allowed.")
