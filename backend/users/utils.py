@@ -1,6 +1,5 @@
 import re
 
-from social_core.exceptions import AuthForbidden
 from rest_framework.exceptions import PermissionDenied
 
 from .models import User

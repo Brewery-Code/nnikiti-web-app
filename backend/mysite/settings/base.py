@@ -131,7 +131,7 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 ###########################
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
-    "social_core.backends.google.GoogleOAuth2",
+    # "social_core.backends.google.GoogleOAuth2",
 )
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config("GOOGLE_OAUTH_CLIENT_ID")
