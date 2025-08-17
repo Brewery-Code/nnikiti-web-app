@@ -6,3 +6,6 @@ export { default as ErrorMessage } from "./error-message";
 export { default as SocialLinkButton } from "./social-link-button";
 export { default as SocialLinkButtonGlassy } from "./social-link-button-glassy";
 export { BlackAndWhiteButton } from "./black-and-white-button";
+export { FormTitle } from "./form-title";
+export { FormSubtitle } from "./form-subtitle";
+export { FormInputField } from "./form-input-field";

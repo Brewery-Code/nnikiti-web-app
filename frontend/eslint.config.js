@@ -25,12 +25,25 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
-      "import/no-default-export": "error",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          selector: "interface",
+          format: ["PascalCase"],
+        },
+      ],
+      "@typescript-eslint/consistent-type-assertions": [
+        "error",
+        {
+          assertionStyle: "never",
+        },
+      ],
       "max-len": [
         "error",
         { code: 120, ignoreComments: false, ignoreUrls: true },
       ],
-      "func-style": ["error", "declaration", { allowArrowFunctions: true }],
+      "import/no-default-export": "error",
+      "func-style": ["error", "declaration", { allowArrowFunctions: false }],
       quotes: ["error", "double", { avoidEscape: true }],
       semi: ["error", "always"],
       indent: ["error", 2],
