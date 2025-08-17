@@ -13,7 +13,9 @@ function useLoadNamespace(
       if (!i18n.hasResourceBundle(i18n.language, namespace)) {
         await loadTranslations();
       }
-      if (isMounted) setLoaded(true);
+      if (isMounted) {
+        setLoaded(true);
+      }
     }
     load();
 

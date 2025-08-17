@@ -1,4 +1,4 @@
-export { default as Header } from "./header/header";
+export { Header } from "./header";
 export { default as Footer } from "./footer/footer";
 export { QueryHandler } from "./query-handler";
 export { PageTransition } from "./page-transition";

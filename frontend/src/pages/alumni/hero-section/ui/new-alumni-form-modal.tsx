@@ -1,6 +1,7 @@
+import { BlackAndWhiteButton, FormInputField, FormTitle } from "@/shared/ui";
 import { ModalWrapper } from "@/widgets";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import z from "zod";
 
 interface NewAlumniModalFormProps {
@@ -9,58 +10,85 @@ interface NewAlumniModalFormProps {
 }
 
 const schema = z.object({
-  name: z.string().min(4),
-  story: z.string().min(8),
+  name: z.string().min(1, { message: "Вкажіть ім'я" }),
+  surname: z.string().min(1, { message: "Вкажіть прізвище" }),
+  graduatedYear: z
+    .number()
+    .int()
+    .min(1900, { message: "Рік занадто маленький" }) // або будь-який мінімум
+    .max(new Date().getFullYear(), { message: "Рік не може бути майбутнім" }),
+  story: z
+    .string()
+    .min(20, { message: "Розкажіть детальніше про себе (мін. 20 символів)" }),
 });
 
 type FormFields = z.infer<typeof schema>;
 
-export const NewAlumniModalForm = ({
+export function NewAlumniModalForm({
   isFormOpen,
   toggleForm,
-}: NewAlumniModalFormProps) => {
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors, isSubmitting },
-  } = useForm<FormFields>({
+}: NewAlumniModalFormProps) {
+  const methods = useForm<FormFields>({
     resolver: zodResolver(schema),
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
       await new Promise((res) => setTimeout(res, 1000));
-      throw new Error();
-      console.log("Form data:", data);
-    } catch (e) {
-      setError("name", {
-        message: "deuwuewhfu",
-      });
+      return;
+    } catch (err) {
+      console.error(err);
     }
   };
 
   return (
     <ModalWrapper isModalOpen={isFormOpen} toggleModal={toggleForm}>
-      <div className="relative w-dvw md:w-192 min-h-dvh md:min-h-auto md:h-auto p-4 bg-[#1E201E] md:rounded-3xl">
-        <div className="text-2xl text-center font-bold">
-          Розкажіть про себе!
-        </div>
+      <FormTitle className="text-center">Розкажіть про себе</FormTitle>
+      <FormProvider {...methods}>
         <form
-          className="flex flex-col gap-4 *:bg-neutral-600"
-          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-4 mt-8"
+          onSubmit={methods.handleSubmit(onSubmit)}
         >
-          <input {...register("name")} type="text" />
-          {errors.name && (
-            <div className="text-red-500">{errors.name.message}</div>
-          )}
-          <textarea {...register("story")} />
-          <button disabled={isSubmitting} type="submit">
-            {isSubmitting ? "lo" : "Submit"}
-          </button>
-          {errors.root && <div>error</div>}
+          <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-x-8 gap-y-2">
+            <FormInputField
+              type="text"
+              placeHolder="Your name"
+              id="name"
+              label="Enter your name"
+            />
+            <FormInputField
+              type="text"
+              placeHolder="Your surname"
+              id="surname"
+              label="Enter your surname"
+            />
+            <FormInputField
+              type="number"
+              placeHolder="Your year of graduating"
+              id="graduatedYear"
+              label="Enter your year of graduating"
+            />
+            <FormInputField
+              type="text"
+              placeHolder="Your surname"
+              id="surname"
+              label="Enter your major"
+            />
+          </div>
+          <FormInputField
+            type="textarea"
+            placeHolder="Your story"
+            id="story"
+            label="Write your story"
+          />
+          {/* <button disabled={methods.formState.isSubmitting} type="submit">
+            {methods.formState.isSubmitting ? "lo" : "Submit"}
+          </button> */}
+          <div className="mt-auto flex justify-center items-center">
+            <BlackAndWhiteButton className="w-48">Submit</BlackAndWhiteButton>
+          </div>
         </form>
-      </div>
+      </FormProvider>
     </ModalWrapper>
   );
-};
+}
