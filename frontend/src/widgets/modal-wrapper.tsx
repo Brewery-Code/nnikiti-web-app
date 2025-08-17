@@ -14,8 +14,11 @@ export function ModalWrapper({
   toggleModal,
 }: ModalWrapperProps) {
   useEffect(() => {
-    if (isModalOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   }, [isModalOpen]);
 
   return createPortal(
