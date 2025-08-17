@@ -69,7 +69,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         ))
     is_superuser = models.BooleanField(_("superuser status"), default=False)
     date_joined = models.DateTimeField(_("date joined"), auto_now_add=True)
-    last_login = models.DateTimeField(_("last login"))
+    last_login = models.DateTimeField(_("last login"), auto_now=True)
     updated_at = models.DateTimeField(_("last updated"), auto_now=True)
 
     objects = UserManager()
@@ -94,24 +94,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return "User №: %s. %s" % (self.pk, self.get_full_name)
 
-# class User1(AbstractUser):
-#     """Custom User model"""
-#
-#     class Role(models.TextChoices):
-#         STUDENT = "ST", _("Student")
-#         TEACHER = "TE", _("Teacher")
-#         DATA_OPERATOR = "OP", _("Data Operator")
-#
-#     avatar = models.URLField(
-#         blank=True,
-#         null=True,
-#         verbose_name=_("Avatar"),
-#         help_text=_("Link to the user's avatar image"),
-#     )
-#     role = models.CharField(max_length=2, choices=Role.choices, default=Role.STUDENT ,verbose_name=_("Role"))
-#
-#
-#     class Meta:
-#         verbose_name = _("User")
-#         verbose_name_plural = _("Users")
-#         db_table = "User"
