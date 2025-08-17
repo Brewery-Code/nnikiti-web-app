@@ -58,7 +58,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(_("last name"), max_length=150)
     avatar = models.URLField(_("avatar url"), blank=True, null=True)
     role = models.CharField(_("user role"), max_length=2, choices=Role.choices, default=Role.STUDENT)
-    is_staff = models.BooleanField(_("staff status"), default=False,help_text=_("Designates whether the user can log "
+    is_staff = models.BooleanField(_("staff status"), default=False, help_text=_("Designates whether the user can log "
                                                                                  "into this admin site."))
     is_active = models.BooleanField(
         _("is active"),
