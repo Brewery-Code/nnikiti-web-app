@@ -102,7 +102,7 @@ PARLER_LANGUAGES = {
         {"code": "en"},
     ),
     "default": {
-        "fallback": "en",
+        "fallback": "uk",
         "hide_untranslated": False,
     },
 }
