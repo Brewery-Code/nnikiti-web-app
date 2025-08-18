@@ -47,3 +47,40 @@ class AlumniSliderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Alumnus
         fields = ["id", "image"]
+
+
+class AlumnusCreateSerializer(serializers.ModelSerializer):
+    """Serializer for creating alumnus (Ukrainian translation only)"""
+    full_name = serializers.CharField(write_only=True)
+    text = serializers.CharField(write_only=True, required=False)
+    major = serializers.CharField(write_only=True)
+    degree = serializers.CharField(write_only=True)
+    workplace = serializers.CharField(write_only=True, required=False)
+    position = serializers.CharField(write_only=True, required=False)
+    image = serializers.ImageField()
+    date_of_graduation = serializers.DateField()
+    links = serializers.JSONField(required=False)
+
+    class Meta:
+        model = Alumnus
+        fields = ('full_name', 'text', 'major', 'degree', 'workplace', 'position', 'image', 'links', 'date_of_graduation')
+
+    def create(self, validated_data):
+        translations_data = {
+            'full_name': validated_data.pop('full_name'),
+            'text': validated_data.pop('text', ''),
+            'major': validated_data.pop('major'),
+            'degree': validated_data.pop('degree'),
+            'workplace': validated_data.pop('workplace', ''),
+            'position': validated_data.pop('position', ''),
+        }
+
+        alumnus = Alumnus(**validated_data)
+        alumnus.save()
+
+        alumnus.set_current_language('uk')
+        for field, value in translations_data.items():
+            setattr(alumnus, field, value)
+        alumnus.save()
+
+        return alumnus

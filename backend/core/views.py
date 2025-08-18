@@ -1,10 +1,11 @@
 from django.db.models.functions import ExtractYear
+from rest_framework import status, permissions
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .serializers import MainSliderItemSerializer, StatisticBlockSerializer, \
-    PartnersSerializer, FAQSerializer, AlumnusSerializer, AlumniSliderSerializer
+    PartnersSerializer, FAQSerializer, AlumnusSerializer, AlumniSliderSerializer, AlumnusCreateSerializer
 from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus, AlumniSlider
 
 
@@ -34,12 +35,15 @@ class FAQView(ListAPIView):
     serializer_class = FAQSerializer
 
 
-class AlumnusView(ListAPIView):
-    """Returns a list of all Alumni."""
-    serializer_class = AlumnusSerializer
+class AlumnusView(APIView):
+    """
+    GET: Returns a list of all Alumni.
+    POST: Create a new Alumnus (Ukrainian translation only)
+    """
+    permission_classes = (permissions.AllowAny,)
 
     def get_queryset(self):
-        queryset = Alumnus.objects.all()
+        queryset = Alumnus.published.all()
         year = self.request.GET.get('year')
 
         if year is not None:
@@ -49,6 +53,19 @@ class AlumnusView(ListAPIView):
             except ValueError:
                 pass
         return queryset
+
+    def get(self, request):
+        queryset = self.get_queryset()
+        serializer = AlumnusSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        serializer = AlumnusCreateSerializer(data=request.data)
+        if serializer.is_valid():
+            alumnus = serializer.save()
+            return Response({"id:": alumnus.id}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 
