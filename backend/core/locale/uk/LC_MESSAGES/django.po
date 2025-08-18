@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NNIKITI API 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-08 08:25+0000\n"
-"PO-Revision-Date: 2025-08-08 08:26+0000\n"
-"Last-Translator:   <admin@admin.com>\n"
+"POT-Creation-Date: 2025-08-18 14:36+0000\n"
+"PO-Revision-Date: 2025-08-18 14:36+0000\n"
+"Last-Translator: Admin Admin <admin@admin.com>\n"
 "Language-Team: Ukrainian <uk@example.com>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -14,176 +14,187 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 10 == 0 || (n % 10 >= 5 && n % 10 <= 9) || (n % 100 >= 11 && n % 100 <= 14) ? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: models.py:16
+#: models.py:21
 msgid "Slider image"
 msgstr "Зображення слайдера"
 
-#: models.py:19
+#: models.py:24
 msgid "Slider item"
 msgstr "Елемент слайдера"
 
-#: models.py:20
+#: models.py:25
 msgid "Slider items"
 msgstr "Елементи слайдера"
 
-#: models.py:24
+#: models.py:29
 #, python-format
 msgid "Slide #%s"
 msgstr "Слайд #%s"
 
-#: models.py:30
+#: models.py:35
 msgid "Title"
 msgstr "Заголовок"
 
-#: models.py:31
+#: models.py:36
 msgid "Description"
 msgstr "Опис"
 
-#: models.py:36
+#: models.py:41
 msgid "Start value"
 msgstr "Початкове значення"
 
-#: models.py:37
+#: models.py:42
 msgid "Values for proper animation operation"
 msgstr "Початкове значення для правильної роботи анімацій"
 
-#: models.py:40
+#: models.py:45
 msgid "Order item"
 msgstr "Елемент слайдера"
 
-#: models.py:41
+#: models.py:46
 msgid "Determines yhe order in which elements will be passed"
 msgstr "Визначає в якому порядку будуть передаватись елементи"
 
-#: models.py:45
+#: models.py:50
 msgid "Statistic block item"
 msgstr "Елемент statistic block "
 
-#: models.py:46
+#: models.py:51
 msgid "Statistic block items"
 msgstr "Елементи statistic block "
 
-#: models.py:50
+#: models.py:55
 #, python-format
 msgid "Statistic block item #%s"
 msgstr "Елемент #%s , statistic block"
 
-#: models.py:56
+#: models.py:61
 msgid "Name"
 msgstr "Ім'я"
 
-#: models.py:59
+#: models.py:64
 msgid "Partner image"
 msgstr "Зображення слайдера"
 
-#: models.py:60
+#: models.py:65
 msgid "Site link"
 msgstr "Посилання на сайт"
 
-#: models.py:61
+#: models.py:66
 msgid "Link to partner site"
 msgstr "Посилання на сайт партнерів"
 
-#: models.py:64
+#: models.py:69
 msgid "Partner"
 msgstr "Партнер"
 
-#: models.py:65
+#: models.py:70
 msgid "Partners"
 msgstr "Партнери"
 
-#: models.py:69
+#: models.py:74
 #, python-format
 msgid "Partner #%s"
 msgstr "Партнер #%s"
 
-#: models.py:75
+#: models.py:80
 msgid "Question"
 msgstr "Питання"
 
-#: models.py:76
+#: models.py:81
 msgid "Answer"
 msgstr "Відповідь"
 
-#: models.py:80
+#: models.py:85
 msgid "FAQ"
 msgstr "FAQ"
 
-#: models.py:81
+#: models.py:86
 msgid "FAQs"
 msgstr "FAQs"
 
-#: models.py:85
+#: models.py:90
 #, python-format
 msgid "FAQ #%s"
 msgstr "FAQ #%s"
 
-#: models.py:92
+#: models.py:97
+msgid "Published"
+msgstr "Опубліковано"
+
+#: models.py:98
+msgid "Draft"
+msgstr "Чернетка"
+
+#: models.py:101
 msgid "Full name"
 msgstr "ПІБ"
 
-#: models.py:93
+#: models.py:102
 msgid "About student"
 msgstr "Про студента"
 
-#: models.py:94
+#: models.py:103
 msgid "Major"
 msgstr "Спеціальність"
 
-#: models.py:95
+#: models.py:104
 msgid "Degree"
 msgstr "Ступінь освіти"
 
-#: models.py:96
+#: models.py:105
 msgid "Workplace"
 msgstr "Місце роботи"
 
-#: models.py:97
-#| msgid "Description"
+#: models.py:106
 msgid "Position"
 msgstr "Посада"
 
-#: models.py:101
+#: models.py:110
 msgid "Social links or other publication"
 msgstr "Посилання на соц. мережі або інше"
 
-#: models.py:104
+#: models.py:113
 msgid ""
 "Structure like: {'instagram': 'link', 'telegram': 'link', 'facebook': "
 "'link'}"
 msgstr ""
 "Наприклад: {'instagram': 'link', 'telegram': 'link', 'facebook': 'link'}"
 
-#: models.py:106
+#: models.py:115
 msgid "Created at"
 msgstr "Дата створення"
 
-#: models.py:107
+#: models.py:116
 msgid "Date of graduation"
 msgstr "Дата випуску"
 
-#: models.py:110
+#: models.py:117
+msgid "Status"
+msgstr "Статус"
+
+#: models.py:122
 msgid "Alumnus"
 msgstr "Випускник"
 
-#: models.py:111
+#: models.py:123
 msgid "Alumni"
 msgstr "Випускники"
 
-#: models.py:118
+#: models.py:130
 #, python-format
 msgid "%s - #%s"
 msgstr "%s - #%s"
 
-#: models.py:128
+#: models.py:140
 msgid "Alumni slider item"
 msgstr "Об'єкт слайдера випускників"
 
-#: models.py:129
+#: models.py:141
 msgid "Alumni slider items"
 msgstr "Об'єкти слайдера випускників"
 
-#: models.py:133
+#: models.py:145
 #, python-format
 msgid "Alumni slide #%s"
 msgstr "Слайд випускників #%s"

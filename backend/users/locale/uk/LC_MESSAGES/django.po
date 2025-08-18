@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 08:13+0000\n"
-"PO-Revision-Date: 2025-07-04 08:14+0000\n"
-"Last-Translator:   <admin@admin.com>\n"
+"POT-Creation-Date: 2025-08-18 14:37+0000\n"
+"PO-Revision-Date: 2025-08-18 14:40+0000\n"
+"Last-Translator: Admin Admin <admin@admin.com>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -14,38 +14,96 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 10 == 0 || (n % 10 >= 5 && n % 10 <= 9) || (n % 100 >= 11 && n % 100 <= 14) ? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: models.py:11
+#: models.py:51
 msgid "Student"
 msgstr "Студент"
 
-#: models.py:12
+#: models.py:52
 msgid "Teacher"
 msgstr "Викладач"
 
-#: models.py:13
-msgid "Guest"
-msgstr "Гість"
-
-#: models.py:14
+#: models.py:53
 msgid "Data Operator"
 msgstr "Оператор даних"
 
-#: models.py:19
-msgid "Avatar"
+#: models.py:54
+msgid "Administrator"
+msgstr "Адміністратор"
+
+#: models.py:56
+msgid "email address"
+msgstr "Електронна адреса"
+
+#: models.py:57
+msgid "first name"
+msgstr "Ім'я"
+
+#: models.py:58
+msgid "last name"
+msgstr "Прізвище"
+
+#: models.py:59
+#| msgid "Avatar"
+msgid "avatar url"
 msgstr "Аватар"
 
-#: models.py:20
-msgid "Link to the user's avatar image"
-msgstr "Посилання на зображення аватара користувача"
+#: models.py:60
+msgid "user role"
+msgstr "Роль користувача"
 
-#: models.py:22
-msgid "Role"
-msgstr "Роль"
+#: models.py:61
+msgid "staff status"
+msgstr "Статус персоналу"
 
-#: models.py:26
-msgid "User"
+#: models.py:61
+msgid "Designates whether the user can log into this admin site."
+msgstr "Вказує, чи може користувач увійти на цю панель адміністратора."
+
+#: models.py:64
+msgid "is active"
+msgstr "Чи активний"
+
+#: models.py:67
+msgid ""
+"Designates whether this user should be treated as active.Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Вказує, чи слід вважати цього користувача активним. Зніміть цей прапорець "
+"замість видалення облікових записів."
+
+#: models.py:70
+msgid "superuser status"
+msgstr "Статус адміністратора"
+
+#: models.py:71
+msgid "date joined"
+msgstr "Дата реєстрації"
+
+#: models.py:72
+msgid "last login"
+msgstr "Останній вхід"
+
+#: models.py:73
+msgid "last updated"
+msgstr "Останнє оновлення"
+
+#: models.py:82
+msgid "user"
 msgstr "Користувач"
 
-#: models.py:27
-msgid "Users"
+#: models.py:83
+#| msgid "Users"
+msgid "users"
 msgstr "Користувачі"
+
+#~ msgid "Guest"
+#~ msgstr "Гість"
+
+#~ msgid "Link to the user's avatar image"
+#~ msgstr "Посилання на зображення аватара користувача"
+
+#~ msgid "Role"
+#~ msgstr "Роль"
+
+#~ msgid "User"
+#~ msgstr "Користувач"

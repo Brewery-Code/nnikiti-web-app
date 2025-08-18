@@ -1,7 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.utils.translation.trans_real import translation
-from parler.models import TranslatableModel, TranslatedFields
+from parler.models import TranslatableModel, TranslatedFields, TranslatableManager
+
+
+class AlumnusPublishedManager(TranslatableManager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=Alumnus.Status.PUBLISHED)
+
 
 
 class MainSliderItem(models.Model):
@@ -88,6 +93,10 @@ class FAQ(TranslatableModel):
 class Alumnus(TranslatableModel):
     """Represents alumnus object"""
 
+    class Status(models.TextChoices):
+        PUBLISHED = "PB", _("Published")
+        DRAFT = "DF", _("Draft")
+
     translations = TranslatedFields(
         full_name = models.CharField(max_length=255, verbose_name=_("Full name")),
         text = models.TextField(blank=True, verbose_name=_("About student")),
@@ -105,6 +114,9 @@ class Alumnus(TranslatableModel):
         )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
     date_of_graduation = models.DateField(verbose_name=_("Date of graduation"))
+    status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT, verbose_name=_("Status"))
+    objects = TranslatableManager()
+    published = AlumnusPublishedManager()
 
     class Meta:
         verbose_name = _("Alumnus")

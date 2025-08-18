@@ -155,6 +155,77 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+    post:
+      tags:
+        - core
+      summary: Create a new Alumnus
+      description: Creates a new Alumnus with Ukrainian translation fields
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  example: "Іван Іваненко"
+                  description: Full name of the alumnus (Ukrainian)
+                text:
+                  type: string
+                  example: "Graduated in Computer Science."
+                  description: Short bio or description (optional)
+                major:
+                  type: string
+                  example: "Computer Science"
+                  description: Major field of study
+                degree:
+                  type: string
+                  example: "Bachelor"
+                  description: Degree obtained
+                workplace:
+                  type: string
+                  example: "Google"
+                  description: Workplace (optional)
+                position:
+                  type: string
+                  example: "Software Engineer"
+                  description: Position at workplace (optional)
+                image:
+                  type: string
+                  format: binary
+                  description: Profile image of the alumnus
+                links:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  example:
+                    instagram: "https://instagram.com/ivan"
+                    telegram: "https://t.me/ivan"
+                    facebook: "https://facebook.com/ivan"
+                  description: Social links or other publications (optional)
+                date_of_graduation:
+                  type: string
+                  format: date
+                  example: "2024-06-15"
+                  description: Graduation date
+      responses:
+        "201":
+          description: Successfully created Alumnus
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 123
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /core/alumni/years/:
     get:
       tags:
