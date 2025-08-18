@@ -39,7 +39,7 @@ export function Slider({ className }: SliderProps) {
     >
       <SliderWrapper
         $sliderLength={sliderData.length}
-        className={clsx(`absolute flex flex-col gap-2 sm:gap-4`)}
+        className="absolute flex flex-col gap-2 sm:gap-4"
       >
         <RenderSlider sliderData={firstSliderLine} />
         <RenderSlider
