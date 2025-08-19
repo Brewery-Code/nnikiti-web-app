@@ -3,7 +3,7 @@ import { HeroSection } from "./hero-section";
 
 function DepartmentPage() {
   return (
-    <PageTransition>
+    <PageTransition isPaddingOn={false} className="mt-0">
       <HeroSection />
     </PageTransition>
   );
