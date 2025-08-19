@@ -9,7 +9,7 @@ interface PageTransitionProps {
   isPaddingOn?: boolean;
 }
 
-export default function PageTransition({
+export function PageTransition({
   children,
   className,
   isPaddingOn = true,

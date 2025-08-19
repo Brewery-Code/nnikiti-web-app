@@ -39,9 +39,9 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
   const [isCardHovered, setIsCardHovered] = useState(false);
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
-  const toggleModal = () => {
+  function toggleModal() {
     setIsDescriptionOpen((prev) => !prev);
-  };
+  }
 
   return (
     <CardWrapper
@@ -50,11 +50,10 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
       className={clsx(
         className,
         "overflow-hidden relative w-full max-w-90 min-h-104 p-0.5 cursor-pointer rounded-2xl",
-        "before:-z-1 before:absolute before:-inset-15 before:rotate-45 before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)]",
-        "before:transition-transform before:duration-1000",
-        `transition duration-600 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-        }`,
+        "before:-z-1 before:absolute before:-inset-15 before:rotate-45",
+        "before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)]",
+        "before:transition-transform before:duration-1000 transition duration-600",
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95",
         !isCardHovered
           ? "before:-translate-x-full before:-translate-y-full"
           : "before:translate-x-full before:translate-y-full",
@@ -65,8 +64,9 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
       onMouseLeave={() => setIsCardHovered(false)}
     >
       <div
-        className="flex flex-col items-center w-full h-full px-6 pt-8 pb-6 bg-[radial-gradient(circle,_rgba(21,21,21,1)_0%,_rgba(21,21,21,0.80)_50%,_rgba(21,21,21,1)_100%)] 
-        backdrop-blur-3xl rounded-2xl shadow-[0px_0px_12px_rgba(255,255,255,0.3)]"
+        className="flex flex-col items-center w-full h-full px-6 pt-8 pb-6 
+          bg-[radial-gradient(circle,_rgba(21,21,21,1)_0%,_rgba(21,21,21,0.80)_50%,_rgba(21,21,21,1)_100%)] 
+          backdrop-blur-3xl rounded-2xl shadow-[0px_0px_12px_rgba(255,255,255,0.3)]"
         onClick={toggleModal}
       >
         <OvalLabel
@@ -75,11 +75,7 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
         >
           {getYear(alumni.date_of_graduation)}
         </OvalLabel>
-        <div
-          className={clsx(
-            "relative max-w-32 p-1 border-2 border-gray-100 rounded-full transition-[translate,width]"
-          )}
-        >
+        <div className="relative max-w-32 p-1 border-2 border-gray-100 rounded-full transition-[translate,width]">
           <img
             className="w-full h-full object-contain rounded-full"
             src={alumni.image}
@@ -97,11 +93,7 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
           <OvalLabel bgColor="bg-[#0A56A8]">{alumni.major}</OvalLabel>
           <OvalLabel bgColor="bg-[#A80A30]">{alumni.degree}</OvalLabel>
         </div>
-        <p
-          className={clsx(
-            "overflow-hidden mt-3 line-clamp-3 text-gray-300 indent-4 leading-5"
-          )}
-        >
+        <p className="overflow-hidden mt-3 line-clamp-3 text-gray-300 indent-4 leading-5">
           {alumni.text}
         </p>
         <div className="pt-6">

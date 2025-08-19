@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 import type { NavigationMenuData } from "../types";
 
-export default function NavigationMenu({
+export function NavigationMenu({
   className,
   navigationMenuData,
 }: {
@@ -58,9 +58,9 @@ export default function NavigationMenu({
         className={clsx(
           "absolute top-[calc(100%+1rem)] left-0 rounded-md bg-[#0000006e] whitespace-nowrap",
           "transition-[transform,width,height,opacity,background] duration-200 ease-in-out backdrop-blur-md",
-          "before:absolute before:-top-1.5 before:left-1/2 before:-translate-1/2 before:border-x-transparent before:border-x-12 before:border-b-12 before:border-b-[#0000006e]",
-          "before:transition-[border] before:duration-300 before:ease-in-out",
-          "after:absolute after:-top-4 after:w-full after:h-4",
+          "before:absolute before:-top-1.5 before:left-1/2 before:-translate-1/2 before:border-x-transparent",
+          "before:border-x-12 before:border-b-12 before:border-b-[#0000006e] before:transition-[border]",
+          "before:duration-300 before:ease-in-out after:absolute after:-top-4 after:w-full after:h-4",
           activeIndex !== null
             ? "opacity-100 pointer-events-auto "
             : "opacity-0 pointer-events-none "
@@ -76,8 +76,8 @@ export default function NavigationMenu({
             <ul
               className={clsx(
                 "overflow-hidden absolute flex flex-col gap-1 py-4",
-                "before:absolute before:left-0 before:top-0 before:w-2 before:h-full before:bg-[#ff1a7a] before:rounded-l-md",
-                "before:transition-[opacity] before:duration-200 before:ease-in-out",
+                "before:absolute before:left-0 before:top-0 before:w-2 before:h-full before:bg-[#ff1a7a]",
+                "before:rounded-l-md before:transition-[opacity] before:duration-200 before:ease-in-out",
                 index === activeIndex
                   ? "before:opacity-100"
                   : "before:opacity-0"
@@ -91,7 +91,8 @@ export default function NavigationMenu({
                   className={clsx(
                     "overflow-hidden relative px-4 text-xl text-white font-semibold cursor-pointer",
                     "transition-opacity duration-200 ease-in-out",
-                    "before:absolute before:-z-1 before:left-[7px] before:w-0 before:h-full before:bg-[linear-gradient(to_right,_#ff1a7a_8px,_#f8982e)]",
+                    "before:absolute before:-z-1 before:left-[7px] before:w-0 before:h-full",
+                    "before:bg-[linear-gradient(to_right,_#ff1a7a_8px,_#f8982e)]",
                     "before:transition-[width] before:duration-200 before:ease-in-out hover:before:w-full",
                     index === activeIndex
                       ? "opacity-100 pointer-events-auto z-10"
