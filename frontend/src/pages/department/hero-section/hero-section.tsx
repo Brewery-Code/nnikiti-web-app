@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { DustEffect } from "./dust-effect";
-import c from "./img/c++.png";
-import { SpecialtiesCard } from "@/shared/ui";
+import { motion } from "framer-motion";
 
 const blink = keyframes`
   50% { border-color: transparent; }
@@ -50,9 +49,13 @@ export function HeroSection() {
   }, [departmentName]);
 
   return (
-    <div className="relative  h-[calc(100dvh-64px)]">
+    <div
+      className="relative h-[calc(100dvh-64px)] bg-black 
+      before:absolute before:top-full before:w-full before:h-32 before:bg-linear-180 before:from-black
+      before:to-transparent"
+    >
       <DustEffect />
-      <div className="flex flex-col justify-center w-full h-full pt-28">
+      <div className="relative flex flex-col w-full h-full pt-28">
         <Department
           length={"Department of".length}
           className="overflow-hidden mx-auto font-extrabold text-2xl whitespace-nowrap"
@@ -68,11 +71,55 @@ export function HeroSection() {
         >
           Computer Engineering
         </DepartmentName>
-        <div className="flex justify-center gap-16 mt-32">
-          <SpecialtiesCard />
-          <SpecialtiesCard />
-          <SpecialtiesCard />
-          <SpecialtiesCard />
+        <motion.p
+          className="w-256 mt-8 mx-auto text-xl font-mono text-center"
+          initial={{
+            y: 50,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{
+            delay: 4,
+            duration: 0.5,
+            repeatType: "loop",
+          }}
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed saepe
+          ipsum praesentium cupiditate molestias nihil commodi perferendis
+          recusandae eius necessitatibus veniam, excepturi beatae repudiandae
+          at, minus atque facilis dolores quam?
+        </motion.p>
+        <div className="container-base relative flex flex-col justify-center items-center gap-16 mt-32">
+          <p
+            className="absolute -z-0 left-1/2 scale-75 w-128 p-4 bg-[rgba(140,140,140,0.1)] rounded-md
+            backdrop-blur-xs text-xl font-mono"
+          >
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
+            doloribus illum veritatis earum, velit tempora cupiditate cum itaque
+            dolorem molestiae ipsa fuga, adipisci nisi vero dolorum, inventore
+            facere impedit deleniti?
+          </p>
+          <p
+            className="relative z-10 w-128 p-4 bg-[rgba(50,50,50,0.5)] rounded-md backdrop-blur-xs text-xl
+            font-mono"
+          >
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
+            doloribus illum veritatis earum, velit tempora cupiditate cum itaque
+            dolorem molestiae ipsa fuga, adipisci nisi vero dolorum, inventore
+            facere impedit deleniti?
+          </p>
+          <p
+            className="absolute z-0 right-1/2 scale-75 w-128 p-4 bg-[rgba(140,140,140,0.1)] rounded-md 
+            backdrop-blur-xs text-xl font-mono"
+          >
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
+            doloribus illum veritatis earum, velit tempora cupiditate cum itaque
+            dolorem molestiae ipsa fuga, adipisci nisi vero dolorum, inventore
+            facere impedit deleniti?
+          </p>
         </div>
       </div>
     </div>

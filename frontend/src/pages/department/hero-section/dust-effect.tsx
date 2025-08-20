@@ -16,7 +16,7 @@ export function DustEffect() {
   );
 
   return (
-    <div className="-z-10 overflow-hidden absolute inset-0 w-full h-full pointer-events-none">
+    <div className="z-0 overflow-hidden absolute inset-0 w-full h-full pointer-events-none">
       {particles.map((p, i) => {
         return (
           <motion.span
