@@ -1,0 +1,1075 @@
+[
+{
+  "model": "core.mainslideritem",
+  "pk": 20,
+  "fields": {
+    "image": "banners/nuwm_1920x900.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 21,
+  "fields": {
+    "image": "banners/FB_IMG_1664796610950.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 22,
+  "fields": {
+    "image": "banners/FB_IMG_1666895497071.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 23,
+  "fields": {
+    "image": "banners/FB_IMG_1666895532139.jpg"
+  }
+},
+{
+  "model": "core.mainslideritem",
+  "pk": 24,
+  "fields": {
+    "image": "banners/IMG_20221008_103459_0127.jpg"
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "en",
+    "title": "3400+",
+    "description": "Stydying now",
+    "master": 1
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "uk",
+    "title": "3400+",
+    "description": "Зараз навчається",
+    "master": 1
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "en",
+    "title": "Top 1 in Rivne",
+    "description": "",
+    "master": 2
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "uk",
+    "title": "Топ 1 в Рівному",
+    "description": "",
+    "master": 2
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "en",
+    "title": "81",
+    "description": "Teaching staff",
+    "master": 3
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "uk",
+    "title": "81",
+    "description": "Викладач",
+    "master": 3
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "en",
+    "title": "40+",
+    "description": "Partners around the world",
+    "master": 4
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "uk",
+    "title": "40+",
+    "description": "Партнерів по всьому світу",
+    "master": 4
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "title": "29000+",
+    "description": "Випускників",
+    "master": 5
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "title": "29000+",
+    "description": "Graduated",
+    "master": 5
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "en",
+    "title": "12",
+    "description": "Education programs",
+    "master": 6
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "uk",
+    "title": "12",
+    "description": "Освітніх програм",
+    "master": 6
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "en",
+    "title": "Top 44 in Ukraine",
+    "description": "",
+    "master": 7
+  }
+},
+{
+  "model": "core.statisticblocktranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "uk",
+    "title": "44-ті в рейтингу України",
+    "description": "",
+    "master": 7
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 1,
+  "fields": {
+    "start_value": 0,
+    "order": 1
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 2,
+  "fields": {
+    "start_value": null,
+    "order": 2
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 3,
+  "fields": {
+    "start_value": 0,
+    "order": 3
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 4,
+  "fields": {
+    "start_value": 0,
+    "order": 4
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 5,
+  "fields": {
+    "start_value": 0,
+    "order": 5
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 6,
+  "fields": {
+    "start_value": 0,
+    "order": 6
+  }
+},
+{
+  "model": "core.statisticblock",
+  "pk": 7,
+  "fields": {
+    "start_value": 200,
+    "order": 7
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "question": "Які документи потрібні для вступу до інституту?",
+    "answer": "Потрібен атестат про повну загальну середню освіту, паспорт та сертифікати ЗНО або НМТ.",
+    "master": 1
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "question": "What documents are required for admission to the institute?",
+    "answer": "You need a high school diploma, a passport, and standardized test certificates (ZNO or NMT).",
+    "master": 1
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "question": "Чи є в інституті гуртожиток?",
+    "answer": "Так, інститут надає місця у гуртожитку для іногородніх студентів.",
+    "master": 2
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "question": "Does the institute provide dormitory accommodation?",
+    "answer": "Yes, the institute offers dormitory places for non-local students.",
+    "master": 2
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "question": "Які спеціальності доступні для навчання?",
+    "answer": "Інститут пропонує спеціальності у сфері ІТ, економіки, права, інженерії та гуманітарних наук.",
+    "master": 3
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "question": "What majors are available at the institute?",
+    "answer": "The institute offers programs in IT, economics, law, engineering, and humanities.",
+    "master": 3
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "question": "Чи можна навчатися заочно?",
+    "answer": "Так, є як денна, так і заочна форма навчання.",
+    "master": 4
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "question": "Is part-time study available?",
+    "answer": "Yes, both full-time and part-time study options are available.",
+    "master": 4
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "question": "Якою мовою ведеться навчання?",
+    "answer": "Навчання ведеться українською мовою, але деякі програми доступні англійською.",
+    "master": 5
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "question": "What is the language of instruction?",
+    "answer": "The primary language is Ukrainian, but some programs are available in English.",
+    "master": 5
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "question": "Чи є можливість отримати стипендію?",
+    "answer": "Так, академічна стипендія надається за високі результати в навчанні.",
+    "master": 6
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "question": "Can I get a scholarship?",
+    "answer": "Yes, academic scholarships are available for high-performing students.",
+    "master": 6
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "uk",
+    "question": "Як подати документи онлайн?",
+    "answer": "Ви можете подати документи через електронний кабінет вступника на офіційному сайті.",
+    "master": 7
+  }
+},
+{
+  "model": "core.faqtranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "en",
+    "question": "How can I apply online?",
+    "answer": "You can apply through the applicant's electronic portal on the official website.",
+    "master": 7
+  }
+},
+{
+  "model": "core.faq",
+  "pk": 1,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 2,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 3,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 4,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 5,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 6,
+  "fields": {}
+},
+{
+  "model": "core.faq",
+  "pk": 7,
+  "fields": {}
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Пархомчук Віталій Сергійович",
+    "text": "Молодий перспективний челік.",
+    "major": "Інженерія програмного забезпечення",
+    "degree": "Бакалавр",
+    "workplace": "CEO в google",
+    "position": "CEO",
+    "master": 1
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Дмитро Бабич",
+    "text": "Я пишаюся тим, що здобув спеціальність 113 Прикладна математика\" – поділився своїми успіхами у професійній діяльності Дмитро Бабич.\r\n\"Моя кар'єра розробника програмного забезпечення почалася 10 років тому – в 2011 році.\r\nСпочатку я набирався досвіду у невеликих компаніях, стартапах, де займався розробкою програм для страхування, агрегатором знижкових карток, програм для готелів. З 2014 року влаштувався на великий проєкт в українську компанію Інфопульс, в якій пропрацював 7.5 років.\r\nЗа цей час я прийняв участь в розробці програмного забезпечення для однієї з чотирьох найбільших аудиторських компаній. Отримав сертифікат розробника Xamarin. Освоїв багато технологій, основні з яких .Net, T-SQL, Azure.\r\nПопрацювавши з різними технологіями від бекенду, фронтенду до мобільної розробки, я все ж вирішив сфокусуватися на бекенді, ближче до даних.\r\nОстанній рік я працюю в компанії Люксофт у команді за участі програмістів, менеджерів, архітекторів компанії Microsoft, в проєкті для альянсу компаній Renault і Nissan. Ми працюємо над бекендом для автомобілів.\r\nКористувач може за допомогою мобільного телефону керувати своїм автомобілем і слідкувати за всією телеметрією. Це домен автомотів та Інтернет речей.\r\nНайбільшим досягненням останнього року є функціонал, який обробляє частину запитів всієї системи – 600 тисяч за хвилину.\r\nПри такому навантаженні потрібно врахувати безліч факторів і все, що може піти не так – піде не так. Об'єм логів всієї системи – 30 гігабайтів за хвилину, і це тільки для європейського регіону. Всі логи зберігаються в Kusto і їх можна легко аналізувати за допомогою запитів.\r\nНовий функціонал допомагає заощаджувати значні кошти на хостингу і в планах компанії використовувати це архітектурне рішення за основу для подальшої оптимізації коштів.\r\nЧи стала мені в пригоді математична вишка? Безумовно.\r\nЦінність досвіду в матаналізі чи диференціальних рівняннях я зрозумів, коли задачі змістилися з верстки форм в сторону роботи з великими об'ємами даних.\r\nМатематичні дисципліни розвивають ємність пам'яті для роботи з алгоритмами, великими об'ємами інформації і коду.\r\nРозібратися в мільйонах рядків чужого коду або створити новий функціонал – це як розв'язати математичну проблему.\r\nКожна нова проблема може бути незнайомою, досвід роботи з алгоритмами і математичними задачами допоможе її вирішити.\r\nФах програміста вимагає постійної самоосвіти, включеності, скрупульозності і роботи з великими об'ємами даних.\r\nТому навчання на 113 Прикладній математиці дасть вам досвід роботи з математичними проблемами, алгоритмами і старт вашої кар'єри в цілому.",
+    "major": "113 Прикладна математика",
+    "degree": "Магістр",
+    "workplace": "Luxoft",
+    "position": "Backend розробник",
+    "master": 10
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Dmytro Babych",
+    "text": "I am proud to have earned a degree in 113 Applied Mathematics,\" shared Dmytro Babych about his professional achievements.\r\n\"My career as a software developer started 10 years ago – back in 2011.\r\nAt first, I gained experience in small companies and startups, working on software for insurance, discount card aggregators, and hotel management. In 2014, I joined a major project at the Ukrainian company Infopulse, where I worked for 7.5 years.\r\nDuring this time, I contributed to the development of software for one of the Big Four auditing firms. I earned a Xamarin Developer Certificate and mastered many technologies, the main ones being .Net, T-SQL, and Azure.\r\nAfter working with various technologies, from backend and frontend to mobile development, I decided to focus on backend – closer to the data.\r\nFor the past year, I’ve been working at Luxoft in a team with programmers, managers, and architects from Microsoft, on a project for the Renault-Nissan alliance. We are developing backend systems for cars.\r\nUsers can control their car and monitor all telemetry via their mobile phones. This is the automotive domain and the Internet of Things.\r\nMy greatest achievement in the past year has been developing functionality that processes a portion of the system’s load – 600,000 requests per minute.\r\nAt such scale, countless factors must be considered, and anything that can go wrong – will go wrong. The system’s log volume is 30 gigabytes per minute, and that’s only for the European region. All logs are stored in Kusto and can be easily analyzed through queries.\r\nThis new functionality helps save significant hosting costs, and the company plans to use this architectural solution as the basis for further cost optimization.\r\nDid my math degree help me? Absolutely.\r\nI realized the value of experience in mathematical analysis and differential equations when my tasks shifted from form layouts to working with large volumes of data.\r\nMathematical disciplines train the brain to handle algorithms, massive amounts of information, and code.\r\nUnderstanding millions of lines of someone else’s code or creating new functionality is like solving a math problem.\r\nEach new problem may be unfamiliar, but experience with algorithms and mathematical tasks helps solve it.\r\nBeing a programmer requires constant self-education, dedication, meticulousness, and the ability to handle large volumes of data.\r\nThat is why studying Applied Mathematics (specialty 113) provides valuable experience with mathematical problems, algorithms, and a solid starting point for your entire career.",
+    "major": "113 Applied Mathematics",
+    "degree": "Master",
+    "workplace": "Luxoft",
+    "position": "Backend Engineer",
+    "master": 10
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Олена Кравченко",
+    "text": "Отримавши спеціальність 121 Інженерія програмного забезпечення, я зрозуміла, що це не просто диплом, а справжня точка відліку,\" – говорить випускниця Олена Кравченко.\r\n\"Мій перший комерційний досвід почався у 2016 році. Спочатку працювала у продуктовому стартапі, де розробляла веб-застосунки на Django та React. Потім були міжнародні компанії: брала участь у створенні сервісів для фінансового сектору та e-commerce. Зараз я Senior Software Engineer у компанії EPAM, де відповідаю за архітектуру мікросервісів і інтеграцію з AWS.\r\nНайбільшим досягненням вважаю участь у проєкті для глобального банку, де ми оптимізували час обробки транзакцій з 2 секунд до 200 мілісекунд.\r\nМоя спеціальність навчила мене системно мислити, писати ефективний код і розуміти, що якість продукту залежить від уваги до деталей. Це ті речі, які супроводжують мене впродовж усієї кар’єри.",
+    "major": "121 Інженерія програмного забезпечення",
+    "degree": "Магістр",
+    "workplace": "EPAM",
+    "position": "Senior software Engineer",
+    "master": 11
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Olena Kravchenko",
+    "text": "Having graduated with a degree in 121 Software Engineering, I realized it was not just a diploma but a true starting point,\" says alumna Olena Kravchenko.\r\n\"My first commercial experience began in 2016. At first, I worked in a product startup, developing web apps using Django and React. Later, I joined international companies, building services for finance and e-commerce. Today, I am a Senior Software Engineer at EPAM, responsible for microservices architecture and AWS integration.\r\nMy biggest achievement so far is contributing to a project for a global bank, where we optimized transaction processing time from 2 seconds down to 200 milliseconds.\r\nThis specialty taught me how to think systematically, write efficient code, and understand that product quality depends on attention to detail. These are the things that continue to guide me throughout my career.",
+    "major": "121 Software Engineering",
+    "degree": "Master",
+    "workplace": "EPAM",
+    "position": "Senior software Engineer",
+    "master": 11
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Андрій Стеценко",
+    "text": "Спеціальність 122 Комп’ютерні науки дала мені інструменти для роботи з великими даними\", – розповідає Андрій Стеценко.\r\nЙого шлях почався з аналітики у невеликих проєктах, а зараз він займається побудовою моделей машинного навчання у SoftServe.\r\n\"Найціннішим для мене є те, що університет сформував здатність швидко вчитися новому. Адже технології змінюються щороку, і саме гнучкість дозволяє залишатися у грі.",
+    "major": "122 Комп'ютерні науки",
+    "degree": "Магістр",
+    "workplace": "SoftServe",
+    "position": "Data Scientist",
+    "master": 12
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Andrii Stetsenko",
+    "text": "The 122 Computer Science program gave me the tools to work with big data,\" says Andrii Stetsenko.\r\nHe started with analytics in small projects and now builds machine learning models at SoftServe.\r\n\"The most valuable thing for me is that university taught me how to learn quickly. Technologies change every year, and flexibility is what allows you to stay in the game.",
+    "major": "122 Computer Science",
+    "degree": "Master",
+    "workplace": "SoftServe",
+    "position": "Data Scientist",
+    "master": 12
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Марія Литвиненко",
+    "text": "126 Інформаційні системи та технології – це спеціальність, яка поєднує технічні знання та бізнес-орієнтоване мислення\", – каже Марія Литвиненко.\r\nВона розпочинала як бізнес-аналітик, а нині керує продуктовими командами у Genesis.\r\n\"Моя головна гордість – запуск мобільного застосунку, який отримав понад 1 мільйон завантажень. Університет навчив мене шукати баланс між технологіями й потребами користувачів.",
+    "major": "126 Інформаційні системи і технології",
+    "degree": "Магістр",
+    "workplace": "Genesis",
+    "position": "Product manager",
+    "master": 13
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Mariia Lytvynenko",
+    "text": "126 Information Systems and Technologies is a specialty that combines technical knowledge with business-oriented thinking,\" says Mariia Lytvynenko.\r\nShe began as a business analyst and now leads product teams at Genesis.\r\n\"My greatest pride is launching a mobile app that received over 1 million downloads. University taught me to find the balance between technology and user needs.",
+    "major": "26 Information Systems and Technologies",
+    "degree": "Master",
+    "workplace": "Genesis",
+    "position": "Product manager",
+    "master": 13
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Сергій Коваленко",
+    "text": "Моя спеціальність дала мені міцну математичну базу, без якої DevOps виглядав би хаотичним набором технологій\", – згадує Сергій Коваленко.\r\nВін відповідає за побудову CI/CD процесів і оптимізацію хмарних інфраструктур.\r\n\"Моє найбільше досягнення – це автоматизація деплойменту, яка скоротила час релізу з кількох годин до 15 хвилин. Саме такі речі роблять команду більш ефективною.",
+    "major": "113 Прикладна математика",
+    "degree": "Магістр",
+    "workplace": "GlobalLogic",
+    "position": "DevOps інженер",
+    "master": 14
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 15,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Serhii Kovalenko",
+    "text": "My specialty gave me a strong mathematical foundation, without which DevOps would seem like a chaotic mix of technologies,\" recalls Serhii Kovalenko.\r\nHe is responsible for building CI/CD processes and optimizing cloud infrastructures.\r\n\"My biggest achievement was automating deployment, reducing release time from several hours to just 15 minutes. Things like that make the team much more efficient.",
+    "major": "113 Applied Mathematics",
+    "degree": "Master",
+    "workplace": "GlobalLogic",
+    "position": "DevOps Engineer",
+    "master": 14
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 16,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Катерина Сидоренко",
+    "text": "121 Інженерія програмного забезпечення – це моя пристрасть,\" – каже Катерина Сидоренко.\r\nЇї шлях почався з верстки сайтів, а нині вона створює масштабовані інтерфейси у компанії Wix.\r\n\"Найбільша радість для мене – бачити, як мільйони користувачів щодня взаємодіють із тим, що я створюю. Університет навчив не боятися складних задач.",
+    "major": "121 Інженерія програмного забезпечення",
+    "degree": "Магістр",
+    "workplace": "Wix",
+    "position": "Frontend розробник",
+    "master": 15
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 17,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Kateryna Sydorenko",
+    "text": "121 Software Engineering is my passion,\" says Kateryna Sydorenko.\r\nShe started with website markup and now builds scalable interfaces at Wix.\r\n\"My greatest joy is seeing millions of users interact daily with what I create. University taught me not to fear complex tasks.",
+    "major": "121 Software Engineering",
+    "degree": "Master",
+    "workplace": "Wix",
+    "position": "Frontend developer",
+    "master": 15
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 18,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Іван Гончар",
+    "text": "Спеціальність 122 Комп’ютерні науки відкрила для мене світ штучного інтелекту\", – ділиться Іван Гончар.\r\nВін працює над NLP-моделями у Grammarly.\r\n\"Найскладніше завдання – це зробити штучний інтелект максимально близьким до людського розуміння мови. І саме фундаментальні знання з університету дозволяють вирішувати такі задачі.",
+    "major": "122 Комп'ютерні науки",
+    "degree": "Магістр",
+    "workplace": "Grammarly",
+    "position": "Machine Learning Engineer",
+    "master": 16
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 19,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Ivan Honchar",
+    "text": "The 122 Computer Science program opened the world of artificial intelligence for me,\" shares Ivan Honchar.\r\nHe works on NLP models at Grammarly.\r\n\"The hardest challenge is to make AI as close as possible to human understanding of language. And it’s the fundamental knowledge from university that allows us to tackle such problems.",
+    "major": "122 Computer Science",
+    "degree": "Master",
+    "workplace": "Grammarly",
+    "position": "Machine Learning Engineer",
+    "master": 16
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 20,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Наталія Петренко",
+    "text": "126 Інформаційні системи та технології допомогли мені побачити зв’язок між бізнесом і технологіями\", – розповідає Наталія Петренко.\r\nСьогодні вона працює бізнес-аналітиком у Monobank.\r\n\"Найбільше задоволення приносить момент, коли твоя аналітика перетворюється на продукт, яким користуються тисячі людей. Університет навчив мене структурованому мисленню й аналітичному підходу.",
+    "major": "126 Інформаційні системи і технології",
+    "degree": "Бакалавр",
+    "workplace": "Monobank",
+    "position": "Buisness Analyst",
+    "master": 17
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 21,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Natalia Petrenko",
+    "text": "126 Information Systems and Technologies helped me see the connection between business and technology,\" says Nataliia Petrenko.\r\nToday, she works as a Business Analyst at Monobank.\r\n\"The greatest satisfaction comes when your analysis turns into a product used by thousands of people. University taught me structured thinking and an analytical approach.",
+    "major": "126 Information Systems and Technologies",
+    "degree": "Bachelor",
+    "workplace": "Monobank",
+    "position": "Buisness Analyst",
+    "master": 17
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 1,
+  "fields": {
+    "image": "alumnus/vitalik.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-08T08:45:01.102Z",
+    "date_of_graduation": "2026-06-04",
+    "status": "DF"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 10,
+  "fields": {
+    "image": "alumnus/student_vdy8iyX.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-26T10:54:44.268Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 11,
+  "fields": {
+    "image": "alumnus/vitalii.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-26T10:57:55.483Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 12,
+  "fields": {
+    "image": "alumnus/vitalii_krUGx85.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-26T11:00:53.771Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 13,
+  "fields": {
+    "image": "alumnus/vitalii_LstfJOs.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:02:47.291Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 14,
+  "fields": {
+    "image": "alumnus/vitalii_biCKBFu.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:04:35.395Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 15,
+  "fields": {
+    "image": "alumnus/vitalii_N0Xb8xs.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:06:15.789Z",
+    "date_of_graduation": "2024-01-19",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 16,
+  "fields": {
+    "image": "alumnus/vitalii_ZvZ8YeW.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:09:28.280Z",
+    "date_of_graduation": "2023-02-17",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 17,
+  "fields": {
+    "image": "alumnus/vitalii_GQBlDAh.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:11:43.582Z",
+    "date_of_graduation": "2021-09-10",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 1,
+  "fields": {
+    "image": "alumni-slider/photo_1_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 2,
+  "fields": {
+    "image": "alumni-slider/photo_1_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 3,
+  "fields": {
+    "image": "alumni-slider/photo_2_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 4,
+  "fields": {
+    "image": "alumni-slider/photo_2_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 5,
+  "fields": {
+    "image": "alumni-slider/photo_3_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 6,
+  "fields": {
+    "image": "alumni-slider/photo_3_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 7,
+  "fields": {
+    "image": "alumni-slider/photo_4_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 8,
+  "fields": {
+    "image": "alumni-slider/photo_4_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 9,
+  "fields": {
+    "image": "alumni-slider/photo_5_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 10,
+  "fields": {
+    "image": "alumni-slider/photo_5_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 11,
+  "fields": {
+    "image": "alumni-slider/photo_6_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 12,
+  "fields": {
+    "image": "alumni-slider/photo_6_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 13,
+  "fields": {
+    "image": "alumni-slider/photo_7_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 14,
+  "fields": {
+    "image": "alumni-slider/photo_7_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 15,
+  "fields": {
+    "image": "alumni-slider/photo_8_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 16,
+  "fields": {
+    "image": "alumni-slider/photo_8_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 17,
+  "fields": {
+    "image": "alumni-slider/photo_9_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 18,
+  "fields": {
+    "image": "alumni-slider/photo_9_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 19,
+  "fields": {
+    "image": "alumni-slider/photo_10_2025-08-07_09-47-11.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 20,
+  "fields": {
+    "image": "alumni-slider/photo_10_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 21,
+  "fields": {
+    "image": "alumni-slider/photo_11_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 22,
+  "fields": {
+    "image": "alumni-slider/photo_12_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 23,
+  "fields": {
+    "image": "alumni-slider/photo_13_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 24,
+  "fields": {
+    "image": "alumni-slider/photo_14_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 25,
+  "fields": {
+    "image": "alumni-slider/photo_15_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 26,
+  "fields": {
+    "image": "alumni-slider/photo_16_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 27,
+  "fields": {
+    "image": "alumni-slider/photo_17_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 28,
+  "fields": {
+    "image": "alumni-slider/photo_18_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 29,
+  "fields": {
+    "image": "alumni-slider/photo_19_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 30,
+  "fields": {
+    "image": "alumni-slider/photo_20_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 31,
+  "fields": {
+    "image": "alumni-slider/photo_21_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 32,
+  "fields": {
+    "image": "alumni-slider/photo_22_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 33,
+  "fields": {
+    "image": "alumni-slider/photo_23_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 34,
+  "fields": {
+    "image": "alumni-slider/photo_24_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 35,
+  "fields": {
+    "image": "alumni-slider/photo_25_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 36,
+  "fields": {
+    "image": "alumni-slider/photo_26_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 37,
+  "fields": {
+    "image": "alumni-slider/photo_27_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 38,
+  "fields": {
+    "image": "alumni-slider/photo_28_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 39,
+  "fields": {
+    "image": "alumni-slider/photo_29_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 40,
+  "fields": {
+    "image": "alumni-slider/photo_30_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 41,
+  "fields": {
+    "image": "alumni-slider/photo_31_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 42,
+  "fields": {
+    "image": "alumni-slider/photo_32_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 43,
+  "fields": {
+    "image": "alumni-slider/photo_33_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 44,
+  "fields": {
+    "image": "alumni-slider/photo_34_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 45,
+  "fields": {
+    "image": "alumni-slider/photo_35_2025-08-07_09-47-24.jpg"
+  }
+},
+{
+  "model": "core.alumnislider",
+  "pk": 46,
+  "fields": {
+    "image": "alumni-slider/photo_36_2025-08-07_09-47-24.jpg"
+  }
+}
+]
