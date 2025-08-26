@@ -56,11 +56,11 @@ class AlumnusView(APIView):
 
     def get(self, request):
         queryset = self.get_queryset()
-        serializer = AlumnusSerializer(queryset, many=True)
+        serializer = AlumnusSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = AlumnusCreateSerializer(data=request.data)
+        serializer = AlumnusCreateSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             alumnus = serializer.save()
             return Response({"id:": alumnus.id}, status=status.HTTP_201_CREATED)
