@@ -26,9 +26,7 @@ export default function StatisticBlock({
   start_value?: number;
 }) {
   const [current, setCurrent] = useState(start_value || null);
-  const [{ value, before, after }, setParsed] = useState(() =>
-    parseTitle(title)
-  );
+  const [{ value, before, after }, setParsed] = useState(() => parseTitle(title));
   const animationRef = useRef<number | null>(null);
 
   const blockRef = useRef<HTMLDivElement>(null);
@@ -77,17 +75,17 @@ export default function StatisticBlock({
     <div
       className={clsx(
         className,
-        "flex flex-col items-center justify-center p-4 rounded-xl text-black text-center cursor-pointer transition-colors duration-400 hover:bg-white"
+        "flex cursor-pointer flex-col items-center justify-center rounded-xl p-4 text-center text-black transition-colors duration-400 hover:bg-white"
       )}
       style={{
         boxShadow: "0 0 10px 2px rgba(256, 256, 256, 0.7)",
       }}
       ref={blockRef}
     >
-      <div className="text-4xl lg:text-5xl xl:text-6xl leading-9 sm:leading-10 lg:leading-12 xl:leading-14 font-bold">
+      <div className="text-4xl leading-9 font-bold sm:leading-10 lg:text-5xl lg:leading-12 xl:text-6xl xl:leading-14">
         {start_value !== null ? before + current + after : title}
       </div>
-      <p className="text-base lg:text-xl xl:text-2xl leading-4 lg:leading-6 font-bold">
+      <p className="text-base leading-4 font-bold lg:text-xl lg:leading-6 xl:text-2xl">
         {subtitle}
       </p>
     </div>

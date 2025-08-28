@@ -6,11 +6,7 @@ export function useOutsideClickHandler<T extends HTMLElement>(
 ) {
   useEffect(() => {
     function handleOutsideClick(event: MouseEvent) {
-      if (
-        ref.current &&
-        event.target instanceof Node &&
-        !ref.current.contains(event.target)
-      ) {
+      if (ref.current && event.target instanceof Node && !ref.current.contains(event.target)) {
         handler();
       }
     }

@@ -38,15 +38,12 @@ export function WorkerCard() {
     //     </li>
     //   </ul>
     // </div>
-    <div className="relative flex flex-col h-[calc(100%-56px)] px-8 pb-4 bg-[#1f1e1e] rounded-2xl">
+    <div className="relative flex h-[calc(100%-56px)] flex-col rounded-2xl bg-[#1f1e1e] px-8 pb-4">
       <div className="relative -top-14">
-        <div
-          className="overflow-hidden flex justify-center items-center max-w-48 w-full max-h-48 h-full 
-        rounded-full border-8"
-        >
-          <img className="w-full h-full object-cover" src={workerPhoto} />
+        <div className="flex h-full max-h-48 w-full max-w-48 items-center justify-center overflow-hidden rounded-full border-8">
+          <img className="h-full w-full object-cover" src={workerPhoto} />
         </div>
-        <div className="text-2xl text-center font-bold">Worker Name</div>
+        <div className="text-center text-2xl font-bold">Worker Name</div>
         <ul>
           <li></li>
         </ul>

@@ -5,10 +5,7 @@ interface useScrollDownAnimationProps {
   isDefaultAnimationOn?: boolean;
 }
 
-function useScrollDownAnimation({
-  elementRef,
-  isDefaultAnimationOn,
-}: useScrollDownAnimationProps) {
+function useScrollDownAnimation({ elementRef, isDefaultAnimationOn }: useScrollDownAnimationProps) {
   const [isElementVisible, setIsElementVisible] = useState(false);
 
   useEffect(() => {

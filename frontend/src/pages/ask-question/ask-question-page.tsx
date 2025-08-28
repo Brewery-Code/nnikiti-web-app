@@ -25,7 +25,7 @@ export function AskQuestionPage() {
 
   return (
     <PageTransition>
-      <div className="container-base grow flex flex-col">
+      <div className="container-base flex grow flex-col">
         <Title>Write us right now!</Title>
         <form className="grow" onSubmit={handleSubmit(onSubmit)}>
           <input
@@ -34,9 +34,7 @@ export function AskQuestionPage() {
             placeholder="Your email"
             {...register("email")}
           />
-          {errors.email && (
-            <p className="text-red-500">{errors.email.message}</p>
-          )}
+          {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
           <input
             className="bg-yellow-500"
@@ -44,9 +42,7 @@ export function AskQuestionPage() {
             placeholder="Your question is..."
             {...register("question")}
           />
-          {errors.question && (
-            <p className="text-red-500">{errors.question.message}</p>
-          )}
+          {errors.question && <p className="text-red-500">{errors.question.message}</p>}
 
           <button type="submit">Submit</button>
         </form>

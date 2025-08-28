@@ -23,14 +23,14 @@ export default function Accordion({
 
   return (
     <div
-      className="overflow-hidden p-4 bg-[#E8E8E8] rounded-2xl  text-black cursor-pointer"
+      className="cursor-pointer overflow-hidden rounded-2xl bg-[#E8E8E8] p-4 text-black"
       onClick={onClick}
     >
       <h2 className="text-2xl font-bold">{title}</h2>
       <p
         className={clsx(
           "relative text-xl transition-[height,translate] duration-300 ease-in-out",
-          isAccordionOpen ? "translate-y-4" : "translate-y-4 "
+          isAccordionOpen ? "translate-y-4" : "translate-y-4"
         )}
         style={{
           height: isAccordionOpen ? descriptionHeight + 16 : 0,

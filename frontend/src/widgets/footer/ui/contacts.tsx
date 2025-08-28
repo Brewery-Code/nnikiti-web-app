@@ -14,7 +14,7 @@ interface ListItemRenderProps {
 
 function ListItems({ label, contacts }: ListItemRenderProps) {
   return (
-    <li className="flex flex-wrap md:flex-nowrap gap-1">
+    <li className="flex flex-wrap gap-1 md:flex-nowrap">
       <span className="text-nowrap">{label}:</span>
       <ul className="flex gap-1">
         {contacts.map((item, subIndex) => (
@@ -33,19 +33,12 @@ export function Contacts({ className }: ContactsProps) {
 
   return (
     <div className={clsx(className)}>
-      <div className="text-base xl:text-xl font-bold">{t("contacts")}</div>
-      <ul className={clsx("flex flex-col gap-1 mt-2 text-xs font-medium")}>
+      <div className="text-base font-bold xl:text-xl">{t("contacts")}</div>
+      <ul className={clsx("mt-2 flex flex-col gap-1 text-xs font-medium")}>
         {Object.values(deaneryData).map((item, index) => (
-          <ListItems
-            key={index}
-            label={item.label}
-            contacts={[item.email, item.phone]}
-          />
+          <ListItems key={index} label={item.label} contacts={[item.email, item.phone]} />
         ))}
-        <ListItems
-          label={locationData.label}
-          contacts={[locationData.address]}
-        />
+        <ListItems label={locationData.label} contacts={[locationData.address]} />
       </ul>
     </div>
   );

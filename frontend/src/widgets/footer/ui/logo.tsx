@@ -7,14 +7,9 @@ interface LogoProps {
 
 export function Logo({ className }: LogoProps) {
   return (
-    <div
-      className={clsx(
-        "flex justify-center items-center gap-3 sm:gap-5",
-        className
-      )}
-    >
-      <img className="w-20 lg:w-28 h-23 lg:h-32" src={logoLion} alt="Logo" />
-      <p className="max-w-[428px] text-base sm:text-xl lg:text-[28px] leading:xl sm:leading-[30px] font-bold uppercase ">
+    <div className={clsx("flex items-center justify-center gap-3 sm:gap-5", className)}>
+      <img className="h-23 w-20 lg:h-32 lg:w-28" src={logoLion} alt="Logo" />
+      <p className="leading:xl max-w-[428px] text-base font-bold uppercase sm:text-xl sm:leading-[30px] lg:text-[28px]">
         The National University of Water and Environmental Engineering
       </p>
     </div>

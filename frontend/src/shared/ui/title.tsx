@@ -12,7 +12,7 @@ export function Title({
   return (
     <h2
       className={clsx(
-        "mb-8 font-open-sans text-4xl font-bold uppercase",
+        "font-open-sans mb-8 text-4xl font-bold uppercase",
         color ? color : "text-white",
         className
       )}

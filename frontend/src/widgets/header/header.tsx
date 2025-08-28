@@ -118,24 +118,14 @@ export function Header() {
   }
 
   return (
-    <header
-      className="fixed z-[100] flex justify-center w-full h-16 bg-[#0000006e] 
-      bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] 
-      before:fixed before:-z-1 before:inset-0 before:w-full before:h-16 before:backdrop-blur-md"
-    >
-      <div
-        className="container-base grid grid-cols-[64px_1fr_64px] md:grid-cols-[160px_1fr_160px] 
-        lg:grid-cols-[auto_auto_auto] lg:justify-between items-center h-full"
-      >
+    <header className="fixed z-[100] flex h-16 w-full justify-center bg-[#0000006e] bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] before:fixed before:inset-0 before:-z-1 before:h-16 before:w-full before:backdrop-blur-md">
+      <div className="container-base grid h-full grid-cols-[64px_1fr_64px] items-center md:grid-cols-[160px_1fr_160px] lg:grid-cols-[auto_auto_auto] lg:justify-between">
         <Link className="" to="/">
           <MicrocircuitLabelLogo />
         </Link>
-        <NavigationMenu
-          className="hidden lg:flex"
-          navigationMenuData={navigationMenuData}
-        />
+        <NavigationMenu className="hidden lg:flex" navigationMenuData={navigationMenuData} />
         <SearchBar className="flex lg:hidden" />
-        <div className="hidden lg:grid grid-cols-2 justify-end items-center gap-4">
+        <div className="hidden grid-cols-2 items-center justify-end gap-4 lg:grid">
           <ChangeLanguage />
           {isUserLogin() ? (
             <BlackAndWhiteButton color="black" onClick={googleLogin}>

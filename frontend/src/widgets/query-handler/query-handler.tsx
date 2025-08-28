@@ -13,11 +13,7 @@ export default function QueryHandler({
   fallback?: React.ReactNode;
   errorFallback?: React.ReactNode;
 }) {
-  if (isLoading)
-    return <div className="flex justify-center items-center">{fallback}</div>;
-  if (isError)
-    return (
-      <div className="flex justify-center items-center">{errorFallback}</div>
-    );
+  if (isLoading) return <div className="flex items-center justify-center">{fallback}</div>;
+  if (isError) return <div className="flex items-center justify-center">{errorFallback}</div>;
   return <>{children}</>;
 }

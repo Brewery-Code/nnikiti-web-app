@@ -11,8 +11,8 @@ export function HomePage() {
   return (
     <PageTransition className="!pt-0">
       <HeroSection />
-      <StatisticSection className="m-section " />
-      <SpecialtiesSection className="m-section " />
+      <StatisticSection className="m-section" />
+      <SpecialtiesSection className="m-section" />
       <EventsSection className="m-section" />
       <PartnersSection className="m-section" />
     </PageTransition>

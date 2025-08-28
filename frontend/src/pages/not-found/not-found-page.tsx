@@ -11,7 +11,7 @@ function ErrorElement({ children }: { children: React.ReactNode }) {
     <span className="relative">
       <span
         className={clsx(
-          "absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-full",
+          "absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500",
           styles["hue-animated"]
         )}
       />
@@ -26,19 +26,17 @@ export function NotFoundPage() {
 
   return (
     <PageTransition>
-      <div className="grow flex flex-col items-center justify-center text-white">
-        <div className="text-9xl font-bold flex items-center justify-center">
+      <div className="flex grow flex-col items-center justify-center text-white">
+        <div className="flex items-center justify-center text-9xl font-bold">
           <ErrorElement>4</ErrorElement>
           <ErrorElement>0</ErrorElement>
           <ErrorElement>4</ErrorElement>
         </div>
-        <p className="mt-4 text-lg text-center">
+        <p className="mt-4 text-center text-lg">
           {t("notExist")}.{" "}
           <Link
             to="/"
-            className="relative text-pink-500
-          before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:scale-x-0 before:h-0.5 before:w-full before:bg-pink-500 
-          before:transition-transform before:duration-500 before:ease-out hover:before:scale-x-100"
+            className="relative text-pink-500 before:absolute before:bottom-0 before:left-1/2 before:h-0.5 before:w-full before:-translate-x-1/2 before:scale-x-0 before:bg-pink-500 before:transition-transform before:duration-500 before:ease-out hover:before:scale-x-100"
           >
             {t("goHome")}.
           </Link>

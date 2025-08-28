@@ -1,8 +1,7 @@
 openapi: 3.0.1
 info:
   title: NNIKITI API
-  description:
-    "Documentation for the NNIKITI API, which allows you to see all working\
+  description: "Documentation for the NNIKITI API, which allows you to see all working\
     \ endpoints."
   version: v1
 servers:

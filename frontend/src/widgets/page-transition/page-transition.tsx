@@ -9,11 +9,7 @@ interface PageTransitionProps {
   isPaddingOn?: boolean;
 }
 
-export function PageTransition({
-  children,
-  className,
-  isPaddingOn = true,
-}: PageTransitionProps) {
+export function PageTransition({ children, className, isPaddingOn = true }: PageTransitionProps) {
   const location = useLocation();
 
   useEffect(() => {
@@ -28,11 +24,7 @@ export function PageTransition({
 
   return (
     <motion.main
-      className={clsx(
-        "grow flex flex-col mt-16 ",
-        className,
-        isPaddingOn && "pt-16 pb-24"
-      )}
+      className={clsx("mt-16 flex grow flex-col", className, isPaddingOn && "pt-16 pb-24")}
       initial={{ filter: "blur(10px)", opacity: 0 }}
       animate={{ filter: "blur(0px)", opacity: 1 }}
       exit={{ filter: "blur(10px)", opacity: 0 }}

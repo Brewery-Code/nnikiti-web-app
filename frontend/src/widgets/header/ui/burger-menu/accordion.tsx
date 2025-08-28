@@ -35,7 +35,7 @@ export default function Accordion({
         <span
           className={clsx(
             "relative text-3xl font-bold",
-            "before:absolute before:-bottom-1 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:bg-white before:transition-[width] before:duration-300 before:ease-[cubic-bezier(0.23,1,0.32,1)]",
+            "before:absolute before:-bottom-1 before:left-1/2 before:h-0.5 before:w-0 before:-translate-x-1/2 before:bg-white before:transition-[width] before:duration-300 before:ease-[cubic-bezier(0.23,1,0.32,1)]",
             isAccordionOpen && "before:w-full"
           )}
         >
@@ -43,7 +43,7 @@ export default function Accordion({
         </span>
       </div>
       <ul
-        className="overflow-hidden flex flex-col gap-2 transition-[height,margin] duration-300 ease-in-out"
+        className="flex flex-col gap-2 overflow-hidden transition-[height,margin] duration-300 ease-in-out"
         style={{
           height: isAccordionOpen ? listHeight : 0,
           marginTop: isAccordionOpen ? 16 : 0,

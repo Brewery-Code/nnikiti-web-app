@@ -1,17 +1,17 @@
 export default function ErrorMessage() {
   return (
-    <div className="flex flex-col gap-2 w-60 sm:w-80 sm:text-xs">
-      <div className="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+    <div className="flex w-60 flex-col gap-2 sm:w-80 sm:text-xs">
+      <div className="error-alert flex h-12 w-full cursor-default items-center justify-between rounded-lg bg-[#232531] px-[10px] sm:h-14">
         <div className="flex gap-2">
-          <div className="flex justify-center items-center">
-            <div className="flex justify-center items-center p-1.5 text-[#d65563] bg-white/5 backdrop-blur-xl rounded-lg">
+          <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center rounded-lg bg-white/5 p-1.5 text-[#d65563] backdrop-blur-xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   stroke-linecap="round"

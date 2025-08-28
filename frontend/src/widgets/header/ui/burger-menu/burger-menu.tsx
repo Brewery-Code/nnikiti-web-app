@@ -70,7 +70,7 @@ export default function BurgerMenu({
       </div>
       <div
         className={clsx(
-          "overflow-y-auto absolute left-0 top-0 flex w-dvw h-dvh py-16 bg-black",
+          "absolute top-0 left-0 flex h-dvh w-dvw overflow-y-auto bg-black py-16",
           "transition-transform duration-500 ease-in-out",
           isBurgerOpen ? "translate-x-0" : "translate-x-full"
         )}
@@ -99,7 +99,7 @@ export default function BurgerMenu({
           >
             {t("burgerMenu.home")}
           </Link>
-          <div className="grid grid-cols-[100px_100px] gap-4 justify-center  mt-auto">
+          <div className="mt-auto grid grid-cols-[100px_100px] justify-center gap-4">
             <ChangeLanguage />
             <BlackAndWhiteButton color="black" onClick={googleLogin}>
               {t("signIn")}

@@ -4,7 +4,7 @@ export default function SearchBar({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative transition-[width] duration-200 ease-in-out w-[calc(60%-32px)] focus-within:w-[calc(60%+32px)]",
+        "relative w-[calc(60%-32px)] transition-[width] duration-200 ease-in-out focus-within:w-[calc(60%+32px)]",
         className
       )}
     >
@@ -12,11 +12,10 @@ export default function SearchBar({ className }: { className?: string }) {
         type="text"
         placeholder="Search"
         name="text"
-        className={`w-full pl-10 pr-3 py-2 bg-[rgba(255,255,255,0.8)] backdrop-blur-sm rounded-full border-gray-800 text-gray-800 placeholder-gray-800 outline-none
-          transition-colors duration-200 ease-in-out  focus:bg-white`}
+        className={`w-full rounded-full border-gray-800 bg-[rgba(255,255,255,0.8)] py-2 pr-3 pl-10 text-gray-800 placeholder-gray-800 backdrop-blur-sm transition-colors duration-200 ease-in-out outline-none focus:bg-white`}
       />
       <svg
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 pointer-events-none"
+        className="pointer-events-none absolute top-1/2 left-2 -translate-y-1/2 transform"
         fill="#000000"
         width="20px"
         height="20px"
