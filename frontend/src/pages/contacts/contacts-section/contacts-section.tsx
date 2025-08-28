@@ -10,47 +10,33 @@ export function ContactsSection() {
   const { t } = useTranslation("contacts");
   const { administrationData, deaneryData, locationData } = useContactsData();
 
-  function formatContacts(item: {
-    email: string;
-    phone?: string | null;
-    audience: string;
-  }) {
-    return [
-      item.email,
-      ...(item.phone ? [item.phone] : []),
-      `${t("audience")}: ${item.audience}`,
-    ];
+  function formatContacts(item: { email: string; phone?: string | null; audience: string }) {
+    return [item.email, ...(item.phone ? [item.phone] : []), `${t("audience")}: ${item.audience}`];
   }
 
   return (
     <div className="container-base flex flex-col">
       <Title className="self-start">{t("title")}</Title>
-      <section className="flex flex-col w-full md:flex-row gap-4">
-        <div className="grow flex flex-col gap-4">
+      <section className="flex w-full flex-col gap-4 md:flex-row">
+        <div className="flex grow flex-col gap-4">
           <ContactBlock
-            icon={<CallIcon className="w-8 h-8" />}
+            icon={<CallIcon className="h-8 w-8" />}
             label={t("deanery.title")}
             description={t("deanery.description")}
           >
             {Object.values(deaneryData).map((item, index) => (
-              <ContactBlock.List
-                key={index}
-                label={`${item.label} - ${item.worker}:`}
-              >
+              <ContactBlock.List key={index} label={`${item.label} - ${item.worker}:`}>
                 <ContactBlock.Contacts contacts={formatContacts(item)} />
               </ContactBlock.List>
             ))}
           </ContactBlock>
           <ContactBlock
-            icon={<ChatIcon className="w-8 h-8" />}
+            icon={<ChatIcon className="h-8 w-8" />}
             label={t("administration.title")}
             description={t("administration.description")}
           >
             {Object.values(administrationData).map((item, index) => (
-              <ContactBlock.List
-                key={index}
-                label={`${item.label} - ${item.worker}:`}
-              >
+              <ContactBlock.List key={index} label={`${item.label} - ${item.worker}:`}>
                 <ContactBlock.Contacts contacts={formatContacts(item)} />
               </ContactBlock.List>
             ))}
@@ -58,20 +44,17 @@ export function ContactsSection() {
         </div>
         <div className="flex flex-col sm:flex-row-reverse md:flex-col">
           <iframe
-            className="grow md:h-full rounded-t-xl sm:rounded-r-xl md:rounded-b-none md:rounded-t-xl"
+            className="grow rounded-t-xl sm:rounded-r-xl md:h-full md:rounded-t-xl md:rounded-b-none"
             src={locationData.googleMapsEmbedAPI}
             loading="lazy"
           />
           <ContactBlock
-            className="grow rounded-t-none sm:rounded-l-xl sm:rounded-r-none md:rounded-b-xl md:rounded-t-none"
-            icon={<MapIcon className="w-8 h-8" />}
+            className="grow rounded-t-none sm:rounded-l-xl sm:rounded-r-none md:rounded-t-none md:rounded-b-xl"
+            icon={<MapIcon className="h-8 w-8" />}
             label={t("location.title")}
             description={t("location.description")}
           >
-            <ContactBlock.List
-              className="flex-row gap-2"
-              label={`${locationData.label}: `}
-            >
+            <ContactBlock.List className="flex-row gap-2" label={`${locationData.label}: `}>
               <ContactBlock.Contacts contacts={[locationData.address]} />
             </ContactBlock.List>
           </ContactBlock>

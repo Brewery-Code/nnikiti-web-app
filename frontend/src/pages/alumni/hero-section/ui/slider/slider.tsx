@@ -23,29 +23,20 @@ const SliderWrapper = styled.div<{ $sliderLength: number }>`
 `;
 
 export function Slider({ className }: SliderProps) {
-  const sliderData =
-    publicRqClient.useQuery("get", "/core/alumni-slider-items/").data ?? [];
+  const sliderData = publicRqClient.useQuery("get", "/core/alumni-slider-items/").data ?? [];
 
   const half = Math.ceil(sliderData.length / 2);
   const firstSliderLine = sliderData.slice(0, half);
   const secondSliderLine = sliderData.slice(half);
 
   return (
-    <div
-      className={clsx(
-        "relative overflow-hidden h-64 sm:h-86 -my-3 py-3",
-        className
-      )}
-    >
+    <div className={clsx("relative -my-3 h-64 overflow-hidden py-3 sm:h-86", className)}>
       <SliderWrapper
         $sliderLength={sliderData.length}
         className="absolute flex flex-col gap-2 sm:gap-4"
       >
         <RenderSlider sliderData={firstSliderLine} />
-        <RenderSlider
-          className="-translate-x-34"
-          sliderData={secondSliderLine}
-        />
+        <RenderSlider className="-translate-x-34" sliderData={secondSliderLine} />
       </SliderWrapper>
     </div>
   );

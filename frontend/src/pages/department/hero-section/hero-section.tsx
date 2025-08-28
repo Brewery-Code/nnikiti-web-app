@@ -17,8 +17,7 @@ function typing(length: number) {
 
 const Department = styled.div<{ length: number }>`
   font-family: "Fira Code", monospace;
-  animation: ${({ length }) => typing(length)} 2s
-    steps(${({ length }) => length}, end) forwards;
+  animation: ${({ length }) => typing(length)} 2s steps(${({ length }) => length}, end) forwards;
 `;
 
 function textAppearance(length: number) {
@@ -33,8 +32,8 @@ function textAppearance(length: number) {
 const DepartmentName = styled.div<{ length: number; charCount: number }>`
   font-family: "Work Sans", sans-serif;
   animation:
-    ${({ length }) => textAppearance(length)} 2s
-      steps(${({ charCount }) => charCount}, end) 2s forwards,
+    ${({ length }) => textAppearance(length)} 2s steps(${({ charCount }) => charCount}, end) 2s
+      forwards,
     ${blink} 0.5s step-end infinite alternate;
 `;
 
@@ -49,30 +48,25 @@ export function HeroSection() {
   }, [departmentName]);
 
   return (
-    <div
-      className="relative h-[calc(100dvh-64px)] bg-black 
-      before:absolute before:top-full before:w-full before:h-32 before:bg-linear-180 before:from-black
-      before:to-transparent"
-    >
+    <div className="relative h-[calc(100dvh-64px)] bg-black before:absolute before:top-full before:h-32 before:w-full before:bg-linear-180 before:from-black before:to-transparent">
       <DustEffect />
-      <div className="relative flex flex-col w-full h-full pt-28">
+      <div className="relative flex h-full w-full flex-col pt-28">
         <Department
           length={"Department of".length}
-          className="overflow-hidden mx-auto font-extrabold text-2xl whitespace-nowrap"
+          className="mx-auto overflow-hidden text-2xl font-extrabold whitespace-nowrap"
         >
           Department of
         </Department>
         <DepartmentName
           length={departmentNameLength}
           charCount={"Computer Engineering".length}
-          className="overflow-hidden mx-auto bg-linear-to-r opacity-0 from-pink-500 to-violet-500 bg-clip-text
-          text-8xl leading-30 text-transparent font-extrabold whitespace-nowrap"
+          className="mx-auto overflow-hidden bg-linear-to-r from-pink-500 to-violet-500 bg-clip-text text-8xl leading-30 font-extrabold whitespace-nowrap text-transparent opacity-0"
           ref={departmentName}
         >
           Computer Engineering
         </DepartmentName>
         <motion.p
-          className="w-256 mt-8 mx-auto text-xl font-mono text-center"
+          className="mx-auto mt-8 w-256 text-center font-mono text-xl"
           initial={{
             y: 50,
             opacity: 0,
@@ -87,38 +81,25 @@ export function HeroSection() {
             repeatType: "loop",
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed saepe
-          ipsum praesentium cupiditate molestias nihil commodi perferendis
-          recusandae eius necessitatibus veniam, excepturi beatae repudiandae
-          at, minus atque facilis dolores quam?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed saepe ipsum praesentium
+          cupiditate molestias nihil commodi perferendis recusandae eius necessitatibus veniam,
+          excepturi beatae repudiandae at, minus atque facilis dolores quam?
         </motion.p>
-        <div className="container-base relative flex flex-col justify-center items-center gap-16 mt-32">
-          <p
-            className="absolute -z-0 left-1/2 scale-75 w-128 p-4 bg-[rgba(140,140,140,0.1)] rounded-md
-            backdrop-blur-xs text-xl font-mono"
-          >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
-            doloribus illum veritatis earum, velit tempora cupiditate cum itaque
-            dolorem molestiae ipsa fuga, adipisci nisi vero dolorum, inventore
-            facere impedit deleniti?
+        <div className="container-base relative mt-32 flex flex-col items-center justify-center gap-16">
+          <p className="absolute left-1/2 -z-0 w-128 scale-75 rounded-md bg-[rgba(140,140,140,0.1)] p-4 font-mono text-xl backdrop-blur-xs">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis doloribus illum
+            veritatis earum, velit tempora cupiditate cum itaque dolorem molestiae ipsa fuga,
+            adipisci nisi vero dolorum, inventore facere impedit deleniti?
           </p>
-          <p
-            className="relative z-10 w-128 p-4 bg-[rgba(50,50,50,0.5)] rounded-md backdrop-blur-xs text-xl
-            font-mono"
-          >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
-            doloribus illum veritatis earum, velit tempora cupiditate cum itaque
-            dolorem molestiae ipsa fuga, adipisci nisi vero dolorum, inventore
-            facere impedit deleniti?
+          <p className="relative z-10 w-128 rounded-md bg-[rgba(50,50,50,0.5)] p-4 font-mono text-xl backdrop-blur-xs">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis doloribus illum
+            veritatis earum, velit tempora cupiditate cum itaque dolorem molestiae ipsa fuga,
+            adipisci nisi vero dolorum, inventore facere impedit deleniti?
           </p>
-          <p
-            className="absolute z-0 right-1/2 scale-75 w-128 p-4 bg-[rgba(140,140,140,0.1)] rounded-md 
-            backdrop-blur-xs text-xl font-mono"
-          >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
-            doloribus illum veritatis earum, velit tempora cupiditate cum itaque
-            dolorem molestiae ipsa fuga, adipisci nisi vero dolorum, inventore
-            facere impedit deleniti?
+          <p className="absolute right-1/2 z-0 w-128 scale-75 rounded-md bg-[rgba(140,140,140,0.1)] p-4 font-mono text-xl backdrop-blur-xs">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis doloribus illum
+            veritatis earum, velit tempora cupiditate cum itaque dolorem molestiae ipsa fuga,
+            adipisci nisi vero dolorum, inventore facere impedit deleniti?
           </p>
         </div>
       </div>

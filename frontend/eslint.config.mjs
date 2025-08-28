@@ -21,5 +21,5 @@ export const strictEnumRule = ESLintUtils.RuleCreator.withoutDocs({
   defaultOptions: [],
   create(context) {
     return {};
-  }
+  },
 });

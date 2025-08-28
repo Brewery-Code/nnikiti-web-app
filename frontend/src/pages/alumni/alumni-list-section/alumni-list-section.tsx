@@ -21,13 +21,19 @@ const yearColor = [
 ];
 
 export function getColor(year?: number) {
-  if (!year) return "transparent";
+  if (!year) {
+    return "transparent";
+  }
+
   const lastDigit = year % 10;
   return yearColor[lastDigit];
 }
 
 export function getYear(dateStr?: string) {
-  if (!dateStr) return undefined;
+  if (!dateStr) {
+    return undefined;
+  }
+
   return Number(dateStr.split("-")[0]);
 }
 
@@ -39,11 +45,9 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
   useLoadNamespace("alumni", loadTranslations);
   const { t } = useTranslation("alumni");
 
-  const graduationYears =
-    publicRqClient.useQuery("get", "/core/alumni/years/").data ?? [];
+  const graduationYears = publicRqClient.useQuery("get", "/core/alumni/years/").data ?? [];
 
-  const alumniListData =
-    publicRqClient.useQuery("get", "/core/alumni/").data ?? [];
+  const alumniListData = publicRqClient.useQuery("get", "/core/alumni/").data ?? [];
 
   const navigationListRef = useRef<HTMLDivElement>(null);
   useScrollDownAnimation({
@@ -53,10 +57,7 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
 
   return (
     <div className={clsx(className, "container-base")}>
-      <div
-        className="flex flex-wrap justify-center gap-x-4 gap-y-3"
-        ref={navigationListRef}
-      >
+      <div className="flex flex-wrap justify-center gap-x-4 gap-y-3" ref={navigationListRef}>
         {graduationYears.map((year, index) => (
           <a href={"#" + year} key={index}>
             <BlackAndWhiteButton>{year}</BlackAndWhiteButton>

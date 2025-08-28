@@ -5,15 +5,11 @@ function SliderItem({ className, sliderItem }: SliderItemProps) {
   return (
     <div
       className={clsx(
-        "grow w-48 sm:w-68 h-28 sm:h-38 shadow-[0px_2px_8px_rgba(255,255,255,0.15)]",
+        "h-28 w-48 grow shadow-[0px_2px_8px_rgba(255,255,255,0.15)] sm:h-38 sm:w-68",
         className
       )}
     >
-      <img
-        className="object-cover w-full h-full rounded-md"
-        src={sliderItem.image}
-        alt=""
-      />
+      <img className="h-full w-full rounded-md object-cover" src={sliderItem.image} alt="" />
     </div>
   );
 }

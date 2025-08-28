@@ -5,10 +5,7 @@ import Accordion from "./accordion";
 import { publicRqClient } from "@/shared/api/instance";
 
 export function FAQPage() {
-  const { data, isLoading, isError } = publicRqClient.useQuery(
-    "get",
-    "/core/faq/"
-  );
+  const { data, isLoading, isError } = publicRqClient.useQuery("get", "/core/faq/");
 
   const [whichAccordionIsOpen, setWhichAccordionIsOpen] = useState(-1);
   const accordionHandler = (id: number) => {
@@ -20,7 +17,7 @@ export function FAQPage() {
   };
   return (
     <PageTransition>
-      <section className="container-base grow flex flex-col">
+      <section className="container-base flex grow flex-col">
         <Title className="">FAQ</Title>
         <QueryHandler isLoading={isLoading} isError={isError}>
           <div className="flex flex-col gap-2">

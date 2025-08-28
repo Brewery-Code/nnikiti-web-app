@@ -31,11 +31,7 @@ const navigationButtons = [
   },
 ];
 
-export default function HeroSection({
-  className = "",
-}: {
-  className?: string;
-}) {
+export default function HeroSection({ className = "" }: { className?: string }) {
   const sliderImg = publicRqClient.useQuery("get", "/core/main-slider-items/");
   const [currentImg, setCurrentImg] = useState(0);
   const [nextImg, setNextImg] = useState(0);
@@ -51,9 +47,7 @@ export default function HeroSection({
       setNextImg((prev) => (prev + 1 < sliderImg.data.length ? prev + 1 : 0));
 
       timeoutId = setTimeout(() => {
-        setCurrentImg((prev) =>
-          prev + 1 < sliderImg.data.length ? prev + 1 : 0
-        );
+        setCurrentImg((prev) => (prev + 1 < sliderImg.data.length ? prev + 1 : 0));
         setIsTransitioning(false);
 
         timeoutId = setTimeout(runSlider, 4000);
@@ -69,8 +63,8 @@ export default function HeroSection({
     <section
       className={clsx(
         "relative h-[calc(100dvh-64px)] bg-cover bg-center bg-no-repeat",
-        "before:absolute before:-top-16 before:w-full before:h-16 before:bg-black",
-        "after:absolute after:-bottom-32 after:w-full after:h-32 after:bg-gradient-to-b after:from-black after:to-transparent",
+        "before:absolute before:-top-16 before:h-16 before:w-full before:bg-black",
+        "after:absolute after:-bottom-32 after:h-32 after:w-full after:bg-gradient-to-b after:from-black after:to-transparent",
         className
       )}
       style={{
@@ -92,19 +86,19 @@ export default function HeroSection({
           `,
         }}
       />
-      <div className="container-base flex flex-col justify-between items-center gap-0 h-full">
-        <div className="flex flex-col items-center z-10 mt-16">
-          <h1 className="text-4xl md:text-7xl xl:text-8xl  font-bold -tracking-tighter text-center">
+      <div className="container-base flex h-full flex-col items-center justify-between gap-0">
+        <div className="z-10 mt-16 flex flex-col items-center">
+          <h1 className="text-center text-4xl font-bold -tracking-tighter md:text-7xl xl:text-8xl">
             EVERY GIANT LEAP STARTS WITH ONE SMALL STEP
           </h1>
-          <h2 className="mt-4 text-base md:text-2xl leading-6 font-bold tracking-[0.12em] text-center">
+          <h2 className="mt-4 text-center text-base leading-6 font-bold tracking-[0.12em] md:text-2xl">
             EVERY GIANT LEAP STARTS WITH ONE SMALL STEP EVERY{" "}
           </h2>
         </div>
-        <SearchBar className={"flex justify-center mt-0"} />
+        <SearchBar className={"mt-0 flex justify-center"} />
 
-        <div className="flex gap-2 justify-center"></div>
-        <Arrow className="mx-auto mb-6 mt-32 animate-bounce" />
+        <div className="flex justify-center gap-2"></div>
+        <Arrow className="mx-auto mt-32 mb-6 animate-bounce" />
       </div>
     </section>
   );

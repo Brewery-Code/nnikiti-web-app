@@ -4,9 +4,5 @@ interface FormSubtitleProps {
 }
 
 export function FormTitle({ className, children }: FormSubtitleProps) {
-  return (
-    <h4 className={`${className} text-[#eee] text-4xl font-semibold`}>
-      {children}
-    </h4>
-  );
+  return <h4 className={`${className} text-4xl font-semibold text-[#eee]`}>{children}</h4>;
 }

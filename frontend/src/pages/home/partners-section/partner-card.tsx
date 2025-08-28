@@ -14,7 +14,7 @@ export default function PartnerCard({
   return (
     <div
       className={clsx(
-        "flex justify-center items-center max-h-24 rounded-xl bg-gradient-to-br from-[#F1F5F9] to-[#CBD5E1] shadow-[0px_0px_10px_2px_rgba(255,255,255,0.3)] text-black",
+        "flex max-h-24 items-center justify-center rounded-xl bg-gradient-to-br from-[#F1F5F9] to-[#CBD5E1] text-black shadow-[0px_0px_10px_2px_rgba(255,255,255,0.3)]",
         className && className
       )}
       style={{

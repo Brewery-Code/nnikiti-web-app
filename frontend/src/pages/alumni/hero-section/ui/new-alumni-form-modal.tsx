@@ -17,17 +17,12 @@ const schema = z.object({
     .int()
     .min(1900, { message: "Рік занадто маленький" }) // або будь-який мінімум
     .max(new Date().getFullYear(), { message: "Рік не може бути майбутнім" }),
-  story: z
-    .string()
-    .min(20, { message: "Розкажіть детальніше про себе (мін. 20 символів)" }),
+  story: z.string().min(20, { message: "Розкажіть детальніше про себе (мін. 20 символів)" }),
 });
 
 type FormFields = z.infer<typeof schema>;
 
-export function NewAlumniModalForm({
-  isFormOpen,
-  toggleForm,
-}: NewAlumniModalFormProps) {
+export function NewAlumniModalForm({ isFormOpen, toggleForm }: NewAlumniModalFormProps) {
   const methods = useForm<FormFields>({
     resolver: zodResolver(schema),
   });
@@ -45,17 +40,9 @@ export function NewAlumniModalForm({
     <ModalWrapper isModalOpen={isFormOpen} toggleModal={toggleForm}>
       <FormTitle className="text-center">Розкажіть про себе</FormTitle>
       <FormProvider {...methods}>
-        <form
-          className="flex flex-col gap-4 mt-8"
-          onSubmit={methods.handleSubmit(onSubmit)}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-x-8 gap-y-2">
-            <FormInputField
-              type="text"
-              placeHolder="Your name"
-              id="name"
-              label="Enter your name"
-            />
+        <form className="mt-8 flex flex-col gap-4" onSubmit={methods.handleSubmit(onSubmit)}>
+          <div className="grid w-full grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-2">
+            <FormInputField type="text" placeHolder="Your name" id="name" label="Enter your name" />
             <FormInputField
               type="text"
               placeHolder="Your surname"
@@ -84,7 +71,7 @@ export function NewAlumniModalForm({
           {/* <button disabled={methods.formState.isSubmitting} type="submit">
             {methods.formState.isSubmitting ? "lo" : "Submit"}
           </button> */}
-          <div className="mt-auto flex justify-center items-center">
+          <div className="mt-auto flex items-center justify-center">
             <BlackAndWhiteButton className="w-48">Submit</BlackAndWhiteButton>
           </div>
         </form>

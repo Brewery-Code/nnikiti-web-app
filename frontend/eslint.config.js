@@ -21,10 +21,7 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/naming-convention": [
         "error",
         {
@@ -38,10 +35,15 @@ export default tseslint.config(
           assertionStyle: "never",
         },
       ],
-      "max-len": [
-        "error",
-        { code: 120, ignoreComments: false, ignoreUrls: true },
-      ],
+      // "max-len": [
+      //   "error",
+      //   {
+      //     code: 120,
+      //     ignoreComments: false,
+      //     ignoreUrls: true,
+      //     ignorePattern: "className=|clsx\\(",
+      //   },
+      // ],
       "import/no-default-export": "error",
       "func-style": ["error", "declaration", { allowArrowFunctions: false }],
       quotes: ["error", "double", { avoidEscape: true }],

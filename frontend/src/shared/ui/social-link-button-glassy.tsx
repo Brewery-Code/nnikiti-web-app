@@ -1,12 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  TelegramIcon,
-  TikTokIcon,
-  YouTubeIcon,
-} from "@/shared/icons";
+import { FacebookIcon, InstagramIcon, TelegramIcon, TikTokIcon, YouTubeIcon } from "@/shared/icons";
 
 type SocialType = "facebook" | "telegram" | "instagram" | "tiktok" | "youtube";
 
@@ -27,35 +21,31 @@ const SOCIAL_STYLES: Record<
   facebook: {
     bg: "bg-[#0163E0]",
     label: "Facebook",
-    icon: <FacebookIcon className="w-8 h-8" />,
+    icon: <FacebookIcon className="h-8 w-8" />,
   },
   telegram: {
     bg: "bg-[#24A1DE]",
     label: "Telegram",
-    icon: <TelegramIcon className="w-8 h-8" />,
+    icon: <TelegramIcon className="h-8 w-8" />,
   },
   instagram: {
     bg: "bg-[linear-gradient(to_right,#833ab4,#fd1d1d,#fcb045)]",
     label: "Instagram",
-    icon: <InstagramIcon className="w-8 h-8" />,
+    icon: <InstagramIcon className="h-8 w-8" />,
   },
   tiktok: {
     bg: "bg-[#222111]",
     label: "TikTok",
-    icon: <TikTokIcon className="w-8 h-8" />,
+    icon: <TikTokIcon className="h-8 w-8" />,
   },
   youtube: {
     bg: "bg-[#FF0000]",
     label: "YouTube",
-    icon: <YouTubeIcon className="w-8 h-8" />,
+    icon: <YouTubeIcon className="h-8 w-8" />,
   },
 };
 
-export default function SocialLinkButtonGlassy({
-  className,
-  type,
-  link,
-}: SocialLinkButtonProps) {
+export default function SocialLinkButtonGlassy({ className, type, link }: SocialLinkButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const { bg, label, icon } = SOCIAL_STYLES[type];
 
@@ -63,7 +53,7 @@ export default function SocialLinkButtonGlassy({
     <a
       href={link}
       className={clsx(
-        "relative z-10 flex items-center w-[44px] h-[44px] p-1.5 bg-[rgba(255,255,255,0.2)] backdrop-blur-md border border-white/20 shadow-md rounded-[14px] cursor-pointer",
+        "relative z-10 flex h-[44px] w-[44px] cursor-pointer items-center rounded-[14px] border border-white/20 bg-[rgba(255,255,255,0.2)] p-1.5 shadow-md backdrop-blur-md",
         "transition-[border-color] duration-300 ease-in hover:border-transparent",
         className
       )}
@@ -73,15 +63,15 @@ export default function SocialLinkButtonGlassy({
     >
       <div
         className={clsx(
-          `absolute -z-10 inset-0 ${bg} rounded-[14px] transition-[opacity,scale] duration-300 ease-in`,
-          isHovered ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          `absolute inset-0 -z-10 ${bg} rounded-[14px] transition-[opacity,scale] duration-300 ease-in`,
+          isHovered ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}
       />
       <div
         className={clsx(
-          `absolute bottom-[calc(100%+10px)] left-1/2 -translate-x-1/2 p-1.5 font-bold rounded-xl ${bg}`,
+          `absolute bottom-[calc(100%+10px)] left-1/2 -translate-x-1/2 rounded-xl p-1.5 font-bold ${bg}`,
           "transition-[opacity,scale] duration-200 ease-in",
-          isHovered ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          isHovered ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}
       >
         {label}

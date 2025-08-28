@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import i18n from "i18next";
 
-function useLoadNamespace(
-  namespace: string,
-  loadTranslations: () => Promise<void>
-) {
+function useLoadNamespace(namespace: string, loadTranslations: () => Promise<void>) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

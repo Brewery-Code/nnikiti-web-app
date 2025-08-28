@@ -9,38 +9,28 @@ interface FormInputProps {
   type: "text" | "number" | "textarea";
 }
 
-export function FormInputField({
-  className,
-  id,
-  label,
-  placeHolder,
-  type,
-}: FormInputProps) {
+export function FormInputField({ className, id, label, placeHolder, type }: FormInputProps) {
   const {
     register,
     formState: { errors },
   } = useFormContext();
   return (
-    <div className={clsx(className, "flex flex-col gap-2 w-full")}>
-      <label className="text-xl font-semibold cursor-pointer" htmlFor={id}>
+    <div className={clsx(className, "flex w-full flex-col gap-2")}>
+      <label className="cursor-pointer text-xl font-semibold" htmlFor={id}>
         {label}
       </label>
       {(type === "text" || type === "number") && (
         <input
-          className="w-full h-auto py-2 px-5 bg-[#FAF7F3] rounded-xl outline-0 border-0 text-black text-[18px]
-          font-semibold placeholder:text-[#7d7b8d]"
+          className="h-auto w-full rounded-xl border-0 bg-[#FAF7F3] px-5 py-2 text-[18px] font-semibold text-black outline-0 placeholder:text-[#7d7b8d]"
           id={id}
           type={type}
           placeholder={placeHolder}
-          {...(type === "number"
-            ? register(id, { valueAsNumber: true })
-            : register(id))}
+          {...(type === "number" ? register(id, { valueAsNumber: true }) : register(id))}
         />
       )}
       {type === "textarea" && (
         <textarea
-          className="min-h-64 py-4 px-5 bg-[#FAF7F3] rounded-xl outline-0 border-0 text-black text-[18px] leading-5 
-          font-semibold"
+          className="min-h-64 rounded-xl border-0 bg-[#FAF7F3] px-5 py-4 text-[18px] leading-5 font-semibold text-black outline-0"
           id={id}
           placeholder={placeHolder}
           {...register(id)}

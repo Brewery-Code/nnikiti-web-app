@@ -16,11 +16,11 @@ export function DustEffect() {
   );
 
   return (
-    <div className="z-0 overflow-hidden absolute inset-0 w-full h-full pointer-events-none">
+    <div className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-hidden">
       {particles.map((p, i) => {
         return (
           <motion.span
-            className="absolute w-1 h-1 bg-amber-50 rounded-full"
+            className="absolute h-1 w-1 rounded-full bg-amber-50"
             style={{ left: `${p.startX}%` }}
             key={i}
             initial={{

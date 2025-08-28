@@ -6,20 +6,18 @@ export default function SpecialtiesCard({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative flex flex-col justify-between w-72 h-[370px] p-6 rounded-lg text-white cursor-pointer ",
+        "relative flex h-[370px] w-72 cursor-pointer flex-col justify-between rounded-lg p-6 text-white",
         gradient.gradient,
         className
       )}
     >
       <div className="">
         <div>
-          <span className="font-bold text-[#717171] ">Code:</span>
+          <span className="font-bold text-[#717171]">Code:</span>
           <span className="ml-2 font-semibold">121</span>
         </div>
-        <p className="mt-3.5 text-2xl leading-8 font-bold">
-          SOFTWARE ENGINEERING
-        </p>
-        <div className="flex flex-wrap gap-2 mt-3.5">
+        <p className="mt-3.5 text-2xl leading-8 font-bold">SOFTWARE ENGINEERING</p>
+        <div className="mt-3.5 flex flex-wrap gap-2">
           <OvalLabel bgColor="bg-[#0A56A8]">React</OvalLabel>
           <OvalLabel bgColor="bg-[#0A56A8]">SMTH</OvalLabel>
           <OvalLabel bgColor="bg-[#0A56A8]">OOP</OvalLabel>
@@ -27,16 +25,16 @@ export default function SpecialtiesCard({ className }: { className?: string }) {
           <OvalLabel bgColor="bg-[#0A56A8]">DATA BASE</OvalLabel>
           <OvalLabel bgColor="bg-[#0A56A8]">java script</OvalLabel>
         </div>
-        <div className="flex flex-wrap gap-2 mt-3.5">
+        <div className="mt-3.5 flex flex-wrap gap-2">
           <OvalLabel bgColor="bg-[#6C0AA8]">DAILY</OvalLabel>
           <OvalLabel bgColor="bg-[#6C0AA8]">Extramural studies</OvalLabel>
         </div>
-        <div className="flex flex-wrap gap-2 mt-3.5">
+        <div className="mt-3.5 flex flex-wrap gap-2">
           <OvalLabel bgColor="bg-[#A80A30]">Bachelor</OvalLabel>
           <OvalLabel bgColor="bg-[#A80A30]">Master</OvalLabel>
         </div>
       </div>
-      <div className="text-[#717171] font-bold">Created by Jukovskiy O. M.</div>
+      <div className="font-bold text-[#717171]">Created by Jukovskiy O. M.</div>
     </div>
   );
 }
