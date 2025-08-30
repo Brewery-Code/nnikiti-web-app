@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Header, Footer } from "@/widgets";

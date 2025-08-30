@@ -1,52 +1,26 @@
-import { useState } from "react";
+import { ArrowIcon } from "@/widgets/header/icons";
 import workerPhoto from "./worker-photo.jpg";
-import CupSvg from "./cup.svg?react";
-import clsx from "clsx";
 
 export function WorkerCard() {
-  const [isCardHovered, setIsCardHovered] = useState(false);
-
   return (
-    // <div
-    //   className="relative overflow-hidden flex flex-col items-center gap-4 w-full max-w-60 p-8 bg-cover bg-center
-    //   rounded-3xl cursor-pointer
-    //   shadow-[2px_3px_10px_rgba(255,255,255,0.2)]"
-    //   onMouseEnter={() => setIsCardHovered(true)}
-    //   onMouseLeave={() => setIsCardHovered(false)}
-    // >
-    //   <img
-    //     className={clsx(
-    //       "absolute inset-0 w-full h-full object-cover grayscale-100",
-    //       "transition-[scale,filter] duration-500",
-    //       !isCardHovered ? "blur-sm" : "scale-110 blur-md"
-    //     )}
-    //     src={workerPhoto}
-    //     alt=""
-    //   />
-    //   <div className="w-32 h-32 border-4 rounded-full">
-    //     <img
-    //       className="relative w-full h-full object-cover border-2 border-amber-50 rounded-full"
-    //       src={workerPhoto}
-    //       alt=""
-    //     />
-    //   </div>
-    //   <div className="relative text-2xl font-semibold">African Kid</div>
-    //   <ul className="relative">
-    //     <li className="flex justify-center items-center gap-2">
-    //       <CupSvg className="w-6 h-6"></CupSvg>
-    //       <div className="text-md font-medium">Cool boy</div>
-    //     </li>
-    //   </ul>
-    // </div>
-    <div className="relative flex h-[calc(100%-56px)] flex-col rounded-2xl bg-[#1f1e1e] px-8 pb-4">
-      <div className="relative -top-14">
-        <div className="flex h-full max-h-48 w-full max-w-48 items-center justify-center overflow-hidden rounded-full border-8">
-          <img className="h-full w-full object-cover" src={workerPhoto} />
-        </div>
-        <div className="text-center text-2xl font-bold">Worker Name</div>
-        <ul>
-          <li></li>
-        </ul>
+    <div className="relative z-1 flex max-w-125 gap-5 overflow-hidden rounded-md bg-white p-5 text-black before:absolute before:right-1/2 before:-z-1 before:h-full before:w-full before:rotate-45 before:bg-[#0a56a8]">
+      <div className="flex max-h-31 max-w-31 items-center justify-center">
+        <img
+          className="h-full w-full rounded-full border-4 border-white object-cover"
+          src={workerPhoto}
+          alt=""
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <h3 className="text-3xl font-medium">Name Surname</h3>
+        <p className="line-clamp-3">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi est accusantium quibusdam
+          porro voluptatibus voluptatem, iure ex consectetur quod dolorum deleniti aut, sit,
+          inventore placeat esse! Veritatis quas cumque deleniti?
+        </p>
+        <button className="mt-2 ml-auto rounded-2xl bg-[#0a56a8] px-4 py-2 text-center text-white">
+          Read more
+        </button>
       </div>
     </div>
   );

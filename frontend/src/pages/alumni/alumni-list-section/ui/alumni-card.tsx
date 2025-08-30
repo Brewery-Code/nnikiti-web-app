@@ -37,11 +37,10 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
   const isVisible = useScrollDownAnimation({ elementRef: cardRef });
 
   const [isCardHovered, setIsCardHovered] = useState(false);
-
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
-  const toggleModal = () => {
+  function toggleModal() {
     setIsDescriptionOpen((prev) => !prev);
-  };
+  }
 
   return (
     <CardWrapper
@@ -49,13 +48,11 @@ export function AlumniCard({ alumni, color, className }: AlumniCardProps) {
       color={color}
       className={clsx(
         className,
-        "relative min-h-104 w-full max-w-90 cursor-pointer overflow-hidden rounded-2xl p-0.5 before:absolute before:-inset-15 before:-z-1 before:rotate-45 before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)] before:transition-transform before:duration-1000",
-        `transition duration-600 ${isVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"}`,
+        "relative min-h-104 w-full max-w-90 cursor-pointer overflow-hidden rounded-2xl p-0.5 transition duration-600 before:absolute before:-inset-15 before:-z-1 before:rotate-45 before:bg-[linear-gradient(90deg,_transparent_0%,_rgba(200,200,200,0.4)_50%,_transparent_100%)] before:transition-transform before:duration-1000 after:absolute after:top-1/2 after:left-1/2 after:-z-10 after:h-[160%] after:w-4/6 after:-translate-x-1/2 after:-translate-y-1/2",
+        isVisible ? "scale-100 opacity-100" : "scale-95 opacity-0",
         !isCardHovered
           ? "before:-translate-x-full before:-translate-y-full"
-          : "before:translate-x-full before:translate-y-full",
-        "after:absolute after:top-1/2 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:-translate-y-1/2",
-        "after:h-[160%] after:w-4/6"
+          : "before:translate-x-full before:translate-y-full"
       )}
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
