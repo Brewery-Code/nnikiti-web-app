@@ -1,1 +1,1 @@
-export { default as SpecialtiesCard } from "./specialties-card";
+export { SpecialtiesCard } from "./specialties-card";

@@ -1,12 +1,15 @@
-import { ArrowIcon } from "@/widgets/header/icons";
+import { fadeInAnimation } from "@/shared/ui";
 import workerPhoto from "./worker-photo.jpg";
-
+import { motion } from "framer-motion";
 export function WorkerCard() {
   return (
-    <div className="relative z-1 flex max-w-125 gap-5 overflow-hidden rounded-md bg-white p-5 text-black before:absolute before:right-1/2 before:-z-1 before:h-full before:w-full before:rotate-45 before:bg-[#0a56a8]">
+    <motion.div
+      className="relative z-1 flex max-w-125 gap-5 overflow-hidden rounded-md bg-linear-90 from-[rgba(36,40,50,1)] to-[rgba(37,28,40,1)] p-5 opacity-0 before:absolute before:right-1/2 before:-z-1 before:h-full before:w-full before:rotate-45 before:bg-[rgba(255,174,0,1)] before:transition-transform"
+      {...fadeInAnimation}
+    >
       <div className="flex max-h-31 max-w-31 items-center justify-center">
         <img
-          className="h-full w-full rounded-full border-4 border-white object-cover"
+          className="h-full w-full rounded-full border-4 border-[rgba(255,174,0,1)] object-cover"
           src={workerPhoto}
           alt=""
         />
@@ -22,6 +25,6 @@ export function WorkerCard() {
           Read more
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

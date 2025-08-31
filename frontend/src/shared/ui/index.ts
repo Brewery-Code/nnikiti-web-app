@@ -9,3 +9,4 @@ export { BlackAndWhiteButton } from "./black-and-white-button";
 export { FormTitle } from "./form-title";
 export { FormSubtitle } from "./form-subtitle";
 export { FormInputField } from "./form-input-field";
+export { fadeInAnimation, fadeInAnimationControlled } from "./fade-in-animation";

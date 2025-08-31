@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { DustEffect, NavButton } from "./ui";
-import { motion } from "framer-motion";
 
 const blink = keyframes`
   50% { border-color: transparent; }

@@ -20,6 +20,8 @@ export function Header() {
   const { t } = useTranslation("header");
   useLoadNamespace("header", loadTranslations);
 
+  const departmentsData = rqClient.useQuery("get", "/departments/");
+
   const navigationMenuData: NavigationMenuData[] = [
     {
       title: t("navigationMenu.aboutUs"),

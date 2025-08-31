@@ -1,17 +1,21 @@
 import gradient from "./card-gradient.module.css";
 import OvalLabel from "../oval-label";
 import clsx from "clsx";
+import { motion } from "framer-motion";
+import { fadeInAnimation } from "../fade-in-animation";
 
-export default function SpecialtiesCard({ className }: { className?: string }) {
+export function SpecialtiesCard({ className }: { className?: string }) {
   return (
-    <div
+    <motion.div
       className={clsx(
         "relative flex h-[370px] w-72 cursor-pointer flex-col justify-between rounded-lg p-6 text-white",
         gradient.gradient,
         className
       )}
+      {...fadeInAnimation}
+      key={window.location.pathname}
     >
-      <div className="">
+      <div>
         <div>
           <span className="font-bold text-[#717171]">Code:</span>
           <span className="ml-2 font-semibold">121</span>
@@ -35,6 +39,6 @@ export default function SpecialtiesCard({ className }: { className?: string }) {
         </div>
       </div>
       <div className="font-bold text-[#717171]">Created by Jukovskiy O. M.</div>
-    </div>
+    </motion.div>
   );
 }

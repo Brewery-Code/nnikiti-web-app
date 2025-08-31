@@ -37,7 +37,7 @@ export function DustEffect() {
     () =>
       Array.from({ length: total }).map(() => ({
         diameter: Math.round(Math.random() * 50 + 2) / 10,
-        startX: Math.round(Math.random() * 1000) / 10,
+        startX: Math.round(Math.random() * 1000) / 10 - 1,
         duration: Math.round((Math.random() * 2 + 10) * 10) / 10,
         delay: Math.round(Math.random() * 100) / 10,
         scale: Math.round((Math.random() * 2 + 1) * 10) / 10,
