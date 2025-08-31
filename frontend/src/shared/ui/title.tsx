@@ -1,23 +1,25 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
+import { fadeInAnimation } from "./fade-in-animation";
 
-export function Title({
-  className,
-  children,
-  color,
-}: {
+interface TitleProps {
   className?: string;
   children: React.ReactNode;
   color?: string;
-}) {
+  animated?: boolean;
+}
+
+export function Title({ className, children, color, animated }: TitleProps) {
   return (
-    <h2
+    <motion.h2
       className={clsx(
         "font-open-sans mb-8 text-4xl font-bold uppercase",
         color ? color : "text-white",
         className
       )}
+      {...(!animated ? fadeInAnimation : {})}
     >
       {children}
-    </h2>
+    </motion.h2>
   );
 }

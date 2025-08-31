@@ -79,11 +79,11 @@
 
 @layer utilities {
   .m-section {
-    margin-top: 96px;
+    @apply mt-40;
   }
 
   .m-block {
-    margin-top: 32px;
+    @apply mt-12;
   }
 
   .font-open-sans {
