@@ -39,7 +39,7 @@ class DepartmentImage(models.Model):
         db_table = "department_image"
 
     def __str__(self):
-        return self.pk
+        return f"{self.pk}"
 
 class DepartmentSocialLink(models.Model):
     """

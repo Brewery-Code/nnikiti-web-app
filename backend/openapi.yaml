@@ -105,27 +105,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /core/educational-programs/:
-    get:
-      tags:
-        - core
-      summary: Returns a list of educational programs.
-      description: Returns a list of data for the edu-programs block.
-      responses:
-        "200":
-          description: Successfully returned a list of data for the edu-programs block
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/EducationalProgram"
-        "400":
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
   /core/alumni/:
     get:
       tags:
@@ -469,7 +448,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Departments"
+                  $ref: "#/components/schemas/DepartmentList"
         "400":
           description: Bad request
           content:
@@ -517,6 +496,27 @@ paths:
                 properties:
                   detail:
                     type: string
+  /departments/educational-programs/:
+    get:
+      tags:
+        - departments
+      summary: Returns a list of educational programs.
+      description: Returns a list of data for the edu-programs block.
+      responses:
+        "200":
+          description: Successfully returned a list of data for the edu-programs block
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EducationalProgram"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
 components:
   securitySchemes:
     AccessTokenAuth:
@@ -685,131 +685,113 @@ components:
       properties:
         id:
           type: integer
-          title: ID
-          readOnly: true
-        code:
-          type: string
-          title: Program code
-        name:
-          type: string
-          title: Educational program name
-        subject:
-          type: array
-          title: Subjects
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/CategorizedTag'
-        education_forms:
-          type: array
-          title: Education Forms
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/CategorizedTag'
-        education_levels:
-          type: array
-          title: Education Levels
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/CategorizedTag'
-    EducationalProgramFull:
-      allOf:
-        - $ref: '#/components/schemas/EducationalProgram'
-        - type: object
-          properties:
-            description:
-              type: string
-            bachelor:
-              type: object
-              nullable: true
-              properties:
-                code:
-                  type: string
-                specialty:
-                  type: string
-                program:
-                  type: string
-            magistracy:
-              type: object
-              nullable: true
-              properties:
-                code:
-                  type: string
-                specialty:
-                  type: string
-                program:
-                  type: string
-            postgraduate:
-              type: object
-              nullable: true
-              properties:
-                code:
-                  type: string
-                specialty:
-                  type: string
-                program:
-                  type: string
-    Departments:
-      type: object
-      properties:
-        id:
-          type: integer
-          title : ID
           readOnly: true
         name:
           type: string
-          title: Department name
-    DepartmentDetail:
-      type: object
-      properties:
-        id:
-          type: integer
-          title: ID
-          readOnly: true
-        name:
-          type: string
-          title: Department name
-          description: Translated name of the department
         description:
           type: string
-          title: Department description
-          description: Translated description of the department
-        address:
+        code:
           type: string
-          title: Department address
-          description: Translated address of the department
-        email:
-          type: string
-          format: email
-          title: Email address
-        head_of_department:
+        subjects:
           type: array
-          title: Head(s) of Department
           items:
             type: object
             properties:
               id:
                 type: integer
-                title: ID
-              regalia:
+              name:
                 type: string
-                title: Regalia
-                description: Translated regalia/title of the head
+        levels:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+        study_forms:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+
+    DepartmentList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+
+    DepartmentDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        address:
+          type: string
+        email_of_department:
+          type: string
+          format: email
+        date_of_establishment:
+          type: string
+          format: date
+        department_website:
+          type: string
+          format: uri
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              image:
+                type: string
+                format: uri
+        social_links:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              url:
+                type: string
+                format: uri
+        head_of_department:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
               full_name:
                 type: string
-                title: Full name
-                description: Translated full name
+              regalia:
+                type: string
               email:
                 type: string
                 format: email
-                title: Email
               audience:
                 type: string
-                title: Audience
-        educational_program:
+        programs:
           type: array
-          title: Educational Programs
           items:
-            $ref: '#/components/schemas/EducationalProgramFull'
+            $ref: '#/components/schemas/EducationalProgram'
     Alumnus:
       type: object
       properties:

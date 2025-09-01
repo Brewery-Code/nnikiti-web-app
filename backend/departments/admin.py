@@ -1,11 +1,10 @@
 from django.contrib import admin
 
-from parler.admin import TranslatableAdmin
 from parler.admin import TranslatableAdmin, TranslatableStackedInline
 
 from .models import *
 
-
+# --- Inlines ---
 class DepartmentImageInline(admin.TabularInline):
     model = DepartmentImage
     extra = 1
@@ -13,16 +12,6 @@ class DepartmentImageInline(admin.TabularInline):
 class DepartmentSocialLinkInline(admin.TabularInline):
     model = DepartmentSocialLink
     extra = 1
-
-class HeadOfDepartmentInline(TranslatableStackedInline):
-    model = HeadOfDepartment
-    fk_name = "department"
-    extra = 1
-
-class EducationalProgramInline(admin.TabularInline):
-    model = EducationalProgram
-    extra = 1
-    fk_name = "department"
 
 
 # --- Основна адмінка Department ---
@@ -35,8 +24,6 @@ class DepartmentAdmin(TranslatableAdmin):
     inlines = [
         DepartmentImageInline,
         DepartmentSocialLinkInline,
-        HeadOfDepartmentInline,
-        EducationalProgramInline,
     ]
 
 
