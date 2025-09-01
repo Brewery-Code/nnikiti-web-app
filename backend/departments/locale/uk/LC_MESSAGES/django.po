@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 08:27+0000\n"
-"PO-Revision-Date: 2025-09-01 08:35+0000\n"
+"POT-Creation-Date: 2025-09-01 15:00+0300\n"
+"PO-Revision-Date: 2025-09-01 12:06+0000\n"
 "Last-Translator: Ivan Konoplya <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -61,19 +61,19 @@ msgstr "Фото кафедр"
 
 #: models.py:49
 msgid "The name of the social network"
-msgstr "Назва соціальної мережі"
+msgstr "Назва соц-мережі"
 
 #: models.py:50
 msgid "URL of the social network"
-msgstr "Посилання на соціальну мережу"
+msgstr "Посилання на соц-мережу"
 
 #: models.py:53
 msgid "Department social link"
-msgstr "Посилання на соц мережу кафедри"
+msgstr "Посилання на соц-мережу кафедри"
 
 #: models.py:54
 msgid "Department social links"
-msgstr "Посилання на соц мережі кафедри"
+msgstr "Посилання на соц-мережі кафедри"
 
 #: models.py:66
 msgid "Full name"
@@ -117,7 +117,7 @@ msgstr "Предмет"
 
 #: models.py:91
 msgid "Levels"
-msgstr "Рівні навчання"
+msgstr "Освта"
 
 #: models.py:92 models.py:127
 msgid "Study form"
@@ -133,7 +133,7 @@ msgstr "Освітні програми"
 
 #: models.py:111
 msgid "Educational program level"
-msgstr "Рівень освітньої програми"
+msgstr "Рівень освітньох програми"
 
 #: models.py:112
 msgid "Educational program levels"
