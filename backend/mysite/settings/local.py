@@ -94,5 +94,10 @@ LOGGING = {
             "level": "DEBUG",
             "propagate": False,
         },
+        "core": {
+            "handlers": ["console"],
+            "level": "WARNING",
+            "propagate": False,
+        }
     }
 }

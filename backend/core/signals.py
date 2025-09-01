@@ -1,7 +1,12 @@
+import logging
+
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 from .models import MainSliderItem, Partner, Alumnus, AlumniSlider
+
+
+logger = logging.getLogger(__name__)
 
 
 @receiver(post_delete, sender=MainSliderItem)
@@ -11,6 +16,7 @@ def delete_main_slider_image(sender, instance, **kwargs):
     storage when a MainSliderItem is deleted.
     """
     if instance.image:
+        logger.info(f"Deleted {instance}")
         instance.image.delete(save=False)
 
 
@@ -20,6 +26,7 @@ def delete_partner_images(sender, instance, **kwargs):
     storage when a Partners is deleted.
     """
     if instance.image:
+        logger.info(f"Deleted {instance}")
         instance.image.delete(save=False)
 
 
@@ -30,6 +37,7 @@ def delete_alumnus_images(sender, instance, **kwargs):
     storage when an Alumnus is deleted.
     """
     if instance.image:
+        logger.info(f"Deleted {instance}")
         instance.image.delete(save=False)
 
 
@@ -40,4 +48,5 @@ def delete_alumni_slider_image(sender, instance, **kwargs):
     storage when an AlumniSlider object is deleted.
     """
     if instance.image:
+        logger.info(f"Deleted {instance}")
         instance.image.delete(save=False)
