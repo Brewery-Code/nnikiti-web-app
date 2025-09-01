@@ -30,7 +30,7 @@ class DepartmentImage(models.Model):
     DepartmentImage model
     """
 
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="images")
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="images", verbose_name=_("Department"))
     image = models.ImageField(_("Department image"), upload_to="departments/images/")
 
     class Meta:
@@ -45,7 +45,7 @@ class DepartmentSocialLink(models.Model):
     """
     DepartmentSocialLink model
     """
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="social_links")
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="social_links", verbose_name=_("Department"))
     name = models.CharField(_("The name of the social network"), max_length=255)
     url = models.URLField(_("URL of the social network"))
 
@@ -61,7 +61,7 @@ class HeadOfDepartment(TranslatableModel):
     """
     HeadOfDepartment model
     """
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="heads")
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="heads", verbose_name=_("Department"))
     translations = TranslatedFields(
         full_name = models.CharField(_("Full name"), max_length=255),
         regalia = models.CharField(_("Regalia"), max_length=255),
@@ -81,15 +81,15 @@ class EducationalProgram(TranslatableModel):
     """
     EducationalProgram model
     """
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="programs")
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="programs", verbose_name=_("Department"))
     translations = TranslatedFields(
         name = models.CharField(_("Name"), max_length=255),
         description = models.TextField(_("Description")),
     )
     code = models.CharField(_("Code"), max_length=255)
-    subject = models.ManyToManyField("Subject", related_name="subjects")
-    levels = models.ManyToManyField("EducationalProgramLevel", related_name="levels")
-    study_form = models.ManyToManyField("StudyForm", related_name="study_forms")
+    subject = models.ManyToManyField("Subject", related_name="subjects", verbose_name=_("Subject"))
+    levels = models.ManyToManyField("EducationalProgramLevel", related_name="levels", verbose_name=_("Levels"))
+    study_form = models.ManyToManyField("StudyForm", related_name="study_forms", verbose_name=_("Study form"))
 
     class Meta:
         verbose_name = _("Educational program")

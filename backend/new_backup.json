@@ -1,0 +1,42 @@
+[
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$0zqjJ6Djn8AXKhAHd9ZEzL$bE2kAQhlozARnqREsEWYofLyCG3v1+oyeDHhpQ6q7T0=",
+    "email": "admin@admin.com",
+    "first_name": "Ivan",
+    "last_name": "Konoplya",
+    "avatar": null,
+    "role": "AD",
+    "is_staff": true,
+    "is_active": true,
+    "is_superuser": true,
+    "date_joined": "2025-09-01T08:09:57.911Z",
+    "last_login": "2025-09-01T08:11:20.482Z",
+    "updated_at": "2025-09-01T08:09:57.911Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "oauth2_provider.application",
+  "pk": 1,
+  "fields": {
+    "client_id": "WUxHvojOUlSEbhz3fa1ZG61dqS6QjTZEIbufjnzO",
+    "user": null,
+    "redirect_uris": "http://127.0.0.1:5173/",
+    "post_logout_redirect_uris": "",
+    "client_type": "public",
+    "authorization_grant_type": "authorization-code",
+    "client_secret": "pbkdf2_sha256$1000000$Df08ci9LzDjpltHC9a77DT$wyz29zk0clwHFSioG2BkBPj/WPixro62rz+7Iqj0SZc=",
+    "hash_client_secret": true,
+    "name": "React SPA",
+    "skip_authorization": true,
+    "created": "2025-09-01T08:17:38.181Z",
+    "updated": "2025-09-01T08:17:38.181Z",
+    "algorithm": "",
+    "allowed_origins": ""
+  }
+}
+]

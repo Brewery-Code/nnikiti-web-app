@@ -6,7 +6,6 @@ from parler.admin import TranslatableAdmin, TranslatableStackedInline
 from .models import *
 
 
-# --- Inlines для Department ---
 class DepartmentImageInline(admin.TabularInline):
     model = DepartmentImage
     extra = 1
@@ -16,14 +15,14 @@ class DepartmentSocialLinkInline(admin.TabularInline):
     extra = 1
 
 class HeadOfDepartmentInline(TranslatableStackedInline):
-    model = HeadOfDepartment # inline для перекладів керівника
-    fk_name = "department"  # FK на Department
+    model = HeadOfDepartment
+    fk_name = "department"
     extra = 1
 
 class EducationalProgramInline(admin.TabularInline):
     model = EducationalProgram
     extra = 1
-    fk_name = "department"  # FK на Department
+    fk_name = "department"
 
 
 # --- Основна адмінка Department ---

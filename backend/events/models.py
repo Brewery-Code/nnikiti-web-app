@@ -30,24 +30,24 @@ class EventCategory(TranslatableModel):
     """
 
     translations = TranslatedFields(
-        name=models.CharField(max_length=100, verbose_name=_("Event name")),
+        name=models.CharField(_("Event name"), max_length=100),
     )
     rgb_color = models.CharField(
+        _("RGB color value"),
         max_length=20,
         validators=[validate_rgba],
-        verbose_name=_("RGB color value"),
         help_text=_(
             "Required RGBA color in format like (255,255,255,0.5) for client-side design"
         ),
     )
     created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name=_("Creation date")
+        _("Creation date"), auto_now_add=True
     )
 
     class Meta:
         verbose_name = _("Category")
         verbose_name_plural = _("Categories")
-        db_table = "EventCategory"
+        db_table = "event_category"
 
     def __str__(self) -> str:
         return _("Category #%s. %s") % (self.pk, self.name)
@@ -64,10 +64,10 @@ class Event(TranslatableModel):
         PUBLISHED = "PB", _("Published")
 
     translations = TranslatedFields(
-        title=models.CharField(max_length=255, verbose_name=_("Event title")),
-        body=MDTextField(verbose_name=_("Event body")),
+        title=models.CharField(_("Event title"),max_length=255),
+        body=MDTextField(_("Event body")),
     )
-    slug = models.SlugField(blank=True, max_length=255, verbose_name=_("Event slug"))
+    slug = models.SlugField(_("Event slug") ,blank=True, max_length=255)
     category = models.ForeignKey(
         EventCategory,
         on_delete=models.CASCADE,
@@ -81,9 +81,10 @@ class Event(TranslatableModel):
         verbose_name=_("Status"),
     )
     created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name=_("Creation date")
+        _("Creation date"),
+        auto_now_add=True
     )
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Last updated"))
+    updated_at = models.DateTimeField(_("Last updated"), auto_now=True)
     objects = TranslatableManager()
     published = PublishedManager()
 
@@ -94,7 +95,7 @@ class Event(TranslatableModel):
         indexes = [
             models.Index(fields=["created_at",])
         ]
-        db_table = "Event"
+        db_table = "event"
 
     def __str__(self) -> str:
         return _("Event #%s. Title: %s") % (self.pk, self.title)
@@ -112,13 +113,13 @@ class EventImage(models.Model):
         related_name="images",
         verbose_name=_("Event"),
     )
-    image = models.ImageField(upload_to=events_upload_to, verbose_name=_("Image"))
-    uploaded_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Uploaded at"))
+    image = models.ImageField(_("Image"), upload_to=events_upload_to)
+    uploaded_at = models.DateTimeField(_("Uploaded at"), auto_now_add=True)
 
     class Meta:
         verbose_name = _("Event image")
         verbose_name_plural = _("Events images")
-        db_table = "EventImage"
+        db_table = "event_image"
 
     def __str__(self) -> str:
         return _("Image for event #%s") % self.event.pk
