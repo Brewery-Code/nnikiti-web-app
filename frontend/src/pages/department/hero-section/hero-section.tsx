@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { DustEffect, NavButton } from "./ui";
-
+import { subpagesRoutes } from "../subpages-routes";
+import { ROUTES } from "@/shared/model/routes";
 const blink = keyframes`
   50% { border-color: transparent; }
 `;
@@ -52,7 +53,17 @@ const NavigationBlock = styled.div`
   animation: ${blockAppearance} 1s ease forwards 4.5s;
 `;
 
-export function HeroSection() {
+interface HeroSectionProps {
+  sectionParams: {
+    param: string;
+    main: string;
+    history: string;
+    team: string;
+  };
+  setSection: (section: string) => void;
+}
+
+export function HeroSection({ sectionParams, setSection }: HeroSectionProps) {
   const departmentName = useRef<HTMLDivElement>(null);
   const [departmentNameLength, setDepartmentNameLength] = useState(0);
 
@@ -91,17 +102,25 @@ export function HeroSection() {
           <NavButton className="basis-50" active={false}>
             Contacts
           </NavButton>
-          <NavButton className="basis-50" active={false}>
+          <NavButton
+            className="basis-50"
+            active={false}
+            setSection={() => setSection(sectionParams.history)}
+          >
             History
           </NavButton>
-          <NavButton className="basis-50" active={true}>
+          <NavButton
+            className="basis-50"
+            active={true}
+            setSection={() => setSection(sectionParams.main)}
+          >
             Main
           </NavButton>
-          <NavButton className="basis-50" active={false}>
+          <NavButton className="basis-50" active={false} link="#">
             Since
           </NavButton>
-          <NavButton className="basis-50" active={false}>
-            Graduate
+          <NavButton className="basis-50" active={false} link={ROUTES.DEPARTMENT_TEAM}>
+            Team
           </NavButton>
         </NavigationBlock>
       </div>
