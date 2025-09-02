@@ -3,7 +3,7 @@ import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Header, Footer } from "@/widgets";
 
-function App() {
+export function App() {
   const location = useLocation();
   const element = useOutlet();
 
@@ -17,5 +17,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
