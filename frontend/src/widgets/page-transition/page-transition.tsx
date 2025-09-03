@@ -15,12 +15,12 @@ export function PageTransition({ children, className, isPaddingOn = true }: Page
   useEffect(() => {
     const timeout = setTimeout(() => {
       window.scrollTo({ top: 0 });
-    }, 200);
+    }, 250);
 
     return () => {
       clearTimeout(timeout);
     };
-  }, [location]);
+  }, [location.pathname]);
 
   return (
     <motion.main
