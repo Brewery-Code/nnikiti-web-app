@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { DustEffect, NavButton } from "./ui";
-import { subpagesRoutes } from "../subpages-routes";
+import { sectionParams, subpagesRoutes } from "../section-params";
 import { ROUTES } from "@/shared/model/routes";
 const blink = keyframes`
   50% { border-color: transparent; }
@@ -54,16 +54,10 @@ const NavigationBlock = styled.div`
 `;
 
 interface HeroSectionProps {
-  sectionParams: {
-    param: string;
-    main: string;
-    history: string;
-    team: string;
-  };
   setSection: (section: string) => void;
 }
 
-export function HeroSection({ sectionParams, setSection }: HeroSectionProps) {
+export function HeroSection({ setSection }: HeroSectionProps) {
   const departmentName = useRef<HTMLDivElement>(null);
   const [departmentNameLength, setDepartmentNameLength] = useState(0);
 
