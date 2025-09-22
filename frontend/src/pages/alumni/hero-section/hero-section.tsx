@@ -16,8 +16,6 @@ export function HeroSection() {
     setIsNewAlumniFormOpen((prev) => !prev);
   }
 
-  useEffect(() => console.log(isNewAlumniFormOpen), [isNewAlumniFormOpen]);
-
   return (
     <div className="flex flex-col">
       <Slider className="mt-8" />

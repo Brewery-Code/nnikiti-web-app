@@ -6,7 +6,6 @@ import { AboutUs } from "./about-us";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import { sectionParams } from "./section-params";
-
 function DepartmentPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 

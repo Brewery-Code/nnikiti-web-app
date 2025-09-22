@@ -1,123 +1,127 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
-import styled, { keyframes } from "styled-components";
 import { DustEffect, NavButton } from "./ui";
-import { sectionParams, subpagesRoutes } from "../section-params";
-import { ROUTES } from "@/shared/model/routes";
-const blink = keyframes`
-  50% { border-color: transparent; }
-`;
-
-function typing(length: number) {
-  return keyframes`
-  0% { width: 0; }
-    1%, 99% { border-right: 1px solid orange; }
-    100% { border-right: none; width: ${length}ch; }
-  `;
-}
-
-function textAppearance(length: number) {
-  return keyframes`
-    0% { background-position: 0 0; opacity: 0; width: 0; }
-    1% { background-position: 0 0; opacity: 1; border-right: 1px solid orange; }
-    50% { background-position: ${length / 3}px 0; opacity: 1; border-right: 1px solid orange; }
-    100% { background-position: ${length}px 0; opacity: 1; border-right: 1px solid orange; width: ${length}px; }
-  `;
-}
-
-function blockAppearance() {
-  return keyframes`
-    0% { transform: translateY(50px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  `;
-}
-
-const DepartmentLabel = styled.div<{ length: number }>`
-  font-family: "Fira Code", monospace;
-  animation: ${({ length }) => typing(length)} 2s steps(${({ length }) => length}, end) forwards;
-`;
-
-const DepartmentName = styled.div<{ length: number; charCount: number }>`
-  font-family: "Work Sans", sans-serif;
-  animation:
-    ${({ length }) => textAppearance(length)} 2s steps(${({ charCount }) => charCount}, end) 2s
-      forwards,
-    ${blink} 0.5s step-end infinite alternate;
-`;
-
-const DepartmentDescription = styled.p`
-  animation: ${blockAppearance} 1s ease forwards 4s;
-`;
-
-const NavigationBlock = styled.div`
-  animation: ${blockAppearance} 1s ease forwards 4.5s;
-`;
+import { sectionParams } from "../section-params";
+import { motion } from "framer-motion";
+import { useTypingEffect } from "@/shared/hooks";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 interface HeroSectionProps {
   setSection: (section: string) => void;
 }
 
 export function HeroSection({ setSection }: HeroSectionProps) {
-  const departmentName = useRef<HTMLDivElement>(null);
-  const [departmentNameLength, setDepartmentNameLength] = useState(0);
+  const navigationButtonsData = [
+    {
+      title: "Contacts",
+      link: sectionParams.contacts,
+    },
+    {
+      title: "History",
+      link: sectionParams.history,
+    },
+    {
+      title: "Main",
+      link: sectionParams.main,
+    },
+    {
+      title: "Since",
+      link: sectionParams.since,
+    },
+    {
+      title: "team",
+      link: sectionParams.team,
+    },
+  ];
 
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  const [descriptionHeight, setDescriptionHeight] = useState(0);
   useEffect(() => {
-    if (departmentName.current) {
-      setDepartmentNameLength(departmentName.current.offsetWidth);
+    if (descriptionRef.current) {
+      setDescriptionHeight(descriptionRef.current.scrollHeight);
     }
-  }, [departmentName]);
+  }, [descriptionRef]);
+
+  const [searchParams] = useSearchParams();
+
+  function isMainSection() {
+    return searchParams.get(sectionParams.paramName) === sectionParams.main;
+  }
+
+  const titleText = useTypingEffect({ text: "Department of" });
+  const departmentName = useTypingEffect({
+    text: "Computer Engineering",
+    delay: "Department of".length * 100,
+  });
 
   return (
-    <div className="relative h-[calc(100dvh-64px)] bg-black before:absolute before:top-full before:h-32 before:w-full before:bg-linear-180 before:from-black before:to-transparent">
+    <motion.div
+      className="relative h-dvh bg-black pt-16 before:absolute before:top-full before:h-32 before:w-full before:bg-linear-180 before:from-black before:to-transparent"
+      animate={{
+        height: isMainSection() ? "100dvh" : "50dvh",
+      }}
+      transition={{ duration: 0.5 }}
+    >
       <DustEffect />
-      <div className="w-ful relative flex h-full flex-col pt-32">
+      <motion.div
+        className="relative flex h-full w-full flex-col"
+        animate={{
+          paddingTop: isMainSection() ? 128 : 32,
+        }}
+      >
         <div className="flex flex-col">
-          <DepartmentLabel
-            length={"Department of".length}
-            className="leading mx-auto overflow-hidden text-2xl font-extrabold whitespace-nowrap"
+          <motion.div
+            className="leading mx-auto overflow-hidden font-mono text-2xl font-extrabold whitespace-nowrap"
+            animate={{
+              height: isMainSection() ? "" : 0,
+            }}
+            transition={{ delay: 0 }}
           >
-            Department of
-          </DepartmentLabel>
-          <DepartmentName
-            length={departmentNameLength}
-            charCount={"Computer Engineering".length}
-            className="mx-auto overflow-hidden bg-linear-to-r from-pink-500 to-violet-500 bg-clip-text text-8xl leading-30 font-extrabold whitespace-nowrap text-transparent opacity-0"
-            ref={departmentName}
+            {titleText}
+          </motion.div>
+          <motion.div className="mx-auto overflow-hidden border-r-2 bg-linear-to-r from-pink-500 to-violet-500 bg-clip-text text-8xl leading-30 font-extrabold whitespace-nowrap text-transparent">
+            {departmentName}
+          </motion.div>
+          <motion.p
+            className="mx-auto mt-8 w-256 overflow-hidden text-center font-mono text-xl"
+            ref={descriptionRef}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              height: isMainSection() ? descriptionHeight : 0,
+            }}
+            transition={{
+              delay: "Computer Engineering".length / 10 + "Department of".length / 10,
+              duration: 0.5,
+              height: { delay: 0, duration: 0.5 },
+            }}
           >
-            Computer Engineering
-          </DepartmentName>
-          <DepartmentDescription className="mx-auto mt-8 w-256 text-center font-mono text-xl opacity-0">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed saepe ipsum praesentium
             cupiditate molestias nihil commodi perferendis recusandae eius necessitatibus veniam,
             excepturi beatae repudiandae at, minus atque facilis dolores quam?
-          </DepartmentDescription>
+          </motion.p>
         </div>
-        <NavigationBlock className="flex h-full items-center justify-center gap-12 opacity-0">
-          <NavButton className="basis-50" active={false}>
-            Contacts
-          </NavButton>
-          <NavButton
-            className="basis-50"
-            active={false}
-            setSection={() => setSection(sectionParams.history)}
-          >
-            History
-          </NavButton>
-          <NavButton
-            className="basis-50"
-            active={true}
-            setSection={() => setSection(sectionParams.main)}
-          >
-            Main
-          </NavButton>
-          <NavButton className="basis-50" active={false} link="#">
-            Since
-          </NavButton>
-          <NavButton className="basis-50" active={false} link={ROUTES.DEPARTMENT_TEAM}>
-            Team
-          </NavButton>
-        </NavigationBlock>
-      </div>
-    </div>
+        <motion.div
+          className="my-auto flex items-center justify-center gap-12"
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            delay: "Computer Engineering".length / 10 + "Department of".length / 10 + 0.5,
+            duration: 0.5,
+          }}
+        >
+          {navigationButtonsData.map((item, index) => (
+            <NavButton
+              className="basis-50"
+              key={index}
+              active={searchParams.get(sectionParams.paramName) === item.link}
+              setSection={() => setSection(item.link)}
+            >
+              {item.title}
+            </NavButton>
+          ))}
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }

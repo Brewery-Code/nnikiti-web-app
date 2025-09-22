@@ -3,6 +3,7 @@ import { ModalWrapper } from "@/widgets";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import z from "zod";
+import { Tiptap } from "./test";
 
 interface NewAlumniModalFormProps {
   isFormOpen: boolean;
@@ -74,6 +75,7 @@ export function NewAlumniModalForm({ isFormOpen, toggleForm }: NewAlumniModalFor
           <div className="mt-auto flex items-center justify-center">
             <BlackAndWhiteButton className="w-48">Submit</BlackAndWhiteButton>
           </div>
+          <Tiptap />
         </form>
       </FormProvider>
     </ModalWrapper>

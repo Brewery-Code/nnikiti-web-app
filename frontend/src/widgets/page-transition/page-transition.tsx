@@ -24,7 +24,7 @@ export function PageTransition({ children, className, isPaddingOn = true }: Page
 
   return (
     <motion.main
-      className={clsx("mt-16 flex grow flex-col", className, isPaddingOn && "pt-16 pb-24")}
+      className={clsx("flex grow flex-col", className, isPaddingOn && "mt-16 pt-16 pb-24")}
       initial={{ filter: "blur(10px)", opacity: 0 }}
       animate={{ filter: "blur(0px)", opacity: 1 }}
       exit={{ filter: "blur(10px)", opacity: 0 }}

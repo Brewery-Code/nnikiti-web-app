@@ -17,25 +17,28 @@ export function DustEffect() {
   );
 
   return (
-    <div className="absolute inset-0 h-full w-full">
-      {particles.map((p, i) => (
-        <motion.span
-          className="absolute rounded-full bg-white opacity-0"
-          style={{
-            width: `${p.diameter}px`,
-            height: `${p.diameter}px`,
-            left: `${p.startX}%`,
-            scale: `${p.scale}`,
-          }}
-          key={i}
-          initial={{
-            y: "100dvh",
-            opacity: 0,
-          }}
-          animate={{ y: "0", opacity: [0, 1, 1, 0] }}
-          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity }}
-        />
-      ))}
+    <div className="absolute inset-0 bottom-0 h-full w-full">
+      <div className="relative h-full w-full">
+        {particles.map((p, i) => (
+          <motion.span
+            className="absolute bottom-0 rounded-full bg-white opacity-0"
+            style={{
+              width: `${p.diameter}px`,
+              height: `${p.diameter}px`,
+              left: `${p.startX}%`,
+              scale: `${p.scale}`,
+            }}
+            key={i}
+            initial={{
+              bottom: 0,
+              // y: "100%",
+              opacity: 0,
+            }}
+            animate={{ bottom: "100%", opacity: [0, 1, 1, 0] }}
+            transition={{ duration: p.duration, delay: p.delay, repeat: Infinity }}
+          />
+        ))}
+      </div>
     </div>
   );
 }

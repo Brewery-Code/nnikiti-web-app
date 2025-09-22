@@ -5,10 +5,12 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
-export default defineConfig({
+defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths(), svgr()],
   server: {
     host: true,
     port: 5173,
   },
 });
+
+export { defineConfig };

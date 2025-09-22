@@ -3,7 +3,7 @@ import { type MotionProps } from "framer-motion";
 export const fadeInAnimation: MotionProps = {
   initial: { y: 50, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
-  viewport: { amount: "all" as const, once: true },
+  viewport: { amount: 0.5 as const, once: true },
   transition: { duration: 0.5 },
 };
 
