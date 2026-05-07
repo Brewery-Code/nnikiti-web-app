@@ -1,0 +1,28 @@
+[project]
+name = "nnikiti-web-application"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "django",
+    "django-cors-headers",
+    "django-markdownx",
+    "django-mdeditor",
+    "django-parler",
+    "django-rosetta",
+    "django-taggit",
+    "djangorestframework",
+    "djangorestframework-simplejwt",
+    "markdown",
+    "django-oauth-toolkit",
+    "drf-social-oauth2",
+    "pillow",
+    "psycopg[binary]",
+    "python-decouple",
+    "requests",
+    "unidecode",
+    "colorlog",
+    "drf-spectacular",
+]
+
+[tool.uv]
+package = false

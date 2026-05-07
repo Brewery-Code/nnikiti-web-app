@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     # installed
     "corsheaders",
     "rest_framework",
+    "drf_spectacular",
     "oauth2_provider",
     "rosetta",
     "parler",
@@ -156,7 +157,40 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
         "drf_social_oauth2.authentication.SocialAuthentication",
-    )
+    ),
+    "DEFAULT_SCHEMA_CLASS": "mysite.schema.AutoSchema",
+}
+
+###########################
+# drf-spectacular
+###########################
+SPECTACULAR_SETTINGS = {
+    "TITLE": "NUWM API",
+    "DESCRIPTION": (
+        "REST API для сайту Національного університету водного господарства та природокористування.\n\n"
+        "## Авторизація\n"
+        "Більшість ендпоінтів публічні. Захищені ендпоінти (`/users/me/`) потребують `Authorization: Bearer <access_token>`.\n\n"
+        "## Мова відповіді\n"
+        "Передавай заголовок `Accept-Language: uk` або `Accept-Language: en`. "
+        "Якщо не вказано — повертається українська.\n\n"
+        "## Авторизація через Google\n"
+        "1. Отримай `code` та `code_verifier` через Google OAuth2 PKCE flow\n"
+        "2. Надішли `POST /api/v1/auth/google/` → отримаєш `access_token` у тілі відповіді, "
+        "`refresh_token` збережеться в HttpOnly cookie автоматично\n"
+        "3. Оновлення токена: `POST /api/v1/auth/token/` з `grant_type=refresh_token` "
+        "(cookie підставиться автоматично)\n"
+        "4. Використовуй `access_token` у заголовку: `Authorization: Bearer <access_token>`"
+    ),
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "TAGS": [
+        {"name": "Core", "description": "Контент головної сторінки: слайдери, статистика, партнери, FAQ, випускники."},
+        {"name": "Events", "description": "Події університету."},
+        {"name": "Departments", "description": "Кафедри, завідувачі та освітні програми."},
+        {"name": "Auth", "description": "Авторизація через Google OAuth2 та оновлення токенів."},
+        {"name": "Users", "description": "Профіль та роль поточного авторизованого користувача."},
+    ],
+    "COMPONENT_SPLIT_REQUEST": True,
 }
 
 ###########################

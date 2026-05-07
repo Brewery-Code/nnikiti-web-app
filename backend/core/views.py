@@ -3,12 +3,15 @@ from rest_framework import status, permissions
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from drf_spectacular.utils import extend_schema, OpenApiResponse
+from drf_spectacular.types import OpenApiTypes
 
 from .serializers import MainSliderItemSerializer, StatisticBlockSerializer, \
     PartnersSerializer, FAQSerializer, AlumnusSerializer, AlumniSliderSerializer, AlumnusCreateSerializer
 from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus, AlumniSlider
 
 
+@extend_schema(tags=['Core'])
 class MainSliderView(ListAPIView):
     """Returns a list of all images in the main slider."""
 
@@ -16,6 +19,7 @@ class MainSliderView(ListAPIView):
     serializer_class = MainSliderItemSerializer
 
 
+@extend_schema(tags=['Core'])
 class StatisticBlockView(ListAPIView):
     """Returns a list of all data in the statistic block"""
 
@@ -23,18 +27,21 @@ class StatisticBlockView(ListAPIView):
     serializer_class = StatisticBlockSerializer
 
 
+@extend_schema(tags=['Core'])
 class PartnersView(ListAPIView):
     """Returns a list of all images in the partners."""
     queryset = Partner.objects.all()
     serializer_class = PartnersSerializer
 
 
+@extend_schema(tags=['Core'])
 class FAQView(ListAPIView):
     """Returns a list of all FAQ items."""
     queryset = FAQ.objects.all()
     serializer_class = FAQSerializer
 
 
+@extend_schema(tags=['Core'])
 class AlumnusView(APIView):
     """
     GET: Returns a list of all Alumni.
@@ -69,6 +76,15 @@ class AlumnusView(APIView):
 
 
 
+@extend_schema(
+    tags=['Core'],
+    summary='Список років випуску',
+    description='Повертає унікальні роки випуску у спадному порядку. Використовується для фільтрації випускників.',
+    responses={200: OpenApiResponse(
+        response=OpenApiTypes.INT,
+        description='Список років, наприклад: [2024, 2023, 2022]',
+    )},
+)
 class GraduationYearsView(APIView):
     """
     Returns a list of all Graduation years.
@@ -80,6 +96,7 @@ class GraduationYearsView(APIView):
         return Response(years)
 
 
+@extend_schema(tags=['Core'])
 class AlumniSliderView(ListAPIView):
     """Returns a list of all AlumniSlider."""
     queryset = AlumniSlider.objects.all()

@@ -18,6 +18,9 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.exceptions import APIException
+from rest_framework import serializers as drf_serializers
+from drf_spectacular.utils import extend_schema, inline_serializer, OpenApiExample, OpenApiResponse
+from drf_spectacular.types import OpenApiTypes
 
 from oauthlib.common import generate_token
 from oauth2_provider.views.mixins import OAuthLibMixin
@@ -42,6 +45,47 @@ GOOGLE_CLIENT_SECRET = base.SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
 REDIRECT_URI = "http://127.0.0.1:5173/"
 
 
+@extend_schema(
+    tags=['Auth'],
+    summary='Вхід через Google OAuth2 (PKCE)',
+    description=(
+        'Приймає `code` та `code_verifier` з Google OAuth2 PKCE flow.\n\n'
+        'У відповіді повертає `access_token` у тілі. '
+        '`refresh_token` встановлюється як **HttpOnly cookie** автоматично — фронтенд його не бачить.\n\n'
+        'Домен обмежений: тільки `@nuwm.edu.ua` пошти.'
+    ),
+    request=inline_serializer(
+        name='GoogleLoginRequest',
+        fields={
+            'code': drf_serializers.CharField(help_text='Authorization code від Google'),
+            'code_verifier': drf_serializers.CharField(help_text='PKCE code verifier'),
+        },
+    ),
+    responses={
+        200: inline_serializer(
+            name='GoogleLoginResponse',
+            fields={
+                'access_token': drf_serializers.CharField(help_text='Bearer токен для запитів'),
+                'expires_in': drf_serializers.IntegerField(help_text='Час дії токена в секундах'),
+                'token_type': drf_serializers.CharField(help_text='Завжди "Bearer"'),
+            },
+        ),
+        400: OpenApiResponse(description='Відсутній code/code_verifier або помилка Google'),
+    },
+    examples=[
+        OpenApiExample(
+            'Запит',
+            value={'code': 'abc123...', 'code_verifier': 'xyz789...'},
+            request_only=True,
+        ),
+        OpenApiExample(
+            'Успішна відповідь',
+            value={'access_token': 'abc...', 'expires_in': 10, 'token_type': 'Bearer'},
+            response_only=True,
+            status_codes=['200'],
+        ),
+    ],
+)
 @api_view(["POST"])
 def google_login(request):
     """
@@ -162,6 +206,36 @@ def google_login(request):
     return response
 
 
+@extend_schema(
+    tags=['Auth'],
+    summary='Оновлення access token',
+    description=(
+        'Оновлює `access_token` використовуючи `refresh_token` з HttpOnly cookie.\n\n'
+        'Фронтенд надсилає тільки `grant_type` і `client_id` — '
+        'cookie з `refresh_token` браузер підставляє автоматично.'
+    ),
+    request=inline_serializer(
+        name='TokenRefreshRequest',
+        fields={
+            'grant_type': drf_serializers.ChoiceField(
+                choices=['refresh_token'],
+                help_text='Завжди `refresh_token`',
+            ),
+            'client_id': drf_serializers.CharField(help_text='OAuth2 client_id застосунку'),
+        },
+    ),
+    responses={
+        200: inline_serializer(
+            name='TokenRefreshResponse',
+            fields={
+                'access_token': drf_serializers.CharField(),
+                'expires_in': drf_serializers.IntegerField(),
+                'token_type': drf_serializers.CharField(),
+            },
+        ),
+        400: OpenApiResponse(description='Невалідний або протермінований refresh_token'),
+    },
+)
 @method_decorator(csrf_exempt, name='dispatch')
 class CustomTokenView(OAuthLibMixin, APIView):
     """
@@ -224,6 +298,24 @@ class CustomTokenView(OAuthLibMixin, APIView):
         return HttpResponse(content=body, status=status, headers=headers)
 
 
+@extend_schema(
+    tags=['Users'],
+    summary='Профіль поточного користувача',
+    description='Потребує `Authorization: Bearer <access_token>`.',
+    responses={
+        200: inline_serializer(
+            name='UserProfileResponse',
+            fields={
+                'id': drf_serializers.IntegerField(),
+                'first_name': drf_serializers.CharField(),
+                'last_name': drf_serializers.CharField(),
+                'email': drf_serializers.EmailField(),
+                'avatar': drf_serializers.CharField(help_text='URL аватара з Google'),
+            },
+        ),
+        401: OpenApiResponse(description='Токен відсутній або недійсний'),
+    },
+)
 class UserAPIView(APIView):
     """
     API view to retrieve the authenticated user's profile data.
@@ -247,6 +339,27 @@ class UserAPIView(APIView):
             raise APIException(f"Failed to retrieve user profile: {str(e)}")
 
 
+@extend_schema(
+    tags=['Users'],
+    summary='Роль поточного користувача',
+    description=(
+        'Публічний ендпоінт. Для неавторизованих повертає роль `GU` (Guest).\n\n'
+        '| Роль | Код |\n|------|-----|\n'
+        '| Admin | `AD` |\n| Teacher | `TE` |\n| Student | `ST` |\n| Data Operator | `DO` |\n| Guest | `GU` |'
+    ),
+    responses={
+        200: inline_serializer(
+            name='UserRoleResponse',
+            fields={
+                'id': drf_serializers.IntegerField(allow_null=True, help_text='null для гостя'),
+                'role': drf_serializers.ChoiceField(
+                    choices=['AD', 'TE', 'ST', 'DO', 'GU'],
+                    help_text='GU — неавторизований',
+                ),
+            },
+        ),
+    },
+)
 class UserRoleAPIView(APIView):
     """API view to retrieve the user's role."""
     permission_classes = [AllowAny]
