@@ -1,5 +1,5 @@
 import { fadeInAnimation } from "@/shared/ui";
-import workerPhoto from "./worker-photo.jpg";
+import { profilePlaceholder } from "@/shared/icons";
 import { motion } from "framer-motion";
 export function WorkerCard() {
   return (
@@ -10,7 +10,7 @@ export function WorkerCard() {
       <div className="flex max-h-31 max-w-31 items-center justify-center">
         <img
           className="h-full w-full rounded-full border-4 border-[rgba(255,174,0,1)] object-cover"
-          src={workerPhoto}
+          src={profilePlaceholder}
           alt=""
         />
       </div>

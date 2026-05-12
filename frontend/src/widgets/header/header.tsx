@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { googleLogin } from "@/features/auth";
 import { ROUTES } from "@/shared/model/routes";
-import { rqClient } from "@/shared/api/instance";
+import { DEPARTMENTS_DATA } from "@/shared/model/departments-data";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import type { NavigationMenuData } from "./types";
@@ -12,130 +13,124 @@ import {
   NavigationMenu,
   SearchBar,
   BurgerMenu,
-  UserMenu,
 } from "./ui";
-import { BlackAndWhiteButton } from "@/shared/ui";
 
 export function Header() {
   const { t } = useTranslation("header");
   useLoadNamespace("header", loadTranslations);
 
-  const departmentsData = rqClient.useQuery("get", "/departments/");
+  // const departmentsData = publicRqClient.useQuery("get", "/departments/").data ?? [];
 
   const navigationMenuData: NavigationMenuData[] = [
     {
       title: t("navigationMenu.aboutUs"),
-      link: "#",
+      link: ROUTES.HISTORY,
       list: [
-        { title: t("navigationMenu.history"), link: "#" },
-        { title: t("navigationMenu.strategy"), link: "#" },
-        { title: t("navigationMenu.team"), link: "#" },
-        { title: t("navigationMenu.gallery"), link: "#" },
-        {
-          title: t("navigationMenu.graduates"),
-          link: ROUTES.ALUMNI,
-        },
+        { title: t("navigationMenu.history"), link: ROUTES.HISTORY },
+        { title: t("navigationMenu.strategy"), link: ROUTES.STRATEGY },
+        { title: t("navigationMenu.team"), link: ROUTES.TEAM },
+        { title: t("navigationMenu.gallery"), link: ROUTES.GALLERY },
+        { title: t("navigationMenu.graduates"), link: ROUTES.ALUMNI },
       ],
     },
     {
       title: t("navigationMenu.forEntrant"),
-      link: "#",
+      link: ROUTES.BACHELOR,
       list: [
-        { title: t("navigationMenu.undergraduateStudies"), link: "#" },
-        { title: t("navigationMenu.bachelorDegree"), link: "#" },
-        { title: t("navigationMenu.masterDegree"), link: "#" },
-        { title: t("navigationMenu.postgraduateStudies"), link: "#" },
+        { title: t("navigationMenu.undergraduateStudies"), link: ROUTES.UNDERGRADUATE },
+        { title: t("navigationMenu.bachelorDegree"), link: ROUTES.BACHELOR },
+        { title: t("navigationMenu.masterDegree"), link: ROUTES.MASTER },
+        { title: t("navigationMenu.postgraduateStudies"), link: ROUTES.POSTGRADUATE },
       ],
     },
     {
       title: t("navigationMenu.departments"),
-      link: "#",
-      list: [
-        {
-          title: t("navigationMenu.higherMathematics"),
-          link: ROUTES.DEPARTMENT,
-        },
-        {
-          title: t("navigationMenu.computerTechnologiesAndEconomicCybernetics"),
-          link: ROUTES.DEPARTMENT,
-        },
-        {
-          title: t("navigationMenu.computingEngineering"),
-          link: ROUTES.DEPARTMENT,
-        },
-        {
-          title: t("navigationMenu.computerScienceAndAppliedMathematics"),
-          link: ROUTES.DEPARTMENT,
-        },
-      ],
+      link: `/department/${DEPARTMENTS_DATA[0].id}`,
+      list: DEPARTMENTS_DATA.map((dept) => ({
+        title: dept.name,
+        link: `/department/${dept.id}`,
+      })),
     },
     {
       title: t("navigationMenu.events"),
-      link: "#",
+      link: ROUTES.EVENTS,
       list: [
-        { title: t("navigationMenu.eventsCalendar"), link: "#" },
-        { title: t("navigationMenu.news"), link: "#" },
-        { title: t("navigationMenu.announcements"), link: "#" },
-        { title: t("navigationMenu.activities"), link: "#" },
+        { title: t("navigationMenu.eventsCalendar"), link: `${ROUTES.EVENTS}#calendar` },
+        { title: t("navigationMenu.news"), link: `${ROUTES.EVENTS}#news` },
       ],
     },
     {
       title: t("navigationMenu.science"),
-      link: "#",
+      link: ROUTES.SCIENCE_PUBLICATIONS,
       list: [
-        { title: t("navigationMenu.publications"), link: "#" },
-        { title: t("navigationMenu.research"), link: "#" },
-        { title: t("navigationMenu.conferences"), link: "#" },
-        { title: t("navigationMenu.grants"), link: "#" },
+        { title: t("navigationMenu.publications"), link: ROUTES.SCIENCE_PUBLICATIONS },
+        { title: t("navigationMenu.research"), link: ROUTES.SCIENCE_RESEARCH },
+        { title: t("navigationMenu.conferences"), link: ROUTES.SCIENCE_CONFERENCES },
+        { title: t("navigationMenu.grants"), link: ROUTES.SCIENCE_GRANTS },
       ],
     },
     {
       title: t("navigationMenu.partners"),
-      link: "#",
+      link: ROUTES.PARTNERS_BUSINESS,
       list: [
-        { title: t("navigationMenu.academicMobility"), link: "#" },
-        { title: t("navigationMenu.businessPartners"), link: "#" },
+        { title: t("navigationMenu.academicMobility"), link: ROUTES.PARTNERS_ACADEMIC_MOBILITY },
+        { title: t("navigationMenu.businessPartners"), link: ROUTES.PARTNERS_BUSINESS },
       ],
     },
     {
       title: t("navigationMenu.contacts"),
-      link: "#",
+      link: ROUTES.CONTACTS,
       list: [
         { title: t("navigationMenu.contacts"), link: ROUTES.CONTACTS },
         { title: t("navigationMenu.FAQ"), link: ROUTES.FAQ },
-        {
-          title: t("navigationMenu.question"),
-          link: ROUTES.ASK_QUESTION,
-        },
+        { title: t("navigationMenu.question"), link: ROUTES.ASK_QUESTION },
       ],
     },
   ];
 
-  const userRole = rqClient.useQuery("get", "/users/role/").data;
-  function isUserLogin() {
-    if (userRole?.role === "GU") {
-      return false;
-    }
-    return true;
-  }
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed z-[100] flex h-16 w-full justify-center bg-[#0000006e] bg-[linear-gradient(180deg,_rgba(0,0,0,0.7)_0%,_rgba(0,0,0,0.5)_50%,_rgba(0,0,0,0.3)_100%)] before:fixed before:inset-0 before:-z-1 before:h-16 before:w-full before:backdrop-blur-md">
-      <div className="container-base grid h-full grid-cols-[64px_1fr_64px] items-center md:grid-cols-[160px_1fr_160px] lg:grid-cols-[auto_auto_auto] lg:justify-between">
-        <Link className="" to="/">
+    <header
+      className="fixed left-0 right-0 top-0 z-[100] w-full"
+      style={{ height: "var(--header-height)" }}
+    >
+      <div
+        className={clsx(
+          "absolute inset-0 transition-all duration-[350ms]",
+          scrolled
+            ? "border-b border-violet-500/10 bg-[rgba(8,9,15,0.85)] backdrop-blur-[24px]"
+            : "border-b border-transparent bg-transparent"
+        )}
+      />
+      <div className="relative mx-auto flex h-full max-w-[1280px] items-center gap-8 px-4 sm:px-6 lg:px-10">
+        <Link to="/" className="flex-shrink-0">
           <MicrocircuitLabelLogo />
         </Link>
-        <NavigationMenu className="hidden lg:flex" navigationMenuData={navigationMenuData} />
-        <SearchBar className="flex lg:hidden" />
-        <div className="hidden grid-cols-2 items-center justify-end gap-4 lg:grid">
+        <NavigationMenu
+          className="hidden flex-1 justify-center lg:flex"
+          navigationMenuData={navigationMenuData}
+        />
+        <SearchBar className="flex flex-1 justify-center lg:hidden" />
+        <div className="hidden flex-shrink-0 items-center gap-2.5 lg:flex">
           <ChangeLanguage />
-          {isUserLogin() ? (
-            <BlackAndWhiteButton color="black" onClick={googleLogin}>
-              {t("signIn")}
-            </BlackAndWhiteButton>
-          ) : (
-            <UserMenu />
-          )}
+          <Link
+            to={ROUTES.BACHELOR}
+            className={clsx(
+              "inline-flex items-center gap-2 rounded-[10px]",
+              "bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-2.5",
+              "text-[12px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.2)]",
+              "transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.45)]"
+            )}
+          >
+            {t("apply", "Вступити")}
+          </Link>
         </div>
         <BurgerMenu className="lg:hidden" burgerMenuData={navigationMenuData} />
       </div>

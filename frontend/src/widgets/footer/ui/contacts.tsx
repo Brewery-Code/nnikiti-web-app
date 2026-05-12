@@ -7,38 +7,41 @@ interface ContactsProps {
   className?: string;
 }
 
-interface ListItemRenderProps {
-  label: string;
-  contacts: string[];
-}
-
-function ListItems({ label, contacts }: ListItemRenderProps) {
-  return (
-    <li className="flex flex-wrap gap-1 md:flex-nowrap">
-      <span className="text-nowrap">{label}:</span>
-      <ul className="flex gap-1">
-        {contacts.map((item, subIndex) => (
-          <li key={subIndex}>{item}</li>
-        ))}
-      </ul>
-    </li>
-  );
-}
-
 export function Contacts({ className }: ContactsProps) {
   const { t } = useTranslation("footer");
   useLoadNamespace("footer", loadTranslations);
 
   const { deaneryData, locationData } = useContactsData();
 
+  const items = [
+    ...Object.values(deaneryData).map((item) => ({
+      label: item.label,
+      values: [item.email, ...(item.phone ? [item.phone] : [])],
+    })),
+    { label: locationData.label, values: [locationData.address] },
+  ];
+
   return (
     <div className={clsx(className)}>
-      <div className="text-base font-bold xl:text-xl">{t("contacts")}</div>
-      <ul className={clsx("mt-2 flex flex-col gap-1 text-xs font-medium")}>
-        {Object.values(deaneryData).map((item, index) => (
-          <ListItems key={index} label={item.label} contacts={[item.email, item.phone]} />
+      <p className="mb-3 text-fluid-xs font-bold uppercase tracking-[0.32em] text-slate-500">
+        {t("contacts")}
+      </p>
+      <ul className="flex flex-col gap-5">
+        {items.map((item, index) => (
+          <li key={index} className="flex flex-col gap-1.5">
+            <span className="text-fluid-sm text-slate-500">{item.label}</span>
+            <div className="flex flex-wrap gap-x-2 gap-y-0.5 leading-tight">
+              {item.values.filter(Boolean).map((val, i) => (
+                <span
+                  key={i}
+                  className="cursor-default text-fluid-sm font-bold text-white transition-colors duration-200 hover:text-slate-200"
+                >
+                  {val}
+                </span>
+              ))}
+            </div>
+          </li>
         ))}
-        <ListItems label={locationData.label} contacts={[locationData.address]} />
       </ul>
     </div>
   );

@@ -35,19 +35,21 @@ export function NavigationMenu({
 
   return (
     <nav className={clsx("h-full", className)} onMouseLeave={() => setActiveIndex(null)}>
-      <ul className="flex h-full items-center gap-4 text-sm leading-6 font-semibold xl:gap-6 xl:text-base">
+      <ul className="flex h-full items-center gap-0.5">
         {navigationMenuData.map((item, index) => (
           <li
             className={clsx(
-              "flex h-full cursor-pointer items-center gap-2",
-              "transition-transform duration-200 ease-in-out",
-              index === activeIndex && "scale-110"
+              "nav-link flex h-full cursor-pointer items-center gap-2 rounded-lg px-3.5 py-1.5",
+              "text-[13px] font-medium leading-none text-white/45 transition-colors duration-150",
+              index === activeIndex && "text-white/90"
             )}
             key={item.title}
             ref={index === activeIndex ? menuItemRef : null}
             onMouseEnter={() => setActiveIndex(index)}
           >
-            {item.title}
+            <Link to={item.link} className="flex h-full items-center" onClick={() => setActiveIndex(null)}>
+              {item.title}
+            </Link>
           </li>
         ))}
       </ul>
@@ -71,7 +73,7 @@ export function NavigationMenu({
             <ul
               className={clsx(
                 "absolute flex flex-col gap-1 overflow-hidden py-4",
-                "before:absolute before:top-0 before:left-0 before:h-full before:w-2 before:bg-[#ff1a7a]",
+                "before:absolute before:top-0 before:left-0 before:h-full before:w-2 before:bg-[#a684ff]",
                 "before:rounded-l-md before:transition-[opacity] before:duration-200 before:ease-in-out",
                 index === activeIndex ? "before:opacity-100" : "before:opacity-0"
               )}
@@ -82,10 +84,10 @@ export function NavigationMenu({
                 <Link
                   to={subItem.link}
                   className={clsx(
-                    "relative cursor-pointer overflow-hidden px-4 text-xl font-semibold text-white",
+                    "font-display relative cursor-pointer overflow-hidden px-4 text-xl font-bold tracking-[-0.02em] text-white",
                     "transition-opacity duration-200 ease-in-out",
                     "before:absolute before:left-[7px] before:-z-1 before:h-full before:w-0",
-                    "before:bg-[linear-gradient(to_right,_#ff1a7a_8px,_#f8982e)]",
+                    "before:bg-[linear-gradient(to_right,_#a684ff_8px,_#51a2ff)]",
                     "before:transition-[width] before:duration-200 before:ease-in-out hover:before:w-full",
                     index === activeIndex
                       ? "pointer-events-auto z-10 opacity-100"

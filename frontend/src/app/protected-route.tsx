@@ -1,6 +1,6 @@
 import { Navigate, Outlet, redirect } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
-import { getSession, refreshToken } from "@/shared/model/session";
+import { refreshToken } from "@/shared/model/session";
 
 export function ProtectedRoute() {
   const token = refreshToken();

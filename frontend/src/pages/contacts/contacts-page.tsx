@@ -1,11 +1,10 @@
-import { PageTransition, SocialMediaLinks } from "@/widgets";
+import { PageTransition } from "@/widgets";
 import { ContactsSection } from "./contacts-section";
 
 export function ContactsPage() {
   return (
-    <PageTransition>
+    <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <ContactsSection />
-      <SocialMediaLinks className="container-base mt-8 flex-wrap justify-center sm:justify-start" />
     </PageTransition>
   );
 }

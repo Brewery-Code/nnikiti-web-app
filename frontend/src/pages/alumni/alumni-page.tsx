@@ -4,9 +4,11 @@ import { AlumniListSection } from "./alumni-list-section";
 
 function AlumniPage() {
   return (
-    <PageTransition className="pb-24" isPaddingOn={false}>
+    <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <HeroSection />
-      <AlumniListSection className="m-section" />
+      <div className="bg-[#08090f]">
+        <AlumniListSection />
+      </div>
     </PageTransition>
   );
 }

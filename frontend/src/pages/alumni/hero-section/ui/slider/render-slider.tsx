@@ -5,7 +5,7 @@ function SliderItem({ className, sliderItem }: SliderItemProps) {
   return (
     <div
       className={clsx(
-        "h-28 w-48 grow shadow-[0px_2px_8px_rgba(255,255,255,0.15)] sm:h-38 sm:w-68",
+        "h-28 w-48 flex-shrink-0 shadow-[0px_2px_8px_rgba(255,255,255,0.15)] sm:h-38 sm:w-68",
         className
       )}
     >

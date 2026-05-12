@@ -2,7 +2,7 @@
   "administration": {
     "director": "Директор",
     "directorWorker": "Мартинюк Петро Миколайович",
-    "depDirScienWork": "Заступник директора з наукових робіт",
+    "depDirScienWork": "Заступник директора з наукової роботи",
     "depDirScienWorkWorker": "Прищепа Оксана Володимирівна",
     "depDirEducAndMethWork": "Заступник директора з навчально-методичної роботи",
     "depDirEducAndMethWorkWorker": "Бабич Тетяна Юріївна",
@@ -11,7 +11,7 @@
   },
   "deanery": {
     "dailyEducation": "Денна форма навчання",
-    "dailyEducationWorker": "Ковалчук Світлана Петрівна та Сачук Галинна Михайлівна",
+    "dailyEducationWorker": "Ковальчук Світлана Петрівна та Сачук Галина Михайлівна",
     "distanceEducation": "Заочна форма навчання",
     "distanceEducationWorker": "Карпан Наталія Анатоліївна"
   },

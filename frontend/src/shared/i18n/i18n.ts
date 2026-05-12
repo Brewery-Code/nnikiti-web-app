@@ -10,6 +10,9 @@ i18n
     fallbackLng: ["uk"],
     supportedLngs: ["en", "uk"],
     // debug: true,
+    react: {
+      useSuspense: false,
+    },
   });
 
 export default i18n;

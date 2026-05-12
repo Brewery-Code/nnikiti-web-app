@@ -1,1 +1,1 @@
-export { default as loadTranslations } from "./locales";
+export { loadTranslations } from "./locales";

@@ -18,48 +18,79 @@ export default function Accordion({
 }) {
   const listRef = useRef<HTMLUListElement>(null);
   const [listHeight, setListHeight] = useState(0);
+
   useEffect(() => {
     if (listRef.current) {
       setListHeight(listRef.current.scrollHeight);
     }
   }, [isAccordionOpen]);
 
+  const dimmed = whichAccordionIsOpen !== -1 && !isAccordionOpen;
+
   return (
-    <li
-      className={clsx(
-        "relative transition-colors duration-200 ease-in-out",
-        whichAccordionIsOpen !== -1 && !isAccordionOpen && "text-gray-500"
-      )}
-    >
-      <div onClick={toggleAccordion} className="cursor-pointer">
+    <li className="border-t border-white/[0.07]">
+      <button
+        type="button"
+        onClick={toggleAccordion}
+        className="flex w-full items-center justify-between py-5 text-left"
+      >
         <span
           className={clsx(
-            "relative text-3xl font-bold",
-            "before:absolute before:-bottom-1 before:left-1/2 before:h-0.5 before:w-0 before:-translate-x-1/2 before:bg-white before:transition-[width] before:duration-300 before:ease-[cubic-bezier(0.23,1,0.32,1)]",
-            isAccordionOpen && "before:w-full"
+            "font-display text-[1.6rem] font-black transition-colors duration-200",
+            isAccordionOpen ? "text-grad" : "text-white",
+            dimmed && "!text-white/25"
           )}
+          style={{ letterSpacing: "-0.03em" }}
         >
           {data.title}
         </span>
-      </div>
+
+        <span
+          className={clsx(
+            "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300",
+            isAccordionOpen
+              ? "border-violet-500/50 bg-violet-500/15 text-violet-300"
+              : "border-white/15 bg-white/[0.04] text-white/50"
+          )}
+          style={{ fontSize: "14px" }}
+        >
+          {isAccordionOpen ? "−" : "+"}
+        </span>
+      </button>
+
       <ul
-        className="flex flex-col gap-2 overflow-hidden transition-[height,margin] duration-300 ease-in-out"
+        ref={listRef}
+        className="flex flex-col gap-1 overflow-hidden transition-[height,padding] duration-300 ease-in-out"
         style={{
           height: isAccordionOpen ? listHeight : 0,
-          marginTop: isAccordionOpen ? 16 : 0,
+          paddingBottom: isAccordionOpen ? 16 : 0,
         }}
-        ref={listRef}
       >
         {data.list?.map((item, index) => (
-          <li
-            className="text-xl font-medium"
-            key={index}
-            onClick={() => {
-              handleBurgerClick();
-              toggleAccordion();
-            }}
-          >
-            <Link to={item.link}>{item.title}</Link>
+          <li key={index}>
+            {item.onClick ? (
+              <button
+                className="block w-full rounded-[10px] px-4 py-2.5 text-left text-[14px] font-medium text-white/55 transition-all duration-200 hover:bg-white/[0.05] hover:text-white"
+                onClick={() => {
+                  item.onClick!();
+                  handleBurgerClick();
+                  toggleAccordion();
+                }}
+              >
+                {item.title}
+              </button>
+            ) : (
+              <Link
+                to={item.link}
+                className="block rounded-[10px] px-4 py-2.5 text-[14px] font-medium text-white/55 transition-all duration-200 hover:bg-white/[0.05] hover:text-white"
+                onClick={() => {
+                  handleBurgerClick();
+                  toggleAccordion();
+                }}
+              >
+                {item.title}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

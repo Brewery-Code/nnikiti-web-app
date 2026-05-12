@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import i18n from "i18next";
 
 function useLoadNamespace(namespace: string, loadTranslations: () => Promise<void>) {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(() => i18n.hasResourceBundle(i18n.language, namespace));
 
   useEffect(() => {
     let isMounted = true;

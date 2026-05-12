@@ -1,37 +1,68 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { globalLenis } from "@/shared/hooks";
 
 interface ModalWrapperProps {
   children: React.ReactNode;
-  className?: string;
   isModalOpen: boolean;
   toggleModal: () => void;
+  maxWidth?: string;
 }
 
-export function ModalWrapper({ children, isModalOpen, toggleModal }: ModalWrapperProps) {
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+export function ModalWrapper({
+  children,
+  isModalOpen,
+  toggleModal,
+  maxWidth = "max-w-xl",
+}: ModalWrapperProps) {
   useEffect(() => {
     if (isModalOpen) {
-      document.body.style.overflow = "hidden";
+      globalLenis?.stop();
     } else {
-      document.body.style.overflow = "auto";
+      globalLenis?.start();
     }
+    return () => {
+      globalLenis?.start();
+    };
   }, [isModalOpen]);
 
   return createPortal(
-    <div
-      className={`fixed inset-0 -z-50 flex items-start justify-center overflow-y-auto bg-[rgba(0,0,0,0.3)] opacity-0 backdrop-blur-xs transition-opacity duration-300 ease-in md:py-28 ${isModalOpen && "z-100 opacity-100"}`}
-    >
-      <div
-        className="relative min-h-full w-dvw bg-[#212121] p-4 md:h-auto md:min-h-auto md:w-192 md:rounded-3xl"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div
-          className="absolute top-4 right-4 h-8 w-8 cursor-pointer before:absolute before:top-1/2 before:h-1 before:w-full before:-translate-y-1/2 before:rotate-45 before:rounded-4xl before:bg-red-900 before:transition-colors after:absolute after:top-1/2 after:h-1 after:w-full after:-translate-y-1/2 after:-rotate-45 after:rounded-4xl after:bg-red-900 after:transition-colors hover:before:bg-red-600 hover:after:bg-red-600"
+    <AnimatePresence>
+      {isModalOpen && (
+        <motion.div
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
           onClick={toggleModal}
-        />
-        {children}
-      </div>
-    </div>,
+        >
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+
+          <motion.div
+            className={`grad-border relative w-full ${maxWidth} max-h-[90vh] overflow-y-auto rounded-[24px] bg-[#0d0e17] p-6 sm:p-8`}
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 20 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={toggleModal}
+              aria-label="Закрити"
+              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[16px] text-white/50 transition hover:bg-white/[0.10] hover:text-white"
+            >
+              ✕
+            </button>
+
+            {children}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>,
     document.getElementById("modals")!
   );
 }

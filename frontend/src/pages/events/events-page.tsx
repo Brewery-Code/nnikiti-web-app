@@ -1,0 +1,545 @@
+import { useState, useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
+import clsx from "clsx";
+import { PageTransition } from "@/widgets";
+import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
+import {
+  CALENDAR_EVENTS,
+  NEWS,
+  EVENT_TYPE_META,
+  type CalendarEvent,
+  type EventType,
+} from "./events-data";
+
+const UK_MONTHS = [
+  "Січень",
+  "Лютий",
+  "Березень",
+  "Квітень",
+  "Травень",
+  "Червень",
+  "Липень",
+  "Серпень",
+  "Вересень",
+  "Жовтень",
+  "Листопад",
+  "Грудень",
+];
+const UK_DAYS_SHORT = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
+
+function monFirstDay(year: number, month: number): number {
+  return (new Date(year, month, 1).getDay() + 6) % 7;
+}
+function daysInMonth(year: number, month: number): number {
+  return new Date(year, month + 1, 0).getDate();
+}
+function toDateStr(year: number, month: number, day: number): string {
+  return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el)
+    window.scrollTo({
+      top: el.getBoundingClientRect().top + window.scrollY - 88,
+      behavior: "smooth",
+    });
+}
+
+const TABS = [
+  { id: "calendar", label: "Календар" },
+  { id: "news", label: "Новини" },
+];
+
+function SectionTitle({
+  eyebrow,
+  title,
+  highlight,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  description?: string;
+}) {
+  return (
+    <Reveal mode="up" className="mb-10 lg:mb-14">
+      <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
+        — {eyebrow}
+      </div>
+      <h2
+        className="font-display font-black text-white"
+        style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
+      >
+        {title} <span className="text-grad">{highlight}</span>
+      </h2>
+      {description && (
+        <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
+          {description}
+        </p>
+      )}
+    </Reveal>
+  );
+}
+
+function Hero() {
+  const location = useLocation();
+  const [active, setActive] = useState("calendar");
+
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (hash && TABS.find((t) => t.id === hash)) {
+      setActive(hash);
+      setTimeout(() => scrollToId(hash), 100);
+    }
+  }, [location.hash]);
+
+  return (
+    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(166,132,255,0.18) 0%, transparent 70%)",
+          filter: "blur(80px)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[500px] w-[500px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(81,162,255,0.16) 0%, transparent 70%)",
+          filter: "blur(80px)",
+        }}
+      />
+
+      <Stagger className="container-v2 relative z-[1]" stagger={0.08} delay={0.35} inView={false}>
+        <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
+          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+            ННКІТІ
+          </span>
+          <span className="text-[12px] text-white/70">Події та новини</span>
+        </StaggerItem>
+
+        <StaggerItem
+          as="h1"
+          mode="up"
+          className="font-display font-black text-white"
+          style={{
+            fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+            letterSpacing: "-0.05em",
+            lineHeight: 0.95,
+          }}
+        >
+          Події та <span className="text-grad">новини</span>
+        </StaggerItem>
+        <StaggerItem
+          as="p"
+          mode="up"
+          className="mt-6 max-w-2xl text-[14px] leading-relaxed text-white/65 sm:text-[16px]"
+        >
+          Все, що відбувається в ННКІТІ — в одному місці. Конференції,
+          олімпіади, оголошення, новини та культурні заходи.
+        </StaggerItem>
+
+        <StaggerItem mode="up" className="mt-10 flex flex-wrap gap-2">
+          {TABS.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => {
+                setActive(tab.id);
+                scrollToId(tab.id);
+              }}
+              className={clsx(
+                "rounded-[12px] px-5 py-2.5 text-[13px] font-semibold transition-all duration-200",
+                active === tab.id
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                  : "grad-border bg-white/[0.04] text-white/60 backdrop-blur-md hover:bg-white/[0.10] hover:text-white"
+              )}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </StaggerItem>
+      </Stagger>
+      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
+    </section>
+  );
+}
+
+function MiniCalendar({
+  year,
+  month,
+  events,
+  selected,
+  onSelect,
+  onPrev,
+  onNext,
+}: {
+  year: number;
+  month: number;
+  events: CalendarEvent[];
+  selected: string | null;
+  onSelect: (d: string) => void;
+  onPrev: () => void;
+  onNext: () => void;
+}) {
+  const offset = monFirstDay(year, month);
+  const total = daysInMonth(year, month);
+  const cells: Array<number | null> = [
+    ...Array.from({ length: offset }, () => null),
+    ...Array.from({ length: total }, (_, i) => i + 1),
+  ];
+
+  const eventsOnDay = (day: number) =>
+    events.filter((e) => e.date === toDateStr(year, month, day));
+
+  const today = new Date();
+  const isToday = (day: number) =>
+    day === today.getDate() &&
+    month === today.getMonth() &&
+    year === today.getFullYear();
+
+  return (
+    <div className="grad-border select-none rounded-[20px] bg-white/[0.03] p-5 backdrop-blur-xl">
+      <div className="mb-4 flex items-center justify-between">
+        <button
+          onClick={onPrev}
+          aria-label="Попередній місяць"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition hover:bg-white/10 hover:text-white"
+        >
+          ‹
+        </button>
+        <span className="font-display text-[14px] font-bold text-white">
+          {UK_MONTHS[month]} {year}
+        </span>
+        <button
+          onClick={onNext}
+          aria-label="Наступний місяць"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition hover:bg-white/10 hover:text-white"
+        >
+          ›
+        </button>
+      </div>
+
+      <div className="mb-1 grid grid-cols-7 gap-1">
+        {UK_DAYS_SHORT.map((d) => (
+          <div
+            key={d}
+            className="text-center text-[10px] font-bold uppercase tracking-wider text-white/30"
+          >
+            {d}
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-7 gap-1">
+        {cells.map((day, i) => {
+          if (!day) return <div key={`e-${i}`} />;
+          const dateStr = toDateStr(year, month, day);
+          const dayEvents = eventsOnDay(day);
+          const isSelected = selected === dateStr;
+
+          return (
+            <button
+              key={dateStr}
+              onClick={() => onSelect(isSelected ? "" : dateStr)}
+              className={clsx(
+                "relative flex flex-col items-center rounded-[10px] py-1.5 text-[12px] font-medium transition-all duration-150",
+                isSelected
+                  ? "bg-gradient-to-br from-violet-500 to-blue-500 text-white"
+                  : isToday(day)
+                    ? "bg-white/10 text-white"
+                    : "text-white/55 hover:bg-white/[0.07] hover:text-white"
+              )}
+            >
+              {day}
+              {dayEvents.length > 0 && (
+                <div className="mt-0.5 flex gap-0.5">
+                  {dayEvents.slice(0, 3).map((ev) => (
+                    <span
+                      key={ev.id}
+                      aria-hidden
+                      className={clsx(
+                        "h-1 w-1 rounded-full",
+                        isSelected
+                          ? "bg-white"
+                          : "bg-gradient-to-r from-violet-400 to-blue-400"
+                      )}
+                    />
+                  ))}
+                </div>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function EventListItem({ event }: { event: CalendarEvent }) {
+  const meta = EVENT_TYPE_META[event.type];
+  return (
+    <div className="grad-border card-hover flex gap-4 rounded-[16px] bg-white/[0.03] p-4 backdrop-blur-xl">
+      <div className="flex w-14 flex-shrink-0 flex-col items-center justify-center rounded-[12px] bg-gradient-to-br from-violet-500/20 to-blue-500/20 py-2 text-center">
+        <span className="text-[10px] font-bold uppercase text-white/45">
+          {UK_MONTHS[parseInt(event.date.split("-")[1]) - 1].slice(0, 3)}
+        </span>
+        <span className="text-grad font-display text-xl font-extrabold leading-none">
+          {parseInt(event.date.split("-")[2])}
+        </span>
+      </div>
+
+      <div className="min-w-0 flex-1">
+        <div className="mb-1 flex flex-wrap items-center gap-2">
+          <span className="font-display rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.04em] text-violet-200">
+            {meta.label}
+          </span>
+          <span className="text-[11px] text-white/40">
+            {event.time} · {event.location}
+          </span>
+        </div>
+        <p className="font-display truncate text-[14px] font-semibold text-white">
+          {event.title}
+        </p>
+        <p className="mt-0.5 line-clamp-2 text-[12px] leading-relaxed text-white/50">
+          {event.description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+const ALL_TYPES = "all";
+
+function CalendarSection() {
+  const [year, setYear] = useState(2025);
+  const [month, setMonth] = useState(4);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [typeFilter, setTypeFilter] = useState<EventType | typeof ALL_TYPES>(
+    ALL_TYPES
+  );
+
+  const changeMonth = (delta: number) => {
+    setMonth((m) => {
+      const nm = m + delta;
+      if (nm < 0) {
+        setYear((y) => y - 1);
+        return 11;
+      }
+      if (nm > 11) {
+        setYear((y) => y + 1);
+        return 0;
+      }
+      return nm;
+    });
+    setSelected(null);
+  };
+
+  const visibleEvents = CALENDAR_EVENTS.filter(
+    (e) => typeFilter === ALL_TYPES || e.type === typeFilter
+  )
+    .filter((e) => {
+      if (selected) return e.date === selected;
+      const [ey, em] = e.date.split("-").map(Number);
+      return ey === year && em - 1 === month;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  return (
+    <section id="calendar" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+      <div className="container-v2">
+        <SectionTitle
+          eyebrow="Календар подій"
+          title="Найближчі"
+          highlight="події"
+        />
+
+        <div className="grid gap-6 lg:grid-cols-[340px_1fr]">
+          <div className="flex flex-col gap-4">
+            <MiniCalendar
+              year={year}
+              month={month}
+              events={CALENDAR_EVENTS}
+              selected={selected}
+              onSelect={setSelected}
+              onPrev={() => changeMonth(-1)}
+              onNext={() => changeMonth(1)}
+            />
+
+            <div className="grad-border rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl">
+              <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
+                Тип події
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => setTypeFilter(ALL_TYPES)}
+                  className={clsx(
+                    "rounded-full border px-3 py-1 text-[11px] font-semibold transition",
+                    typeFilter === ALL_TYPES
+                      ? "border-transparent bg-gradient-to-r from-violet-500 to-blue-500 text-white"
+                      : "border-white/10 text-white/55 hover:border-white/30 hover:text-white"
+                  )}
+                >
+                  Всі
+                </button>
+                {(Object.keys(EVENT_TYPE_META) as EventType[]).map((type) => {
+                  const m = EVENT_TYPE_META[type];
+                  const isActive = typeFilter === type;
+                  return (
+                    <button
+                      key={type}
+                      onClick={() => setTypeFilter(type)}
+                      className={clsx(
+                        "rounded-full border px-3 py-1 text-[11px] font-semibold transition",
+                        isActive
+                          ? "border-transparent bg-gradient-to-r from-violet-500 to-blue-500 text-white"
+                          : "border-white/10 text-white/55 hover:border-white/30 hover:text-white"
+                      )}
+                    >
+                      {m.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {selected && (
+              <div className="flex items-center justify-between">
+                <p className="text-[13px] text-white/55">
+                  Події на{" "}
+                  <span className="font-semibold text-white">
+                    {parseInt(selected.split("-")[2])}{" "}
+                    {UK_MONTHS[parseInt(selected.split("-")[1]) - 1]}
+                  </span>
+                </p>
+                <button
+                  onClick={() => setSelected(null)}
+                  className="text-[11px] text-violet-300 transition hover:text-white"
+                >
+                  Показати всі ›
+                </button>
+              </div>
+            )}
+
+            {visibleEvents.length === 0 ? (
+              <div className="grad-border flex h-48 items-center justify-center rounded-[18px] bg-white/[0.03] text-[13px] text-white/40 backdrop-blur-xl">
+                Подій у цей день не заплановано
+              </div>
+            ) : (
+              visibleEvents.map((ev) => <EventListItem key={ev.id} event={ev} />)
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NewsCard({ item }: { item: (typeof NEWS)[0] }) {
+  return (
+    <Link
+      to={`/news/${item.id}`}
+      className="spec-card grad-border group flex h-full flex-col overflow-hidden rounded-[20px] bg-white/[0.03] backdrop-blur-xl"
+    >
+      <div className="relative h-44 overflow-hidden">
+        <img
+          src={item.imageSeed}
+          alt={item.title}
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08090f] via-transparent to-transparent" />
+        <span
+          className="font-display absolute bottom-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-white"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(166,132,255,0.85) 0%, rgba(81,162,255,0.85) 100%)",
+          }}
+        >
+          {item.tag}
+        </span>
+      </div>
+
+      <div className="flex flex-1 flex-col p-6">
+        <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white/35">
+          {item.date}
+        </p>
+        <h3
+          className="font-display mb-3 line-clamp-3 flex-1 font-bold leading-snug text-white"
+          style={{ fontSize: "1rem", letterSpacing: "-0.01em" }}
+        >
+          {item.title}
+        </h3>
+        <p className="line-clamp-3 text-[12px] leading-relaxed text-white/55">
+          {item.excerpt}
+        </p>
+        <span className="mt-4 self-start text-[12px] font-semibold text-violet-300 transition group-hover:text-white">
+          Читати далі →
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function NewsSection() {
+  const [visibleCount, setVisibleCount] = useState(3);
+  const extra = NEWS.slice(3, visibleCount);
+
+  return (
+    <section id="news" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+      <div className="container-v2">
+        <SectionTitle eyebrow="Новини" title="Останні" highlight="новини" />
+        <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1} amount={0.05}>
+          {NEWS.slice(0, 3).map((item) => (
+            <StaggerItem key={item.id} mode="up" className="h-full">
+              <NewsCard item={item} />
+            </StaggerItem>
+          ))}
+        </Stagger>
+        {extra.length > 0 && (
+          <Stagger
+            key={visibleCount}
+            className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            stagger={0.1}
+            inView={false}
+          >
+            {extra.map((item) => (
+              <StaggerItem key={item.id} mode="up" className="h-full">
+                <NewsCard item={item} />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        )}
+        {visibleCount < NEWS.length && (
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={() => setVisibleCount((c) => c + 3)}
+              className="grad-border inline-flex items-center gap-2 rounded-[12px] bg-white/[0.04] px-7 py-3 text-[13px] font-semibold text-white/70 backdrop-blur-md transition-all duration-200 hover:bg-white/[0.10] hover:text-white"
+            >
+              Завантажити ще
+              <span aria-hidden className="text-violet-400">↓</span>
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function EventsPage() {
+  return (
+    <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
+      <Hero />
+      <div className="bg-[#08090f] pb-16 lg:pb-20">
+        <CalendarSection />
+        <NewsSection />
+      </div>
+    </PageTransition>
+  );
+}
+
+export const Component = EventsPage;
