@@ -1,100 +1,465 @@
 @import url("./fonts.css");
 @import "tailwindcss";
 
+@custom-variant hover {
+  @media (hover: hover) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   FLUID DESIGN SYSTEM
+   vw(px, base=1920) = px / base * 100vw
+   All values scale smoothly with viewport width.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* mobile (375px base) */
+  --header-height:     min(64px,  17.07vw);
+  --section-gap:       min(100px, 21.3vw);
+  --content-title-gap: min(48px,  12.8vw);
+  --block-gap:         min(48px,  12.80vw);
+  --title-gap:         min(32px,   8.53vw);
+  --container-size:    min(24px,   3.125vw);
+}
+
+@media (width >= 768px) {
+  :root {
+    --header-height:     min(80px, 10.42vw);
+    --section-gap:       13vw;
+    --content-title-gap: 6.25vw;
+    --block-gap:         min(64px,  8.33vw);
+    --title-gap:         min(40px,  5.21vw);
+    --container-size:    min(40px,  3.125vw);
+  }
+}
+
+@media (width >= 1024px) {
+  :root {
+    --header-height:     max(64px, 4.17vw);
+    --section-gap:       10.4vw;
+    --content-title-gap: 6.25vw;
+    --block-gap:         max(48px, 6.25vw);
+    --title-gap:         max(24px, 2.08vw);
+    --container-size:    2vw;
+  }
+}
+
+/* ── Tailwind v4 theme tokens ───────────────────────────────────────────── */
+@theme {
+  --font-family-display: "Manrope", sans-serif;
+  --font-family-body:    "Outfit", sans-serif;
+  --font-family-open-sans: "Open Sans", sans-serif;
+
+  /* Gradient palette (NUWEE v3 — violet × blue) */
+  --color-ink-950: #05060c;
+  --color-ink-900: #08090f;
+  --color-ink-800: #0a0b12;
+  --color-ink-700: #0c0d18;
+  --color-ink-600: #12141f;
+
+  --color-violet-300: #c4a8ff;
+  --color-violet-400: #b596ff;
+  --color-violet-500: #a684ff;
+  --color-violet-600: #8d63ff;
+
+  --color-blue-300:   #8fc0ff;
+  --color-blue-400:   #70b1ff;
+  --color-blue-500:   #51a2ff;
+  --color-blue-600:   #3a8af5;
+
+  --color-cream-50:   #f0eeff;
+}
+
+/* ── Global / Base ───────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #08090f;
+  overflow-x: clip;
+}
+
+/* ── Lenis smooth scroll ──────────────────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 @layer base {
-  html {
-    /* scroll-behavior: smooth; */
+  button:not(:disabled):active {
+    transform: scale(0.95);
   }
 
   body {
-    color: #fff;
-    line-height: 100%;
-    font-family: "Open Sans", sans-serif;
-    background-color: #e21515; /* For test */
+    color: #f0eeff;
+    font-family: "Outfit", sans-serif;
+    background: transparent;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
 
-  main {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #08090f;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(166, 132, 255, 0.3);
+    border-radius: 3px;
   }
 }
 
+/* ── Components ─────────────────────────────────────────────────────────── */
 @layer components {
+  /* Fluid container — full width, vw-based horizontal padding */
   .container-base {
-    position: relative;
-    left: calc((100vw - 100%) / 2);
-    max-width: 1564px;
     width: 100%;
-    margin: 0 auto;
-    padding: 0 32px;
+    padding-right: var(--container-size);
+    padding-left:  var(--container-size);
+    margin-right: auto;
+    margin-left:  auto;
   }
 
-  @media (max-width: 1024px) {
-    .container-base {
-      position: static;
-      left: auto;
+  /* v2 container — fixed 1280px max-width, scaling horizontal padding */
+  .container-v2 {
+    width: 100%;
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left:  auto;
+    padding-right: 16px;
+    padding-left:  16px;
+  }
+  @media (width >= 640px) {
+    .container-v2 {
+      padding-right: 24px;
+      padding-left:  24px;
+    }
+  }
+  @media (width >= 1024px) {
+    .container-v2 {
+      padding-right: 40px;
+      padding-left:  40px;
     }
   }
 
+  /* Gradient animation (used by statistic blocks) */
   .gradient-animation {
     background-size: 200% 200%;
     background-attachment: fixed;
-    -webkit-animation: Animation 10s ease infinite;
-    -moz-animation: Animation 10s ease infinite;
-    animation: Animation 10s ease infinite;
+    animation: GradientShift 10s ease infinite;
   }
 
-  @-webkit-keyframes Animation {
-    0% {
-      background-position: 10% 0%;
-    }
-    50% {
-      background-position: 91% 100%;
-    }
-    100% {
-      background-position: 10% 0%;
-    }
+  @keyframes GradientShift {
+    0%   { background-position: 10% 0%; }
+    50%  { background-position: 91% 100%; }
+    100% { background-position: 10% 0%; }
   }
-  @-moz-keyframes Animation {
-    0% {
-      background-position: 10% 0%;
-    }
-    50% {
-      background-position: 91% 100%;
-    }
-    100% {
-      background-position: 10% 0%;
-    }
+
+  /* ── Glass surface ── */
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
   }
-  @keyframes Animation {
-    0% {
-      background-position: 10% 0%;
-    }
-    50% {
-      background-position: 91% 100%;
-    }
-    100% {
-      background-position: 10% 0%;
-    }
+
+  /* ── Gradient border (mask trick — works on any rounded element) ── */
+  .grad-border {
+    position: relative;
+  }
+  .grad-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(166, 132, 255, 0.4), rgba(81, 162, 255, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* ── Cards / hover lift ── */
+  .card-hover {
+    transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 250ms;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+  }
+
+  .spec-card {
+    transition: background 240ms cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .spec-card:hover {
+    /* transform: translateY(-6px); */
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(166, 132, 255, 0.12);
+  }
+
+  .nav-link {
+    transition: color 130ms;
+  }
+  .nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .footer-col-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 180ms, transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .footer-col-link::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    background: #a684ff;
+    transition: width 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+  }
+  .footer-col-link:hover {
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateX(6px);
+  }
+  .footer-col-link:hover::before {
+    width: 12px;
   }
 }
 
+/* ── Fluid utility classes (Tailwind v4 @utility) ───────────────────────── */
+
+/* Typography */
+@utility text-fluid-xs    { font-size: clamp(11px, 0.6250vw, 12px);  line-height: 1.4; }
+@utility text-fluid-sm    { font-size: clamp(12px, 0.8333vw, 16px);  line-height: 1.4; }
+@utility text-fluid-base  { font-size: clamp(14px, 1.0417vw, 20px);  line-height: 1.5; }
+@utility text-fluid-lg    { font-size: clamp(16px, 1.2500vw, 24px);  line-height: 1.4; }
+@utility text-fluid-xl    { font-size: clamp(18px, 1.6667vw, 32px);  line-height: 1.3; }
+@utility text-fluid-2xl   { font-size: clamp(20px, 1.9792vw, 38px);  line-height: 1.2; }
+@utility text-fluid-3xl   { font-size: clamp(24px, 2.5000vw, 48px);  line-height: 1.15; }
+@utility text-fluid-4xl   { font-size: clamp(28px, 3.3333vw, 64px);  line-height: 1.05; }
+@utility text-fluid-5xl   { font-size: clamp(32px, 4.1667vw, 80px);  line-height: 0.95; }
+@utility text-fluid-6xl   { font-size: clamp(40px, 5.0000vw, 96px);  line-height: 0.90; }
+@utility text-fluid-hero  { font-size: clamp(48px, 6.4583vw, 124px); line-height: 0.90; }
+
+/* Gap */
+@utility gap-fluid-xs   { gap: clamp(4px,  0.4167vw, 8px); }
+@utility gap-fluid-sm   { gap: clamp(8px,  1.2500vw, 24px); }
+@utility gap-fluid-md   { gap: clamp(16px, 2.0833vw, 40px); }
+@utility gap-fluid-lg   { gap: clamp(24px, 3.1250vw, 60px); }
+@utility gap-fluid-xl   { gap: clamp(32px, 4.1667vw, 80px); }
+@utility gap-fluid-2xl  { gap: clamp(48px, 6.2500vw, 120px); }
+@utility gap-fluid-3xl  { gap: clamp(64px, 8.3333vw, 160px); }
+
+/* Padding */
+@utility p-fluid-xs   { padding: clamp(4px,  0.4167vw, 8px); }
+@utility p-fluid-sm   { padding: clamp(8px,  1.2500vw, 24px); }
+@utility p-fluid-md   { padding: clamp(16px, 2.0833vw, 40px); }
+@utility p-fluid-lg   { padding: clamp(24px, 3.1250vw, 60px); }
+@utility p-fluid-xl   { padding: clamp(32px, 4.1667vw, 80px); }
+
+@utility px-fluid-sm  { padding-left: clamp(8px,  1.2500vw, 24px); padding-right: clamp(8px,  1.2500vw, 24px); }
+@utility px-fluid-md  { padding-left: clamp(16px, 2.0833vw, 40px); padding-right: clamp(16px, 2.0833vw, 40px); }
+@utility px-fluid-lg  { padding-left: clamp(24px, 3.1250vw, 60px); padding-right: clamp(24px, 3.1250vw, 60px); }
+
+@utility py-fluid-sm      { padding-top: clamp(8px,  1.2500vw, 24px);  padding-bottom: clamp(8px,  1.2500vw, 24px); }
+@utility py-fluid-md      { padding-top: clamp(16px, 2.0833vw, 40px);  padding-bottom: clamp(16px, 2.0833vw, 40px); }
+@utility py-fluid-lg      { padding-top: clamp(24px, 3.1250vw, 60px);  padding-bottom: clamp(24px, 3.1250vw, 60px); }
+@utility py-fluid-xl      { padding-top: clamp(48px, 5.2083vw, 100px); padding-bottom: clamp(48px, 5.2083vw, 100px); }
+@utility py-fluid-section { padding-top: clamp(64px, 10.4167vw, 200px); padding-bottom: clamp(64px, 10.4167vw, 200px); }
+
+/* Margin top */
+@utility mt-fluid-sm      { margin-top: clamp(8px,  1.2500vw, 24px); }
+@utility mt-fluid-md      { margin-top: clamp(16px, 2.0833vw, 40px); }
+@utility mt-fluid-lg      { margin-top: clamp(24px, 3.1250vw, 60px); }
+@utility mt-fluid-xl      { margin-top: clamp(32px, 4.1667vw, 80px); }
+@utility mt-fluid-2xl     { margin-top: clamp(48px, 6.2500vw, 120px); }
+@utility mt-fluid-section { margin-top: clamp(64px, 10.4167vw, 200px); }
+
+/* Border radius */
+@utility rounded-fluid-sm { border-radius: clamp(6px,  0.6250vw, 12px); }
+@utility rounded-fluid-md { border-radius: clamp(12px, 1.2500vw, 24px); }
+@utility rounded-fluid-lg { border-radius: clamp(16px, 1.6667vw, 32px); }
+@utility rounded-fluid-xl { border-radius: clamp(24px, 2.0833vw, 40px); }
+
+/* Square icon/button sizes */
+@utility size-fluid-xs { width: clamp(16px, 1.0417vw, 20px); height: clamp(16px, 1.0417vw, 20px); }
+@utility size-fluid-sm { width: clamp(20px, 1.6667vw, 32px); height: clamp(20px, 1.6667vw, 32px); }
+@utility size-fluid-md { width: clamp(32px, 2.5000vw, 48px); height: clamp(32px, 2.5000vw, 48px); }
+@utility size-fluid-lg { width: clamp(40px, 3.1250vw, 60px); height: clamp(40px, 3.1250vw, 60px); }
+
+/* Brand gradient text (Manrope + violet→blue) */
+@utility text-grad {
+  background: linear-gradient(90deg, #a684ff 0%, #51a2ff 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Section/block spacing helpers (use CSS variables) ─────────────────── */
 @layer utilities {
-  .m-section {
-    @apply mt-40;
-  }
+  .m-section        { margin-top:    var(--section-gap); }
+  .m-block          { margin-top:    var(--block-gap); }
+  .mb-content-title { margin-bottom: var(--content-title-gap); }
+  .mt-content-title { margin-top:    var(--content-title-gap); }
 
-  .m-block {
-    @apply mt-12;
-  }
+  .font-display   { font-family: "Manrope", sans-serif; }
+  .font-body      { font-family: "Outfit", sans-serif; }
+  .font-open-sans { font-family: "Open Sans", sans-serif; }
+  .font-condensed { font-family: "Open Sans Condensed", sans-serif; }
 
-  .font-open-sans {
-    font-family: "Open Sans", sans-serif;
-  }
+  .scrollbar-hidden::-webkit-scrollbar { display: none; }
 
-  .scrollbar-hidden::-webkit-scrollbar {
-    display: none;
-  }
+  .overflow-clip-m-4 { overflow-clip-margin: 16px; }
+}
 
-  .overflow-clip-m-4 {
-    overflow-clip-margin: 16px;
+/* ── Marquee animation (partners section) ───────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@utility animate-marquee              { animation: marquee         30s linear infinite; }
+@utility animate-marquee-reverse      { animation: marquee-reverse 30s linear infinite; }
+@utility animate-marquee-reverse-slow { animation: marquee-reverse 45s linear infinite; }
+
+/* ── Shimmer (gradient text flow) ───────────────────────────────────────── */
+@keyframes text-grad-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@utility text-grad-animated {
+  background: linear-gradient(90deg, #a684ff 0%, #51a2ff 50%, #a684ff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-grad-flow 6s ease-in-out infinite;
+}
+
+/* ── Glow pulse (badges, accents) ─────────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.06); }
+}
+@utility animate-glow-pulse { animation: glow-pulse 4s ease-in-out infinite; }
+
+/* ── Float (hero badges, hero floating cards) ─────────────────────────── */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@utility animate-float { animation: float-slow 6s ease-in-out infinite; }
+
+/* ── Spin slow (decorative rings) ─────────────────────────────────────── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@utility animate-spin-slow { animation: spin-slow 30s linear infinite; }
+
+/* ── Infinite marquee ──────────────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Gradient border flow (animated rim) ──────────────────────────────── */
+@keyframes grad-border-flow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.grad-border-animated {
+  position: relative;
+}
+.grad-border-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(166, 132, 255, 0.6), rgba(81, 162, 255, 0.6), rgba(166, 132, 255, 0.6));
+  background-size: 200% 100%;
+  animation: grad-border-flow 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Sheen (sweep highlight on hover) ─────────────────────────────────── */
+@keyframes sheen-sweep {
+  0%   { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(220%) skewX(-12deg); }
+}
+.sheen { position: relative; overflow: hidden; isolation: isolate; }
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.18) 50%, transparent 65%);
+  transform: translateX(-120%) skewX(-12deg);
+  pointer-events: none;
+}
+.sheen:hover::after {
+  animation: sheen-sweep 0.85s ease;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,0 +1,111 @@
+{
+  "common": {
+    "instituteName": "ННКІТІ",
+    "navAcademic": "Academic Mobility",
+    "navBusiness": "Business and Enterprise",
+    "heroEyebrow": "Partners",
+    "sectionEyebrow": "Propositions",
+    "sectionTitle": "Partner opportunities",
+    "sectionIntro": "Search by company, position, skill, direction, or format. Each proposition includes the skills needed and a link to the partner site.",
+    "results": "Results",
+    "search": "Search",
+    "searchPlaceholder": "Search company, job, skill, technology",
+    "direction": "Direction",
+    "type": "Type",
+    "all": "All",
+    "reset": "Reset",
+    "neededSkills": "Needed skills",
+    "deadline": "Deadline",
+    "moreInfo": "More info",
+    "noResultsTitle": "No propositions found",
+    "noResultsText": "Try changing the search phrase, direction, or type."
+  },
+  "pages": {
+    "academic": {
+      "title": "Academic",
+      "gradientTitle": "mobility",
+      "intro": "Exchange programs, international courses, research schools, and partner projects for students and staff.",
+      "propositions": [
+        {
+          "partner": "Gallaudet University",
+          "name": "Inclusive digital education exchange",
+          "description": "Short academic mobility program focused on accessibility, inclusive learning tools, and digital course design.",
+          "type": "Mobility",
+          "direction": "Education technologies",
+          "format": "Hybrid",
+          "skills": "English B1+|presentation skills|basic web tools|teamwork"
+        },
+        {
+          "partner": "Erasmus+ Partner Network",
+          "name": "Data analytics semester exchange",
+          "description": "Semester mobility for students interested in data analytics, applied mathematics, and software systems.",
+          "type": "Mobility",
+          "direction": "Data analytics",
+          "format": "On campus",
+          "skills": "Python|statistics|English B2|Git"
+        },
+        {
+          "partner": "Central European Research School",
+          "name": "Summer school: AI for public services",
+          "description": "Two-week international school with practical labs, mentor sessions, and a final team prototype.",
+          "type": "Training",
+          "direction": "Artificial intelligence",
+          "format": "On campus",
+          "skills": "Python|machine learning basics|English B1+|research writing"
+        },
+        {
+          "partner": "Open Science Community",
+          "name": "Research collaboration for open data tools",
+          "description": "Partner project for students and supervisors who want to build open data visualizations and reusable notebooks.",
+          "type": "Project",
+          "direction": "Open science",
+          "format": "Remote",
+          "skills": "data visualization|Jupyter|documentation|communication"
+        }
+      ]
+    },
+    "business": {
+      "title": "Business",
+      "gradientTitle": "partners",
+      "intro": "Job, internship, training, and project propositions from companies that cooperate with the institute.",
+      "propositions": [
+        {
+          "partner": "SoftServe",
+          "name": "Junior Frontend Developer internship",
+          "description": "Mentored internship for students who want to build production React interfaces and learn team delivery practices.",
+          "type": "Internship",
+          "direction": "Frontend",
+          "format": "Hybrid",
+          "skills": "HTML|CSS|JavaScript|React|Git"
+        },
+        {
+          "partner": "Genesis",
+          "name": "Product analytics trainee",
+          "description": "Training and project work for students interested in product metrics, dashboards, experiments, and business analysis.",
+          "type": "Training",
+          "direction": "Analytics",
+          "format": "Remote",
+          "skills": "SQL|Excel|statistics|critical thinking|English"
+        },
+        {
+          "partner": "EPAM",
+          "name": "Junior QA automation opportunity",
+          "description": "Entry-level proposition for students ready to work with test design, automation basics, and software quality processes.",
+          "type": "Junior job",
+          "direction": "Quality assurance",
+          "format": "Remote",
+          "skills": "testing basics|JavaScript or Java|Git|API basics"
+        },
+        {
+          "partner": "Ajax Systems",
+          "name": "Embedded systems student project",
+          "description": "Partner project for students interested in microcontrollers, networks, IoT devices, and hardware-aware programming.",
+          "type": "Project",
+          "direction": "Embedded",
+          "format": "On site",
+          "skills": "C/C++|electronics basics|Linux|networking"
+        }
+      ]
+    }
+  }
+}

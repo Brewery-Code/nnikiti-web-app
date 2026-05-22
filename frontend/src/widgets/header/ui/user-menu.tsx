@@ -1,4 +1,5 @@
 import { publicRqClient, rqClient } from "@/shared/api/instance";
+import { profilePlaceholder } from "@/shared/icons";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -51,7 +52,7 @@ export default function UserMenu() {
       onMouseLeave={() => setIsListOpen(false)}
     >
       <div className="flex h-full cursor-pointer items-center gap-2 px-2 py-1">
-        <img className="h-full w-full rounded-full object-cover" src={userData?.avatar} alt="" />
+        <img className="h-full w-full rounded-full object-cover" src={userData?.avatar || profilePlaceholder} alt="" />
         <span className="leading-6 font-bold text-ellipsis">{userData?.first_name}</span>
       </div>
       <div

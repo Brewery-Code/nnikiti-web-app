@@ -1,4 +1,3 @@
-import { useScrollDownAnimation } from "@/shared/hooks";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 
@@ -28,9 +27,7 @@ export default function StatisticBlock({
   const [current, setCurrent] = useState(start_value || null);
   const [{ value, before, after }, setParsed] = useState(() => parseTitle(title));
   const animationRef = useRef<number | null>(null);
-
   const blockRef = useRef<HTMLDivElement>(null);
-  // useScrollDownAnimation({ elementRef: blockRef });
 
   useEffect(() => {
     setParsed(parseTitle(title));
@@ -44,7 +41,7 @@ export default function StatisticBlock({
 
         const start = start_value ?? 0;
         const end = value;
-        const duration = 4000;
+        const duration = 3500;
         const startTime = Date.now();
 
         function step() {
@@ -71,23 +68,32 @@ export default function StatisticBlock({
     };
   }, []);
 
+  const isNumeric = start_value !== undefined;
+
   return (
     <div
+      ref={blockRef}
       className={clsx(
         className,
-        "flex cursor-pointer flex-col items-center justify-center rounded-xl p-4 text-center text-black transition-colors duration-400 hover:bg-white"
+        "group flex cursor-default flex-col items-center justify-center p-fluid-md text-center transition-colors duration-500",
+        "border border-[rgba(240,234,224,0.08)] hover:border-[rgba(212,175,122,0.35)]"
       )}
-      style={{
-        boxShadow: "0 0 10px 2px rgba(256, 256, 256, 0.7)",
-      }}
-      ref={blockRef}
     >
-      <div className="text-4xl leading-9 font-bold sm:leading-10 lg:text-5xl lg:leading-12 xl:text-6xl xl:leading-14">
-        {start_value !== null ? before + current + after : title}
+      <div
+        className={clsx(
+          "font-condensed leading-none",
+          isNumeric
+            ? "bg-gradient-to-br from-[#F4EFE5] via-[#E2C994] to-[#D4AF7A] bg-clip-text text-fluid-5xl font-light text-transparent"
+            : "text-fluid-xl font-light text-[#F4EFE5]"
+        )}
+      >
+        {isNumeric ? before + current + after : title}
       </div>
-      <p className="text-base leading-4 font-bold lg:text-xl lg:leading-6 xl:text-2xl">
-        {subtitle}
-      </p>
+      {subtitle && (
+        <p className="mt-fluid-sm text-fluid-xs font-light uppercase tracking-[0.25em] text-[#8A8273]">
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 }

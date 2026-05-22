@@ -2,8 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { DustEffect, NavButton } from "./ui";
-import { sectionParams, subpagesRoutes } from "../section-params";
-import { ROUTES } from "@/shared/model/routes";
+import { sectionParams } from "../section-params";
 const blink = keyframes`
   50% { border-color: transparent; }
 `;
@@ -93,7 +92,11 @@ export function HeroSection({ setSection }: HeroSectionProps) {
           </DepartmentDescription>
         </div>
         <NavigationBlock className="flex h-full items-center justify-center gap-12 opacity-0">
-          <NavButton className="basis-50" active={false}>
+          <NavButton
+            className="basis-50"
+            active={false}
+            setSection={() => setSection(sectionParams.contacts)}
+          >
             Contacts
           </NavButton>
           <NavButton
@@ -110,10 +113,18 @@ export function HeroSection({ setSection }: HeroSectionProps) {
           >
             Main
           </NavButton>
-          <NavButton className="basis-50" active={false} link="#">
+          <NavButton
+            className="basis-50"
+            active={false}
+            setSection={() => setSection(sectionParams.since)}
+          >
             Since
           </NavButton>
-          <NavButton className="basis-50" active={false} link={ROUTES.DEPARTMENT_TEAM}>
+          <NavButton
+            className="basis-50"
+            active={false}
+            setSection={() => setSection(sectionParams.team)}
+          >
             Team
           </NavButton>
         </NavigationBlock>

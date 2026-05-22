@@ -1,4 +1,21 @@
 {
   "contacts": "Contacts",
-  "rightsReserved": "© 2025 The National University of Water and Environmental Engineering. All rights reserved."
+  "navigation": "Navigation",
+  "quickContact": "Quick contact",
+  "brandName": "NNIKITI",
+  "universityName": "National University of Water and Environmental Engineering",
+  "logoAlt": "NNIKITI logo",
+  "linkHome": "Home",
+  "linkHistory": "History",
+  "linkAlumni": "Alumni",
+  "linkContacts": "Contacts",
+  "linkFaq": "FAQ",
+  "linkAskQuestion": "Ask a question",
+  "quickEmailLabel": "Email",
+  "quickPhoneLabel": "Phone",
+  "quickAddressLabel": "Address",
+  "askQuestion": "Ask a question",
+  "rightsReserved": "© 2025 The National University of Water and Environmental Engineering. All rights reserved.",
+  "footerMeta": "NNIKITI · NUWEE · Rivne",
+  "description": "Institute of Computer and Innovative Technologies and Economics is an IT education center in Rivne since 2004."
 }

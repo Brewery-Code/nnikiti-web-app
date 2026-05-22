@@ -1,13 +1,7 @@
-import { BlackAndWhiteButton, FormInputField, FormTitle } from "@/shared/ui";
 import { ModalWrapper } from "@/widgets";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
+import { FormProvider, useForm, useFormContext, type SubmitHandler } from "react-hook-form";
 import z from "zod";
-
-interface NewAlumniModalFormProps {
-  isFormOpen: boolean;
-  toggleForm: () => void;
-}
 
 const schema = z.object({
   name: z.string().min(1, { message: "Вкажіть ім'я" }),
@@ -15,65 +9,126 @@ const schema = z.object({
   graduatedYear: z
     .number()
     .int()
-    .min(1900, { message: "Рік занадто маленький" }) // або будь-який мінімум
-    .max(new Date().getFullYear(), { message: "Рік не може бути майбутнім" }),
+    .min(1900, { message: "Рік занадто маленький" })
+    .max(new Date().getFullYear(), { message: "Рік не може бути в майбутньому" }),
+  major: z.string().min(1, { message: "Вкажіть спеціальність" }),
   story: z.string().min(20, { message: "Розкажіть детальніше про себе (мін. 20 символів)" }),
 });
 
 type FormFields = z.infer<typeof schema>;
+
+const inputClass =
+  "w-full rounded-[12px] border border-white/10 bg-white/[0.04] px-4 py-3 text-[13px] text-white placeholder-white/30 outline-none transition focus:border-violet-500/50 focus:bg-white/[0.06]";
+
+function Field({
+  id,
+  label,
+  type = "text",
+  placeholder,
+}: {
+  id: keyof FormFields;
+  label: string;
+  type?: "text" | "number" | "textarea";
+  placeholder: string;
+}) {
+  const { register, formState: { errors } } = useFormContext<FormFields>();
+  const reg = type === "number"
+    ? register(id, { valueAsNumber: true })
+    : register(id);
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label
+        htmlFor={id}
+        className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/45"
+      >
+        {label}
+      </label>
+      {type === "textarea" ? (
+        <textarea
+          id={id}
+          placeholder={placeholder}
+          rows={5}
+          className={`${inputClass} resize-none leading-relaxed`}
+          {...register(id)}
+        />
+      ) : (
+        <input
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          className={inputClass}
+          {...reg}
+        />
+      )}
+      {errors[id] && (
+        <p className="text-[11px] text-red-400">{errors[id]?.message?.toString()}</p>
+      )}
+    </div>
+  );
+}
+
+interface NewAlumniModalFormProps {
+  isFormOpen: boolean;
+  toggleForm: () => void;
+}
 
 export function NewAlumniModalForm({ isFormOpen, toggleForm }: NewAlumniModalFormProps) {
   const methods = useForm<FormFields>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (_data) => {
     try {
       await new Promise((res) => setTimeout(res, 1000));
-      return;
+      toggleForm();
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <ModalWrapper isModalOpen={isFormOpen} toggleModal={toggleForm}>
-      <FormTitle className="text-center">Розкажіть про себе</FormTitle>
+    <ModalWrapper isModalOpen={isFormOpen} toggleModal={toggleForm} maxWidth="max-w-lg">
+      <div className="mb-6">
+        <div className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
+          — Випускники
+        </div>
+        <h2
+          className="font-display font-black text-white"
+          style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", letterSpacing: "-0.03em" }}
+        >
+          Розкажіть <span className="text-grad">про себе</span>
+        </h2>
+        <p className="mt-2 text-[13px] text-white/50">
+          Ваша історія надихне майбутніх студентів ННКІТІ.
+        </p>
+      </div>
+
+      <div className="h-px w-full bg-gradient-to-r from-violet-500/30 via-blue-500/20 to-transparent mb-6" />
+
       <FormProvider {...methods}>
-        <form className="mt-8 flex flex-col gap-4" onSubmit={methods.handleSubmit(onSubmit)}>
-          <div className="grid w-full grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-2">
-            <FormInputField type="text" placeHolder="Your name" id="name" label="Enter your name" />
-            <FormInputField
-              type="text"
-              placeHolder="Your surname"
-              id="surname"
-              label="Enter your surname"
-            />
-            <FormInputField
-              type="number"
-              placeHolder="Your year of graduating"
-              id="graduatedYear"
-              label="Enter your year of graduating"
-            />
-            <FormInputField
-              type="text"
-              placeHolder="Your surname"
-              id="surname"
-              label="Enter your major"
-            />
+        <form className="flex flex-col gap-4" onSubmit={methods.handleSubmit(onSubmit)}>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field id="name" label="Ім'я" placeholder="Іван" />
+            <Field id="surname" label="Прізвище" placeholder="Шевченко" />
+            <Field id="graduatedYear" label="Рік випуску" type="number" placeholder={String(new Date().getFullYear())} />
+            <Field id="major" label="Спеціальність" placeholder="121 — Інженерія ПЗ" />
           </div>
-          <FormInputField
-            type="textarea"
-            placeHolder="Your story"
+
+          <Field
             id="story"
-            label="Write your story"
+            label="Ваша історія"
+            type="textarea"
+            placeholder="Де працюєте зараз, як ННКІТІ допоміг вам у кар'єрі…"
           />
-          {/* <button disabled={methods.formState.isSubmitting} type="submit">
-            {methods.formState.isSubmitting ? "lo" : "Submit"}
-          </button> */}
-          <div className="mt-auto flex items-center justify-center">
-            <BlackAndWhiteButton className="w-48">Submit</BlackAndWhiteButton>
-          </div>
+
+          <button
+            type="submit"
+            disabled={methods.formState.isSubmitting}
+            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 py-3.5 text-[14px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all hover:scale-[1.01] hover:shadow-[0_8px_32px_rgba(166,132,255,0.5)] disabled:opacity-60"
+          >
+            {methods.formState.isSubmitting ? "Надсилання…" : "Надіслати"}
+          </button>
         </form>
       </FormProvider>
     </ModalWrapper>

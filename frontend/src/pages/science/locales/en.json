@@ -1,0 +1,209 @@
+{
+  "common": {
+    "navPublications": "Publications",
+    "navResearch": "Research",
+    "navConferences": "Conferences",
+    "navGrants": "Grants",
+    "heroEyebrow": "Science",
+    "activities": "Activities",
+    "results": "Results",
+    "search": "Search",
+    "searchPlaceholder": "Search by title, theme, author, keyword",
+    "date": "Date",
+    "theme": "Theme",
+    "status": "Status",
+    "all": "All",
+    "reset": "Reset",
+    "location": "Location",
+    "organizer": "Organizer",
+    "noResultsTitle": "No activities found",
+    "noResultsText": "Try changing the date, theme, status, or search phrase.",
+    "statuses": {
+      "open": "Open",
+      "upcoming": "Upcoming",
+      "completed": "Completed"
+    }
+  },
+  "pages": {
+    "publications": {
+      "title": "Scientific",
+      "gradientTitle": "publications",
+      "intro": "A searchable archive of institute publication activity: journal papers, student works, monographs, and conference proceedings.",
+      "activitiesTitle": "Publication activity",
+      "activitiesIntro": "Choose a date, theme, status, or search by author, department, title, or keyword.",
+      "activities": [
+        {
+          "title": "Indexed article collection for applied computer science",
+          "description": "Annual collection of articles prepared by institute research groups for indexed professional journals.",
+          "author": "Zakharenko Iryna Vasylivna",
+          "theme": "Indexed journals",
+          "location": "Department publication archive",
+          "organizer": "Research office",
+          "tags": "Scopus|software engineering|faculty"
+        },
+        {
+          "title": "Student thesis publication set",
+          "description": "Selected bachelor and master thesis results prepared as short papers with academic supervisors.",
+          "author": "Melnychenko Taras Olehovych",
+          "theme": "Student science",
+          "location": "Institute repository",
+          "organizer": "Academic departments",
+          "tags": "students|thesis|supervisors"
+        },
+        {
+          "title": "Conference proceedings: digital transformation",
+          "description": "Proceedings connected with digital tools, analytics, cybersecurity, and mathematical modelling.",
+          "author": "Bondarenko Olena Mykolaivna",
+          "theme": "Proceedings",
+          "location": "Online archive",
+          "organizer": "Conference committee",
+          "tags": "conference|analytics|cybersecurity"
+        },
+        {
+          "title": "Monograph preparation workshop",
+          "description": "Methodical session for researchers preparing collective monographs and chapter submissions.",
+          "author": "Kovalenko Vasyl Andriiovych",
+          "theme": "Monographs",
+          "location": "Room 217",
+          "organizer": "Scientific council",
+          "tags": "monograph|methods|editing"
+        }
+      ]
+    },
+    "research": {
+      "title": "Research",
+      "gradientTitle": "activities",
+      "intro": "Browse current research groups, seminars, prototype sessions, and applied projects across institute departments.",
+      "activitiesTitle": "Research activity",
+      "activitiesIntro": "Filter research activity by date, theme, status, or search for a technology and project topic.",
+      "activities": [
+        {
+          "title": "Machine learning models for regional water systems",
+          "description": "Applied research group meeting focused on predictive models and open environmental datasets.",
+          "author": "Demianenko Serhii Petrovych",
+          "theme": "Artificial intelligence",
+          "location": "AI laboratory",
+          "organizer": "Computer science group",
+          "tags": "machine learning|data|water systems"
+        },
+        {
+          "title": "Optimization methods in engineering calculations",
+          "description": "Research seminar on numerical methods, simulation quality, and reproducible calculation pipelines.",
+          "author": "Sydorenko Nataliia Oleksiivna",
+          "theme": "Mathematical modelling",
+          "location": "Room 304",
+          "organizer": "Higher mathematics department",
+          "tags": "optimization|simulation|mathematics"
+        },
+        {
+          "title": "Secure network infrastructure prototype review",
+          "description": "Technical review of student and faculty prototypes for resilient campus and business networks.",
+          "author": "Hrytsenko Andrii Vasylovych",
+          "theme": "Cybersecurity",
+          "location": "Network laboratory",
+          "organizer": "Computing engineering department",
+          "tags": "security|networks|prototype"
+        },
+        {
+          "title": "Data analytics for economic cybernetics",
+          "description": "Working session on dashboards, forecasting, and decision support systems for economic processes.",
+          "author": "Shevchenko Liudmyla Ivanivna",
+          "theme": "Data analytics",
+          "location": "Analytics classroom",
+          "organizer": "Economic cybernetics group",
+          "tags": "analytics|forecasting|dashboards"
+        }
+      ]
+    },
+    "conferences": {
+      "title": "Scientific",
+      "gradientTitle": "conferences",
+      "intro": "A practical list of conferences, seminars, calls for papers, and workshops with quick filters for participants.",
+      "activitiesTitle": "Conference activity",
+      "activitiesIntro": "Search events, select a date, or filter by theme to find the right scientific meeting.",
+      "activities": [
+        {
+          "title": "Digital technologies in education and research",
+          "description": "Institute scientific and practical conference with student reports and partner presentations.",
+          "author": "Levchenko Mykhailo Serhiiovych",
+          "theme": "Institute conference",
+          "location": "Main conference hall",
+          "organizer": "NNIKITI",
+          "tags": "education|research|presentations"
+        },
+        {
+          "title": "Cybersecurity workshop for young researchers",
+          "description": "Workshop with practical demonstrations, poster session, and feedback from invited experts.",
+          "author": "Romanenko Yuliia Dmytrivna",
+          "theme": "Workshop",
+          "location": "Hybrid",
+          "organizer": "Cybersecurity lab",
+          "tags": "workshop|security|poster"
+        },
+        {
+          "title": "Applied mathematics student seminar",
+          "description": "Short student reports on modelling, probability, numerical methods, and optimization.",
+          "author": "Tkachenko Dmytro Viktorovych",
+          "theme": "Seminar",
+          "location": "Room 112",
+          "organizer": "Higher mathematics department",
+          "tags": "seminar|students|mathematics"
+        },
+        {
+          "title": "Call for papers: software systems and AI",
+          "description": "Open submission window for articles and abstracts connected with intelligent software systems.",
+          "author": "Ponomarenko Svitlana Anatoliivna",
+          "theme": "Call for papers",
+          "location": "Online submission",
+          "organizer": "Program committee",
+          "tags": "call|AI|software"
+        }
+      ]
+    },
+    "grants": {
+      "title": "Grant",
+      "gradientTitle": "opportunities",
+      "intro": "A list of grant calls, project preparation sessions, mobility opportunities, and funded project updates.",
+      "activitiesTitle": "Grant activity",
+      "activitiesIntro": "Use filters to find calls by date, theme, status, partner type, or program keyword.",
+      "activities": [
+        {
+          "title": "Erasmus+ mobility call for students and staff",
+          "description": "Application window for academic mobility with partner universities and short-term training.",
+          "author": "Karpenko Oksana Pavlivna",
+          "theme": "Mobility",
+          "location": "International office",
+          "organizer": "International relations team",
+          "tags": "Erasmus+|mobility|partners"
+        },
+        {
+          "title": "Research proposal clinic",
+          "description": "Consultation session for teams preparing project concepts, budgets, and partner packages.",
+          "author": "Marchenko Artem Oleksiiovych",
+          "theme": "Proposal support",
+          "location": "Room 205",
+          "organizer": "Grant support group",
+          "tags": "proposal|budget|partners"
+        },
+        {
+          "title": "Laboratory modernization project report",
+          "description": "Presentation of completed equipment updates and expected learning outcomes for students.",
+          "author": "Lytvynenko Viktoriia Serhiivna",
+          "theme": "Funded projects",
+          "location": "Institute laboratory",
+          "organizer": "Project team",
+          "tags": "laboratory|equipment|report"
+        },
+        {
+          "title": "Horizon Europe digital innovation scouting",
+          "description": "Review of relevant European research calls for AI, cybersecurity, and data infrastructure.",
+          "author": "Tymoshenko Roman Ivanovych",
+          "theme": "International calls",
+          "location": "Online",
+          "organizer": "Scientific council",
+          "tags": "Horizon Europe|AI|innovation"
+        }
+      ]
+    }
+  }
+}

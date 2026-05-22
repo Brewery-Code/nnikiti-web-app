@@ -1,20 +1,11 @@
 import { HttpResponse } from "msw";
 import { http } from "../http";
-import { ApiShemas } from "../../schema";
+import type { ApiSchemas } from "../../schema";
 
-const boards: ApiShemas["Board"][] = [
-  {
-    id: "board-1",
-    name: "Marketing Campaign",
-  },
-  {
-    id: "board-2",
-    name: "Product Roadmap",
-  },
-];
+const departments: ApiSchemas["Departments"][] = [];
 
 export const handlers = [
-  http.get("/boards", () => {
-    return HttpResponse.json(boards);
+  http.get("/departments/", () => {
+    return HttpResponse.json(departments);
   }),
 ];

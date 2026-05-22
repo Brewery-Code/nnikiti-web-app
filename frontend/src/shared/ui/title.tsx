@@ -13,8 +13,8 @@ export function Title({ className, children, color, animated }: TitleProps) {
   return (
     <motion.h2
       className={clsx(
-        "font-open-sans mb-8 text-4xl font-bold uppercase",
-        color ? color : "text-white",
+        "font-open-sans mb-[var(--title-gap)] text-fluid-4xl font-bold uppercase",
+        color ?? "text-white",
         className
       )}
       {...(!animated ? fadeInAnimation : {})}
