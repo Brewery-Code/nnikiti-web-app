@@ -54,6 +54,7 @@ class FacultyMemberSerializer(serializers.ModelSerializer):
         model = FacultyMember
         fields = ["id", "name", "role", "specialty", "image", "email", "audience"]
 
+
     def _lang(self, obj, field):
         request = self.context.get('request')
         lang = request.LANGUAGE_CODE if request else 'uk'
@@ -79,11 +80,17 @@ class DepartmentHistorySerializer(serializers.ModelSerializer):
         model = DepartmentHistory
         fields = ["id", "year", "text"]
 
+    def _lang(self, obj, field):
+        request = self.context.get('request')
+        lang = request.LANGUAGE_CODE if request else 'uk'
+        en_val = getattr(obj, f"{field}_en", '')
+        return en_val if lang == 'en' and en_val else getattr(obj, f"{field}_uk", '')
+
     def get_year(self, obj):
-        return obj.safe_translation_getter("year", any_language=True)
+        return obj.year
 
     def get_text(self, obj):
-        return obj.safe_translation_getter("text", any_language=True)
+        return self._lang(obj, 'text')
 
 
 class ProgramSubjectSerializer(serializers.ModelSerializer):
@@ -168,7 +175,7 @@ class DepartmentDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
         fields = [
-            'id', 'name', 'description', 'address', 'email',
+            'id', 'name', 'description', 'address', 'email', 'image', 'history_image', 'room',
             'head_of_department',
             'educational_program',
             'team',

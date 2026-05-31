@@ -1,21 +1,5 @@
 [
 {
-  "model": "sessions.session",
-  "pk": "4l2s7niiy10fa66pkas9idfh1thpb38w",
-  "fields": {
-    "session_data": ".eJxVjDsOwjAQBe_iGlnrbyxKes5grb1eHECOFCdVxN1JpBTQzsx7m4i4LjWuvcxxJHEVWlx-WcL8Ku0Q9MT2mGSe2jKPSR6JPG2X94nK-3a2fwcVe93XAxc_oCvO2JCzsp61JgiE1hKboMzOHbCyiRhTguLAcQIwXrEGp8TnC-HQN4g:1wTa6T:toLDgxqPMNd9jNmpVXWTEgaJyRGSxEOoj4CvrUxkAGE",
-    "expire_date": "2026-06-14T06:56:57.267Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "hbr3fbv9o64m7wwgx15l62k5dr61um66",
-  "fields": {
-    "session_data": ".eJxVjDsOwjAQBe_iGlnrbyxKes5grb1eHECOFCdVxN1JpBTQzsx7m4i4LjWuvcxxJHEVWlx-WcL8Ku0Q9MT2mGSe2jKPSR6JPG2X94nK-3a2fwcVe93XAxc_oCvO2JCzsp61JgiE1hKboMzOHbCyiRhTguLAcQIwXrEGp8TnC-HQN4g:1wQQWx:CqQNyTkBwyf8-sjq6RpS-DM05mZ5jfYgTFUn75gDkgo",
-    "expire_date": "2026-06-05T14:07:15.807Z"
-  }
-},
-{
   "model": "users.user",
   "fields": {
     "password": "pbkdf2_sha256$1200000$w3MyXuvshGivF5qQauWblB$sBIktohQMGIDiRQpfBr8X16tipNcrYIX9ZdWDQ/xhmE=",
@@ -27,6 +11,7 @@
     "is_staff": true,
     "is_active": true,
     "is_superuser": true,
+    "department": null,
     "date_joined": "2025-08-17T07:34:26.611Z",
     "last_login": "2026-05-31T06:56:57.264Z",
     "updated_at": "2025-08-17T07:34:26.612Z",
@@ -263,6 +248,162 @@
   "fields": {
     "start_value": 200,
     "order": 7
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "name": "SoftServe",
+    "master": 1
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "name": "SoftServe",
+    "master": 1
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "ETH Zurich",
+    "master": 2
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "ETH Zurich",
+    "master": 2
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Варшавський університет природничих наук",
+    "master": 3
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Warsaw University of Life Sciences",
+    "master": 3
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "name": "Університет Ньюкасла",
+    "master": 4
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "name": "Newcastle University",
+    "master": 4
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "name": "Люблінська політехніка",
+    "master": 5
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "name": "Lublin University of Technology",
+    "master": 5
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "name": "Університет Weihenstephan-Triesdorf",
+    "master": 6
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "name": "Weihenstephan-Triesdorf University",
+    "master": 6
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 1,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.softserveinc.com"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 2,
+  "fields": {
+    "image": "",
+    "site_link": "https://ethz.ch"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 3,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.sggw.edu.pl"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 4,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.ncl.ac.uk"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 5,
+  "fields": {
+    "image": "",
+    "site_link": "https://pollub.pl"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 6,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.hswt.de"
   }
 },
 {
@@ -1557,8 +1698,7 @@
     "specialty_en": "",
     "image": "faculty/цецик.jpg",
     "email": "s.p.tsetsyk@nuwm.edu.ua",
-    "audience": "134",
-    "order": 1
+    "audience": "134"
   }
 },
 {
@@ -1574,8 +1714,7 @@
     "specialty_en": "",
     "image": "faculty/валя_кушнір.jpg",
     "email": "v.p.kushnir@nuwm.edu.ua",
-    "audience": "134",
-    "order": 2
+    "audience": "134"
   }
 },
 {
@@ -1591,8 +1730,7 @@
     "specialty_en": "",
     "image": "faculty/чухрай.png",
     "email": "z.b.chukhrai@nuwm.edu.ua",
-    "audience": "134",
-    "order": 3
+    "audience": "134"
   }
 },
 {
@@ -1608,8 +1746,7 @@
     "specialty_en": "",
     "image": "faculty/денека.jpg",
     "email": "o.yu.dejneka@nuwm.edu.ua",
-    "audience": "134",
-    "order": 4
+    "audience": "134"
   }
 },
 {
@@ -1625,8 +1762,7 @@
     "specialty_en": "",
     "image": "faculty/іващук.jpg",
     "email": "ya.h.ivashchuk@nuwm.edu.ua",
-    "audience": "134",
-    "order": 5
+    "audience": "134"
   }
 },
 {
@@ -1642,108 +1778,7 @@
     "specialty_en": "",
     "image": "faculty/самолюк.jpg",
     "email": "i.v.samolyuk@nuwm.edu.ua",
-    "audience": "134",
-    "order": 6
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 1,
-  "fields": {
-    "language_code": "uk",
-    "year": "1959",
-    "text": "Кафедра вищої математики створена у Рівному. До складу входило 4 викладачі.",
-    "master": 1
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 2,
-  "fields": {
-    "language_code": "en",
-    "year": "1959",
-    "text": "The Department of Higher Mathematics was founded in Rivne. It initially consisted of 4 faculty members.",
-    "master": 1
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 3,
-  "fields": {
-    "language_code": "uk",
-    "year": "1970-ті",
-    "text": "Розширення кафедри — колектив зріс до 12 викладачів, відкрито нові навчальні лабораторії.",
-    "master": 2
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 4,
-  "fields": {
-    "language_code": "en",
-    "year": "1970s",
-    "text": "Department expansion — the faculty grew to 12 members, new teaching laboratories were opened.",
-    "master": 2
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 5,
-  "fields": {
-    "language_code": "uk",
-    "year": "1990-ті",
-    "text": "Реорганізація навчальних програм відповідно до нових стандартів вищої освіти України.",
-    "master": 3
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 6,
-  "fields": {
-    "language_code": "en",
-    "year": "1990s",
-    "text": "Reorganization of curricula in accordance with new Ukrainian higher education standards.",
-    "master": 3
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 7,
-  "fields": {
-    "language_code": "uk",
-    "year": "2004",
-    "text": "Кафедра увійшла до складу Навчально-наукового інституту комп'ютерних та інноваційних технологій.",
-    "master": 4
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 8,
-  "fields": {
-    "language_code": "en",
-    "year": "2004",
-    "text": "The department became part of the Educational and Scientific Institute of Computer and Innovative Technologies.",
-    "master": 4
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 9,
-  "fields": {
-    "language_code": "uk",
-    "year": "Сьогодні",
-    "text": "Кафедра налічує 27 викладачів і забезпечує математичну підготовку студентів усіх спеціальностей інституту.",
-    "master": 5
-  }
-},
-{
-  "model": "departments.departmenthistorytranslation",
-  "pk": 10,
-  "fields": {
-    "language_code": "en",
-    "year": "Today",
-    "text": "The department has 27 faculty members and provides mathematical training for students of all institute specialties.",
-    "master": 5
+    "audience": "134"
   }
 },
 {
@@ -1751,6 +1786,9 @@
   "pk": 1,
   "fields": {
     "department": 1,
+    "year": "1959–1972",
+    "text_uk": "Становлення кафедри. Першим завідувачем був Подшевкін Ю. В., канд. фіз.-мат. наук, доцент.",
+    "text_en": "Formation of the department. First head: Podshevkin Yu. V., Cand. Sci., associate professor.",
     "order": 1
   }
 },
@@ -1759,6 +1797,9 @@
   "pk": 2,
   "fields": {
     "department": 1,
+    "year": "1972–1984",
+    "text_uk": "Розвиток кафедри. Кількість кандидатів наук зросла з трьох до чотирнадцяти. Кафедра активно виконує наукову роботу на замовлення підприємств. Очолював канд. техн. наук, доц. Антонюк Р. А.",
+    "text_en": "Development of the department. Number of PhD holders grew from 3 to 14. Headed by Assoc. Prof. Antonyuk R. A.",
     "order": 2
   }
 },
@@ -1767,6 +1808,9 @@
   "pk": 3,
   "fields": {
     "department": 1,
+    "year": "1984–2012",
+    "text_uk": "Активне зростання кафедри в науковому та науково-методичному напрямах. Очолювали: Слюсарчук В. Ю. (член-кореспондент НАН України, д-р фіз.-мат. наук) та Ярмуш Я. І. (канд. фіз.-мат. наук, доц.)",
+    "text_en": "Active growth in scientific directions. Headed by Slyusarchuk V. Yu. (Corresponding member of NAS of Ukraine) and Yarmush Ya. I.",
     "order": 3
   }
 },
@@ -1775,6 +1819,9 @@
   "pk": 4,
   "fields": {
     "department": 1,
+    "year": "2012–2025",
+    "text_uk": "Кафедра досягає визначних наукових здобутків, активно веде роботу з обдарованою молоддю. Започатковано ОП «Комп'ютерне та математичне моделювання». Очолює канд. фіз.-мат. наук, д-р пед. наук, проф. Тадеєв П. О.",
+    "text_en": "Department achieves significant scientific results. Launched program 'Computer and Mathematical Modelling'. Headed by Prof. Tadeyev P. O.",
     "order": 4
   }
 },
@@ -1783,7 +1830,208 @@
   "pk": 5,
   "fields": {
     "department": 1,
+    "year": "2025–2026",
+    "text_uk": "Ініційовано започаткування нової ОП «Комп'ютерне та математичне моделювання» спеціальності «Прикладна математика».",
+    "text_en": "Initiated launch of new program 'Computer and Mathematical Modelling' in Applied Mathematics specialty.",
     "order": 5
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 6,
+  "fields": {
+    "department": 2,
+    "year": "1997",
+    "text_uk": "Створення кафедри «Інформаційних систем та математичного моделювання». Очолив д-р техн. наук, проф. Власюк Анатолій Павлович.",
+    "text_en": "Establishment of the department. Headed by Dr. Vlasyuk Anatoliy Pavlovych.",
+    "order": 0
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 7,
+  "fields": {
+    "department": 2,
+    "year": "1999",
+    "text_uk": "Ліцензовано спеціальність «Прикладна математика». Кафедру перейменовано на кафедру прикладної математики.",
+    "text_en": "Licensed specialty Applied Mathematics. Department renamed to Applied Mathematics.",
+    "order": 1
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "year": "2013",
+    "text_uk": "Започатковано спеціальність «Інформатика». Кафедру очолив канд. фіз.-мат. наук, доц. Турбал Юрій Васильович.",
+    "text_en": "Launched Computer Science specialty. Headed by Assoc. Prof. Turbal Yuriy Vasyliovych.",
+    "order": 2
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "year": "2017",
+    "text_uk": "Започатковано ОП «Інтернет речей» та ОП доктора філософії зі спеціальності «Комп'ютерні науки». Завідувачем обрано д-ра техн. наук, доц. Мартинюка Петра Миколайовича.",
+    "text_en": "Launched Internet of Things and PhD in Computer Science programs. Headed by Dr. Martynyuk Petro Mykolayovych.",
+    "order": 3
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 10,
+  "fields": {
+    "department": 2,
+    "year": "2019",
+    "text_uk": "Кафедру перейменовано на кафедру комп'ютерних наук та прикладної математики.",
+    "text_en": "Department renamed to Computer Science and Applied Mathematics.",
+    "order": 4
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 11,
+  "fields": {
+    "department": 2,
+    "year": "2020",
+    "text_uk": "Кафедру знову очолив д-р техн. наук, проф. Турбал Юрій Васильович. Утворено декілька лабораторій.",
+    "text_en": "Headed again by Prof. Turbal Yuriy Vasyliovych. Several labs established.",
+    "order": 5
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 12,
+  "fields": {
+    "department": 2,
+    "year": "2025",
+    "text_uk": "Започатковано ОП «Інженерія даних» в межах спеціальності «Системний аналіз та наука про дані».",
+    "text_en": "Launched Data Engineering program within Systems Analysis and Data Science specialty.",
+    "order": 6
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 13,
+  "fields": {
+    "department": 3,
+    "year": "2013",
+    "text_uk": "Створена кафедра економічної кібернетики. Очолив проф. Грицюк Петро Михайлович.",
+    "text_en": "Department of Economic Cybernetics established. Headed by Prof. Hrytsiuk Petro Mykhaylovych.",
+    "order": 0
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 14,
+  "fields": {
+    "department": 3,
+    "year": "2016",
+    "text_uk": "Створення кафедри комп'ютерних наук. Очолив проф. Тулашвілі Юрій Йосипович. Започатковано ОП «Інформаційні системи і технології».",
+    "text_en": "Department of Computer Science established. Headed by Prof. Tulashvili Yuriy. Launched Information Systems and Technologies program.",
+    "order": 1
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 15,
+  "fields": {
+    "department": 3,
+    "year": "2017",
+    "text_uk": "На кафедрі економічної кібернетики започатковано магістерську ОП «Інформаційні технології в бізнесі».",
+    "text_en": "Master's program Information Technologies in Business launched.",
+    "order": 2
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 16,
+  "fields": {
+    "department": 3,
+    "year": "2019",
+    "text_uk": "Створено кафедру комп'ютерних технологій та економічної кібернетики. Очолив проф. Грицюк Петро Михайлович.",
+    "text_en": "Department of Computer Technologies and Economic Cybernetics formed by merging two departments. Headed by Prof. Hrytsiuk.",
+    "order": 3
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 17,
+  "fields": {
+    "department": 4,
+    "year": "1966",
+    "text_uk": "Створення кафедри обчислювальної математики внаслідок поділу кафедри вищої математики.",
+    "text_en": "Department of Computational Mathematics established by splitting from Higher Mathematics.",
+    "order": 0
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 18,
+  "fields": {
+    "department": 4,
+    "year": "1980",
+    "text_uk": "Відокремлення інформаційно-обчислювального центру від кафедри, який почав функціонувати автономно.",
+    "text_en": "The computing center separated from the department and began operating autonomously.",
+    "order": 1
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 19,
+  "fields": {
+    "department": 4,
+    "year": "1997",
+    "text_uk": "Поділ кафедри обчислювальної математики й утворення кафедри інформаційних систем та математичного моделювання (нині КНПМ).",
+    "text_en": "Department split, forming the Department of Information Systems and Mathematical Modelling (now KNPM).",
+    "order": 2
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 20,
+  "fields": {
+    "department": 4,
+    "year": "2013",
+    "text_uk": "Ліцензування спеціальності «Комп'ютерна інженерія». Кафедру перейменовано на кафедру обчислювальної техніки. Завідувачем призначено доц. Круліковського Бориса Борисовича.",
+    "text_en": "Licensed Computer Engineering specialty. Renamed to Department of Computer Engineering. Headed by Assoc. Prof. Krulikovsky Borys Borysovych.",
+    "order": 3
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 21,
+  "fields": {
+    "department": 4,
+    "year": "2023",
+    "text_uk": "Започатковано нову ОП «Інформаційна безпека» в межах спеціальності «Кібербезпека та захист інформації».",
+    "text_en": "Launched Information Security program within Cybersecurity and Information Protection specialty.",
+    "order": 4
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 22,
+  "fields": {
+    "department": 4,
+    "year": "2024",
+    "text_uk": "Успішна акредитація ОП бакалаврського та магістерського рівня спеціальності «Комп'ютерна інженерія». В. о. завідувача: доц. Сидор Андрій Іванович.",
+    "text_en": "Successful accreditation of Bachelor's and Master's programs in Computer Engineering. Acting Head: Assoc. Prof. Sydor Andriy Ivanovych.",
+    "order": 5
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 23,
+  "fields": {
+    "department": 4,
+    "year": "2025",
+    "text_uk": "Завідувачем кафедри обрано канд. техн. наук, доц. Сидора Андрія Івановича.",
+    "text_en": "Assoc. Prof. Sydor Andriy Ivanovych elected as Head of Department.",
+    "order": 6
   }
 },
 {
@@ -1809,12 +2057,109 @@
   }
 },
 {
+  "model": "departments.departmenttranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерних наук та прикладної математики",
+    "description": "Кафедра комп'ютерних наук та прикладної математики (КНПМ) — провідна кафедра інституту, що готує фахівців у галузі прикладної математики, інженерії програмного забезпечення, комп'ютерних наук та інженерії даних. На кафедрі діє SoftServe Lab та спеціалізовані лабораторії з IoT, інженерії програмного забезпечення та прогнозної аналітики.",
+    "address": "м. Рівне, вул. Соборна, 11, корп. 1",
+    "master": 2
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science and Applied Mathematics",
+    "description": "The Department of Computer Science and Applied Mathematics (KNPM) is the leading department of the institute, training specialists in applied mathematics, software engineering, computer science and data engineering. The department hosts SoftServe Lab and specialized labs in IoT, software engineering and predictive analytics.",
+    "address": "11 Soborna St., Rivne, Building 1",
+    "master": 2
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерних технологій та економічної кібернетики",
+    "description": "Кафедра комп'ютерних технологій та економічної кібернетики (КТЕК) готує фахівців у галузі інформаційних систем і технологій, прикладної інформатики та цифрових технологій дистанційної освіти.",
+    "address": "м. Рівне, вул. Соборна, 11",
+    "master": 3
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Technologies and Economic Cybernetics",
+    "description": "The Department of Computer Technologies and Economic Cybernetics (KTEK) trains specialists in information systems and technologies, applied informatics and digital technologies for distance education.",
+    "address": "11 Soborna St., Rivne",
+    "master": 3
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "name": "Обчислювальної техніки",
+    "description": "Кафедра обчислювальної техніки (КОТ) — одна з найстаріших кафедр інституту, заснована у 1966 році. Готує фахівців зі спеціальностей «Комп'ютерна інженерія» та «Кібербезпека та захист інформації».",
+    "address": "м. Рівне, вул. Соборна, 11",
+    "master": 4
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Engineering",
+    "description": "The Department of Computer Engineering (KOT) is one of the oldest departments, founded in 1966. It trains specialists in Computer Engineering and Cybersecurity.",
+    "address": "11 Soborna St., Rivne",
+    "master": 4
+  }
+},
+{
   "model": "departments.department",
   "pk": 1,
   "fields": {
     "email": "kaf-vm@nuwm.edu.ua",
     "image": "departments/main_кафедра.jpg",
+    "history_image": "departments/history/фото_на_секцію_історія_кафедри.jpg",
     "room": "134"
+  }
+},
+{
+  "model": "departments.department",
+  "pk": 2,
+  "fields": {
+    "email": "knpm@nuwm.edu.ua",
+    "image": "",
+    "history_image": "",
+    "room": "356"
+  }
+},
+{
+  "model": "departments.department",
+  "pk": 3,
+  "fields": {
+    "email": "ktek@nuwm.edu.ua",
+    "image": "",
+    "history_image": "",
+    "room": ""
+  }
+},
+{
+  "model": "departments.department",
+  "pk": 4,
+  "fields": {
+    "email": "kot@nuwm.edu.ua",
+    "image": "",
+    "history_image": "",
+    "room": ""
   }
 },
 {
@@ -1862,6 +2207,516 @@
   }
 },
 {
+  "model": "departments.educationalprogramtranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "Прикладна математика",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 2
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "Applied Mathematics",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 2
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерне та математичне моделювання",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 3
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer and Mathematical Modelling",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 3
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інженерія програмного забезпечення",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 4
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "name": "Software Engineering",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 4
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інженерія програмного забезпечення (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 5
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "name": "Software Engineering (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 5
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інтернет речей",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 6
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "name": "Internet of Things",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 6
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерні науки",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 7
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 7
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 15,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерні науки (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 8
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 16,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 8
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 17,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерні науки (PhD)",
+    "description": "",
+    "degree": "Доктор філософії",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 9
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 18,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science (PhD)",
+    "description": "",
+    "degree": "Doctor of Philosophy",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 9
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 19,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інженерія даних",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 10
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 20,
+  "fields": {
+    "language_code": "en",
+    "name": "Data Engineering",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 10
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 21,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інформаційні системи і технології",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 11
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 22,
+  "fields": {
+    "language_code": "en",
+    "name": "Information Systems and Technologies",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 11
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 23,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інформаційні технології в бізнесі",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 12
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 24,
+  "fields": {
+    "language_code": "en",
+    "name": "Information Technologies in Business",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 12
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 25,
+  "fields": {
+    "language_code": "uk",
+    "name": "Цифрові технології дистанційної освіти",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 13
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 26,
+  "fields": {
+    "language_code": "en",
+    "name": "Digital Technologies for Distance Education",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 13
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 27,
+  "fields": {
+    "language_code": "uk",
+    "name": "Цифрові технології дистанційної освіти (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 14
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 28,
+  "fields": {
+    "language_code": "en",
+    "name": "Digital Technologies for Distance Education (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 14
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 29,
+  "fields": {
+    "language_code": "uk",
+    "name": "Прикладна інформатика",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 15
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 30,
+  "fields": {
+    "language_code": "en",
+    "name": "Applied Informatics",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 15
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 31,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерна інженерія",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 16
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 32,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Engineering",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 16
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 33,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерна інженерія (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 17
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 34,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Engineering (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 17
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 35,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інформаційна безпека",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 18
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 36,
+  "fields": {
+    "language_code": "en",
+    "name": "Information Security",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 18
+  }
+},
+{
   "model": "departments.educationalprogram",
   "pk": 1,
   "fields": {
@@ -1871,6 +2726,210 @@
     "total_credits": 240,
     "budget_seats": 20,
     "contract_seats": 15
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 2,
+  "fields": {
+    "department": 2,
+    "code": "F1",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 3,
+  "fields": {
+    "department": 2,
+    "code": "F1",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 4,
+  "fields": {
+    "department": 2,
+    "code": "F2",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 5,
+  "fields": {
+    "department": 2,
+    "code": "F2",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 6,
+  "fields": {
+    "department": 2,
+    "code": "F2",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 7,
+  "fields": {
+    "department": 2,
+    "code": "F3",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "code": "F3",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "code": "F3",
+    "duration": 3,
+    "total_credits": 180,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 10,
+  "fields": {
+    "department": 2,
+    "code": "A5",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 11,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 12,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 13,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 14,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 15,
+  "fields": {
+    "department": 3,
+    "code": "F4",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 16,
+  "fields": {
+    "department": 4,
+    "code": "F7",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 17,
+  "fields": {
+    "department": 4,
+    "code": "F7",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 18,
+  "fields": {
+    "department": 4,
+    "code": "F5",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
   }
 },
 {
@@ -2045,295 +3104,6 @@
     "credits": "3.0",
     "type": "EL",
     "order": 6
-  }
-},
-{
-  "model": "oauth2_provider.application",
-  "fields": {
-    "client_id": "xPTPp8pcPsg4SbkbpkdyfqBBL3N220X5ATksjwCa",
-    "user": null,
-    "redirect_uris": "http://127.0.0.1:5173/",
-    "post_logout_redirect_uris": "",
-    "client_type": "public",
-    "authorization_grant_type": "authorization-code",
-    "client_secret": "pbkdf2_sha256$1000000$8Jbc3UALAYbI5d7HudEUyK$ZdV1q0FNt4BoRUBCIzQn1Qoa3/ReGJkDWsNr64VWAgg=",
-    "hash_client_secret": true,
-    "name": "React SPA",
-    "skip_authorization": true,
-    "created": "2025-08-17T07:40:20.230Z",
-    "updated": "2025-08-17T07:40:20.230Z",
-    "algorithm": "",
-    "allowed_origins": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2026-05-31T08:10:18.291Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "facultymember"
-    ],
-    "object_id": "7",
-    "object_repr": "test tset",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2026-05-31T08:16:05.675Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "department"
-    ],
-    "object_id": "1",
-    "object_repr": "1-Кафедра вищої математики",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2026-05-31T08:26:05.653Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "department"
-    ],
-    "object_id": "1",
-    "object_repr": "1-Кафедра вищої математики",
-    "action_flag": 2,
-    "change_message": "[{\"deleted\": {\"name\": \"Faculty Member\", \"object\": \"FacultyMember #None\"}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2026-05-31T09:39:51.942Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "events",
-      "event"
-    ],
-    "object_id": "9",
-    "object_repr": "Event #9. Title: Олімпіада з математики серед студентів першого курсу",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Event body\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2026-05-31T09:42:32.748Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "events",
-      "event"
-    ],
-    "object_id": "9",
-    "object_repr": "Event #9. Title: Олімпіада з математики серед студентів першого курсу",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2026-05-31T11:26:11.084Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "department"
-    ],
-    "object_id": "1",
-    "object_repr": "1-Вищої математики",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Department name\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2026-05-31T11:26:19.464Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "department"
-    ],
-    "object_id": "1",
-    "object_repr": "1-Higher Mathematics",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Department name\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2026-05-31T11:29:14.412Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "department"
-    ],
-    "object_id": "1",
-    "object_repr": "1-Вищої математики",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Department photo\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2026-05-31T11:31:14.219Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "facultymember"
-    ],
-    "object_id": "1",
-    "object_repr": "Цецик Світлана Петрівна",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2026-05-31T11:31:22.531Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "facultymember"
-    ],
-    "object_id": "2",
-    "object_repr": "Кушнір Валентина Петрівна",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2026-05-31T11:31:30.290Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "facultymember"
-    ],
-    "object_id": "3",
-    "object_repr": "Чухрай Зоряна Борисівна",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 12,
-  "fields": {
-    "action_time": "2026-05-31T11:31:37.980Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "facultymember"
-    ],
-    "object_id": "4",
-    "object_repr": "Дейнека Олег Юрійович",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 13,
-  "fields": {
-    "action_time": "2026-05-31T11:31:45.745Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "facultymember"
-    ],
-    "object_id": "5",
-    "object_repr": "Іващук Яків Григорович",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 14,
-  "fields": {
-    "action_time": "2026-05-31T11:31:52.889Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "facultymember"
-    ],
-    "object_id": "6",
-    "object_repr": "Самолюк Ірина Василівна",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 15,
-  "fields": {
-    "action_time": "2026-05-31T11:40:45.777Z",
-    "user": [
-      "admin@admin.com"
-    ],
-    "content_type": [
-      "departments",
-      "headofdepartment"
-    ],
-    "object_id": "1",
-    "object_repr": "Тадеєв Петро Олександрович",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
   }
 }
 ]

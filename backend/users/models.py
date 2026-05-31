@@ -3,6 +3,7 @@ import logging
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 
 
 logger = logging.getLogger(__name__)
@@ -68,6 +69,13 @@ class User(AbstractBaseUser, PermissionsMixin):
             "Unselect this instead of deleting accounts."
         ))
     is_superuser = models.BooleanField(_("superuser status"), default=False)
+    department = models.ForeignKey(
+        "departments.Department",
+        on_delete=models.SET_NULL,
+        null=True, blank=True,
+        verbose_name=_("Department"),
+        related_name="admins",
+    )
     date_joined = models.DateTimeField(_("date joined"), auto_now_add=True)
     last_login = models.DateTimeField(_("last login"), auto_now=True)
     updated_at = models.DateTimeField(_("last updated"), auto_now=True)

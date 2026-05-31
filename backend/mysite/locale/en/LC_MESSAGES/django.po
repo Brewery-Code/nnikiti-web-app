@@ -1,0 +1,89 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NNIKITI API 1.0\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Main page"
+msgstr "Main page"
+
+msgid "Slider"
+msgstr "Slider"
+
+msgid "Statistics"
+msgstr "Statistics"
+
+msgid "Partners"
+msgstr "Partners"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Alumni"
+msgstr "Alumni"
+
+msgid "Alumni slider"
+msgstr "Alumni slider"
+
+msgid "Events"
+msgstr "Events"
+
+msgid "All events"
+msgstr "All events"
+
+msgid "Event categories"
+msgstr "Event categories"
+
+msgid "Department"
+msgstr "Department"
+
+msgid "Departments"
+msgstr "Departments"
+
+msgid "Heads of department"
+msgstr "Heads of department"
+
+msgid "Faculty members"
+msgstr "Faculty members"
+
+msgid "Educational programs"
+msgstr "Educational programs"
+
+msgid "Subjects"
+msgstr "Subjects"
+
+msgid "Department history"
+msgstr "Department history"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Users"
+msgstr "Users"
+
+msgid "Other"
+msgstr "Other"
+
+msgid "Translations (Rosetta)"
+msgstr "Translations (Rosetta)"
+
+msgid "OAuth tokens"
+msgstr "OAuth tokens"
+
+msgid "OAuth applications"
+msgstr "OAuth applications"
+
+msgid "Access groups"
+msgstr "Access groups"
+
+msgid "Site administration"
+msgstr "Site administration"
+
+msgid "Django site admin"
+msgstr "NUWM Admin"
+
+msgid "View"
+msgstr "View"

@@ -15,6 +15,27 @@ class UnfoldTranslatableAdmin(ModelAdmin, TranslatableAdmin):
     change_form_template = "admin/parler/change_form.html"
 
 
+class DepartmentScopedMixin:
+    """Limits queryset to the department assigned to the current user."""
+
+    department_field = "department"
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.is_superuser or not request.user.department_id:
+            return qs
+        return qs.filter(**{self.department_field: request.user.department_id})
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if not request.user.is_superuser and request.user.department_id:
+            if self.department_field.split("__")[0] in form.base_fields:
+                field = form.base_fields[self.department_field.split("__")[0]]
+                field.initial = request.user.department_id
+                field.disabled = True
+        return form
+
+
 #########################
 # Forms
 #########################
@@ -97,6 +118,14 @@ class LevelTaggedItemInline(TabularInline):
     formset = GenericTagInlineFormSet
     extra = 1
 
+class DepartmentHistoryInline(TabularInline):
+    """Inline editing for department history entries."""
+    model = DepartmentHistory
+    extra = 0
+    verbose_name = "Запис історії"
+    verbose_name_plural = "Історія кафедри"
+    fields = ('year', 'text_uk', 'text_en', 'order')
+
 class ProgramSubjectInline(TabularInline):
     """Inline editing for program subjects."""
     model = ProgramSubject
@@ -112,7 +141,7 @@ class FacultyMemberInline(TabularInline):
     extra = 0
     verbose_name = "Викладач"
     verbose_name_plural = "Колектив кафедри"
-    fields = ('name_uk', 'name_en', 'role_uk', 'role_en', 'email', 'audience', 'image', 'order')
+    fields = ('name_uk', 'name_en', 'role_uk', 'role_en', 'email', 'audience', 'image')
 
 class HeadOfDepartmentInline(TabularInline):
     """Inline editing for head of department."""
@@ -135,19 +164,27 @@ class EducationalProgramInline(TabularInline):
 # Admin
 #########################
 @admin.register(Department)
-class DepartmentAdmin(UnfoldTranslatableAdmin):
+class DepartmentAdmin(DepartmentScopedMixin, UnfoldTranslatableAdmin):
     """Custom admin for departments."""
     list_display = ('id', 'name', 'email', 'room')
     search_fields = ('translations__name', 'email')
+    department_field = "pk"
     inlines = [
         HeadOfDepartmentInline,
         FacultyMemberInline,
         EducationalProgramInline,
+        DepartmentHistoryInline,
     ]
+
+    def get_queryset(self, request):
+        qs = super(UnfoldTranslatableAdmin, self).get_queryset(request)
+        if request.user.is_superuser or not request.user.department_id:
+            return qs
+        return qs.filter(pk=request.user.department_id)
 
 
 @admin.register(HeadOfDepartment)
-class HeadOfDepartmentAdmin(ModelAdmin):
+class HeadOfDepartmentAdmin(DepartmentScopedMixin, ModelAdmin):
     """Custom admin for heads of departments."""
     list_display = ('id', 'full_name_uk', 'department', 'email', 'audience')
     search_fields = ('full_name_uk', 'full_name_en', 'email')
@@ -155,7 +192,7 @@ class HeadOfDepartmentAdmin(ModelAdmin):
 
 
 @admin.register(EducationalProgram)
-class EducationalProgramAdmin(UnfoldTranslatableAdmin):
+class EducationalProgramAdmin(DepartmentScopedMixin, UnfoldTranslatableAdmin):
     """Custom admin for educational programs."""
     list_display = ('id', 'code', 'name', 'department')
     search_fields = ('code', 'translations__name', 'department__translations__name')
@@ -177,20 +214,20 @@ class CategorizedTagAdmin(UnfoldTranslatableAdmin):
 
 
 @admin.register(FacultyMember)
-class FacultyMemberAdmin(ModelAdmin):
+class FacultyMemberAdmin(DepartmentScopedMixin, ModelAdmin):
     """Custom admin for faculty members."""
-    list_display = ("id", "name_uk", "role_uk", "department", "email", "audience", "order")
+    list_display = ("id", "name_uk", "role_uk", "department", "email", "audience")
     list_filter = ("department",)
     search_fields = ("name_uk", "name_en", "email")
-    ordering = ("department", "order")
+    ordering = ("department",)
 
 
 @admin.register(DepartmentHistory)
-class DepartmentHistoryAdmin(UnfoldTranslatableAdmin):
+class DepartmentHistoryAdmin(DepartmentScopedMixin, ModelAdmin):
     """Custom admin for department history entries."""
     list_display = ("id", "year", "department", "order")
     list_filter = ("department",)
-    search_fields = ("translations__year", "translations__text")
+    search_fields = ("year", "text_uk")
     ordering = ("department", "order")
 
 

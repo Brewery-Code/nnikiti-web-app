@@ -1,314 +1,289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NNIKITI API 1.0\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-31 12:41+0000\n"
-"PO-Revision-Date: 2025-07-17 15:41+0000\n"
-"Last-Translator:   <admin@admin.com>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
-"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
-"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
-"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-"X-Translated-Using: django-rosetta 0.10.2\n"
-
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: departments/models/departments.py:12 departments/models/departments.py:38
 #: departments/models/departments.py:73 departments/models/departments.py:86
 #: departments/models/departments.py:138
 msgid "Department"
-msgstr "Кафедра"
+msgstr ""
 
 #: departments/models/departments.py:14 departments/models/departments.py:88
 msgid "Full name (UK)"
-msgstr "ПІБ (УКР)"
+msgstr ""
 
 #: departments/models/departments.py:15 departments/models/departments.py:89
 msgid "Full name (EN)"
-msgstr "ПІБ (ENG)"
+msgstr ""
 
 #: departments/models/departments.py:16
 msgid "Role (UK)"
-msgstr "Посада (УКР)"
+msgstr ""
 
 #: departments/models/departments.py:17
 msgid "Role (EN)"
-msgstr "Посада (ENG)"
+msgstr ""
 
 #: departments/models/departments.py:18
 msgid "Specialty (UK)"
-msgstr "Спеціальність (УКР)"
+msgstr ""
 
 #: departments/models/departments.py:19
 msgid "Specialty (EN)"
-msgstr "Спеціальність (ENG)"
+msgstr ""
 
 #: departments/models/departments.py:20 departments/models/departments.py:94
 msgid "Photo"
-msgstr "Фото"
+msgstr ""
 
 #: departments/models/departments.py:21 departments/models/departments.py:92
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: departments/models/departments.py:22 departments/models/departments.py:93
 msgid "Audience"
-msgstr "Аудиторія"
+msgstr ""
 
 #: departments/models/departments.py:25
 msgid "Faculty Member"
-msgstr "Викладач"
+msgstr ""
 
 #: departments/models/departments.py:26
 msgid "Faculty Members"
-msgstr "Викладачі"
+msgstr ""
 
 #: departments/models/departments.py:40
 msgid "Year"
-msgstr "Рік"
+msgstr ""
 
 #: departments/models/departments.py:41
 msgid "Description (UK)"
-msgstr "Опис (УКР)"
+msgstr ""
 
 #: departments/models/departments.py:42
 msgid "Description (EN)"
-msgstr "Опис (ENG)"
+msgstr ""
 
 #: departments/models/departments.py:43 departments/models/departments.py:193
 msgid "Order"
-msgstr "Порядок"
+msgstr ""
 
 #: departments/models/departments.py:46
 msgid "Department History Entry"
-msgstr "Запис історії кафедри"
+msgstr ""
 
 #: departments/models/departments.py:47
 msgid "Department History"
-msgstr "Історія кафедри"
+msgstr ""
 
 #: departments/models/departments.py:62
 msgid "Department name"
-msgstr "Назва кафедри"
+msgstr ""
 
 #: departments/models/departments.py:63
 msgid "Department description"
-msgstr "Опис кафедри"
+msgstr ""
 
 #: departments/models/departments.py:64
 msgid "Department address"
-msgstr "Адреса кафедри"
+msgstr ""
 
 #: departments/models/departments.py:67
 msgid "Email address"
-msgstr "Електронна адреса"
+msgstr ""
 
 #: departments/models/departments.py:68
 msgid "Department photo"
-msgstr "Фото кафедри"
+msgstr ""
 
 #: departments/models/departments.py:69
 msgid "History photo"
-msgstr "Фото для історії кафедри"
+msgstr ""
 
 #: departments/models/departments.py:70
 msgid "Room"
-msgstr "Кабінет"
+msgstr ""
 
 #: departments/models/departments.py:74
 msgid "Departments"
-msgstr "Кафедри"
+msgstr ""
 
 #: departments/models/departments.py:90
 msgid "Regalia (UK)"
-msgstr "Регалії (УКР)"
+msgstr ""
 
 #: departments/models/departments.py:91
 msgid "Regalia (EN)"
-msgstr "Регалії (ENG)"
+msgstr ""
 
 #: departments/models/departments.py:97
 msgid "Head of Department"
-msgstr "Завідувач кафедри"
+msgstr ""
 
 #: departments/models/departments.py:98
 msgid "Heads of Department"
-msgstr "Завідувачі кафедри"
+msgstr ""
 
 #: departments/models/departments.py:112
 msgid "Educational program name"
-msgstr "Назва освітньої програми"
+msgstr ""
 
 #: departments/models/departments.py:113
 msgid "Educational program description"
-msgstr "Опис освітньої програми"
+msgstr ""
 
 #: departments/models/departments.py:114
 msgid "Degree"
-msgstr "Ступінь"
+msgstr ""
 
 #: departments/models/departments.py:115
 msgid "Study form"
-msgstr "Форма навчання"
+msgstr ""
 
 #: departments/models/departments.py:117
 msgid "Bachelor program structure"
-msgstr "Структура програми бакалаврату"
+msgstr ""
 
 #: departments/models/departments.py:121 departments/models/departments.py:128
 #: departments/models/departments.py:134
 msgid "Structure like: {'code': 'F1', 'specialty': '...', 'program': '...'}"
 msgstr ""
-"Приклад структури: {'code': 'F1', 'specialty': '...', 'program': '...'}"
 
 #: departments/models/departments.py:124
 msgid "Magistracy program structure"
-msgstr "Структура програми магістратури"
+msgstr ""
 
 #: departments/models/departments.py:131
 msgid "Postgraduate program structure"
-msgstr "Структура програми аспірантури"
+msgstr ""
 
 #: departments/models/departments.py:139
 msgid "Program code"
-msgstr "Код освітньої програми"
+msgstr ""
 
 #: departments/models/departments.py:141
 msgid "Subjects"
-msgstr "Предмети"
+msgstr ""
 
 #: departments/models/departments.py:147
 msgid "Education Forms"
-msgstr "Форми навчання"
+msgstr ""
 
 #: departments/models/departments.py:153
 msgid "Education Levels"
-msgstr "Рівні навчання"
+msgstr ""
 
 #: departments/models/departments.py:159
 msgid "Duration (years)"
-msgstr "Тривалість (років)"
+msgstr ""
 
 #: departments/models/departments.py:160
 msgid "Total ECTS credits"
-msgstr "Загальна кількість кредитів ЄКТС"
+msgstr ""
 
 #: departments/models/departments.py:161
 msgid "Budget seats"
-msgstr "Бюджетних місць"
+msgstr ""
 
 #: departments/models/departments.py:162
 msgid "Contract seats"
-msgstr "Контрактних місць"
+msgstr ""
 
 #: departments/models/departments.py:165 departments/models/departments.py:185
 msgid "Educational program"
-msgstr "Освітня програма"
+msgstr ""
 
 #: departments/models/departments.py:166
 msgid "Educational programs"
-msgstr "Освітні програми"
+msgstr ""
 
 #: departments/models/departments.py:177
 msgid "Mandatory"
-msgstr "Обов'язкова"
+msgstr ""
 
 #: departments/models/departments.py:178
 msgid "Elective"
-msgstr "За вибором"
+msgstr ""
 
 #: departments/models/departments.py:181
 msgid "Subject name"
-msgstr "Назва дисципліни"
+msgstr ""
 
 #: departments/models/departments.py:187
 msgid "Semester"
-msgstr "Семестр"
+msgstr ""
 
 #: departments/models/departments.py:188
 msgid "ECTS credits"
-msgstr "Кредити ЄКТС"
+msgstr ""
 
 #: departments/models/departments.py:191
 msgid "Subject type"
-msgstr "Тип дисципліни"
+msgstr ""
 
 #: departments/models/departments.py:196
 msgid "Program Subject"
-msgstr "Дисципліна"
+msgstr ""
 
 #: departments/models/departments.py:197
 msgid "Program Subjects"
-msgstr "Дисципліни"
+msgstr ""
 
 #: departments/models/tagged.py:13
 msgid "Subject"
-msgstr "Предмет"
+msgstr ""
 
 #: departments/models/tagged.py:14
 msgid "Form"
-msgstr "Форма навчання"
+msgstr ""
 
 #: departments/models/tagged.py:15
 msgid "Education Level"
-msgstr "Навчальний ступінь"
+msgstr ""
 
 #: departments/models/tagged.py:25
 msgid "Tag"
-msgstr "Тег"
+msgstr ""
 
 #: departments/models/tagged.py:26
 msgid "Tags"
-msgstr "Теги"
+msgstr ""
 
 #: departments/models/tagged.py:41
 msgid "Subject Tag"
-msgstr "Тег предмету"
+msgstr ""
 
 #: departments/models/tagged.py:42
 msgid "Subject Tags"
-msgstr "Теги предметів"
+msgstr ""
 
 #: departments/models/tagged.py:54
 msgid "Form Tag"
-msgstr "Тег форми навчання"
+msgstr ""
 
 #: departments/models/tagged.py:55
 msgid "Form Tags"
-msgstr "Теги форми навчання"
+msgstr ""
 
 #: departments/models/tagged.py:68
 msgid "Level Tag"
-msgstr "Тег рівня навчання"
+msgstr ""
 
 #: departments/models/tagged.py:69
 msgid "Level Tags"
-msgstr "Теги рівнів навчання"
-
-#~ msgid "Year (UK)"
-#~ msgstr "Рік (УКР)"
-
-#~ msgid "Year (EN)"
-#~ msgstr "Рік (ENG)"
-
-#~ msgid "Description"
-#~ msgstr "Опис"
-
-#~ msgid "Regalias head of the department"
-#~ msgstr "Регалії завідувача кафедри"
-
-#~ msgid "Full name of the head"
-#~ msgstr "ПІБ завідувача кафедри"
-
-#~ msgid "Head of the department email"
-#~ msgstr "Електронна адреса завідувача кафедри"
-
-#~ msgid "Head of Departments"
-#~ msgstr "Завідувачі кафедр"
-
-#~ msgid "Education Form"
-#~ msgstr "Освітня програма"
+msgstr ""

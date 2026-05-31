@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 12:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: events/models.py:33
+msgid "Event name"
+msgstr ""
+
+#: events/models.py:38
+msgid "RGB color value"
+msgstr ""
+
+#: events/models.py:40
+msgid ""
+"Required RGBA color in format like (255,255,255,0.5) for client-side design"
+msgstr ""
+
+#: events/models.py:44 events/models.py:87
+msgid "Creation date"
+msgstr ""
+
+#: events/models.py:48 events/models.py:78
+msgid "Category"
+msgstr ""
+
+#: events/models.py:49
+msgid "Categories"
+msgstr ""
+
+#: events/models.py:53
+#, python-format
+msgid "Category #%s. %s"
+msgstr ""
+
+#: events/models.py:63
+msgid "Draft"
+msgstr ""
+
+#: events/models.py:64
+msgid "Published"
+msgstr ""
+
+#: events/models.py:67
+msgid "Event title"
+msgstr ""
+
+#: events/models.py:68
+msgid "Event body"
+msgstr ""
+
+#: events/models.py:70
+msgid "Event slug"
+msgstr ""
+
+#: events/models.py:71
+msgid "Cover image"
+msgstr ""
+
+#: events/models.py:72
+msgid "Event date"
+msgstr ""
+
+#: events/models.py:73
+msgid "Location"
+msgstr ""
+
+#: events/models.py:84
+msgid "Status"
+msgstr ""
+
+#: events/models.py:89
+msgid "Last updated"
+msgstr ""
+
+#: events/models.py:94 events/models.py:116
+msgid "Event"
+msgstr ""
+
+#: events/models.py:95
+msgid "Events"
+msgstr ""
+
+#: events/models.py:103
+#, python-format
+msgid "Event #%s. Title: %s"
+msgstr ""
+
+#: events/models.py:118
+msgid "Image"
+msgstr ""
+
+#: events/models.py:119
+msgid "Uploaded at"
+msgstr ""
+
+#: events/models.py:122
+msgid "Event image"
+msgstr ""
+
+#: events/models.py:123
+msgid "Events images"
+msgstr ""
+
+#: events/models.py:127
+#, python-format
+msgid "Image for event #%s"
+msgstr ""
+
+#: events/validators.py:23
+msgid "RGBA format should look like: (255,255,255,0.5)"
+msgstr ""

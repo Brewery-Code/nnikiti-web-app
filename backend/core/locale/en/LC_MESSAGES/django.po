@@ -1,201 +1,201 @@
-# 
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: NNIKITI API 1.0\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-31 11:54+0000\n"
-"PO-Revision-Date: 2025-08-18 14:36+0000\n"
-"Last-Translator: Admin Admin <admin@admin.com>\n"
-"Language-Team: Ukrainian <uk@example.com>\n"
-"Language: uk\n"
+"POT-Creation-Date: 2026-05-31 12:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 "
-">= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 10 == 0 || "
-"(n % 10 >= 5 && n % 10 <= 9) || (n % 100 >= 11 && n % 100 <= 14) ? 2 : 3);\n"
-"X-Translated-Using: django-rosetta 0.10.2\n"
-
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: core/models.py:21
 msgid "Slider image"
-msgstr "Зображення слайдера"
+msgstr ""
 
 #: core/models.py:24
 msgid "Slider item"
-msgstr "Елемент слайдера"
+msgstr ""
 
 #: core/models.py:25
 msgid "Slider items"
-msgstr "Елементи слайдера"
+msgstr ""
 
 #: core/models.py:29
 #, python-format
 msgid "Slide #%s"
-msgstr "Слайд #%s"
+msgstr ""
 
 #: core/models.py:35
 msgid "Title"
-msgstr "Заголовок"
+msgstr ""
 
 #: core/models.py:36
 msgid "Description"
-msgstr "Опис"
+msgstr ""
 
 #: core/models.py:41
 msgid "Start value"
-msgstr "Початкове значення"
+msgstr ""
 
 #: core/models.py:42
 msgid "Values for proper animation operation"
-msgstr "Початкове значення для правильної роботи анімацій"
+msgstr ""
 
 #: core/models.py:45
 msgid "Order item"
-msgstr "Елемент слайдера"
+msgstr ""
 
 #: core/models.py:46
 msgid "Determines yhe order in which elements will be passed"
-msgstr "Визначає в якому порядку будуть передаватись елементи"
+msgstr ""
 
 #: core/models.py:50
 msgid "Statistic block item"
-msgstr "Елемент statistic block "
+msgstr ""
 
 #: core/models.py:51
 msgid "Statistic block items"
-msgstr "Елементи statistic block "
+msgstr ""
 
 #: core/models.py:55
 #, python-format
 msgid "Statistic block item #%s"
-msgstr "Елемент #%s , statistic block"
+msgstr ""
 
 #: core/models.py:61
 msgid "Name"
-msgstr "Ім'я"
+msgstr ""
 
 #: core/models.py:64
 msgid "Partner image"
-msgstr "Зображення слайдера"
+msgstr ""
 
 #: core/models.py:65
 msgid "Site link"
-msgstr "Посилання на сайт"
+msgstr ""
 
 #: core/models.py:66
 msgid "Link to partner site"
-msgstr "Посилання на сайт партнерів"
+msgstr ""
 
 #: core/models.py:69
 msgid "Partner"
-msgstr "Партнер"
+msgstr ""
 
 #: core/models.py:70
 msgid "Partners"
-msgstr "Партнери"
+msgstr ""
 
 #: core/models.py:74
 #, python-format
 msgid "Partner #%s"
-msgstr "Партнер #%s"
+msgstr ""
 
 #: core/models.py:80
 msgid "Question"
-msgstr "Питання"
+msgstr ""
 
 #: core/models.py:81
 msgid "Answer"
-msgstr "Відповідь"
+msgstr ""
 
 #: core/models.py:85
 msgid "FAQ"
-msgstr "FAQ"
+msgstr ""
 
 #: core/models.py:86
 msgid "FAQs"
-msgstr "FAQs"
+msgstr ""
 
 #: core/models.py:90
 #, python-format
 msgid "FAQ #%s"
-msgstr "FAQ #%s"
+msgstr ""
 
 #: core/models.py:97
 msgid "Published"
-msgstr "Опубліковано"
+msgstr ""
 
 #: core/models.py:98
 msgid "Draft"
-msgstr "Чернетка"
+msgstr ""
 
 #: core/models.py:101
 msgid "Full name"
-msgstr "ПІБ"
+msgstr ""
 
 #: core/models.py:102
 msgid "About student"
-msgstr "Про студента"
+msgstr ""
 
 #: core/models.py:103
 msgid "Major"
-msgstr "Спеціальність"
+msgstr ""
 
 #: core/models.py:104
 msgid "Degree"
-msgstr "Ступінь освіти"
+msgstr ""
 
 #: core/models.py:105
 msgid "Workplace"
-msgstr "Місце роботи"
+msgstr ""
 
 #: core/models.py:106
 msgid "Position"
-msgstr "Посада"
+msgstr ""
 
 #: core/models.py:110
 msgid "Social links or other publication"
-msgstr "Посилання на соц. мережі або інше"
+msgstr ""
 
 #: core/models.py:113
 msgid ""
 "Structure like: {'instagram': 'link', 'telegram': 'link', 'facebook': 'link'}"
 msgstr ""
-"Наприклад: {'instagram': 'link', 'telegram': 'link', 'facebook': 'link'}"
 
 #: core/models.py:115
 msgid "Created at"
-msgstr "Дата створення"
+msgstr ""
 
 #: core/models.py:116
 msgid "Date of graduation"
-msgstr "Дата випуску"
+msgstr ""
 
 #: core/models.py:117
 msgid "Status"
-msgstr "Статус"
+msgstr ""
 
 #: core/models.py:122
 msgid "Alumnus"
-msgstr "Випускник"
+msgstr ""
 
 #: core/models.py:123
 msgid "Alumni"
-msgstr "Випускники"
+msgstr ""
 
 #: core/models.py:130
 #, python-format
 msgid "%s - #%s"
-msgstr "%s - #%s"
+msgstr ""
 
 #: core/models.py:140
 msgid "Alumni slider item"
-msgstr "Об'єкт слайдера випускників"
+msgstr ""
 
 #: core/models.py:141
 msgid "Alumni slider items"
-msgstr "Об'єкти слайдера випускників"
+msgstr ""
 
 #: core/models.py:145
 #, python-format
 msgid "Alumni slide #%s"
-msgstr "Слайд випускників #%s"
+msgstr ""

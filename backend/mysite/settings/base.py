@@ -59,7 +59,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -110,6 +110,8 @@ PARLER_LANGUAGES = {
 }
 
 LANGUAGE_CODE = "uk"
+
+LOCALE_PATHS = [BASE_DIR / "mysite" / "locale"]
 
 TIME_ZONE = "UTC"
 
@@ -285,3 +287,18 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     "markdown.extensions.codehilite",
     "markdown.extensions.toc",
 ]
+
+###########################
+# Unfold Admin
+###########################
+UNFOLD = {
+    "SITE_TITLE": "НУВГП Адмін",
+    "SITE_HEADER": "НУВГП",
+    "SITE_LOGO": lambda request: request.build_absolute_uri("/static/logo/logo-cat.png"),
+    "SIDEBAR": {
+        "show_search": False,
+        "show_all_applications": False,
+        "navigation": "mysite.navigation.get_navigation",
+    },
+}
+

@@ -1,0 +1,89 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NNIKITI API 1.0\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Main page"
+msgstr "Головна сторінка"
+
+msgid "Slider"
+msgstr "Слайдер"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "Partners"
+msgstr "Партнери"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Alumni"
+msgstr "Випускники"
+
+msgid "Alumni slider"
+msgstr "Слайдер випускників"
+
+msgid "Events"
+msgstr "Події"
+
+msgid "All events"
+msgstr "Всі події"
+
+msgid "Event categories"
+msgstr "Категорії подій"
+
+msgid "Department"
+msgstr "Кафедра"
+
+msgid "Departments"
+msgstr "Кафедри"
+
+msgid "Heads of department"
+msgstr "Завідувачі кафедри"
+
+msgid "Faculty members"
+msgstr "Викладачі"
+
+msgid "Educational programs"
+msgstr "Освітні програми"
+
+msgid "Subjects"
+msgstr "Дисципліни"
+
+msgid "Department history"
+msgstr "Історія кафедри"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "Users"
+msgstr "Користувачі"
+
+msgid "Other"
+msgstr "Інше"
+
+msgid "Translations (Rosetta)"
+msgstr "Переклади (Rosetta)"
+
+msgid "OAuth tokens"
+msgstr "OAuth токени"
+
+msgid "OAuth applications"
+msgstr "OAuth додатки"
+
+msgid "Access groups"
+msgstr "Групи доступу"
+
+msgid "Site administration"
+msgstr "Адміністрування сайту"
+
+msgid "Django site admin"
+msgstr "Адмін НУВГП"
+
+msgid "View"
+msgstr "Переглянути"

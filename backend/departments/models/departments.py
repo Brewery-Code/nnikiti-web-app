@@ -20,29 +20,26 @@ class FacultyMember(models.Model):
     image = models.ImageField(upload_to="faculty/", blank=True, verbose_name=_("Photo"))
     email = models.EmailField(blank=True, verbose_name=_("Email"))
     audience = models.CharField(max_length=64, blank=True, verbose_name=_("Audience"))
-    order = models.PositiveIntegerField(default=0, verbose_name=_("Order"))
 
     class Meta:
         verbose_name = _("Faculty Member")
         verbose_name_plural = _("Faculty Members")
         db_table = "FacultyMember"
-        ordering = ["order"]
 
     def __str__(self):
         return self.name_uk or f"FacultyMember #{self.pk}"
 
 
-class DepartmentHistory(TranslatableModel):
+class DepartmentHistory(models.Model):
     """Represents a historical event in the department's timeline."""
 
-    translations = TranslatedFields(
-        year=models.CharField(max_length=64, verbose_name=_("Year")),
-        text=models.TextField(verbose_name=_("Description")),
-    )
     department = models.ForeignKey(
         "Department", on_delete=models.CASCADE, related_name="history",
         verbose_name=_("Department")
     )
+    year = models.CharField(max_length=64, default='', verbose_name=_("Year"))
+    text_uk = models.TextField(default='', verbose_name=_("Description (UK)"))
+    text_en = models.TextField(blank=True, default='', verbose_name=_("Description (EN)"))
     order = models.PositiveIntegerField(default=0, verbose_name=_("Order"))
 
     class Meta:
@@ -52,8 +49,7 @@ class DepartmentHistory(TranslatableModel):
         ordering = ["order"]
 
     def __str__(self):
-        year = self.safe_translation_getter("year", any_language=True) or "?"
-        return f"{self.department_id} – {year}"
+        return f"{self.year or '?'}"
 
 
 class Department(TranslatableModel):
@@ -70,6 +66,7 @@ class Department(TranslatableModel):
 
     email = models.EmailField(verbose_name=_("Email address"))
     image = models.ImageField(upload_to="departments/", blank=True, verbose_name=_("Department photo"))
+    history_image = models.ImageField(upload_to="departments/history/", blank=True, verbose_name=_("History photo"))
     room = models.CharField(max_length=64, blank=True, verbose_name=_("Room"))
 
     class Meta:
@@ -78,7 +75,7 @@ class Department(TranslatableModel):
         db_table = "Department"
 
     def __str__(self):
-        return f"{self.pk}-{self.name}"
+        return self.safe_translation_getter('name', any_language=True) or f"Department #{self.pk}"
 
 
 class HeadOfDepartment(models.Model):

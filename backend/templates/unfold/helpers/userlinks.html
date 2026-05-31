@@ -1,0 +1,35 @@
+{% load i18n static unfold %}
+
+<div class="flex flex-row gap-4 items-center ml-auto">
+    {% if environment %}
+        {% include "unfold/helpers/label.html" with text=environment.0 type=environment.1 %}
+    {% endif %}
+
+    {% action_list %}
+
+    {% if nav_global_side %}
+        {{ nav_global_side }}
+    {% endif %}
+
+    {% get_current_language as CURRENT_LANG %}
+    <ul class="flex flex-row items-center">
+        <li class="border border-base-200 select-none -ml-px first:rounded-l-default last:rounded-r-default min-lg:first:rounded-l-default min-lg:last:rounded-r-default
+            {% if CURRENT_LANG == 'uk' %}border-primary-700 bg-primary-600 text-white dark:border-primary-500{% endif %}">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="uk">
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button type="submit" class="cursor-pointer flex items-center gap-2 px-3 py-2 whitespace-nowrap">УКР</button>
+            </form>
+        </li>
+        <li class="border border-base-200 select-none -ml-px first:rounded-l-default last:rounded-r-default min-lg:first:rounded-l-default min-lg:last:rounded-r-default
+            {% if CURRENT_LANG == 'en' %}border-primary-700 bg-primary-600 text-white dark:border-primary-500{% endif %}">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="en">
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button type="submit" class="cursor-pointer flex items-center gap-2 px-3 py-2 whitespace-nowrap">ENG</button>
+            </form>
+        </li>
+    </ul>
+</div>
