@@ -94,6 +94,7 @@ class HeadOfDepartment(models.Model):
     regalia_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Regalia (EN)"))
     email = models.EmailField(blank=True, null=True, verbose_name=_("Email"))
     audience = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Audience"))
+    image = models.ImageField(upload_to="head_of_department/", blank=True, verbose_name=_("Photo"))
 
     class Meta:
         verbose_name = _("Head of Department")

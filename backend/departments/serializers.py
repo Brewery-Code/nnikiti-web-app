@@ -106,7 +106,7 @@ class HeadOfDepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HeadOfDepartment
-        fields = ['id', 'full_name', 'regalia', 'email', 'audience']
+        fields = ['id', 'full_name', 'regalia', 'email', 'audience', 'image']
 
     def _lang(self, obj, field):
         request = self.context.get('request')

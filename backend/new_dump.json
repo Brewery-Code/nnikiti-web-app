@@ -1827,7 +1827,8 @@
     "regalia_uk": "Завідувач кафедри",
     "regalia_en": "Head of Department",
     "email": "p.o.tadeyev@nuwm.edu.ua",
-    "audience": "130, 134"
+    "audience": "130, 134",
+    "image": "head_of_department/тадеєв.jpg"
   }
 },
 {
@@ -2313,6 +2314,24 @@
     ],
     "object_id": "6",
     "object_repr": "Самолюк Ірина Василівна",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-05-31T11:40:45.777Z",
+    "user": [
+      "admin@admin.com"
+    ],
+    "content_type": [
+      "departments",
+      "headofdepartment"
+    ],
+    "object_id": "1",
+    "object_repr": "Тадеєв Петро Олександрович",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
   }

@@ -120,7 +120,7 @@ class HeadOfDepartmentInline(TabularInline):
     extra = 0
     verbose_name = "Завідувач кафедри"
     verbose_name_plural = "Завідувач кафедри"
-    fields = ('full_name_uk', 'full_name_en', 'regalia_uk', 'regalia_en', 'email', 'audience')
+    fields = ('full_name_uk', 'full_name_en', 'regalia_uk', 'regalia_en', 'email', 'audience', 'image')
 
 class EducationalProgramInline(TabularInline):
     """Inline editing for educational programs."""
