@@ -25,6 +25,8 @@ dependencies = [
     "django-unfold>=0.94.0",
     "gunicorn",
     "whitenoise",
+    "cloudinary",
+    "django-cloudinary-storage",
 ]
 
 [tool.uv]
