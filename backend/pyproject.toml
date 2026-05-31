@@ -24,6 +24,7 @@ dependencies = [
     "drf-spectacular",
     "django-unfold>=0.94.0",
     "gunicorn",
+    "whitenoise",
 ]
 
 [tool.uv]

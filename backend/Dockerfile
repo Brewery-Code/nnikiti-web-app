@@ -23,7 +23,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 RUN uv sync --no-dev
 
-COPY entrypoint.sh ./
+COPY . .
 RUN chmod 755 entrypoint.sh && chown -R app:app /app /opt/venv
 
 USER app
