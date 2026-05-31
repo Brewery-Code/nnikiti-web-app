@@ -21,7 +21,7 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
 WORKDIR /app
 
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-dev
+RUN uv sync --no-dev
 
 COPY entrypoint.sh ./
 RUN chmod 755 entrypoint.sh && chown -R app:app /app /opt/venv
