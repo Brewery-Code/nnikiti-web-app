@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { ROUTES } from "@/shared/model/routes";
-import { DEPARTMENTS_DATA } from "@/shared/model/departments-data";
 import { Reveal } from "@/shared/ui";
 
 export default function ClosingSection({ className }: { className?: string }) {
@@ -44,7 +43,7 @@ export default function ClosingSection({ className }: { className?: string }) {
 
             <div className="flex flex-wrap gap-3">
               <Link
-                to={`/department/${DEPARTMENTS_DATA[0].id}`}
+                to="/department/1"
                 className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95"
               >
                 Наші кафедри <span aria-hidden>→</span>

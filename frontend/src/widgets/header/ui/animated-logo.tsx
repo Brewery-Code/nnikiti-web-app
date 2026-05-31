@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 
+const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
 const PATH_VARIANTS = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: (delay: number) => ({
     pathLength: 1,
     opacity: 1,
     transition: {
-      pathLength: { delay, duration: 1.4, ease: [0.16, 1, 0.3, 1] },
+      pathLength: { delay, duration: 1.4, ease: EASE },
       opacity: { delay, duration: 0.01 },
     },
   }),
@@ -17,7 +19,7 @@ const TEXT_VARIANTS = {
   visible: (delay: number) => ({
     opacity: 1,
     x: 0,
-    transition: { delay, duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay, duration: 0.5, ease: EASE },
   }),
 };
 

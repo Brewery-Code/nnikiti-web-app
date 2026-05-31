@@ -121,6 +121,10 @@ export const router = createBrowserRouter([
         lazy: () => import("@/pages/search/search-page"),
       },
       {
+        path: ROUTES.ERROR,
+        lazy: () => import("@/pages/error/error-page"),
+      },
+      {
         path: ROUTES.NOT_FOUND,
         lazy: () => import("@/pages/not-found/not-found-page"),
       },

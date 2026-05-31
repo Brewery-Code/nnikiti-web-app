@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
-import { DEPARTMENTS_DATA } from "@/shared/model/departments-data";
 import { logoCat } from "@/shared/icons";
 
 const NAV_COLS: { heading: string; links: { label: string; to: string }[] }[] = [
@@ -9,7 +8,7 @@ const NAV_COLS: { heading: string; links: { label: string; to: string }[] }[] = 
     heading: "Університет",
     links: [
       { label: "Про нас", to: ROUTES.HISTORY },
-      { label: "Кафедри", to: `/department/${DEPARTMENTS_DATA[0].id}` },
+      { label: "Кафедри", to: `/department/1` },
       { label: "Новини", to: ROUTES.EVENTS },
       { label: "Контакти", to: ROUTES.CONTACTS },
     ],
@@ -55,7 +54,7 @@ export function Footer({ className }: { className?: string }) {
               className="flex items-center"
               style={{ gap: 10, marginBottom: 20 }}
             >
-              <img src={logoCat} alt="ННІКІТІ" style={{ height: "calc(var(--header-height) * 0.65)", width: "auto" }} />
+              <img src={logoCat} alt="ННІКІТІ" style={{ height: "42px", width: "auto" }} />
             </Link>
             <p className="text-muted" style={{ fontSize: 13, lineHeight: 1.7, maxWidth: 300 }}>
               Національний університет водного господарства та природокористування,
@@ -101,7 +100,7 @@ export function Footer({ className }: { className?: string }) {
           {[
             { label: "Про нас",      to: ROUTES.HISTORY },
             { label: "Вступникам",   to: ROUTES.BACHELOR },
-            { label: "Кафедри",      to: `/department/${DEPARTMENTS_DATA[0].id}` },
+            { label: "Кафедри",      to: `/department/1` },
             { label: "Події",        to: ROUTES.EVENTS },
             { label: "Партнери",     to: ROUTES.PARTNERS_BUSINESS },
             { label: "Контакти",     to: ROUTES.CONTACTS },

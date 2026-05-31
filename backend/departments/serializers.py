@@ -54,7 +54,6 @@ class FacultyMemberSerializer(serializers.ModelSerializer):
         model = FacultyMember
         fields = ["id", "name", "role", "specialty", "image", "email", "audience"]
 
-
     def _lang(self, obj, field):
         request = self.context.get('request')
         lang = request.LANGUAGE_CODE if request else 'uk'
@@ -175,7 +174,7 @@ class DepartmentDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
         fields = [
-            'id', 'name', 'description', 'address', 'email', 'image', 'history_image', 'room',
+            'id', 'name', 'description', 'address', 'email', 'image', 'history_image',
             'head_of_department',
             'educational_program',
             'team',

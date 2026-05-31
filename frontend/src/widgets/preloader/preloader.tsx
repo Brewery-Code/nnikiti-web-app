@@ -6,7 +6,7 @@ import { globalLenis } from "@/shared/hooks/use-lenis";
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 const MIN_NAV_MS = 350;
 
-export function Preloader() {
+export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) {
   const [pageLoaded, setPageLoaded] = useState(false);
   const [navVisible, setNavVisible] = useState(false);
   const location = useLocation();
@@ -16,7 +16,7 @@ export function Preloader() {
   useEffect(() => {
     let cancelled = false;
     const done = () => {
-      if (!cancelled) setTimeout(() => setPageLoaded(true), 250);
+      if (!cancelled) { setTimeout(() => setPageLoaded(true), 250); }
     };
     if (document.readyState === "complete") {
       done();
@@ -30,8 +30,6 @@ export function Preloader() {
   }, []);
 
   // Show preloader on every client-side navigation and reset scroll
-  // immediately so the new page mounts with scroll=0 (prevents IO from
-  // firing at the previous page's scroll position before once:true disconnects)
   useEffect(() => {
     if (isFirstNav.current) {
       isFirstNav.current = false;
@@ -47,7 +45,7 @@ export function Preloader() {
     return () => clearTimeout(id);
   }, [location.pathname]);
 
-  const visible = !pageLoaded || navVisible;
+  const visible = !pageLoaded || navVisible || forceVisible;
 
   return (
     <AnimatePresence>
@@ -64,8 +62,7 @@ export function Preloader() {
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full"
             style={{
-              background:
-                "radial-gradient(circle, rgba(166,132,255,0.11) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(166,132,255,0.11) 0%, transparent 70%)",
               filter: "blur(80px)",
             }}
           />
@@ -73,8 +70,7 @@ export function Preloader() {
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full"
             style={{
-              background:
-                "radial-gradient(circle, rgba(81,162,255,0.07) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(81,162,255,0.07) 0%, transparent 70%)",
               filter: "blur(60px)",
             }}
           />
@@ -122,8 +118,7 @@ export function Preloader() {
               aria-hidden
               className="h-full w-[32%]"
               style={{
-                background:
-                  "linear-gradient(90deg, transparent 0%, rgba(166,132,255,0.85) 35%, rgba(81,162,255,0.85) 65%, transparent 100%)",
+                background: "linear-gradient(90deg, transparent 0%, rgba(166,132,255,0.85) 35%, rgba(81,162,255,0.85) 65%, transparent 100%)",
               }}
               animate={{ x: ["-60%", "400%"] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}

@@ -5,7 +5,8 @@ export default function MicrocircuitLabelLogo() {
     <img
       src={logoCat}
       alt="ННІКІТІ логотип"
-      style={{ height: "calc(var(--header-height) * 0.65)", width: "auto" }}
+      className="w-auto"
+      style={{ height: "42px" }}
     />
   );
 }

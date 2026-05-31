@@ -26,6 +26,7 @@ export const ROUTES = {
   FAQ: "/faq",
   ASK_QUESTION: "/ask-question",
   SEARCH: "/search",
+  ERROR: "/error",
   NOT_FOUND: "*",
 } as const;
 

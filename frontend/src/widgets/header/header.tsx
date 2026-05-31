@@ -3,8 +3,8 @@ import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
-import { DEPARTMENTS_DATA } from "@/shared/model/departments-data";
 import { useLoadNamespace } from "@/shared/hooks";
+import { publicRqClient } from "@/shared/api/instance";
 import { loadTranslations } from "./locales";
 import type { NavigationMenuData } from "./types";
 import {
@@ -19,7 +19,7 @@ export function Header() {
   const { t } = useTranslation("header");
   useLoadNamespace("header", loadTranslations);
 
-  // const departmentsData = publicRqClient.useQuery("get", "/departments/").data ?? [];
+  const departments = publicRqClient.useQuery("get", "/departments/").data ?? [];
 
   const navigationMenuData: NavigationMenuData[] = [
     {
@@ -45,9 +45,9 @@ export function Header() {
     },
     {
       title: t("navigationMenu.departments"),
-      link: `/department/${DEPARTMENTS_DATA[0].id}`,
-      list: DEPARTMENTS_DATA.map((dept) => ({
-        title: dept.name,
+      link: `/department/${departments[0]?.id ?? 1}`,
+      list: departments.map((dept) => ({
+        title: dept.name ?? "",
         link: `/department/${dept.id}`,
       })),
     },
@@ -98,8 +98,7 @@ export function Header() {
 
   return (
     <header
-      className="fixed left-0 right-0 top-0 z-[100] w-full"
-      style={{ height: "var(--header-height)" }}
+      className="fixed left-0 right-0 top-0 z-[100] h-16 w-full lg:h-20"
     >
       <div
         className={clsx(

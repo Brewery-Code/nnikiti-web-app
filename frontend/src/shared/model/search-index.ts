@@ -1,4 +1,3 @@
-import { DEPARTMENTS_DATA } from "./departments-data";
 import { ROUTES } from "./routes";
 
 export interface SearchEntry {
@@ -197,15 +196,7 @@ const SPECIALTIES: SearchEntry[] = [
   },
 ];
 
-const DEPARTMENTS: SearchEntry[] = DEPARTMENTS_DATA.map((dept) => ({
-  title: `Кафедра ${dept.name}`,
-  description: dept.description,
-  link: `/department/${dept.id}`,
-  category: "Кафедри",
-  keywords: [dept.name.toLowerCase()],
-}));
-
-export const SEARCH_INDEX: SearchEntry[] = [...PAGES, ...SPECIALTIES, ...DEPARTMENTS];
+export const SEARCH_INDEX: SearchEntry[] = [...PAGES, ...SPECIALTIES];
 
 export function searchEntries(query: string): SearchEntry[] {
   const q = query.toLowerCase().trim();
