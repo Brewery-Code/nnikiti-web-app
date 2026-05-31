@@ -34,7 +34,7 @@ export function Contacts({ className }: ContactsProps) {
               {item.values.filter(Boolean).map((val, i) => (
                 <span
                   key={i}
-                  className="cursor-default text-fluid-sm font-bold text-white transition-colors duration-200 hover:text-slate-200"
+                  className="cursor-default text-fluid-sm font-bold text-primary transition-colors duration-200 hover:text-slate-200"
                 >
                   {val}
                 </span>

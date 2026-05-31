@@ -10,7 +10,7 @@ export function App() {
   const element = useOutlet();
 
   return (
-    <div className="relative flex min-h-dvh flex-col">
+    <div className="relative flex min-h-dvh flex-col bg-base">
       <Preloader />
       <Header />
       <AnimatePresence mode="wait">

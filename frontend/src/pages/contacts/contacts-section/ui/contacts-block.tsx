@@ -33,7 +33,7 @@ function ContactBlockComponent({
   return (
     <div
       className={clsx(
-        "relative flex flex-col gap-fluid-md overflow-hidden rounded-fluid-md border border-white/[0.13] bg-white/[0.04] p-fluid-md backdrop-blur-sm",
+        "relative flex flex-col gap-fluid-md overflow-hidden rounded-fluid-md border border-white/[0.13] bg-surface-md p-fluid-md backdrop-blur-sm",
         className
       )}
     >
@@ -52,7 +52,7 @@ function ContactBlockComponent({
           {icon}
         </div>
         <div>
-          <h2 className="text-fluid-xl font-bold text-white">{label}</h2>
+          <h2 className="text-fluid-xl font-bold text-primary">{label}</h2>
           <p className="text-fluid-xs text-gray-500">{description}</p>
         </div>
       </div>
@@ -79,7 +79,7 @@ function Contacts({ contacts }: ContactsProps) {
     <ul className="flex flex-wrap gap-x-3 gap-y-1">
       {contacts.map((item, index) => (
         <li key={index}>
-          <span className="relative cursor-pointer text-gray-300 transition-colors duration-200 hover:text-white before:absolute before:bottom-0 before:left-0 before:h-px before:w-0 before:bg-white before:transition-[width] before:duration-200 hover:before:w-full">
+          <span className="relative cursor-pointer text-gray-300 transition-colors duration-200 hover:text-primary before:absolute before:bottom-0 before:left-0 before:h-px before:w-0 before:bg-white before:transition-[width] before:duration-200 hover:before:w-full">
             {item}
           </span>
         </li>

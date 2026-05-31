@@ -12,7 +12,7 @@ export function NotFoundPage() {
 
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#08090f] px-5 py-24 text-center">
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-base px-5 py-24 text-center">
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -left-[10%] -top-[10%] h-[600px] w-[600px] rounded-full"
@@ -39,10 +39,10 @@ export function NotFoundPage() {
         <div className="container-v2 relative z-[1] flex flex-col items-center">
           <Reveal mode="scale" delay={0.4} inView={false}>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-              <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+              <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
                 ERROR
               </span>
-              <span className="text-[12px] text-white/70">Сторінку не знайдено</span>
+              <span className="text-[12px] text-primary/70">Сторінку не знайдено</span>
             </div>
           </Reveal>
 
@@ -62,7 +62,7 @@ export function NotFoundPage() {
 
           <Reveal mode="up" delay={0.65} inView={false}>
             <p
-              className="mx-auto mt-6 text-[14px] text-white/65 sm:text-[16px]"
+              className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
               style={{ lineHeight: 1.7, maxWidth: 480 }}
             >
               {t("notExist")}.
@@ -73,7 +73,7 @@ export function NotFoundPage() {
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 to="/"
-                className="sheen inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[14px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[15px]"
+                className="sheen inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[17px]"
               >
                 {t("goHome")}
                 <span aria-hidden>→</span>

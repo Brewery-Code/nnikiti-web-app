@@ -14,7 +14,7 @@ export default function ClosingSection({ className }: { className?: string }) {
               — Долучайся
             </p>
             <h2
-              className="font-display leading-[0.9] text-white"
+              className="font-display leading-[0.9] text-primary"
               style={{
                 fontWeight: 900,
                 fontSize: "clamp(2.2rem, 8vw, 8rem)",
@@ -29,13 +29,13 @@ export default function ClosingSection({ className }: { className?: string }) {
 
           <Reveal mode="right" amount={0.15} className="flex flex-col gap-10 lg:max-w-sm lg:pb-2">
             <div className="flex flex-col gap-4">
-              <p className="text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
-                За 20 років ННКІТІ створив середовище, де ідеї перетворюються
+              <p className="text-[15px] leading-relaxed text-muted sm:text-[17px]">
+                За 20 років ННІКІТІ створив середовище, де ідеї перетворюються
                 на продукти, а студенти — на лідерів. Тут твоя історія тільки
                 починається.
               </p>
               <blockquote className="border-l-2 border-violet-500/50 pl-4">
-                <p className="text-[13px] italic leading-relaxed text-white/40">
+                <p className="text-[14px] italic leading-relaxed text-subtle">
                   «Ми не просто готуємо фахівців — ми виховуємо людей, які
                   змінюють технологічний ландшафт країни.»
                 </p>
@@ -45,13 +45,13 @@ export default function ClosingSection({ className }: { className?: string }) {
             <div className="flex flex-wrap gap-3">
               <Link
                 to={`/department/${DEPARTMENTS_DATA[0].id}`}
-                className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3.5 text-[14px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95"
+                className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95"
               >
                 Наші кафедри <span aria-hidden>→</span>
               </Link>
               <Link
                 to={ROUTES.ALUMNI}
-                className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-white/[0.04] px-6 py-3.5 text-[14px] font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/[0.10] active:scale-95"
+                className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-surface-md px-6 py-3.5 text-[15px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95"
               >
                 Випускники <span aria-hidden>→</span>
               </Link>

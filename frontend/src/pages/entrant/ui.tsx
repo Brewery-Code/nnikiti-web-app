@@ -38,7 +38,7 @@ export function EntrantHero({
   stats: { value: string; label: string }[];
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -62,16 +62,16 @@ export function EntrantHero({
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Stagger stagger={0.08} delay={0.35} inView={false}>
             <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-              <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-                ННКІТІ
+              <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
+                ННІКІТІ
               </span>
-              <span className="text-[12px] text-white/70">{eyebrow}</span>
+              <span className="text-[12px] text-primary/70">{eyebrow}</span>
             </StaggerItem>
 
             <StaggerItem
               as="h1"
               mode="up"
-              className="font-display font-black text-white"
+              className="font-display font-black text-primary"
               style={{
                 fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
                 letterSpacing: "-0.05em",
@@ -84,7 +84,7 @@ export function EntrantHero({
             <StaggerItem
               as="p"
               mode="up"
-              className="mt-6 max-w-lg text-[14px] leading-relaxed text-white/65 sm:text-[16px]"
+              className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted sm:text-[17px]"
               style={{ lineHeight: 1.7 }}
             >
               {description}
@@ -94,12 +94,12 @@ export function EntrantHero({
               {stats.map((s, i) => (
                 <div
                   key={i}
-                  className="grad-border flex flex-col rounded-[14px] bg-white/[0.04] px-5 py-3 backdrop-blur-md"
+                  className="grad-border flex flex-col rounded-[14px] bg-surface-md px-5 py-3 backdrop-blur-md"
                 >
-                  <span className="font-display text-[20px] font-extrabold text-white">
+                  <span className="font-display text-[20px] font-extrabold text-primary">
                     <span className="text-grad">{s.value}</span>
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.14em] text-white/45">
+                  <span className="text-[10px] uppercase tracking-[0.14em] text-subtle">
                     {s.label}
                   </span>
                 </div>
@@ -139,9 +139,9 @@ export function ProgramCard({
   index?: number;
 }) {
   return (
-    <div className="spec-card grad-border group flex flex-col rounded-[20px] bg-white/[0.03] p-5 backdrop-blur-xl sm:p-7">
+    <div className="spec-card grad-border group flex flex-col rounded-[20px] bg-surface p-5 backdrop-blur-xl sm:p-7">
       <span
-        className="font-display mb-5 self-start rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.06em] text-white"
+        className="font-display mb-5 self-start rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.06em] text-primary"
         style={{
           background:
             "linear-gradient(135deg, rgba(166,132,255,0.85) 0%, rgba(81,162,255,0.85) 100%)",
@@ -151,17 +151,17 @@ export function ProgramCard({
       </span>
 
       <h3
-        className="font-display mb-3 font-bold text-white"
+        className="font-display mb-3 font-bold text-primary"
         style={{ fontSize: "1.05rem", letterSpacing: "-0.01em", lineHeight: 1.2 }}
       >
         {program.name}
       </h3>
-      <p className="flex-1 text-[13px] leading-relaxed text-white/55">
+      <p className="flex-1 text-[14px] leading-relaxed text-muted">
         {program.description}
       </p>
 
       <div className="mt-5 flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] text-white/55">
+        <span className="rounded-full border border-ui bg-surface-md px-3 py-1 text-[11px] text-muted">
           {program.duration}
         </span>
         {program.seats && (
@@ -190,7 +190,7 @@ export function StepItem({
   return (
     <div className="flex gap-5">
       <div className="flex flex-col items-center gap-2">
-        <div className="font-display flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[14px] font-extrabold text-white shadow-[0_4px_16px_rgba(166,132,255,0.4)]">
+        <div className="font-display flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[15px] font-extrabold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.4)]">
           {number}
         </div>
         {!isLast && <div className="w-px flex-1 bg-gradient-to-b from-violet-500/40 to-blue-500/20" />}
@@ -198,12 +198,12 @@ export function StepItem({
 
       <div className="pb-8">
         <h3
-          className="font-display font-bold text-white"
+          className="font-display font-bold text-primary"
           style={{ fontSize: "1.05rem", letterSpacing: "-0.01em" }}
         >
           {step.title}
         </h3>
-        <p className="mt-2 text-[13px] leading-relaxed text-white/55">
+        <p className="mt-2 text-[14px] leading-relaxed text-muted">
           {step.text}
         </p>
       </div>
@@ -219,14 +219,14 @@ export function DateCard({
   index?: number;
 }) {
   return (
-    <div className="grad-border card-hover flex h-full flex-col rounded-[18px] bg-white/[0.03] p-6 backdrop-blur-xl">
+    <div className="grad-border card-hover flex h-full flex-col rounded-[18px] bg-surface p-6 backdrop-blur-xl">
       <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-violet-400">
         {date.period}
       </span>
-      <p className="font-display mt-2 text-[14px] font-semibold text-white">
+      <p className="font-display mt-2 text-[15px] font-semibold text-primary">
         {date.label}
       </p>
-      {date.note && <p className="mt-2 flex-1 text-[11px] text-white/45">{date.note}</p>}
+      {date.note && <p className="mt-2 flex-1 text-[11px] text-subtle">{date.note}</p>}
       <div className="mt-5 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
     </div>
   );
@@ -250,14 +250,14 @@ export function SectionHead({
         — {eyebrow}
       </div>
       <h2
-        className="font-display font-black text-white"
+        className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
       >
         {title} <span className="text-grad">{gradientTitle}</span>
       </h2>
       {subtitle && (
         <p
-          className="mt-4 max-w-xl text-[14px] leading-relaxed text-white/55 sm:text-[15px]"
+          className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]"
         >
           {subtitle}
         </p>
@@ -296,7 +296,7 @@ export function EntrantCta({
         <StaggerItem
           as="h2"
           mode="up"
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 4vw, 3.5rem)",
             letterSpacing: "-0.04em",
@@ -308,7 +308,7 @@ export function EntrantCta({
         <StaggerItem
           as="p"
           mode="up"
-          className="mx-auto mt-6 text-[14px] leading-relaxed text-white/60 sm:text-[16px]"
+          className="mx-auto mt-6 text-[15px] leading-relaxed text-primary/60 sm:text-[17px]"
           style={{ maxWidth: 580 }}
         >
           {subtitle}
@@ -316,13 +316,13 @@ export function EntrantCta({
         <StaggerItem mode="up" className="mt-10 flex flex-wrap justify-center gap-3">
           <Link
             to={primaryTo}
-            className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[14px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[15px]"
+            className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[17px]"
           >
             {primaryLabel} <span aria-hidden>→</span>
           </Link>
           <Link
             to={secondaryTo}
-            className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-white/[0.04] px-7 py-3.5 text-[14px] font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/[0.10] active:scale-95 sm:text-[15px]"
+            className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-surface-md px-7 py-3.5 text-[15px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:text-[17px]"
           >
             {secondaryLabel} <span aria-hidden>→</span>
           </Link>

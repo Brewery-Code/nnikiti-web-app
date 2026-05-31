@@ -88,24 +88,24 @@ export default function BurgerMenu({
       {/* Burger button */}
       <button
         aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
-        className="relative z-[110] flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-[10px] transition-colors duration-200 hover:bg-white/10"
+        className="relative z-[110] flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-[10px] transition-colors duration-200 hover:bg-surface-xl"
         onClick={toggleMenu}
       >
         <span
           className={clsx(
-            "block h-[1.5px] w-[22px] origin-center bg-white transition-all duration-300",
+            "block h-[1.5px] w-[22px] origin-center bg-primary transition-all duration-300",
             isOpen && "translate-y-[7.5px] rotate-45"
           )}
         />
         <span
           className={clsx(
-            "block h-[1.5px] w-[22px] bg-white transition-all duration-300",
+            "block h-[1.5px] w-[22px] bg-primary transition-all duration-300",
             isOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
           )}
         />
         <span
           className={clsx(
-            "block h-[1.5px] w-[22px] origin-center bg-white transition-all duration-300",
+            "block h-[1.5px] w-[22px] origin-center bg-primary transition-all duration-300",
             isOpen && "-translate-y-[7.5px] -rotate-45"
           )}
         />
@@ -115,7 +115,7 @@ export default function BurgerMenu({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] flex flex-col overflow-hidden bg-[#08090f]"
+            className="fixed inset-0 z-[99] flex flex-col overflow-hidden bg-base"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
@@ -145,7 +145,7 @@ export default function BurgerMenu({
                 className="font-display select-none font-black text-grad"
                 style={{ fontSize: "1.3rem", letterSpacing: "-0.04em" }}
               >
-                ННКІТІ
+                ННІКІТІ
               </span>
             </div>
 
@@ -186,8 +186,8 @@ export default function BurgerMenu({
                   <Link
                     to="/"
                     className={clsx(
-                      "font-display text-[1.6rem] font-black text-white transition-colors duration-200 hover:text-violet-300",
-                      openIndex !== -1 && "text-white/25"
+                      "font-display text-[1.6rem] font-black text-primary transition-colors duration-200 hover:text-violet-300",
+                      openIndex !== -1 && "text-primary/25"
                     )}
                     style={{ letterSpacing: "-0.03em" }}
                     onClick={toggleMenu}

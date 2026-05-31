@@ -8,9 +8,9 @@ import { publicRqClient } from "@/shared/api/instance";
 const FALLBACK_FAQ = [
   {
     id: 1,
-    question: "Які спеціальності пропонує ННКІТІ?",
+    question: "Які спеціальності пропонує ННІКІТІ?",
     answer:
-      "ННКІТІ пропонує навчання за спеціальностями: 121 — Інженерія програмного забезпечення, 122 — Комп'ютерні науки, 123 — Комп'ютерна інженерія, 124 — Системний аналіз, 125 — Кібербезпека, 126 — Інформаційні системи та технології, а також 113 — Прикладна математика.",
+      "ННІКІТІ пропонує навчання за спеціальностями: 121 — Інженерія програмного забезпечення, 122 — Комп'ютерні науки, 123 — Комп'ютерна інженерія, 124 — Системний аналіз, 125 — Кібербезпека, 126 — Інформаційні системи та технології, а також 113 — Прикладна математика.",
   },
   {
     id: 2,
@@ -28,13 +28,13 @@ const FALLBACK_FAQ = [
     id: 4,
     question: "Що таке ЄФВВ і коли його складати?",
     answer:
-      "ЄФВВ (Єдиний фаховий вступний випробування) — це іспит для вступу на магістратуру. Реєстрація відбувається у червні через testportal.gov.ua, тестування — у липні. Альтернативно можна скласти внутрішній фаховий іспит ННКІТІ.",
+      "ЄФВВ (Єдиний фаховий вступний випробування) — це іспит для вступу на магістратуру. Реєстрація відбувається у червні через testportal.gov.ua, тестування — у липні. Альтернативно можна скласти внутрішній фаховий іспит ННІКІТІ.",
   },
   {
     id: 5,
     question: "Чи є можливість навчатись за кордоном?",
     answer:
-      "Так, ННКІТІ бере активну участь у програмі Erasmus+, яка дозволяє студентам проходити семестрове навчання або стажування в університетах-партнерах Польщі, Литви, Чехії та інших країн ЄС. Також можливе отримання подвійного диплому.",
+      "Так, ННІКІТІ бере активну участь у програмі Erasmus+, яка дозволяє студентам проходити семестрове навчання або стажування в університетах-партнерах Польщі, Литви, Чехії та інших країн ЄС. Також можливе отримання подвійного диплому.",
   },
   {
     id: 6,
@@ -44,21 +44,21 @@ const FALLBACK_FAQ = [
   },
   {
     id: 7,
-    question: "Які партнери у ННКІТІ серед IT-компаній?",
+    question: "Які партнери у ННІКІТІ серед IT-компаній?",
     answer:
-      "ННКІТІ співпрацює з провідними IT-компаніями: SoftServe, EPAM Systems, Intellias, GlobalLogic, Ciklum, Sigma Software, Luxoft, Eleks та іншими. Партнерство включає стажування, практику, хакатони, майстер-класи та сприяння у працевлаштуванні.",
+      "ННІКІТІ співпрацює з провідними IT-компаніями: SoftServe, EPAM Systems, Intellias, GlobalLogic, Ciklum, Sigma Software, Luxoft, Eleks та іншими. Партнерство включає стажування, практику, хакатони, майстер-класи та сприяння у працевлаштуванні.",
   },
   {
     id: 8,
     question: "Як зв'язатись з приймальною комісією?",
     answer:
-      "Приймальна комісія ННКІТІ: email — nni-akot@nuwm.edu.ua, телефон — вказаний на сторінці контактів. Також можна відвідати особисто або скористатись формою запитань на сайті.",
+      "Приймальна комісія ННІКІТІ: email — nni-akot@nuwm.edu.ua, телефон — вказаний на сторінці контактів. Також можна відвідати особисто або скористатись формою запитань на сайті.",
   },
 ];
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-24 sm:pt-32 sm:pb-32 lg:pt-40 lg:pb-40">
+    <section className="relative overflow-hidden bg-base pt-24 pb-24 sm:pt-32 sm:pb-32 lg:pt-40 lg:pb-40">
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -87,17 +87,17 @@ function HeroSection() {
       <Stagger className="container-v2 relative z-[1] flex flex-col items-center text-center" stagger={0.1} delay={0.35} inView={false}>
         <StaggerItem mode="scale">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-            <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+            <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
               FAQ
             </span>
-            <span className="text-[12px] text-white/70">Часті запитання</span>
+            <span className="text-[12px] text-primary/70">Часті запитання</span>
           </div>
         </StaggerItem>
 
         <StaggerItem
           as="h1"
           mode="up"
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
             letterSpacing: "-0.05em",
@@ -110,7 +110,7 @@ function HeroSection() {
         <StaggerItem
           as="p"
           mode="up"
-          className="mx-auto mt-6 text-[14px] text-white/65 sm:text-[16px]"
+          className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
           style={{ lineHeight: 1.7, maxWidth: 560 }}
         >
           Зібрали найпопулярніші питання абітурієнтів, студентів і батьків.
@@ -133,7 +133,7 @@ export function FAQPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <HeroSection />
-      <div className="bg-[#08090f] py-12 sm:py-16 lg:py-24">
+      <div className="bg-base py-12 sm:py-16 lg:py-24">
         <section className="container-v2 flex flex-col gap-3 max-w-[900px]">
           {data.map((item, i) => (
             <Accordion

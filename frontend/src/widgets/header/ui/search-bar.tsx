@@ -21,7 +21,7 @@ function Suggestion({ entry, onSelect }: { entry: SearchEntry; onSelect: () => v
       to={entry.link}
       onMouseDown={(e) => e.preventDefault()}
       onClick={onSelect}
-      className="group flex items-center gap-3 px-4 py-2.5 transition-colors duration-100 hover:bg-white/[0.05]"
+      className="group flex items-center gap-3 px-4 py-2.5 transition-colors duration-100 hover:bg-surface-md"
     >
       <span
         className="flex-shrink-0 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.09em]"
@@ -33,7 +33,7 @@ function Suggestion({ entry, onSelect }: { entry: SearchEntry; onSelect: () => v
       >
         {entry.category}
       </span>
-      <span className="min-w-0 truncate text-[13px] text-white/70 group-hover:text-white/90">
+      <span className="min-w-0 truncate text-[13px] text-primary/70 group-hover:text-primary/90">
         {entry.title}
       </span>
     </Link>
@@ -104,11 +104,11 @@ export default function SearchBar({ className }: { className?: string }) {
           className="absolute left-0 right-0 top-[calc(100%+6px)] overflow-hidden rounded-[14px] py-1.5"
           style={{
             background: "#13141c",
-            border: "1px solid rgba(255,255,255,0.08)",
+            border: "1px solid var(--border-ui)",
             boxShadow: "0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(166,132,255,0.08)",
           }}
         >
-          <p className="px-4 pb-1 pt-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white/25">
+          <p className="px-4 pb-1 pt-1 text-[9px] font-bold uppercase tracking-[0.12em] text-primary/25">
             {hasQuery ? "Результати" : "Популярні розділи"}
           </p>
 
@@ -117,7 +117,7 @@ export default function SearchBar({ className }: { className?: string }) {
               <Suggestion key={i} entry={entry} onSelect={close} />
             ))
           ) : (
-            <p className="px-4 py-3 text-[12px] text-white/35">Нічого не знайдено</p>
+            <p className="px-4 py-3 text-[12px] text-subtle">Нічого не знайдено</p>
           )}
 
           {hasQuery && suggestions.length > 0 && (

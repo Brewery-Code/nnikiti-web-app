@@ -14,9 +14,9 @@ export default function ChangeLanguage() {
   return (
     <button
       className={clsx(
-        "cursor-pointer rounded-lg border border-white/10 bg-transparent px-3 py-1.5",
-        "text-[11px] font-bold uppercase tracking-[0.09em] text-white/40 transition-colors duration-150",
-        "hover:border-white/25 hover:text-white"
+        "cursor-pointer rounded-lg border border-ui bg-transparent px-3 py-1.5",
+        "text-[11px] font-bold uppercase tracking-[0.09em] text-subtle transition-colors duration-150",
+        "hover:border-white/25 hover:text-primary"
       )}
       onClick={languageHandler}
     >

@@ -48,15 +48,15 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
           )}
 
           <h2
-            className="font-display font-black text-white"
+            className="font-display font-black text-primary"
             style={{ fontSize: "clamp(1.3rem, 2.2vw, 1.8rem)", letterSpacing: "-0.03em" }}
           >
             {alumni.full_name}
           </h2>
 
           {(alumni.position || alumni.workplace) && (
-            <p className="text-[13px] text-white/55">
-              {alumni.position && <span className="font-semibold text-white/80">{alumni.position}</span>}
+            <p className="text-[14px] text-muted">
+              {alumni.position && <span className="font-semibold text-primary/80">{alumni.position}</span>}
               {alumni.position && alumni.workplace && " · "}
               {alumni.workplace}
             </p>
@@ -69,22 +69,22 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
       {(alumni.major || alumni.degree) && (
         <div className="mt-5 flex flex-wrap gap-2">
           {alumni.major && (
-            <div className="grad-border rounded-[12px] bg-white/[0.04] px-4 py-2.5">
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/35 mb-0.5">Спеціальність</p>
-              <p className="text-[13px] font-semibold text-white/80">{alumni.major}</p>
+            <div className="grad-border rounded-[12px] bg-surface-md px-4 py-2.5">
+              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-subtle mb-0.5">Спеціальність</p>
+              <p className="text-[14px] font-semibold text-primary/80">{alumni.major}</p>
             </div>
           )}
           {alumni.degree && (
-            <div className="grad-border rounded-[12px] bg-white/[0.04] px-4 py-2.5">
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-white/35 mb-0.5">Ступінь</p>
-              <p className="text-[13px] font-semibold text-white/80">{alumni.degree}</p>
+            <div className="grad-border rounded-[12px] bg-surface-md px-4 py-2.5">
+              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-subtle mb-0.5">Ступінь</p>
+              <p className="text-[14px] font-semibold text-primary/80">{alumni.degree}</p>
             </div>
           )}
         </div>
       )}
 
       {alumni.text && (
-        <p className="mt-5 text-[14px] leading-relaxed text-white/60">{alumni.text}</p>
+        <p className="mt-5 text-[15px] leading-relaxed text-primary/60">{alumni.text}</p>
       )}
 
       {socialEntries.length > 0 && (
@@ -95,7 +95,7 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 px-4 py-1.5 text-[12px] font-semibold text-violet-200 transition-all hover:bg-violet-500/20 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 px-4 py-1.5 text-[12px] font-semibold text-violet-200 transition-all hover:bg-violet-500/20 hover:text-primary"
             >
               <span className="font-display text-[10px] font-extrabold uppercase">
                 {SOCIAL_ICONS[platform.toLowerCase()] ?? platform.slice(0, 2)}

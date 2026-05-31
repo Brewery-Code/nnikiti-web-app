@@ -26,7 +26,7 @@ export default function Accordion({
   return (
     <div
       onClick={onClick}
-      className="grad-border group relative cursor-pointer overflow-hidden rounded-[18px] bg-white/[0.03] backdrop-blur-xl transition-all duration-300 active:scale-[0.99] tap-highlight-transparent hover:bg-white/[0.05]"
+      className="grad-border group relative cursor-pointer overflow-hidden rounded-[18px] bg-surface backdrop-blur-xl transition-all duration-300 active:scale-[0.99] tap-highlight-transparent hover:bg-surface-md"
     >
       <div
         className={clsx(
@@ -47,7 +47,7 @@ export default function Accordion({
           </div>
         )}
         <h3
-          className="font-display flex-1 font-bold leading-snug text-white"
+          className="font-display flex-1 font-bold leading-snug text-primary"
           style={{ fontSize: "clamp(0.95rem, 1.2vw, 1.15rem)", letterSpacing: "-0.01em" }}
         >
           {title}
@@ -55,8 +55,8 @@ export default function Accordion({
         <span
           aria-hidden
           className={clsx(
-            "flex-shrink-0 text-xl text-white/50 transition-transform duration-300",
-            isAccordionOpen ? "rotate-45 text-violet-400" : "group-hover:text-white/80"
+            "flex-shrink-0 text-xl text-primary/50 transition-transform duration-300",
+            isAccordionOpen ? "rotate-45 text-violet-400" : "group-hover:text-primary/80"
           )}
         >
           +
@@ -69,7 +69,7 @@ export default function Accordion({
       >
         <div ref={descriptionRef} className="px-5 pb-5 sm:px-7 sm:pb-6">
           {typeof index === "number" && <div className="ml-0 mb-4 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />}
-          <p className="text-[14px] leading-relaxed text-white/65 sm:text-[15px]">
+          <p className="text-[15px] leading-relaxed text-muted sm:text-[17px]">
             {description}
           </p>
         </div>

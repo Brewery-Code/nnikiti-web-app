@@ -29,7 +29,7 @@ export function NavLinks({ className }: NavLinksProps) {
           <li key={to}>
             <Link
               to={to}
-              className="group flex items-center gap-3 py-1.5 text-fluid-lg leading-tight text-slate-400 transition-colors duration-200 hover:text-white"
+              className="group flex items-center gap-3 py-1.5 text-fluid-lg leading-tight text-slate-400 transition-colors duration-200 hover:text-primary"
             >
               <span className="h-px w-3 bg-slate-700 transition-all duration-300 group-hover:w-5 group-hover:bg-white" />
               {t(labelKey)}

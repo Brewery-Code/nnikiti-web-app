@@ -105,11 +105,12 @@ export function Header() {
         className={clsx(
           "absolute inset-0 transition-all duration-[350ms]",
           scrolled
-            ? "border-b border-violet-500/10 bg-[rgba(8,9,15,0.85)] backdrop-blur-[24px]"
+            ? "border-b border-violet-500/10 backdrop-blur-[24px]"
             : "border-b border-transparent bg-transparent"
         )}
+        style={scrolled ? { background: "color-mix(in srgb, var(--bg-base) 88%, transparent)" } : undefined}
       />
-      <div className="relative mx-auto flex h-full max-w-[1280px] items-center gap-8 px-4 sm:px-6 lg:px-10">
+      <div className="relative mx-auto flex h-full max-w-[1600px] items-center gap-8 px-4 sm:px-6 lg:px-10">
         <Link to="/" className="flex-shrink-0">
           <MicrocircuitLabelLogo />
         </Link>
@@ -125,7 +126,7 @@ export function Header() {
             className={clsx(
               "inline-flex items-center gap-2 rounded-[10px]",
               "bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-2.5",
-              "text-[12px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.2)]",
+              "text-[12px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.2)]",
               "transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.45)]"
             )}
           >

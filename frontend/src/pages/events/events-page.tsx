@@ -67,13 +67,13 @@ function SectionTitle({
         — {eyebrow}
       </div>
       <h2
-        className="font-display font-black text-white"
+        className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
       >
         {title} <span className="text-grad">{highlight}</span>
       </h2>
       {description && (
-        <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
+        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]">
           {description}
         </p>
       )}
@@ -94,7 +94,7 @@ function Hero() {
   }, [location.hash]);
 
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -116,16 +116,16 @@ function Hero() {
 
       <Stagger className="container-v2 relative z-[1]" stagger={0.08} delay={0.35} inView={false}>
         <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-            ННКІТІ
+          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
+            ННІКІТІ
           </span>
-          <span className="text-[12px] text-white/70">Події та новини</span>
+          <span className="text-[12px] text-primary/70">Події та новини</span>
         </StaggerItem>
 
         <StaggerItem
           as="h1"
           mode="up"
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
             letterSpacing: "-0.05em",
@@ -137,9 +137,9 @@ function Hero() {
         <StaggerItem
           as="p"
           mode="up"
-          className="mt-6 max-w-2xl text-[14px] leading-relaxed text-white/65 sm:text-[16px]"
+          className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-[17px]"
         >
-          Все, що відбувається в ННКІТІ — в одному місці. Конференції,
+          Все, що відбувається в ННІКІТІ — в одному місці. Конференції,
           олімпіади, оголошення, новини та культурні заходи.
         </StaggerItem>
 
@@ -152,10 +152,10 @@ function Hero() {
                 scrollToId(tab.id);
               }}
               className={clsx(
-                "rounded-[12px] px-5 py-2.5 text-[13px] font-semibold transition-all duration-200",
+                "rounded-[12px] px-5 py-2.5 text-[14px] font-semibold transition-all duration-200",
                 active === tab.id
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                  : "grad-border bg-white/[0.04] text-white/60 backdrop-blur-md hover:bg-white/[0.10] hover:text-white"
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                  : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:bg-surface-xl hover:text-primary"
               )}
             >
               {tab.label}
@@ -202,22 +202,22 @@ function MiniCalendar({
     year === today.getFullYear();
 
   return (
-    <div className="grad-border select-none rounded-[20px] bg-white/[0.03] p-5 backdrop-blur-xl">
+    <div className="grad-border select-none rounded-[20px] bg-surface p-5 backdrop-blur-xl">
       <div className="mb-4 flex items-center justify-between">
         <button
           onClick={onPrev}
           aria-label="Попередній місяць"
-          className="flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition hover:bg-white/10 hover:text-white"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-primary/60 transition hover:bg-surface-xl hover:text-primary"
         >
           ‹
         </button>
-        <span className="font-display text-[14px] font-bold text-white">
+        <span className="font-display text-[15px] font-bold text-primary">
           {UK_MONTHS[month]} {year}
         </span>
         <button
           onClick={onNext}
           aria-label="Наступний місяць"
-          className="flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition hover:bg-white/10 hover:text-white"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-primary/60 transition hover:bg-surface-xl hover:text-primary"
         >
           ›
         </button>
@@ -227,7 +227,7 @@ function MiniCalendar({
         {UK_DAYS_SHORT.map((d) => (
           <div
             key={d}
-            className="text-center text-[10px] font-bold uppercase tracking-wider text-white/30"
+            className="text-center text-[10px] font-bold uppercase tracking-wider text-subtle"
           >
             {d}
           </div>
@@ -248,10 +248,10 @@ function MiniCalendar({
               className={clsx(
                 "relative flex flex-col items-center rounded-[10px] py-1.5 text-[12px] font-medium transition-all duration-150",
                 isSelected
-                  ? "bg-gradient-to-br from-violet-500 to-blue-500 text-white"
+                  ? "bg-gradient-to-br from-violet-500 to-blue-500 text-primary"
                   : isToday(day)
-                    ? "bg-white/10 text-white"
-                    : "text-white/55 hover:bg-white/[0.07] hover:text-white"
+                    ? "bg-white/10 text-primary"
+                    : "text-muted hover:bg-surface-lg hover:text-primary"
               )}
             >
               {day}
@@ -282,9 +282,9 @@ function MiniCalendar({
 function EventListItem({ event }: { event: CalendarEvent }) {
   const meta = EVENT_TYPE_META[event.type];
   return (
-    <div className="grad-border card-hover flex gap-4 rounded-[16px] bg-white/[0.03] p-4 backdrop-blur-xl">
+    <div className="grad-border card-hover flex gap-4 rounded-[16px] bg-surface p-4 backdrop-blur-xl">
       <div className="flex w-14 flex-shrink-0 flex-col items-center justify-center rounded-[12px] bg-gradient-to-br from-violet-500/20 to-blue-500/20 py-2 text-center">
-        <span className="text-[10px] font-bold uppercase text-white/45">
+        <span className="text-[10px] font-bold uppercase text-subtle">
           {UK_MONTHS[parseInt(event.date.split("-")[1]) - 1].slice(0, 3)}
         </span>
         <span className="text-grad font-display text-xl font-extrabold leading-none">
@@ -297,14 +297,14 @@ function EventListItem({ event }: { event: CalendarEvent }) {
           <span className="font-display rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.04em] text-violet-200">
             {meta.label}
           </span>
-          <span className="text-[11px] text-white/40">
+          <span className="text-[11px] text-subtle">
             {event.time} · {event.location}
           </span>
         </div>
-        <p className="font-display truncate text-[14px] font-semibold text-white">
+        <p className="font-display truncate text-[15px] font-semibold text-primary">
           {event.title}
         </p>
-        <p className="mt-0.5 line-clamp-2 text-[12px] leading-relaxed text-white/50">
+        <p className="mt-0.5 line-clamp-2 text-[12px] leading-relaxed text-primary/50">
           {event.description}
         </p>
       </div>
@@ -369,7 +369,7 @@ function CalendarSection() {
               onNext={() => changeMonth(1)}
             />
 
-            <div className="grad-border rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl">
+            <div className="grad-border rounded-[18px] bg-surface p-4 backdrop-blur-xl">
               <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
                 Тип події
               </p>
@@ -379,8 +379,8 @@ function CalendarSection() {
                   className={clsx(
                     "rounded-full border px-3 py-1 text-[11px] font-semibold transition",
                     typeFilter === ALL_TYPES
-                      ? "border-transparent bg-gradient-to-r from-violet-500 to-blue-500 text-white"
-                      : "border-white/10 text-white/55 hover:border-white/30 hover:text-white"
+                      ? "border-transparent bg-gradient-to-r from-violet-500 to-blue-500 text-primary"
+                      : "border-ui text-muted hover:border-white/30 hover:text-primary"
                   )}
                 >
                   Всі
@@ -395,8 +395,8 @@ function CalendarSection() {
                       className={clsx(
                         "rounded-full border px-3 py-1 text-[11px] font-semibold transition",
                         isActive
-                          ? "border-transparent bg-gradient-to-r from-violet-500 to-blue-500 text-white"
-                          : "border-white/10 text-white/55 hover:border-white/30 hover:text-white"
+                          ? "border-transparent bg-gradient-to-r from-violet-500 to-blue-500 text-primary"
+                          : "border-ui text-muted hover:border-white/30 hover:text-primary"
                       )}
                     >
                       {m.label}
@@ -410,16 +410,16 @@ function CalendarSection() {
           <div className="flex flex-col gap-3">
             {selected && (
               <div className="flex items-center justify-between">
-                <p className="text-[13px] text-white/55">
+                <p className="text-[14px] text-muted">
                   Події на{" "}
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-primary">
                     {parseInt(selected.split("-")[2])}{" "}
                     {UK_MONTHS[parseInt(selected.split("-")[1]) - 1]}
                   </span>
                 </p>
                 <button
                   onClick={() => setSelected(null)}
-                  className="text-[11px] text-violet-300 transition hover:text-white"
+                  className="text-[11px] text-violet-300 transition hover:text-primary"
                 >
                   Показати всі ›
                 </button>
@@ -427,7 +427,7 @@ function CalendarSection() {
             )}
 
             {visibleEvents.length === 0 ? (
-              <div className="grad-border flex h-48 items-center justify-center rounded-[18px] bg-white/[0.03] text-[13px] text-white/40 backdrop-blur-xl">
+              <div className="grad-border flex h-48 items-center justify-center rounded-[18px] bg-surface text-[14px] text-subtle backdrop-blur-xl">
                 Подій у цей день не заплановано
               </div>
             ) : (
@@ -444,7 +444,7 @@ function NewsCard({ item }: { item: (typeof NEWS)[0] }) {
   return (
     <Link
       to={`/news/${item.id}`}
-      className="spec-card grad-border group flex h-full flex-col overflow-hidden rounded-[20px] bg-white/[0.03] backdrop-blur-xl"
+      className="spec-card grad-border group flex h-full flex-col overflow-hidden rounded-[20px] bg-surface backdrop-blur-xl"
     >
       <div className="relative h-44 overflow-hidden">
         <img
@@ -454,7 +454,7 @@ function NewsCard({ item }: { item: (typeof NEWS)[0] }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#08090f] via-transparent to-transparent" />
         <span
-          className="font-display absolute bottom-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-white"
+          className="font-display absolute bottom-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-primary"
           style={{
             background:
               "linear-gradient(135deg, rgba(166,132,255,0.85) 0%, rgba(81,162,255,0.85) 100%)",
@@ -465,19 +465,19 @@ function NewsCard({ item }: { item: (typeof NEWS)[0] }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white/35">
+        <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-subtle">
           {item.date}
         </p>
         <h3
-          className="font-display mb-3 line-clamp-3 flex-1 font-bold leading-snug text-white"
+          className="font-display mb-3 line-clamp-3 flex-1 font-bold leading-snug text-primary"
           style={{ fontSize: "1rem", letterSpacing: "-0.01em" }}
         >
           {item.title}
         </h3>
-        <p className="line-clamp-3 text-[12px] leading-relaxed text-white/55">
+        <p className="line-clamp-3 text-[12px] leading-relaxed text-muted">
           {item.excerpt}
         </p>
-        <span className="mt-4 self-start text-[12px] font-semibold text-violet-300 transition group-hover:text-white">
+        <span className="mt-4 self-start text-[12px] font-semibold text-violet-300 transition group-hover:text-primary">
           Читати далі →
         </span>
       </div>
@@ -518,7 +518,7 @@ function NewsSection() {
           <div className="mt-10 flex justify-center">
             <button
               onClick={() => setVisibleCount((c) => c + 3)}
-              className="grad-border inline-flex items-center gap-2 rounded-[12px] bg-white/[0.04] px-7 py-3 text-[13px] font-semibold text-white/70 backdrop-blur-md transition-all duration-200 hover:bg-white/[0.10] hover:text-white"
+              className="grad-border inline-flex items-center gap-2 rounded-[12px] bg-surface-md px-7 py-3 text-[14px] font-semibold text-primary/70 backdrop-blur-md transition-all duration-200 hover:bg-surface-xl hover:text-primary"
             >
               Завантажити ще
               <span aria-hidden className="text-violet-400">↓</span>
@@ -534,7 +534,7 @@ function EventsPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <Hero />
-      <div className="bg-[#08090f] pb-16 lg:pb-20">
+      <div className="bg-base pb-16 lg:pb-20">
         <CalendarSection />
         <NewsSection />
       </div>

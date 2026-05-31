@@ -54,7 +54,7 @@ export function Preloader() {
       {visible && (
         <motion.div
           key="preloader"
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#08090f]"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-base"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: EASE }}
@@ -91,7 +91,7 @@ export function Preloader() {
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.55, ease: EASE }}
             >
-              ННКІТІ
+              ННІКІТІ
             </motion.span>
 
             <motion.div

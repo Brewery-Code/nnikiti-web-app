@@ -134,17 +134,17 @@ function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
       style={{
         background: h
           ? "linear-gradient(135deg, rgba(166,132,255,0.10) 0%, rgba(81,162,255,0.08) 100%)"
-          : "rgba(255,255,255,0.03)",
+          : "var(--bg-surface)",
       }}
     >
-      <div style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.02em", marginBottom: 14, color: "rgba(255,255,255,0.45)", transition: "color 200ms" }}>
+      <div style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.02em", marginBottom: 14, color: "var(--text-subtle)", transition: "color 200ms" }}>
         Code:{" "}
-        <span style={{ color: h ? "#fff" : "rgba(255,255,255,0.7)" }}>{spec.code}</span>
+        <span style={{ color: h ? "#fff" : "var(--text-muted)" }}>{spec.code}</span>
       </div>
 
       <h3
         className="font-display font-extrabold uppercase"
-        style={{ fontSize: "clamp(1.15rem, 1.4vw, 1.4rem)", letterSpacing: "-0.01em", lineHeight: 1.2, marginBottom: 22, minHeight: "2.4em", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", color: h ? "#fff" : "rgba(255,255,255,0.92)", transition: "color 200ms" }}
+        style={{ fontSize: "clamp(1.15rem, 1.4vw, 1.4rem)", letterSpacing: "-0.01em", lineHeight: 1.2, marginBottom: 22, minHeight: "2.4em", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", color: h ? "#fff" : "var(--text-primary)", transition: "color 200ms" }}
       >
         {spec.name}
       </h3>
@@ -166,19 +166,19 @@ function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
           {spec.budget > 0 && (
             <div>
               <div className="font-display font-extrabold" style={{ fontSize: "1rem" }}>{spec.budget}</div>
-              <div style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", letterSpacing: "0.05em", textTransform: "uppercase" }}>бюджет</div>
+              <div style={{ fontSize: 9, color: "var(--text-subtle)", letterSpacing: "0.05em", textTransform: "uppercase" }}>бюджет</div>
             </div>
           )}
           {spec.contract > 0 && (
             <div>
               <div className="font-display font-extrabold" style={{ fontSize: "1rem" }}>{spec.contract}</div>
-              <div style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", letterSpacing: "0.05em", textTransform: "uppercase" }}>контракт</div>
+              <div style={{ fontSize: 9, color: "var(--text-subtle)", letterSpacing: "0.05em", textTransform: "uppercase" }}>контракт</div>
             </div>
           )}
         </div>
         <div
           className="flex flex-shrink-0 items-center justify-center"
-          style={{ width: 36, height: 36, borderRadius: 10, background: h ? "linear-gradient(135deg, #a684ff, #51a2ff)" : "rgba(255,255,255,0.06)", color: h ? "#fff" : "rgba(255,255,255,0.6)", transition: "all 200ms", fontSize: 16 }}
+          style={{ width: 36, height: 36, borderRadius: 10, background: h ? "linear-gradient(135deg, #a684ff, #51a2ff)" : "rgba(255,255,255,0.06)", color: h ? "#fff" : "var(--text-muted)", transition: "all 200ms", fontSize: 16 }}
         >
           ↗
         </div>
@@ -190,7 +190,7 @@ function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
 function ProgramsSlider() {
   const swiperRef = useRef<SwiperType | null>(null);
   return (
-    <section className="bg-[#08090f] py-12 sm:py-16 lg:py-20">
+    <section className="bg-base py-12 sm:py-16 lg:py-20">
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
           <div>
@@ -198,12 +198,12 @@ function ProgramsSlider() {
               — Спеціальності
             </div>
             <h2
-              className="font-display font-black leading-none text-white"
+              className="font-display font-black leading-none text-primary"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
             >
               Знайди свій <span className="text-grad">напрям</span>
             </h2>
-            <p className="mt-3 text-[14px] text-white/55" style={{ maxWidth: 480 }}>
+            <p className="mt-3 text-[15px] text-muted" style={{ maxWidth: 480 }}>
               Від розробки до математики — обери програму, яка відповідає твоїм цілям і захопленням.
             </p>
           </div>
@@ -212,7 +212,7 @@ function ProgramsSlider() {
               type="button"
               onClick={() => swiperRef.current?.slidePrev(600)}
               aria-label="Попередня програма"
-              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] text-white/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-white active:scale-95"
+              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-surface-md text-primary/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-primary active:scale-95"
             >
               <span style={{ fontSize: 18, lineHeight: 1 }}>←</span>
             </button>
@@ -220,7 +220,7 @@ function ProgramsSlider() {
               type="button"
               onClick={() => swiperRef.current?.slideNext(600)}
               aria-label="Наступна програма"
-              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] text-white/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-white active:scale-95"
+              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-surface-md text-primary/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-primary active:scale-95"
             >
               <span style={{ fontSize: 18, lineHeight: 1 }}>→</span>
             </button>
@@ -272,7 +272,7 @@ function BachelorPage() {
         ]}
       />
 
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <ProgramsSlider />
 
         <section className="py-12 sm:py-16 lg:py-20">
@@ -286,7 +286,7 @@ function BachelorPage() {
                   subtitle="Весь процес — онлайн через ЄДЕБО. Жодних черг і паперів до моменту зарахування."
                 />
 
-                <div className="grad-border mt-8 rounded-[20px] bg-white/[0.03] p-6 backdrop-blur-xl">
+                <div className="grad-border mt-8 rounded-[20px] bg-surface p-6 backdrop-blur-xl">
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
                     Предмети НМТ для вступу
                   </p>
@@ -300,7 +300,7 @@ function BachelorPage() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 border-b border-white/[0.06] py-3 last:border-0"
+                      className="flex items-center gap-3 border-b border-ui-sm py-3 last:border-0"
                     >
                       <span
                         aria-hidden
@@ -308,10 +308,10 @@ function BachelorPage() {
                         style={{
                           background: item.required
                             ? "linear-gradient(135deg, #a684ff, #51a2ff)"
-                            : "rgba(255,255,255,0.20)",
+                            : "var(--text-subtle)",
                         }}
                       />
-                      <span className="text-[13px] text-white/75">
+                      <span className="text-[14px] text-primary/75">
                         {item.subject}
                       </span>
                       {item.required && (
@@ -347,7 +347,7 @@ function BachelorPage() {
                 — Важливі дати
               </div>
               <h2
-                className="font-display font-black text-white"
+                className="font-display font-black text-primary"
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
               >
                 Не пропусти <span className="text-grad">дедлайни</span>
@@ -360,21 +360,21 @@ function BachelorPage() {
               <Stagger className="grid grid-cols-5 gap-4" stagger={0.1} amount={0.05}>
                 {dates.map((d, i) => (
                   <StaggerItem key={i} mode="up" className="flex flex-col items-center text-center">
-                    <div className="relative z-10 mb-5 flex h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[13px] font-extrabold text-white shadow-[0_0_28px_rgba(166,132,255,0.45)]">
+                    <div className="relative z-10 mb-5 flex h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[14px] font-extrabold text-primary shadow-[0_0_28px_rgba(166,132,255,0.45)]">
                       {String(i + 1).padStart(2, "0")}
                     </div>
-                    <div className="grad-border w-full rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl">
+                    <div className="grad-border w-full rounded-[18px] bg-surface p-4 backdrop-blur-xl">
                       <span className="block text-[9px] font-bold uppercase tracking-[0.16em] text-violet-400">
                         {d.period}
                       </span>
                       <h3
-                        className="font-display mt-2 font-bold text-white"
+                        className="font-display mt-2 font-bold text-primary"
                         style={{ fontSize: "0.88rem", letterSpacing: "-0.01em", lineHeight: 1.3 }}
                       >
                         {d.label}
                       </h3>
                       {d.note && (
-                        <p className="mt-2 text-[11px] leading-relaxed text-white/40">{d.note}</p>
+                        <p className="mt-2 text-[11px] leading-relaxed text-subtle">{d.note}</p>
                       )}
                     </div>
                   </StaggerItem>
@@ -388,21 +388,21 @@ function BachelorPage() {
               <Stagger className="flex flex-col gap-6" stagger={0.1} amount={0.05}>
                 {dates.map((d, i) => (
                   <StaggerItem key={i} mode="left" className="flex items-start gap-5">
-                    <div className="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[12px] font-extrabold text-white shadow-[0_0_20px_rgba(166,132,255,0.4)]">
+                    <div className="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[12px] font-extrabold text-primary shadow-[0_0_20px_rgba(166,132,255,0.4)]">
                       {String(i + 1).padStart(2, "0")}
                     </div>
-                    <div className="grad-border flex-1 rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl">
+                    <div className="grad-border flex-1 rounded-[18px] bg-surface p-4 backdrop-blur-xl">
                       <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-violet-400">
                         {d.period}
                       </span>
                       <h3
-                        className="font-display mt-1.5 font-bold text-white"
+                        className="font-display mt-1.5 font-bold text-primary"
                         style={{ fontSize: "0.95rem", letterSpacing: "-0.01em" }}
                       >
                         {d.label}
                       </h3>
                       {d.note && (
-                        <p className="mt-1.5 text-[12px] leading-relaxed text-white/40">{d.note}</p>
+                        <p className="mt-1.5 text-[12px] leading-relaxed text-subtle">{d.note}</p>
                       )}
                     </div>
                   </StaggerItem>
@@ -414,7 +414,7 @@ function BachelorPage() {
 
         <EntrantCta
           title="Готовий вступити?"
-          subtitle="Вступна комісія ННКІТІ проконсультує з вибором спеціальності, документами та умовами навчання."
+          subtitle="Вступна комісія ННІКІТІ проконсультує з вибором спеціальності, документами та умовами навчання."
           primaryLabel="Зв'язатися з комісією"
         />
       </div>

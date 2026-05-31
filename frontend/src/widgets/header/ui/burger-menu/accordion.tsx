@@ -37,8 +37,8 @@ export default function Accordion({
         <span
           className={clsx(
             "font-display text-[1.6rem] font-black transition-colors duration-200",
-            isAccordionOpen ? "text-grad" : "text-white",
-            dimmed && "!text-white/25"
+            isAccordionOpen ? "text-grad" : "text-primary",
+            dimmed && "!text-primary/25"
           )}
           style={{ letterSpacing: "-0.03em" }}
         >
@@ -50,7 +50,7 @@ export default function Accordion({
             "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300",
             isAccordionOpen
               ? "border-violet-500/50 bg-violet-500/15 text-violet-300"
-              : "border-white/15 bg-white/[0.04] text-white/50"
+              : "border-white/15 bg-surface-md text-primary/50"
           )}
           style={{ fontSize: "14px" }}
         >
@@ -70,7 +70,7 @@ export default function Accordion({
           <li key={index}>
             {item.onClick ? (
               <button
-                className="block w-full rounded-[10px] px-4 py-2.5 text-left text-[14px] font-medium text-white/55 transition-all duration-200 hover:bg-white/[0.05] hover:text-white"
+                className="block w-full rounded-[10px] px-4 py-2.5 text-left text-[14px] font-medium text-muted transition-all duration-200 hover:bg-surface-md hover:text-primary"
                 onClick={() => {
                   item.onClick!();
                   handleBurgerClick();
@@ -82,7 +82,7 @@ export default function Accordion({
             ) : (
               <Link
                 to={item.link}
-                className="block rounded-[10px] px-4 py-2.5 text-[14px] font-medium text-white/55 transition-all duration-200 hover:bg-white/[0.05] hover:text-white"
+                className="block rounded-[10px] px-4 py-2.5 text-[14px] font-medium text-muted transition-all duration-200 hover:bg-surface-md hover:text-primary"
                 onClick={() => {
                   handleBurgerClick();
                   toggleAccordion();

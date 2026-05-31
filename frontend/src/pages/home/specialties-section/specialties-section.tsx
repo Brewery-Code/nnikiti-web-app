@@ -70,14 +70,14 @@ function SeeAll() {
       to={ROUTES.BACHELOR}
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
-      className="inline-flex items-center text-[13px] font-semibold uppercase tracking-[0.04em] transition-all duration-150"
+      className="inline-flex items-center text-[14px] font-semibold uppercase tracking-[0.04em] transition-all duration-150"
       style={{
         gap: h ? 12 : 8,
-        color: h ? "#fff" : "rgba(255,255,255,0.4)",
+        color: h ? "#fff" : "var(--text-subtle)",
       }}
     >
       Усі програми
-      <span style={{ color: h ? "#a684ff" : "rgba(255,255,255,0.3)" }}>↗</span>
+      <span style={{ color: h ? "#a684ff" : "var(--text-subtle)" }}>↗</span>
     </Link>
   );
 }
@@ -94,7 +94,7 @@ function NavButton({
       type="button"
       onClick={onClick}
       aria-label={direction === "prev" ? "Попередня програма" : "Наступна програма"}
-      className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] text-white/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-white active:scale-95"
+      className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-surface-md text-primary/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-primary active:scale-95"
     >
       <span style={{ fontSize: 18, lineHeight: 1 }}>
         {direction === "prev" ? "←" : "→"}
@@ -117,7 +117,7 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
       style={{
         background: h
           ? "linear-gradient(135deg, rgba(166,132,255,0.10) 0%, rgba(81,162,255,0.08) 100%)"
-          : "rgba(255,255,255,0.03)",
+          : "var(--bg-surface)",
       }}
     >
       <div
@@ -126,12 +126,12 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
           fontWeight: 500,
           letterSpacing: "0.02em",
           marginBottom: 14,
-          color: "rgba(255,255,255,0.45)",
+          color: "var(--text-subtle)",
           transition: "color 200ms",
         }}
       >
         Code:{" "}
-        <span style={{ color: h ? "#fff" : "rgba(255,255,255,0.7)" }}>
+        <span style={{ color: h ? "#fff" : "var(--text-muted)" }}>
           {spec.code}
         </span>
       </div>
@@ -148,7 +148,7 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
           WebkitLineClamp: 2,
           WebkitBoxOrient: "vertical",
           overflow: "hidden",
-          color: h ? "#fff" : "rgba(255,255,255,0.92)",
+          color: h ? "#fff" : "var(--text-primary)",
           transition: "color 200ms",
         }}
       >
@@ -185,7 +185,7 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
             <div
               style={{
                 fontSize: 9,
-                color: "rgba(255,255,255,0.3)",
+                color: "var(--text-subtle)",
                 letterSpacing: "0.05em",
                 textTransform: "uppercase",
               }}
@@ -200,7 +200,7 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
             <div
               style={{
                 fontSize: 9,
-                color: "rgba(255,255,255,0.3)",
+                color: "var(--text-subtle)",
                 letterSpacing: "0.05em",
                 textTransform: "uppercase",
               }}
@@ -218,7 +218,7 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
             background: h
               ? "linear-gradient(135deg, #a684ff, #51a2ff)"
               : "rgba(255,255,255,0.06)",
-            color: h ? "#fff" : "rgba(255,255,255,0.6)",
+            color: h ? "#fff" : "var(--text-muted)",
             transition: "all 200ms",
             fontSize: 16,
           }}
@@ -246,7 +246,7 @@ export default function SpecialtiesSection({
   }
 
   return (
-    <section className={clsx("bg-[#08090f] py-16 lg:py-24", className)}>
+    <section className={clsx("bg-base py-16 lg:py-24", className)}>
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
           <div>
@@ -254,7 +254,7 @@ export default function SpecialtiesSection({
               — Спеціальності
             </div>
             <h2
-              className="font-display font-black leading-none text-white"
+              className="font-display font-black leading-none text-primary"
               style={{
                 fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
                 letterSpacing: "-0.04em",

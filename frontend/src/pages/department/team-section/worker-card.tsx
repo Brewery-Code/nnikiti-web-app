@@ -21,7 +21,7 @@ export function WorkerCard() {
           porro voluptatibus voluptatem, iure ex consectetur quod dolorum deleniti aut, sit,
           inventore placeat esse! Veritatis quas cumque deleniti?
         </p>
-        <button className="mt-2 ml-auto rounded-2xl bg-[#0a56a8] px-4 py-2 text-center text-white">
+        <button className="mt-2 ml-auto rounded-2xl bg-[#0a56a8] px-4 py-2 text-center text-primary">
           Read more
         </button>
       </div>

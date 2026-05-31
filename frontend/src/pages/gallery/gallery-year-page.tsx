@@ -16,15 +16,15 @@ function GalleryYearPage() {
   ) {
     return (
       <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-        <div className="bg-[#08090f] pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
+        <div className="bg-base pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
           <div className="container-v2">
             <Link
               to={ROUTES.GALLERY}
-              className="text-[13px] text-white/55 hover:text-white"
+              className="text-[14px] text-muted hover:text-primary"
             >
               ← Галерея
             </Link>
-            <p className="font-display mt-10 text-[18px] text-white/45">
+            <p className="font-display mt-10 text-[18px] text-subtle">
               Фото за {year} рік не знайдено.
             </p>
           </div>
@@ -38,7 +38,7 @@ function GalleryYearPage() {
       <InnerPageLayout
         backTo={ROUTES.GALLERY}
         backLabel="Галерея"
-        eyebrow="Архів ННКІТІ"
+        eyebrow="Архів ННІКІТІ"
         title={`${numYear} рік`}
         count={photos.length}
       >
@@ -48,10 +48,10 @@ function GalleryYearPage() {
               key={y}
               to={`/gallery/year/${y}`}
               className={clsx(
-                "rounded-full px-5 py-2 text-[13px] font-bold transition-all duration-200",
+                "rounded-full px-5 py-2 text-[14px] font-bold transition-all duration-200",
                 y === numYear
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                  : "grad-border bg-white/[0.04] text-white/55 backdrop-blur-md hover:bg-white/[0.10] hover:text-white"
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                  : "grad-border bg-surface-md text-muted backdrop-blur-md hover:bg-surface-xl hover:text-primary"
               )}
             >
               {y}

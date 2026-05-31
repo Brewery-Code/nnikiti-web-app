@@ -23,7 +23,7 @@ function PhotoCard({
   return (
     <div
       className={clsx(
-        "group relative cursor-pointer overflow-hidden rounded-[14px] bg-white/[0.04]",
+        "group relative cursor-pointer overflow-hidden rounded-[14px] bg-surface-md",
         className
       )}
     >
@@ -35,7 +35,7 @@ function PhotoCard({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-violet-500/30 to-blue-500/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-gradient-to-t from-[#08090f]/95 to-transparent p-3 transition-transform duration-300 group-hover:translate-y-0">
-        <p className="line-clamp-1 text-[12px] text-white/85">{photo.alt}</p>
+        <p className="line-clamp-1 text-[12px] text-primary/85">{photo.alt}</p>
       </div>
     </div>
   );
@@ -61,7 +61,7 @@ function SectionHeader({
           — {eyebrow}
         </p>
         <h2
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(1.6rem, 3vw, 2.6rem)",
             letterSpacing: "-0.04em",
@@ -72,7 +72,7 @@ function SectionHeader({
       </div>
       <Link
         to={linkTo}
-        className="group hidden shrink-0 items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:flex"
+        className="group hidden shrink-0 items-center gap-2 text-[14px] font-medium text-muted transition-colors hover:text-primary sm:flex"
       >
         {linkLabel}
         <span className="transition-transform duration-200 group-hover:translate-x-1">
@@ -141,10 +141,10 @@ function ByYearSection() {
             key={year}
             onClick={() => setActiveYear(year)}
             className={clsx(
-              "rounded-full px-5 py-2 text-[13px] font-bold transition-all duration-200",
+              "rounded-full px-5 py-2 text-[14px] font-bold transition-all duration-200",
               activeYear === year
-                ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                : "grad-border bg-white/[0.04] text-white/55 backdrop-blur-md hover:bg-white/[0.10] hover:text-white"
+                ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                : "grad-border bg-surface-md text-muted backdrop-blur-md hover:bg-surface-xl hover:text-primary"
             )}
           >
             {year}
@@ -163,7 +163,7 @@ function ByYearSection() {
       <div className="mt-8 flex justify-center">
         <Link
           to={`/gallery/year/${activeYear}`}
-          className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-white/[0.04] px-6 py-3 text-[13px] font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/[0.10] active:scale-95"
+          className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-surface-md px-6 py-3 text-[14px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95"
         >
           Всі фото {activeYear} року <span>→</span>
         </Link>
@@ -178,7 +178,7 @@ function EventCard({ event }: { event: GalleryEvent }) {
   return (
     <Link
       to={`/gallery/event/${event.id}`}
-      className="spec-card grad-border group flex flex-col overflow-hidden rounded-[20px] bg-white/[0.03] backdrop-blur-xl"
+      className="spec-card grad-border group flex flex-col overflow-hidden rounded-[20px] bg-surface backdrop-blur-xl"
     >
       <div className="relative aspect-[16/9] overflow-hidden">
         <img
@@ -198,15 +198,15 @@ function EventCard({ event }: { event: GalleryEvent }) {
           {event.date}
         </p>
         <h3
-          className="font-display font-bold text-white"
+          className="font-display font-bold text-primary"
           style={{ fontSize: "1.05rem", letterSpacing: "-0.01em" }}
         >
           {event.title}
         </h3>
-        <p className="mt-1 line-clamp-2 text-[13px] leading-relaxed text-white/55">
+        <p className="mt-1 line-clamp-2 text-[14px] leading-relaxed text-muted">
           {event.description}
         </p>
-        <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-violet-300 transition-colors group-hover:text-white">
+        <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-violet-300 transition-colors group-hover:text-primary">
           Переглянути альбом
           <span className="transition-transform duration-200 group-hover:translate-x-1">
             →
@@ -240,7 +240,7 @@ function EventsSection() {
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div className="absolute inset-0 grid grid-cols-2 gap-1 opacity-25 sm:grid-cols-4">
         {ALL_PHOTOS.slice(0, 8).map((photo) => (
           <div key={photo.id} className="overflow-hidden">
@@ -265,16 +265,16 @@ function HeroSection() {
 
       <Stagger className="container-v2 relative z-[1]" stagger={0.1}>
         <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-            ННКІТІ
+          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
+            ННІКІТІ
           </span>
-          <span className="text-[12px] text-white/70">Фотохроніка</span>
+          <span className="text-[12px] text-primary/70">Фотохроніка</span>
         </StaggerItem>
 
         <StaggerItem
           as="h1"
           mode="up"
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
             letterSpacing: "-0.05em",
@@ -283,7 +283,7 @@ function HeroSection() {
         >
           Галерея <span className="text-grad">подій</span>
         </StaggerItem>
-        <StaggerItem as="p" mode="up" className="mt-4 text-[14px] text-white/65 sm:text-[16px]">
+        <StaggerItem as="p" mode="up" className="mt-4 text-[15px] text-muted sm:text-[17px]">
           {ALL_PHOTOS.length} фото · {GALLERY_EVENTS.length} подій ·{" "}
           {GALLERY_YEARS.length} роки
         </StaggerItem>
@@ -297,7 +297,7 @@ function GalleryPage() {
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
       <HeroSection />
-      <div className="bg-[#08090f] py-12 sm:py-16 lg:py-20">
+      <div className="bg-base py-12 sm:py-16 lg:py-20">
         <div className="container-v2 flex flex-col gap-fluid-2xl">
           <AllPhotosSection />
           <ByYearSection />

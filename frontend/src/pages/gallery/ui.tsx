@@ -44,7 +44,7 @@ function Lightbox({
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#08090f]/95 backdrop-blur-sm"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-base/95 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
@@ -58,7 +58,7 @@ function Lightbox({
         />
 
         <div className="absolute bottom-0 left-0 right-0 rounded-b-[16px] bg-gradient-to-t from-[#08090f] to-transparent px-5 py-4">
-          <p className="text-[14px] text-white/90">{photo.alt}</p>
+          <p className="text-[15px] text-primary/90">{photo.alt}</p>
           <p className="mt-0.5 text-[11px] text-violet-300/70">{photo.year}</p>
         </div>
       </div>
@@ -66,12 +66,12 @@ function Lightbox({
       <button
         onClick={onClose}
         aria-label="Закрити"
-        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-primary transition-colors hover:bg-white/20"
       >
         ✕
       </button>
 
-      <div className="font-display absolute left-1/2 top-4 -translate-x-1/2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-[11px] font-bold tracking-[0.06em] text-white/70 backdrop-blur-md">
+      <div className="font-display absolute left-1/2 top-4 -translate-x-1/2 rounded-full border border-ui bg-white/5 px-3.5 py-1.5 text-[11px] font-bold tracking-[0.06em] text-primary/70 backdrop-blur-md">
         {current + 1} / {photos.length}
       </div>
 
@@ -83,7 +83,7 @@ function Lightbox({
               prev();
             }}
             aria-label="Попереднє фото"
-            className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500"
+            className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-primary transition-colors hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500"
           >
             ←
           </button>
@@ -93,7 +93,7 @@ function Lightbox({
               next();
             }}
             aria-label="Наступне фото"
-            className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500"
+            className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-primary transition-colors hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500"
           >
             →
           </button>
@@ -127,7 +127,7 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-violet-500/30 to-blue-500/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-gradient-to-t from-[#08090f]/95 to-transparent p-3 transition-transform duration-300 group-hover:translate-y-0">
-                <p className="line-clamp-1 text-[12px] text-white/80">
+                <p className="line-clamp-1 text-[12px] text-primary/80">
                   {photo.alt}
                 </p>
               </div>
@@ -166,7 +166,7 @@ export function InnerPageLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-[#08090f]">
+    <div className="bg-base">
       <section className="relative overflow-hidden pt-32 pb-12 sm:pt-40">
         <div
           aria-hidden
@@ -180,7 +180,7 @@ export function InnerPageLayout({
         <div className="container-v2 relative z-[1]">
           <Link
             to={backTo}
-            className="mb-8 inline-flex items-center gap-2 text-[13px] text-white/55 transition-colors hover:text-white"
+            className="mb-8 inline-flex items-center gap-2 text-[14px] text-muted transition-colors hover:text-primary"
           >
             ← {backLabel}
           </Link>
@@ -190,7 +190,7 @@ export function InnerPageLayout({
               — {eyebrow}
             </p>
             <h1
-              className="font-display font-black text-white"
+              className="font-display font-black text-primary"
               style={{
                 fontSize: "clamp(2rem, 5vw, 4.5rem)",
                 letterSpacing: "-0.05em",
@@ -200,7 +200,7 @@ export function InnerPageLayout({
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-4 max-w-2xl text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
+              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-[17px]">
                 {subtitle}
               </p>
             )}

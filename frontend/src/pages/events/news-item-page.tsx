@@ -9,7 +9,7 @@ function RelatedCard({ item }: { item: (typeof NEWS)[0] }) {
   return (
     <Link
       to={`/news/${item.id}`}
-      className="spec-card grad-border group flex flex-col overflow-hidden rounded-[20px] bg-white/[0.03] backdrop-blur-xl"
+      className="spec-card grad-border group flex flex-col overflow-hidden rounded-[20px] bg-surface backdrop-blur-xl"
     >
       <div className="relative h-36 overflow-hidden">
         <img
@@ -19,16 +19,16 @@ function RelatedCard({ item }: { item: (typeof NEWS)[0] }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#08090f] via-transparent to-transparent" />
         <span
-          className="font-display absolute bottom-3 left-3 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.04em] text-white"
+          className="font-display absolute bottom-3 left-3 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.04em] text-primary"
           style={{ background: "linear-gradient(135deg,rgba(166,132,255,.85),rgba(81,162,255,.85))" }}
         >
           {item.tag}
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/35">{item.date}</p>
+        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-subtle">{item.date}</p>
         <h3
-          className="font-display line-clamp-3 flex-1 font-bold text-white transition-colors group-hover:text-violet-200"
+          className="font-display line-clamp-3 flex-1 font-bold text-primary transition-colors group-hover:text-violet-200"
           style={{ fontSize: "0.9rem", letterSpacing: "-0.01em", lineHeight: 1.4 }}
         >
           {item.title}
@@ -47,10 +47,10 @@ export function NewsItemPage() {
     return (
       <PageTransition className="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center">
         <p className="text-[4rem]">📰</p>
-        <p className="font-display text-[1.4rem] font-bold text-white">Новину не знайдено</p>
+        <p className="font-display text-[1.4rem] font-bold text-primary">Новину не знайдено</p>
         <Link
           to={ROUTES.EVENTS}
-          className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-2.5 text-[13px] font-semibold text-white"
+          className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-2.5 text-[14px] font-semibold text-primary"
         >
           До всіх новин
         </Link>
@@ -63,7 +63,7 @@ export function NewsItemPage() {
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
       {/* ── Hero ── */}
-      <div className="relative min-h-[420px] overflow-hidden bg-[#08090f] sm:min-h-[500px]">
+      <div className="relative min-h-[420px] overflow-hidden bg-base sm:min-h-[500px]">
         <img
           src={news.imageSeed}
           alt=""
@@ -90,12 +90,12 @@ export function NewsItemPage() {
             <div className="mb-6 flex items-center gap-3">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center gap-1.5 text-[12px] font-semibold text-white/40 transition-colors hover:text-white"
+                className="flex items-center gap-1.5 text-[12px] font-semibold text-subtle transition-colors hover:text-primary"
               >
                 ← Назад
               </button>
-              <span className="text-white/20">/</span>
-              <Link to={ROUTES.EVENTS} className="text-[12px] text-white/40 transition-colors hover:text-white">
+              <span className="text-primary/20">/</span>
+              <Link to={ROUTES.EVENTS} className="text-[12px] text-subtle transition-colors hover:text-primary">
                 Новини
               </Link>
             </div>
@@ -103,17 +103,17 @@ export function NewsItemPage() {
             {/* Tag + date */}
             <div className="mb-5 flex flex-wrap items-center gap-3">
               <span
-                className="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white"
+                className="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-primary"
                 style={{ background: news.tagAccent + "33", border: `1px solid ${news.tagAccent}55`, color: news.tagAccent }}
               >
                 {news.tag}
               </span>
-              <span className="text-[12px] text-white/40">{news.date}</span>
+              <span className="text-[12px] text-subtle">{news.date}</span>
             </div>
 
             {/* Title */}
             <h1
-              className="font-display max-w-[860px] font-black text-white"
+              className="font-display max-w-[860px] font-black text-primary"
               style={{
                 fontSize: "clamp(1.8rem, 4.5vw, 3.6rem)",
                 letterSpacing: "-0.04em",
@@ -124,15 +124,15 @@ export function NewsItemPage() {
             </h1>
 
             {/* Author */}
-            <p className="mt-5 text-[13px] text-white/45">
-              <span className="text-white/25">Автор: </span>{news.author}
+            <p className="mt-5 text-[14px] text-subtle">
+              <span className="text-primary/25">Автор: </span>{news.author}
             </p>
           </motion.div>
         </div>
       </div>
 
       {/* ── Content ── */}
-      <div className="bg-[#08090f] pb-20 pt-0">
+      <div className="bg-base pb-20 pt-0">
         <div className="container-v2 max-w-[860px]">
 
           {/* Cover image */}
@@ -149,7 +149,7 @@ export function NewsItemPage() {
           {/* Lead excerpt */}
           <Reveal mode="up" delay={0.55} inView={false}>
             <p
-              className="mb-10 border-l-2 border-violet-500/50 pl-5 text-[16px] leading-relaxed text-white/70 sm:text-[18px]"
+              className="mb-10 border-l-2 border-violet-500/50 pl-5 text-[17px] leading-relaxed text-primary/70 sm:text-[18px]"
               style={{ lineHeight: 1.75 }}
             >
               {news.excerpt}
@@ -161,7 +161,7 @@ export function NewsItemPage() {
             {news.content.map((paragraph, i) => (
               <StaggerItem key={i} mode="up">
                 <p
-                  className="text-[15px] text-white/65 sm:text-[16px]"
+                  className="text-[16px] text-muted sm:text-[17px]"
                   style={{ lineHeight: 1.85 }}
                 >
                   {paragraph}
@@ -178,12 +178,12 @@ export function NewsItemPage() {
                   ✍
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/30">Автор</p>
-                  <p className="text-[13px] font-semibold text-white">{news.author}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-subtle">Автор</p>
+                  <p className="text-[14px] font-semibold text-primary">{news.author}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-[12px] text-white/30">{news.date}</span>
+                <span className="text-[12px] text-subtle">{news.date}</span>
                 <span
                   className="rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.06em]"
                   style={{ background: news.tagAccent + "22", border: `1px solid ${news.tagAccent}44`, color: news.tagAccent }}
@@ -205,7 +205,7 @@ export function NewsItemPage() {
                     — Читайте також
                   </p>
                   <h2
-                    className="font-display font-black text-white"
+                    className="font-display font-black text-primary"
                     style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", letterSpacing: "-0.04em" }}
                   >
                     Інші <span className="text-grad">новини</span>
@@ -213,7 +213,7 @@ export function NewsItemPage() {
                 </div>
                 <Link
                   to={ROUTES.EVENTS}
-                  className="hidden text-[12px] font-semibold text-white/40 transition-colors hover:text-white sm:block"
+                  className="hidden text-[12px] font-semibold text-subtle transition-colors hover:text-primary sm:block"
                 >
                   Усі новини →
                 </Link>

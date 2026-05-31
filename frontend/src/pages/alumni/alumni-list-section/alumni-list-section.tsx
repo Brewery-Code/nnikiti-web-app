@@ -13,18 +13,18 @@ import type { Alumni } from "./types";
 const FALLBACK_YEARS = [2024, 2023, 2022, 2021, 2020];
 
 const FALLBACK_ALUMNI: Alumni[] = [
-  { id: 1,  full_name: "Олексій Мельник",    date_of_graduation: "2024-06-20", position: "Full Stack Developer",     workplace: "SoftServe",       major: "121 ІПЗ",         degree: "Бакалавр", text: "ННКІТІ дало мені чудову базу для старту в IT." },
+  { id: 1,  full_name: "Олексій Мельник",    date_of_graduation: "2024-06-20", position: "Full Stack Developer",     workplace: "SoftServe",       major: "121 ІПЗ",         degree: "Бакалавр", text: "ННІКІТІ дало мені чудову базу для старту в IT." },
   { id: 2,  full_name: "Анна Коваленко",     date_of_graduation: "2024-06-20", position: "Data Scientist",           workplace: "EPAM Systems",    major: "122 КН",          degree: "Магістр",  text: "Дослідження в рамках магістратури відкрили нові горизонти." },
   { id: 3,  full_name: "Дмитро Шевченко",    date_of_graduation: "2024-06-20", position: "Cybersecurity Analyst",    workplace: "Intellias",       major: "125 Кібербезпека", degree: "Бакалавр", text: "Практика з кібербезпеки дала реальні навички захисту систем." },
-  { id: 4,  full_name: "Марія Бондаренко",   date_of_graduation: "2023-06-20", position: "iOS Developer",            workplace: "GlobalLogic",     major: "121 ІПЗ",         degree: "Бакалавр", text: "Найкраще рішення — обрати ННКІТІ для IT-освіти." },
+  { id: 4,  full_name: "Марія Бондаренко",   date_of_graduation: "2023-06-20", position: "iOS Developer",            workplace: "GlobalLogic",     major: "121 ІПЗ",         degree: "Бакалавр", text: "Найкраще рішення — обрати ННІКІТІ для IT-освіти." },
   { id: 5,  full_name: "Сергій Кравченко",   date_of_graduation: "2023-06-20", position: "DevOps Engineer",          workplace: "Ciklum",          major: "126 ІСТ",         degree: "Магістр",  text: "Практичні курси підготували мене до реальних проєктів." },
   { id: 6,  full_name: "Юлія Ткаченко",      date_of_graduation: "2023-06-20", position: "Machine Learning Engineer", workplace: "Sigma Software",  major: "122 КН",          degree: "Бакалавр", text: "Кафедра комп'ютерних наук — це справжнє наукове середовище." },
-  { id: 7,  full_name: "Максим Павленко",    date_of_graduation: "2022-06-20", position: "Backend Developer",        workplace: "Luxoft",          major: "121 ІПЗ",         degree: "Бакалавр", text: "Від студента до сеньора — завдяки якісній освіті ННКІТІ." },
-  { id: 8,  full_name: "Вікторія Гриценко",  date_of_graduation: "2022-06-20", position: "UX/UI Designer",           workplace: "Eleks",           major: "126 ІСТ",         degree: "Бакалавр", text: "ННКІТІ відкрив для мене світ UX та цифрового дизайну." },
+  { id: 7,  full_name: "Максим Павленко",    date_of_graduation: "2022-06-20", position: "Backend Developer",        workplace: "Luxoft",          major: "121 ІПЗ",         degree: "Бакалавр", text: "Від студента до сеньора — завдяки якісній освіті ННІКІТІ." },
+  { id: 8,  full_name: "Вікторія Гриценко",  date_of_graduation: "2022-06-20", position: "UX/UI Designer",           workplace: "Eleks",           major: "126 ІСТ",         degree: "Бакалавр", text: "ННІКІТІ відкрив для мене світ UX та цифрового дизайну." },
   { id: 9,  full_name: "Назар Лисенко",      date_of_graduation: "2022-06-20", position: "Security Engineer",        workplace: "Cisco",           major: "125 Кібербезпека", degree: "Магістр",  text: "Лабораторія кібербезпеки — це де формується справжній фахівець." },
-  { id: 10, full_name: "Оксана Романенко",   date_of_graduation: "2021-06-20", position: "Systems Analyst",          workplace: "Oracle",          major: "124 СА",          degree: "Бакалавр", text: "Системний аналіз з ННКІТІ — це фундамент для великих проєктів." },
+  { id: 10, full_name: "Оксана Романенко",   date_of_graduation: "2021-06-20", position: "Systems Analyst",          workplace: "Oracle",          major: "124 СА",          degree: "Бакалавр", text: "Системний аналіз з ННІКІТІ — це фундамент для великих проєктів." },
   { id: 11, full_name: "Іван Морозенко",     date_of_graduation: "2021-06-20", position: "Embedded Systems Engineer", workplace: "Bosch",           major: "123 КІ",          degree: "Бакалавр", text: "Практичний підхід до навчання відразу дав результат у кар'єрі." },
-  { id: 12, full_name: "Тетяна Власенко",    date_of_graduation: "2020-06-20", position: "Cloud Architect",          workplace: "AWS",             major: "122 КН",          degree: "Магістр",  text: "ННКІТІ — це старт, від якого можна дійти до хмарних технологій." },
+  { id: 12, full_name: "Тетяна Власенко",    date_of_graduation: "2020-06-20", position: "Cloud Architect",          workplace: "AWS",             major: "122 КН",          degree: "Магістр",  text: "ННІКІТІ — це старт, від якого можна дійти до хмарних технологій." },
 ];
 
 export function getYear(dateStr?: string) {
@@ -94,7 +94,7 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
       onClick={(e) => scrollToYear(e, year)}
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.97 }}
-      className="grad-border rounded-full bg-white/[0.03] px-5 py-2 text-[13px] font-bold text-white/70 transition-colors duration-200 hover:bg-white/[0.08] hover:text-white"
+      className="grad-border rounded-full bg-surface px-5 py-2 text-[14px] font-bold text-primary/70 transition-colors duration-200 hover:bg-surface-lg hover:text-primary"
     >
       {year}
     </motion.a>
@@ -131,7 +131,7 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
               showFixed && hasScrolled && !footerVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
             )}
           >
-            <div className="flex flex-wrap justify-center gap-2 rounded-2xl border border-white/[0.08] bg-[#08090f]/90 px-4 py-3 shadow-[0_8px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+            <div className="flex flex-wrap justify-center gap-2 rounded-2xl border border-ui bg-base/90 px-4 py-3 shadow-[0_8px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl">
               {yearButtons}
             </div>
           </div>,

@@ -13,47 +13,47 @@ const events = [
     year: "2008",
     title: "Перші IT-спеціалісти",
     description:
-      "ННКІТІ випускає перші когорти IT-фахівців. Випускники швидко знаходять роботу в провідних компаніях України та світу. Заклад набуває репутації навчального центру з сучасною IT-освітою.",
+      "ННІКІТІ випускає перші когорти IT-фахівців. Випускники швидко знаходять роботу в провідних компаніях України та світу. Заклад набуває репутації навчального центру з сучасною IT-освітою.",
     tag: "Перші успіхи",
   },
   {
     year: "2012",
     title: "Відкриття лабораторії кібербезпеки",
     description:
-      "ННКІТІ відкриває спеціалізовану лабораторію кібербезпеки з сучасним обладнанням. Розпочинається підготовка фахівців у критично важливій сфері — захист від кіберзагроз.",
+      "ННІКІТІ відкриває спеціалізовану лабораторію кібербезпеки з сучасним обладнанням. Розпочинається підготовка фахівців у критично важливій сфері — захист від кіберзагроз.",
     tag: "Кібербезпека",
   },
   {
     year: "2015",
     title: "Розширення спеціальностей",
     description:
-      "ННКІТІ розширює перелік програм підготовки: додаються спеціальності з Data Science, Machine Learning та хмарних технологій. Інститут стає лідером в ІТ-освіті регіону.",
+      "ННІКІТІ розширює перелік програм підготовки: додаються спеціальності з Data Science, Machine Learning та хмарних технологій. Інститут стає лідером в ІТ-освіті регіону.",
     tag: "Інновації",
   },
   {
     year: "2018",
     title: "Міжнародна акредитація",
     description:
-      "Програми ННКІТІ отримують міжнародну акредитацію. Інститут починає активну співпрацю з провідними закордонними університетами та IT-компаніями (Google, Microsoft, IBM).",
+      "Програми ННІКІТІ отримують міжнародну акредитацію. Інститут починає активну співпрацю з провідними закордонними університетами та IT-компаніями (Google, Microsoft, IBM).",
     tag: "Світовий рівень",
   },
   {
     year: "2020",
     title: "Інновації під час пандемії",
     description:
-      "ННКІТІ успішно адаптується до дистанційного навчання. Розробляється власна платформа для online-освіти. Інститут стає центром компетенцій з цифровізації освіти.",
+      "ННІКІТІ успішно адаптується до дистанційного навчання. Розробляється власна платформа для online-освіти. Інститут стає центром компетенцій з цифровізації освіти.",
     tag: "Адаптація",
   },
   {
     year: "2022",
     title: "Центр цифрових компетенцій",
     description:
-      "ННКІТІ запускає Центр цифрових компетенцій — сучасний простір для навчання, інноваційних проектів та стартапів. Тут зустрічаються студенти, які хочуть змінити світ технологіями.",
+      "ННІКІТІ запускає Центр цифрових компетенцій — сучасний простір для навчання, інноваційних проектів та стартапів. Тут зустрічаються студенти, які хочуть змінити світ технологіями.",
     tag: "Центр інновацій",
   },
   {
     year: "Сьогодні",
-    title: "ННКІТІ — флагман IT-освіти",
+    title: "ННІКІТІ — флагман IT-освіти",
     description:
       "ННІ комп'ютерних та інноваційних технологій та економіки готує фахівців за 8+ спеціальностями в IT, автоматизації та кібербезпеці. Сучасні лабораторії, досвідчені викладачі, партнерство з лідерами industry 4.0, та студенти, які створюють майбутнє.",
     tag: "Майбутнє",
@@ -91,7 +91,7 @@ function TimelineEvent({
           {isToday ? (
             <span className="text-grad">★</span>
           ) : (
-            <span style={{ color: "rgba(255,255,255,0.25)" }}>{event.year}</span>
+            <span style={{ color: "var(--text-subtle)" }}>{event.year}</span>
           )}
         </span>
         <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-violet-400/80">
@@ -101,12 +101,12 @@ function TimelineEvent({
 
       <div>
         <h3
-          className="font-display mb-2 font-bold text-white"
+          className="font-display mb-2 font-bold text-primary"
           style={{ fontSize: "1.15rem", letterSpacing: "-0.02em" }}
         >
           {event.title}
         </h3>
-        <p className="text-[14px] leading-relaxed text-white/55">
+        <p className="text-[15px] leading-relaxed text-muted">
           {event.description}
         </p>
       </div>
@@ -119,15 +119,15 @@ export default function TimelineSection({ className }: { className?: string }) {
     <section className={clsx("py-12 sm:py-16 lg:py-20", className)}>
       <div className="container-v2">
         <Reveal mode="fade" className="mb-10 flex items-center gap-4 lg:mb-14">
-          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/25">
+          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary/25">
             — Хронологія
           </span>
-          <div className="h-px flex-1 bg-white/[0.06]" />
+          <div className="h-px flex-1 bg-surface-lg" />
         </Reveal>
 
         <Reveal mode="up" className="mb-10 lg:mb-14">
           <h2
-            className="font-display font-black text-white"
+            className="font-display font-black text-primary"
             style={{
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               letterSpacing: "-0.04em",

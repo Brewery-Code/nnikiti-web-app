@@ -22,23 +22,23 @@ function ResultCard({ entry }: { entry: SearchEntry }) {
   return (
     <Link
       to={entry.link}
-      className="group flex items-start justify-between gap-4 rounded-[16px] border border-white/[0.06] bg-white/[0.03] p-5 transition-all duration-200 hover:border-violet-500/20 hover:bg-violet-500/[0.06] active:scale-[0.99]"
+      className="group flex items-start justify-between gap-4 rounded-[16px] border border-ui-sm bg-surface p-5 transition-all duration-200 hover:border-violet-500/20 hover:bg-violet-500/[0.06] active:scale-[0.99]"
     >
       <div className="min-w-0 flex-1">
         <div className="mb-2 flex items-center gap-2">
           <CategoryBadge label={entry.category} />
         </div>
         <h3
-          className="font-display font-bold text-white transition-colors duration-150 group-hover:text-violet-300"
+          className="font-display font-bold text-primary transition-colors duration-150 group-hover:text-violet-300"
           style={{ fontSize: "1rem", letterSpacing: "-0.01em", lineHeight: 1.4 }}
         >
           {entry.title}
         </h3>
-        <p className="mt-1.5 text-[13px] leading-relaxed text-white/50">
+        <p className="mt-1.5 text-[14px] leading-relaxed text-primary/50">
           {entry.description}
         </p>
       </div>
-      <span className="mt-1 flex-shrink-0 text-[18px] text-white/20 transition-colors duration-200 group-hover:text-violet-400">
+      <span className="mt-1 flex-shrink-0 text-[18px] text-primary/20 transition-colors duration-200 group-hover:text-violet-400">
         →
       </span>
     </Link>
@@ -56,10 +56,10 @@ function EmptyState({ query }: { query: string }) {
           <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z" />
         </svg>
       </div>
-      <p className="font-display text-[1.1rem] font-bold text-white/70">
+      <p className="font-display text-[1.1rem] font-bold text-primary/70">
         Нічого не знайдено
       </p>
-      <p className="mt-2 text-[13px] text-white/35">
+      <p className="mt-2 text-[14px] text-subtle">
         За запитом «{query}» результатів не знайдено. Спробуйте інше слово.
       </p>
     </div>
@@ -73,7 +73,7 @@ export function SearchPage() {
 
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-      <div className="min-h-screen bg-[#08090f] pt-24 pb-20 sm:pt-32 lg:pt-40">
+      <div className="min-h-screen bg-base pt-24 pb-20 sm:pt-32 lg:pt-40">
         <div className="container-v2 max-w-[860px]">
           {/* header */}
           <div className="mb-10">
@@ -81,7 +81,7 @@ export function SearchPage() {
               — Пошук
             </p>
             <h1
-              className="font-display font-black text-white"
+              className="font-display font-black text-primary"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.04em" }}
             >
               {query ? (
@@ -94,7 +94,7 @@ export function SearchPage() {
               )}
             </h1>
             {results.length > 0 && (
-              <p className="mt-3 text-[13px] text-white/40">
+              <p className="mt-3 text-[14px] text-subtle">
                 Знайдено {results.length} {results.length === 1 ? "результат" : results.length < 5 ? "результати" : "результатів"}
               </p>
             )}
@@ -102,7 +102,7 @@ export function SearchPage() {
 
           {/* results */}
           {!query ? (
-            <p className="text-[14px] text-white/40">
+            <p className="text-[15px] text-subtle">
               Введіть запит у рядку пошуку вгорі сторінки.
             </p>
           ) : results.length === 0 ? (

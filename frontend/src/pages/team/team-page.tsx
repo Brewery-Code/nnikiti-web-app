@@ -17,7 +17,7 @@ interface Person {
 const LEADERSHIP: Person[] = [
   {
     name: "Трофименко Олег Васильович",
-    title: "Директор ННКІТІ",
+    title: "Директор ННІКІТІ",
     subtitle: "Доктор технічних наук, професор",
     email: "trofymenko@nuwm.edu.ua",
     phone: "+380362633201",
@@ -117,7 +117,7 @@ function SectionHeading({
         — {eyebrow}
       </div>
       <h2
-        className="font-display font-black text-white"
+        className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
       >
         {title} <span className="text-grad">{highlight}</span>
@@ -128,7 +128,7 @@ function SectionHeading({
 
 function LeaderCard({ person }: { person: Person }) {
   return (
-    <div className="spec-card grad-border group relative flex h-full flex-col overflow-hidden rounded-[20px] bg-white/[0.03] backdrop-blur-xl">
+    <div className="spec-card grad-border group relative flex h-full flex-col overflow-hidden rounded-[20px] bg-surface backdrop-blur-xl">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={avatar(person.img)}
@@ -141,13 +141,13 @@ function LeaderCard({ person }: { person: Person }) {
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div>
           <h3
-            className="font-display font-bold leading-snug text-white"
+            className="font-display font-bold leading-snug text-primary"
             style={{ fontSize: "1.05rem", letterSpacing: "-0.01em" }}
           >
             {person.name}
           </h3>
-          <p className="text-grad mt-1 text-[13px] font-semibold">{person.title}</p>
-          <p className="mt-0.5 text-[12px] text-white/45">{person.subtitle}</p>
+          <p className="text-grad mt-1 text-[14px] font-semibold">{person.title}</p>
+          <p className="mt-0.5 text-[12px] text-subtle">{person.subtitle}</p>
         </div>
 
         {person.tags && (
@@ -155,7 +155,7 @@ function LeaderCard({ person }: { person: Person }) {
             {person.tags.map((tag) => (
               <span
                 key={tag}
-                className="font-display rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-white"
+                className="font-display rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-primary"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(166,132,255,0.20) 0%, rgba(81,162,255,0.20) 100%)",
@@ -168,11 +168,11 @@ function LeaderCard({ person }: { person: Person }) {
           </div>
         )}
 
-        <div className="mt-auto flex flex-col gap-1.5 border-t border-white/[0.06] pt-4">
+        <div className="mt-auto flex flex-col gap-1.5 border-t border-ui-sm pt-4">
           {person.email && (
             <a
               href={`mailto:${person.email}`}
-              className="flex items-center gap-2 text-[12px] text-white/55 transition-colors hover:text-white"
+              className="flex items-center gap-2 text-[12px] text-muted transition-colors hover:text-primary"
             >
               <span className="text-violet-400">✉</span>
               {person.email}
@@ -181,7 +181,7 @@ function LeaderCard({ person }: { person: Person }) {
           {person.phone && (
             <a
               href={`tel:${person.phone}`}
-              className="flex items-center gap-2 text-[12px] text-white/55 transition-colors hover:text-white"
+              className="flex items-center gap-2 text-[12px] text-muted transition-colors hover:text-primary"
             >
               <span className="text-blue-400">☎</span>
               {person.phone}
@@ -195,7 +195,7 @@ function LeaderCard({ person }: { person: Person }) {
 
 function DeptHeadCard({ person }: { person: Person }) {
   return (
-    <div className="grad-border card-hover group flex items-center gap-4 rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl">
+    <div className="grad-border card-hover group flex items-center gap-4 rounded-[18px] bg-surface p-4 backdrop-blur-xl">
       <div className="grad-border flex-shrink-0 overflow-hidden rounded-full bg-[#111] p-[2px]">
         <img
           src={avatar(person.img)}
@@ -204,13 +204,13 @@ function DeptHeadCard({ person }: { person: Person }) {
         />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="font-display truncate text-[14px] font-bold text-white">
+        <p className="font-display truncate text-[15px] font-bold text-primary">
           {person.name}
         </p>
         <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-violet-400">
           Завідувач кафедри
         </p>
-        <p className="mt-0.5 truncate text-[12px] text-white/45">{person.title}</p>
+        <p className="mt-0.5 truncate text-[12px] text-subtle">{person.title}</p>
       </div>
     </div>
   );
@@ -218,7 +218,7 @@ function DeptHeadCard({ person }: { person: Person }) {
 
 function StaffCard({ member }: { member: StaffMember }) {
   return (
-    <div className="grad-border group flex items-center gap-3 rounded-[14px] bg-white/[0.03] p-3 backdrop-blur-xl transition-colors hover:bg-white/[0.06]">
+    <div className="grad-border group flex items-center gap-3 rounded-[14px] bg-surface p-3 backdrop-blur-xl transition-colors hover:bg-surface-lg">
       <div className="flex-shrink-0 overflow-hidden rounded-full">
         <img
           src={avatar(member.img)}
@@ -227,10 +227,10 @@ function StaffCard({ member }: { member: StaffMember }) {
         />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="font-display truncate text-[13px] font-semibold text-white">
+        <p className="font-display truncate text-[14px] font-semibold text-primary">
           {member.name}
         </p>
-        <p className="truncate text-[11px] text-white/45">{member.role}</p>
+        <p className="truncate text-[11px] text-subtle">{member.role}</p>
         <span className="mt-1 inline-block rounded-full border border-violet-500/25 bg-violet-500/10 px-2 py-px text-[10px] font-medium text-violet-200">
           {member.specialty}
         </span>
@@ -256,7 +256,7 @@ function StatsBar() {
             "grad-border card-hover rounded-2xl px-5 py-7 text-center backdrop-blur-xl " +
             (s.big
               ? "bg-gradient-to-br from-violet-500/[0.12] to-blue-500/[0.12]"
-              : "bg-white/[0.03]")
+              : "bg-surface")
           }
         >
           <div
@@ -269,7 +269,7 @@ function StatsBar() {
           >
             {s.big ? <span className="text-grad">{s.value}</span> : s.value}
           </div>
-          <div className="text-[12px] text-white/35">{s.label}</div>
+          <div className="text-[12px] text-subtle">{s.label}</div>
         </StaggerItem>
       ))}
     </Stagger>
@@ -278,7 +278,7 @@ function StatsBar() {
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div className="absolute inset-0 grid grid-cols-4 gap-0 opacity-15 sm:grid-cols-8">
         {[...LEADERSHIP, ...DEPT_HEADS, ...STAFF.slice(0, 5)]
           .slice(0, 8)
@@ -305,15 +305,15 @@ function HeroSection() {
 
       <Stagger className="container-v2 relative z-[1] text-center" stagger={0.1} delay={0.35} inView={false}>
         <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-            ННКІТІ
+          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
+            ННІКІТІ
           </span>
-          <span className="text-[12px] text-white/70">Команда інституту</span>
+          <span className="text-[12px] text-primary/70">Команда інституту</span>
         </StaggerItem>
         <StaggerItem
           as="h1"
           mode="up"
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
             letterSpacing: "-0.05em",
@@ -325,7 +325,7 @@ function HeroSection() {
         <StaggerItem
           as="p"
           mode="up"
-          className="mx-auto mt-6 text-[14px] text-white/65 sm:text-[16px]"
+          className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
           style={{ lineHeight: 1.7, maxWidth: 600 }}
         >
           Науково-педагогічний колектив, що об'єднує досвідчених вчених,
@@ -341,7 +341,7 @@ function TeamPage() {
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
       <HeroSection />
-      <div className="bg-[#08090f] py-12 sm:py-16 lg:py-24">
+      <div className="bg-base py-12 sm:py-16 lg:py-24">
         <div className="container-v2 flex flex-col gap-fluid-2xl">
           <StatsBar />
 

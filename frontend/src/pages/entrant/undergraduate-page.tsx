@@ -104,7 +104,7 @@ function UndergraduatePage() {
         ]}
       />
 
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <SectionHead
@@ -167,7 +167,7 @@ function UndergraduatePage() {
 
         <EntrantCta
           title="Готовий зробити перший крок?"
-          subtitle="Вступна комісія ННКІТІ відповість на всі твої запитання. Залиши заявку — ми зв'яжемося з тобою."
+          subtitle="Вступна комісія ННІКІТІ відповість на всі твої запитання. Залиши заявку — ми зв'яжемося з тобою."
         />
       </div>
     </PageTransition>

@@ -53,7 +53,7 @@ export function ModalWrapper({
             <button
               onClick={toggleModal}
               aria-label="Закрити"
-              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[16px] text-white/50 transition hover:bg-white/[0.10] hover:text-white"
+              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-ui bg-surface-md text-[16px] text-primary/50 transition hover:bg-surface-xl hover:text-primary"
             >
               ✕
             </button>

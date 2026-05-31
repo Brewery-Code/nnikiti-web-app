@@ -84,7 +84,7 @@ function SeeAll() {
       to={`${ROUTES.EVENTS}#news`}
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
-      className="inline-flex items-center text-[13px] font-semibold uppercase tracking-[0.04em] transition-all duration-150"
+      className="inline-flex items-center text-[14px] font-semibold uppercase tracking-[0.04em] transition-all duration-150"
       style={{
         gap: h ? 12 : 8,
         color: h ? "#fff" : "rgba(255,255,255,0.4)",
@@ -180,7 +180,7 @@ function NewsRow({ item }: { item: NewsItem }) {
       </div>
 
       <span
-        className="flex-shrink-0 text-[15px] transition-colors duration-200 group-hover:text-violet-400"
+        className="flex-shrink-0 text-[16px] transition-colors duration-200 group-hover:text-violet-400"
         style={{ color: "rgba(255,255,255,0.15)" }}
       >
         ›

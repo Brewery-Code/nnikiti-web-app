@@ -166,7 +166,7 @@ export default function WhySection({ className = "" }: { className?: string }) {
                       >
                         {item.title}
                       </h3>
-                      <p className="text-[13px] leading-[1.72] text-white/38">
+                      <p className="text-[14px] leading-[1.72] text-white/38">
                         {item.desc}
                       </p>
                     </div>

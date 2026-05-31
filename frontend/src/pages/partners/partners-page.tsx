@@ -101,7 +101,7 @@ function PartnersHero({
   const { t } = useTranslation("partners");
 
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <img
         src={data.heroImage}
         alt=""
@@ -129,16 +129,16 @@ function PartnersHero({
 
       <Stagger className="container-v2 relative z-[1]" stagger={0.08} delay={0.35} inView={false}>
         <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-            ННКІТІ
+          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
+            ННІКІТІ
           </span>
-          <span className="text-[12px] text-white/70">{labels.heroEyebrow}</span>
+          <span className="text-[12px] text-primary/70">{labels.heroEyebrow}</span>
         </StaggerItem>
 
         <StaggerItem
           as="h1"
           mode="up"
-          className="font-display max-w-5xl font-black text-white"
+          className="font-display max-w-5xl font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
             letterSpacing: "-0.05em",
@@ -150,7 +150,7 @@ function PartnersHero({
         <StaggerItem
           as="p"
           mode="up"
-          className="mt-6 max-w-2xl text-[14px] leading-relaxed text-white/65 sm:text-[16px]"
+          className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-[17px]"
           style={{ lineHeight: 1.7 }}
         >
           {data.intro}
@@ -162,10 +162,10 @@ function PartnersHero({
               key={item.kind}
               to={item.route}
               className={clsx(
-                "rounded-[12px] px-5 py-2.5 text-[13px] font-semibold transition-all duration-200",
+                "rounded-[12px] px-5 py-2.5 text-[14px] font-semibold transition-all duration-200",
                 item.kind === currentKind
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                  : "grad-border bg-white/[0.04] text-white/60 backdrop-blur-md hover:bg-white/[0.10] hover:text-white"
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                  : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:bg-surface-xl hover:text-primary"
               )}
             >
               {t(item.labelKey)}
@@ -194,7 +194,7 @@ function PropositionCard({
   }).format(new Date(`${proposition.deadline}T12:00:00`));
 
   return (
-    <article className="grad-border card-hover relative grid gap-5 overflow-hidden rounded-[20px] bg-white/[0.03] p-6 backdrop-blur-xl lg:grid-cols-[1fr_280px] lg:p-7">
+    <article className="grad-border card-hover relative grid gap-5 overflow-hidden rounded-[20px] bg-surface p-6 backdrop-blur-xl lg:grid-cols-[1fr_280px] lg:p-7">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full opacity-50 blur-3xl"
@@ -209,36 +209,36 @@ function PropositionCard({
           <span className="font-display rounded-full border border-violet-500/30 bg-violet-500/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-violet-200">
             {proposition.type}
           </span>
-          <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-semibold text-white/55">
+          <span className="rounded-full border border-ui bg-surface-md px-3 py-1 text-[10px] font-semibold text-muted">
             {proposition.direction}
           </span>
-          <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-semibold text-white/55">
+          <span className="rounded-full border border-ui bg-surface-md px-3 py-1 text-[10px] font-semibold text-muted">
             {proposition.format}
           </span>
         </div>
 
-        <p className="text-grad font-display text-[13px] font-bold">
+        <p className="text-grad font-display text-[14px] font-bold">
           {proposition.partner}
         </p>
         <h3
-          className="font-display mt-2 font-bold text-white"
+          className="font-display mt-2 font-bold text-primary"
           style={{ fontSize: "1.2rem", letterSpacing: "-0.02em" }}
         >
           {proposition.name}
         </h3>
-        <p className="mt-3 text-[13px] leading-relaxed text-white/55">
+        <p className="mt-3 text-[14px] leading-relaxed text-muted">
           {proposition.description}
         </p>
 
         <div className="mt-5">
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-subtle">
             {labels.neededSkills}
           </p>
           <div className="flex flex-wrap gap-1.5">
             {proposition.skills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full bg-white/[0.05] px-2.5 py-1 text-[11px] text-white/55"
+                className="rounded-full bg-white/[0.05] px-2.5 py-1 text-[11px] text-muted"
               >
                 {skill}
               </span>
@@ -249,7 +249,7 @@ function PropositionCard({
 
       <div className="grad-border relative flex flex-col justify-between gap-5 rounded-[16px] bg-gradient-to-br from-violet-500/[0.10] to-blue-500/[0.06] p-5 backdrop-blur-xl">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/45">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-subtle">
             {labels.deadline}
           </p>
           <p className="text-grad font-display mt-2 text-[20px] font-extrabold">
@@ -261,7 +261,7 @@ function PropositionCard({
           href={proposition.link}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-3 text-[13px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95"
+          className="inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-3 text-[14px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95"
         >
           {labels.moreInfo} <span aria-hidden>→</span>
         </a>
@@ -303,18 +303,18 @@ function FilterSelect({
         type="button"
         onClick={() => setOpen((v) => !v)}
         className={clsx(
-          "flex h-11 items-center gap-2 rounded-[12px] border px-4 text-[13px] font-medium transition-all duration-200",
+          "flex h-11 items-center gap-2 rounded-[12px] border px-4 text-[14px] font-medium transition-all duration-200",
           open
-            ? "border-violet-500/40 bg-violet-500/[0.12] text-white"
+            ? "border-violet-500/40 bg-violet-500/[0.12] text-primary"
             : isFiltered
               ? "border-violet-500/30 bg-violet-500/[0.08] text-violet-200"
-              : "border-white/[0.08] bg-white/[0.04] text-white/55 hover:border-white/15 hover:text-white"
+              : "border-ui bg-surface-md text-muted hover:border-white/15 hover:text-primary"
         )}
       >
         <span className="max-w-[140px] truncate">{isFiltered ? selected?.label : label}</span>
         <svg
           width="10" height="6" viewBox="0 0 10 6" fill="none"
-          className={clsx("flex-shrink-0 transition-transform duration-200", open ? "rotate-180 text-violet-400" : "text-white/30")}
+          className={clsx("flex-shrink-0 transition-transform duration-200", open ? "rotate-180 text-violet-400" : "text-subtle")}
         >
           <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -337,10 +337,10 @@ function FilterSelect({
                 type="button"
                 onClick={() => { onChange(option.value); setOpen(false); }}
                 className={clsx(
-                  "flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2.5 text-left text-[13px] transition-colors duration-100",
+                  "flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2.5 text-left text-[14px] transition-colors duration-100",
                   isSelected
-                    ? "bg-violet-500/[0.14] text-white"
-                    : "text-white/50 hover:bg-white/[0.05] hover:text-white"
+                    ? "bg-violet-500/[0.14] text-primary"
+                    : "text-primary/50 hover:bg-surface-md hover:text-primary"
                 )}
               >
                 <span className={clsx("w-3.5 flex-shrink-0 text-[11px] font-bold leading-none", isSelected ? "text-violet-400" : "text-transparent")}>✓</span>
@@ -415,7 +415,7 @@ function PropositionsSection({
               — {labels.sectionEyebrow}
             </div>
             <h2
-              className="font-display font-black text-white"
+              className="font-display font-black text-primary"
               style={{
                 fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
                 letterSpacing: "-0.04em",
@@ -423,18 +423,18 @@ function PropositionsSection({
             >
               {labels.sectionTitle}
             </h2>
-            <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]">
               {labels.sectionIntro}
             </p>
           </div>
 
-          <div className="grad-border rounded-[18px] bg-white/[0.03] p-5 backdrop-blur-xl">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">
+          <div className="grad-border rounded-[18px] bg-surface p-5 backdrop-blur-xl">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-subtle">
               {labels.results}
             </p>
             <p className="font-display mt-2 text-[28px] font-extrabold">
               <span className="text-grad">{filteredPropositions.length}</span>
-              <span className="text-[14px] text-white/35">
+              <span className="text-[15px] text-subtle">
                 {" "}
                 / {data.propositions.length}
               </span>
@@ -442,11 +442,11 @@ function PropositionsSection({
           </div>
         </Reveal>
 
-        <div className="grad-border relative z-10 mb-8 rounded-[22px] bg-white/[0.03] p-5 backdrop-blur-xl">
+        <div className="grad-border relative z-10 mb-8 rounded-[22px] bg-surface p-5 backdrop-blur-xl">
           {/* Search */}
           <div className="relative mb-3">
             <svg
-              className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/25"
+              className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-primary/25"
               width="16" height="16" viewBox="0 0 16 16" fill="none"
             >
               <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
@@ -456,7 +456,7 @@ function PropositionsSection({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={labels.searchPlaceholder}
-              className="h-12 w-full rounded-[14px] border border-white/[0.08] bg-white/[0.04] pl-11 pr-4 text-[14px] text-white placeholder-white/25 outline-none transition-all duration-200 focus:border-violet-500/40 focus:bg-white/[0.06]"
+              className="h-12 w-full rounded-[14px] border border-ui bg-surface-md pl-11 pr-4 text-[15px] text-primary placeholder-muted outline-none transition-all duration-200 focus:border-violet-500/40 focus:bg-surface-lg"
             />
           </div>
 
@@ -478,7 +478,7 @@ function PropositionsSection({
               <button
                 type="button"
                 onClick={resetFilters}
-                className="ml-auto flex h-11 items-center gap-2 rounded-[12px] border border-white/[0.08] bg-white/[0.04] px-4 text-[12px] font-semibold text-white/50 transition-all duration-200 hover:border-red-500/30 hover:bg-red-500/[0.08] hover:text-red-300"
+                className="ml-auto flex h-11 items-center gap-2 rounded-[12px] border border-ui bg-surface-md px-4 text-[12px] font-semibold text-primary/50 transition-all duration-200 hover:border-red-500/30 hover:bg-red-500/[0.08] hover:text-red-300"
               >
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -501,11 +501,11 @@ function PropositionsSection({
               </Reveal>
             ))
           ) : (
-            <div className="grad-border rounded-[20px] bg-white/[0.03] p-10 text-center backdrop-blur-xl">
-              <p className="font-display text-[18px] font-bold text-white">
+            <div className="grad-border rounded-[20px] bg-surface p-10 text-center backdrop-blur-xl">
+              <p className="font-display text-[18px] font-bold text-primary">
                 {labels.noResultsTitle}
               </p>
-              <p className="mt-2 text-[13px] text-white/55">
+              <p className="mt-2 text-[14px] text-muted">
                 {labels.noResultsText}
               </p>
             </div>
@@ -577,7 +577,7 @@ export function PartnersPage({ kind }: { kind: PartnersPageKind }) {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <PartnersHero data={data} labels={labels} currentKind={kind} />
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <PropositionsSection
           data={data}
           labels={labels}

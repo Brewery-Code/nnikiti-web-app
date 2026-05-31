@@ -12,15 +12,15 @@ function GalleryEventPage() {
   if (!event) {
     return (
       <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-        <div className="bg-[#08090f] pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
+        <div className="bg-base pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
           <div className="container-v2">
             <Link
               to={ROUTES.GALLERY}
-              className="text-[13px] text-white/55 hover:text-white"
+              className="text-[14px] text-muted hover:text-primary"
             >
               ← Галерея
             </Link>
-            <p className="font-display mt-10 text-[18px] text-white/45">
+            <p className="font-display mt-10 text-[18px] text-subtle">
               Подію не знайдено.
             </p>
           </div>
@@ -31,7 +31,7 @@ function GalleryEventPage() {
 
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
-      <div className="relative h-[260px] overflow-hidden bg-[#08090f] sm:h-[340px]">
+      <div className="relative h-[260px] overflow-hidden bg-base sm:h-[340px]">
         <img
           src={GALLERY_PHOTOS[event.coverSeed % GALLERY_PHOTOS.length]}
           alt={event.title}
@@ -53,7 +53,7 @@ function GalleryEventPage() {
               {event.date}
             </p>
             <h1
-              className="font-display mt-2 font-black text-white"
+              className="font-display mt-2 font-black text-primary"
               style={{
                 fontSize: "clamp(1.6rem, 4vw, 3.5rem)",
                 letterSpacing: "-0.04em",
@@ -79,7 +79,7 @@ function GalleryEventPage() {
             <Link
               key={e.id}
               to={`/gallery/event/${e.id}`}
-              className="grad-border rounded-full bg-white/[0.03] px-3.5 py-1.5 text-[12px] text-white/55 transition-colors hover:bg-white/[0.08] hover:text-white"
+              className="grad-border rounded-full bg-surface px-3.5 py-1.5 text-[12px] text-muted transition-colors hover:bg-surface-lg hover:text-primary"
             >
               {e.title}
             </Link>

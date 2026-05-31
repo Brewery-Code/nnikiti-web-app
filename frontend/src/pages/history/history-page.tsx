@@ -8,7 +8,7 @@ function HistoryPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <HeroSection />
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <AboutSection />
         <TimelineSection />
         <ClosingSection />

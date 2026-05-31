@@ -14,7 +14,7 @@ export function HomePage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <HeroSection />
-      <div className="relative z-[1] rounded-t-[40px] bg-[#08090f] shadow-[0_-30px_80px_rgba(0,0,0,0.55)]">
+      <div className="home-content-wrapper relative z-[1] rounded-t-[40px] bg-base">
         <StatisticSection />
         <SpecialtiesSection />
         <WhySection />

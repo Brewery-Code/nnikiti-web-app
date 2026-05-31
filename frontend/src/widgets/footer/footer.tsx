@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
 import { DEPARTMENTS_DATA } from "@/shared/model/departments-data";
-import { logoMicrocircuitWhite } from "@/shared/icons";
+import { logoCat } from "@/shared/icons";
 
 const NAV_COLS: { heading: string; links: { label: string; to: string }[] }[] = [
   {
@@ -37,10 +37,9 @@ const NAV_COLS: { heading: string; links: { label: string; to: string }[] }[] = 
 export function Footer({ className }: { className?: string }) {
   return (
     <footer
-      className={clsx(className)}
+      className={clsx("bg-base", className)}
       style={{
-        background: "#060709",
-        borderTop: "1px solid rgba(166,132,255,0.08)",
+        borderTop: "1px solid var(--border-ui-sm)",
         padding: "72px 0 40px",
       }}
     >
@@ -49,43 +48,32 @@ export function Footer({ className }: { className?: string }) {
           className="grid grid-cols-1 lg:grid-cols-[2.5fr_1fr_1fr_1fr]"
           style={{ gap: "40px 56px", marginBottom: 48 }}
         >
-          {/* Brand column — spans full width on mobile */}
+          {/* Brand column */}
           <div className="lg:col-span-1">
             <Link
               to={ROUTES.HOME}
               className="flex items-center"
               style={{ gap: 10, marginBottom: 20 }}
             >
-              <img src={logoMicrocircuitWhite} alt="ННКІТІ" style={{ width: 44, height: 44 }} />
-              <span className="text-xl font-bold leading-[18px] text-white">
-                ННІ<br />КІТІ
-              </span>
+              <img src={logoCat} alt="ННІКІТІ" style={{ height: "calc(var(--header-height) * 0.65)", width: "auto" }} />
             </Link>
-            <p
-              style={{
-                fontSize: 13,
-                color: "rgba(255,255,255,0.55)",
-                lineHeight: 1.7,
-                maxWidth: 300,
-              }}
-            >
+            <p className="text-muted" style={{ fontSize: 13, lineHeight: 1.7, maxWidth: 300 }}>
               Національний університет водного господарства та природокористування,
               вул. Соборна, 11, Рівне.
             </p>
           </div>
 
-          {/* Nav columns — 3-col grid on mobile/tablet, flat on lg+ via contents */}
+          {/* Nav columns */}
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:contents">
             {NAV_COLS.map((col) => (
               <div key={col.heading}>
                 <div
-                  className="font-display"
+                  className="font-display text-subtle"
                   style={{
                     fontWeight: 700,
                     fontSize: 11,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.35)",
                     marginBottom: 16,
                   }}
                 >
@@ -96,8 +84,8 @@ export function Footer({ className }: { className?: string }) {
                     <Link
                       key={lk.label}
                       to={lk.to}
-                      className="footer-col-link"
-                      style={{ fontSize: 13, color: "rgba(255,255,255,0.65)" }}
+                      className="footer-col-link text-muted"
+                      style={{ fontSize: 13 }}
                     >
                       {lk.label}
                     </Link>
@@ -121,24 +109,17 @@ export function Footer({ className }: { className?: string }) {
             <Link
               key={lk.label}
               to={lk.to}
-              className="nav-link text-[13px] font-medium"
-              style={{ color: "rgba(255,255,255,0.55)" }}
+              className="nav-link text-muted text-[13px] font-medium"
             >
               {lk.label}
             </Link>
           ))}
         </div>
 
-        <div
-          style={{
-            height: 1,
-            background: "rgba(255,255,255,0.06)",
-            marginBottom: 28,
-          }}
-        />
+        <div className="border-ui-sm mb-7" style={{ height: 1, background: "var(--border-ui-sm)" }} />
 
         <div className="text-center">
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>
+          <span className="text-subtle" style={{ fontSize: 12 }}>
             © 2025 НУВГП. Усі права захищено.
           </span>
         </div>

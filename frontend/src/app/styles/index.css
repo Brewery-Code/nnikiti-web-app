@@ -22,6 +22,14 @@
   --block-gap:         min(48px,  12.80vw);
   --title-gap:         min(32px,   8.53vw);
   --container-size:    min(24px,   3.125vw);
+  --container-max-w:   1280px;
+  --container-pad:     16px;
+}
+
+@media (width >= 640px) {
+  :root {
+    --container-pad: 24px;
+  }
 }
 
 @media (width >= 768px) {
@@ -43,6 +51,8 @@
     --block-gap:         max(48px, 6.25vw);
     --title-gap:         max(24px, 2.08vw);
     --container-size:    2vw;
+    --container-max-w:   1600px;
+    --container-pad:     2vw;
   }
 }
 
@@ -72,6 +82,28 @@
   --color-cream-50:   #f0eeff;
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   THEME DESIGN TOKENS
+   Dark (default) + Warm Cream Light
+   ══════════════════════════════════════════════════════════════════════════ */
+:root {
+  --bg-base:           #08090f;
+  --bg-surface:        rgba(255, 255, 255, 0.03);
+  --bg-surface-md:     rgba(255, 255, 255, 0.04);
+  --bg-surface-lg:     rgba(255, 255, 255, 0.06);
+  --bg-surface-xl:     rgba(255, 255, 255, 0.09);
+  --text-primary:      #f0eeff;
+  --text-muted:        rgba(240, 238, 255, 0.65);
+  --text-subtle:       rgba(240, 238, 255, 0.42);
+  --border-ui:         rgba(255, 255, 255, 0.10);
+  --border-ui-sm:      rgba(255, 255, 255, 0.06);
+  --bg-section-violet: rgba(166, 132, 255, 0.09);
+  --bg-section-blue:   rgba(81, 162, 255, 0.07);
+  --bg-cta:            linear-gradient(135deg, rgba(166,132,255,0.15) 0%, rgba(81,162,255,0.15) 100%);
+  --border-cta:        rgba(166, 132, 255, 0.20);
+}
+
+
 /* ── Global / Base ───────────────────────────────────────────────────────── */
 *,
 *::before,
@@ -80,9 +112,11 @@
 }
 
 html {
-  background-color: #08090f;
+  background-color: var(--bg-base);
+  color-scheme: dark;
   overflow-x: clip;
 }
+
 
 /* ── Lenis smooth scroll ──────────────────────────────────────────────── */
 html.lenis,
@@ -107,12 +141,16 @@ html.lenis body {
 }
 
 @layer base {
+  html {
+    scrollbar-gutter: stable both-edges;
+  }
+
   button:not(:disabled):active {
     transform: scale(0.95);
   }
 
   body {
-    color: #f0eeff;
+    color: var(--text-primary);
     font-family: "Outfit", sans-serif;
     background: transparent;
     font-weight: 400;
@@ -130,12 +168,13 @@ html.lenis body {
   }
 
   ::-webkit-scrollbar-track {
-    background: #08090f;
+    background: var(--bg-base);
   }
 
   ::-webkit-scrollbar-thumb {
     background: rgba(166, 132, 255, 0.3);
     border-radius: 3px;
+    transition: background 0.3s;
   }
 }
 
@@ -150,26 +189,14 @@ html.lenis body {
     margin-left:  auto;
   }
 
-  /* v2 container — fixed 1280px max-width, scaling horizontal padding */
+  /* v2 container — uses fluid design system variables */
   .container-v2 {
     width: 100%;
-    max-width: 1280px;
+    max-width: var(--container-max-w);
     margin-right: auto;
     margin-left:  auto;
-    padding-right: 16px;
-    padding-left:  16px;
-  }
-  @media (width >= 640px) {
-    .container-v2 {
-      padding-right: 24px;
-      padding-left:  24px;
-    }
-  }
-  @media (width >= 1024px) {
-    .container-v2 {
-      padding-right: 40px;
-      padding-left:  40px;
-    }
+    padding-right: var(--container-pad);
+    padding-left:  var(--container-pad);
   }
 
   /* Gradient animation (used by statistic blocks) */
@@ -187,7 +214,7 @@ html.lenis body {
 
   /* ── Glass surface ── */
   .glass {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--bg-surface-md);
     backdrop-filter: blur(20px);
     border-radius: 20px;
   }
@@ -233,7 +260,7 @@ html.lenis body {
     transition: color 130ms;
   }
   .nav-link:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
   }
 
   .footer-col-link {
@@ -252,13 +279,49 @@ html.lenis body {
     flex-shrink: 0;
   }
   .footer-col-link:hover {
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--text-primary);
     transform: translateX(6px);
   }
   .footer-col-link:hover::before {
     width: 12px;
   }
 }
+
+/* ── Theme token utilities ──────────────────────────────────────────────── */
+@utility bg-base          { background-color: var(--bg-base); }
+@utility bg-primary       { background-color: var(--text-primary); }
+@utility bg-surface       { background-color: var(--bg-surface); }
+@utility bg-surface-md    { background-color: var(--bg-surface-md); }
+@utility bg-surface-lg    { background-color: var(--bg-surface-lg); }
+@utility bg-surface-xl    { background-color: var(--bg-surface-xl); }
+@utility bg-section-violet { background-color: var(--bg-section-violet); }
+@utility bg-section-blue   { background-color: var(--bg-section-blue); }
+@utility text-primary  { color: var(--text-primary); }
+@utility text-muted    { color: var(--text-muted); }
+@utility text-subtle   { color: var(--text-subtle); }
+@utility border-ui     { border-color: var(--border-ui); }
+@utility border-ui-sm  { border-color: var(--border-ui-sm); }
+@utility placeholder-muted { &::placeholder { color: var(--text-subtle); } }
+@utility text-on-dark { color: #f0eeff; }
+
+/* ── Home page content wrapper (hero → content transition shadow) ────────── */
+.home-content-wrapper {
+  box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Force dark tokens on elements always rendered over dark backgrounds ── */
+.dark-context {
+  --bg-surface:    rgba(255, 255, 255, 0.03);
+  --bg-surface-md: rgba(255, 255, 255, 0.04);
+  --bg-surface-lg: rgba(255, 255, 255, 0.06);
+  --bg-surface-xl: rgba(255, 255, 255, 0.09);
+  --text-primary:  #f0eeff;
+  --text-muted:    rgba(240, 238, 255, 0.65);
+  --text-subtle:   rgba(240, 238, 255, 0.42);
+  --border-ui:     rgba(255, 255, 255, 0.10);
+  --border-ui-sm:  rgba(255, 255, 255, 0.06);
+}
+
 
 /* ── Fluid utility classes (Tailwind v4 @utility) ───────────────────────── */
 

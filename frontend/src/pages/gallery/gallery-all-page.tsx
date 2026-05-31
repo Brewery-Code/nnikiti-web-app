@@ -9,7 +9,7 @@ function GalleryAllPage() {
       <InnerPageLayout
         backTo={ROUTES.GALLERY}
         backLabel="Галерея"
-        eyebrow="Фотохроніка ННКІТІ"
+        eyebrow="Фотохроніка ННІКІТІ"
         title="Усі фото"
         count={ALL_PHOTOS.length}
         accentColor="#60a5fa"

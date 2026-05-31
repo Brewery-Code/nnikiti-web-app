@@ -1,4 +1,4 @@
-import { logoLion } from "@/shared/icons";
+import { logoCat } from "@/shared/icons";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 
@@ -12,10 +12,7 @@ export function Logo({ className }: LogoProps) {
   return (
     <div className={clsx("flex max-w-xs flex-col gap-fluid-md", className)}>
       <div className="flex items-center gap-3">
-        <img className="h-12 w-10 flex-shrink-0" src={logoLion} alt="ННКІТІ логотип" />
-        <span className="text-fluid-sm font-extrabold uppercase leading-tight tracking-wide text-white">
-          ННКІТІ
-        </span>
+        <img className="h-16 w-auto flex-shrink-0" src={logoCat} alt="ННІКІТІ логотип" />
       </div>
       <p className="text-fluid-xs leading-relaxed text-gray-500">
         {t("description")}

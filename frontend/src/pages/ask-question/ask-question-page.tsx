@@ -18,7 +18,7 @@ type AskQuestionSchemaType = z.infer<typeof AskQuestionSchema>;
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -45,17 +45,17 @@ function HeroSection() {
       <Stagger className="container-v2 relative z-[1] flex flex-col items-center text-center" stagger={0.1} delay={0.35} inView={false}>
         <StaggerItem mode="scale">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-            <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+            <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
               КОНТАКТ
             </span>
-            <span className="text-[12px] text-white/70">Ми завжди на зв'язку</span>
+            <span className="text-[12px] text-primary/70">Ми завжди на зв'язку</span>
           </div>
         </StaggerItem>
 
         <StaggerItem
           as="h1"
           mode="up"
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
             letterSpacing: "-0.05em",
@@ -68,10 +68,10 @@ function HeroSection() {
         <StaggerItem
           as="p"
           mode="up"
-          className="mx-auto mt-6 text-[14px] text-white/65 sm:text-[16px]"
+          className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
           style={{ lineHeight: 1.7, maxWidth: 560 }}
         >
-          Маєте питання про ННКІТІ, навчальні програми або вступ? Напишіть нам —
+          Маєте питання про ННІКІТІ, навчальні програми або вступ? Напишіть нам —
           ми обов'язково відповімо протягом 24 годин.
         </StaggerItem>
       </Stagger>
@@ -98,17 +98,17 @@ function InputField({
   optional?: boolean;
 }) {
   const baseClass =
-    "w-full rounded-[14px] border bg-white/[0.04] px-5 py-3.5 text-[14px] text-white placeholder-white/30 backdrop-blur-md transition-all duration-200 focus:outline-none";
+    "w-full rounded-[14px] border bg-surface-md px-5 py-3.5 text-[15px] text-primary placeholder-muted backdrop-blur-md transition-all duration-200 focus:outline-none";
   const stateClass = error
     ? "border-red-400/40 focus:border-red-400/70"
-    : "border-white/10 hover:border-white/20 focus:border-violet-500/50 focus:bg-white/[0.06]";
+    : "border-ui hover:border-white/20 focus:border-violet-500/50 focus:bg-surface-lg";
 
   return (
     <div>
-      <label className="mb-2 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-white/60">
+      <label className="mb-2 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-primary/60">
         {label}
         {optional && (
-          <span className="text-[10px] font-normal text-white/30">
+          <span className="text-[10px] font-normal text-subtle">
             (необов'язково)
           </span>
         )}
@@ -178,13 +178,13 @@ function FormSection() {
             >
               Дякуємо за <span className="text-grad">ваше питання</span>
             </h3>
-            <p className="mx-auto mt-3 max-w-md text-[14px] text-white/60">
+            <p className="mx-auto mt-3 max-w-md text-[15px] text-primary/60">
               Ми отримали вашу заявку та обов'язково відповімо найближчим часом
               на вказану email адресу.
             </p>
           </div>
         ) : (
-          <Reveal as="form" mode="up" onSubmit={handleSubmit(onSubmit)} className="grad-border-animated relative overflow-hidden rounded-[24px] bg-white/[0.03] p-6 backdrop-blur-xl sm:p-10" amount={0.1}>
+          <Reveal as="form" mode="up" onSubmit={handleSubmit(onSubmit)} className="grad-border-animated relative overflow-hidden rounded-[24px] bg-surface p-6 backdrop-blur-xl sm:p-10" amount={0.1}>
             <div className="grid gap-5 sm:grid-cols-2">
               <InputField
                 label="Ваше ім'я"
@@ -226,7 +226,7 @@ function FormSection() {
                 type="submit"
                 disabled={isSubmitting}
                 className={clsx(
-                  "inline-flex items-center justify-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-9 py-4 text-[15px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200",
+                  "inline-flex items-center justify-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-9 py-4 text-[16px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200",
                   isSubmitting
                     ? "opacity-70"
                     : "hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)]"
@@ -235,7 +235,7 @@ function FormSection() {
                 {isSubmitting ? "Надсилаємо…" : "Надіслати питання"}
                 {!isSubmitting && <span aria-hidden>→</span>}
               </button>
-              <p className="text-center text-[11px] text-white/35">
+              <p className="text-center text-[11px] text-subtle">
                 Ми переглядаємо звернення протягом 24 годин
               </p>
             </div>
@@ -293,15 +293,15 @@ function ContactInfoSection() {
               key={c.title}
               mode="scale"
               href={c.href}
-              className="sheen grad-border card-hover block rounded-[20px] bg-white/[0.03] p-6 backdrop-blur-xl"
+              className="sheen grad-border card-hover block rounded-[20px] bg-surface p-6 backdrop-blur-xl"
             >
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-[12px] bg-gradient-to-br from-violet-500/20 to-blue-500/20 text-lg text-violet-300">
                 {c.icon}
               </div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-subtle">
                 {c.title}
               </p>
-              <p className="mt-1 text-[14px] font-semibold text-white">{c.value}</p>
+              <p className="mt-1 text-[15px] font-semibold text-primary">{c.value}</p>
             </StaggerItem>
           ))}
         </Stagger>
@@ -314,7 +314,7 @@ export function AskQuestionPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <HeroSection />
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <FormSection />
         <ContactInfoSection />
       </div>

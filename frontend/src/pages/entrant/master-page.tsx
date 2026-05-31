@@ -62,7 +62,7 @@ const steps: Step[] = [
   {
     title: "Скласти ЄФВВ або фаховий іспит",
     text:
-      "Єдиний фаховий вступний іспит (ЄФВВ) або внутрішній фаховий іспит ННКІТІ — за вибором вступника.",
+      "Єдиний фаховий вступний іспит (ЄФВВ) або внутрішній фаховий іспит ННІКІТІ — за вибором вступника.",
   },
   {
     title: "Подати заяву та документи",
@@ -90,7 +90,7 @@ const dates: KeyDate[] = [
   {
     period: "Липень",
     label: "Проведення ЄФВВ",
-    note: "Або внутрішній іспит в ННКІТІ за розкладом",
+    note: "Або внутрішній іспит в ННІКІТІ за розкладом",
   },
   {
     period: "01 – 22 серпня",
@@ -139,7 +139,7 @@ function TracksSection() {
             <StaggerItem
               key={i}
               mode="up"
-              className="grad-border relative overflow-hidden rounded-[20px] bg-white/[0.03] p-6 backdrop-blur-xl sm:p-8"
+              className="grad-border relative overflow-hidden rounded-[20px] bg-surface p-6 backdrop-blur-xl sm:p-8"
             >
               <div
                 aria-hidden
@@ -153,12 +153,12 @@ function TracksSection() {
               />
               <span className="text-grad mb-5 block text-3xl">{t.icon}</span>
               <h3
-                className="font-display mb-3 font-bold text-white"
+                className="font-display mb-3 font-bold text-primary"
                 style={{ fontSize: "1.2rem", letterSpacing: "-0.02em" }}
               >
                 {t.title}
               </h3>
-              <p className="text-[13px] leading-relaxed text-white/60">{t.text}</p>
+              <p className="text-[14px] leading-relaxed text-primary/60">{t.text}</p>
             </StaggerItem>
           ))}
         </Stagger>
@@ -183,7 +183,7 @@ function MasterPage() {
         ]}
       />
 
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <TracksSection />
 
         <section className="py-12 sm:py-16 lg:py-20">
@@ -247,7 +247,7 @@ function MasterPage() {
 
         <EntrantCta
           title="Час іти далі"
-          subtitle="Магістратура ННКІТІ — це не просто ступінь, а новий рівень мислення і можливостей. Звернись до приймальної комісії."
+          subtitle="Магістратура ННІКІТІ — це не просто ступінь, а новий рівень мислення і можливостей. Звернись до приймальної комісії."
           primaryLabel="Записатися на консультацію"
         />
       </div>

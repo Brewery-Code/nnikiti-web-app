@@ -16,7 +16,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#08090f]">
+    <section className="relative flex min-h-screen flex-col overflow-hidden bg-base">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[15%] -top-[15%] h-[700px] w-[700px] rounded-full"
@@ -50,15 +50,15 @@ export default function HeroSection() {
             letterSpacing: "-0.06em",
           }}
         >
-          ННКІТІ
+          ННІКІТІ
         </span>
       </div>
 
       <div className="container-v2 relative z-[1] flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] py-4 pt-24 sm:pt-28 lg:pt-32">
-        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/30">
+        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-subtle">
           Навчально-Науковий Інститут
         </span>
-        <span className="text-[10px] font-bold tracking-[0.15em] text-white/30">
+        <span className="text-[10px] font-bold tracking-[0.15em] text-subtle">
           2004 — 2024
         </span>
       </div>
@@ -71,14 +71,14 @@ export default function HeroSection() {
           )}
         >
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-            <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+            <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
               З 2004
             </span>
-            <span className="text-[12px] text-white/70">НУВГП · Рівне</span>
+            <span className="text-[12px] text-primary/70">НУВГП · Рівне</span>
           </div>
 
           <h1
-            className="font-display leading-[0.85] text-white"
+            className="font-display leading-[0.85] text-primary"
             style={{
               fontWeight: 900,
               fontSize: "clamp(2.2rem, 9vw, 9rem)",
@@ -93,7 +93,7 @@ export default function HeroSection() {
 
           <div className="my-10 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
 
-          <p className="max-w-xl text-[14px] leading-relaxed text-white/55 sm:text-[16px]">
+          <p className="max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]">
             ННІ комп'ютерних та інноваційних технологій та економіки —
             провідний IT-інститут НУВГП. Від першого набору до тисяч фахівців у
             провідних компаніях України та світу.
@@ -122,7 +122,7 @@ export default function HeroSection() {
               >
                 <span className="text-grad">{s.value}</span>
               </span>
-              <span className="text-[10px] uppercase tracking-[0.16em] text-white/35">
+              <span className="text-[10px] uppercase tracking-[0.16em] text-subtle">
                 {s.label}
               </span>
             </div>

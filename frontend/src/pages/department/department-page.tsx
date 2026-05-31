@@ -75,7 +75,7 @@ function Sidebar({
   return (
     <aside className="hidden flex-shrink-0 self-start lg:sticky lg:top-24 lg:flex lg:w-64 xl:w-72">
       <div className="flex w-full flex-col gap-4">
-        <div className="grad-border rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl">
+        <div className="grad-border rounded-[18px] bg-surface p-4 backdrop-blur-xl">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-500">
             — Кафедри
           </p>
@@ -87,10 +87,10 @@ function Sidebar({
                   <Link
                     to={`/department/${dept.id}`}
                     className={clsx(
-                      "group relative flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-[13px] transition-all duration-200",
+                      "group relative flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-[14px] transition-all duration-200",
                       isActive
-                        ? "bg-gradient-to-br from-violet-500/[0.15] to-blue-500/[0.10] font-semibold text-white"
-                        : "text-white/45 hover:bg-white/[0.04] hover:text-white/80"
+                        ? "bg-gradient-to-br from-violet-500/[0.15] to-blue-500/[0.10] font-semibold text-primary"
+                        : "text-subtle hover:bg-surface-md hover:text-primary/80"
                     )}
                   >
                     {isActive && (
@@ -112,7 +112,7 @@ function Sidebar({
           </ul>
         </div>
 
-        <div className="grad-border rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl">
+        <div className="grad-border rounded-[18px] bg-surface p-4 backdrop-blur-xl">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-500">
             — Розділи
           </p>
@@ -124,10 +124,10 @@ function Sidebar({
                   <button
                     onClick={() => scrollToSection(s.id)}
                     className={clsx(
-                      "group relative flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[13px] transition-all duration-200",
+                      "group relative flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[14px] transition-all duration-200",
                       isActive
-                        ? "bg-gradient-to-br from-violet-500/[0.15] to-blue-500/[0.10] font-semibold text-white"
-                        : "text-white/45 hover:bg-white/[0.04] hover:text-white/80"
+                        ? "bg-gradient-to-br from-violet-500/[0.15] to-blue-500/[0.10] font-semibold text-primary"
+                        : "text-subtle hover:bg-surface-md hover:text-primary/80"
                     )}
                   >
                     {isActive && (
@@ -146,21 +146,16 @@ function Sidebar({
 }
 
 function SectionTitle({
-  eyebrow,
   title,
   highlight,
 }: {
-  eyebrow: string;
   title: string;
   highlight: string;
 }) {
   return (
     <Reveal mode="up" className="mb-10 text-center">
-      <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-        — {eyebrow}
-      </div>
       <h2
-        className="font-display font-black text-white"
+        className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", letterSpacing: "-0.04em" }}
       >
         {title} <span className="text-grad">{highlight}</span>
@@ -173,15 +168,15 @@ function OverviewSection({ dept }: { dept: DepartmentData }) {
   const { head } = dept;
   return (
     <section id="overview">
-      <div className="grid gap-8 lg:grid-cols-[1fr_340px]">
+      <div className="grid gap-fluid-sm lg:grid-cols-[1fr_340px]">
         <Stagger className="flex flex-col gap-6" stagger={0.12} delay={0.35} inView={false}>
           <StaggerItem mode="up">
-          <div className="grad-border rounded-[20px] bg-white/[0.03] p-5 backdrop-blur-xl sm:p-7">
+          <div className="grad-border rounded-[20px] bg-surface p-5 backdrop-blur-xl sm:p-7">
             <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-500">
               — Кафедра
             </p>
             <h1
-              className="font-display font-black text-white"
+              className="font-display font-black text-primary"
               style={{
                 fontSize: "clamp(1.8rem, 3.2vw, 2.6rem)",
                 letterSpacing: "-0.04em",
@@ -191,18 +186,18 @@ function OverviewSection({ dept }: { dept: DepartmentData }) {
               {dept.name}
             </h1>
             <div className="mt-5 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
-            <p className="mt-5 text-[14px] leading-relaxed text-white/65 sm:text-[15px]">
+            <p className="mt-5 text-[15px] leading-relaxed text-muted sm:text-[17px]">
               {dept.description}
             </p>
             <div className="mt-6 flex flex-wrap gap-5">
               <a
                 href={`mailto:${dept.email}`}
-                className="flex items-center gap-2 text-[13px] text-white/55 transition-colors hover:text-white"
+                className="flex items-center gap-2 text-[14px] text-muted transition-colors hover:text-primary"
               >
                 <span className="text-violet-400">✉</span>
                 {dept.email}
               </a>
-              <span className="flex items-center gap-2 text-[13px] text-white/55">
+              <span className="flex items-center gap-2 text-[14px] text-muted">
                 <span className="text-blue-400">◎</span>
                 {dept.address}
               </span>
@@ -211,7 +206,7 @@ function OverviewSection({ dept }: { dept: DepartmentData }) {
           </StaggerItem>
 
           <StaggerItem mode="up">
-          <div className="grad-border flex items-center gap-4 rounded-[18px] bg-white/[0.03] p-5 backdrop-blur-xl">
+          <div className="grad-border flex items-center gap-4 rounded-[18px] bg-surface p-5 backdrop-blur-xl">
             <div className="grad-border flex-shrink-0 overflow-hidden rounded-full bg-[#111] p-[2px]">
               <img
                 src={avatar(head.img)}
@@ -223,10 +218,10 @@ function OverviewSection({ dept }: { dept: DepartmentData }) {
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
                 Завідувач кафедри
               </p>
-              <p className="mt-0.5 font-display text-[15px] font-bold text-white">
+              <p className="mt-0.5 font-display text-[16px] font-bold text-primary">
                 {head.full_name}
               </p>
-              <p className="text-[12px] text-white/45">{head.regalia}</p>
+              <p className="text-[12px] text-subtle">{head.regalia}</p>
               {head.email && (
                 <a
                   href={`mailto:${head.email}`}
@@ -237,10 +232,10 @@ function OverviewSection({ dept }: { dept: DepartmentData }) {
               )}
             </div>
             {head.audience && (
-              <span className="ml-auto rounded-[10px] border border-white/10 bg-white/[0.04] px-3 py-2 text-center text-[10px] text-white/40">
+              <span className="ml-auto rounded-[10px] border border-ui bg-surface-md px-3 py-2 text-center text-[10px] text-subtle">
                 Ауд.
                 <br />
-                <span className="font-display text-[15px] font-bold text-white">
+                <span className="font-display text-[16px] font-bold text-primary">
                   {head.audience}
                 </span>
               </span>
@@ -301,8 +296,8 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
   const elective   = prog.subjects.filter((s) => s.type === "Вибіркова");
 
   return (
-    <section id="curriculum" className="mt-fluid-xl">
-      <SectionTitle eyebrow="Навчальний план" title="Програма" highlight="навчання" />
+    <section id="curriculum" className="m-section">
+      <SectionTitle title="Програма" highlight="навчання" />
 
       {dept.programs.length > 1 && (
         <div className="mb-8 flex flex-wrap gap-2">
@@ -313,8 +308,8 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
               className={clsx(
                 "rounded-full px-4 py-2 text-[12px] font-semibold transition-all duration-200",
                 i === activeIdx
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                  : "grad-border bg-white/[0.04] text-white/60 backdrop-blur-md hover:text-white"
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                  : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:text-primary"
               )}
             >
               <span className="mr-1.5 opacity-50">{p.code}</span>
@@ -337,16 +332,15 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
               { label: "Рівень",     value: prog.degree },
               { label: "Тривалість", value: prog.duration },
               { label: "Форма",      value: prog.form },
-              { label: "Кредити",    value: `${prog.totalCredits} ЄКТС` },
             ].map((meta) => (
               <div
                 key={meta.label}
-                className="grad-border flex flex-col rounded-[14px] bg-white/[0.03] px-4 py-3 backdrop-blur-xl"
+                className="grad-border flex flex-col rounded-[14px] bg-surface px-4 py-3 backdrop-blur-xl"
               >
-                <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/35">
+                <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-subtle">
                   {meta.label}
                 </span>
-                <span className="mt-0.5 text-[13px] font-semibold text-white">{meta.value}</span>
+                <span className="mt-0.5 text-[14px] font-semibold text-primary">{meta.value}</span>
               </div>
             ))}
           </div>
@@ -360,33 +354,27 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
                 transition={{ duration: 0.2, delay: yi * 0.06, ease: "easeOut" }}
                 className="grad-border rounded-[20px] bg-white/[0.02] backdrop-blur-xl"
               >
-                <div className="flex items-center gap-3 border-b border-white/[0.06] px-5 py-4">
-                  <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[11px] font-extrabold text-white">
+                <div className="flex items-center gap-3 border-b border-ui-sm px-5 py-4">
+                  <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[11px] font-extrabold text-primary">
                     {year}
                   </span>
-                  <span className="font-display text-[13px] font-bold text-white">
+                  <span className="font-display text-[14px] font-bold text-primary">
                     {year} курс — {year * 2 - 1} та {year * 2} семестри
-                  </span>
-                  <span className="ml-auto shrink-0 text-[11px] text-white/35">
-                    {subjects.reduce((sum, s) => sum + s.credits, 0)} кр.
                   </span>
                 </div>
                 <div className="divide-y divide-white/[0.04]">
                   {subjects.map((subject, i) => (
                     <div key={i} className="flex items-center gap-4 px-5 py-3.5">
-                      <span className="min-w-0 flex-1 text-[13px] text-white/80">
+                      <span className="min-w-0 flex-1 text-[14px] text-primary/80">
                         {subject.name}
                       </span>
                       <div className="flex shrink-0 items-center gap-2">
-                        <span className="text-[11px] font-semibold tabular-nums text-white/40">
-                          {subject.credits} кр.
-                        </span>
                         <span
                           className={clsx(
                             "rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.06em]",
                             subject.type === "Нормативна"
                               ? "border border-violet-500/30 bg-violet-500/[0.12] text-violet-300"
-                              : "border border-white/10 bg-white/[0.04] text-white/40"
+                              : "border border-ui bg-surface-md text-subtle"
                           )}
                         >
                           {subject.type === "Нормативна" ? "Норм." : "Вибір."}
@@ -399,29 +387,13 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
             ))}
           </div>
 
-          <div className="mt-6 grid grid-cols-3 gap-3 pb-px">
-            <div className="grad-border rounded-[16px] bg-white/[0.03] p-4 text-center backdrop-blur-xl">
-              <p className="font-display text-[1.8rem] font-extrabold text-white">
+          <div className="mt-6 pb-px">
+            <div className="grad-border rounded-[16px] bg-surface p-4 text-center backdrop-blur-xl">
+              <p className="font-display text-[1.8rem] font-extrabold text-primary">
                 {prog.subjects.length}
               </p>
-              <p className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/40">
+              <p className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-subtle">
                 Дисциплін
-              </p>
-            </div>
-            <div className="grad-border rounded-[16px] bg-violet-500/[0.06] p-4 text-center backdrop-blur-xl">
-              <p className="font-display text-[1.8rem] font-extrabold text-violet-300">
-                {mandatory.reduce((sum, s) => sum + s.credits, 0)}
-              </p>
-              <p className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-violet-500/70">
-                Норм. кр.
-              </p>
-            </div>
-            <div className="grad-border rounded-[16px] bg-white/[0.03] p-4 text-center backdrop-blur-xl">
-              <p className="font-display text-[1.8rem] font-extrabold text-white/60">
-                {elective.reduce((sum, s) => sum + s.credits, 0)}
-              </p>
-              <p className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/30">
-                Вибірк. кр.
               </p>
             </div>
           </div>
@@ -433,14 +405,14 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
 
 function TeamSection({ dept }: { dept: DepartmentData }) {
   return (
-    <section id="team" className="mt-fluid-xl">
-      <SectionTitle eyebrow="Викладачі" title="Команда" highlight="кафедри" />
+    <section id="team" className="m-section">
+      <SectionTitle title="Команда" highlight="кафедри" />
       <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3" stagger={0.05} amount={0.05}>
         {dept.team.map((member, i) => (
           <StaggerItem
             key={i}
             mode="up"
-            className="grad-border card-hover flex gap-4 rounded-[18px] bg-white/[0.03] p-4 backdrop-blur-xl"
+            className="grad-border card-hover flex gap-4 rounded-[18px] bg-surface p-4 backdrop-blur-xl"
           >
             <div className="grad-border flex-shrink-0 overflow-hidden rounded-full bg-[#111] p-[2px]">
               <img
@@ -450,11 +422,11 @@ function TeamSection({ dept }: { dept: DepartmentData }) {
               />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="font-display truncate text-[14px] font-bold text-white">
+              <p className="font-display truncate text-[15px] font-bold text-primary">
                 {member.name}
               </p>
-              <p className="mt-0.5 text-[12px] text-white/45">{member.role}</p>
-              <span className="mt-1.5 inline-block rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[11px] text-white/55">
+              <p className="mt-0.5 text-[12px] text-subtle">{member.role}</p>
+              <span className="mt-1.5 inline-block rounded-full border border-ui bg-surface-md px-2.5 py-0.5 text-[11px] text-muted">
                 {member.specialty}
               </span>
             </div>
@@ -467,12 +439,8 @@ function TeamSection({ dept }: { dept: DepartmentData }) {
 
 function HistorySection({ dept }: { dept: DepartmentData }) {
   return (
-    <section id="history" className="mt-fluid-xl">
-      <SectionTitle
-        eyebrow="Минуле і сьогодення"
-        title="Історія"
-        highlight="кафедри"
-      />
+    <section id="history" className="m-section">
+      <SectionTitle title="Історія" highlight="кафедри" />
 
       <div className="grad-border relative mb-10 overflow-hidden rounded-[20px]">
         <img
@@ -486,7 +454,7 @@ function HistorySection({ dept }: { dept: DepartmentData }) {
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-300">
               З 2004 року
             </p>
-            <p className="font-display mt-1 text-[18px] font-bold text-white sm:text-[22px]">
+            <p className="font-display mt-1 text-[18px] font-bold text-primary sm:text-[22px]">
               Кафедра {dept.name.toLowerCase()}
             </p>
           </div>
@@ -494,14 +462,14 @@ function HistorySection({ dept }: { dept: DepartmentData }) {
       </div>
 
       <Stagger className="relative flex flex-col gap-7 pl-8" stagger={0.1} amount={0.05}>
-        <div className="absolute bottom-0 left-0 top-0 w-px bg-gradient-to-b from-violet-500/40 via-blue-500/20 to-transparent" />
+        <div className="absolute bottom-0 left-1.5 top-0 w-px bg-gradient-to-b from-violet-500/40 via-blue-500/20 to-transparent" />
         {dept.history.map((item, i) => (
           <StaggerItem key={i} mode="left" className="relative">
-            <div className="absolute -left-[33px] top-1.5 h-3 w-3 rounded-full border-2 border-violet-400 bg-[#08090f]" />
+            <div className="absolute -left-8 top-1.5 h-3 w-3 rounded-full border-2 border-violet-400 bg-base" />
             <span className="font-display text-[12px] font-bold text-violet-300">
               {item.year}
             </span>
-            <p className="mt-1 text-[14px] leading-relaxed text-white/65">{item.text}</p>
+            <p className="mt-1 text-[15px] leading-relaxed text-muted">{item.text}</p>
           </StaggerItem>
         ))}
       </Stagger>
@@ -512,36 +480,36 @@ function HistorySection({ dept }: { dept: DepartmentData }) {
 function ContactsSection({ dept }: { dept: DepartmentData }) {
   const { head } = dept;
   return (
-    <section id="contacts" className="mt-fluid-xl">
-      <SectionTitle eyebrow="Зв'язок" title="Контакти" highlight="кафедри" />
+    <section id="contacts" className="m-section">
+      <SectionTitle title="Контакти" highlight="кафедри" />
 
       <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2" stagger={0.1} amount={0.05}>
         <StaggerItem mode="left">
         <a
           href={`mailto:${dept.email}`}
-          className="grad-border card-hover flex items-center gap-4 rounded-[18px] bg-white/[0.03] p-5 backdrop-blur-xl"
+          className="grad-border card-hover flex items-center gap-4 rounded-[18px] bg-surface p-5 backdrop-blur-xl"
         >
           <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[12px] bg-gradient-to-br from-violet-500/20 to-blue-500/20 text-lg text-violet-300">
             ✉
           </div>
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-subtle">
               Email кафедри
             </p>
-            <p className="mt-0.5 text-[13px] font-semibold text-white">{dept.email}</p>
+            <p className="mt-0.5 text-[14px] font-semibold text-primary">{dept.email}</p>
           </div>
         </a>
         </StaggerItem>
         <StaggerItem mode="right">
-        <div className="grad-border flex items-center gap-4 rounded-[18px] bg-white/[0.03] p-5 backdrop-blur-xl">
+        <div className="grad-border flex items-center gap-4 rounded-[18px] bg-surface p-5 backdrop-blur-xl">
           <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[12px] bg-gradient-to-br from-blue-500/20 to-violet-500/20 text-lg text-blue-300">
             ◎
           </div>
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-subtle">
               Адреса
             </p>
-            <p className="mt-0.5 text-[13px] font-semibold text-white">{dept.address}</p>
+            <p className="mt-0.5 text-[14px] font-semibold text-primary">{dept.address}</p>
           </div>
         </div>
         </StaggerItem>
@@ -560,10 +528,10 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
             Завідувач кафедри
           </p>
-          <p className="font-display text-[14px] font-bold text-white">
+          <p className="font-display text-[15px] font-bold text-primary">
             {head.full_name}
           </p>
-          <p className="text-[12px] text-white/45">{head.regalia}</p>
+          <p className="text-[12px] text-subtle">{head.regalia}</p>
           {head.email && (
             <a
               href={`mailto:${head.email}`}
@@ -588,7 +556,7 @@ function DepartmentPage() {
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
       {/* Hero */}
-      <div className="relative h-64 overflow-hidden bg-[#08090f] sm:h-80 md:h-96">
+      <div className="relative h-64 overflow-hidden bg-base sm:h-80 md:h-96">
         <img
           src={cover(dept.coverSeed)}
           alt={dept.name}
@@ -609,15 +577,15 @@ function DepartmentPage() {
           <Stagger className="flex flex-col items-start" stagger={0.12} delay={0.35} inView={false}>
             <StaggerItem mode="up">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-                <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-                  ННКІТІ
+                <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
+                  ННІКІТІ
                 </span>
-                <span className="text-[12px] text-white/70">Кафедра</span>
+                <span className="text-[12px] text-primary/70">Кафедра</span>
               </div>
             </StaggerItem>
             <StaggerItem mode="up">
               <h1
-                className="font-display font-black text-white"
+                className="font-display font-black text-primary"
                 style={{
                   fontSize: "clamp(2rem, 5vw, 4.5rem)",
                   letterSpacing: "-0.05em",
@@ -631,7 +599,7 @@ function DepartmentPage() {
         </div>
       </div>
 
-      <div className="bg-[#08090f] py-12 sm:py-16 lg:py-20">
+      <div className="bg-base py-12 sm:py-16 lg:py-20">
         <div className="container-v2">
           {/* Mobile department selector */}
           <div className="mb-8 -mx-4 overflow-x-auto px-4 scrollbar-hidden lg:hidden">
@@ -645,8 +613,8 @@ function DepartmentPage() {
                     className={clsx(
                       "shrink-0 rounded-full px-4 py-2 text-[12px] font-semibold transition-all duration-200",
                       isActive
-                        ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                        : "grad-border bg-white/[0.04] text-white/60 backdrop-blur-md hover:text-white"
+                        ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                        : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:text-primary"
                     )}
                   >
                     {d.name}
@@ -656,7 +624,7 @@ function DepartmentPage() {
             </div>
           </div>
 
-          <div className="flex gap-fluid-xl">
+          <div className="flex gap-fluid-sm">
             <Sidebar
               departments={DEPARTMENTS_DATA}
               currentId={departmentId ?? ""}

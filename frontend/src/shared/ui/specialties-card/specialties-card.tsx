@@ -8,7 +8,7 @@ export function SpecialtiesCard({ className }: { className?: string }) {
   return (
     <motion.div
       className={clsx(
-        "relative flex h-[370px] w-72 cursor-pointer flex-col justify-between rounded-lg p-6 text-white",
+        "relative flex h-[370px] w-72 cursor-pointer flex-col justify-between rounded-lg p-6 text-primary",
         gradient.gradient,
         className
       )}

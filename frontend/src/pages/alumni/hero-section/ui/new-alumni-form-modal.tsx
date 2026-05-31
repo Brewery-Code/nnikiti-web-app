@@ -18,7 +18,7 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const inputClass =
-  "w-full rounded-[12px] border border-white/10 bg-white/[0.04] px-4 py-3 text-[13px] text-white placeholder-white/30 outline-none transition focus:border-violet-500/50 focus:bg-white/[0.06]";
+  "w-full rounded-[12px] border border-ui bg-surface-md px-4 py-3 text-[14px] text-primary placeholder-muted outline-none transition focus:border-violet-500/50 focus:bg-surface-lg";
 
 function Field({
   id,
@@ -40,7 +40,7 @@ function Field({
     <div className="flex flex-col gap-1.5">
       <label
         htmlFor={id}
-        className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/45"
+        className="text-[10px] font-bold uppercase tracking-[0.14em] text-subtle"
       >
         {label}
       </label>
@@ -94,13 +94,13 @@ export function NewAlumniModalForm({ isFormOpen, toggleForm }: NewAlumniModalFor
           — Випускники
         </div>
         <h2
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", letterSpacing: "-0.03em" }}
         >
           Розкажіть <span className="text-grad">про себе</span>
         </h2>
-        <p className="mt-2 text-[13px] text-white/50">
-          Ваша історія надихне майбутніх студентів ННКІТІ.
+        <p className="mt-2 text-[14px] text-primary/50">
+          Ваша історія надихне майбутніх студентів ННІКІТІ.
         </p>
       </div>
 
@@ -119,13 +119,13 @@ export function NewAlumniModalForm({ isFormOpen, toggleForm }: NewAlumniModalFor
             id="story"
             label="Ваша історія"
             type="textarea"
-            placeholder="Де працюєте зараз, як ННКІТІ допоміг вам у кар'єрі…"
+            placeholder="Де працюєте зараз, як ННІКІТІ допоміг вам у кар'єрі…"
           />
 
           <button
             type="submit"
             disabled={methods.formState.isSubmitting}
-            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 py-3.5 text-[14px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all hover:scale-[1.01] hover:shadow-[0_8px_32px_rgba(166,132,255,0.5)] disabled:opacity-60"
+            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all hover:scale-[1.01] hover:shadow-[0_8px_32px_rgba(166,132,255,0.5)] disabled:opacity-60"
           >
             {methods.formState.isSubmitting ? "Надсилання…" : "Надіслати"}
           </button>

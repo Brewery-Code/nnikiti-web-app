@@ -95,14 +95,14 @@ function SectionTitle({
         — {eyebrow}
       </div>
       <h2
-        className="font-display font-black text-white"
+        className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
       >
         {title} <span className="text-grad">{highlight}</span>
       </h2>
       {description && (
         <p
-          className="mx-auto mt-4 text-[14px] leading-relaxed text-white/55 sm:text-[15px]"
+          className="mx-auto mt-4 text-[15px] leading-relaxed text-muted sm:text-[17px]"
           style={{ maxWidth: 580 }}
         >
           {description}
@@ -114,7 +114,7 @@ function SectionTitle({
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#08090f] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[15%] -top-[20%] h-[700px] w-[700px] rounded-full"
@@ -136,16 +136,16 @@ function Hero() {
 
       <Stagger className="container-v2 relative z-[1]" stagger={0.1} delay={0.35} inView={false}>
         <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
             2024 — 2030
           </span>
-          <span className="text-[12px] text-white/70">Стратегічний план</span>
+          <span className="text-[12px] text-primary/70">Стратегічний план</span>
         </StaggerItem>
 
         <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
           <StaggerItem mode="left">
             <h1
-              className="font-display font-black text-white"
+              className="font-display font-black text-primary"
               style={{
                 fontSize: "clamp(2rem, 7vw, 6.5rem)",
                 letterSpacing: "-0.05em",
@@ -154,12 +154,12 @@ function Hero() {
             >
               Стратегія <span className="text-grad">розвитку</span>
               <br />
-              ННКІТІ
+              ННІКІТІ
             </h1>
           </StaggerItem>
 
           <StaggerItem mode="right" className="flex flex-col gap-6 lg:pb-2">
-            <p className="text-[14px] leading-relaxed text-white/65 sm:text-[16px]">
+            <p className="text-[15px] leading-relaxed text-muted sm:text-[17px]">
               Шість стратегічних напрямів, що визначають розвиток інституту до
               2030 року — від якості освіти до міжнародного лідерства в
               IT-підготовці.
@@ -168,7 +168,7 @@ function Hero() {
               {["Освіта", "Наука", "Партнерства", "Інновації"].map((tag) => (
                 <span
                   key={tag}
-                  className="font-display rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] text-white"
+                  className="font-display rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] text-primary"
                   style={{
                     background:
                       "linear-gradient(135deg, rgba(166,132,255,0.20) 0%, rgba(81,162,255,0.20) 100%)",
@@ -191,7 +191,7 @@ function MissionVision() {
   return (
     <section className="py-12 sm:py-16 lg:py-20">
       <Stagger className="container-v2 grid gap-5 lg:grid-cols-2" stagger={0.15} amount={0.15}>
-        <StaggerItem mode="left" className="grad-border relative overflow-hidden rounded-[20px] bg-white/[0.03] p-6 backdrop-blur-xl sm:p-8">
+        <StaggerItem mode="left" className="grad-border relative overflow-hidden rounded-[20px] bg-surface p-6 backdrop-blur-xl sm:p-8">
           <div
             aria-hidden
             className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full blur-3xl"
@@ -207,20 +207,20 @@ function MissionVision() {
             </span>
           </div>
           <p
-            className="font-display font-bold leading-snug text-white"
+            className="font-display font-bold leading-snug text-primary"
             style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)", letterSpacing: "-0.02em" }}
           >
             Готувати IT-фахівців світового рівня, здатних вирішувати реальні
             задачі та рухати технологічний прогрес України вперед.
           </p>
           <div className="mt-6 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
-          <p className="mt-4 text-[13px] leading-relaxed text-white/50">
+          <p className="mt-4 text-[14px] leading-relaxed text-primary/50">
             Ми існуємо, щоб перетворювати талант на компетенцію, а компетенцію —
             на зміни в суспільстві.
           </p>
         </StaggerItem>
 
-        <StaggerItem mode="right" className="grad-border relative overflow-hidden rounded-[20px] bg-white/[0.03] p-6 backdrop-blur-xl sm:p-8">
+        <StaggerItem mode="right" className="grad-border relative overflow-hidden rounded-[20px] bg-surface p-6 backdrop-blur-xl sm:p-8">
           <div
             aria-hidden
             className="pointer-events-none absolute -bottom-12 -left-12 h-44 w-44 rounded-full blur-3xl"
@@ -236,14 +236,14 @@ function MissionVision() {
             </span>
           </div>
           <p
-            className="font-display font-bold leading-snug text-white"
+            className="font-display font-bold leading-snug text-primary"
             style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)", letterSpacing: "-0.02em" }}
           >
             Стати визнаним лідером IT-освіти в Україні та увійти до топ-100
             профільних закладів Центральної Європи до 2030 року.
           </p>
           <div className="mt-6 h-px w-full bg-gradient-to-r from-blue-500/40 via-violet-500/20 to-transparent" />
-          <p className="mt-4 text-[13px] leading-relaxed text-white/50">
+          <p className="mt-4 text-[14px] leading-relaxed text-primary/50">
             Університет, де кожен студент знаходить шлях від ідеї до продукту,
             що змінює світ.
           </p>
@@ -267,7 +267,7 @@ function Pillars() {
             <StaggerItem
               key={i}
               mode="up"
-              className="spec-card grad-border relative overflow-hidden rounded-[20px] bg-white/[0.03] p-5 backdrop-blur-xl sm:p-7"
+              className="spec-card grad-border relative overflow-hidden rounded-[20px] bg-surface p-5 backdrop-blur-xl sm:p-7"
             >
               <span
                 className="text-grad mb-5 block"
@@ -276,12 +276,12 @@ function Pillars() {
                 {p.icon}
               </span>
               <h3
-                className="font-display mb-3 font-bold text-white"
+                className="font-display mb-3 font-bold text-primary"
                 style={{ fontSize: "1.05rem", letterSpacing: "-0.02em" }}
               >
                 {p.title}
               </h3>
-              <p className="text-[13px] leading-relaxed text-white/55">
+              <p className="text-[14px] leading-relaxed text-muted">
                 {p.text}
               </p>
             </StaggerItem>
@@ -307,10 +307,10 @@ function Roadmap() {
             <StaggerItem
               key={item.period}
               mode="up"
-              className="grad-border relative flex flex-col rounded-[20px] bg-white/[0.03] p-5 backdrop-blur-xl sm:p-7"
+              className="grad-border relative flex flex-col rounded-[20px] bg-surface p-5 backdrop-blur-xl sm:p-7"
             >
               <span
-                className="font-display mb-5 self-start rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.06em] text-white"
+                className="font-display mb-5 self-start rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.06em] text-primary"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(166,132,255,0.85) 0%, rgba(81,162,255,0.85) 100%)",
@@ -319,7 +319,7 @@ function Roadmap() {
                 {item.period}
               </span>
               <h3
-                className="font-display mb-4 font-bold text-white"
+                className="font-display mb-4 font-bold text-primary"
                 style={{ fontSize: "1.15rem", letterSpacing: "-0.02em" }}
               >
                 {item.title}
@@ -328,7 +328,7 @@ function Roadmap() {
                 {item.items.map((it, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[12px] text-white/60"
+                    className="flex items-start gap-3 text-[12px] text-primary/60"
                   >
                     <span
                       aria-hidden
@@ -361,7 +361,7 @@ function Values() {
             <StaggerItem
               key={v.title}
               mode="up"
-              className="grad-border flex gap-5 rounded-[18px] bg-white/[0.03] p-7 backdrop-blur-xl"
+              className="grad-border flex gap-5 rounded-[18px] bg-surface p-7 backdrop-blur-xl"
             >
               <div
                 aria-hidden
@@ -370,12 +370,12 @@ function Values() {
               />
               <div>
                 <h3
-                  className="font-display mb-2 font-bold text-white"
+                  className="font-display mb-2 font-bold text-primary"
                   style={{ fontSize: "1.05rem", letterSpacing: "-0.01em" }}
                 >
                   {v.title}
                 </h3>
-                <p className="text-[13px] leading-relaxed text-white/55">
+                <p className="text-[14px] leading-relaxed text-muted">
                   {v.text}
                 </p>
               </div>
@@ -405,7 +405,7 @@ function Cta() {
         <StaggerItem
           as="h2"
           mode="up"
-          className="font-display font-black text-white"
+          className="font-display font-black text-primary"
           style={{
             fontSize: "clamp(2rem, 4vw, 3.5rem)",
             letterSpacing: "-0.04em",
@@ -417,22 +417,22 @@ function Cta() {
         <StaggerItem
           as="p"
           mode="up"
-          className="mx-auto mt-6 text-[14px] leading-relaxed text-white/60 sm:text-[16px]"
+          className="mx-auto mt-6 text-[15px] leading-relaxed text-primary/60 sm:text-[17px]"
           style={{ maxWidth: 580 }}
         >
           Студенти, викладачі та партнери — усі є рушійною силою розвитку
-          ННКІТІ. Долучайся до інституту, що будує майбутнє IT-освіти.
+          ННІКІТІ. Долучайся до інституту, що будує майбутнє IT-освіти.
         </StaggerItem>
         <StaggerItem mode="up" className="mt-10 flex flex-wrap justify-center gap-3">
           <Link
             to={ROUTES.CONTACTS}
-            className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[14px] font-semibold text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[15px]"
+            className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[17px]"
           >
             Зв'язатися з нами <span aria-hidden>→</span>
           </Link>
           <Link
             to={ROUTES.HISTORY}
-            className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-white/[0.04] px-7 py-3.5 text-[14px] font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/[0.10] active:scale-95 sm:text-[15px]"
+            className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-surface-md px-7 py-3.5 text-[15px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:text-[17px]"
           >
             Наша історія <span aria-hidden>→</span>
           </Link>
@@ -446,7 +446,7 @@ function StrategyPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <Hero />
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <MissionVision />
         <Pillars />
         <Roadmap />

@@ -59,7 +59,7 @@ const steps: Step[] = [
   {
     title: "Скласти вступні іспити",
     text:
-      "Два іспити: іноземна мова (англійська) та фахова дисципліна за обраною спеціальністю. Проводяться в ННКІТІ.",
+      "Два іспити: іноземна мова (англійська) та фахова дисципліна за обраною спеціальністю. Проводяться в ННІКІТІ.",
   },
   {
     title: "Пройти конкурсний відбір",
@@ -121,14 +121,14 @@ const benefits = [
 
 function BenefitCard({ b }: { b: (typeof benefits)[0] }) {
   return (
-    <div className="grad-border card-hover rounded-[20px] bg-white/[0.03] p-5 backdrop-blur-xl sm:p-7">
+    <div className="grad-border card-hover rounded-[20px] bg-surface p-5 backdrop-blur-xl sm:p-7">
       <h3
-        className="font-display mb-3 font-bold text-white"
+        className="font-display mb-3 font-bold text-primary"
         style={{ fontSize: "1.05rem", letterSpacing: "-0.01em" }}
       >
         {b.title}
       </h3>
-      <p className="text-[13px] leading-relaxed text-white/55">{b.text}</p>
+      <p className="text-[14px] leading-relaxed text-muted">{b.text}</p>
       <div className="mt-5 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
     </div>
   );
@@ -150,7 +150,7 @@ function PostgraduatePage() {
         ]}
       />
 
-      <div className="bg-[#08090f]">
+      <div className="bg-base">
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <SectionHead
