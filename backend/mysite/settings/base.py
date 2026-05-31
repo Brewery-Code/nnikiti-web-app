@@ -1,6 +1,6 @@
 from pathlib import Path
-from decouple import config
 
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -13,13 +13,15 @@ SECRET_KEY = config("SECRET_KEY")
 # Applications
 ###########################
 INSTALLED_APPS = [
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     # installed
     "corsheaders",
     "rest_framework",
@@ -29,7 +31,6 @@ INSTALLED_APPS = [
     "parler",
     "mdeditor",
     "taggit",
-
     # my custom
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
@@ -93,8 +94,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Languages and timezone
 ###########################
 LANGUAGES = [
-    ("en", "English"),
     ("uk", "Ukrainian"),
+    ("en", "English"),
 ]
 
 PARLER_LANGUAGES = {
@@ -108,7 +109,7 @@ PARLER_LANGUAGES = {
     },
 }
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "uk"
 
 TIME_ZONE = "UTC"
 
@@ -146,9 +147,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = [
     "picture",
 ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {
-    'hd': 'nuwm.edu.ua'
-}
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {"hd": "nuwm.edu.ua"}
 
 ###########################
 # REST-framework
@@ -184,11 +183,23 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "TAGS": [
-        {"name": "Core", "description": "Контент головної сторінки: слайдери, статистика, партнери, FAQ, випускники."},
+        {
+            "name": "Core",
+            "description": "Контент головної сторінки: слайдери, статистика, партнери, FAQ, випускники.",
+        },
         {"name": "Events", "description": "Події університету."},
-        {"name": "Departments", "description": "Кафедри, завідувачі та освітні програми."},
-        {"name": "Auth", "description": "Авторизація через Google OAuth2 та оновлення токенів."},
-        {"name": "Users", "description": "Профіль та роль поточного авторизованого користувача."},
+        {
+            "name": "Departments",
+            "description": "Кафедри, завідувачі та освітні програми.",
+        },
+        {
+            "name": "Auth",
+            "description": "Авторизація через Google OAuth2 та оновлення токенів.",
+        },
+        {
+            "name": "Users",
+            "description": "Профіль та роль поточного авторизованого користувача.",
+        },
     ],
     "COMPONENT_SPLIT_REQUEST": True,
 }

@@ -22,6 +22,7 @@ dependencies = [
     "unidecode",
     "colorlog",
     "drf-spectacular",
+    "django-unfold>=0.94.0",
 ]
 
 [tool.uv]

@@ -782,6 +782,85 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/CategorizedTag'
+    ProgramSubject:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          description: Subject name (translated)
+        semester:
+          type: integer
+          minimum: 1
+          maximum: 8
+        credits:
+          type: number
+          format: float
+        type:
+          type: string
+          enum: [MN, EL]
+          description: "MN = Mandatory, EL = Elective"
+
+    FacultyMember:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          description: Full name (language-dependent)
+        role:
+          type: string
+          description: Role/position (language-dependent)
+        specialty:
+          type: string
+          description: Specialty (language-dependent)
+        image:
+          type: string
+          format: uri
+          nullable: true
+        email:
+          type: string
+          format: email
+        audience:
+          type: string
+
+    HeadOfDepartment:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          description: Full name (language-dependent)
+        regalia:
+          type: string
+          description: Academic title/regalia (language-dependent)
+        email:
+          type: string
+          format: email
+          nullable: true
+        audience:
+          type: string
+          nullable: true
+
+    DepartmentHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        year:
+          type: string
+          description: "Year or period label, e.g. '2004', '1970-ті', 'Сьогодні'"
+        text:
+          type: string
+          description: Description of the historical event (translated)
+
     EducationalProgramFull:
       allOf:
         - $ref: '#/components/schemas/EducationalProgram'
@@ -789,6 +868,31 @@ components:
           properties:
             description:
               type: string
+              description: Translated description
+            degree:
+              type: string
+              description: "e.g. 'Бакалавр', 'Магістр'"
+            form:
+              type: string
+              description: "e.g. 'Денна, заочна, дуальна'"
+            duration:
+              type: integer
+              nullable: true
+              description: Duration in years
+            total_credits:
+              type: integer
+              nullable: true
+              description: Total ECTS credits
+            budget_seats:
+              type: integer
+              nullable: true
+            contract_seats:
+              type: integer
+              nullable: true
+            subjects:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProgramSubject'
             bachelor:
               type: object
               nullable: true
@@ -819,17 +923,8 @@ components:
                   type: string
                 program:
                   type: string
+
     Departments:
-      type: object
-      properties:
-        id:
-          type: integer
-          title : ID
-          readOnly: true
-        name:
-          type: string
-          title: Department name
-    DepartmentDetail:
       type: object
       properties:
         id:
@@ -839,48 +934,52 @@ components:
         name:
           type: string
           title: Department name
+
+    DepartmentDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          title: ID
+          readOnly: true
+        name:
+          type: string
           description: Translated name of the department
         description:
           type: string
-          title: Department description
           description: Translated description of the department
         address:
           type: string
-          title: Department address
           description: Translated address of the department
         email:
           type: string
           format: email
-          title: Email address
+        image:
+          type: string
+          format: uri
+          nullable: true
+          description: Department group photo
+        room:
+          type: string
+          description: Department room number
         head_of_department:
           type: array
-          title: Head(s) of Department
           items:
-            type: object
-            properties:
-              id:
-                type: integer
-                title: ID
-              regalia:
-                type: string
-                title: Regalia
-                description: Translated regalia/title of the head
-              full_name:
-                type: string
-                title: Full name
-                description: Translated full name
-              email:
-                type: string
-                format: email
-                title: Email
-              audience:
-                type: string
-                title: Audience
+            $ref: '#/components/schemas/HeadOfDepartment'
+        team:
+          type: array
+          description: Faculty members of the department
+          items:
+            $ref: '#/components/schemas/FacultyMember'
         educational_program:
           type: array
-          title: Educational Programs
           items:
             $ref: '#/components/schemas/EducationalProgramFull'
+        history:
+          type: array
+          description: Chronological history of the department
+          items:
+            $ref: '#/components/schemas/DepartmentHistory'
     Alumnus:
       type: object
       properties:

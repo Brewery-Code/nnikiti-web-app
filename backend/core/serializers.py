@@ -21,10 +21,11 @@ class StatisticBlockSerializer(serializers.ModelSerializer):
 
 class PartnersSerializer(serializers.ModelSerializer):
     """Serializer for the Partners model."""
+    site_url = serializers.URLField(source="site_link")
 
     class Meta:
         model = Partner
-        fields = ["id", "name", "image", "site_link"]
+        fields = ["id", "name", "image", "site_url"]
 
 
 class FAQSerializer(serializers.ModelSerializer):

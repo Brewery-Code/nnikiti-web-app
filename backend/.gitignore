@@ -1,4 +1,4 @@
-# virtual enviroment
+# Virtual environment
 .venv/
 venv/
 
@@ -7,8 +7,44 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# enviroment variables
+# Environment variables
 .env
 
+# Database fixtures (can be large, regenerated locally)
+backup.json
+core-backup.json
+
+# Media files (uploaded by users, not tracked in git)
+media/
+
+# Static files (collected via collectstatic)
+staticfiles/
+
+# Migrations (keep in git — remove this if you want to ignore them)
+# */migrations/*.py
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
 .idea/
+.vscode/
+
+# Claude
 .claude/
+CLAUDE.md
+
+# Docs/planning (internal)
+docs/
+prd/
+TODO.md
+
+# Uploaded PDFs or other binary content docs
+*.pdf
+
+вимоги.pdf

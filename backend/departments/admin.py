@@ -2,9 +2,17 @@ from django.contrib import admin
 from parler.admin import TranslatableAdmin
 from django import forms
 from django.forms.models import BaseInlineFormSet
+from unfold.admin import ModelAdmin, TabularInline
 
-from .models.departments import Department, HeadOfDepartment, EducationalProgram
+from .models.departments import (
+    Department, HeadOfDepartment, EducationalProgram,
+    FacultyMember, DepartmentHistory, ProgramSubject,
+)
 from .models.tagged import CategorizedTag, SubjectTaggedItem, FormTaggedItem, LevelTaggedItem
+
+
+class UnfoldTranslatableAdmin(ModelAdmin, TranslatableAdmin):
+    change_form_template = "admin/parler/change_form.html"
 
 
 #########################
@@ -59,59 +67,96 @@ class GenericTagInlineFormSet(BaseInlineFormSet):
     """
     def save_new(self, form, commit=True):
         obj = super().save_new(form, commit=False)
-
         obj.content_object = self.instance
-
         if commit:
             obj.save()
             form.save_m2m()
-
         return obj
 
 #########################
 # Inlines
 #########################
-class SubjectTaggedItemInline(admin.TabularInline):
+class SubjectTaggedItemInline(TabularInline):
     """Inline editing for tagged items related to a subject."""
     model = SubjectTaggedItem
     form = SubjectTaggedItemForm
     formset = GenericTagInlineFormSet
     extra = 1
 
-class FormTaggedItemInline(admin.TabularInline):
+class FormTaggedItemInline(TabularInline):
     """Inline editing for tagged items related to a form."""
     model = FormTaggedItem
     form = FormTaggedItemForm
     formset = GenericTagInlineFormSet
     extra = 1
 
-class LevelTaggedItemInline(admin.TabularInline):
+class LevelTaggedItemInline(TabularInline):
     """Inline editing for tagged items related to a level."""
     model = LevelTaggedItem
     form = LevelTaggedItemForm
     formset = GenericTagInlineFormSet
     extra = 1
 
+class ProgramSubjectInline(TabularInline):
+    """Inline editing for program subjects."""
+    model = ProgramSubject
+    extra = 0
+    verbose_name = "Дисципліна"
+    verbose_name_plural = "Навчальний план (дисципліни)"
+    fields = ('semester', 'credits', 'type', 'order')
+    show_change_link = True
+
+class FacultyMemberInline(TabularInline):
+    """Inline editing for faculty members."""
+    model = FacultyMember
+    extra = 0
+    verbose_name = "Викладач"
+    verbose_name_plural = "Колектив кафедри"
+    fields = ('name_uk', 'name_en', 'role_uk', 'role_en', 'email', 'audience', 'order')
+
+class HeadOfDepartmentInline(TabularInline):
+    """Inline editing for head of department."""
+    model = HeadOfDepartment
+    extra = 0
+    verbose_name = "Завідувач кафедри"
+    verbose_name_plural = "Завідувач кафедри"
+    fields = ('full_name_uk', 'full_name_en', 'regalia_uk', 'regalia_en', 'email', 'audience')
+
+class EducationalProgramInline(TabularInline):
+    """Inline editing for educational programs."""
+    model = EducationalProgram
+    extra = 0
+    verbose_name = "Освітня програма"
+    verbose_name_plural = "Освітні програми"
+    fields = ('code', 'duration', 'total_credits', 'budget_seats', 'contract_seats')
+    show_change_link = True
+
 #########################
 # Admin
 #########################
 @admin.register(Department)
-class DepartmentAdmin(TranslatableAdmin):
+class DepartmentAdmin(UnfoldTranslatableAdmin):
     """Custom admin for departments."""
-    list_display = ('id', 'name', 'email')
+    list_display = ('id', 'name', 'email', 'room')
     search_fields = ('translations__name', 'email')
+    fields = ('email', 'room', 'image')
+    inlines = [
+        HeadOfDepartmentInline,
+        FacultyMemberInline,
+        EducationalProgramInline,
+    ]
 
 
 @admin.register(HeadOfDepartment)
-class HeadOfDepartmentAdmin(TranslatableAdmin):
+class HeadOfDepartmentAdmin(ModelAdmin):
     """Custom admin for heads of departments."""
-    list_display = ('id', 'full_name', 'department', 'email', 'audience')
-    search_fields = ('translations__full_name', 'email', 'department__translations__name')
+    list_display = ('id', 'full_name_uk', 'department', 'email', 'audience')
+    search_fields = ('full_name_uk', 'full_name_en', 'email')
     list_filter = ('department',)
 
 
 @admin.register(EducationalProgram)
-class EducationalProgramAdmin(TranslatableAdmin):
+class EducationalProgramAdmin(UnfoldTranslatableAdmin):
     """Custom admin for educational programs."""
     list_display = ('id', 'code', 'name', 'department')
     search_fields = ('code', 'translations__name', 'department__translations__name')
@@ -120,12 +165,41 @@ class EducationalProgramAdmin(TranslatableAdmin):
         SubjectTaggedItemInline,
         FormTaggedItemInline,
         LevelTaggedItemInline,
+        ProgramSubjectInline,
     ]
     exclude = ('subject', 'education_forms', 'education_levels')
 
 @admin.register(CategorizedTag)
-class CategorizedTagAdmin(TranslatableAdmin):
+class CategorizedTagAdmin(UnfoldTranslatableAdmin):
     """Custom admin for categorized tags."""
     list_display = ("name", "category")
     list_filter = ("category",)
     search_fields = ("translations__name",)
+
+
+@admin.register(FacultyMember)
+class FacultyMemberAdmin(ModelAdmin):
+    """Custom admin for faculty members."""
+    list_display = ("id", "name_uk", "role_uk", "department", "email", "audience", "order")
+    list_filter = ("department",)
+    search_fields = ("name_uk", "name_en", "email")
+    ordering = ("department", "order")
+
+
+@admin.register(DepartmentHistory)
+class DepartmentHistoryAdmin(UnfoldTranslatableAdmin):
+    """Custom admin for department history entries."""
+    list_display = ("id", "year", "department", "order")
+    list_filter = ("department",)
+    search_fields = ("translations__year", "translations__text")
+    ordering = ("department", "order")
+
+
+@admin.register(ProgramSubject)
+class ProgramSubjectAdmin(UnfoldTranslatableAdmin):
+    """Custom admin for program subjects."""
+    list_display = ("id", "name", "program", "semester", "credits", "type", "order")
+    list_filter = ("program", "semester", "type")
+    search_fields = ("translations__name",)
+    ordering = ("program", "semester", "order")
+

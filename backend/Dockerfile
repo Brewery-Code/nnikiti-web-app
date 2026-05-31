@@ -14,7 +14,9 @@ RUN apt-get update && \
     groupadd -g ${GID} app && \
     useradd -u ${UID} -g app -s /bin/sh -m app
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
+    mv /root/.local/bin/uv /bin/uv && \
+    mv /root/.local/bin/uvx /bin/uvx
 
 WORKDIR /app
 
