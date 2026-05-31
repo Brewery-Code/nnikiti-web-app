@@ -68,6 +68,9 @@ class Event(TranslatableModel):
         body=MDTextField(verbose_name=_("Event body")),
     )
     slug = models.SlugField(blank=True, max_length=255, verbose_name=_("Event slug"))
+    cover = models.ImageField(upload_to=events_upload_to, blank=True, null=True, verbose_name=_("Cover image"))
+    event_date = models.DateField(blank=True, null=True, verbose_name=_("Event date"))
+    location = models.CharField(max_length=255, blank=True, verbose_name=_("Location"))
     category = models.ForeignKey(
         EventCategory,
         on_delete=models.CASCADE,

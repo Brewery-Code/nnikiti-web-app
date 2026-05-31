@@ -676,17 +676,31 @@ components:
           type: integer
           readOnly: true
         title:
-          title: Title
+          type: string
+          description: Event title (translated)
+        slug:
           type: string
           readOnly: true
         body:
-          title: Body
           type: string
-          readOnly: true
+          description: Event body in Markdown (translated)
         body_html:
-          title: HTML Body
           type: string
+          description: Event body rendered as HTML
           readOnly: true
+        cover:
+          type: string
+          format: uri
+          nullable: true
+          description: Cover image URL
+        event_date:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the event takes place (null for news/publications)
+        location:
+          type: string
+          description: Location of the event (empty for news/publications)
         category:
           type: object
           properties:
@@ -694,18 +708,17 @@ components:
               type: integer
             name:
               type: string
+              description: Category name (translated) — e.g. Новини, Публікації, Події
             rgb_color:
               type: string
-              example: "(244,255,244,0.1)"
+              example: "(59,130,246,0.15)"
         created_at:
           type: string
           format: date-time
-          example: "2025-06-30T11:39:01.957067Z"
           readOnly: true
         updated_at:
           type: string
           format: date-time
-          example: "2025-06-30T12:10:46.028492Z"
           readOnly: true
     Partners:
       type: object
