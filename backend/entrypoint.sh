@@ -15,6 +15,18 @@ if [ "$DJANGO_SETTINGS_MODULE" = "mysite.settings.prod" ]; then
         python manage.py loaddata new_dump.json --settings=$SETTINGS || true
     fi
 
+    # Reset admin password if ADMIN_PASSWORD is set
+    if [ -n "$ADMIN_PASSWORD" ]; then
+        python manage.py shell --settings=$SETTINGS -c "
+from users.models import User
+u = User.objects.filter(is_superuser=True).first()
+if u:
+    u.set_password('$ADMIN_PASSWORD')
+    u.save()
+    print('Admin password reset for:', u.email)
+"
+    fi
+
     exec gunicorn mysite.wsgi:application \
         --bind 0.0.0.0:8000 \
         --workers 2 \
