@@ -15,7 +15,7 @@ backup.json
 core-backup.json
 
 # Media files (uploaded by users, not tracked in git)
-media/
+# media/
 
 # Static files (collected via collectstatic)
 staticfiles/

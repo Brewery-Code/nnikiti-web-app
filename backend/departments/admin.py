@@ -112,7 +112,7 @@ class FacultyMemberInline(TabularInline):
     extra = 0
     verbose_name = "Викладач"
     verbose_name_plural = "Колектив кафедри"
-    fields = ('name_uk', 'name_en', 'role_uk', 'role_en', 'email', 'audience', 'order')
+    fields = ('name_uk', 'name_en', 'role_uk', 'role_en', 'email', 'audience', 'image', 'order')
 
 class HeadOfDepartmentInline(TabularInline):
     """Inline editing for head of department."""
@@ -139,7 +139,6 @@ class DepartmentAdmin(UnfoldTranslatableAdmin):
     """Custom admin for departments."""
     list_display = ('id', 'name', 'email', 'room')
     search_fields = ('translations__name', 'email')
-    fields = ('email', 'room', 'image')
     inlines = [
         HeadOfDepartmentInline,
         FacultyMemberInline,
