@@ -33,7 +33,7 @@ if CLOUDINARY_CLOUD_NAME:
         "API_SECRET": CLOUDINARY_API_SECRET,
     }
     DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-    MEDIA_URL = f"https://res.cloudinary.com/{CLOUDINARY_CLOUD_NAME}/"
+    MEDIA_URL = "/media/"
 else:
     MEDIA_URL = "/media/"
     MEDIA_ROOT = BASE_DIR / "media"
