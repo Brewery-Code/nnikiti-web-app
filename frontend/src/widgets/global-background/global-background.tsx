@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export function GlobalBackground() {
+export function GlobalBackground({ sideOrbs = false }: { sideOrbs?: boolean }) {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#07080e]">
       {/* Aurora blob 1 — violet, top-left */}
@@ -28,6 +28,36 @@ export function GlobalBackground() {
         animate={{ x: [0, -35, 18, 0], y: [0, -40, 20, 0] }}
         transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", delay: 7 }}
       />
+
+      {sideOrbs && (
+        <>
+          {/* Side orb left — violet, top-left */}
+          <motion.div
+            className="absolute rounded-full"
+            style={{
+              width: 520, height: 520,
+              left: "-8%", top: "2%",
+              background: "radial-gradient(circle, rgba(124,58,237,0.45) 0%, rgba(124,58,237,0.12) 50%, transparent 70%)",
+              filter: "blur(60px)",
+            }}
+            animate={{ scale: [0.75, 1.2, 0.85, 0.75], x: [0, 20, -10, 0], y: [0, -30, 15, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* Side orb right — blue, bottom-right */}
+          <motion.div
+            className="absolute rounded-full"
+            style={{
+              width: 460, height: 460,
+              right: "-7%", bottom: "2%",
+              background: "radial-gradient(circle, rgba(59,130,246,0.40) 0%, rgba(59,130,246,0.10) 50%, transparent 70%)",
+              filter: "blur(55px)",
+            }}
+            animate={{ scale: [0.7, 1.18, 0.82, 0.7], x: [0, -18, 9, 0], y: [0, 28, -14, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          />
+        </>
+      )}
 
       {/* Subtle noise grain */}
       <div

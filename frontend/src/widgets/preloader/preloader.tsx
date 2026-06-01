@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { globalLenis } from "@/shared/hooks/use-lenis";
+import { globalLenis, setScrollLocked } from "@/shared/hooks/use-lenis";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 const MIN_NAV_MS = 350;
@@ -46,6 +46,11 @@ export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) 
   }, [location.pathname]);
 
   const visible = !pageLoaded || navVisible || forceVisible;
+
+  useEffect(() => {
+    setScrollLocked(visible);
+    return () => setScrollLocked(false);
+  }, [visible]);
 
   return (
     <AnimatePresence>
@@ -113,17 +118,22 @@ export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) 
           </div>
 
           {/* Bottom sweep bar */}
-          <div className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden">
+          <motion.div
+            className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <motion.div
               aria-hidden
               className="h-full w-[32%]"
               style={{
                 background: "linear-gradient(90deg, transparent 0%, rgba(166,132,255,0.85) 35%, rgba(81,162,255,0.85) 65%, transparent 100%)",
               }}
-              animate={{ x: ["-60%", "400%"] }}
+              animate={{ x: ["-110%", "450%"] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
             />
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

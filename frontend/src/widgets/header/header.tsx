@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
 import { useLoadNamespace } from "@/shared/hooks";
+import { globalLenis } from "@/shared/hooks/use-lenis";
 import { publicRqClient } from "@/shared/api/instance";
 import { loadTranslations } from "./locales";
 import type { NavigationMenuData } from "./types";
@@ -89,11 +90,29 @@ export function Header() {
   ];
 
   const [scrolled, setScrolled] = useState(false);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const updateScroll = ({ scroll, limit }: { scroll: number; limit: number }) => {
+      setScrolled(scroll > 50);
+      if (progressBarRef.current) {
+        progressBarRef.current.style.width = `${limit > 0 ? (scroll / limit) * 100 : 0}%`;
+      }
+    };
+
+    const id = setTimeout(() => {
+      if (globalLenis) {
+        globalLenis.on("scroll", updateScroll);
+        const el = document.documentElement;
+        const limit = el.scrollHeight - el.clientHeight;
+        updateScroll({ scroll: window.scrollY, limit });
+      }
+    }, 0);
+
+    return () => {
+      clearTimeout(id);
+      globalLenis?.off("scroll", updateScroll);
+    };
   }, []);
 
   return (
@@ -109,6 +128,18 @@ export function Header() {
         )}
         style={scrolled ? { background: "color-mix(in srgb, var(--bg-base) 88%, transparent)" } : undefined}
       />
+
+      {/* Scroll progress line — after background so it renders on top */}
+      <div className="absolute inset-x-0 top-0 h-[2px]">
+        <div
+          ref={progressBarRef}
+          className="h-full w-0"
+          style={{
+            background: "linear-gradient(90deg, rgba(139,92,246,1) 0%, rgba(96,165,250,1) 100%)",
+            boxShadow: "0 0 8px 1px rgba(139,92,246,0.7), 0 0 18px 2px rgba(96,165,250,0.35)",
+          }}
+        />
+      </div>
       <div className="relative mx-auto flex h-full max-w-[1600px] items-center gap-8 px-4 sm:px-6 lg:px-10">
         <Link to="/" className="flex-shrink-0">
           <MicrocircuitLabelLogo />
