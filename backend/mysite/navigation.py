@@ -46,6 +46,14 @@ def get_navigation(request):
         },
         DEPARTMENT_SECTION,
         {
+            "title": _("Gallery"),
+            "separator": True,
+            "items": [
+                {"title": _("Albums"), "icon": "photo_album", "link": "/admin/gallery/album/"},
+                {"title": _("Photos"), "icon": "photo_library", "link": "/admin/gallery/albumphoto/"},
+            ],
+        },
+        {
             "title": _("Users"),
             "separator": True,
             "items": [

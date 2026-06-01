@@ -61,6 +61,15 @@ msgstr "Department history"
 msgid "Tags"
 msgstr "Tags"
 
+msgid "Gallery"
+msgstr "Gallery"
+
+msgid "Albums"
+msgstr "Albums"
+
+msgid "Photos"
+msgstr "Photos"
+
 msgid "Users"
 msgstr "Users"
 

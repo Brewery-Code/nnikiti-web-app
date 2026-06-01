@@ -61,6 +61,15 @@ msgstr "Історія кафедри"
 msgid "Tags"
 msgstr "Теги"
 
+msgid "Gallery"
+msgstr "Галерея"
+
+msgid "Albums"
+msgstr "Альбоми"
+
+msgid "Photos"
+msgstr "Фото"
+
 msgid "Users"
 msgstr "Користувачі"
 

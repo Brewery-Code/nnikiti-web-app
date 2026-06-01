@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "core.apps.CoreConfig",
     "events.apps.EventsConfig",
     "departments.apps.DepartmentsConfig",
+    "gallery.apps.GalleryConfig",
 ]
 
 ###########################
