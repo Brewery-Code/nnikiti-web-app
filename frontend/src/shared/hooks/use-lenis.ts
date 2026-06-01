@@ -2,6 +2,15 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 
 export let globalLenis: Lenis | null = null;
+let scrollLocked = false;
+
+export function setScrollLocked(locked: boolean) {
+  scrollLocked = locked;
+  if (globalLenis) {
+    if (locked) globalLenis.stop();
+    else globalLenis.start();
+  }
+}
 
 export function useLenis() {
   useEffect(() => {
@@ -11,6 +20,8 @@ export function useLenis() {
       smoothWheel: true,
     });
     globalLenis = lenis;
+
+    if (scrollLocked) lenis.stop();
 
     let rafId = 0;
     const raf = (time: number) => {

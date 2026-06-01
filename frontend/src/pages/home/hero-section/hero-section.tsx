@@ -12,12 +12,6 @@ const QUICK_LINKS = [
   { label: "Аспірантура", to: ROUTES.POSTGRADUATE },
 ];
 
-const FALLBACK_SLIDES = [
-  { image: "/images/students-stage.jpg" },
-  { image: "/images/students-lecture.jpg" },
-  { image: "/images/students-christmas.jpg" },
-];
-
 function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
   return (
     <Link
@@ -32,7 +26,7 @@ function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
 
 export default function HeroSection({ className = "" }: { className?: string }) {
   const sliderQuery = publicRqClient.useQuery("get", "/core/main-slider-items/");
-  const slides = sliderQuery.data?.length ? sliderQuery.data : FALLBACK_SLIDES;
+  const slides = sliderQuery.data ?? [];
 
   const [currentImg, setCurrentImg] = useState(0);
 
