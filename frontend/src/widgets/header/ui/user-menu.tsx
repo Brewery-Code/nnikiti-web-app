@@ -10,8 +10,8 @@ interface MenuData {
 }
 
 export default function UserMenu() {
-  const userData = rqClient.useQuery("get", "/users/me/").data;
-  const userRole = publicRqClient.useQuery("get", "/users/role/").data;
+  const userData = (rqClient.useQuery("get", "/api/v1/users/me/", {}).data) as { avatar?: string; first_name?: string } | undefined;
+  const userRole = (publicRqClient.useQuery("get", "/api/v1/users/role/", {}).data) as { role?: string } | undefined;
 
   const studentMenuData: MenuData[] = [
     {

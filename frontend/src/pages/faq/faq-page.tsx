@@ -122,7 +122,7 @@ function HeroSection() {
 }
 
 export function FAQPage() {
-  const { data: rawData } = publicRqClient.useQuery("get", "/core/faq/");
+  const { data: rawData } = publicRqClient.useQuery("get", "/api/v1/core/faq/", {});
   const data = rawData?.length ? rawData : FALLBACK_FAQ;
 
   const [whichAccordionIsOpen, setWhichAccordionIsOpen] = useState(-1);

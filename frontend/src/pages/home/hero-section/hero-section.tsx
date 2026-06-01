@@ -25,8 +25,8 @@ function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
 }
 
 export default function HeroSection({ className = "" }: { className?: string }) {
-  const sliderQuery = publicRqClient.useQuery("get", "/core/main-slider-items/");
-  const slides = sliderQuery.data ?? [];
+  const sliderQuery = publicRqClient.useQuery("get", "/api/v1/core/main-slider-items/", {});
+  const slides = (sliderQuery.data ?? []) as { image: string }[];
 
   const [currentImg, setCurrentImg] = useState(0);
 

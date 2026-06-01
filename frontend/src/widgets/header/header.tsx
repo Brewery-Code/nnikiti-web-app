@@ -20,7 +20,7 @@ export function Header() {
   const { t } = useTranslation("header");
   useLoadNamespace("header", loadTranslations);
 
-  const departments = publicRqClient.useQuery("get", "/departments/").data ?? [];
+  const departments = (publicRqClient.useQuery("get", "/api/v1/departments/", {}).data ?? []) as { id: number; name: string }[];
 
   const navigationMenuData: NavigationMenuData[] = [
     {

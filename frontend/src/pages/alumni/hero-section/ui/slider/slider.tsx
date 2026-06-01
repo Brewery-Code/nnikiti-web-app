@@ -38,7 +38,7 @@ const SliderWrapper = styled.div<{ $sliderLength: number }>`
 `;
 
 export function Slider({ className }: SliderProps) {
-  const rawSlider = publicRqClient.useQuery("get", "/core/alumni-slider-items/").data;
+  const rawSlider = (publicRqClient.useQuery("get", "/api/v1/core/alumni-slider-items/", {}).data) as { image: string }[] | undefined;
   const sliderData = rawSlider?.length ? rawSlider : FALLBACK_SLIDER_ITEMS;
 
   const half = Math.ceil(sliderData.length / 2);

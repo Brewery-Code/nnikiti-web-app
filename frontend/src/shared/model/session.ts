@@ -23,7 +23,7 @@ export const refreshToken = async () => {
   if (Number(exp) < Date.now() / 1000) {
     if (!refreshTokenPromise) {
       refreshTokenPromise = publicFetchClient
-        .POST("/auth/token/", {
+        .POST("/api/v1/auth/token/", {
           credentials: "include",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -34,13 +34,14 @@ export const refreshToken = async () => {
           },
         })
         .then((res) => {
-          if (res.data?.access_token && res.data?.expires_in) {
-            localStorage.setItem("access_token", res.data.access_token);
+          const data = res.data as { access_token?: string; expires_in?: number } | undefined;
+          if (data?.access_token && data?.expires_in) {
+            localStorage.setItem("access_token", data.access_token);
             localStorage.setItem(
               "access_token_exp",
-              String(Date.now() / 1000 + res.data.expires_in)
+              String(Date.now() / 1000 + data.expires_in)
             );
-            return res.data.access_token;
+            return data.access_token;
           } else {
             logout();
             return null;

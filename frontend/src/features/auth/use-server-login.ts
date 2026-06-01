@@ -8,7 +8,7 @@ export function useServerLogin() {
   const google_code = searchParams.get("code");
   const code_verifier = localStorage.getItem("code_verifier");
 
-  const googleAuthMutation = publicRqClient.useMutation("post", "/auth/google/", {
+  const googleAuthMutation = publicRqClient.useMutation("post", "/api/v1/auth/google/", {
     onSuccess: (data) => {
       console.log("Auth success:", data);
       if (typeof data.access_token === "string" && typeof data.expires_in === "number") {
@@ -16,8 +16,8 @@ export function useServerLogin() {
         localStorage.setItem("access_token_exp", String(Date.now() / 1000 + data.expires_in));
       }
     },
-    onError: (error) => {
-      console.error("Auth error:", error.message);
+    onError: (error: unknown) => {
+      console.error("Auth error:", error);
     },
   });
 

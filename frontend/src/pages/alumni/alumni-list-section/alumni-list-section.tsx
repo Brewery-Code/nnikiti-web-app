@@ -73,8 +73,10 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
     return () => observer.disconnect();
   }, []);
 
-  const rawYears = publicRqClient.useQuery("get", "/core/alumni/years/").data;
-  const rawAlumni = publicRqClient.useQuery("get", "/core/alumni/").data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rawYears = publicRqClient.useQuery("get", "/api/v1/core/alumni/years/", {}).data as any as number[] | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rawAlumni = publicRqClient.useQuery("get", "/api/v1/core/alumni/", {}).data as any;
 
   const graduationYears = rawYears?.length ? rawYears : FALLBACK_YEARS;
   const alumniListData = rawAlumni?.length ? rawAlumni : FALLBACK_ALUMNI;
@@ -139,8 +141,9 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
         )}
 
         {graduationYears.map((year) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const matchingAlumni = alumniListData.filter(
-            (a) => getYear(a.date_of_graduation) === year
+            (a: any) => getYear(a.date_of_graduation) === year
           );
           return (
             <AlumniList
