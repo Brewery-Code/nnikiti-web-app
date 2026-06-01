@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(docker exec api_container uv add django-unfold 2>&1)",
+      "PowerShell(docker exec api_container python -c \"import parler.admin; import inspect; print\\([x for x in dir\\(parler.admin\\) if 'nline' in x]\\)\" 2>&1)",
+      "PowerShell(docker exec api_container python manage.py shell --settings=mysite.settings.local -c \"import parler.admin; print\\([x for x in dir\\(parler.admin\\) if 'nline' in x.lower\\(\\)]\\)\" 2>&1)",
+      "PowerShell(docker exec api_container python manage.py check --settings=mysite.settings.local 2>&1)",
+      "PowerShell(docker exec api_container cat /opt/venv/lib/python3.14/site-packages/parler/templates/admin/parler/language_tabs.html 2>&1)",
+      "PowerShell(docker exec api_container cat /opt/venv/lib/python3.14/site-packages/parler/templates/admin/parler/change_form.html 2>&1)",
+      "PowerShell(docker exec api_container cat /opt/venv/lib/python3.14/site-packages/unfold/templates/admin/change_form.html)",
+      "PowerShell(head -5 2>&1)",
+      "PowerShell(docker exec api_container cat /opt/venv/lib/python3.14/site-packages/unfold/templates/admin/change_form.html 2>&1)",
+      "PowerShell(docker exec api_container grep -A5 \"showAddAnotherPopup\" /opt/venv/lib/python3.14/site-packages/django/contrib/admin/static/admin/js/admin/RelatedObjectLookups.js 2>&1)",
+      "PowerShell(docker exec api_container python manage.py makemigrations --settings=mysite.settings.local --no-input 2>&1)",
+      "PowerShell(docker exec api_container python manage.py dumpdata --settings=mysite.settings.local --natural-foreign --natural-primary --exclude auth.permission --exclude contenttypes --indent 2 -o new_dump.json 2>&1)",
+      "Bash(docker exec *)",
+      "Bash(docker restart *)",
+      "Bash(del \"c:\\\\Users\\\\kryx\\\\code\\\\nnikiti-web-app\\\\backend\\\\templates\\\\admin\\\\base_site.html\")",
+      "Bash(python -c ' *)",
+      "Bash(uv add *)",
+      "Bash(docker run *)"
+    ]
+  }
+}

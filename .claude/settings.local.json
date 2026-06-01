@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker info *)",
+      "Bash(cat ~/.docker/config.json 2>&1)",
+      "Read(//c/Users/kryx/.docker/**)",
+      "Bash(docker pull *)",
+      "Bash(docker buildx *)",
+      "Bash(docker build *)",
+      "Bash(xargs ls -la)",
+      "Bash(make migrations *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\kryx\\.docker"
+    ]
+  }
+}
