@@ -23,7 +23,7 @@ export const refreshToken = async () => {
   if (Number(exp) < Date.now() / 1000) {
     if (!refreshTokenPromise) {
       refreshTokenPromise = publicFetchClient
-        .POST("/api/v1/auth/token/", {
+        .POST("/auth/token/", {
           credentials: "include",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

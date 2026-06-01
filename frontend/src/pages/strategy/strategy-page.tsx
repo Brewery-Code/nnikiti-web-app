@@ -79,7 +79,7 @@ const values = [
 ];
 
 function SectionTitle({
-  eyebrow,
+  eyebrow: _eyebrow,
   title,
   highlight,
   description,
@@ -91,9 +91,6 @@ function SectionTitle({
 }) {
   return (
     <Reveal mode="up" className="mb-10 text-center lg:mb-14">
-      <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-        — {eyebrow}
-      </div>
       <h2
         className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
@@ -399,9 +396,6 @@ function Cta() {
         }}
       />
       <Stagger className="container-v2 relative z-[1] flex flex-col items-center text-center" stagger={0.1}>
-        <StaggerItem as="p" mode="fade" className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-violet-400">
-          — Ставай частиною змін
-        </StaggerItem>
         <StaggerItem
           as="h2"
           mode="up"

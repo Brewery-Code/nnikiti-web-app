@@ -53,7 +53,7 @@ function PersonCard({ item }: { item: PersonItem }) {
 }
 
 function SectionBlock({
-  eyebrow,
+  eyebrow: _eyebrow,
   title,
   description,
   children,
@@ -68,9 +68,6 @@ function SectionBlock({
   return (
     <div className="flex flex-col gap-7">
       <Reveal mode="up" inView={inView}>
-        <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-          {eyebrow}
-        </div>
         <h2
           className="font-display font-black text-primary"
           style={{ fontSize: "clamp(1.4rem, 2.4vw, 2rem)", letterSpacing: "-0.03em" }}

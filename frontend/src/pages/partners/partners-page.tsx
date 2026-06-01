@@ -411,9 +411,6 @@ function PropositionsSection({
       <div className="container-v2">
         <Reveal mode="up" delay={0.55} inView={false} className="mb-10 grid gap-6 lg:mb-14 lg:grid-cols-[1fr_320px] lg:items-end">
           <div>
-            <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-              — {labels.sectionEyebrow}
-            </div>
             <h2
               className="font-display font-black text-primary"
               style={{

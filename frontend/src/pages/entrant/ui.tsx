@@ -233,7 +233,7 @@ export function DateCard({
 }
 
 export function SectionHead({
-  eyebrow,
+  eyebrow: _eyebrow,
   title,
   gradientTitle,
   subtitle,
@@ -246,9 +246,6 @@ export function SectionHead({
 }) {
   return (
     <Reveal mode="up" className="mb-10 lg:mb-14">
-      <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-        — {eyebrow}
-      </div>
       <h2
         className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}

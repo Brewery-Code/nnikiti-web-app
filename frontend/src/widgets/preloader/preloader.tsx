@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { globalLenis, setScrollLocked } from "@/shared/hooks/use-lenis";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
-const MIN_NAV_MS = 350;
+const MIN_NAV_MS = 700;
 
 export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) {
   const [pageLoaded, setPageLoaded] = useState(false);
@@ -12,34 +12,18 @@ export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) 
   const location = useLocation();
   const isFirstNav = useRef(true);
 
-  // Initial page load — hide after window.load fires
   useEffect(() => {
     let cancelled = false;
-    const done = () => {
-      if (!cancelled) { setTimeout(() => setPageLoaded(true), 250); }
-    };
-    if (document.readyState === "complete") {
-      done();
-    } else {
-      window.addEventListener("load", done, { once: true });
-    }
-    return () => {
-      cancelled = true;
-      window.removeEventListener("load", done);
-    };
+    const done = () => { if (!cancelled) setTimeout(() => setPageLoaded(true), 250); };
+    if (document.readyState === "complete") { done(); }
+    else { window.addEventListener("load", done, { once: true }); }
+    return () => { cancelled = true; window.removeEventListener("load", done); };
   }, []);
 
-  // Show preloader on every client-side navigation and reset scroll
-  useEffect(() => {
-    if (isFirstNav.current) {
-      isFirstNav.current = false;
-      return;
-    }
-    if (globalLenis) {
-      globalLenis.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo({ top: 0 });
-    }
+  useLayoutEffect(() => {
+    if (isFirstNav.current) { isFirstNav.current = false; return; }
+    if (globalLenis) { globalLenis.scrollTo(0, { immediate: true }); }
+    else { window.scrollTo({ top: 0 }); }
     setNavVisible(true);
     const id = setTimeout(() => setNavVisible(false), MIN_NAV_MS);
     return () => clearTimeout(id);
@@ -84,10 +68,7 @@ export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) 
           <div className="relative flex flex-col items-center gap-7">
             <motion.span
               className="font-display select-none font-black text-grad-animated"
-              style={{
-                fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
-                letterSpacing: "-0.05em",
-              }}
+              style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.05em" }}
               initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.55, ease: EASE }}
@@ -106,12 +87,7 @@ export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) 
                   key={i}
                   className="h-[5px] w-[5px] rounded-full bg-violet-500"
                   animate={{ opacity: [0.25, 1, 0.25], scale: [0.7, 1.25, 0.7] }}
-                  transition={{
-                    duration: 1.1,
-                    repeat: Infinity,
-                    delay: i * 0.18,
-                    ease: "easeInOut",
-                  }}
+                  transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.18, ease: "easeInOut" }}
                 />
               ))}
             </motion.div>

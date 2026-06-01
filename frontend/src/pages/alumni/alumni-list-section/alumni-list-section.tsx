@@ -74,9 +74,9 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const rawYears = publicRqClient.useQuery("get", "/api/v1/core/alumni/years/", {}).data as any as number[] | undefined;
+  const rawYears = publicRqClient.useQuery("get", "/core/alumni/years/", {}).data as any as number[] | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const rawAlumni = publicRqClient.useQuery("get", "/api/v1/core/alumni/", {}).data as any;
+  const rawAlumni = publicRqClient.useQuery("get", "/core/alumni/", {}).data as any;
 
   const graduationYears = rawYears?.length ? rawYears : FALLBACK_YEARS;
   const alumniListData = rawAlumni?.length ? rawAlumni : FALLBACK_ALUMNI;
@@ -106,9 +106,6 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
     <section className={clsx("py-12 sm:py-16 lg:py-24", className)}>
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 text-center lg:mb-14">
-          <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-            — Випускники
-          </div>
           <h2
             className="font-display font-black"
             style={{

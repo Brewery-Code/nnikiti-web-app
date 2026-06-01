@@ -8,7 +8,7 @@ export function useServerLogin() {
   const google_code = searchParams.get("code");
   const code_verifier = localStorage.getItem("code_verifier");
 
-  const googleAuthMutation = publicRqClient.useMutation("post", "/api/v1/auth/google/", {
+  const googleAuthMutation = publicRqClient.useMutation("post", "/auth/google/", {
     onSuccess: (data) => {
       console.log("Auth success:", data);
       if (typeof data.access_token === "string" && typeof data.expires_in === "number") {

@@ -578,9 +578,6 @@ function ActivitiesSection({
     <section className="py-12 sm:py-16 lg:py-20">
       <div className="container-v2">
         <Reveal mode="up" delay={0.55} inView={false} className="mb-10 lg:mb-14">
-          <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-            — {labels.activities}
-          </div>
           <h2
             className="font-display font-black text-primary"
             style={{

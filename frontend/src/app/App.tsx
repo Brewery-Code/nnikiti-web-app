@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useIsFetching } from "@tanstack/react-query";
-import { Header, Footer, Preloader, GlobalBackground } from "@/widgets";
+import { Header, Footer, Preloader, GlobalBackground, SideOrbs } from "@/widgets";
 import { useLenis } from "@/shared/hooks";
 
 export function App() {
@@ -13,8 +13,9 @@ export function App() {
   const isFetching = useIsFetching({ predicate: (query) => query.state.status === "pending" });
 
   return (
-    <div className="relative flex min-h-dvh flex-col">
-      <GlobalBackground sideOrbs={location.pathname !== "/"} />
+    <div className="relative flex min-h-svh flex-col">
+      <GlobalBackground />
+      <SideOrbs />
       <Preloader forceVisible={isFetching > 0} />
       <Header />
       <AnimatePresence mode="wait">

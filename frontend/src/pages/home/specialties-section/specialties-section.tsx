@@ -113,7 +113,7 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
       to={to}
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
-      className="spec-card grad-border flex h-full cursor-pointer flex-col rounded-2xl px-6 py-6 sm:rounded-[20px] sm:px-7 sm:py-7"
+      className="spec-card grad-border flex h-full cursor-pointer flex-col rounded-2xl px-4 py-5 sm:rounded-[20px] sm:px-7 sm:py-7"
       style={{
         background: h
           ? "linear-gradient(135deg, rgba(166,132,255,0.10) 0%, rgba(81,162,255,0.08) 100%)"
@@ -139,13 +139,13 @@ function SpecCard({ spec }: { spec: (typeof SPECIALTIES)[0] }) {
       <h3
         className="font-display font-extrabold uppercase"
         style={{
-          fontSize: "clamp(1.15rem, 1.4vw, 1.4rem)",
+          fontSize: "clamp(1rem, 1.4vw, 1.4rem)",
           letterSpacing: "-0.01em",
-          lineHeight: 1.2,
-          marginBottom: 22,
-          minHeight: "2.4em",
+          lineHeight: 1.25,
+          marginBottom: 18,
+          minHeight: "2.5em",
           display: "-webkit-box",
-          WebkitLineClamp: 2,
+          WebkitLineClamp: 3,
           WebkitBoxOrient: "vertical",
           overflow: "hidden",
           color: h ? "#fff" : "var(--text-primary)",
@@ -250,9 +250,6 @@ export default function SpecialtiesSection({
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
           <div>
-            <div className="mb-3.5 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-              — Спеціальності
-            </div>
             <h2
               className="font-display font-black leading-none text-primary"
               style={{
@@ -295,7 +292,7 @@ export default function SpecialtiesSection({
           {SPECIALTIES.map((s) => (
             <SwiperSlide
               key={s.code}
-              className="!w-[260px] sm:!w-[300px] lg:!w-[340px] xl:!w-[380px] 2xl:!w-[420px]"
+              className="!w-[240px] xs:!w-[260px] sm:!w-[300px] lg:!w-[340px] xl:!w-[380px] 2xl:!w-[420px]"
               style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
             >
               <SpecCard spec={s} />

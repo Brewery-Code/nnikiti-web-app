@@ -36,10 +36,11 @@ const NAV_COLS: { heading: string; links: { label: string; to: string }[] }[] = 
 export function Footer({ className }: { className?: string }) {
   return (
     <footer
-      className={clsx("bg-base", className)}
+      className={clsx("relative bg-base", className)}
       style={{
         borderTop: "1px solid var(--border-ui-sm)",
         padding: "72px 0 40px",
+        zIndex: 2,
       }}
     >
       <div className="container-v2">

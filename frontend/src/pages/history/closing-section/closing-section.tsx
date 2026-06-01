@@ -9,9 +9,6 @@ export default function ClosingSection({ className }: { className?: string }) {
       <div className="container-v2 py-16 sm:py-24 lg:py-32">
         <div className="grid gap-fluid-2xl lg:grid-cols-[1fr_auto] lg:items-end">
           <Reveal mode="left" amount={0.2}>
-            <p className="mb-8 text-[10px] font-bold uppercase tracking-[0.22em] text-violet-400">
-              — Долучайся
-            </p>
             <h2
               className="font-display leading-[0.9] text-primary"
               style={{

@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useSearchParams, Navigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 import { AnimatePresence, motion } from "framer-motion";
 import { type DepartmentData, type SubjectType } from "@/shared/model/departments-data";
 import { ROUTES } from "@/shared/model/routes";
@@ -225,10 +228,10 @@ function SectionTitle({
   highlight: string;
 }) {
   return (
-    <Reveal mode="up" className="mb-10 text-center">
+    <Reveal mode="up" className="mb-8 text-left sm:text-center">
       <h2
         className="font-display font-black text-primary"
-        style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", letterSpacing: "-0.04em" }}
+        style={{ fontSize: "clamp(1.9rem, 2.8vw, 2.4rem)", letterSpacing: "-0.04em" }}
       >
         {title} <span className="text-grad">{highlight}</span>
       </h2>
@@ -296,7 +299,7 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.22, ease: "easeOut" }}
         >
-          <div className="mb-8 flex flex-wrap gap-3 pb-px">
+          <div className="mb-8 grid grid-cols-3 gap-2 pb-px sm:flex sm:flex-wrap sm:gap-3">
             {[
               { label: "Рівень",     value: prog.degree },
               { label: "Тривалість", value: prog.duration },
@@ -383,47 +386,69 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
   );
 }
 
+function TeamMemberCard({ member, large = false }: { member: DepartmentData["team"][number]; large?: boolean }) {
+  return (
+    <div className="group overflow-hidden rounded-[20px] border border-white/[0.07] bg-[#0a0b12] shadow-[0_4px_20px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.04)]">
+      <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+        <img
+          src={avatar(member.imageUrl)}
+          alt={member.name}
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0b12] to-transparent" />
+        {member.audience && (
+          <span className="absolute right-3 top-3 rounded-[8px] border border-white/10 bg-[#08090f]/75 px-2.5 py-1 text-[10px] text-subtle backdrop-blur-sm">
+            Ауд. <span className="font-display font-bold text-primary">{member.audience}</span>
+          </span>
+        )}
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <p className={clsx("font-display font-bold leading-tight text-primary", large ? "text-[17px]" : "text-[13px] sm:text-[14px]")}>
+            {member.name}
+          </p>
+          <p className={clsx("mt-0.5 text-muted", large ? "text-[13px]" : "text-[10px] sm:text-[11px]")}>{member.role}</p>
+          {member.email && (
+            <a
+              href={`mailto:${member.email}`}
+              className={clsx("mt-1.5 inline-block max-w-full truncate text-violet-300", large ? "text-[12px]" : "text-[10px] sm:text-[11px]")}
+            >
+              {member.email}
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function TeamSection({ dept }: { dept: DepartmentData }) {
   return (
     <section id="team" className="m-section">
       <SectionTitle title="Команда" highlight="кафедри" />
-      <Stagger className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4" stagger={0.05} amount={0.05}>
+
+      {/* Mobile swiper */}
+      <div className="-mx-4 sm:hidden">
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView="auto"
+          spaceBetween={12}
+          centeredSlides
+          loop
+          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          speed={600}
+        >
+          {dept.team.map((member, i) => (
+            <SwiperSlide key={i} style={{ width: "84%" }}>
+              <TeamMemberCard member={member} large />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Tablet+ grid */}
+      <Stagger className="hidden sm:grid sm:grid-cols-3 sm:gap-4 lg:grid-cols-4" stagger={0.05} amount={0.05}>
         {dept.team.map((member, i) => (
-          <StaggerItem
-            key={i}
-            mode="up"
-            className="group cursor-pointer overflow-hidden rounded-[20px] border border-white/[0.07] bg-[#0a0b12] shadow-[0_4px_20px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.04)] transition-shadow duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.8),0_0_24px_rgba(139,92,246,0.12)]"
-          >
-            <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img
-                src={avatar(member.imageUrl)}
-                alt={member.name}
-                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0b12] to-transparent" />
-              {member.audience && (
-                <span className="absolute right-3 top-3 rounded-[8px] border border-white/10 bg-[#08090f]/75 px-2.5 py-1 text-[10px] text-subtle backdrop-blur-sm">
-                  Ауд. <span className="font-display font-bold text-primary">{member.audience}</span>
-                </span>
-              )}
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className="font-display text-[14px] font-bold leading-tight text-primary">
-                  {member.name}
-                </p>
-                <p className="mt-0.5 text-[11px] text-muted">{member.role}</p>
-                {member.email && (
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="mt-1.5 inline-block text-[11px] text-violet-300"
-                  >
-                    <span className="relative">
-                      <span className="block max-w-full truncate">{member.email}</span>
-                      <span className="absolute bottom-0 left-0 h-px w-0 bg-violet-300 transition-[width] duration-300 ease-out group-hover:w-full" />
-                    </span>
-                  </a>
-                )}
-              </div>
-            </div>
+          <StaggerItem key={i} mode="up">
+            <TeamMemberCard member={member} />
           </StaggerItem>
         ))}
       </Stagger>
@@ -487,7 +512,7 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
             href={head.email ? `mailto:${head.email}` : undefined}
             className="group flex h-full overflow-hidden rounded-[22px] border border-white/[0.08] bg-[#0c0d18] transition-colors hover:border-white/[0.18]"
           >
-            <div className="relative w-[150px] flex-shrink-0 overflow-hidden sm:w-[210px]">
+            <div className="relative w-[120px] flex-shrink-0 overflow-hidden sm:w-[200px]">
               <img
                 src={avatar(head.imageUrl)}
                 alt={head.full_name}
@@ -496,28 +521,28 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
               <div className="absolute inset-y-0 right-0 w-px bg-white/[0.08]" />
             </div>
 
-            <div className="flex flex-1 flex-col justify-between p-6 sm:p-8">
+            <div className="flex flex-1 flex-col justify-between p-4 sm:p-8">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.26em] text-violet-400">
+                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-violet-400">
                   Завідувач кафедри
                 </p>
-                <p className="mt-3 font-display text-[20px] font-bold leading-[1.1] text-primary sm:text-[26px]">
+                <p className="mt-2 font-display text-[16px] font-bold leading-[1.15] text-primary sm:mt-3 sm:text-[26px]">
                   {head.full_name}
                 </p>
                 {head.regalia && (
-                  <p className="mt-2 text-[12px] leading-snug text-subtle sm:text-[13px]">
+                  <p className="mt-1.5 text-[11px] leading-snug text-subtle sm:text-[13px]">
                     {head.regalia}
                   </p>
                 )}
                 {head.audience && (
-                  <p className="mt-1 text-[12px] text-subtle sm:text-[13px]">
+                  <p className="mt-1 text-[11px] text-subtle sm:text-[13px]">
                     Ауд. {head.audience}
                   </p>
                 )}
               </div>
 
               {head.email && (
-                <span className="relative inline-block self-start text-[12px] text-violet-300 sm:text-[13px]">
+                <span className="relative mt-3 inline-block self-start overflow-hidden text-ellipsis text-[11px] text-violet-300 sm:text-[13px]">
                   {head.email}
                   <span className="absolute bottom-0 left-0 h-px w-0 bg-violet-300 transition-[width] duration-300 ease-out group-hover:w-full" />
                 </span>
@@ -720,14 +745,96 @@ function CircuitBackground() {
   );
 }
 
+function MobileDeptSelector({
+  deptList,
+  departmentId,
+}: {
+  deptList: { id: number; name: string }[];
+  departmentId: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const current = deptList.find((d) => String(d.id) === departmentId);
+
+  return (
+    <div className="relative mb-8 lg:hidden">
+      {/* Trigger */}
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full select-none items-center justify-between rounded-[16px] border border-white/[0.09] bg-white/[0.04] px-5 py-4 text-left outline-none backdrop-blur-sm transition-colors duration-200"
+      >
+        <div>
+          <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-violet-400">
+            Кафедра
+          </p>
+          <p className="mt-1 font-display text-[15px] font-bold leading-tight text-white">
+            {current?.name ?? "Оберіть кафедру"}
+          </p>
+        </div>
+        <motion.svg
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+          className="flex-shrink-0 text-white/30"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </motion.svg>
+      </button>
+
+      {/* Dropdown list */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ originY: 0 }}
+            className="absolute inset-x-0 top-[calc(100%+6px)] z-50 overflow-hidden rounded-[16px] border border-white/[0.09] bg-[#0d0e1a] shadow-[0_16px_48px_rgba(0,0,0,0.6)] backdrop-blur-xl"
+          >
+            {deptList.map((d, i) => {
+              const isActive = String(d.id) === departmentId;
+              return (
+                <Link
+                  key={d.id}
+                  to={`/department/${d.id}`}
+                  onClick={() => setOpen(false)}
+                  className={clsx(
+                    "flex items-center gap-3 px-5 py-3.5 text-[14px] font-medium transition-colors duration-150",
+                    i < deptList.length - 1 && "border-b border-white/[0.05]",
+                    isActive
+                      ? "text-violet-300"
+                      : "text-white/50 active:text-white/80"
+                  )}
+                >
+                  {isActive && (
+                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-violet-400" />
+                  )}
+                  <span className={clsx(!isActive && "pl-[18px]")}>{d.name}</span>
+                  {isActive && (
+                    <svg className="ml-auto flex-shrink-0 text-violet-400" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  )}
+                </Link>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function DepartmentPage() {
   const { departmentId } = useParams<{ departmentId: string }>();
   const numId = Number(departmentId);
 
-  const deptListQuery = publicRqClient.useQuery("get", "/api/v1/departments/", {}, { retry: false });
+  const deptListQuery = publicRqClient.useQuery("get", "/departments/", {}, { retry: false });
   const deptDetailQuery = publicRqClient.useQuery(
     "get",
-    "/api/v1/departments/{id}/",
+    "/departments/{id}/",
     { params: { path: { id: numId } } },
     { retry: false },
   );
@@ -744,16 +851,56 @@ function DepartmentPage() {
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
       {/* Hero */}
-      <div className="relative flex flex-col overflow-hidden" style={{ minHeight: "100dvh" }}>
+      <div className="relative overflow-hidden">
         <CircuitBackground />
 
-        <div className="container-v2 relative flex flex-1 items-center py-24 sm:py-28">
-          <div className="grid w-full items-center gap-12 lg:grid-cols-2">
+        {/* ── Desktop: full-height centered two-column ── */}
+        <div className="hidden lg:flex lg:min-h-[100svh] lg:flex-col lg:justify-center">
+          <div className="container-v2 relative py-28">
+            <div className="grid w-full items-center gap-12 lg:grid-cols-2">
+              <Stagger className="flex flex-col items-start" stagger={0.12} delay={0.2} inView={false}>
+                <StaggerItem mode="up">
+                  <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4">
+                    <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+                      ННІКІТІ
+                    </span>
+                    <span className="text-[12px] text-white/55">Кафедра</span>
+                  </div>
+                </StaggerItem>
+                <StaggerItem mode="up">
+                  <h1
+                    className="font-display font-black text-white"
+                    style={{ fontSize: "clamp(2.6rem, 4.5vw, 5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
+                  >
+                    {dept.name}
+                  </h1>
+                </StaggerItem>
+                <StaggerItem mode="up">
+                  <p className="mt-6 text-[15px] leading-[1.8] text-white/50 sm:text-[16px]">
+                    {dept.description}
+                  </p>
+                </StaggerItem>
+              </Stagger>
+              <Reveal mode="fade" delay={0.4} inView={false}>
+                <div className="overflow-hidden rounded-[22px] shadow-[0_16px_64px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.06)]">
+                  <img
+                    src={cover(dept.imageUrl, dept.id)}
+                    alt={dept.name}
+                    className="aspect-[4/3] w-full object-cover object-top"
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
 
-            {/* Text */}
-            <Stagger className="flex flex-col items-start" stagger={0.12} delay={0.2} inView={false}>
+        {/* ── Mobile: badge + title → photo → description ── */}
+        <div className="lg:hidden">
+          {/* Badge + title */}
+          <div className="container-v2 pb-6 pt-24">
+            <Stagger className="flex flex-col items-start" stagger={0.12} delay={0.15} inView={false}>
               <StaggerItem mode="up">
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4">
                   <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
                     ННІКІТІ
                   </span>
@@ -763,57 +910,42 @@ function DepartmentPage() {
               <StaggerItem mode="up">
                 <h1
                   className="font-display font-black text-white"
-                  style={{ fontSize: "clamp(2.6rem, 4.5vw, 5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
+                  style={{ fontSize: "clamp(2rem, 7vw, 3rem)", letterSpacing: "-0.04em", lineHeight: 0.95 }}
                 >
                   {dept.name}
                 </h1>
               </StaggerItem>
-              <StaggerItem mode="up">
-                <p className="mt-6 text-[15px] leading-[1.8] text-white/50 sm:text-[16px]">
-                  {dept.description}
-                </p>
-              </StaggerItem>
             </Stagger>
-
-            {/* Photo */}
-            <Reveal mode="fade" delay={0.4} inView={false} className="hidden lg:block">
-              <div className="overflow-hidden rounded-[22px] shadow-[0_16px_64px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.06)]">
-                <img
-                  src={cover(dept.imageUrl, dept.id)}
-                  alt={dept.name}
-                  className="aspect-[4/3] w-full object-cover object-top"
-                />
-              </div>
-            </Reveal>
-
           </div>
+
+          {/* Photo */}
+          <Reveal mode="fade" delay={0.35} inView={false}>
+            <div className="relative overflow-hidden">
+              <img
+                src={cover(dept.imageUrl, dept.id)}
+                alt={dept.name}
+                className="h-[240px] w-full object-cover object-top sm:h-[300px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#07080e]/80 via-transparent to-transparent" />
+            </div>
+          </Reveal>
+
+          {/* Description */}
+          <Reveal mode="up" delay={0.1} className="container-v2 py-6">
+            <p className="text-[14px] leading-[1.8] text-white/50">
+              {dept.description}
+            </p>
+          </Reveal>
         </div>
       </div>
 
       <div className="pb-12 sm:pb-16 lg:pb-20">
         <div className="container-v2">
           {/* Mobile department selector */}
-          <div className="mb-8 -mx-4 overflow-x-auto px-4 scrollbar-hidden lg:hidden">
-            <div className="flex w-max gap-2">
-              {deptList.map((d) => {
-                const isActive = String(d.id) === (departmentId ?? "");
-                return (
-                  <Link
-                    key={d.id}
-                    to={`/department/${d.id}`}
-                    className={clsx(
-                      "shrink-0 rounded-full px-4 py-2 text-[12px] font-semibold transition-all duration-200",
-                      isActive
-                        ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                        : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:text-primary"
-                    )}
-                  >
-                    {d.name}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+          <MobileDeptSelector
+            deptList={deptList}
+            departmentId={departmentId ?? ""}
+          />
 
           <div className="flex gap-fluid-sm">
             <Sidebar

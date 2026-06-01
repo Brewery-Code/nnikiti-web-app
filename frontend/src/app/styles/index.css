@@ -17,7 +17,7 @@
 :root {
   /* mobile (375px base) */
   --header-height:     min(64px,  17.07vw);
-  --section-gap:       min(100px, 21.3vw);
+  --section-gap:       min(130px, 30vw);
   --content-title-gap: min(48px,  12.8vw);
   --block-gap:         min(48px,  12.80vw);
   --title-gap:         min(32px,   8.53vw);
@@ -109,6 +109,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {

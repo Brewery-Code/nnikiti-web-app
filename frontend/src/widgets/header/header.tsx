@@ -12,7 +12,6 @@ import {
   ChangeLanguage,
   MicrocircuitLabelLogo,
   NavigationMenu,
-  SearchBar,
   BurgerMenu,
 } from "./ui";
 
@@ -20,7 +19,7 @@ export function Header() {
   const { t } = useTranslation("header");
   useLoadNamespace("header", loadTranslations);
 
-  const departments = (publicRqClient.useQuery("get", "/api/v1/departments/", {}).data ?? []) as { id: number; name: string }[];
+  const departments = (publicRqClient.useQuery("get", "/departments/", {}).data ?? []) as { id: number; name: string }[];
 
   const navigationMenuData: NavigationMenuData[] = [
     {
@@ -148,7 +147,6 @@ export function Header() {
           className="hidden flex-1 justify-center lg:flex"
           navigationMenuData={navigationMenuData}
         />
-        <SearchBar className="flex flex-1 justify-center lg:hidden" />
         <div className="hidden flex-shrink-0 items-center gap-2.5 lg:flex">
           <ChangeLanguage />
           <Link
@@ -163,7 +161,10 @@ export function Header() {
             {t("apply", "Вступити")}
           </Link>
         </div>
-        <BurgerMenu className="lg:hidden" burgerMenuData={navigationMenuData} />
+        <div className="ml-auto flex items-center gap-3 lg:hidden">
+          <ChangeLanguage />
+          <BurgerMenu burgerMenuData={navigationMenuData} />
+        </div>
       </div>
     </header>
   );
