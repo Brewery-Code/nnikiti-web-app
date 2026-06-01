@@ -3,7 +3,13 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get("RENDER_EXTERNAL_HOSTNAME", ""), "localhost"]
+ALLOWED_HOSTS = [
+    os.environ.get("RENDER_EXTERNAL_HOSTNAME", ""),
+    "nnikiti-web-app.onrender.com",
+    "nnikiti.duckdns.org",
+    "localhost",
+    "127.0.0.1",
+]
 
 DATABASES = {
     "default": {

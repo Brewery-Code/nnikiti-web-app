@@ -1,5 +1,4 @@
 import datetime
-import os
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -7,15 +6,13 @@ from parler.models import TranslatableModel, TranslatedFields
 from mdeditor.fields import MDTextField
 from parler.managers import TranslatableManager
 
+from core.utils import slugify_filename
 from .validators import validate_rgba
 
 
 def events_upload_to(instance, filename):
-    """
-    Returns a path like: events/yy.mm.dd/filename
-    """
     date_str = datetime.date.today().strftime("%y.%m.%d")
-    return os.path.join("events", date_str, filename)
+    return f"events/{date_str}/{slugify_filename(filename)}"
 
 
 class PublishedManager(TranslatableManager):

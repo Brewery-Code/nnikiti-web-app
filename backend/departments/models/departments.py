@@ -1,6 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
 
+from core.utils import make_upload_to
 from .tagged import *
 
 
@@ -17,7 +18,7 @@ class FacultyMember(models.Model):
     role_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Role (EN)"))
     specialty_uk = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Specialty (UK)"))
     specialty_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Specialty (EN)"))
-    image = models.ImageField(upload_to="faculty/", blank=True, verbose_name=_("Photo"))
+    image = models.ImageField(upload_to=make_upload_to("faculty"), blank=True, verbose_name=_("Photo"))
     email = models.EmailField(blank=True, verbose_name=_("Email"))
     audience = models.CharField(max_length=64, blank=True, verbose_name=_("Audience"))
 
@@ -65,8 +66,8 @@ class Department(TranslatableModel):
     )
 
     email = models.EmailField(verbose_name=_("Email address"))
-    image = models.ImageField(upload_to="departments/", blank=True, verbose_name=_("Department photo"))
-    history_image = models.ImageField(upload_to="departments/history/", blank=True, verbose_name=_("History photo"))
+    image = models.ImageField(upload_to=make_upload_to("departments"), blank=True, verbose_name=_("Department photo"))
+    history_image = models.ImageField(upload_to=make_upload_to("departments/history"), blank=True, verbose_name=_("History photo"))
     room = models.CharField(max_length=64, blank=True, verbose_name=_("Room"))
 
     class Meta:
@@ -91,7 +92,7 @@ class HeadOfDepartment(models.Model):
     regalia_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Regalia (EN)"))
     email = models.EmailField(blank=True, null=True, verbose_name=_("Email"))
     audience = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Audience"))
-    image = models.ImageField(upload_to="head_of_department/", blank=True, verbose_name=_("Photo"))
+    image = models.ImageField(upload_to=make_upload_to("head_of_department"), blank=True, verbose_name=_("Photo"))
 
     class Meta:
         verbose_name = _("Head of Department")
