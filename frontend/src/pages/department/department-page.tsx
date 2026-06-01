@@ -26,7 +26,7 @@ function mapApiToDept(api: ApiDeptDetail): DepartmentData {
     description: api.description ?? "",
     email: api.email ?? "",
     address: api.address ?? "",
-    imageUrl: resolveMediaUrl(api.image),
+    imageUrl: resolveMediaUrl((api as Record<string, unknown>).image as string | null),
     historyImageUrl: resolveMediaUrl((api as Record<string, unknown>).history_image as string | null),
     head: {
       full_name: head?.full_name ?? "",
@@ -46,7 +46,7 @@ function mapApiToDept(api: ApiDeptDetail): DepartmentData {
       totalCredits: prog.total_credits ?? 0,
       subjects: prog.subjects?.map((s) => ({
         name: s.name ?? "",
-        credits: s.credits ?? 0,
+        credits: Number(s.credits ?? 0),
         semester: s.semester ?? 1,
         type: SUBJECT_TYPE_MAP[s.type ?? "EL"],
       })) ?? [],
@@ -724,10 +724,10 @@ function DepartmentPage() {
   const { departmentId } = useParams<{ departmentId: string }>();
   const numId = Number(departmentId);
 
-  const deptListQuery = publicRqClient.useQuery("get", "/departments/", {}, { retry: false });
+  const deptListQuery = publicRqClient.useQuery("get", "/api/v1/departments/", {}, { retry: false });
   const deptDetailQuery = publicRqClient.useQuery(
     "get",
-    "/departments/{id}/",
+    "/api/v1/departments/{id}/",
     { params: { path: { id: numId } } },
     { retry: false },
   );

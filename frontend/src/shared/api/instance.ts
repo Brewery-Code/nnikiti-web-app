@@ -2,11 +2,13 @@ import { i18n } from "@/shared/i18n";
 import createFetchClient from "openapi-fetch";
 import createClient from "openapi-react-query";
 import { CONFIG } from "../model/config";
-import type { ApiPaths, ApiSchemas } from "./schema";
+import type { ApiPaths } from "./schema";
 import { refreshToken } from "../model/session";
 
+const API_ORIGIN = new URL(CONFIG.API_BASE_URL).origin;
+
 export const fetchClient = createFetchClient<ApiPaths>({
-  baseUrl: CONFIG.API_BASE_URL,
+  baseUrl: API_ORIGIN,
   headers: {
     "Accept-Language": i18n.language,
   },
@@ -15,7 +17,7 @@ export const fetchClient = createFetchClient<ApiPaths>({
 export const rqClient = createClient(fetchClient);
 
 export const publicFetchClient = createFetchClient<ApiPaths>({
-  baseUrl: CONFIG.API_BASE_URL,
+  baseUrl: API_ORIGIN,
   headers: {
     "Accept-Language": i18n.language,
   },
@@ -34,7 +36,7 @@ fetchClient.use({
         JSON.stringify({
           code: "NOT_AUTHORIZED",
           message: "You are not authorized to make this request",
-        } as ApiSchemas["Error"]),
+        }),
         { status: 401, headers: { "Content-Type": "application/json" } }
       );
     }

@@ -22,7 +22,7 @@ export default function BurgerMenu({
 }) {
   const { t } = useTranslation("header");
   const navigate = useNavigate();
-  const userData = rqClient.useQuery("get", "/users/me/").data;
+  const userData = (rqClient.useQuery("get", "/api/v1/users/me/", {}).data) as { first_name?: string } | undefined;
 
   const handleLogout = () => {
     logout();
