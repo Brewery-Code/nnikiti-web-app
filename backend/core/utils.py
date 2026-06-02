@@ -1,5 +1,4 @@
 import os
-import uuid
 from unidecode import unidecode
 
 
@@ -10,7 +9,20 @@ def slugify_filename(filename):
     return f"{name}{ext.lower()}"
 
 
+class UploadTo:
+    def __init__(self, folder):
+        self.folder = folder
+
+    def __call__(self, instance, filename):
+        return f"{self.folder}/{slugify_filename(filename)}"
+
+    def deconstruct(self):
+        return (
+            "core.utils.UploadTo",
+            [self.folder],
+            {},
+        )
+
+
 def make_upload_to(folder):
-    def upload_to(instance, filename):
-        return f"{folder}/{slugify_filename(filename)}"
-    return upload_to
+    return UploadTo(folder)
