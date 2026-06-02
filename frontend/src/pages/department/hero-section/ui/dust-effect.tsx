@@ -29,7 +29,7 @@ export function DustEffect() {
           }}
           key={i}
           initial={{
-            y: "100dvh",
+            y: "100svh",
             opacity: 0,
           }}
           animate={{ y: "0", opacity: [0, 1, 1, 0] }}

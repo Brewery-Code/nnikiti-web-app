@@ -194,9 +194,6 @@ function ProgramsSlider() {
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
           <div>
-            <div className="mb-3.5 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-              — Спеціальності
-            </div>
             <h2
               className="font-display font-black leading-none text-primary"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
@@ -343,9 +340,6 @@ function BachelorPage() {
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <Reveal mode="up" className="mb-12 lg:mb-16">
-              <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-                — Важливі дати
-              </div>
               <h2
                 className="font-display font-black text-primary"
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}

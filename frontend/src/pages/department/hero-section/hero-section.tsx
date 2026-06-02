@@ -67,7 +67,7 @@ export function HeroSection({ setSection }: HeroSectionProps) {
   }, [departmentName]);
 
   return (
-    <div className="relative h-[calc(100dvh-64px)] bg-black before:absolute before:top-full before:h-32 before:w-full before:bg-linear-180 before:from-black before:to-transparent">
+    <div className="relative h-[calc(100svh-64px)] bg-black before:absolute before:top-full before:h-32 before:w-full before:bg-linear-180 before:from-black before:to-transparent">
       <DustEffect />
       <div className="w-ful relative flex h-full flex-col pt-32">
         <div className="flex flex-col">

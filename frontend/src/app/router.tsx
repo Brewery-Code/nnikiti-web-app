@@ -117,10 +117,6 @@ export const router = createBrowserRouter([
         lazy: () => import("@/pages/ask-question/ask-question-page"),
       },
       {
-        path: ROUTES.SEARCH,
-        lazy: () => import("@/pages/search/search-page"),
-      },
-      {
         path: ROUTES.ERROR,
         lazy: () => import("@/pages/error/error-page"),
       },

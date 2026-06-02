@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import clsx from "clsx";
@@ -16,7 +16,7 @@ function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
   return (
     <Link
       to={q.to}
-      className="group inline-flex items-center gap-1.5 rounded-[10px] border border-ui bg-surface-md px-4 py-2 text-[14px] font-medium text-muted backdrop-blur-md transition-all duration-200 hover:border-violet-500/40 hover:bg-violet-500/[0.10] hover:text-primary"
+      className="group inline-flex items-center gap-1 rounded-[8px] border border-ui bg-surface-md px-3 py-1.5 text-[11px] font-medium text-muted backdrop-blur-md transition-all duration-200 hover:border-violet-500/40 hover:bg-violet-500/[0.10] hover:text-primary sm:gap-1.5 sm:rounded-[10px] sm:px-4 sm:py-2 sm:text-[14px]"
     >
       {q.label}
       <span className="text-subtle transition-colors group-hover:text-violet-500">›</span>
@@ -25,14 +25,28 @@ function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
 }
 
 export default function HeroSection({ className = "" }: { className?: string }) {
-  const sliderQuery = publicRqClient.useQuery("get", "/api/v1/core/main-slider-items/", {});
+  const sliderQuery = publicRqClient.useQuery("get", "/core/main-slider-items/", {});
   const slides = (sliderQuery.data ?? []) as { image: string }[];
 
-  const [currentImg, setCurrentImg] = useState(0);
+  const currentRef = useRef(0);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const switchTo = (next: number) => {
+    const prev = currentRef.current;
+    if (prev === next) return;
+    const prevSlide = slideRefs.current[prev];
+    const nextSlide = slideRefs.current[next];
+    if (prevSlide) prevSlide.style.opacity = "0";
+    if (nextSlide) nextSlide.style.opacity = "1";
+    dotRefs.current[prev]?.setAttribute("data-active", "false");
+    dotRefs.current[next]?.setAttribute("data-active", "true");
+    currentRef.current = next;
+  };
 
   useEffect(() => {
     if (slides.length < 2) return;
-    const id = setInterval(() => setCurrentImg((p) => (p + 1) % slides.length), 6000);
+    const id = setInterval(() => switchTo((currentRef.current + 1) % slides.length), 6000);
     return () => clearInterval(id);
   }, [slides.length]);
 
@@ -46,24 +60,32 @@ export default function HeroSection({ className = "" }: { className?: string }) 
   return (
     <section
       className={clsx(
-        "dark-context sticky top-0 z-0 h-screen min-h-[600px] w-full overflow-hidden lg:min-h-[720px]",
+        "dark-context sticky top-0 z-0 h-svh min-h-[600px] w-full overflow-hidden lg:min-h-[720px]",
         className
       )}
     >
       <motion.div
         className="absolute inset-0"
-        style={{ y: sliderY, scale: sliderScale, willChange: "auto" }}
+        style={{ y: sliderY, scale: sliderScale, willChange: "transform" }}
       >
         {slides.map((slide, i) => (
           <div
             key={i}
-            aria-hidden={i !== currentImg}
-            className={clsx(
-              "absolute inset-0 transition-opacity duration-[1500ms] ease-out",
-              i === currentImg ? "opacity-100" : "opacity-0"
-            )}
+            ref={(el) => { slideRefs.current[i] = el; }}
+            className="absolute inset-0"
+            style={{
+              opacity: i === 0 ? 1 : 0,
+              transition: "opacity 1400ms cubic-bezier(0.4, 0, 0.2, 1)",
+              willChange: "opacity",
+            }}
           >
-            <img src={slide.image} alt="" className="h-full w-full object-cover" />
+            <img
+              src={slide.image}
+              alt=""
+              className="h-full w-full object-cover"
+              loading={i === 0 ? "eager" : "lazy"}
+              fetchPriority={i === 0 ? "high" : "low"}
+            />
           </div>
         ))}
       </motion.div>
@@ -93,10 +115,10 @@ export default function HeroSection({ className = "" }: { className?: string }) 
           <h1
             className="font-display font-black text-primary"
             style={{
-              fontSize: "clamp(2.4rem, 7vw, 7rem)",
+              fontSize: "clamp(2rem, 9vw, 7rem)",
               letterSpacing: "-0.05em",
               lineHeight: 0.92,
-              marginBottom: 24,
+              marginBottom: 20,
               textShadow: "0 4px 40px rgba(0,0,0,0.5)",
             }}
           >
@@ -106,30 +128,30 @@ export default function HeroSection({ className = "" }: { className?: string }) 
           </h1>
 
           <p
-            className="mx-auto text-[15px] text-muted sm:text-[17px]"
-            style={{ lineHeight: 1.7, maxWidth: 560, marginBottom: 32 }}
+            className="mx-auto px-2 text-[13px] text-muted sm:px-0 sm:text-[17px]"
+            style={{ lineHeight: 1.7, maxWidth: 560, marginBottom: 28 }}
           >
             Навчально-науковий інститут кібернетики, інформаційних технологій та інженерії НУВГП
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
           <Link
             to={ROUTES.BACHELOR}
-            className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:px-9 sm:py-4 sm:text-[17px]"
+            className="inline-flex items-center gap-2 rounded-[12px] bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-3 text-[14px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:rounded-[14px] sm:px-9 sm:py-4 sm:text-[17px]"
           >
             Абітурієнту
             <span aria-hidden>→</span>
           </Link>
           <Link
             to={ROUTES.BACHELOR}
-            className="inline-flex items-center gap-2 rounded-[14px] border border-ui bg-surface-lg px-6 py-3.5 text-[15px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:px-9 sm:py-4 sm:text-[17px]"
+            className="inline-flex items-center gap-2 rounded-[12px] border border-ui bg-surface-lg px-5 py-3 text-[14px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:rounded-[14px] sm:px-9 sm:py-4 sm:text-[17px]"
           >
             Програми
           </Link>
         </div>
 
-        <div className="mt-8 hidden flex-wrap justify-center gap-2.5 sm:flex">
+        <div className="mt-5 flex flex-wrap justify-center gap-2 sm:mt-8 sm:gap-2.5">
           {QUICK_LINKS.map((q) => (
             <HeroQuickLink key={q.label} q={q} />
           ))}
@@ -144,14 +166,11 @@ export default function HeroSection({ className = "" }: { className?: string }) 
           {slides.map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrentImg(i)}
+              ref={(el) => { dotRefs.current[i] = el; }}
+              data-active={i === 0 ? "true" : "false"}
+              onClick={() => switchTo(i)}
               aria-label={`Slide ${i + 1}`}
-              className={clsx(
-                "h-1 rounded-full transition-all duration-300",
-                i === currentImg
-                  ? "w-10 bg-gradient-to-r from-violet-500 to-blue-500"
-                  : "w-2 bg-violet-500/25 hover:bg-violet-500/50"
-              )}
+              className="h-1 rounded-full transition-all duration-300 data-[active=true]:w-10 data-[active=true]:bg-gradient-to-r data-[active=true]:from-violet-500 data-[active=true]:to-blue-500 data-[active=false]:w-2 data-[active=false]:bg-violet-500/25 hover:data-[active=false]:bg-violet-500/50"
             />
           ))}
         </motion.div>

@@ -8,7 +8,7 @@ import { globalLenis } from "@/shared/hooks";
 import { logout } from "@/shared/model/session";
 import { ROUTES } from "@/shared/model/routes";
 import type { NavigationMenuData } from "../../types";
-import { ChangeLanguage } from "../../ui";
+import { MicrocircuitLabelLogo, ChangeLanguage } from "../../ui";
 import Accordion from "./accordion";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -22,7 +22,7 @@ export default function BurgerMenu({
 }) {
   const { t } = useTranslation("header");
   const navigate = useNavigate();
-  const userData = (rqClient.useQuery("get", "/api/v1/users/me/", {}).data) as { first_name?: string } | undefined;
+  const userData = (rqClient.useQuery("get", "/users/me/", {}).data) as { first_name?: string } | undefined;
 
   const handleLogout = () => {
     logout();
@@ -53,14 +53,10 @@ export default function BurgerMenu({
     globalLenis?.stop();
     document.body.style.overflow = "hidden";
 
-    // Prevent Lenis from seeing wheel events inside the nav.
-    // Lenis listens on window in bubble phase, so stopPropagation
-    // here keeps native overflow-scroll working in the menu.
     const nav = navRef.current;
     const stopProp = (e: WheelEvent) => e.stopPropagation();
     nav?.addEventListener("wheel", stopProp, { passive: true });
 
-    // Block wheel scroll on everything outside the menu
     const blockOuter = (e: WheelEvent) => {
       if (!nav?.contains(e.target as Node)) e.preventDefault();
     };
@@ -88,25 +84,30 @@ export default function BurgerMenu({
       {/* Burger button */}
       <button
         aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
-        className="relative z-[110] flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-[10px] transition-colors duration-200 hover:bg-surface-xl"
         onClick={toggleMenu}
+        className={clsx(
+          "relative z-[110] flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-[10px] transition-all duration-300",
+          isOpen
+            ? "bg-gradient-to-br from-violet-500 to-blue-500 shadow-[0_4px_20px_rgba(139,92,246,0.5)]"
+            : "border border-white/[0.10] bg-surface-md hover:border-violet-500/40 hover:bg-violet-500/[0.12] hover:shadow-[0_4px_16px_rgba(166,132,255,0.18)]"
+        )}
       >
         <span
           className={clsx(
-            "block h-[1.5px] w-[22px] origin-center bg-primary transition-all duration-300",
-            isOpen && "translate-y-[7.5px] rotate-45"
+            "block h-[1.5px] w-[18px] origin-center transition-all duration-300",
+            isOpen ? "translate-y-[7.5px] rotate-45 bg-white" : "bg-primary"
           )}
         />
         <span
           className={clsx(
-            "block h-[1.5px] w-[22px] bg-primary transition-all duration-300",
-            isOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
+            "block h-[1.5px] w-[18px] transition-all duration-300",
+            isOpen ? "scale-x-0 opacity-0 bg-white" : "scale-x-100 opacity-100 bg-primary"
           )}
         />
         <span
           className={clsx(
-            "block h-[1.5px] w-[22px] origin-center bg-primary transition-all duration-300",
-            isOpen && "-translate-y-[7.5px] -rotate-45"
+            "block h-[1.5px] w-[18px] origin-center transition-all duration-300",
+            isOpen ? "-translate-y-[7.5px] -rotate-45 bg-white" : "bg-primary"
           )}
         />
       </button>
@@ -115,38 +116,42 @@ export default function BurgerMenu({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] flex flex-col overflow-hidden bg-base"
+            className="fixed inset-0 z-[99] flex flex-col overflow-hidden"
+            style={{ background: "var(--bg-base, #07080e)" }}
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: 0.5, ease: EASE }}
+            transition={{ duration: 0.45, ease: EASE }}
           >
+            {/* Top gradient accent line */}
+            <div
+              className="absolute inset-x-0 top-0 h-[2px] flex-shrink-0"
+              style={{ background: "linear-gradient(90deg, rgba(139,92,246,1) 0%, rgba(96,165,250,1) 100%)" }}
+            />
+
             {/* Ambient decorations */}
             <div
               aria-hidden
-              className="pointer-events-none absolute -left-[20%] top-[5%] h-[500px] w-[500px] rounded-full"
+              className="pointer-events-none absolute -left-[30%] top-0 h-[600px] w-[600px] rounded-full"
               style={{
-                background: "radial-gradient(circle, rgba(166,132,255,0.10) 0%, transparent 70%)",
-                filter: "blur(80px)",
+                background: "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)",
+                filter: "blur(100px)",
               }}
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute -right-[10%] bottom-[10%] h-[400px] w-[400px] rounded-full"
+              className="pointer-events-none absolute -right-[20%] bottom-0 h-[500px] w-[500px] rounded-full"
               style={{
-                background: "radial-gradient(circle, rgba(81,162,255,0.08) 0%, transparent 70%)",
-                filter: "blur(80px)",
+                background: "radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 70%)",
+                filter: "blur(100px)",
               }}
             />
 
-            {/* Header row */}
-            <div className="flex h-16 flex-shrink-0 items-center px-6">
-              <span
-                className="font-display select-none font-black text-grad"
-                style={{ fontSize: "1.3rem", letterSpacing: "-0.04em" }}
-              >
-                ННІКІТІ
-              </span>
+            {/* Header row — matches site header */}
+            <div className="flex h-16 flex-shrink-0 items-center px-4 sm:px-6">
+              <Link to="/" onClick={toggleMenu}>
+                <MicrocircuitLabelLogo />
+              </Link>
             </div>
 
             {/* Nav list */}
@@ -159,9 +164,9 @@ export default function BurgerMenu({
                 {extendedBurgerMenuData.map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.1 + index * 0.045, ease: EASE }}
+                    transition={{ duration: 0.3, delay: 0.08 + index * 0.04, ease: EASE }}
                   >
                     <Accordion
                       data={item}
@@ -174,39 +179,32 @@ export default function BurgerMenu({
                 ))}
 
                 <motion.div
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.35,
-                    delay: 0.1 + extendedBurgerMenuData.length * 0.045,
+                    duration: 0.3,
+                    delay: 0.08 + extendedBurgerMenuData.length * 0.04,
                     ease: EASE,
                   }}
-                  className="border-t border-white/[0.07] py-5"
+                  className="py-6"
                 >
-                  <Link
-                    to="/"
-                    className={clsx(
-                      "font-display text-[1.6rem] font-black text-primary transition-colors duration-200 hover:text-violet-300",
-                      openIndex !== -1 && "text-primary/25"
-                    )}
-                    style={{ letterSpacing: "-0.03em" }}
-                    onClick={toggleMenu}
-                  >
-                    {t("burgerMenu.home")}
-                  </Link>
+                  <div className="flex items-center gap-3">
+                    <Link
+                      to="/"
+                      onClick={toggleMenu}
+                      className="group inline-flex items-center gap-2.5 rounded-xl border border-white/[0.08] px-5 py-3 text-[14px] font-semibold text-white/50 transition-all duration-200 hover:border-white/[0.15] hover:text-white/80"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover:-translate-x-0.5">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                      </svg>
+                      {t("burgerMenu.home")}
+                    </Link>
+                    <ChangeLanguage />
+                  </div>
                 </motion.div>
               </ul>
             </nav>
-
-            {/* Bottom bar */}
-            <motion.div
-              className="flex flex-shrink-0 items-center border-t border-white/[0.07] px-6 py-5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.35, ease: EASE }}
-            >
-              <ChangeLanguage />
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

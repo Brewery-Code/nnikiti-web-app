@@ -16,7 +16,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden bg-base">
+    <section className="relative flex min-h-svh flex-col overflow-hidden bg-base">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[15%] -top-[15%] h-[700px] w-[700px] rounded-full"

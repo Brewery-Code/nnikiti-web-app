@@ -112,7 +112,7 @@ function NewsFeat({ item }: { item: NewsItem }) {
       <div className="absolute inset-0 bg-gradient-to-t from-[#08090f] via-[#08090f]/45 to-transparent" />
 
       {/* spacer that sets card height */}
-      <div className="min-h-[360px] sm:min-h-[430px]" />
+      <div className="min-h-[280px] sm:min-h-[430px]" />
 
       {/* bottom content: rests 48 px below natural position so "Читати" is hidden;
           slides to translate-y-0 on hover revealing it */}
@@ -147,7 +147,7 @@ function NewsRow({ item }: { item: NewsItem }) {
     >
       {/* thumbnail with zoom */}
       <div
-        className="flex-shrink-0 overflow-hidden rounded-[12px]"
+        className="hidden flex-shrink-0 overflow-hidden rounded-[12px] xs:block"
         style={{ width: 96, height: 76 }}
       >
         <div
@@ -198,9 +198,6 @@ export default function EventsSection({ className = "" }: { className?: string }
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
           <div>
-            <div className="mb-3.5 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-              — Новини
-            </div>
             <h2
               className="font-display font-black leading-none text-white"
               style={{

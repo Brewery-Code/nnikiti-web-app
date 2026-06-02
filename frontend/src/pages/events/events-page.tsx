@@ -3,13 +3,28 @@ import { useLocation, Link } from "react-router-dom";
 import clsx from "clsx";
 import { PageTransition } from "@/widgets";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
+import { publicRqClient } from "@/shared/api/instance";
+import { resolveMediaUrl } from "@/shared/model/config";
+import type { components } from "@/shared/api/schema/generated";
 import {
   CALENDAR_EVENTS,
-  NEWS,
   EVENT_TYPE_META,
   type CalendarEvent,
   type EventType,
 } from "./events-data";
+
+type ApiEvent = components["schemas"]["Events"];
+
+function formatDate(iso?: string | null): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return d.toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" });
+}
+
+function stripMarkdown(md?: string | null): string {
+  if (!md) return "";
+  return md.replace(/[#*_`>\[\]!]/g, "").replace(/\n+/g, " ").trim();
+}
 
 const UK_MONTHS = [
   "Січень",
@@ -51,7 +66,7 @@ const TABS = [
 ];
 
 function SectionTitle({
-  eyebrow,
+  eyebrow: _eyebrow,
   title,
   highlight,
   description,
@@ -63,9 +78,6 @@ function SectionTitle({
 }) {
   return (
     <Reveal mode="up" className="mb-10 lg:mb-14">
-      <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-        — {eyebrow}
-      </div>
       <h2
         className="font-display font-black text-primary"
         style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
@@ -172,6 +184,7 @@ function MiniCalendar({
   year,
   month,
   events,
+  apiEventDots,
   selected,
   onSelect,
   onPrev,
@@ -180,6 +193,7 @@ function MiniCalendar({
   year: number;
   month: number;
   events: CalendarEvent[];
+  apiEventDots: { date: string; color: string }[];
   selected: string | null;
   onSelect: (d: string) => void;
   onPrev: () => void;
@@ -196,10 +210,19 @@ function MiniCalendar({
     events.filter((e) => e.date === toDateStr(year, month, day));
 
   const today = new Date();
+  const todayStr = toDateStr(today.getFullYear(), today.getMonth(), today.getDate());
+
   const isToday = (day: number) =>
     day === today.getDate() &&
     month === today.getMonth() &&
     year === today.getFullYear();
+
+  const apiEventsOnDay = (day: number) => {
+    const dateStr = toDateStr(year, month, day);
+    return apiEventDots.filter((d) => d.date === dateStr);
+  };
+
+  const isPast = (day: number) => toDateStr(year, month, day) < todayStr;
 
   return (
     <div className="grad-border select-none rounded-[20px] bg-surface p-5 backdrop-blur-xl">
@@ -250,27 +273,43 @@ function MiniCalendar({
                 isSelected
                   ? "bg-gradient-to-br from-violet-500 to-blue-500 text-primary"
                   : isToday(day)
-                    ? "bg-white/10 text-primary"
+                    ? "ring-2 ring-violet-500 ring-offset-1 ring-offset-[#0e0f1a] font-bold text-primary"
                     : "text-muted hover:bg-surface-lg hover:text-primary"
               )}
             >
               {day}
-              {dayEvents.length > 0 && (
-                <div className="mt-0.5 flex gap-0.5">
-                  {dayEvents.slice(0, 3).map((ev) => (
-                    <span
-                      key={ev.id}
-                      aria-hidden
-                      className={clsx(
-                        "h-1 w-1 rounded-full",
-                        isSelected
-                          ? "bg-white"
-                          : "bg-gradient-to-r from-violet-400 to-blue-400"
-                      )}
-                    />
-                  ))}
-                </div>
-              )}
+              {(() => {
+                const apiDayDots = apiEventsOnDay(day);
+                const allDots = [
+                  ...dayEvents.map(() => ({ color: "" })),
+                  ...apiDayDots,
+                ].slice(0, 3);
+                const past = isPast(day);
+                if (!allDots.length) return null;
+                return (
+                  <div className="mt-0.5 flex gap-[3px]">
+                    {allDots.map((dot, i) => (
+                      <span
+                        key={i}
+                        aria-hidden
+                        className={clsx(
+                          "h-1 w-1 rounded-full",
+                          !isSelected && !past && !dot.color && "bg-gradient-to-r from-violet-400 to-blue-400"
+                        )}
+                        style={
+                          isSelected
+                            ? { background: "#fff" }
+                            : past
+                              ? { background: "rgba(255,255,255,0.25)" }
+                              : dot.color
+                                ? { background: dot.color }
+                                : undefined
+                        }
+                      />
+                    ))}
+                  </div>
+                );
+              })()}
             </button>
           );
         })}
@@ -315,8 +354,17 @@ function EventListItem({ event }: { event: CalendarEvent }) {
 const ALL_TYPES = "all";
 
 function CalendarSection() {
-  const [year, setYear] = useState(2025);
-  const [month, setMonth] = useState(4);
+  const [year, setYear] = useState(() => new Date().getFullYear());
+  const [month, setMonth] = useState(() => new Date().getMonth());
+
+  const { data: apiEventsRaw } = publicRqClient.useQuery("get", "/events/", {});
+  type ApiDot = { date: string; color: string };
+  const apiEventDots: ApiDot[] = ((apiEventsRaw ?? []) as { event_date?: string | null; created_at?: string; category?: { rgb_color?: string } }[])
+    .map((e) => ({
+      date: (e.event_date ?? e.created_at ?? "").slice(0, 10),
+      color: e.category?.rgb_color ? `rgba${e.category.rgb_color}` : "",
+    }))
+    .filter((d) => d.date);
   const [selected, setSelected] = useState<string | null>(null);
   const [typeFilter, setTypeFilter] = useState<EventType | typeof ALL_TYPES>(
     ALL_TYPES
@@ -338,13 +386,15 @@ function CalendarSection() {
     setSelected(null);
   };
 
+  const todayStr = new Date().toISOString().slice(0, 10);
+
   const visibleEvents = CALENDAR_EVENTS.filter(
     (e) => typeFilter === ALL_TYPES || e.type === typeFilter
   )
     .filter((e) => {
-      if (selected) return e.date === selected;
+      if (selected) return e.date === selected && e.date >= todayStr;
       const [ey, em] = e.date.split("-").map(Number);
-      return ey === year && em - 1 === month;
+      return ey === year && em - 1 === month && e.date >= todayStr;
     })
     .sort((a, b) => a.date.localeCompare(b.date));
 
@@ -363,6 +413,7 @@ function CalendarSection() {
               year={year}
               month={month}
               events={CALENDAR_EVENTS}
+              apiEventDots={apiEventDots}
               selected={selected}
               onSelect={setSelected}
               onPrev={() => changeMonth(-1)}
@@ -440,33 +491,40 @@ function CalendarSection() {
   );
 }
 
-function NewsCard({ item }: { item: (typeof NEWS)[0] }) {
+function NewsCard({ item }: { item: ApiEvent }) {
+  const image = resolveMediaUrl(item.cover);
+  const rgb = item.category?.rgb_color;
+  const tagBg = rgb ? `rgba${rgb}` : "rgba(166,132,255,0.85)";
+
   return (
     <Link
       to={`/news/${item.id}`}
       className="spec-card grad-border group flex h-full flex-col overflow-hidden rounded-[20px] bg-surface backdrop-blur-xl"
     >
-      <div className="relative h-44 overflow-hidden">
-        <img
-          src={item.imageSeed}
-          alt={item.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
+      <div className="relative h-60 overflow-hidden">
+        {image ? (
+          <img
+            src={image}
+            alt={item.title ?? ""}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <div className="h-full w-full bg-gradient-to-br from-violet-500/20 to-blue-500/20" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#08090f] via-transparent to-transparent" />
-        <span
-          className="font-display absolute bottom-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-primary"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(166,132,255,0.85) 0%, rgba(81,162,255,0.85) 100%)",
-          }}
-        >
-          {item.tag}
-        </span>
+        {item.category?.name && (
+          <span
+            className="font-display absolute bottom-3 left-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-primary"
+            style={{ background: tagBg }}
+          >
+            {item.category.name}
+          </span>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-6">
         <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-subtle">
-          {item.date}
+          {formatDate(item.created_at)}
         </p>
         <h3
           className="font-display mb-3 line-clamp-3 flex-1 font-bold leading-snug text-primary"
@@ -475,7 +533,7 @@ function NewsCard({ item }: { item: (typeof NEWS)[0] }) {
           {item.title}
         </h3>
         <p className="line-clamp-3 text-[12px] leading-relaxed text-muted">
-          {item.excerpt}
+          {stripMarkdown(item.body)}
         </p>
         <span className="mt-4 self-start text-[12px] font-semibold text-violet-300 transition group-hover:text-primary">
           Читати далі →
@@ -487,34 +545,39 @@ function NewsCard({ item }: { item: (typeof NEWS)[0] }) {
 
 function NewsSection() {
   const [visibleCount, setVisibleCount] = useState(3);
-  const extra = NEWS.slice(3, visibleCount);
+  const { data, isPending } = publicRqClient.useQuery("get", "/events/", {});
+  const events = (data ?? []) as ApiEvent[];
+
+  const visible = events.slice(0, visibleCount);
+  const hasMore = visibleCount < events.length;
+
+  if (isPending) {
+    return (
+      <section id="news" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+        <div className="container-v2">
+          <SectionTitle eyebrow="Новини" title="Останні" highlight="новини" />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="h-96 animate-pulse rounded-[20px] bg-surface" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="news" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
       <div className="container-v2">
         <SectionTitle eyebrow="Новини" title="Останні" highlight="новини" />
         <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1} amount={0.05}>
-          {NEWS.slice(0, 3).map((item) => (
+          {visible.map((item) => (
             <StaggerItem key={item.id} mode="up" className="h-full">
               <NewsCard item={item} />
             </StaggerItem>
           ))}
         </Stagger>
-        {extra.length > 0 && (
-          <Stagger
-            key={visibleCount}
-            className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-            stagger={0.1}
-            inView={false}
-          >
-            {extra.map((item) => (
-              <StaggerItem key={item.id} mode="up" className="h-full">
-                <NewsCard item={item} />
-              </StaggerItem>
-            ))}
-          </Stagger>
-        )}
-        {visibleCount < NEWS.length && (
+        {hasMore && (
           <div className="mt-10 flex justify-center">
             <button
               onClick={() => setVisibleCount((c) => c + 3)}

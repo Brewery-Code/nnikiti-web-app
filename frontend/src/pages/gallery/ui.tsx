@@ -150,7 +150,7 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
 export function InnerPageLayout({
   backTo,
   backLabel,
-  eyebrow,
+  eyebrow: _eyebrow,
   title,
   subtitle,
   count,
@@ -186,9 +186,6 @@ export function InnerPageLayout({
           </Link>
 
           <div>
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-              — {eyebrow}
-            </p>
             <h1
               className="font-display font-black text-primary"
               style={{

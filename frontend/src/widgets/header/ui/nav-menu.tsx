@@ -40,8 +40,8 @@ export function NavigationMenu({
           <li
             className={clsx(
               "nav-link flex h-full cursor-pointer items-center gap-2 rounded-lg px-3.5 py-1.5",
-              "text-[15px] font-medium leading-none text-subtle transition-colors duration-150",
-              index === activeIndex && "text-primary/90"
+              "text-[15px] font-medium leading-none text-primary/70 transition-colors duration-150 hover:text-primary",
+              index === activeIndex && "text-primary"
             )}
             key={item.title}
             ref={index === activeIndex ? menuItemRef : null}

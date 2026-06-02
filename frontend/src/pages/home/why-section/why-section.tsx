@@ -61,7 +61,7 @@ export default function WhySection({ className = "" }: { className?: string }) {
                 style={{
                   gridTemplateColumns: "1.65fr 1fr",
                   gridTemplateRows: "1fr 1fr",
-                  height: "clamp(340px, 50vw, 520px)",
+                  height: "clamp(260px, 50vw, 520px)",
                 }}
               >
                 {/* Main photo — spans 2 rows */}

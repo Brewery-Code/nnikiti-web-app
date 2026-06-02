@@ -7,7 +7,7 @@ import { ROUTES } from "@/shared/model/routes";
 export function ErrorPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-base px-5 py-24 text-center">
+      <section className="relative flex min-h-svh w-full items-center justify-center overflow-hidden bg-base px-5 py-24 text-center">
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -left-[10%] -top-[10%] h-[600px] w-[600px] rounded-full"

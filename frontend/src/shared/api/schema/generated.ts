@@ -4,7 +4,486 @@
  */
 
 export interface paths {
-    "/api/v1/auth/google/": {
+    "/core/main-slider-items/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of slider images.
+         * @description Returns a list of slider images
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of slider images */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["MainSliderItem"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/statistic-block/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of data for the statistic block.
+         * @description Returns a list of data for statistic block
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of data for statictic block */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["StatisticBlock"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/partners/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of partners.
+         * @description Returns a list of data for partners block
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of data for partners block */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Partners"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/faq/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of FAQs (questions and answers).
+         * @description Returns a list of data for the FAQ block
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of data for the FAQ block */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["FAQs"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/educational-programs/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of educational programs.
+         * @description Returns a list of data for the edu-programs block.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of data for the edu-programs block */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["EducationalProgram"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/alumni/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of Alumni
+         * @description Returns a list of Alumni, optionally filtered by graduation year
+         */
+        get: {
+            parameters: {
+                query?: {
+                    /** @description Graduation year to filter alumni */
+                    year?: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of Alumni */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Alumnus"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /**
+         * Create a new Alumnus
+         * @description Creates a new Alumnus with Ukrainian translation fields
+         */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "multipart/form-data": {
+                        /**
+                         * @description Full name of the alumnus (Ukrainian)
+                         * @example Іван Іваненко
+                         */
+                        full_name?: string;
+                        /**
+                         * @description Short bio or description (optional)
+                         * @example Graduated in Computer Science.
+                         */
+                        text?: string;
+                        /**
+                         * @description Major field of study
+                         * @example Computer Science
+                         */
+                        major?: string;
+                        /**
+                         * @description Degree obtained
+                         * @example Bachelor
+                         */
+                        degree?: string;
+                        /**
+                         * @description Workplace (optional)
+                         * @example Google
+                         */
+                        workplace?: string;
+                        /**
+                         * @description Position at workplace (optional)
+                         * @example Software Engineer
+                         */
+                        position?: string;
+                        /**
+                         * Format: binary
+                         * @description Profile image of the alumnus
+                         */
+                        image?: string;
+                        /**
+                         * @description Social links or other publications (optional)
+                         * @example {
+                         *       "instagram": "https://instagram.com/ivan",
+                         *       "telegram": "https://t.me/ivan",
+                         *       "facebook": "https://facebook.com/ivan"
+                         *     }
+                         */
+                        links?: {
+                            [key: string]: string;
+                        };
+                        /**
+                         * Format: date
+                         * @description Graduation date
+                         * @example 2024-06-15
+                         */
+                        date_of_graduation?: string;
+                    };
+                };
+            };
+            responses: {
+                /** @description Successfully created Alumnus */
+                201: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @example 123 */
+                            id?: number;
+                        };
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/alumni/years/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of graduation years
+         * @description Returns a list of graduation years
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of alumni */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": number[];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/core/alumni-slider-items/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of alumni slider objects.
+         * @description Returns a list of alumni slider objects
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned a list of slider images */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["AlumniSliderItem"][];
+                    };
+                };
+                /** @description Invalid request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/google/": {
         parameters: {
             query?: never;
             header?: never;
@@ -14,21 +493,70 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Вхід через Google OAuth2 (PKCE)
-         * @description Приймає `code` та `code_verifier` з Google OAuth2 PKCE flow.
+         * Login using Google OAuth2 with PKCE
+         * @description 1) Send JSON body with:
+         *        - `code` (authorization code received from Google after redirect)
+         *        - `code_verifier` (PKCE code verifier generated on frontend)
+         *     2) Backend exchanges the `code` and `code_verifier` for Google access token.
+         *     3) User is created or updated in the local database, and app-specific access and refresh tokens are generated.
+         *     4) **Access token is returned in the JSON response body.**
+         *     5) **Refresh token is set as a secure HttpOnly cookie named `refresh_token`.** *This endpoint does NOT require an Authorization header (no token required) since it is the login endpoint.*
          *
-         *     У відповіді повертає `access_token` у тілі. `refresh_token` встановлюється як **HttpOnly cookie** автоматично — фронтенд його не бачить.
-         *
-         *     Домен обмежений: тільки `@nuwm.edu.ua` пошти.
          */
-        post: operations["v1_auth_google_create"];
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        /** @description Authorization code received from Google (provided by frontend) */
+                        code: string;
+                        /** @description PKCE code verifier matching the code_challenge sent initially */
+                        code_verifier: string;
+                    };
+                };
+            };
+            responses: {
+                /** @description Successfully authenticated, tokens issued */
+                200: {
+                    headers: {
+                        /** @description Refresh token is set in a HttpOnly, Secure cookie */
+                        "Set-Cookie"?: string;
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @description OAuth2 access token to use in Authorization header */
+                            access_token?: string;
+                            /** @description Access token lifetime in seconds */
+                            expires_in?: number;
+                            /** @example Bearer */
+                            token_type?: string;
+                        };
+                    };
+                };
+                /** @description Missing code or code_verifier, or Google token exchange error */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/v1/auth/token/": {
+    "/auth/token/": {
         parameters: {
             query?: never;
             header?: never;
@@ -38,268 +566,404 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Оновлення access token
-         * @description Оновлює `access_token` використовуючи `refresh_token` з HttpOnly cookie.
+         * Refresh access token using refresh_token cookie
+         * @description 1) Send POST with body:
+         *        - `client_id=client_id`
+         *        - `grant_type=refresh_token`
          *
-         *     Фронтенд надсилає тільки `grant_type` і `client_id` — cookie з `refresh_token` браузер підставляє автоматично.
-         */
-        post: operations["v1_auth_token_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/alumni/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description GET: Returns a list of all Alumni.
-         *     POST: Create a new Alumnus (Ukrainian translation only) */
-        get: operations["v1_core_alumni_retrieve"];
-        put?: never;
-        /** @description GET: Returns a list of all Alumni.
-         *     POST: Create a new Alumnus (Ukrainian translation only) */
-        post: operations["v1_core_alumni_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/alumni-slider-items/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Returns a list of all AlumniSlider. */
-        get: operations["v1_core_alumni_slider_items_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/alumni/years/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Список років випуску
-         * @description Повертає унікальні роки випуску у спадному порядку. Використовується для фільтрації випускників.
-         */
-        get: operations["v1_core_alumni_years_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/educational-programs/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description ListAPIView for EducationalProgram. */
-        get: operations["v1_core_educational_programs_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/faq/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Returns a list of all FAQ items. */
-        get: operations["v1_core_faq_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/main-slider-items/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Returns a list of all images in the main slider. */
-        get: operations["v1_core_main_slider_items_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/partners/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Returns a list of all images in the partners. */
-        get: operations["v1_core_partners_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/core/statistic-block/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Returns a list of all data in the statistic block */
-        get: operations["v1_core_statistic_block_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/departments/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description ListAPIView for Department. */
-        get: operations["v1_departments_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/departments/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description RetrieveAPIView for Department. */
-        get: operations["v1_departments_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/events/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description API view to retrieve a list of published events. */
-        get: operations["v1_events_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/events/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description API view to retrieve a single published event by its ID. */
-        get: operations["v1_events_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/users/me/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Профіль поточного користувача
-         * @description Потребує `Authorization: Bearer <access_token>`.
-         */
-        get: operations["v1_users_me_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/users/role/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Роль поточного користувача
-         * @description Публічний ендпоінт. Для неавторизованих повертає роль `GU` (Guest).
+         *     2) **Refresh token is NOT sent in the body; it is automatically read from the HttpOnly cookie `refresh_token`.**
+         *     3) If the refresh token is valid, a new access token is returned in the response body.
+         *     4) A new refresh token cookie is also set to replace the old one. *This endpoint does NOT require an Authorization header because refresh token is taken from the cookie.*
          *
-         *     | Роль | Код |
-         *     |------|-----|
-         *     | Admin | `AD` |
-         *     | Teacher | `TE` |
-         *     | Student | `ST` |
-         *     | Data Operator | `DO` |
-         *     | Guest | `GU` |
          */
-        get: operations["v1_users_role_retrieve"];
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/x-www-form-urlencoded": {
+                        /**
+                         * @description Client token from API
+                         * @enum {string}
+                         */
+                        client_id: "client_id";
+                        /**
+                         * @description Must be exactly `refresh_token`
+                         * @enum {string}
+                         */
+                        grant_type: "refresh_token";
+                    };
+                };
+            };
+            responses: {
+                /** @description Access token successfully refreshed */
+                200: {
+                    headers: {
+                        /** @description Updated refresh token set in cookie */
+                        "Set-Cookie"?: string;
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @description New access token */
+                            access_token?: string;
+                            /** @description Access token lifetime in seconds */
+                            expires_in?: number;
+                            /** @example Bearer */
+                            token_type?: string;
+                        };
+                    };
+                };
+                /** @description Invalid request or missing/invalid refresh token */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/users/me/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current authenticated user information
+         * @description Returns information about the currently authenticated user.   Requires a valid `access` token via Authorization header.
+         *
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned user info */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["User"];
+                    };
+                };
+                /** @description Unauthorized or token missing/invalid */
+                401: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+                /** @description Internal server error during profile fetching */
+                500: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/users/role/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current user role
+         * @description Returns information about role current user. (Required `access` token in headers for auth user)
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Successfully returned information */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            id?: number;
+                            role?: string;
+                        };
+                    };
+                };
+                /** @description Unauthorized or token missing/invalid */
+                401: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/events/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of events.
+         * @description Returns list of the events.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Event list successfully returned */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Events"][];
+                    };
+                };
+                /** @description Bad request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/events/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns details of a single event by its unique ID.
+         * @description Returns a single event object by its unique ID.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Unique identifier of the event */
+                    id: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Event object successfully returned */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Events"];
+                    };
+                };
+                /** @description Bad request (invalid ID or malformed request) */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+                /** @description Event not found */
+                404: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/departments/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns a list of departments
+         * @description Returns a list of departments
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Departments list successfully returned */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Departments"][];
+                    };
+                };
+                /** @description Bad request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/departments/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Returns details of a single department by its unique ID.
+         * @description Returns a single department object by its unique ID.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Unique identifier of the event */
+                    id: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Department object successfully returned */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["DepartmentDetail"];
+                    };
+                };
+                /** @description Bad request (invalid ID or malformed request) */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+                /** @description Event not found */
+                404: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            detail?: string;
+                        };
+                    };
+                };
+            };
+        };
         put?: never;
         post?: never;
         delete?: never;
@@ -312,261 +976,276 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        /** @description Serializer for the AlumniSlider model. */
-        AlumniSlider: {
-            readonly id: number;
-            /** Format: uri */
-            image: string;
+        Error: {
+            /** @description Error code */
+            code: string;
+            /** @description Human readable error message */
+            message: string;
         };
-        /** @description Serializer for CategorizedTag. */
-        CategorizedTag: {
-            readonly id: number;
-            readonly name: string;
-        };
-        /** @description Serializer for DepartmentDetail. */
-        DepartmentDetail: {
-            readonly id: number;
-            readonly name: string;
-            readonly description: string;
-            readonly address: string;
+        MainSliderItem: {
+            /** ID */
+            readonly id?: number;
             /**
-             * Електронна адреса
+             * Image
+             * Format: uri
+             */
+            readonly image?: string;
+        };
+        StatisticBlock: {
+            /** ID */
+            readonly id?: number;
+            /** Title */
+            readonly title?: string;
+            /** Description */
+            readonly description?: string;
+            /** Start Value */
+            readonly start_value?: number;
+            /** Order */
+            readonly order?: number;
+        };
+        User: {
+            /** ID */
+            readonly id?: number;
+            /** First name */
+            readonly first_name?: string;
+            /** Last name */
+            readonly last_name?: string;
+            /**
+             * Email
              * Format: email
              */
-            email: string;
-            readonly head_of_department: components["schemas"]["HeadOfDepartment"][];
-            readonly educational_program: components["schemas"]["DepartmentEducationalProgram"][];
-            readonly team: components["schemas"]["FacultyMember"][];
-            readonly history: components["schemas"]["DepartmentHistory"][];
-        };
-        /** @description Serializer for DepartmentEducationalProgram. */
-        DepartmentEducationalProgram: {
-            readonly id: number;
-            /** Код освітньої програми */
-            code: string;
-            readonly name: string;
-            readonly description: string;
-            readonly degree: string;
-            readonly form: string;
-            /** Duration (years) */
-            duration?: number | null;
-            /** Total ECTS credits */
-            total_credits?: number | null;
-            readonly bachelor: string;
-            readonly magistracy: string;
-            readonly postgraduate: string;
-            readonly subject: components["schemas"]["CategorizedTag"][];
-            readonly education_forms: components["schemas"]["CategorizedTag"][];
-            readonly education_levels: components["schemas"]["CategorizedTag"][];
-            readonly subjects: components["schemas"]["ProgramSubject"][];
-        };
-        /** @description Serializer for DepartmentHistory. */
-        DepartmentHistory: {
-            readonly id: number;
-            readonly year: string;
-            readonly text: string;
-        };
-        /** @description Serializer for DepartmentList. */
-        DepartmentList: {
-            readonly id: number;
-            readonly name: string;
-        };
-        /** @description Serializer for EducationalProgram. */
-        EducationalProgram: {
-            readonly id: number;
-            /** Код освітньої програми */
-            code: string;
-            readonly name: string;
-            readonly subject: components["schemas"]["CategorizedTag"][];
-            readonly education_forms: components["schemas"]["CategorizedTag"][];
-            readonly education_levels: components["schemas"]["CategorizedTag"][];
-        };
-        /** @description Serializer for an Events objects */
-        Events: {
-            readonly id: number;
-            readonly title: string;
-            /** Слаг події */
-            slug?: string;
-            readonly body: string;
-            readonly body_html: string;
+            readonly email?: string;
             /**
-             * Cover image
+             * Avatar
              * Format: uri
+             */
+            readonly avatar?: string;
+        };
+        Events: {
+            /** ID */
+            readonly id?: number;
+            /** @description Event title (translated) */
+            title?: string;
+            readonly slug?: string;
+            /** @description Event body in Markdown (translated) */
+            body?: string;
+            /** @description Event body rendered as HTML */
+            readonly body_html?: string;
+            /**
+             * Format: uri
+             * @description Cover image URL
              */
             cover?: string | null;
-            /** Format: date */
+            /**
+             * Format: date
+             * @description Date when the event takes place (null for news/publications)
+             */
             event_date?: string | null;
+            /** @description Location of the event (empty for news/publications) */
             location?: string;
-            category: components["schemas"]["EventsCategory"];
-            /**
-             * Дата створення
-             * Format: date-time
-             */
-            readonly created_at: string;
-            /**
-             * Востаннє оновлено
-             * Format: date-time
-             */
-            readonly updated_at: string;
+            category?: {
+                id?: number;
+                /** @description Category name (translated) — e.g. Новини, Публікації, Події */
+                name?: string;
+                /** @example (59,130,246,0.15) */
+                rgb_color?: string;
+            };
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
         };
-        /** @description Serializer for EventsCategory objects */
-        EventsCategory: {
-            readonly id: number;
-            readonly name: string;
+        Partners: {
+            /** ID */
+            readonly id?: number;
+            /** Name */
+            readonly name?: string;
             /**
-             * RGB значення
-             * @description Необхідний колір RGBA у форматі (255,255,255,0.5) для дизайну на стороні клієнта
-             */
-            rgb_color: string;
-        };
-        /** @description Serializer for the FAQ model. */
-        FAQ: {
-            readonly id: number;
-            readonly question: string;
-            readonly answer: string;
-        };
-        /** @description Serializer for FacultyMember. */
-        FacultyMember: {
-            readonly id: number;
-            readonly name: string;
-            readonly role: string;
-            readonly specialty: string;
-            /**
-             * Photo
+             * Image
              * Format: uri
              */
-            image?: string;
+            readonly image?: string;
+            /**
+             * Site url
+             * Format: uri
+             */
+            readonly site_url?: string;
+        };
+        FAQs: {
+            /** ID */
+            readonly id?: number;
+            /** Question */
+            readonly question?: string;
+            /** Question */
+            readonly answer?: string;
+        };
+        CategorizedTag: {
+            readonly id?: number;
+            name?: string;
+        };
+        EducationalProgram: {
+            /** ID */
+            readonly id?: number;
+            /** Program code */
+            code?: string;
+            /** Educational program name */
+            name?: string;
+            /** Subjects */
+            readonly subject?: components["schemas"]["CategorizedTag"][];
+            /** Education Forms */
+            readonly education_forms?: components["schemas"]["CategorizedTag"][];
+            /** Education Levels */
+            readonly education_levels?: components["schemas"]["CategorizedTag"][];
+        };
+        ProgramSubject: {
+            readonly id?: number;
+            /** @description Subject name (translated) */
+            name?: string;
+            semester?: number;
+            /** Format: float */
+            credits?: number;
+            /**
+             * @description MN = Mandatory, EL = Elective
+             * @enum {string}
+             */
+            type?: "MN" | "EL";
+        };
+        FacultyMember: {
+            readonly id?: number;
+            /** @description Full name (language-dependent) */
+            name?: string;
+            /** @description Role/position (language-dependent) */
+            role?: string;
+            /** @description Specialty (language-dependent) */
+            specialty?: string;
+            /** Format: uri */
+            image?: string | null;
             /** Format: email */
             email?: string;
-            /** Аудиторія */
             audience?: string;
         };
-        GoogleLoginRequestRequest: {
-            /** @description Authorization code від Google */
-            code: string;
-            /** @description PKCE code verifier */
-            code_verifier: string;
-        };
-        GoogleLoginResponse: {
-            /** @description Bearer токен для запитів */
-            access_token: string;
-            /** @description Час дії токена в секундах */
-            expires_in: number;
-            /** @description Завжди "Bearer" */
-            token_type: string;
-        };
-        /**
-         * @description * `refresh_token` - refresh_token
-         * @enum {string}
-         */
-        GrantTypeEnum: "refresh_token";
-        /** @description Serializer for HeadOfDepartment. */
         HeadOfDepartment: {
-            readonly id: number;
-            readonly full_name: string;
-            readonly regalia: string;
+            readonly id?: number;
+            /** @description Full name (language-dependent) */
+            full_name?: string;
+            /** @description Academic title/regalia (language-dependent) */
+            regalia?: string;
             /** Format: email */
             email?: string | null;
-            /** Аудиторія */
             audience?: string | null;
         };
-        /** @description Serializer for the MainSliderItem model. */
-        MainSliderItem: {
-            /**
-             * Зображення слайдера
-             * Format: uri
-             */
-            image: string;
+        DepartmentHistory: {
+            readonly id?: number;
+            /** @description Year or period label, e.g. '2004', '1970-ті', 'Сьогодні' */
+            year?: string;
+            /** @description Description of the historical event (translated) */
+            text?: string;
         };
-        /** @description Serializer for the Partners model. */
-        Partners: {
-            readonly id: number;
-            readonly name: string;
-            /**
-             * Зображення слайдера
-             * Format: uri
-             */
-            image: string;
-            /** Format: uri */
-            site_url: string;
+        EducationalProgramFull: components["schemas"]["EducationalProgram"] & {
+            /** @description Translated description */
+            description?: string;
+            /** @description e.g. 'Бакалавр', 'Магістр' */
+            degree?: string;
+            /** @description e.g. 'Денна, заочна, дуальна' */
+            form?: string;
+            /** @description Duration in years */
+            duration?: number | null;
+            /** @description Total ECTS credits */
+            total_credits?: number | null;
+            budget_seats?: number | null;
+            contract_seats?: number | null;
+            subjects?: components["schemas"]["ProgramSubject"][];
+            bachelor?: {
+                code?: string;
+                specialty?: string;
+                program?: string;
+            } | null;
+            magistracy?: {
+                code?: string;
+                specialty?: string;
+                program?: string;
+            } | null;
+            postgraduate?: {
+                code?: string;
+                specialty?: string;
+                program?: string;
+            } | null;
         };
-        /** @description Serializer for ProgramSubject. */
-        ProgramSubject: {
-            readonly id: number;
-            readonly name: string;
-            semester: number;
-            /**
-             * ECTS credits
-             * Format: decimal
-             */
-            credits: string;
-            /** Subject type */
-            type?: components["schemas"]["TypeEnum"];
+        Departments: {
+            /** ID */
+            readonly id?: number;
+            /** Department name */
+            name?: string;
         };
-        /**
-         * @description * `AD` - AD
-         *     * `TE` - TE
-         *     * `ST` - ST
-         *     * `DO` - DO
-         *     * `GU` - GU
-         * @enum {string}
-         */
-        RoleEnum: "AD" | "TE" | "ST" | "DO" | "GU";
-        /** @description Serializer for the StatisticBlock model. */
-        StatisticBlock: {
-            readonly id: number;
-            /**
-             * Початкове значення
-             * @description Початкове значення для правильної роботи анімацій
-             */
-            start_value?: number | null;
-            /**
-             * Елемент слайдера
-             * @description Визначає в якому порядку будуть передаватись елементи
-             */
-            order: number;
-            readonly title: string;
-            readonly description: string;
-        };
-        TokenRefreshRequestRequest: {
-            /** @description Завжди `refresh_token`
-             *
-             *     * `refresh_token` - refresh_token */
-            grant_type: components["schemas"]["GrantTypeEnum"];
-            /** @description OAuth2 client_id застосунку */
-            client_id: string;
-        };
-        TokenRefreshResponse: {
-            access_token: string;
-            expires_in: number;
-            token_type: string;
-        };
-        /**
-         * @description * `MN` - Mandatory
-         *     * `EL` - Elective
-         * @enum {string}
-         */
-        TypeEnum: "MN" | "EL";
-        UserProfileResponse: {
-            id: number;
-            first_name: string;
-            last_name: string;
+        DepartmentDetail: {
+            /** ID */
+            readonly id?: number;
+            /** @description Translated name of the department */
+            name?: string;
+            /** @description Translated description of the department */
+            description?: string;
+            /** @description Translated address of the department */
+            address?: string;
             /** Format: email */
-            email: string;
-            /** @description URL аватара з Google */
-            avatar: string;
+            email?: string;
+            /**
+             * Format: uri
+             * @description Department group photo
+             */
+            image?: string | null;
+            /** @description Department room number */
+            room?: string;
+            head_of_department?: components["schemas"]["HeadOfDepartment"][];
+            /** @description Faculty members of the department */
+            team?: components["schemas"]["FacultyMember"][];
+            educational_program?: components["schemas"]["EducationalProgramFull"][];
+            /** @description Chronological history of the department */
+            history?: components["schemas"]["DepartmentHistory"][];
         };
-        UserRoleResponse: {
-            /** @description null для гостя */
-            id: number | null;
-            /** @description GU — неавторизований
-             *
-             *     * `AD` - AD
-             *     * `TE` - TE
-             *     * `ST` - ST
-             *     * `DO` - DO
-             *     * `GU` - GU */
-            role: components["schemas"]["RoleEnum"];
+        Alumnus: {
+            /** ID */
+            readonly id?: number;
+            /** Full name */
+            readonly full_name?: string;
+            /** About student */
+            readonly text?: string;
+            /** Format: uri */
+            readonly image?: string;
+            /**
+             * Created at
+             * Format: date-time
+             */
+            readonly created_at?: string;
+            /**
+             * Date of graduation
+             * Format: date
+             */
+            readonly date_of_graduation?: string;
+            /**
+             * Social links or publications
+             * @description Dictionary of social/profile links
+             * @example {
+             *       "instagram": "https://instagram.com/example",
+             *       "telegram": "https://t.me/example",
+             *       "facebook": "https://facebook.com/example"
+             *     }
+             */
+            links?: {
+                [key: string]: string;
+            };
+            readonly major?: string;
+            readonly degree?: string;
+            readonly workplace?: string;
+            readonly position?: string;
+        };
+        AlumniSliderItem: {
+            /** ID */
+            readonly id?: number;
+            /**
+             * Image
+             * Format: uri
+             */
+            readonly image?: string;
         };
     };
     responses: never;
@@ -576,364 +1255,4 @@ export interface components {
     pathItems: never;
 }
 export type $defs = Record<string, never>;
-export interface operations {
-    v1_auth_google_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["GoogleLoginRequestRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["GoogleLoginRequestRequest"];
-                "multipart/form-data": components["schemas"]["GoogleLoginRequestRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["GoogleLoginResponse"];
-                };
-            };
-            /** @description Відсутній code/code_verifier або помилка Google */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    v1_auth_token_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["TokenRefreshRequestRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["TokenRefreshRequestRequest"];
-                "multipart/form-data": components["schemas"]["TokenRefreshRequestRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TokenRefreshResponse"];
-                };
-            };
-            /** @description Невалідний або протермінований refresh_token */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    v1_core_alumni_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    v1_core_alumni_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    v1_core_alumni_slider_items_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["AlumniSlider"][];
-                };
-            };
-        };
-    };
-    v1_core_alumni_years_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Список років, наприклад: [2024, 2023, 2022] */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": number;
-                };
-            };
-        };
-    };
-    v1_core_educational_programs_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["EducationalProgram"][];
-                };
-            };
-        };
-    };
-    v1_core_faq_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["FAQ"][];
-                };
-            };
-        };
-    };
-    v1_core_main_slider_items_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["MainSliderItem"][];
-                };
-            };
-        };
-    };
-    v1_core_partners_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Partners"][];
-                };
-            };
-        };
-    };
-    v1_core_statistic_block_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StatisticBlock"][];
-                };
-            };
-        };
-    };
-    v1_departments_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["DepartmentList"][];
-                };
-            };
-        };
-    };
-    v1_departments_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["DepartmentDetail"];
-                };
-            };
-        };
-    };
-    v1_events_list: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Events"][];
-                };
-            };
-        };
-    };
-    v1_events_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Events"];
-                };
-            };
-        };
-    };
-    v1_users_me_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["UserProfileResponse"];
-                };
-            };
-            /** @description Токен відсутній або недійсний */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    v1_users_role_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["UserRoleResponse"];
-                };
-            };
-        };
-    };
-}
+export type operations = Record<string, never>;

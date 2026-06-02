@@ -61,9 +61,6 @@ function Chapter({
       </div>
 
       <div>
-        <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-violet-400">
-          — {chapter.label}
-        </p>
         <h3
           className="font-display mb-6 font-black leading-tight text-primary"
           style={{
@@ -93,9 +90,6 @@ export default function AboutSection({ className }: { className?: string }) {
     <section className={clsx("py-12 sm:py-16 lg:py-20", className)}>
       <div className="container-v2">
         <Reveal mode="fade" className="mb-10 flex items-center gap-4 lg:mb-14">
-          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary/25">
-            — Про інститут
-          </span>
           <div className="h-px flex-1 bg-surface-lg" />
         </Reveal>
 

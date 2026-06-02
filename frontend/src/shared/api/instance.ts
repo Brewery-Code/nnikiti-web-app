@@ -5,10 +5,8 @@ import { CONFIG } from "../model/config";
 import type { ApiPaths } from "./schema";
 import { refreshToken } from "../model/session";
 
-const API_ORIGIN = new URL(CONFIG.API_BASE_URL).origin;
-
 export const fetchClient = createFetchClient<ApiPaths>({
-  baseUrl: API_ORIGIN,
+  baseUrl: CONFIG.API_BASE_URL,
   headers: {
     "Accept-Language": i18n.language,
   },
@@ -17,7 +15,7 @@ export const fetchClient = createFetchClient<ApiPaths>({
 export const rqClient = createClient(fetchClient);
 
 export const publicFetchClient = createFetchClient<ApiPaths>({
-  baseUrl: API_ORIGIN,
+  baseUrl: CONFIG.API_BASE_URL,
   headers: {
     "Accept-Language": i18n.language,
   },

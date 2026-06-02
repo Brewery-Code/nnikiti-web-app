@@ -73,13 +73,10 @@ export function SearchPage() {
 
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-      <div className="min-h-screen bg-base pt-24 pb-20 sm:pt-32 lg:pt-40">
+      <div className="min-h-svh bg-base pt-24 pb-20 sm:pt-32 lg:pt-40">
         <div className="container-v2 max-w-[860px]">
           {/* header */}
           <div className="mb-10">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-              — Пошук
-            </p>
             <h1
               className="font-display font-black text-primary"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.04em" }}

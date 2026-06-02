@@ -115,9 +115,6 @@ export default function StatisticSection({ className = "" }: { className?: strin
 
       <div className="container-v2 relative">
         <Reveal mode="up" className="mb-10 text-center lg:mb-14">
-          <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-            — Університет у цифрах
-          </div>
           <h2
             className="font-display font-black"
             style={{

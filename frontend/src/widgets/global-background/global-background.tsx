@@ -1,63 +1,70 @@
-import { motion } from "framer-motion";
+export function SideOrbs() {
+  return (
+    <div className="pointer-events-none fixed inset-0 -z-[1] overflow-hidden opacity-40 md:opacity-100">
+      <div
+        className="orb-1 absolute rounded-full"
+        style={{
+          width: 700, height: 700,
+          left: "-12%", top: "-5%",
+          background: "radial-gradient(circle, rgba(124,58,237,0.35) 0%, rgba(124,58,237,0.08) 50%, transparent 70%)",
+          filter: "blur(0px)",
+          willChange: "transform",
+        }}
+      />
+      <div
+        className="orb-2 absolute rounded-full"
+        style={{
+          width: 620, height: 620,
+          right: "-10%", bottom: "3%",
+          background: "radial-gradient(circle, rgba(59,130,246,0.30) 0%, rgba(59,130,246,0.07) 50%, transparent 70%)",
+          filter: "blur(0px)",
+          willChange: "transform",
+        }}
+      />
+      <div
+        className="orb-3 absolute rounded-full"
+        style={{
+          width: 460, height: 460,
+          right: "12%", top: "38%",
+          background: "radial-gradient(circle, rgba(139,92,246,0.20) 0%, transparent 65%)",
+          filter: "blur(0px)",
+          willChange: "transform",
+        }}
+      />
+    </div>
+  );
+}
 
-export function GlobalBackground({ sideOrbs = false }: { sideOrbs?: boolean }) {
+export function GlobalBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#07080e]">
-      {/* Aurora blob 1 — violet, top-left */}
-      <motion.div
-        className="absolute rounded-full"
+      <div
+        className="orb-bg-1 absolute rounded-full"
         style={{
-          width: 650, height: 650,
-          left: "-12%", top: "-18%",
-          background: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%)",
-          filter: "blur(110px)",
+          width: 750, height: 750,
+          left: "-15%", top: "-20%",
+          background: "radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 62%)",
+          willChange: "transform",
         }}
-        animate={{ x: [0, 45, -20, 0], y: [0, 30, -15, 0] }}
-        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
       />
-
-      {/* Aurora blob 2 — indigo, bottom-right */}
-      <motion.div
-        className="absolute rounded-full"
+      <div
+        className="orb-bg-2 absolute rounded-full"
         style={{
-          width: 500, height: 500,
-          right: "-10%", bottom: "-8%",
-          background: "radial-gradient(circle, rgba(79,70,229,0.14) 0%, transparent 65%)",
-          filter: "blur(90px)",
+          width: 600, height: 600,
+          right: "-12%", bottom: "-10%",
+          background: "radial-gradient(circle, rgba(79,70,229,0.18) 0%, transparent 62%)",
+          willChange: "transform",
         }}
-        animate={{ x: [0, -35, 18, 0], y: [0, -40, 20, 0] }}
-        transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", delay: 7 }}
       />
-
-      {sideOrbs && (
-        <>
-          {/* Side orb left — violet, top-left */}
-          <motion.div
-            className="absolute rounded-full"
-            style={{
-              width: 520, height: 520,
-              left: "-8%", top: "2%",
-              background: "radial-gradient(circle, rgba(124,58,237,0.45) 0%, rgba(124,58,237,0.12) 50%, transparent 70%)",
-              filter: "blur(60px)",
-            }}
-            animate={{ scale: [0.75, 1.2, 0.85, 0.75], x: [0, 20, -10, 0], y: [0, -30, 15, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          {/* Side orb right — blue, bottom-right */}
-          <motion.div
-            className="absolute rounded-full"
-            style={{
-              width: 460, height: 460,
-              right: "-7%", bottom: "2%",
-              background: "radial-gradient(circle, rgba(59,130,246,0.40) 0%, rgba(59,130,246,0.10) 50%, transparent 70%)",
-              filter: "blur(55px)",
-            }}
-            animate={{ scale: [0.7, 1.18, 0.82, 0.7], x: [0, -18, 9, 0], y: [0, 28, -14, 0] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          />
-        </>
-      )}
+      <div
+        className="orb-bg-3 absolute rounded-full"
+        style={{
+          width: 480, height: 480,
+          right: "-6%", top: "-5%",
+          background: "radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 65%)",
+          willChange: "transform",
+        }}
+      />
 
       {/* Subtle noise grain */}
       <div

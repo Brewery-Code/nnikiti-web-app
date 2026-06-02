@@ -42,7 +42,7 @@ function PhotoCard({
 }
 
 function SectionHeader({
-  eyebrow,
+  eyebrow: _eyebrow,
   title,
   highlight,
   linkTo,
@@ -57,9 +57,6 @@ function SectionHeader({
   return (
     <Reveal mode="up" className="mb-8 flex items-end justify-between gap-4 lg:mb-12">
       <div>
-        <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-          — {eyebrow}
-        </p>
         <h2
           className="font-display font-black text-primary"
           style={{
