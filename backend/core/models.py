@@ -105,7 +105,7 @@ class Alumnus(TranslatableModel):
         workplace = models.CharField(max_length=255,blank=True, verbose_name=_("Workplace")),
         position = models.CharField(max_length=100,blank=True, verbose_name=_("Position")),
     )
-    image = models.ImageField(upload_to="alumnus/",)
+    image = models.ImageField(upload_to="alumnus/", blank=True)
     links = models.JSONField(
             verbose_name=_("Social links or other publication"),
             blank=True,

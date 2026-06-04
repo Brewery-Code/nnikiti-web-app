@@ -19,6 +19,8 @@ tags:
     description: Events endpoints
   - name: departments
     description: Departments endpoints
+  - name: gallery
+    description: Gallery endpoints
 
 paths:
   /core/main-slider-items/:
@@ -158,60 +160,45 @@ paths:
     post:
       tags:
         - core
-      summary: Create a new Alumnus
-      description: Creates a new Alumnus with Ukrainian translation fields
+      summary: Подати заявку випускника
+      description: >
+        Публічна форма для випускників. Запис створюється зі статусом `DRAFT`
+        і потребує модерації адміністратором перед публікацією.
       requestBody:
         required: true
         content:
           multipart/form-data:
             schema:
               type: object
+              required: [first_name, last_name, graduation_year, major]
               properties:
-                full_name:
+                first_name:
                   type: string
-                  example: "Іван Іваненко"
-                  description: Full name of the alumnus (Ukrainian)
-                text:
+                  example: "Іван"
+                  description: Ім'я випускника
+                last_name:
                   type: string
-                  example: "Graduated in Computer Science."
-                  description: Short bio or description (optional)
+                  example: "Іваненко"
+                  description: Прізвище випускника
+                graduation_year:
+                  type: integer
+                  example: 2024
+                  description: Рік випуску
                 major:
                   type: string
-                  example: "Computer Science"
-                  description: Major field of study
-                degree:
+                  example: "122 — Комп'ютерні науки"
+                  description: Спеціальність
+                text:
                   type: string
-                  example: "Bachelor"
-                  description: Degree obtained
-                workplace:
-                  type: string
-                  example: "Google"
-                  description: Workplace (optional)
-                position:
-                  type: string
-                  example: "Software Engineer"
-                  description: Position at workplace (optional)
+                  example: "Зараз працюю в Google як Software Engineer"
+                  description: Ваша історія (необов'язково)
                 image:
                   type: string
                   format: binary
-                  description: Profile image of the alumnus
-                links:
-                  type: object
-                  additionalProperties:
-                    type: string
-                  example:
-                    instagram: "https://instagram.com/ivan"
-                    telegram: "https://t.me/ivan"
-                    facebook: "https://facebook.com/ivan"
-                  description: Social links or other publications (optional)
-                date_of_graduation:
-                  type: string
-                  format: date
-                  example: "2024-06-15"
-                  description: Graduation date
+                  description: Фото (необов'язково)
       responses:
         "201":
-          description: Successfully created Alumnus
+          description: Заявку успішно подано
           content:
             application/json:
               schema:
@@ -221,7 +208,7 @@ paths:
                     type: integer
                     example: 123
         "400":
-          description: Invalid request
+          description: Невалідні дані
           content:
             application/json:
               schema:
@@ -526,6 +513,62 @@ paths:
                 properties:
                   detail:
                     type: string
+  /gallery/albums/:
+    get:
+      tags:
+        - gallery
+      summary: Список альбомів
+      description: Повертає опубліковані альбоми. Фільтри — `?year=`, `?year_from=`, `?year_to=`.
+      parameters:
+        - in: query
+          name: year
+          schema:
+            type: integer
+          required: false
+          description: Фільтр за конкретним роком
+        - in: query
+          name: year_from
+          schema:
+            type: integer
+          required: false
+          description: Фільтр від року (включно)
+        - in: query
+          name: year_to
+          schema:
+            type: integer
+          required: false
+          description: Фільтр до року (включно)
+      responses:
+        "200":
+          description: Список альбомів успішно повернуто
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Album"
+  /gallery/albums/{id}/:
+    get:
+      tags:
+        - gallery
+      summary: Деталі альбому
+      description: Повертає альбом з усіма фото.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Альбом успішно повернуто
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AlbumDetail"
+        "404":
+          description: Альбом не знайдено
+
   /departments/:
     get:
       tags:
@@ -550,6 +593,38 @@ paths:
                 properties:
                   detail:
                     type: string
+  /departments/staff/:
+    get:
+      tags:
+        - departments
+      summary: Повертає весь персонал (викладачі + завідувачі кафедр)
+      description: >
+        Повертає об'єднаний список усіх завідувачів кафедр та викладачів.
+        Поле `type` = `"head"` або `"faculty"`.
+        Необов'язковий фільтр `?department=<id>` звужує результат до однієї кафедри.
+      parameters:
+        - in: query
+          name: department
+          schema:
+            type: integer
+          required: false
+          description: ID кафедри для фільтрації
+      responses:
+        "200":
+          description: Список персоналу успішно повернуто
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StaffMember"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   /departments/{id}/:
     get:
       tags:
@@ -993,6 +1068,52 @@ components:
           description: Chronological history of the department
           items:
             $ref: '#/components/schemas/DepartmentHistory'
+    StaffMember:
+      type: object
+      description: >
+        Уніфікований об'єкт персоналу. Поле `type` визначає тип:
+        `"head"` — завідувач кафедри, `"faculty"` — викладач.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          type: string
+          enum: [head, faculty]
+          description: Тип запису
+        full_name:
+          type: string
+          description: ПІБ завідувача (тільки для type=head, мовозалежне)
+        name:
+          type: string
+          description: ПІБ викладача (тільки для type=faculty, мовозалежне)
+        regalia:
+          type: string
+          description: Науковий ступінь/звання (тільки для type=head, мовозалежне)
+          nullable: true
+        role:
+          type: string
+          description: Посада викладача (тільки для type=faculty, мовозалежне)
+          nullable: true
+        specialty:
+          type: string
+          description: Спеціальність викладача (тільки для type=faculty, мовозалежне)
+          nullable: true
+        image:
+          type: string
+          format: uri
+          nullable: true
+        email:
+          type: string
+          format: email
+          nullable: true
+        audience:
+          type: string
+          nullable: true
+        department_id:
+          type: integer
+          description: ID кафедри
+
     Alumnus:
       type: object
       properties:
@@ -1045,6 +1166,55 @@ components:
         position:
           type: string
           readOnly: true
+    AlbumPhoto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          type: string
+          format: uri
+        published_at:
+          type: string
+          format: date
+        order:
+          type: integer
+
+    Album:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          description: Назва альбому (мовозалежна)
+        description:
+          type: string
+          description: Опис альбому (мовозалежний)
+        cover:
+          type: string
+          format: uri
+          nullable: true
+        date:
+          type: string
+          format: date
+        status:
+          type: string
+          enum: [DF, PB]
+          description: "DF = Draft, PB = Published"
+
+    AlbumDetail:
+      allOf:
+        - $ref: '#/components/schemas/Album'
+        - type: object
+          properties:
+            photos:
+              type: array
+              items:
+                $ref: '#/components/schemas/AlbumPhoto'
+
     AlumniSliderItem:
       type: object
       properties:

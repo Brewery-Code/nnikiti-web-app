@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus
+from .models import MainSliderItem, StatisticBlock, Partner, FAQ, Alumnus, AlumniSlider
 
 
 class MainSliderItemSerializer(serializers.ModelSerializer):
@@ -46,42 +46,38 @@ class AlumnusSerializer(serializers.ModelSerializer):
 class AlumniSliderSerializer(serializers.ModelSerializer):
     """Serializer for the AlumniSlider model."""
     class Meta:
-        model = Alumnus
+        model = AlumniSlider
         fields = ["id", "image"]
 
 
-class AlumnusCreateSerializer(serializers.ModelSerializer):
-    """Serializer for creating alumnus (Ukrainian translation only)"""
-    full_name = serializers.CharField(write_only=True)
-    text = serializers.CharField(write_only=True, required=False)
-    major = serializers.CharField(write_only=True)
-    degree = serializers.CharField(write_only=True)
-    workplace = serializers.CharField(write_only=True, required=False)
-    position = serializers.CharField(write_only=True, required=False)
-    image = serializers.ImageField()
-    date_of_graduation = serializers.DateField()
-    links = serializers.JSONField(required=False)
-
-    class Meta:
-        model = Alumnus
-        fields = ('full_name', 'text', 'major', 'degree', 'workplace', 'position', 'image', 'links', 'date_of_graduation')
+class AlumnusCreateSerializer(serializers.Serializer):
+    """Serializer for creating alumnus from the public form."""
+    first_name = serializers.CharField(max_length=150)
+    last_name = serializers.CharField(max_length=150)
+    graduation_year = serializers.IntegerField(min_value=1990, max_value=2100)
+    major = serializers.CharField(max_length=50)
+    text = serializers.CharField(required=False, allow_blank=True, default='')
+    image = serializers.ImageField(required=False)
 
     def create(self, validated_data):
-        translations_data = {
-            'full_name': validated_data.pop('full_name'),
-            'text': validated_data.pop('text', ''),
-            'major': validated_data.pop('major'),
-            'degree': validated_data.pop('degree'),
-            'workplace': validated_data.pop('workplace', ''),
-            'position': validated_data.pop('position', ''),
-        }
+        import datetime
+        full_name = f"{validated_data['last_name']} {validated_data['first_name']}"
+        year = validated_data['graduation_year']
+        date_of_graduation = datetime.date(year, 6, 30)
 
-        alumnus = Alumnus(**validated_data)
+        alumnus = Alumnus(
+            date_of_graduation=date_of_graduation,
+            status=Alumnus.Status.DRAFT,
+        )
+        if validated_data.get('image'):
+            alumnus.image = validated_data['image']
         alumnus.save()
 
         alumnus.set_current_language('uk')
-        for field, value in translations_data.items():
-            setattr(alumnus, field, value)
+        alumnus.full_name = full_name
+        alumnus.major = validated_data['major']
+        alumnus.text = validated_data.get('text', '')
+        alumnus.degree = ''
         alumnus.save()
 
         return alumnus

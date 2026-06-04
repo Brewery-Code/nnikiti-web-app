@@ -2,7 +2,7 @@ SETTINGS ?= mysite.settings.local
 CONTAINER = api_container
 COMPOSE = docker compose
 
-MANAGE = docker exec $(CONTAINER) python manage.py --settings=$(SETTINGS)
+MANAGE = docker exec $(CONTAINER) python manage.py
 
 # ─── Containers ───────────────────────────────────────────────────────────────
 
@@ -42,45 +42,45 @@ ps:
 
 .PHONY: migrate
 migrate:
-	$(MANAGE) migrate
+	$(MANAGE) migrate --settings=$(SETTINGS)
 
 .PHONY: migrations
 migrations:
-	$(MANAGE) makemigrations
+	$(MANAGE) makemigrations --settings=$(SETTINGS)
 
 .PHONY: shell
 shell:
-	$(MANAGE) shell
+	$(MANAGE) shell --settings=$(SETTINGS)
 
 .PHONY: superuser
 superuser:
-	$(MANAGE) createsuperuser
+	$(MANAGE) createsuperuser --settings=$(SETTINGS)
 
 .PHONY: collectstatic
 collectstatic:
-	$(MANAGE) collectstatic --noinput
+	$(MANAGE) collectstatic --noinput --settings=$(SETTINGS)
 
 # ─── Fixtures ─────────────────────────────────────────────────────────────────
 
 .PHONY: loaddata
 loaddata:
-	$(MANAGE) loaddata backup.json core-backup.json
+	$(MANAGE) loaddata backup.json core-backup.json --settings=$(SETTINGS)
 
 .PHONY: dumpdata
 dumpdata:
 	$(MANAGE) dumpdata --natural-foreign --natural-primary \
 		--exclude auth.permission --exclude contenttypes \
-		--indent 2 -o backup.json
+		--indent 2 -o backup.json --settings=$(SETTINGS)
 
 # ─── Translations ─────────────────────────────────────────────────────────────
 
 .PHONY: messages
 messages:
-	$(MANAGE) makemessages -l uk -l en
+	$(MANAGE) makemessages -l uk -l en --settings=$(SETTINGS)
 
 .PHONY: compilemessages
 compilemessages:
-	$(MANAGE) compilemessages
+	$(MANAGE) compilemessages --settings=$(SETTINGS)
 
 # ─── uv ───────────────────────────────────────────────────────────────────────
 

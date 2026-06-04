@@ -161,6 +161,52 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
         return obj.safe_translation_getter('form', any_language=True)
 
 
+class StaffFacultyMemberSerializer(serializers.ModelSerializer):
+    """FacultyMember for the staff endpoint — includes department info."""
+    name = serializers.SerializerMethodField()
+    role = serializers.SerializerMethodField()
+    specialty = serializers.SerializerMethodField()
+    department_id = serializers.IntegerField(source="department.pk", read_only=True)
+    type = serializers.SerializerMethodField()
+
+    class Meta:
+        model = FacultyMember
+        fields = ["id", "type", "name", "role", "specialty", "image", "email", "audience", "department_id"]
+
+    def _lang(self, obj, field):
+        request = self.context.get('request')
+        lang = request.LANGUAGE_CODE if request else 'uk'
+        en_val = getattr(obj, f"{field}_en", '')
+        return en_val if lang == 'en' and en_val else getattr(obj, f"{field}_uk", '')
+
+    def get_name(self, obj): return self._lang(obj, 'name')
+    def get_role(self, obj): return self._lang(obj, 'role')
+    def get_specialty(self, obj): return self._lang(obj, 'specialty')
+    def get_type(self, obj): return "faculty"
+
+
+class StaffHeadSerializer(serializers.ModelSerializer):
+    """HeadOfDepartment for the staff endpoint — includes department info."""
+    full_name = serializers.SerializerMethodField()
+    regalia = serializers.SerializerMethodField()
+    department_id = serializers.IntegerField(source="department.pk", read_only=True)
+    type = serializers.SerializerMethodField()
+
+    class Meta:
+        model = HeadOfDepartment
+        fields = ["id", "type", "full_name", "regalia", "email", "audience", "image", "department_id"]
+
+    def _lang(self, obj, field):
+        request = self.context.get('request')
+        lang = request.LANGUAGE_CODE if request else 'uk'
+        en_val = getattr(obj, f"{field}_en", '')
+        return en_val if lang == 'en' and en_val else getattr(obj, f"{field}_uk", '')
+
+    def get_full_name(self, obj): return self._lang(obj, 'full_name')
+    def get_regalia(self, obj): return self._lang(obj, 'regalia')
+    def get_type(self, obj): return "head"
+
+
 class DepartmentDetailSerializer(serializers.ModelSerializer):
     """Serializer for DepartmentDetail."""
     name = serializers.SerializerMethodField()
