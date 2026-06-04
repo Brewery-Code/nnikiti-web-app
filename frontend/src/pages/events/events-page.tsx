@@ -7,7 +7,6 @@ import { publicRqClient } from "@/shared/api/instance";
 import { resolveMediaUrl } from "@/shared/model/config";
 import type { components } from "@/shared/api/schema/generated";
 import {
-  CALENDAR_EVENTS,
   EVENT_TYPE_META,
   type CalendarEvent,
   type EventType,
@@ -60,10 +59,6 @@ function scrollToId(id: string) {
     });
 }
 
-const TABS = [
-  { id: "calendar", label: "Календар" },
-  { id: "news", label: "Новини" },
-];
 
 function SectionTitle({
   eyebrow: _eyebrow,
@@ -359,8 +354,6 @@ function CalendarSection() {
     });
     setSelected(null);
   };
-
-  const todayStr = new Date().toISOString().slice(0, 10);
 
   const visibleEvents = apiCalendarEvents
     .filter((e) => typeFilter === ALL_TYPES || e.type === typeFilter)
