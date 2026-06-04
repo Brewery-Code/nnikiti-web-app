@@ -95,14 +95,10 @@ function SectionTitle({
 
 function Hero() {
   const location = useLocation();
-  const [active, setActive] = useState("calendar");
 
   useEffect(() => {
     const hash = location.hash.replace("#", "");
-    if (hash && TABS.find((t) => t.id === hash)) {
-      setActive(hash);
-      setTimeout(() => scrollToId(hash), 100);
-    }
+    if (hash) setTimeout(() => scrollToId(hash), 100);
   }, [location.hash]);
 
   return (
@@ -155,36 +151,24 @@ function Hero() {
           олімпіади, оголошення, новини та культурні заходи.
         </StaggerItem>
 
-        <StaggerItem mode="up" className="mt-10 flex flex-wrap gap-2">
-          {TABS.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => {
-                setActive(tab.id);
-                scrollToId(tab.id);
-              }}
-              className={clsx(
-                "rounded-[12px] px-5 py-2.5 text-[14px] font-semibold transition-all duration-200",
-                active === tab.id
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                  : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:bg-surface-xl hover:text-primary"
-              )}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </StaggerItem>
       </Stagger>
       <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
     </section>
   );
 }
 
+function categoryToType(name?: string): EventType {
+  const lower = (name ?? "").toLowerCase();
+  for (const [type, meta] of Object.entries(EVENT_TYPE_META)) {
+    if (meta.label.toLowerCase() === lower) return type as EventType;
+  }
+  return "conference";
+}
+
 function MiniCalendar({
   year,
   month,
   events,
-  apiEventDots,
   selected,
   onSelect,
   onPrev,
@@ -193,7 +177,6 @@ function MiniCalendar({
   year: number;
   month: number;
   events: CalendarEvent[];
-  apiEventDots: { date: string; color: string }[];
   selected: string | null;
   onSelect: (d: string) => void;
   onPrev: () => void;
@@ -216,11 +199,6 @@ function MiniCalendar({
     day === today.getDate() &&
     month === today.getMonth() &&
     year === today.getFullYear();
-
-  const apiEventsOnDay = (day: number) => {
-    const dateStr = toDateStr(year, month, day);
-    return apiEventDots.filter((d) => d.date === dateStr);
-  };
 
   const isPast = (day: number) => toDateStr(year, month, day) < todayStr;
 
@@ -278,38 +256,28 @@ function MiniCalendar({
               )}
             >
               {day}
-              {(() => {
-                const apiDayDots = apiEventsOnDay(day);
-                const allDots = [
-                  ...dayEvents.map(() => ({ color: "" })),
-                  ...apiDayDots,
-                ].slice(0, 3);
-                const past = isPast(day);
-                if (!allDots.length) return null;
-                return (
-                  <div className="mt-0.5 flex gap-[3px]">
-                    {allDots.map((dot, i) => (
+              {dayEvents.length > 0 && (
+                <div className="mt-0.5 flex gap-[3px]">
+                  {dayEvents.slice(0, 3).map((ev, i) => {
+                    const accent = EVENT_TYPE_META[ev.type]?.accent ?? "#8b5cf6";
+                    const past = isPast(day);
+                    return (
                       <span
                         key={i}
                         aria-hidden
-                        className={clsx(
-                          "h-1 w-1 rounded-full",
-                          !isSelected && !past && !dot.color && "bg-gradient-to-r from-violet-400 to-blue-400"
-                        )}
-                        style={
-                          isSelected
-                            ? { background: "#fff" }
+                        className="h-1 w-1 rounded-full"
+                        style={{
+                          background: isSelected
+                            ? "#fff"
                             : past
-                              ? { background: "rgba(255,255,255,0.25)" }
-                              : dot.color
-                                ? { background: dot.color }
-                                : undefined
-                        }
+                              ? "rgba(255,255,255,0.25)"
+                              : accent,
+                        }}
                       />
-                    ))}
-                  </div>
-                );
-              })()}
+                    );
+                  })}
+                </div>
+              )}
             </button>
           );
         })}
@@ -337,7 +305,7 @@ function EventListItem({ event }: { event: CalendarEvent }) {
             {meta.label}
           </span>
           <span className="text-[11px] text-subtle">
-            {event.time} · {event.location}
+            {[event.time, event.location].filter(Boolean).join(" · ")}
           </span>
         </div>
         <p className="font-display truncate text-[15px] font-semibold text-primary">
@@ -358,13 +326,19 @@ function CalendarSection() {
   const [month, setMonth] = useState(() => new Date().getMonth());
 
   const { data: apiEventsRaw } = publicRqClient.useQuery("get", "/events/", {});
-  type ApiDot = { date: string; color: string };
-  const apiEventDots: ApiDot[] = ((apiEventsRaw ?? []) as { event_date?: string | null; created_at?: string; category?: { rgb_color?: string } }[])
+
+  const apiCalendarEvents: CalendarEvent[] = ((apiEventsRaw ?? []) as ApiEvent[])
+    .filter((e) => !!e.event_date && !!e.title)
     .map((e) => ({
-      date: (e.event_date ?? e.created_at ?? "").slice(0, 10),
-      color: e.category?.rgb_color ? `rgba${e.category.rgb_color}` : "",
-    }))
-    .filter((d) => d.date);
+      id: e.id ?? 0,
+      title: e.title ?? "",
+      type: categoryToType(e.category?.name),
+      date: (e.event_date as string).slice(0, 10),
+      time: "",
+      location: e.location ?? "",
+      description: stripMarkdown(e.body),
+    }));
+
   const [selected, setSelected] = useState<string | null>(null);
   const [typeFilter, setTypeFilter] = useState<EventType | typeof ALL_TYPES>(
     ALL_TYPES
@@ -388,13 +362,12 @@ function CalendarSection() {
 
   const todayStr = new Date().toISOString().slice(0, 10);
 
-  const visibleEvents = CALENDAR_EVENTS.filter(
-    (e) => typeFilter === ALL_TYPES || e.type === typeFilter
-  )
+  const visibleEvents = apiCalendarEvents
+    .filter((e) => typeFilter === ALL_TYPES || e.type === typeFilter)
     .filter((e) => {
-      if (selected) return e.date === selected && e.date >= todayStr;
+      if (selected) return e.date === selected;
       const [ey, em] = e.date.split("-").map(Number);
-      return ey === year && em - 1 === month && e.date >= todayStr;
+      return ey === year && em - 1 === month;
     })
     .sort((a, b) => a.date.localeCompare(b.date));
 
@@ -412,8 +385,7 @@ function CalendarSection() {
             <MiniCalendar
               year={year}
               month={month}
-              events={CALENDAR_EVENTS}
-              apiEventDots={apiEventDots}
+              events={apiCalendarEvents}
               selected={selected}
               onSelect={setSelected}
               onPrev={() => changeMonth(-1)}
@@ -524,7 +496,7 @@ function NewsCard({ item }: { item: ApiEvent }) {
 
       <div className="flex flex-1 flex-col p-6">
         <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-subtle">
-          {formatDate(item.created_at)}
+          {formatDate(item.event_date ?? item.created_at)}
         </p>
         <h3
           className="font-display mb-3 line-clamp-3 flex-1 font-bold leading-snug text-primary"
@@ -546,10 +518,10 @@ function NewsCard({ item }: { item: ApiEvent }) {
 function NewsSection() {
   const [visibleCount, setVisibleCount] = useState(3);
   const { data, isPending } = publicRqClient.useQuery("get", "/events/", {});
-  const events = (data ?? []) as ApiEvent[];
+  const events = ((data ?? []) as ApiEvent[]).filter((e) => !!e.title);
 
   const visible = events.slice(0, visibleCount);
-  const hasMore = visibleCount < events.length;
+  const hasMore = visible.length < events.length;
 
   if (isPending) {
     return (
@@ -570,13 +542,13 @@ function NewsSection() {
     <section id="news" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
       <div className="container-v2">
         <SectionTitle eyebrow="Новини" title="Останні" highlight="новини" />
-        <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1} amount={0.05}>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((item) => (
-            <StaggerItem key={item.id} mode="up" className="h-full">
+            <Reveal key={item.id} mode="up" amount={0.05} className="h-full">
               <NewsCard item={item} />
-            </StaggerItem>
+            </Reveal>
           ))}
-        </Stagger>
+        </div>
         {hasMore && (
           <div className="mt-10 flex justify-center">
             <button

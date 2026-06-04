@@ -27,25 +27,13 @@ export default function WhySection({ className = "" }: { className?: string }) {
       style={{ background: "linear-gradient(180deg, #08090f 0%, #0d0e1a 55%, #08090f 100%)" }}
     >
       {/* ambient glows */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute"
-        style={{
-          top: "5%", left: "-8%",
-          width: 480, height: 480, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(166,132,255,0.07) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
+      <div aria-hidden className="pointer-events-none absolute hidden md:block"
+        style={{ top: "5%", left: "-8%", width: 480, height: 480, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(166,132,255,0.07) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute"
-        style={{
-          bottom: "5%", right: "-8%",
-          width: 400, height: 400, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(81,162,255,0.06) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
+      <div aria-hidden className="pointer-events-none absolute hidden md:block"
+        style={{ bottom: "5%", right: "-8%", width: 400, height: 400, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(81,162,255,0.06) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
 
       <div className="container-v2 relative">
@@ -97,25 +85,6 @@ export default function WhySection({ className = "" }: { className?: string }) {
                 </div>
               </div>
 
-              {/* Floating stat badge */}
-              <div
-                className="absolute -bottom-4 left-[calc(62.5%+8px)] right-0 rounded-[18px] px-5 py-4"
-                style={{
-                  background: "rgba(8,9,15,0.82)",
-                  border: "1px solid rgba(166,132,255,0.22)",
-                  backdropFilter: "blur(16px)",
-                }}
-              >
-                <p
-                  className="font-display font-black text-white"
-                  style={{ fontSize: "1.55rem", letterSpacing: "-0.04em", lineHeight: 1 }}
-                >
-                  Топ-44
-                </p>
-                <p className="mt-1 text-[10px] leading-[1.5] text-white/35">
-                  університет України з 1922 року
-                </p>
-              </div>
 
             </div>
           </Reveal>
@@ -123,9 +92,7 @@ export default function WhySection({ className = "" }: { className?: string }) {
           {/* ── Right: heading + advantages ─────────────────────────────── */}
           <Reveal mode="right" amount={0.15}>
             <div className="lg:pl-2">
-              <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-blue-500">
-                — Наші переваги
-              </p>
+
               <h2
                 className="font-display font-black text-white"
                 style={{

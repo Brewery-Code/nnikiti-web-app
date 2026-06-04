@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "badge": "Future of departments",
+    "badgeSub": "NNI KITI",
+    "title": "Development",
+    "titleAccent": "strategy",
+    "description": "Each department of NNI KITI has formed a strategic vision for its development — new research schools, modern educational programmes, international partnerships and technology laboratories."
+  },
+  "themes": {
+    "title": "Cross-cutting",
+    "titleAccent": "priorities",
+    "items": [
+      {
+        "icon": "◈",
+        "title": "Artificial Intelligence & ML",
+        "text": "Building new research schools in AI, machine learning, data analytics and data engineering — simultaneously across the CSAM, CTEK and CT departments."
+      },
+      {
+        "icon": "⬡",
+        "title": "Cybersecurity",
+        "text": "Establishing cybersecurity and information protection laboratories, training specialists capable of effectively countering growing cyber threats."
+      },
+      {
+        "icon": "◎",
+        "title": "International partnerships",
+        "text": "Participation in Erasmus+ and Horizon Europe grant programmes, faculty and student internships, partnerships with ETH Zurich and the Warsaw University of Life Sciences."
+      },
+      {
+        "icon": "⬟",
+        "title": "New programmes",
+        "text": "Data Engineering, Information Security, Computer and Mathematical Modelling — new programmes aligned with the needs of the modern labour market."
+      }
+    ]
+  },
+  "depts": {
+    "title": "Future of",
+    "titleAccent": "departments",
+    "description": "Strategic plans of each department based on materials for the 25th anniversary of NNI KITI.",
+    "items": [
+      {
+        "abbr": "CSAM",
+        "name": "Computer Sciences and Applied Mathematics",
+        "points": [
+          "Development of research schools in mathematical and computer modelling and formation of new research directions: data analytics and engineering, AI and machine learning, IoT, mathematical biology.",
+          "Improvement of educational programmes through minors and majors, the new Data Engineering programme, project-based learning and dual education.",
+          "Active participation in Erasmus+ and Horizon Europe grant programmes. Faculty internships at leading IT companies. Joint projects with startups and IT companies."
+        ]
+      },
+      {
+        "abbr": "CTEK",
+        "name": "Computer Technologies and Economic Cybernetics",
+        "points": [
+          "Introduction of new courses in artificial intelligence, machine learning, big data processing, and frontend/backend web development. Active implementation of English-language courses.",
+          "Collaboration with the Warsaw University of Life Sciences (construction project management optimisation and BIM technologies) and ETH Zurich (machine learning methods for studying the impact of climate change on agricultural production).",
+          "Development of a digital learning technology laboratory and educational activity management efficiency analysis."
+        ]
+      },
+      {
+        "abbr": "CT",
+        "name": "Computing Engineering",
+        "points": [
+          "Formation of new research schools in artificial intelligence, IoT, cloud and distributed technologies, cyber defence and high-performance computing. Implementation of dual education and practice-oriented disciplines.",
+          "Establishment of cybersecurity and information protection laboratories to prepare graduates capable of effectively working under increasing cyber threats and global digitalisation.",
+          "Collaboration with leading IT companies, participation in Erasmus+ and Horizon Europe international programmes, partnerships with domestic and foreign universities."
+        ]
+      },
+      {
+        "abbr": "HM",
+        "name": "Higher Mathematics",
+        "points": [
+          "Providing a high level of mathematical training for bachelor's and master's students across six educational and research institutes of NUWM.",
+          "In 2025–2026 a new educational programme Computer and Mathematical Modelling in the speciality Applied Mathematics within the field of Information Technologies was initiated."
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Strategy is us",
+    "titleAccent": "together",
+    "description": "Students, faculty and partners are all the driving force behind the development of NNI KITI. Join the institute that is building the future of IT education.",
+    "contact": "Contact us",
+    "history": "Our history"
+  }
+}

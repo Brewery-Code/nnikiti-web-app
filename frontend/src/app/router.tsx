@@ -24,10 +24,7 @@ export const router = createBrowserRouter([
         path: ROUTES.HISTORY,
         lazy: () => import("@/pages/history/history-page"),
       },
-      {
-        path: ROUTES.STRATEGY,
-        lazy: () => import("@/pages/strategy/strategy-page"),
-      },
+
       {
         path: ROUTES.EVENTS,
         lazy: () => import("@/pages/events/events-page"),

@@ -27,7 +27,7 @@ export function Header() {
       link: ROUTES.HISTORY,
       list: [
         { title: t("navigationMenu.history"), link: ROUTES.HISTORY },
-        { title: t("navigationMenu.strategy"), link: ROUTES.STRATEGY },
+
         { title: t("navigationMenu.team"), link: ROUTES.TEAM },
         { title: t("navigationMenu.gallery"), link: ROUTES.GALLERY },
         { title: t("navigationMenu.graduates"), link: ROUTES.ALUMNI },

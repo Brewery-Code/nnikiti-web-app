@@ -1,48 +1,12 @@
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { Reveal } from "@/shared/ui";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "../hero-section/locales";
 
-const chapters = [
-  {
-    label: "Витоки",
-    title: "Від факультету до інституту",
-    paragraphs: [
-      "Історія ННІКІТІ бере початок у 2000 році, коли в НУВГП було засновано факультет прикладної математики та комп'ютерно-інтегрованих систем. Відтоді ідея підготовки IT-фахівців у стінах технічного університету перетворилась на повноцінний стратегічний напрям розвитку закладу.",
-      "12 квітня 2013 року наказом ректора на базі цього факультету створено Навчально-науковий інститут комп'ютерних та інноваційних технологій та економіки — ННІКІТІ. Інститут об'єднав профільні кафедри й отримав самостійну адміністративну структуру, власний науковий потенціал та матеріально-технічну базу.",
-    ],
-  },
-  {
-    label: "Структура",
-    title: "Кафедри та підрозділи",
-    paragraphs: [
-      "До складу ННІКІТІ входять кафедри вищої математики, обчислювальної техніки, комп'ютерних наук та прикладної математики, автоматизації, електричних та комп'ютерно-інтегрованих технологій, а також кафедра комп'ютерних технологій та економічної кібернетики.",
-      "Остання виникла у 2019 році шляхом злиття двох підрозділів — кафедри комп'ютерних наук (заснована липень 2013) та кафедри економічної кібернетики (заснована квітень 2013). Сьогодні тут зосереджені програми з інформаційних технологій в бізнесі, дистанційного навчання та економічної кібернетики.",
-    ],
-  },
-  {
-    label: "Наука",
-    title: "Дослідження і партнерства",
-    paragraphs: [
-      "ННІКІТІ активно провадить наукову діяльність: викладачі та студенти беруть участь у міжнародних грантових програмах, публікують роботи у виданнях, що індексуються Scopus та Web of Science, а також організовують щорічні науково-практичні конференції.",
-      "Інститут співпрацює з провідними IT-компаніями регіону, які долучаються до розробки навчальних програм, забезпечують студентам доступ до реальних проєктів та надають потужні стажування. Завдяки цьому відсоток працевлаштування випускників стабільно залишається на рівні 90–95%.",
-    ],
-  },
-  {
-    label: "Сьогодення",
-    title: "ННІКІТІ у цифрову епоху",
-    paragraphs: [
-      "Нині ННІКІТІ готує фахівців за восьма ліцензованими спеціальностями у сфері IT, автоматизації та кібербезпеки. В інституті функціонують сучасні комп'ютерні класи, лабораторія кібербезпеки та Центр цифрових компетенцій — простір для інноваційних проєктів і стартапів.",
-      "У 2015 році НУВГП, до складу якого входить ННІКІТІ, приєднався до Magna Charta Universitatum — міжнародної хартії університетів, що підтверджує відданість принципам академічної свободи. Для студентів доступні програми подвійних дипломів з європейськими університетами та академічна мобільність у рамках Erasmus+.",
-    ],
-  },
-];
+type Chapter = { label: string; title: string; paragraphs: string[] };
 
-function Chapter({
-  chapter,
-  index,
-}: {
-  chapter: (typeof chapters)[0];
-  index: number;
-}) {
+function Chapter({ chapter, index }: { chapter: Chapter; index: number }) {
   return (
     <div className="grid grid-cols-[64px_1fr] gap-8 border-t border-white/[0.07] py-12 md:grid-cols-[120px_1fr] md:gap-12 lg:py-16">
       <div className="flex flex-col items-start pt-1">
@@ -86,6 +50,11 @@ function Chapter({
 }
 
 export default function AboutSection({ className }: { className?: string }) {
+  useLoadNamespace("history", loadTranslations);
+  const { t } = useTranslation("history");
+
+  const chapters = t("about.chapters", { returnObjects: true }) as Chapter[];
+
   return (
     <section className={clsx("py-12 sm:py-16 lg:py-20", className)}>
       <div className="container-v2">
@@ -101,15 +70,17 @@ export default function AboutSection({ className }: { className?: string }) {
               letterSpacing: "-0.04em",
             }}
           >
-            Хто ми <span className="text-grad">насправді</span>
+            {t("about.sectionTitle")}{" "}
+            <span className="text-grad">{t("about.sectionTitleAccent")}</span>
           </h2>
         </Reveal>
 
-        {chapters.map((chapter, i) => (
-          <Reveal key={i} mode="up" amount={0.1}>
-            <Chapter chapter={chapter} index={i} />
-          </Reveal>
-        ))}
+        {Array.isArray(chapters) &&
+          chapters.map((chapter, i) => (
+            <Reveal key={i} mode="up" amount={0.1}>
+              <Chapter chapter={chapter} index={i} />
+            </Reveal>
+          ))}
       </div>
     </section>
   );

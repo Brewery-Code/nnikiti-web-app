@@ -59,7 +59,7 @@ function StatCard({ stat, tall }: { stat: StatItem; tall?: boolean }) {
     <div
       ref={ref}
       className={clsx(
-        "grad-border card-hover flex h-full flex-col items-center justify-center overflow-hidden rounded-2xl px-4 py-5 text-center backdrop-blur-xl sm:px-5 sm:py-7 sm:rounded-[20px]",
+        "grad-border card-hover flex h-full flex-col items-center justify-center overflow-hidden rounded-2xl bg-[#0a0b14] px-4 py-5 text-center sm:bg-transparent sm:px-5 sm:py-7 sm:rounded-[20px] sm:backdrop-blur-xl",
         stat.big
           ? "bg-gradient-to-br from-violet-500/[0.12] to-blue-500/[0.12]"
           : "bg-white/[0.03]"
@@ -98,19 +98,10 @@ export default function StatisticSection({ className = "" }: { className?: strin
         className
       )}
     >
-      {/* Soft glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute"
-        style={{
-          top: "-50%",
-          left: "30%",
-          width: 600,
-          height: 400,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(166,132,255,0.07) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
+      {/* Soft glow — desktop only */}
+      <div aria-hidden className="pointer-events-none absolute hidden md:block"
+        style={{ top: "-50%", left: "30%", width: 600, height: 400, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(166,132,255,0.07) 0%, transparent 70%)", filter: "blur(60px)" }}
       />
 
       <div className="container-v2 relative">

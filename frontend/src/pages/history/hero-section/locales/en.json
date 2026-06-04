@@ -1,0 +1,137 @@
+{
+  "hero": {
+    "institute": "Educational and Research Institute",
+    "years": "2000 — 2025",
+    "badge": "Since 2000",
+    "city": "NUWM · Rivne",
+    "title1": "25 years",
+    "title2": "NNI KITI",
+    "description": "The Educational and Research Institute of Cybernetics, Information Technologies and Engineering — 25 years of building a digital future together, day by day, step by step, through education, research and the development of a scientific and educational ecosystem.",
+    "stats": {
+      "yearsLabel": "Years of NNI KITI",
+      "foundedLabel": "Year of founding",
+      "departmentsLabel": "Departments",
+      "directorsLabel": "Directors in 25 years"
+    }
+  },
+  "about": {
+    "sectionTitle": "Who we",
+    "sectionTitleAccent": "really are",
+    "chapters": [
+      {
+        "label": "Origins",
+        "title": "From faculty to institute",
+        "paragraphs": [
+          "August 25, 2000 — the Faculty of Applied Mathematics and Computer-Integrated Systems was established on the basis of the Department of Applied Mathematics and the Department of Electrical Engineering and Automation. The faculty was headed by Dr. of Technical Sciences, Prof. Anatoliy Pavlovych Vlasiuk (2000–2012).",
+          "January 23, 2013 — the Faculty of Applied Mathematics and Computer-Integrated Systems was reorganised into the Educational and Research Institute of Automation, Electrical Engineering and Information Technologies.",
+          "April 12, 2013 — renamed to the Educational and Research Institute of Automation, Cybernetics and Computing."
+        ]
+      },
+      {
+        "label": "Leadership",
+        "title": "Institute directors",
+        "paragraphs": [
+          "Petro Oleksandrovych Tadeyev, Dr. of Pedagogical Sciences, Cand. of Physical and Mathematical Sciences, Professor — Director of the Educational and Research Institute of Automation, Cybernetics and Computing (2013–2020).",
+          "Petro Mykolayovych Martyniuk, Dr. of Technical Sciences, Professor — Director of the Educational and Research Institute of Cybernetics, Information Technologies and Engineering (from 2020)."
+        ]
+      },
+      {
+        "label": "Today",
+        "title": "NNI KITI",
+        "paragraphs": [
+          "January 15, 2024 — the Educational and Research Institute of Automation, Cybernetics and Computing was renamed to the Educational and Research Institute of Cybernetics, Information Technologies and Engineering (NNI KITI).",
+          "Over this time the institute became a place where ideas matured, initiatives were born and personalities were shaped. It is a space where knowledge becomes action and aspirations become achievements. For 25 years we have been building a digital future together — every day, step by step, through education, research and the development of the scientific and educational ecosystem."
+        ]
+      }
+    ]
+  },
+  "timeline": {
+    "label": "— Timeline",
+    "title": "Key milestones",
+    "titleAccent": "of our history",
+    "events": [
+      {
+        "year": "1966",
+        "title": "Department of Computational Mathematics",
+        "description": "September 1966 — the Department of Computational Mathematics was established as a result of splitting the Department of Higher Mathematics. It became the foundation of the future Department of Computing Engineering.",
+        "tag": "Dept. CT"
+      },
+      {
+        "year": "1997",
+        "title": "Department of Information Systems",
+        "description": "September 1, 1997 — the Department of Information Systems and Mathematical Modelling was established, headed by Dr. of Technical Sciences, Prof. Anatoliy Vlasiuk. It is the direct predecessor of the modern Department of Computer Sciences and Applied Mathematics.",
+        "tag": "Dept. CSAM"
+      },
+      {
+        "year": "2000",
+        "title": "Faculty established",
+        "description": "August 25, 2000 — the Faculty of Applied Mathematics and Computer-Integrated Systems was established on the basis of the Department of Applied Mathematics and the Department of Electrical Engineering and Automation. Headed by Dr. of Technical Sciences, Prof. Anatoliy Pavlovych Vlasiuk.",
+        "tag": "Founded"
+      },
+      {
+        "year": "2013",
+        "title": "Reorganised into institute",
+        "description": "January 23, 2013 — the Faculty of Applied Mathematics and Computer-Integrated Systems was reorganised into the Educational and Research Institute of Automation, Electrical Engineering and Information Technologies.",
+        "tag": "Reorganisation"
+      },
+      {
+        "year": "2013",
+        "title": "Renamed to NNI AKOT",
+        "description": "April 12, 2013 — renamed to the Educational and Research Institute of Automation, Cybernetics and Computing. Petro Oleksandrovych Tadeyev was appointed Director (2013–2020).",
+        "tag": "Renamed"
+      },
+      {
+        "year": "2013",
+        "title": "Department of Economic Cybernetics",
+        "description": "In 2013 the Department of Economic Cybernetics was established on the basis of the Department of Applied Mathematics and the Department of Labour Resources and Entrepreneurship to train specialists in economic cybernetics.",
+        "tag": "Dept. CTEK"
+      },
+      {
+        "year": "2016",
+        "title": "Department of Computer Sciences",
+        "description": "In 2016 the Department of Computer Sciences was established at the institute, headed by Dr. of Pedagogical Sciences, Prof. Tulashvili Yuriy. New programmes were launched: Information Systems and Technologies, and Professional Education (Computer Technologies).",
+        "tag": "Dept. CTEK"
+      },
+      {
+        "year": "2019",
+        "title": "Department CTEK",
+        "description": "In 2019 the Department of Computer Technologies and Economic Cybernetics (CTEK) was formed by merging the Department of Computer Sciences into the Department of Economic Cybernetics. Its goal: training IT specialists who can solve real business problems.",
+        "tag": "Dept. CTEK"
+      },
+      {
+        "year": "2020",
+        "title": "New institute director",
+        "description": "Petro Mykolayovych Martyniuk, Dr. of Technical Sciences, Professor, became the Director of the Educational and Research Institute of Cybernetics, Information Technologies and Engineering.",
+        "tag": "Leadership"
+      },
+      {
+        "year": "2024",
+        "title": "NNI KITI",
+        "description": "January 15, 2024 — the Educational and Research Institute of Automation, Cybernetics and Computing was renamed to the Educational and Research Institute of Cybernetics, Information Technologies and Engineering (NNI KITI).",
+        "tag": "Renamed"
+      },
+      {
+        "year": "2024",
+        "title": "Information Security programme",
+        "description": "In 2024 the Department of Computing Engineering launched a new educational programme Information Security within the speciality Cybersecurity and Information Protection.",
+        "tag": "Dept. CT"
+      },
+      {
+        "year": "2025",
+        "title": "Data Engineering programme",
+        "description": "In 2025 the Department of Computer Sciences and Applied Mathematics launched the Data Engineering educational programme within the speciality Systems Analysis and Data Science.",
+        "tag": "Dept. CSAM"
+      }
+    ]
+  },
+  "closing": {
+    "title1": "The next",
+    "title2": "chapter",
+    "description": "Over 25 years, NNI KITI has built an environment where ideas matured, initiatives were born and personalities were shaped. This publication is not a conclusion, but a step forward.",
+    "quote": "\"Dreams become plans. Plans become actions. And actions become the history we write together.\"",
+    "depts": "Our departments",
+    "alumni": "Alumni",
+    "download": "Download PDF",
+    "downloadTitle": "NNI KITI 25th Anniversary Book"
+  }
+}

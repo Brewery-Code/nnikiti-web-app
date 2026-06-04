@@ -50,12 +50,15 @@ export default function HeroSection({ className = "" }: { className?: string }) 
     return () => clearInterval(id);
   }, [slides.length]);
 
+  // Disable parallax on mobile — JS scroll transforms are too expensive
+  const mobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+
   const { scrollY } = useScroll();
-  const sliderY = useTransform(scrollY, [0, 800], [0, 140]);
-  const sliderScale = useTransform(scrollY, [0, 800], [1.05, 1.15]);
-  const contentY = useTransform(scrollY, [0, 600], [0, -90]);
-  const contentOpacity = useTransform(scrollY, [0, 500], [1, 0.15]);
-  const indicatorOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+  const sliderY = useTransform(scrollY, [0, 800], [0, mobile ? 0 : 140]);
+  const sliderScale = useTransform(scrollY, [0, 800], [1.05, mobile ? 1.05 : 1.15]);
+  const contentY = useTransform(scrollY, [0, 600], [0, mobile ? 0 : -90]);
+  const contentOpacity = useTransform(scrollY, [0, 500], [1, mobile ? 1 : 0.15]);
+  const indicatorOpacity = useTransform(scrollY, [0, 200], [1, mobile ? 1 : 0]);
 
   return (
     <section
@@ -98,12 +101,12 @@ export default function HeroSection({ className = "" }: { className?: string }) 
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-[15%] -top-[20%] h-[600px] w-[600px] rounded-full"
+        className="pointer-events-none absolute -left-[15%] -top-[20%] hidden h-[600px] w-[600px] rounded-full md:block"
         style={{ background: "radial-gradient(circle, rgba(166,132,255,0.18) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-[15%] -right-[10%] h-[500px] w-[500px] rounded-full"
+        className="pointer-events-none absolute -bottom-[15%] -right-[10%] hidden h-[500px] w-[500px] rounded-full md:block"
         style={{ background: "radial-gradient(circle, rgba(81,162,255,0.16) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
 

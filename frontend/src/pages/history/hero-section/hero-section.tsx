@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-
-const STATS = [
-  { value: "20+", label: "Років IT-освіти" },
-  { value: "3 500+", label: "Випускників" },
-  { value: "8+", label: "Спеціальностей" },
-  { value: "95%", label: "Рівень зайнятості" },
-];
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 
 export default function HeroSection() {
+  useLoadNamespace("history", loadTranslations);
+  const { t } = useTranslation("history");
+
   const [entered, setEntered] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setEntered(true), 80);
     return () => clearTimeout(t);
   }, []);
+
+  const STATS = [
+    { value: "25", label: t("hero.stats.yearsLabel") },
+    { value: "2000", label: t("hero.stats.foundedLabel") },
+    { value: "5", label: t("hero.stats.departmentsLabel") },
+    { value: "3", label: t("hero.stats.directorsLabel") },
+  ];
 
   return (
     <section className="relative flex min-h-svh flex-col overflow-hidden bg-base">
@@ -36,7 +42,6 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Faint typographic watermark */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 flex select-none items-end justify-end overflow-hidden pr-10 pb-10"
@@ -56,10 +61,10 @@ export default function HeroSection() {
 
       <div className="container-v2 relative z-[1] flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] py-4 pt-24 sm:pt-28 lg:pt-32">
         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-subtle">
-          Навчально-Науковий Інститут
+          {t("hero.institute")}
         </span>
         <span className="text-[10px] font-bold tracking-[0.15em] text-subtle">
-          2004 — 2024
+          {t("hero.years")}
         </span>
       </div>
 
@@ -72,31 +77,28 @@ export default function HeroSection() {
         >
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
             <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
-              З 2004
+              {t("hero.badge")}
             </span>
-            <span className="text-[12px] text-primary/70">НУВГП · Рівне</span>
+            <span className="text-[12px] text-primary/70">{t("hero.city")}</span>
           </div>
 
           <h1
-            className="font-display leading-[0.85] text-primary"
+            className="font-display leading-none text-primary"
             style={{
               fontWeight: 900,
               fontSize: "clamp(2.2rem, 9vw, 9rem)",
               letterSpacing: "-0.05em",
             }}
           >
-            Двадцять
+            {t("hero.title1")}
             <br />
-            <span className="text-grad">років</span>{" "}
-            <span style={{ color: "rgba(255,255,255,0.12)" }}>IT</span>
+            <span className="text-grad">{t("hero.title2")}</span>
           </h1>
 
           <div className="my-10 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
 
           <p className="max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]">
-            ННІ комп'ютерних та інноваційних технологій та економіки —
-            провідний IT-інститут НУВГП. Від першого набору до тисяч фахівців у
-            провідних компаніях України та світу.
+            {t("hero.description")}
           </p>
         </div>
       </div>

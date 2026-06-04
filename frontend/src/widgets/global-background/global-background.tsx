@@ -21,16 +21,6 @@ export function SideOrbs() {
           willChange: "transform",
         }}
       />
-      <div
-        className="orb-3 absolute rounded-full"
-        style={{
-          width: 460, height: 460,
-          right: "12%", top: "38%",
-          background: "radial-gradient(circle, rgba(139,92,246,0.20) 0%, transparent 65%)",
-          filter: "blur(0px)",
-          willChange: "transform",
-        }}
-      />
     </div>
   );
 }
@@ -56,16 +46,6 @@ export function GlobalBackground() {
           willChange: "transform",
         }}
       />
-      <div
-        className="orb-bg-3 absolute rounded-full"
-        style={{
-          width: 480, height: 480,
-          right: "-6%", top: "-5%",
-          background: "radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 65%)",
-          willChange: "transform",
-        }}
-      />
-
       {/* Subtle noise grain */}
       <div
         className="absolute inset-0 opacity-[0.03]"

@@ -239,13 +239,39 @@ function SectionTitle({
   );
 }
 
+const DEGREE_OPTIONS = ["Бакалавр", "Магістр", "Аспірантура"] as const;
+
 function CurriculumSection({ dept }: { dept: DepartmentData }) {
   const [searchParams] = useSearchParams();
   const programCode = searchParams.get("program");
-  const initialIdx = programCode
-    ? Math.max(0, dept.programs.findIndex((p) => p.code === programCode))
-    : 0;
-  const [activeIdx, setActiveIdx] = useState(initialIdx);
+
+  const availableDegrees = DEGREE_OPTIONS.filter((d) =>
+    dept.programs.some((p) => p.degree === d)
+  );
+
+  const initialDegree = (() => {
+    if (programCode) {
+      const p = dept.programs.find((p) => p.code === programCode);
+      if (p?.degree && (DEGREE_OPTIONS as readonly string[]).includes(p.degree)) return p.degree;
+    }
+    return availableDegrees[0] ?? "";
+  })();
+
+  const [activeDegree, setActiveDegree] = useState(initialDegree);
+
+  const degreePrograms = dept.programs.filter((p) => p.degree === activeDegree);
+
+  const initialProgramIdx = (() => {
+    if (programCode) return Math.max(0, degreePrograms.findIndex((p) => p.code === programCode));
+    return 0;
+  })();
+
+  const [activeProgramIdx, setActiveProgramIdx] = useState(initialProgramIdx);
+
+  const handleDegreeChange = (degree: string) => {
+    setActiveDegree(degree);
+    setActiveProgramIdx(0);
+  };
 
   useEffect(() => {
     if (!programCode) { return; }
@@ -256,12 +282,13 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
     }, 400);
     return () => clearTimeout(timeout);
   }, [programCode]);
-  const prog = dept.programs[activeIdx] ?? dept.programs[0];
+
+  const prog = degreePrograms[activeProgramIdx] ?? degreePrograms[0];
 
   const years = [1, 2, 3, 4]
     .map((year) => ({
       year,
-      subjects: prog.subjects.filter(
+      subjects: (prog?.subjects ?? []).filter(
         (s) => s.semester === year * 2 - 1 || s.semester === year * 2
       ),
     }))
@@ -271,16 +298,42 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
     <section id="curriculum">
       <SectionTitle title="Програма" highlight="навчання" />
 
-      {dept.programs.length > 0 && (
+      {/* Degree selector */}
+      <Reveal mode="up" className="mb-4 flex flex-wrap gap-2">
+        {DEGREE_OPTIONS.map((degree) => {
+          const available = availableDegrees.includes(degree);
+          const active = degree === activeDegree;
+          return (
+            <button
+              key={degree}
+              onClick={() => available && handleDegreeChange(degree)}
+              disabled={!available}
+              className={clsx(
+                "rounded-full px-4 py-2 text-[13px] font-semibold transition-all duration-200",
+                active
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                  : available
+                    ? "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:text-primary"
+                    : "border border-white/[0.06] bg-transparent text-white/20 cursor-not-allowed"
+              )}
+            >
+              {degree}
+            </button>
+          );
+        })}
+      </Reveal>
+
+      {/* Program selector */}
+      {degreePrograms.length > 0 && (
         <Reveal mode="up" className="mb-8 flex flex-wrap gap-2">
-          {dept.programs.map((p, i) => (
+          {degreePrograms.map((p, i) => (
             <button
               key={p.id}
-              onClick={() => setActiveIdx(i)}
+              onClick={() => setActiveProgramIdx(i)}
               className={clsx(
                 "rounded-full px-4 py-2 text-[12px] font-semibold transition-all duration-200",
-                i === activeIdx
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                i === activeProgramIdx
+                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
                   : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:text-primary"
               )}
             >
@@ -291,17 +344,16 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
         </Reveal>
       )}
 
-      <AnimatePresence mode="wait">
+      {prog && <AnimatePresence mode="wait">
         <motion.div
-          key={activeIdx}
+          key={`${activeDegree}-${activeProgramIdx}`}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.22, ease: "easeOut" }}
         >
-          <div className="mb-8 grid grid-cols-3 gap-2 pb-px sm:flex sm:flex-wrap sm:gap-3">
+          <div className="mb-8 grid grid-cols-2 gap-2 pb-px sm:flex sm:flex-wrap sm:gap-3">
             {[
-              { label: "Рівень",     value: prog.degree },
               { label: "Тривалість", value: prog.duration },
               { label: "Форма",      value: prog.form },
             ].map((meta, i) => (
@@ -381,7 +433,7 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
             </div>
           </motion.div>
         </motion.div>
-      </AnimatePresence>
+      </AnimatePresence>}
     </section>
   );
 }
