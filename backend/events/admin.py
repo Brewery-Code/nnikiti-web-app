@@ -51,8 +51,13 @@ class EventsAdmin(UnfoldTranslatableAdmin):
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
-        if form.cleaned_data.get('create_gallery'):
-            self._create_gallery_from_event(obj)
+        self._pending_create_gallery = form.cleaned_data.get('create_gallery', False)
+
+    def save_related(self, request, form, formsets, change):
+        super().save_related(request, form, formsets, change)
+        if getattr(self, '_pending_create_gallery', False):
+            self._pending_create_gallery = False
+            self._create_gallery_from_event(form.instance)
 
     def _create_gallery_from_event(self, event):
         from gallery.models import Album, AlbumPhoto
@@ -73,7 +78,7 @@ class EventsAdmin(UnfoldTranslatableAdmin):
         for i, event_image in enumerate(event.images.all()):
             AlbumPhoto.objects.create(
                 album=album,
-                image=event_image.image,
+                image=event_image.image.name,
                 published_at=date,
                 order=i,
             )
