@@ -3,5 +3,44 @@
     "title": "Our alumni",
     "formTitle": "A graduate? Want to tell us about yourself? Fill out the form and we'll add you to the page!",
     "fillForm": "Fill out the form"
+  },
+  "form": {
+    "heading": "Tell us",
+    "headingHighlight": "about yourself",
+    "subtitle": "Your story will inspire future NNIKITI students.",
+    "name": "Name",
+    "surname": "Surname",
+    "graduatedYear": "Graduation year",
+    "major": "Specialty",
+    "story": "Your story",
+    "storyPlaceholder": "Where do you work now, how did NNIKITI help your career…",
+    "clearFormatting": "Clear formatting",
+    "submit": "Submit",
+    "submitting": "Sending…",
+    "submitError": "Something went wrong. Please try again.",
+    "successTitle": "Application submitted!",
+    "successSubtitle": "Thank you! Your application will be reviewed by our moderators.",
+    "successClose": "Close",
+    "errors": {
+      "name": "Please enter your name",
+      "surname": "Please enter your surname",
+      "yearMin": "Year cannot be before 2000",
+      "yearMax": "Year cannot be in the future",
+      "major": "Please enter your specialty",
+      "story": "Tell us more about yourself (min. 20 characters)"
+    },
+    "tools": {
+      "h1": "Heading 1",
+      "h2": "Heading 2",
+      "h3": "Heading 3",
+      "h4": "Heading 4",
+      "bold": "Bold (Ctrl+B)",
+      "italic": "Italic (Ctrl+I)",
+      "underline": "Underline (Ctrl+U)",
+      "ul": "Unordered list",
+      "ol": "Ordered list",
+      "blockquote": "Blockquote",
+      "clear": "Clear formatting"
+    }
   }
 }

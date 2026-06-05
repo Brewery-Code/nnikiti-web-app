@@ -1,66 +1,77 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
-import { ALL_PHOTOS, GALLERY_EVENTS, GALLERY_PHOTOS } from "@/shared/model/gallery-data";
 import { ROUTES } from "@/shared/model/routes";
+import { BackButton } from "@/shared/ui";
+import { useLoadNamespace } from "@/shared/hooks";
 import { PhotoGrid, InnerPageLayout } from "./ui";
+import { loadTranslations } from "./locales";
+import { publicRqClient } from "@/shared/api/instance";
+import { resolveMediaUrl } from "@/shared/model/config";
+import type { components } from "@/shared/api/schema/generated";
+import type { Photo } from "@/shared/model/gallery-data";
+
+type AlbumDetail = components["schemas"]["AlbumDetail"];
 
 function GalleryEventPage() {
+  useLoadNamespace("gallery", loadTranslations);
+  const { t } = useTranslation("gallery");
   const { eventId } = useParams<{ eventId: string }>();
-  const event = GALLERY_EVENTS.find((e) => e.id === eventId);
-  const photos = ALL_PHOTOS.filter((p) => p.eventId === eventId);
+  const numId = Number(eventId);
 
-  if (!event) {
+  const { data, isPending, isError } = publicRqClient.useQuery(
+    "get",
+    "/gallery/{id}/",
+    { params: { path: { id: numId } } },
+  );
+
+  if (isError) return <Navigate to={ROUTES.GALLERY} replace />;
+
+  if (isPending) {
     return (
       <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-        <div className="bg-base pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
-          <div className="container-v2">
-            <Link
-              to={ROUTES.GALLERY}
-              className="text-[14px] text-muted hover:text-primary"
-            >
-              ← Галерея
-            </Link>
-            <p className="font-display mt-10 text-[18px] text-subtle">
-              Подію не знайдено.
-            </p>
-          </div>
+        <div className="relative h-[260px] animate-pulse bg-surface sm:h-[340px]" />
+        <div className="container-v2 mt-10 flex flex-col gap-4">
+          {[1, 0.8, 0.9].map((w, i) => (
+            <div key={i} className="h-5 animate-pulse rounded-full bg-surface-md" style={{ width: `${w * 100}%` }} />
+          ))}
         </div>
       </PageTransition>
     );
   }
 
+  const album = data as AlbumDetail;
+  const cover = resolveMediaUrl(album.cover);
+
+  const photos: Photo[] = (album.photos ?? []).map((p, i) => ({
+    id: String(p.id ?? i),
+    src: resolveMediaUrl(p.image) ?? "",
+    alt: album.title ?? "",
+    year: album.date ? new Date(album.date).getFullYear() : 0,
+    eventId: String(album.id ?? ""),
+  }));
+
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
-      <div className="relative h-[260px] overflow-hidden bg-base sm:h-[340px]">
-        <img
-          src={GALLERY_PHOTOS[event.coverSeed % GALLERY_PHOTOS.length]}
-          alt={event.title}
-          className="h-full w-full object-cover opacity-50"
-        />
+      <div className="relative h-[260px] overflow-hidden sm:h-[340px]">
+        {cover ? (
+          <img src={cover} alt={album.title ?? ""} className="h-full w-full object-cover opacity-50" />
+        ) : (
+          <div className="h-full w-full bg-gradient-to-br from-violet-500/20 to-blue-900/30" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-[#08090f]/60 via-[#08090f]/40 to-[#08090f]" />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-[10%] -top-[20%] h-[400px] w-[400px] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(166,132,255,0.18) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
-        />
         <div className="container-v2 absolute inset-0 flex items-end pt-24 pb-8">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-violet-300">
-              {event.date}
-            </p>
+            {album.date && (
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-violet-300">
+                {new Date(album.date).toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" })}
+              </p>
+            )}
             <h1
               className="font-display mt-2 font-black text-primary"
-              style={{
-                fontSize: "clamp(1.6rem, 4vw, 3.5rem)",
-                letterSpacing: "-0.04em",
-                lineHeight: 1,
-              }}
+              style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)", letterSpacing: "-0.04em", lineHeight: 1 }}
             >
-              {event.title}
+              {album.title}
             </h1>
           </div>
         </div>
@@ -68,25 +79,17 @@ function GalleryEventPage() {
 
       <InnerPageLayout
         backTo={ROUTES.GALLERY}
-        backLabel="Галерея"
-        eyebrow={`Подія · ${event.year}`}
-        title={event.title}
-        subtitle={event.description}
+        backLabel={t("eventPage.back")}
+        eyebrow={t("eventPage.eyebrow", { year: album.date ? new Date(album.date).getFullYear() : "" })}
+        title={album.title ?? ""}
+        subtitle={album.description ?? ""}
         count={photos.length}
       >
-        <div className="mb-10 flex flex-wrap gap-2">
-          {GALLERY_EVENTS.filter((e) => e.id !== event.id).map((e) => (
-            <Link
-              key={e.id}
-              to={`/gallery/event/${e.id}`}
-              className="grad-border rounded-full bg-surface px-3.5 py-1.5 text-[12px] text-muted transition-colors hover:bg-surface-lg hover:text-primary"
-            >
-              {e.title}
-            </Link>
-          ))}
-        </div>
-
-        <PhotoGrid photos={photos} />
+        {photos.length > 0 ? (
+          <PhotoGrid photos={photos} />
+        ) : (
+          <p className="text-[14px] text-subtle">Фото ще не додано</p>
+        )}
       </InnerPageLayout>
     </PageTransition>
   );

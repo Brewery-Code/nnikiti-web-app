@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { ROUTES } from "@/shared/model/routes";
 import { Reveal } from "@/shared/ui";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "../events-section/locales";
 
 export default function EntrantCtaSection({
   className = "",
 }: {
   className?: string;
 }) {
+  useLoadNamespace("home", loadTranslations);
+  const { t } = useTranslation("home");
   return (
     <section
       className={clsx("py-12 lg:py-20", className)}
@@ -77,7 +82,7 @@ export default function EntrantCtaSection({
               >
                 <path d="M8 1L9.6 6H15L10.7 9.3L12.3 14.3L8 11L3.7 14.3L5.3 9.3L1 6H6.4L8 1Z" fill="currentColor" />
               </svg>
-              Вступна кампанія 2025
+              {t("entrantCta.badge")}
             </span>
             <h2
               className="font-display font-black text-primary"
@@ -88,15 +93,14 @@ export default function EntrantCtaSection({
                 marginBottom: 16,
               }}
             >
-              Готовий розпочати своє{" "}
-              <span className="text-grad">майбутнє?</span>
+              {t("entrantCta.heading")}{" "}
+              <span className="text-grad">{t("entrantCta.headingAccent")}</span>
             </h2>
             <p
               className="text-[16px] text-primary/70"
               style={{ lineHeight: 1.65, maxWidth: 440 }}
             >
-              Подай заявку на вступ до НУВГП вже зараз та обери програму, яка
-              відповідає твоїм амбіціям.
+              {t("entrantCta.description")}
             </p>
           </div>
 
@@ -105,13 +109,13 @@ export default function EntrantCtaSection({
               to={ROUTES.BACHELOR}
               className="inline-flex items-center justify-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.2)] transition-all duration-200 hover:scale-[1.02] active:scale-95 sm:px-9 sm:py-4 sm:text-[17px]"
             >
-              Подати заявку <span aria-hidden>→</span>
+              {t("entrantCta.apply")} <span aria-hidden>→</span>
             </Link>
             <Link
               to={ROUTES.BACHELOR}
               className="inline-flex items-center justify-center gap-2 rounded-[14px] border border-ui bg-transparent px-7 py-3.5 text-[15px] font-semibold text-primary/60 transition-all duration-200 hover:text-primary active:scale-95 sm:px-9 sm:py-4 sm:text-[17px]"
             >
-              Дізнатися умови
+              {t("entrantCta.learnMore")}
             </Link>
           </div>
         </Reveal>

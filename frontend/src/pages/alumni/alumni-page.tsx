@@ -6,7 +6,7 @@ function AlumniPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <HeroSection />
-      <div className="bg-base">
+      <div>
         <AlumniListSection />
       </div>
     </PageTransition>

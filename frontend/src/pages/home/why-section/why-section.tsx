@@ -1,26 +1,15 @@
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { Reveal } from "@/shared/ui";
-
-const ADVANTAGES = [
-  {
-    title: "Навчання, яке відповідає ринку праці",
-    desc: "Програми розроблені разом із SoftServe, EPAM та GlobalLogic. Реальні проєкти, актуальний стек технологій і викладачі-практики з індустрії.",
-  },
-  {
-    title: "Навчання за кордоном за програмою Erasmus+",
-    desc: "Партнерства з університетами Польщі, Чехії, Литви та ще 15 країн ЄС. Гранти покривають проживання, переїзд та навчання.",
-  },
-  {
-    title: "Стажування ще під час першого-другого курсу",
-    desc: "Компанії-партнери запрошують студентів на оплачувану практику. Більшість випускників мають офер ще до захисту диплому.",
-  },
-  {
-    title: "Університет заснований у 1922 році",
-    desc: "Понад 100 років академічної традиції, 29 000 випускників по всьому світу та стабільний Топ-44 рейтинг серед ЗВО України.",
-  },
-];
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "../events-section/locales";
 
 export default function WhySection({ className = "" }: { className?: string }) {
+  useLoadNamespace("home", loadTranslations);
+  const { t } = useTranslation("home");
+  type Advantage = { title: string; desc: string };
+  const rawAdvantages = t("whySection.advantages", { returnObjects: true });
+  const ADVANTAGES: Advantage[] = Array.isArray(rawAdvantages) ? rawAdvantages : [];
   return (
     <section
       className={clsx("relative overflow-hidden py-16 lg:py-24", className)}
@@ -80,7 +69,7 @@ export default function WhySection({ className = "" }: { className?: string }) {
                   {/* overlay label */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#08090f]/80 to-transparent" />
                   <p className="absolute bottom-3 left-3 text-[10px] font-medium text-white/50">
-                    Воркшоп з IT-компаніями
+                    {t("whySection.workshopCaption")}
                   </p>
                 </div>
               </div>
@@ -102,8 +91,8 @@ export default function WhySection({ className = "" }: { className?: string }) {
                   marginBottom: "2.75rem",
                 }}
               >
-                Чому обирають{" "}
-                <span className="text-grad">НУВГП</span>
+                {t("whySection.heading")}{" "}
+                <span className="text-grad">{t("whySection.headingAccent")}</span>
               </h2>
 
               <div>

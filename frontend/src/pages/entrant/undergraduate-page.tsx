@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
 import { PageTransition } from "@/widgets";
 import { Stagger, StaggerItem } from "@/shared/ui";
 import {
@@ -9,109 +11,40 @@ import {
   EntrantCta,
 } from "./ui";
 import type { Program, Step, KeyDate } from "./ui";
-
-const programs: Program[] = [
-  {
-    code: "122",
-    name: "Комп'ютерні науки",
-    description:
-      "Основи програмування, алгоритми, бази даних та веб-технології. Ідеальний старт для майбутнього розробника після 9 або 11 класу.",
-    duration: "2–3 роки",
-    seats: "Бюджет + контракт",
-  },
-  {
-    code: "123",
-    name: "Комп'ютерна інженерія",
-    description:
-      "Архітектура ЕОМ, мережі, вбудовані системи та апаратне забезпечення. Готуємо інженерів, які розуміють комп'ютер зсередини.",
-    duration: "2–3 роки",
-    seats: "Бюджет + контракт",
-  },
-  {
-    code: "126",
-    name: "Інформаційні системи та технології",
-    description:
-      "Проєктування корпоративних систем, 1С, ERP, цифровий документообіг. Затребувана спеціальність у бізнесі та держсекторі.",
-    duration: "2–3 роки",
-    seats: "Контракт",
-  },
-];
-
-const steps: Step[] = [
-  {
-    title: "Отримати атестат",
-    text:
-      "Завершіть 9 або 11 клас і отримайте свідоцтво про базову середню освіту або атестат про повну загальну середню освіту.",
-  },
-  {
-    title: "Зареєструватися в ЄДЕБО",
-    text:
-      "Створіть обліковий запис в Єдиній державній електронній базі з питань освіти та подайте заяву на вступ онлайн.",
-  },
-  {
-    title: "Подати документи",
-    text:
-      "Завантажте скановані копії атестата, паспорта, медичної довідки та фотографії. Оригінали надаються після зарахування.",
-  },
-  {
-    title: "Пройти конкурсний відбір",
-    text:
-      "Вступники ранжуються за середнім балом атестата. Для окремих спеціальностей проводиться вступне випробування.",
-  },
-  {
-    title: "Отримати наказ про зарахування",
-    text:
-      "Після виходу наказу про зарахування підпишіть угоду з університетом і розпочинайте навчання.",
-  },
-];
-
-const dates: KeyDate[] = [
-  {
-    period: "01 – 31 травня",
-    label: "Реєстрація в ЄДЕБО",
-    note: "Для вступників після 9 класу — окремий конкурс",
-  },
-  {
-    period: "01 – 15 серпня",
-    label: "Прийом документів",
-    note: "Онлайн через кабінет вступника на вступ.освіта.ua",
-  },
-  {
-    period: "25 серпня",
-    label: "Рейтингові списки",
-    note: "Оприлюднення на сайті університету та в ЄДЕБО",
-  },
-  {
-    period: "30 серпня",
-    label: "Наказ про зарахування",
-    note: "Необхідно підписати угоду протягом 3 робочих днів",
-  },
-];
+import { loadTranslations } from "./locales";
 
 function UndergraduatePage() {
+  useLoadNamespace("entrant", loadTranslations);
+  const { t } = useTranslation("entrant");
+
+  const rawStats = t("undergraduate.stats", { returnObjects: true });
+  const stats: { value: string; label: string }[] = Array.isArray(rawStats) ? rawStats : [];
+  const rawPrograms = t("undergraduate.programs", { returnObjects: true });
+  const programs: Program[] = Array.isArray(rawPrograms) ? rawPrograms : [];
+  const rawSteps = t("undergraduate.steps", { returnObjects: true });
+  const steps: Step[] = Array.isArray(rawSteps) ? rawSteps : [];
+  const rawDates = t("undergraduate.dates", { returnObjects: true });
+  const dates: KeyDate[] = Array.isArray(rawDates) ? rawDates : [];
+
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <EntrantHero
-        eyebrow="Вступникам · Додипломна освіта"
-        title="Фаховий молодший"
-        gradientWord="бакалавр"
-        description="Перший крок в IT — після 9 або 11 класу. Отримай диплом молодшого спеціаліста за 2–3 роки та продовж навчання на бакалавраті зі скороченим терміном."
+        eyebrow={t("undergraduate.eyebrow")}
+        title={t("undergraduate.title")}
+        gradientWord={t("undergraduate.gradientWord")}
+        description={t("undergraduate.description")}
         imageSeed="/images/students-lecture.jpg"
-        stats={[
-          { value: "2–3", label: "роки навчання" },
-          { value: "3", label: "спеціальності" },
-          { value: "9/11", label: "клас для вступу" },
-        ]}
+        stats={stats}
       />
 
-      <div className="bg-base">
+      <div>
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <SectionHead
-              eyebrow="Спеціальності"
-              title="Обери свій"
-              gradientTitle="напрям"
-              subtitle="Три програми підготовки — практична освіта в IT, яку цінують роботодавці."
+              eyebrow={t("undergraduate.programsEyebrow")}
+              title={t("undergraduate.programsTitle")}
+              gradientTitle={t("undergraduate.programsGradientTitle")}
+              subtitle={t("undergraduate.programsSubtitle")}
             />
             <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.07} amount={0.05}>
               {programs.map((p, i) => (
@@ -127,9 +60,9 @@ function UndergraduatePage() {
           <div className="container-v2">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               <SectionHead
-                eyebrow="Вступна кампанія"
-                title="Як вступити"
-                gradientTitle="крок за кроком"
+                eyebrow={t("undergraduate.admissionEyebrow")}
+                title={t("undergraduate.admissionTitle")}
+                gradientTitle={t("undergraduate.admissionGradientTitle")}
               />
               <Stagger className="flex flex-col" stagger={0.1} amount={0.1}>
                 {steps.map((s, i) => (
@@ -150,10 +83,10 @@ function UndergraduatePage() {
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <SectionHead
-              eyebrow="Важливі дати"
-              title="Календар"
-              gradientTitle="вступника"
-              subtitle="Запиши ключові дати, щоб нічого не пропустити."
+              eyebrow={t("undergraduate.datesEyebrow")}
+              title={t("undergraduate.datesTitle")}
+              gradientTitle={t("undergraduate.datesGradientTitle")}
+              subtitle={t("undergraduate.datesSubtitle")}
             />
             <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08} amount={0.1}>
               {dates.map((d, i) => (
@@ -166,8 +99,8 @@ function UndergraduatePage() {
         </section>
 
         <EntrantCta
-          title="Готовий зробити перший крок?"
-          subtitle="Вступна комісія ННІКІТІ відповість на всі твої запитання. Залиши заявку — ми зв'яжемося з тобою."
+          title={t("undergraduate.ctaTitle")}
+          subtitle={t("undergraduate.ctaSubtitle")}
         />
       </div>
     </PageTransition>

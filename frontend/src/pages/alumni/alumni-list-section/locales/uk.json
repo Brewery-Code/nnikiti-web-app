@@ -1,5 +1,16 @@
 {
   "alumniList": {
-    "title": "Випуск"
+    "title": "Випуск",
+    "sectionTitle": "Наші",
+    "sectionHighlight": "випускники"
+  },
+  "alumniCard": {
+    "graduation": "Випуск",
+    "learnMore": "Дізнатись більше"
+  },
+  "alumniModal": {
+    "graduation": "Випуск",
+    "major": "Спеціальність",
+    "degree": "Ступінь"
   }
 }

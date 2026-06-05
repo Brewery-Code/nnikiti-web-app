@@ -1,51 +1,19 @@
-﻿import { useRef } from "react";
-import { useScrollDownAnimation } from "@/shared/hooks";
+import { useRef } from "react";
+import { useScrollDownAnimation, useLoadNamespace } from "@/shared/hooks";
+import { useTranslation } from "react-i18next";
+import { loadTranslations } from "../hero-section/locales";
 import clsx from "clsx";
 
-const programs = [
-  {
-    title: "Комп'ютерні науки",
-    description: "Основи програмування, алгоритми, структури даних, архітектура комп'ютерів",
-    icon: "💻",
-    color: "#3b82f6",
-  },
-  {
-    title: "Кібербезпека",
-    description: "Захист від загроз, криптографія, аналіз вразливостей, етичний хакінг",
-    icon: "🔐",
-    color: "#ef4444",
-  },
-  {
-    title: "AI & Machine Learning",
-    description: "Штучний інтелект, нейронні мережі, обробка даних, розпізнавання образів",
-    icon: "🤖",
-    color: "#8b5cf6",
-  },
-  {
-    title: "Cloud & DevOps",
-    description: "Хмарні платформи, контейнеризація, CI/CD, інфраструктура як код",
-    icon: "☁️",
-    color: "#06b6d4",
-  },
-  {
-    title: "Web & Mobile",
-    description: "Розробка веб-додатків, мобільні платформи, фронтенд, бекенд технології",
-    icon: "📱",
-    color: "#10b981",
-  },
-  {
-    title: "Комп'ютерна економіка",
-    description: "Цифровий бізнес, стартапи, підприємництво, управління IT-проектами",
-    icon: "📊",
-    color: "#f59e0b",
-  },
-];
+const ICONS = ["💻", "🔐", "🤖", "☁️", "📱", "📊"];
+const COLORS = ["#3b82f6", "#ef4444", "#8b5cf6", "#06b6d4", "#10b981", "#f59e0b"];
+
+type ProgramItem = { title: string; description: string; icon: string; color: string };
 
 function ProgramCard({
   program,
   delay,
 }: {
-  program: (typeof programs)[0];
+  program: ProgramItem;
   delay: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -76,6 +44,14 @@ function ProgramCard({
 }
 
 export default function ProgramsSection({ className }: { className?: string }) {
+  useLoadNamespace("history", loadTranslations);
+  const { t } = useTranslation("history");
+
+  const rawPrograms = t("programs.items", { returnObjects: true });
+  const programs = (Array.isArray(rawPrograms) ? rawPrograms as Omit<ProgramItem, "icon" | "color">[] : []).map(
+    (item, i) => ({ ...item, icon: ICONS[i], color: COLORS[i] })
+  );
+
   const titleRef = useRef<HTMLDivElement>(null);
   const isTitleVisible = useScrollDownAnimation({ elementRef: titleRef });
 
@@ -91,12 +67,12 @@ export default function ProgramsSection({ className }: { className?: string }) {
           )}
         >
           <p className="mb-fluid-xs text-fluid-xs font-semibold uppercase tracking-[0.25em] text-gray-500">
-            Напрями підготовки
+            {t("programs.eyebrow")}
           </p>
           <h2 className="text-fluid-4xl font-bold text-primary">
-            Спеціальності{" "}
+            {t("programs.heading")}{" "}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              ННІКІТІ
+              {t("programs.headingAccent")}
             </span>
           </h2>
         </div>
@@ -111,4 +87,3 @@ export default function ProgramsSection({ className }: { className?: string }) {
     </section>
   );
 }
-

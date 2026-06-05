@@ -1,0 +1,11 @@
+{
+  "headingPrefix": "Результати для",
+  "headingEmpty": "Пошук по сайту",
+  "resultsCount_one": "Знайдено {{count}} результат",
+  "resultsCount_few": "Знайдено {{count}} результати",
+  "resultsCount_many": "Знайдено {{count}} результатів",
+  "resultsCount_other": "Знайдено {{count}} результатів",
+  "noQuery": "Введіть запит у рядку пошуку вгорі сторінки.",
+  "noResults": "Нічого не знайдено",
+  "noResultsDesc": "За запитом «{{query}}» результатів не знайдено. Спробуйте інше слово."
+}

@@ -6,8 +6,8 @@ export function SideOrbs() {
         style={{
           width: 700, height: 700,
           left: "-12%", top: "-5%",
-          background: "radial-gradient(circle, rgba(124,58,237,0.35) 0%, rgba(124,58,237,0.08) 50%, transparent 70%)",
-          filter: "blur(0px)",
+          background: "radial-gradient(circle, rgba(124,58,237,0.16) 0%, rgba(124,58,237,0.04) 55%, transparent 72%)",
+          filter: "blur(72px)",
           willChange: "transform",
         }}
       />
@@ -16,8 +16,8 @@ export function SideOrbs() {
         style={{
           width: 620, height: 620,
           right: "-10%", bottom: "3%",
-          background: "radial-gradient(circle, rgba(59,130,246,0.30) 0%, rgba(59,130,246,0.07) 50%, transparent 70%)",
-          filter: "blur(0px)",
+          background: "radial-gradient(circle, rgba(59,130,246,0.14) 0%, rgba(59,130,246,0.03) 55%, transparent 72%)",
+          filter: "blur(72px)",
           willChange: "transform",
         }}
       />
@@ -33,7 +33,8 @@ export function GlobalBackground() {
         style={{
           width: 750, height: 750,
           left: "-15%", top: "-20%",
-          background: "radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 62%)",
+          background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 65%)",
+          filter: "blur(60px)",
           willChange: "transform",
         }}
       />
@@ -42,8 +43,18 @@ export function GlobalBackground() {
         style={{
           width: 600, height: 600,
           right: "-12%", bottom: "-10%",
-          background: "radial-gradient(circle, rgba(79,70,229,0.18) 0%, transparent 62%)",
+          background: "radial-gradient(circle, rgba(79,70,229,0.10) 0%, transparent 65%)",
+          filter: "blur(60px)",
           willChange: "transform",
+        }}
+      />
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.18]"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(166, 132, 255, 0.22) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          animation: "grid-drift 90s linear infinite",
         }}
       />
       {/* Subtle noise grain */}

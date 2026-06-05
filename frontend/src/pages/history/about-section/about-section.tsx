@@ -8,20 +8,19 @@ type Chapter = { label: string; title: string; paragraphs: string[] };
 
 function Chapter({ chapter, index }: { chapter: Chapter; index: number }) {
   return (
-    <div className="grid grid-cols-[64px_1fr] gap-8 border-t border-white/[0.07] py-12 md:grid-cols-[120px_1fr] md:gap-12 lg:py-16">
+    <div className="grid grid-cols-[64px_1fr] gap-8 py-12 md:grid-cols-[120px_1fr] md:gap-12 lg:py-16">
       <div className="flex flex-col items-start pt-1">
         <span
-          className="font-display"
+          className="font-display text-grad"
           style={{
             fontWeight: 900,
             fontSize: "clamp(28px, 2.5vw, 48px)",
-            color: "rgba(255,255,255,0.10)",
             letterSpacing: "-0.04em",
+            opacity: 0.45,
           }}
         >
           {String(index + 1).padStart(2, "0")}
         </span>
-        <div className="mt-3 h-3 w-px bg-gradient-to-b from-violet-500 to-blue-500" />
       </div>
 
       <div>
@@ -58,11 +57,7 @@ export default function AboutSection({ className }: { className?: string }) {
   return (
     <section className={clsx("py-12 sm:py-16 lg:py-20", className)}>
       <div className="container-v2">
-        <Reveal mode="fade" className="mb-10 flex items-center gap-4 lg:mb-14">
-          <div className="h-px flex-1 bg-surface-lg" />
-        </Reveal>
-
-        <Reveal mode="up" className="mb-10 lg:mb-14">
+<Reveal mode="up" className="mb-10 lg:mb-14">
           <h2
             className="font-display font-black text-primary"
             style={{

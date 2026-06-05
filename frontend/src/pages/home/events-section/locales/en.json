@@ -1,5 +1,62 @@
 {
-  "events": {
-    "title": "Events"
+  "eventsSection": {
+    "heading": "Latest",
+    "headingAccent": "events",
+    "seeAll": "All news",
+    "readMore": "Read"
+  },
+  "heroSection": {
+    "heading": "The future",
+    "headingAccent": "is built here",
+    "subtitle": "Educational and Research Institute of Cybernetics, Information Technologies and Engineering, NUWM",
+    "ctaEntrant": "For applicants",
+    "ctaPrograms": "Programs",
+    "slideLabel": "Slide {{n}}",
+    "quickBachelor": "Bachelor's",
+    "quickMaster": "Master's"
+  },
+  "entrantCta": {
+    "badge": "Admissions 2025",
+    "heading": "Ready to start your",
+    "headingAccent": "future?",
+    "description": "Apply to NUWM right now and choose the program that matches your ambitions.",
+    "apply": "Apply",
+    "learnMore": "Learn more"
+  },
+  "socialSection": {
+    "label": "Social media"
+  },
+  "specialtiesSection": {
+    "heading": "Study",
+    "headingAccent": "programs",
+    "seeAll": "All programs",
+    "prevProgram": "Previous program",
+    "nextProgram": "Next program",
+    "code": "Code:",
+    "budget": "budget",
+    "contract": "contract"
+  },
+  "whySection": {
+    "heading": "Why choose",
+    "headingAccent": "NUWM",
+    "workshopCaption": "Workshop with IT companies",
+    "advantages": [
+      {
+        "title": "Education aligned with the job market",
+        "desc": "Programs developed together with SoftServe, EPAM and GlobalLogic. Real projects, current tech stack and industry practitioners as lecturers."
+      },
+      {
+        "title": "Study abroad with Erasmus+",
+        "desc": "Partnerships with universities in Poland, Czech Republic, Lithuania and 15 more EU countries. Grants cover accommodation, relocation and tuition."
+      },
+      {
+        "title": "Internships from year one or two",
+        "desc": "Partner companies invite students to paid internships. Most graduates already have a job offer before their thesis defence."
+      },
+      {
+        "title": "University founded in 1922",
+        "desc": "Over 100 years of academic tradition, 29,000 graduates worldwide and a consistent Top-44 ranking among Ukrainian universities."
+      }
+    ]
   }
 }

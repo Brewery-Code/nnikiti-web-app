@@ -1,0 +1,9 @@
+{
+  "headingPrefix": "Results for",
+  "headingEmpty": "Site search",
+  "resultsCount_one": "Found {{count}} result",
+  "resultsCount_other": "Found {{count}} results",
+  "noQuery": "Enter a query in the search bar at the top of the page.",
+  "noResults": "Nothing found",
+  "noResultsDesc": "No results for «{{query}}». Try a different word."
+}

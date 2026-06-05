@@ -1,5 +1,6 @@
 import { useState } from "react";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import type { Alumni } from "../types";
 import { AlumniModal } from "./alumni-modal";
 import { getYear } from "../alumni-list-section";
@@ -12,6 +13,7 @@ interface AlumniCardProps {
 
 export function AlumniCard({ alumni, className }: AlumniCardProps) {
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const { t } = useTranslation("alumni");
 
   return (
     <>
@@ -20,71 +22,70 @@ export function AlumniCard({ alumni, className }: AlumniCardProps) {
         onClick={() => setIsDescriptionOpen(true)}
         className={clsx(
           className,
-          "spec-card grad-border group relative flex w-full cursor-pointer flex-col overflow-hidden rounded-[20px] bg-surface p-5 text-left backdrop-blur-xl sm:p-6"
+          "group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-[18px] border border-white/[0.07] bg-[#0d0e1a] text-left transition-all duration-300 hover:border-violet-500/30 hover:shadow-[0_8px_32px_rgba(124,58,237,0.14)]"
         )}
       >
+        {/* Header */}
         <div
-          aria-hidden
-          className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-50 blur-2xl transition-opacity group-hover:opacity-100"
+          className="relative flex items-center gap-3.5 px-4 py-4"
           style={{
             background:
-              "radial-gradient(circle, rgba(166,132,255,0.30) 0%, transparent 70%)",
+              "linear-gradient(135deg, rgba(124,58,237,0.13) 0%, rgba(59,130,246,0.07) 100%)",
           }}
-        />
+        >
+          <img
+            className="h-12 w-12 flex-shrink-0 rounded-[10px] object-cover ring-1 ring-white/10"
+            src={alumni.image || profilePlaceholder}
+            alt={alumni.full_name}
+            onError={(e) => { e.currentTarget.src = profilePlaceholder; }}
+          />
 
-        <div className="relative flex items-center gap-4">
-          <div className="grad-border flex-shrink-0 overflow-hidden rounded-full bg-[#111] p-[2px]">
-            <img
-              className="h-16 w-16 rounded-full object-cover"
-              src={alumni.image || profilePlaceholder}
-              alt={alumni.full_name}
-              onError={(e) => { e.currentTarget.src = profilePlaceholder; }}
-            />
-          </div>
           <div className="min-w-0 flex-1">
-            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
-              Випуск {getYear(alumni.date_of_graduation)}
+            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-violet-400/80">
+              {t("alumniCard.graduation")} {getYear(alumni.date_of_graduation)}
             </span>
             <h3
               className="font-display mt-0.5 truncate font-bold text-primary"
-              style={{ fontSize: "1.05rem", letterSpacing: "-0.01em" }}
+              style={{ fontSize: "0.95rem", letterSpacing: "-0.02em", lineHeight: 1.2 }}
             >
               {alumni.full_name}
             </h3>
           </div>
         </div>
 
-        <div className="my-5 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
-
-        <p className="line-clamp-2 text-[14px] text-primary/60">
-          {[alumni.position, alumni.workplace].filter(Boolean).join(" • ")}
-        </p>
-
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {alumni.major && (
-            <span
-              className="font-display rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-primary"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(166,132,255,0.20) 0%, rgba(81,162,255,0.20) 100%)",
-                border: "1px solid rgba(166,132,255,0.30)",
-              }}
-            >
-              {alumni.major}
-            </span>
+        {/* Body */}
+        <div className="flex flex-1 flex-col gap-3 px-4 py-3.5">
+          {(alumni.position || alumni.workplace) && (
+            <p className="text-[13px] leading-snug text-white/50">
+              {[alumni.position, alumni.workplace].filter(Boolean).join(" · ")}
+            </p>
           )}
-          {alumni.degree && (
-            <span className="font-display rounded-full border border-ui bg-surface-md px-3 py-1 text-[10px] font-bold uppercase tracking-[0.04em] text-primary/70">
-              {alumni.degree}
-            </span>
-          )}
-        </div>
 
-        <div className="mt-5 flex items-center justify-between text-[12px] font-semibold text-muted transition-colors group-hover:text-primary">
-          Дізнатись більше
-          <span aria-hidden className="text-violet-400 transition-transform group-hover:translate-x-1">
-            →
-          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {alumni.major && (
+              <span
+                className="rounded-md px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em] text-violet-300/80"
+                style={{
+                  background: "rgba(139,92,246,0.10)",
+                  border: "1px solid rgba(139,92,246,0.22)",
+                }}
+              >
+                {alumni.major}
+              </span>
+            )}
+            {alumni.degree && (
+              <span className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em] text-white/35">
+                {alumni.degree}
+              </span>
+            )}
+          </div>
+
+          <div className="mt-auto flex items-center justify-between border-t border-white/[0.05] pt-3 text-[11px] font-semibold text-white/30 transition-colors duration-200 group-hover:text-white/60">
+            {t("alumniCard.learnMore")}
+            <span className="text-violet-400/60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-violet-400">
+              →
+            </span>
+          </div>
         </div>
       </button>
 

@@ -101,7 +101,7 @@ function PartnersHero({
   const { t } = useTranslation("partners");
 
   return (
-    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <img
         src={data.heroImage}
         alt=""
@@ -114,15 +114,6 @@ function PartnersHero({
         style={{
           background:
             "radial-gradient(circle, rgba(166,132,255,0.18) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[500px] w-[500px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(81,162,255,0.16) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -173,7 +164,6 @@ function PartnersHero({
           ))}
         </StaggerItem>
       </Stagger>
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
     </section>
   );
 }
@@ -574,7 +564,7 @@ export function PartnersPage({ kind }: { kind: PartnersPageKind }) {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <PartnersHero data={data} labels={labels} currentKind={kind} />
-      <div className="bg-base">
+      <div>
         <PropositionsSection
           data={data}
           labels={labels}

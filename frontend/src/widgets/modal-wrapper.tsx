@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { globalLenis } from "@/shared/hooks";
@@ -18,6 +18,8 @@ export function ModalWrapper({
   toggleModal,
   maxWidth = "max-w-xl",
 }: ModalWrapperProps) {
+  const mouseDownOnOverlay = useRef(false);
+
   useEffect(() => {
     if (isModalOpen) {
       globalLenis?.stop();
@@ -38,7 +40,8 @@ export function ModalWrapper({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          onClick={toggleModal}
+          onMouseDown={() => { mouseDownOnOverlay.current = true; }}
+          onMouseUp={() => { if (mouseDownOnOverlay.current) toggleModal(); mouseDownOnOverlay.current = false; }}
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
@@ -48,7 +51,7 @@ export function ModalWrapper({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 20 }}
             transition={{ duration: 0.35, ease: EASE }}
-            onClick={(e) => e.stopPropagation()}
+            onMouseDown={(e) => { e.stopPropagation(); mouseDownOnOverlay.current = false; }}
           >
             <button
               onClick={toggleModal}

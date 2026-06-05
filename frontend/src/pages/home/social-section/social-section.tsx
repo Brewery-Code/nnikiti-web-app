@@ -1,6 +1,9 @@
 import { useState, type ReactNode } from "react";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "../events-section/locales";
 
 const SOCIALS = [
   { icon: "ig", label: "Instagram", href: "#" },
@@ -64,6 +67,8 @@ function SocialLink({ icon, label, href }: { icon: string; label: string; href: 
 }
 
 export default function SocialSection({ className = "" }: { className?: string }) {
+  useLoadNamespace("home", loadTranslations);
+  const { t } = useTranslation("home");
   return (
     <section
       className={clsx(className)}
@@ -88,7 +93,7 @@ export default function SocialSection({ className = "" }: { className?: string }
             color: "rgba(255,255,255,0.5)",
           }}
         >
-          Соцмережі
+          {t("socialSection.label")}
         </span>
         <div
           className="hidden sm:block flex-1"

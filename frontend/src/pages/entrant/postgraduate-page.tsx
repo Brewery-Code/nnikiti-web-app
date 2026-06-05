@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
 import { PageTransition } from "@/widgets";
 import { Stagger, StaggerItem } from "@/shared/ui";
 import {
@@ -9,117 +11,9 @@ import {
   EntrantCta,
 } from "./ui";
 import type { Program, Step, KeyDate } from "./ui";
+import { loadTranslations } from "./locales";
 
-const programs: Program[] = [
-  {
-    code: "01 – Освіта/Педагогіка",
-    name: "Теорія та методика навчання",
-    description:
-      "Дослідження методик викладання інформатики та комп'ютерних дисциплін у вищій школі. Підготовка науково-педагогічних кадрів.",
-    duration: "4 роки",
-    seats: "Бюджет",
-  },
-  {
-    code: "12 – Інформаційні технології",
-    name: "Комп'ютерні науки (122)",
-    description:
-      "Алгоритми, штучний інтелект, machine learning, великі дані та теоретична інформатика. Публікації у Scopus та WoS.",
-    duration: "4 роки",
-    seats: "Бюджет + контракт",
-  },
-  {
-    code: "12 – Інформаційні технології",
-    name: "Комп'ютерна інженерія (123)",
-    description:
-      "Вбудовані системи, апаратна безпека, FPGA та промислова автоматизація. Співпраця з індустріальними партнерами.",
-    duration: "4 роки",
-    seats: "Бюджет",
-  },
-  {
-    code: "11 – Математика та статистика",
-    name: "Прикладна математика (113)",
-    description:
-      "Математичне моделювання, обчислювальна математика, теорія оптимізації та статистичний аналіз складних систем.",
-    duration: "4 роки",
-    seats: "Бюджет",
-  },
-];
-
-const steps: Step[] = [
-  {
-    title: "Вибрати наукового керівника",
-    text:
-      "Зверніться до кафедри для вибору наукового напряму та узгодження теми дисертації з потенційним науковим керівником.",
-  },
-  {
-    title: "Підготувати документи",
-    text:
-      "Диплом магістра (або спеціаліста), список публікацій (якщо є), реферат з обраної наукової теми та мотиваційний лист.",
-  },
-  {
-    title: "Скласти вступні іспити",
-    text:
-      "Два іспити: іноземна мова (англійська) та фахова дисципліна за обраною спеціальністю. Проводяться в ННІКІТІ.",
-  },
-  {
-    title: "Пройти конкурсний відбір",
-    text:
-      "Рейтинг формується з балів іспитів, середнього балу диплома магістра та наукових досягнень (публікації, патенти, конференції).",
-  },
-  {
-    title: "Зарахування та початок роботи",
-    text:
-      "Після зарахування розпочинається розробка індивідуального плану, затвердження теми дисертації та перший рік навчання.",
-  },
-];
-
-const dates: KeyDate[] = [
-  {
-    period: "Вересень – жовтень",
-    label: "Прийом заяв та документів",
-    note: "Подача через деканат або відділ аспірантури",
-  },
-  {
-    period: "Листопад",
-    label: "Вступні іспити",
-    note: "Розклад оприлюднюється на сайті НУВГП",
-  },
-  {
-    period: "1 грудня",
-    label: "Наказ про зарахування",
-    note: "Початок першого семестру з 1 грудня або 1 лютого",
-  },
-  {
-    period: "Щорічно",
-    label: "Звітна конференція аспірантів",
-    note: "Публічний захист річного звіту перед кафедрою",
-  },
-];
-
-const benefits = [
-  {
-    title: "Наукові публікації",
-    text:
-      "Підтримка публікацій у виданнях Scopus та Web of Science, участь у міжнародних конференціях.",
-  },
-  {
-    title: "Академічна мобільність",
-    text:
-      "Стажування в університетах-партнерах Польщі, Литви та Чехії в рамках Erasmus+.",
-  },
-  {
-    title: "Грантові програми",
-    text:
-      "Підтримка у пошуку фінансування через МОН України, Horizon Europe та двосторонні програми.",
-  },
-  {
-    title: "Викладацька практика",
-    text:
-      "Аспіранти ведуть практичні заняття та отримують педагогічний досвід під керівництвом наставників.",
-  },
-];
-
-function BenefitCard({ b }: { b: (typeof benefits)[0] }) {
+function BenefitCard({ b }: { b: { title: string; text: string } }) {
   return (
     <div className="grad-border card-hover rounded-[20px] bg-surface p-5 backdrop-blur-xl sm:p-7">
       <h3
@@ -135,29 +29,63 @@ function BenefitCard({ b }: { b: (typeof benefits)[0] }) {
 }
 
 function PostgraduatePage() {
+  useLoadNamespace("entrant", loadTranslations);
+  const { t } = useTranslation("entrant");
+
+  const rawStats = t("postgraduate.stats", { returnObjects: true });
+  const stats: { value: string; label: string }[] = Array.isArray(rawStats) ? rawStats : [];
+  const rawBenefits = t("postgraduate.benefits", { returnObjects: true });
+  const benefits: { title: string; text: string }[] = Array.isArray(rawBenefits) ? rawBenefits : [];
+  const rawPrograms = t("postgraduate.programs", { returnObjects: true });
+  const programs: Program[] = Array.isArray(rawPrograms) ? rawPrograms : [];
+  const rawSteps = t("postgraduate.steps", { returnObjects: true });
+  const steps: (Step & { linkText?: string; linkHref?: string })[] = Array.isArray(rawSteps) ? rawSteps : [];
+  const rawDates = t("postgraduate.dates", { returnObjects: true });
+  const dates: KeyDate[] = Array.isArray(rawDates) ? rawDates : [];
+
+  const stepsWithJsx: Step[] = steps.map((s) => {
+    if (s.linkText && s.linkHref) {
+      const parts = s.text.toString().split(s.linkText);
+      return {
+        title: s.title,
+        text: (
+          <>
+            {parts.map((part, i, arr) =>
+              i < arr.length - 1 ? (
+                <span key={i}>
+                  {part}
+                  <a href={s.linkHref} target="_blank" rel="noopener noreferrer">{s.linkText}</a>
+                </span>
+              ) : (
+                <span key={i}>{part}</span>
+              )
+            )}
+          </>
+        ),
+      };
+    }
+    return { title: s.title, text: s.text };
+  });
+
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <EntrantHero
-        eyebrow="Вступникам · Аспірантура"
-        title="Шлях до"
-        gradientWord="PhD"
-        description="Чотирирічна програма наукової підготовки для тих, хто прагне стати дослідником, винахідником або науковим лідером у сфері IT та математики."
+        eyebrow={t("postgraduate.eyebrow")}
+        title={t("postgraduate.title")}
+        gradientWord={t("postgraduate.gradientWord")}
+        description={t("postgraduate.description")}
         imageSeed="/images/students-hall.jpg"
-        stats={[
-          { value: "4–5", label: "роки навчання" },
-          { value: "4", label: "спеціальності" },
-          { value: "PhD", label: "науковий ступінь" },
-        ]}
+        stats={stats}
       />
 
-      <div className="bg-base">
+      <div>
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <SectionHead
-              eyebrow="Можливості аспірантури"
-              title="Що ти"
-              gradientTitle="отримуєш"
-              subtitle="Аспірантура — це не просто навчання. Це наукова спільнота, ресурси та міжнародні зв'язки."
+              eyebrow={t("postgraduate.benefitsEyebrow")}
+              title={t("postgraduate.benefitsTitle")}
+              gradientTitle={t("postgraduate.benefitsGradientTitle")}
+              subtitle={t("postgraduate.benefitsSubtitle")}
             />
             <Stagger className="grid gap-5 sm:grid-cols-2" stagger={0.08} amount={0.05}>
               {benefits.map((b, i) => (
@@ -172,9 +100,9 @@ function PostgraduatePage() {
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <SectionHead
-              eyebrow="Наукові спеціальності"
-              title="Обери свій"
-              gradientTitle="напрям досліджень"
+              eyebrow={t("postgraduate.programsEyebrow")}
+              title={t("postgraduate.programsTitle")}
+              gradientTitle={t("postgraduate.programsGradientTitle")}
             />
             <Stagger className="grid gap-5 sm:grid-cols-2" stagger={0.08} amount={0.05}>
               {programs.map((p, i) => (
@@ -190,19 +118,19 @@ function PostgraduatePage() {
           <div className="container-v2">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               <SectionHead
-                eyebrow="Вступна кампанія"
-                title="Вступ до"
-                gradientTitle="аспірантури"
-                subtitle="Прийом — щорічно восени. Контакт із майбутнім науковим керівником рекомендується заздалегідь."
+                eyebrow={t("postgraduate.admissionEyebrow")}
+                title={t("postgraduate.admissionTitle")}
+                gradientTitle={t("postgraduate.admissionGradientTitle")}
+                subtitle={t("postgraduate.admissionSubtitle")}
               />
               <Stagger className="flex flex-col" stagger={0.1} amount={0.1}>
-                {steps.map((s, i) => (
+                {stepsWithJsx.map((s, i) => (
                   <StaggerItem key={i} mode="right">
                     <StepItem
                       step={s}
                       number={i + 1}
                       index={i}
-                      total={steps.length}
+                      total={stepsWithJsx.length}
                     />
                   </StaggerItem>
                 ))}
@@ -214,9 +142,9 @@ function PostgraduatePage() {
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
             <SectionHead
-              eyebrow="Важливі дати"
-              title="Календар"
-              gradientTitle="аспіранта"
+              eyebrow={t("postgraduate.datesEyebrow")}
+              title={t("postgraduate.datesTitle")}
+              gradientTitle={t("postgraduate.datesGradientTitle")}
             />
             <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08} amount={0.1}>
               {dates.map((d, i) => (
@@ -229,9 +157,9 @@ function PostgraduatePage() {
         </section>
 
         <EntrantCta
-          title="Готовий до наукового шляху?"
-          subtitle="Зверніться до відділу аспірантури НУВГП або безпосередньо до кафедри для вибору наукового керівника та узгодження теми."
-          primaryLabel="Зв'язатися з відділом"
+          title={t("postgraduate.ctaTitle")}
+          subtitle={t("postgraduate.ctaSubtitle")}
+          primaryLabel={t("postgraduate.ctaPrimaryLabel")}
         />
       </div>
     </PageTransition>

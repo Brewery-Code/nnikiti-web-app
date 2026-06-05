@@ -22,26 +22,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative flex min-h-svh flex-col overflow-hidden bg-base">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-[15%] -top-[15%] h-[700px] w-[700px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(166,132,255,0.18) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[600px] w-[600px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(81,162,255,0.15) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
-      />
-
+    <section className="relative flex min-h-svh flex-col overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 flex select-none items-end justify-end overflow-hidden pr-10 pb-10"
@@ -59,7 +40,8 @@ export default function HeroSection() {
         </span>
       </div>
 
-      <div className="container-v2 relative z-[1] flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] py-4 pt-24 sm:pt-28 lg:pt-32">
+
+<div className="container-v2 relative z-[1] flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] py-4 pt-24 sm:pt-28 lg:pt-32">
         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-subtle">
           {t("hero.institute")}
         </span>
@@ -95,7 +77,7 @@ export default function HeroSection() {
             <span className="text-grad">{t("hero.title2")}</span>
           </h1>
 
-          <div className="my-10 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
+          <div className="my-10" />
 
           <p className="max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]">
             {t("hero.description")}

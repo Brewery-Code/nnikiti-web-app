@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Reveal } from "@/shared/ui";
 import { PageTransition } from "@/widgets";
 import { ROUTES } from "@/shared/model/routes";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 
 export function ErrorPage() {
+  useLoadNamespace("error", loadTranslations);
+  const { t } = useTranslation("error");
+
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-      <section className="relative flex min-h-svh w-full items-center justify-center overflow-hidden bg-base px-5 py-24 text-center">
+      <section className="relative flex min-h-svh w-full items-center justify-center overflow-hidden px-5 py-24 text-center">
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -left-[10%] -top-[10%] h-[600px] w-[600px] rounded-full"
@@ -33,9 +39,9 @@ export function ErrorPage() {
           <Reveal mode="scale" delay={0.4} inView={false}>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
               <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
-                ERROR
+                {t("badge")}
               </span>
-              <span className="text-[12px] text-primary/70">Помилка сервера</span>
+              <span className="text-[12px] text-primary/70">{t("badgeSub")}</span>
             </div>
           </Reveal>
 
@@ -49,7 +55,7 @@ export function ErrorPage() {
                 textShadow: "0 4px 40px rgba(0,0,0,0.5)",
               }}
             >
-              <span className="text-grad-animated">Ой!</span>
+              <span className="text-grad-animated">{t("heading")}</span>
             </h1>
           </Reveal>
 
@@ -58,7 +64,7 @@ export function ErrorPage() {
               className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
               style={{ lineHeight: 1.7, maxWidth: 480 }}
             >
-              Щось пішло не так на нашому боці. Спробуйте оновити сторінку або поверніться на головну.
+              {t("description")}
             </p>
           </Reveal>
 
@@ -69,13 +75,13 @@ export function ErrorPage() {
                 onClick={() => window.location.reload()}
                 className="sheen inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[17px]"
               >
-                Оновити сторінку
+                {t("refresh")}
               </button>
               <Link
                 to={ROUTES.HOME}
                 className="inline-flex items-center gap-2 rounded-[14px] border border-ui bg-surface-lg px-7 py-3.5 text-[15px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:text-[17px]"
               >
-                На головну
+                {t("home")}
               </Link>
             </div>
           </Reveal>

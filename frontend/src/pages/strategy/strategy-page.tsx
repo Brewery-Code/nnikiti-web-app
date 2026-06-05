@@ -12,7 +12,7 @@ type DeptItem = { abbr: string; name: string; points: string[] };
 function Hero() {
   const { t } = useTranslation("strategy");
   return (
-    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[15%] -top-[20%] h-[700px] w-[700px] rounded-full"
@@ -57,7 +57,6 @@ function Hero() {
           </StaggerItem>
         </div>
       </Stagger>
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
     </section>
   );
 }
@@ -228,7 +227,7 @@ function StrategyPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <Hero />
-      <div className="bg-base">
+      <div>
         <CrossThemes />
         <Departments />
         <Cta />

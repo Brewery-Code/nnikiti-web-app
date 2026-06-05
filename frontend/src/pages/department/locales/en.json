@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "badge_institute": "NNIKITI",
+    "badge_dept": "Department"
+  },
+  "sidebar": {
+    "heading_depts": "— Departments",
+    "heading_sections": "— Sections"
+  },
+  "sections": {
+    "curriculum": "Curriculum",
+    "team": "Team",
+    "history": "History",
+    "contacts": "Contacts"
+  },
+  "degrees": {
+    "bachelor": "Bachelor",
+    "master": "Master",
+    "postgraduate": "Postgraduate"
+  },
+  "curriculum": {
+    "section_title": "Study",
+    "section_highlight": "programme",
+    "meta_duration": "Duration",
+    "meta_form": "Form",
+    "disciplines_label": "Disciplines",
+    "year_label": "Year {{year}} — semesters {{sem1}} and {{sem2}}"
+  },
+  "subjects": {
+    "mandatory": "Mandatory",
+    "elective": "Elective",
+    "mandatory_abbr": "Mand.",
+    "elective_abbr": "Elec."
+  },
+  "team": {
+    "section_title": "Department",
+    "section_highlight": "team",
+    "audience_prefix": "Room"
+  },
+  "history": {
+    "section_title": "Department",
+    "section_highlight": "history",
+    "since": "Since {{year}}",
+    "dept_name": "Department of {{name}}"
+  },
+  "contacts": {
+    "section_title": "Department",
+    "section_highlight": "contacts",
+    "head_label": "Head of Department",
+    "email_label": "Department email",
+    "address_label": "Address",
+    "audience_prefix": "Room"
+  },
+  "mobile_selector": {
+    "label": "Department",
+    "placeholder": "Select a department"
+  }
+}

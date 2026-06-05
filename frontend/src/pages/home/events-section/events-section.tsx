@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { ROUTES } from "@/shared/model/routes";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
 import { publicRqClient } from "@/shared/api/instance";
 import { resolveMediaUrl } from "@/shared/model/config";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 import type { components } from "@/shared/api/schema/generated";
 
 type ApiEvent = components["schemas"]["Events"];
@@ -46,6 +49,7 @@ function Pill({ category }: { category: ApiEvent["category"] }) {
 
 function SeeAll() {
   const [h, setH] = useState(false);
+  const { t } = useTranslation("home");
   return (
     <Link
       to={`${ROUTES.EVENTS}#news`}
@@ -57,13 +61,14 @@ function SeeAll() {
         color: h ? "#fff" : "rgba(255,255,255,0.4)",
       }}
     >
-      Усі новини
+      {t("eventsSection.seeAll")}
       <span style={{ color: h ? "#a684ff" : "rgba(255,255,255,0.3)" }}>↗</span>
     </Link>
   );
 }
 
 function NewsFeat({ item }: { item: ApiEvent }) {
+  const { t } = useTranslation("home");
   const image = resolveMediaUrl(item.cover);
   return (
     <Link
@@ -88,7 +93,7 @@ function NewsFeat({ item }: { item: ApiEvent }) {
           {item.title}
         </h3>
         <div className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.04em] text-violet-400">
-          Читати <span aria-hidden>→</span>
+          {t("eventsSection.readMore")} <span aria-hidden>→</span>
         </div>
       </div>
     </Link>
@@ -96,6 +101,7 @@ function NewsFeat({ item }: { item: ApiEvent }) {
 }
 
 function NewsRow({ item }: { item: ApiEvent }) {
+  const { t } = useTranslation("home");
   const image = resolveMediaUrl(item.cover);
   return (
     <Link
@@ -132,7 +138,7 @@ function NewsRow({ item }: { item: ApiEvent }) {
           {item.title}
         </p>
         <div className="mt-2 translate-y-1 text-[11px] font-bold uppercase tracking-[0.04em] text-violet-400 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          Читати →
+          {t("eventsSection.readMore")} →
         </div>
       </div>
       <span
@@ -146,6 +152,8 @@ function NewsRow({ item }: { item: ApiEvent }) {
 }
 
 export default function EventsSection({ className = "" }: { className?: string }) {
+  useLoadNamespace("home", loadTranslations);
+  const { t } = useTranslation("home");
   const { data, isPending } = publicRqClient.useQuery("get", "/events/", {});
 
   const events = (data ?? []).filter((e) => !!e.title).slice(0, 4);
@@ -166,7 +174,7 @@ export default function EventsSection({ className = "" }: { className?: string }
                 letterSpacing: "-0.04em",
               }}
             >
-              Останні <span className="text-grad">події</span>
+              {t("eventsSection.heading")} <span className="text-grad">{t("eventsSection.headingAccent")}</span>
             </h2>
           </div>
           <SeeAll />

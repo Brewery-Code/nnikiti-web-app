@@ -1,0 +1,30 @@
+{
+  "badge": "CONTACT",
+  "badgeSub": "We are always in touch",
+  "heading": "Ask",
+  "headingAccent": "your question",
+  "description": "Have a question about NNI KITI, admissions, or academic programs? We will answer as soon as possible.",
+  "nameLabel": "Your name",
+  "emailLabel": "Email address",
+  "phoneLabel": "Phone number",
+  "questionLabel": "Your question",
+  "optional": "(optional)",
+  "namePlaceholder": "Ivan Petrenko",
+  "emailPlaceholder": "you@example.com",
+  "phonePlaceholder": "+38 (067) 123-45-67",
+  "questionPlaceholder": "Write your question here...",
+  "submit": "Submit question",
+  "submitting": "Sending…",
+  "footerNote": "We review messages within 24 hours",
+  "successHeading": "Thank you for",
+  "successHeadingAccent": "your question",
+  "successText": "We received your request and will respond as soon as possible.",
+  "contactsHeading": "Other",
+  "contactsHeadingAccent": "channels",
+  "contactsSectionLabel": "— Contacts",
+  "errors": {
+    "name": "Name must contain at least 2 characters",
+    "email": "Invalid email address",
+    "question": "Question must contain at least 10 characters"
+  }
+}

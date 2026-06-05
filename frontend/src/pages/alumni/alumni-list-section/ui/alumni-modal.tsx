@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { ModalWrapper } from "@/widgets";
 import type { Alumni } from "../types";
 import { profilePlaceholder } from "@/shared/icons";
@@ -18,10 +19,11 @@ const SOCIAL_ICONS: Record<string, string> = {
 };
 
 export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
+  const { t } = useTranslation("alumni");
   const socialEntries = alumni.links ? Object.entries(alumni.links) : [];
 
   return (
-    <ModalWrapper isModalOpen={isOpen} toggleModal={toggleModal}>
+    <ModalWrapper isModalOpen={isOpen} toggleModal={toggleModal} maxWidth="max-w-2xl">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
         <div className="mx-auto flex-shrink-0 sm:mx-0">
           <div
@@ -43,7 +45,7 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
         <div className="flex flex-1 flex-col gap-3 min-w-0">
           {alumni.date_of_graduation && (
             <span className="inline-flex w-fit items-center rounded-full border border-violet-500/25 bg-violet-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-violet-300">
-              Випуск {alumni.date_of_graduation.split("-")[0]}
+              {t("alumniModal.graduation")} {alumni.date_of_graduation.split("-")[0]}
             </span>
           )}
 
@@ -70,13 +72,13 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
         <div className="mt-5 flex flex-wrap gap-2">
           {alumni.major && (
             <div className="grad-border rounded-[12px] bg-surface-md px-4 py-2.5">
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-subtle mb-0.5">Спеціальність</p>
+              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-subtle mb-0.5">{t("alumniModal.major")}</p>
               <p className="text-[14px] font-semibold text-primary/80">{alumni.major}</p>
             </div>
           )}
           {alumni.degree && (
             <div className="grad-border rounded-[12px] bg-surface-md px-4 py-2.5">
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-subtle mb-0.5">Ступінь</p>
+              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-subtle mb-0.5">{t("alumniModal.degree")}</p>
               <p className="text-[14px] font-semibold text-primary/80">{alumni.degree}</p>
             </div>
           )}

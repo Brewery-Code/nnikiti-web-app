@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "badge": "ННІКІТІ",
+    "badgeSub": "Медіаархів",
+    "title": "Галерея",
+    "titleAccent": "подій",
+    "stats": "{{photos}} фото · {{events}} подій · {{years}} роки"
+  },
+  "allPhotos": {
+    "eyebrow": "Медіаархів",
+    "title": "Усі",
+    "highlight": "фото",
+    "linkLabel": "Переглянути всі {{count}} фото"
+  },
+  "byYear": {
+    "eyebrow": "Архів",
+    "title": "По",
+    "highlight": "роках",
+    "linkLabel": "Всі фото {{year}} року",
+    "showAll": "Всі фото {{year}} року"
+  },
+  "events": {
+    "eyebrow": "Альбоми",
+    "title": "Альбоми",
+    "highlight": "подій",
+    "linkLabel": "Усі події",
+    "viewAlbum": "Переглянути альбом",
+    "photoCount": "{{count}} фото"
+  },
+  "allPage": {
+    "eyebrow": "Медіаархів ННІКІТІ",
+    "title": "Усі фото",
+    "back": "Галерея"
+  },
+  "eventPage": {
+    "back": "Галерея",
+    "eyebrow": "Подія · {{year}}",
+    "notFound": "Подію не знайдено."
+  },
+  "yearPage": {
+    "back": "Галерея",
+    "eyebrow": "Архів ННІКІТІ",
+    "title": "{{year}} рік",
+    "notFound": "Фото за {{year}} рік не знайдено."
+  }
+}

@@ -289,8 +289,9 @@ export interface paths {
         };
         put?: never;
         /**
-         * Create a new Alumnus
-         * @description Creates a new Alumnus with Ukrainian translation fields
+         * Подати заявку випускника
+         * @description Публічна форма для випускників. Запис створюється зі статусом `DRAFT` і потребує модерації адміністратором перед публікацією.
+         *
          */
         post: {
             parameters: {
@@ -303,62 +304,40 @@ export interface paths {
                 content: {
                     "multipart/form-data": {
                         /**
-                         * @description Full name of the alumnus (Ukrainian)
-                         * @example Іван Іваненко
+                         * @description Ім'я випускника
+                         * @example Іван
                          */
-                        full_name?: string;
+                        first_name: string;
                         /**
-                         * @description Short bio or description (optional)
-                         * @example Graduated in Computer Science.
+                         * @description Прізвище випускника
+                         * @example Іваненко
+                         */
+                        last_name: string;
+                        /**
+                         * @description Рік випуску
+                         * @example 2024
+                         */
+                        graduation_year: number;
+                        /**
+                         * @description Спеціальність
+                         * @example 122 — Комп'ютерні науки
+                         */
+                        major: string;
+                        /**
+                         * @description Ваша історія (необов'язково)
+                         * @example Зараз працюю в Google як Software Engineer
                          */
                         text?: string;
                         /**
-                         * @description Major field of study
-                         * @example Computer Science
-                         */
-                        major?: string;
-                        /**
-                         * @description Degree obtained
-                         * @example Bachelor
-                         */
-                        degree?: string;
-                        /**
-                         * @description Workplace (optional)
-                         * @example Google
-                         */
-                        workplace?: string;
-                        /**
-                         * @description Position at workplace (optional)
-                         * @example Software Engineer
-                         */
-                        position?: string;
-                        /**
                          * Format: binary
-                         * @description Profile image of the alumnus
+                         * @description Фото (необов'язково)
                          */
                         image?: string;
-                        /**
-                         * @description Social links or other publications (optional)
-                         * @example {
-                         *       "instagram": "https://instagram.com/ivan",
-                         *       "telegram": "https://t.me/ivan",
-                         *       "facebook": "https://facebook.com/ivan"
-                         *     }
-                         */
-                        links?: {
-                            [key: string]: string;
-                        };
-                        /**
-                         * Format: date
-                         * @description Graduation date
-                         * @example 2024-06-15
-                         */
-                        date_of_graduation?: string;
                     };
                 };
             };
             responses: {
-                /** @description Successfully created Alumnus */
+                /** @description Заявку успішно подано */
                 201: {
                     headers: {
                         [name: string]: unknown;
@@ -370,7 +349,7 @@ export interface paths {
                         };
                     };
                 };
-                /** @description Invalid request */
+                /** @description Невалідні дані */
                 400: {
                     headers: {
                         [name: string]: unknown;
@@ -858,6 +837,100 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/gallery/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Список альбомів
+         * @description Повертає опубліковані альбоми. Фільтри — `?year=`, `?year_from=`, `?year_to=`.
+         */
+        get: {
+            parameters: {
+                query?: {
+                    /** @description Фільтр за конкретним роком */
+                    year?: number;
+                    /** @description Фільтр від року (включно) */
+                    year_from?: number;
+                    /** @description Фільтр до року (включно) */
+                    year_to?: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Список альбомів успішно повернуто */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Album"][];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/gallery/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Деталі альбому
+         * @description Повертає альбом з усіма фото.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Альбом успішно повернуто */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["AlbumDetail"];
+                    };
+                };
+                /** @description Альбом не знайдено */
+                404: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/departments/": {
         parameters: {
             query?: never;
@@ -896,6 +969,58 @@ export interface paths {
                         "application/json": {
                             detail?: string;
                         };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/departments/staff/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Повертає весь персонал (викладачі + завідувачі кафедр)
+         * @description Повертає об'єднаний список усіх завідувачів кафедр та викладачів. Поле `type` = `"head"` або `"faculty"`. Необов'язковий фільтр `?department=<id>` звужує результат до однієї кафедри.
+         *
+         */
+        get: {
+            parameters: {
+                query?: {
+                    /** @description ID кафедри для фільтрації */
+                    department?: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Список персоналу успішно повернуто */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["StaffMember"][];
+                    };
+                };
+                /** @description Bad request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["Error"];
                     };
                 };
             };
@@ -1202,6 +1327,33 @@ export interface components {
             /** @description Chronological history of the department */
             history?: components["schemas"]["DepartmentHistory"][];
         };
+        /** @description Уніфікований об'єкт персоналу. Поле `type` визначає тип: `"head"` — завідувач кафедри, `"faculty"` — викладач.
+         *      */
+        StaffMember: {
+            readonly id?: number;
+            /**
+             * @description Тип запису
+             * @enum {string}
+             */
+            type?: "head" | "faculty";
+            /** @description ПІБ завідувача (тільки для type=head, мовозалежне) */
+            full_name?: string;
+            /** @description ПІБ викладача (тільки для type=faculty, мовозалежне) */
+            name?: string;
+            /** @description Науковий ступінь/звання (тільки для type=head, мовозалежне) */
+            regalia?: string | null;
+            /** @description Посада викладача (тільки для type=faculty, мовозалежне) */
+            role?: string | null;
+            /** @description Спеціальність викладача (тільки для type=faculty, мовозалежне) */
+            specialty?: string | null;
+            /** Format: uri */
+            image?: string | null;
+            /** Format: email */
+            email?: string | null;
+            audience?: string | null;
+            /** @description ID кафедри */
+            department_id?: number;
+        };
         Alumnus: {
             /** ID */
             readonly id?: number;
@@ -1237,6 +1389,33 @@ export interface components {
             readonly degree?: string;
             readonly workplace?: string;
             readonly position?: string;
+        };
+        AlbumPhoto: {
+            readonly id?: number;
+            /** Format: uri */
+            image?: string;
+            /** Format: date */
+            published_at?: string;
+            order?: number;
+        };
+        Album: {
+            readonly id?: number;
+            /** @description Назва альбому (мовозалежна) */
+            title?: string;
+            /** @description Опис альбому (мовозалежний) */
+            description?: string;
+            /** Format: uri */
+            cover?: string | null;
+            /** Format: date */
+            date?: string;
+            /**
+             * @description DF = Draft, PB = Published
+             * @enum {string}
+             */
+            status?: "DF" | "PB";
+        };
+        AlbumDetail: components["schemas"]["Album"] & {
+            photos?: components["schemas"]["AlbumPhoto"][];
         };
         AlumniSliderItem: {
             /** ID */

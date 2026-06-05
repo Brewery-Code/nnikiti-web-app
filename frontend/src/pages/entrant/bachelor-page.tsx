@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
 import { PageTransition } from "@/widgets";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
 import {
@@ -11,120 +12,42 @@ import {
   SectionHead,
   EntrantCta,
 } from "./ui";
-import type { Step, KeyDate } from "./ui";
+import type { Step } from "./ui";
+import { loadTranslations } from "./locales";
+import { publicRqClient } from "@/shared/api/instance";
 
 import "swiper/css";
 import "swiper/css/autoplay";
 
-const programs = [
-  {
-    code: "121", departmentId: 4,
-    name: "Інженерія програмного забезпечення",
-    tags: ["Backend", "Frontend", "AI", "DevOps"],
-    budget: 20, contract: 40,
-  },
-  {
-    code: "122", departmentId: 2,
-    name: "Комп'ютерні науки",
-    tags: ["Algorithms", "ML", "Networks"],
-    budget: 15, contract: 35,
-  },
-  {
-    code: "123", departmentId: 3,
-    name: "Комп'ютерна інженерія",
-    tags: ["Hardware", "IoT", "Networks"],
-    budget: 12, contract: 30,
-  },
-  {
-    code: "125", departmentId: 3,
-    name: "Кібербезпека",
-    tags: ["Pentest", "SOC", "Crypto"],
-    budget: 18, contract: 25,
-  },
-  {
-    code: "126", departmentId: 2,
-    name: "Інформаційні системи та технології",
-    tags: ["ERP", "Cloud", "BI"],
-    budget: 0, contract: 35,
-  },
-  {
-    code: "051", departmentId: 2,
-    name: "Економічна кібернетика",
-    tags: ["Fintech", "Analytics", "AI"],
-    budget: 0, contract: 28,
-  },
-  {
-    code: "113", departmentId: 1,
-    name: "Прикладна математика",
-    tags: ["Modelling", "ML", "Optimisation"],
-    budget: 10, contract: 0,
-  },
-  {
-    code: "111", departmentId: 1,
-    name: "Математика",
-    tags: ["Algebra", "Analysis", "Logic"],
-    budget: 8, contract: 0,
-  },
-];
+const isTouchDevice = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
 
-const steps: Step[] = [
-  {
-    title: "Зареєструватися на НМТ",
-    text:
-      "Національний мультипредметний тест — обов'язкова умова вступу. Реєстрація відкривається у лютому–березні на сайті testportal.gov.ua.",
-  },
-  {
-    title: "Скласти НМТ",
-    text:
-      "Обов'язкові предмети: українська мова та математика. Додатково — іноземна мова або профільний предмет за вибором.",
-  },
-  {
-    title: "Подати заяву в ЄДЕБО",
-    text:
-      "До 5 заяв на різні спеціальності та університети. Заяви подаються онлайн через особистий кабінет вступника.",
-  },
-  {
-    title: "Завантажити документи",
-    text:
-      "Атестат, паспорт, сертифікат НМТ та фото — все в електронному вигляді. Оригінали надаються після зарахування.",
-  },
-  {
-    title: "Конкурсний відбір та зарахування",
-    text:
-      "Ранжування за конкурсним балом (НМТ + середній бал атестата). Держзамовлення — безоплатно, контракт — на основі угоди.",
-  },
-];
+const L = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
+);
 
-const dates: KeyDate[] = [
-  {
-    period: "Лютий – березень",
-    label: "Реєстрація на НМТ",
-    note: "На сайті testportal.gov.ua",
-  },
-  {
-    period: "Червень",
-    label: "Проведення НМТ",
-    note: "Перевірте місце та час у кабінеті вступника",
-  },
-  {
-    period: "01 – 22 липня",
-    label: "Прийом заяв на бюджет",
-    note: "До 5 заяв через ЄДЕБО",
-  },
-  {
-    period: "22 – 30 липня",
-    label: "Зарахування держзамовлення",
-    note: "Рейтингові списки оновлюються щодня",
-  },
-  {
-    period: "01 – 15 серпня",
-    label: "Прийом заяв на контракт",
-    note: "Оплатна форма навчання, без прохідного балу",
-  },
-];
+type ProgramData = {
+  code: string;
+  departmentId: number;
+  name: string;
+  tags: string[];
+  budget: number;
+  contract: number;
+};
 
-function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
+const PROGRAM_META: Record<string, { departmentId: number; budget: number; contract: number }> = {
+  "121": { departmentId: 4, budget: 20, contract: 40 },
+  "122": { departmentId: 2, budget: 15, contract: 35 },
+  "123": { departmentId: 3, budget: 12, contract: 30 },
+  "125": { departmentId: 3, budget: 18, contract: 25 },
+  "126": { departmentId: 2, budget: 0, contract: 35 },
+  "051": { departmentId: 2, budget: 0, contract: 28 },
+  "113": { departmentId: 1, budget: 10, contract: 0 },
+  "111": { departmentId: 1, budget: 8, contract: 0 },
+};
+
+function SpecCard({ spec }: { spec: ProgramData }) {
   const [h, setH] = useState(false);
+  const { t } = useTranslation("entrant");
   return (
     <Link
       to={`/department/${spec.departmentId}?program=${spec.code}#curriculum`}
@@ -138,7 +61,7 @@ function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
       }}
     >
       <div style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.02em", marginBottom: 14, color: "var(--text-subtle)", transition: "color 200ms" }}>
-        Code:{" "}
+        {t("common.code")}{" "}
         <span style={{ color: h ? "#fff" : "var(--text-muted)" }}>{spec.code}</span>
       </div>
 
@@ -150,13 +73,13 @@ function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
       </h3>
 
       <div className="mb-6 flex flex-wrap gap-2">
-        {spec.tags.map((t) => (
+        {spec.tags.map((tag) => (
           <span
-            key={t}
+            key={tag}
             className="font-display inline-block uppercase"
             style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.05em", padding: "6px 16px", borderRadius: 999, color: "#fff", background: "linear-gradient(135deg, #a684ff 0%, #51a2ff 100%)", boxShadow: "0 4px 14px rgba(166,132,255,0.25)" }}
           >
-            {t}
+            {tag}
           </span>
         ))}
       </div>
@@ -166,13 +89,13 @@ function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
           {spec.budget > 0 && (
             <div>
               <div className="font-display font-extrabold" style={{ fontSize: "1rem" }}>{spec.budget}</div>
-              <div style={{ fontSize: 9, color: "var(--text-subtle)", letterSpacing: "0.05em", textTransform: "uppercase" }}>бюджет</div>
+              <div style={{ fontSize: 9, color: "var(--text-subtle)", letterSpacing: "0.05em", textTransform: "uppercase" }}>{t("common.budget")}</div>
             </div>
           )}
           {spec.contract > 0 && (
             <div>
               <div className="font-display font-extrabold" style={{ fontSize: "1rem" }}>{spec.contract}</div>
-              <div style={{ fontSize: 9, color: "var(--text-subtle)", letterSpacing: "0.05em", textTransform: "uppercase" }}>контракт</div>
+              <div style={{ fontSize: 9, color: "var(--text-subtle)", letterSpacing: "0.05em", textTransform: "uppercase" }}>{t("common.contract")}</div>
             </div>
           )}
         </div>
@@ -189,8 +112,26 @@ function SpecCard({ spec }: { spec: (typeof programs)[0] }) {
 
 function ProgramsSlider() {
   const swiperRef = useRef<SwiperType | null>(null);
+  const { t } = useTranslation("entrant");
+
+  const { data: apiPrograms = [] } = publicRqClient.useQuery("get", "/core/educational-programs/", {});
+
+  const programs: ProgramData[] = (apiPrograms ?? [])
+    .filter((p) => p.code && p.name)
+    .map((p) => {
+      const meta = PROGRAM_META[p.code!] ?? { departmentId: 1, budget: 0, contract: 0 };
+      return {
+        code: p.code!,
+        name: p.name!,
+        tags: (p.subject ?? []).map((s) => s.name ?? "").filter(Boolean),
+        departmentId: meta.departmentId,
+        budget: meta.budget,
+        contract: meta.contract,
+      };
+    });
+
   return (
-    <section className="bg-base py-12 sm:py-16 lg:py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
           <div>
@@ -198,25 +139,25 @@ function ProgramsSlider() {
               className="font-display font-black leading-none text-primary"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
             >
-              Знайди свій <span className="text-grad">напрям</span>
+              {t("bachelor.sliderTitle")} <span className="text-grad">{t("bachelor.sliderGradient")}</span>
             </h2>
             <p className="mt-3 text-[15px] text-muted" style={{ maxWidth: 480 }}>
-              Від розробки до математики — обери програму, яка відповідає твоїм цілям і захопленням.
+              {t("bachelor.sliderSubtitle")}
             </p>
           </div>
           <div className="flex items-center gap-2.5 flex-shrink-0">
             <button
               type="button"
-              onClick={() => swiperRef.current?.slidePrev(600)}
-              aria-label="Попередня програма"
+              onClick={() => swiperRef.current?.slidePrev()}
+              aria-label={t("common.prevProgram")}
               className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-surface-md text-primary/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-primary active:scale-95"
             >
               <span style={{ fontSize: 18, lineHeight: 1 }}>←</span>
             </button>
             <button
               type="button"
-              onClick={() => swiperRef.current?.slideNext(600)}
-              aria-label="Наступна програма"
+              onClick={() => swiperRef.current?.slideNext()}
+              aria-label={t("common.nextProgram")}
               className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-surface-md text-primary/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-primary active:scale-95"
             >
               <span style={{ fontSize: 18, lineHeight: 1 }}>→</span>
@@ -225,17 +166,14 @@ function ProgramsSlider() {
         </Reveal>
       </div>
 
-      <div className="overflow-hidden">
+      <div className="overflow-hidden" style={{ transform: "translateZ(0)" }}>
         <Swiper
           onSwiper={(s) => { swiperRef.current = s; }}
-          modules={[Autoplay]}
-          loop
-          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
-          speed={600}
+          speed={400}
           slidesPerView="auto"
           spaceBetween={20}
-          allowTouchMove
-          grabCursor
+          allowTouchMove={isTouchDevice}
+          touchStartPreventDefault={false}
           className="specialties-swiper !overflow-visible py-2 [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:!h-auto"
         >
           {programs.map((p) => (
@@ -254,22 +192,89 @@ function ProgramsSlider() {
 }
 
 function BachelorPage() {
+  useLoadNamespace("entrant", loadTranslations);
+  const { t } = useTranslation("entrant");
+
+  const rawStats = t("bachelor.stats", { returnObjects: true });
+  const stats: { value: string; label: string }[] = Array.isArray(rawStats) ? rawStats : [];
+
+  const steps: Step[] = [
+    {
+      title: t("bachelor.steps.0.title"),
+      text: (
+        <>
+          {t("bachelor.steps.0.text").split(t("bachelor.steps.0.linkText")).map((part, i, arr) =>
+            i < arr.length - 1 ? (
+              <span key={i}>
+                {part}
+                <L href={t("bachelor.steps.0.linkHref")}>{t("bachelor.steps.0.linkText")}</L>
+              </span>
+            ) : (
+              <span key={i}>{part}</span>
+            )
+          )}
+        </>
+      ),
+    },
+    {
+      title: t("bachelor.steps.1.title"),
+      text: t("bachelor.steps.1.text"),
+    },
+    {
+      title: t("bachelor.steps.2.title"),
+      text: (
+        <>
+          {t("bachelor.steps.2.text").split(t("bachelor.steps.2.linkText")).map((part, i, arr) =>
+            i < arr.length - 1 ? (
+              <span key={i}>
+                {part}
+                <L href={t("bachelor.steps.2.linkHref")}>{t("bachelor.steps.2.linkText")}</L>
+              </span>
+            ) : (
+              <span key={i}>{part}</span>
+            )
+          )}
+        </>
+      ),
+    },
+    {
+      title: t("bachelor.steps.3.title"),
+      text: t("bachelor.steps.3.text"),
+    },
+    {
+      title: t("bachelor.steps.4.title"),
+      text: (
+        <>
+          {t("bachelor.steps.4.text").split(t("bachelor.steps.4.linkText")).map((part, i, arr) =>
+            i < arr.length - 1 ? (
+              <span key={i}>
+                {part}
+                <L href={t("bachelor.steps.4.linkHref")}>{t("bachelor.steps.4.linkText")}</L>
+              </span>
+            ) : (
+              <span key={i}>{part}</span>
+            )
+          )}
+        </>
+      ),
+    },
+  ];
+
+  const rawNmtSubjects = t("bachelor.nmtSubjects", { returnObjects: true });
+  const nmtSubjects: { subject: string; required: boolean }[] = Array.isArray(rawNmtSubjects) ? rawNmtSubjects : [];
+
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <EntrantHero
-        eyebrow="Вступникам · Бакалаврат"
-        title="Чотири роки до"
-        gradientWord="кар'єри в IT"
-        description="8 спеціальностей у сферах розробки, кібербезпеки, AI та математики. Держзамовлення, сучасні лабораторії та викладачі-практики з реального IT-ринку."
+        eyebrow={t("bachelor.eyebrow")}
+        title={t("bachelor.title")}
+        gradientWord={t("bachelor.gradientWord")}
+        description={t("bachelor.description")}
         imageSeed="/images/students-stage.jpg"
-        stats={[
-          { value: "4", label: "роки навчання" },
-          { value: "8", label: "спеціальностей" },
-          { value: "НМТ", label: "вступний іспит" },
-        ]}
+        stats={stats}
       />
 
-      <div className="bg-base">
+      <div>
         <ProgramsSlider />
 
         <section className="py-12 sm:py-16 lg:py-20">
@@ -277,24 +282,17 @@ function BachelorPage() {
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               <Reveal mode="left" amount={0.1}>
                 <SectionHead
-                  eyebrow="Вступна кампанія"
-                  title="Як вступити"
-                  gradientTitle="на бакалавра"
-                  subtitle="Весь процес — онлайн через ЄДЕБО. Жодних черг і паперів до моменту зарахування."
+                  eyebrow={t("bachelor.admissionEyebrow")}
+                  title={t("bachelor.admissionTitle")}
+                  gradientTitle={t("bachelor.admissionGradientTitle")}
+                  subtitle={t("bachelor.admissionSubtitle")}
                 />
 
                 <div className="grad-border mt-8 rounded-[20px] bg-surface p-6 backdrop-blur-xl">
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
-                    Предмети НМТ для вступу
+                    {t("bachelor.nmtSubjectsLabel")}
                   </p>
-                  {[
-                    { subject: "Українська мова", required: true },
-                    { subject: "Математика", required: true },
-                    {
-                      subject: "Іноземна мова або профільний предмет",
-                      required: false,
-                    },
-                  ].map((item, i) => (
+                  {nmtSubjects.map((item, i) => (
                     <div
                       key={i}
                       className="flex items-center gap-3 border-b border-ui-sm py-3 last:border-0"
@@ -313,7 +311,7 @@ function BachelorPage() {
                       </span>
                       {item.required && (
                         <span className="ml-auto text-[10px] font-bold uppercase tracking-[0.06em] text-violet-300">
-                          обов'язково
+                          {t("bachelor.required")}
                         </span>
                       )}
                     </div>
@@ -337,79 +335,10 @@ function BachelorPage() {
           </div>
         </section>
 
-        <section className="py-12 sm:py-16 lg:py-20">
-          <div className="container-v2">
-            <Reveal mode="up" className="mb-12 lg:mb-16">
-              <h2
-                className="font-display font-black text-primary"
-                style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
-              >
-                Не пропусти <span className="text-grad">дедлайни</span>
-              </h2>
-            </Reveal>
-
-            {/* Desktop timeline */}
-            <div className="relative hidden lg:block">
-              <div className="absolute left-[52px] right-[52px] top-[26px] h-px bg-gradient-to-r from-violet-500/20 via-violet-500/50 to-violet-500/20" />
-              <Stagger className="grid grid-cols-5 gap-4" stagger={0.1} amount={0.05}>
-                {dates.map((d, i) => (
-                  <StaggerItem key={i} mode="up" className="flex flex-col items-center text-center">
-                    <div className="relative z-10 mb-5 flex h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[14px] font-extrabold text-primary shadow-[0_0_28px_rgba(166,132,255,0.45)]">
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="grad-border w-full rounded-[18px] bg-surface p-4 backdrop-blur-xl">
-                      <span className="block text-[9px] font-bold uppercase tracking-[0.16em] text-violet-400">
-                        {d.period}
-                      </span>
-                      <h3
-                        className="font-display mt-2 font-bold text-primary"
-                        style={{ fontSize: "0.88rem", letterSpacing: "-0.01em", lineHeight: 1.3 }}
-                      >
-                        {d.label}
-                      </h3>
-                      {d.note && (
-                        <p className="mt-2 text-[11px] leading-relaxed text-subtle">{d.note}</p>
-                      )}
-                    </div>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-
-            {/* Mobile vertical timeline */}
-            <div className="relative lg:hidden">
-              <div className="absolute bottom-4 left-[23px] top-4 w-px bg-gradient-to-b from-violet-500/60 via-blue-500/30 to-transparent" />
-              <Stagger className="flex flex-col gap-6" stagger={0.1} amount={0.05}>
-                {dates.map((d, i) => (
-                  <StaggerItem key={i} mode="left" className="flex items-start gap-5">
-                    <div className="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[12px] font-extrabold text-primary shadow-[0_0_20px_rgba(166,132,255,0.4)]">
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="grad-border flex-1 rounded-[18px] bg-surface p-4 backdrop-blur-xl">
-                      <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-violet-400">
-                        {d.period}
-                      </span>
-                      <h3
-                        className="font-display mt-1.5 font-bold text-primary"
-                        style={{ fontSize: "0.95rem", letterSpacing: "-0.01em" }}
-                      >
-                        {d.label}
-                      </h3>
-                      {d.note && (
-                        <p className="mt-1.5 text-[12px] leading-relaxed text-subtle">{d.note}</p>
-                      )}
-                    </div>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-          </div>
-        </section>
-
         <EntrantCta
-          title="Готовий вступити?"
-          subtitle="Вступна комісія ННІКІТІ проконсультує з вибором спеціальності, документами та умовами навчання."
-          primaryLabel="Зв'язатися з комісією"
+          title={t("bachelor.ctaTitle")}
+          subtitle={t("bachelor.ctaSubtitle")}
+          primaryLabel={t("bachelor.ctaPrimaryLabel")}
         />
       </div>
     </PageTransition>

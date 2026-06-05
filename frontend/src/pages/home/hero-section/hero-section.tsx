@@ -2,15 +2,11 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { publicRqClient } from "@/shared/api/instance";
 import { ROUTES } from "@/shared/model/routes";
-
-const QUICK_LINKS = [
-  { label: "Додипломна освіта", to: ROUTES.UNDERGRADUATE },
-  { label: "Бакалаврат", to: ROUTES.BACHELOR },
-  { label: "Магістратура", to: ROUTES.MASTER },
-  { label: "Аспірантура", to: ROUTES.POSTGRADUATE },
-];
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "../events-section/locales";
 
 function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
   return (
@@ -25,6 +21,12 @@ function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
 }
 
 export default function HeroSection({ className = "" }: { className?: string }) {
+  useLoadNamespace("home", loadTranslations);
+  const { t } = useTranslation("home");
+  const QUICK_LINKS = [
+    { label: t("heroSection.quickBachelor"), to: ROUTES.BACHELOR },
+    { label: t("heroSection.quickMaster"), to: ROUTES.MASTER },
+  ];
   const sliderQuery = publicRqClient.useQuery("get", "/core/main-slider-items/", {});
   const slides = (sliderQuery.data ?? []) as { image: string }[];
 
@@ -125,16 +127,16 @@ export default function HeroSection({ className = "" }: { className?: string }) 
               textShadow: "0 4px 40px rgba(0,0,0,0.5)",
             }}
           >
-            <span className="text-grad">Майбутнє</span>
+            <span className="text-grad">{t("heroSection.heading")}</span>
             <br />
-            створюється тут
+            {t("heroSection.headingAccent")}
           </h1>
 
           <p
             className="mx-auto px-2 text-[13px] text-muted sm:px-0 sm:text-[17px]"
             style={{ lineHeight: 1.7, maxWidth: 560, marginBottom: 28 }}
           >
-            Навчально-науковий інститут кібернетики, інформаційних технологій та інженерії НУВГП
+            {t("heroSection.subtitle")}
           </p>
         </motion.div>
 
@@ -143,14 +145,14 @@ export default function HeroSection({ className = "" }: { className?: string }) 
             to={ROUTES.BACHELOR}
             className="inline-flex items-center gap-2 rounded-[12px] bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-3 text-[14px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:rounded-[14px] sm:px-9 sm:py-4 sm:text-[17px]"
           >
-            Абітурієнту
+            {t("heroSection.ctaEntrant")}
             <span aria-hidden>→</span>
           </Link>
           <Link
             to={ROUTES.BACHELOR}
             className="inline-flex items-center gap-2 rounded-[12px] border border-ui bg-surface-lg px-5 py-3 text-[14px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:rounded-[14px] sm:px-9 sm:py-4 sm:text-[17px]"
           >
-            Програми
+            {t("heroSection.ctaPrograms")}
           </Link>
         </div>
 
@@ -172,7 +174,7 @@ export default function HeroSection({ className = "" }: { className?: string }) 
               ref={(el) => { dotRefs.current[i] = el; }}
               data-active={i === 0 ? "true" : "false"}
               onClick={() => switchTo(i)}
-              aria-label={`Slide ${i + 1}`}
+              aria-label={t("heroSection.slideLabel", { n: i + 1 })}
               className="h-1 rounded-full transition-all duration-300 data-[active=true]:w-10 data-[active=true]:bg-gradient-to-r data-[active=true]:from-violet-500 data-[active=true]:to-blue-500 data-[active=false]:w-2 data-[active=false]:bg-violet-500/25 hover:data-[active=false]:bg-violet-500/50"
             />
           ))}

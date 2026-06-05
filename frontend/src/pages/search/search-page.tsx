@@ -1,7 +1,10 @@
 import { useSearchParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
 import { searchEntries, type SearchEntry } from "@/shared/model/search-index";
 import { Stagger, StaggerItem } from "@/shared/ui";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 
 function CategoryBadge({ label }: { label: string }) {
   return (
@@ -46,6 +49,9 @@ function ResultCard({ entry }: { entry: SearchEntry }) {
 }
 
 function EmptyState({ query }: { query: string }) {
+  useLoadNamespace("search", loadTranslations);
+  const { t } = useTranslation("search");
+
   return (
     <div className="flex flex-col items-center py-20 text-center">
       <div
@@ -57,23 +63,25 @@ function EmptyState({ query }: { query: string }) {
         </svg>
       </div>
       <p className="font-display text-[1.1rem] font-bold text-primary/70">
-        Нічого не знайдено
+        {t("noResults")}
       </p>
       <p className="mt-2 text-[14px] text-subtle">
-        За запитом «{query}» результатів не знайдено. Спробуйте інше слово.
+        {t("noResultsDesc", { query })}
       </p>
     </div>
   );
 }
 
 export function SearchPage() {
+  useLoadNamespace("search", loadTranslations);
+  const { t } = useTranslation("search");
   const [params] = useSearchParams();
   const query = params.get("q") ?? "";
   const results = searchEntries(query);
 
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-      <div className="min-h-svh bg-base pt-24 pb-20 sm:pt-32 lg:pt-40">
+      <div className="min-h-svh pt-24 pb-20 sm:pt-32 lg:pt-40">
         <div className="container-v2 max-w-[860px]">
           {/* header */}
           <div className="mb-10">
@@ -83,16 +91,16 @@ export function SearchPage() {
             >
               {query ? (
                 <>
-                  Результати для{" "}
+                  {t("headingPrefix")}{" "}
                   <span className="text-grad">«{query}»</span>
                 </>
               ) : (
-                "Пошук по сайту"
+                t("headingEmpty")
               )}
             </h1>
             {results.length > 0 && (
               <p className="mt-3 text-[14px] text-subtle">
-                Знайдено {results.length} {results.length === 1 ? "результат" : results.length < 5 ? "результати" : "результатів"}
+                {t("resultsCount", { count: results.length })}
               </p>
             )}
           </div>
@@ -100,7 +108,7 @@ export function SearchPage() {
           {/* results */}
           {!query ? (
             <p className="text-[15px] text-subtle">
-              Введіть запит у рядку пошуку вгорі сторінки.
+              {t("noQuery")}
             </p>
           ) : results.length === 0 ? (
             <EmptyState query={query} />

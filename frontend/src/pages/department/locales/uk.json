@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "badge_institute": "ННІКІТІ",
+    "badge_dept": "Кафедра"
+  },
+  "sidebar": {
+    "heading_depts": "— Кафедри",
+    "heading_sections": "— Розділи"
+  },
+  "sections": {
+    "curriculum": "Навчальний план",
+    "team": "Команда",
+    "history": "Історія",
+    "contacts": "Контакти"
+  },
+  "degrees": {
+    "bachelor": "Бакалавр",
+    "master": "Магістр",
+    "postgraduate": "Аспірантура"
+  },
+  "curriculum": {
+    "section_title": "Програма",
+    "section_highlight": "навчання",
+    "meta_duration": "Тривалість",
+    "meta_form": "Форма",
+    "disciplines_label": "Дисциплін",
+    "year_label": "{{year}} курс — {{sem1}} та {{sem2}} семестри"
+  },
+  "subjects": {
+    "mandatory": "Нормативна",
+    "elective": "Вибіркова",
+    "mandatory_abbr": "Норм.",
+    "elective_abbr": "Вибір."
+  },
+  "team": {
+    "section_title": "Команда",
+    "section_highlight": "кафедри",
+    "audience_prefix": "Ауд."
+  },
+  "history": {
+    "section_title": "Історія",
+    "section_highlight": "кафедри",
+    "since": "З {{year}} року",
+    "dept_name": "Кафедра {{name}}"
+  },
+  "contacts": {
+    "section_title": "Контакти",
+    "section_highlight": "кафедри",
+    "head_label": "Завідувач кафедри",
+    "email_label": "Email кафедри",
+    "address_label": "Адреса",
+    "audience_prefix": "Ауд."
+  },
+  "mobile_selector": {
+    "label": "Кафедра",
+    "placeholder": "Оберіть кафедру"
+  }
+}

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "@/shared/model/routes";
 import { Reveal } from "@/shared/ui";
@@ -13,9 +12,9 @@ export default function ClosingSection({ className }: { className?: string }) {
   const { t } = useTranslation("history");
 
   return (
-    <section className={clsx("border-t border-white/[0.07]", className)}>
+    <section className={className}>
       <div className="container-v2 py-16 sm:py-24 lg:py-32">
-        <div className="grid gap-fluid-2xl lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="grid gap-fluid-2xl lg:grid-cols-[1fr_auto] lg:items-start">
           <Reveal mode="left" amount={0.2}>
             <h2
               className="font-display leading-none text-primary"
@@ -31,7 +30,7 @@ export default function ClosingSection({ className }: { className?: string }) {
             </h2>
           </Reveal>
 
-          <Reveal mode="right" amount={0.15} className="flex flex-col gap-10 lg:max-w-sm lg:pb-2">
+          <Reveal mode="right" amount={0.15} className="flex flex-col gap-6 lg:max-w-sm">
             <div className="flex flex-col gap-4">
               <p className="text-[15px] leading-relaxed text-muted sm:text-[17px]">
                 {t("closing.description")}
@@ -43,30 +42,26 @@ export default function ClosingSection({ className }: { className?: string }) {
               </blockquote>
             </div>
 
-            {/* Download PDF */}
+            {/* PDF download */}
             <a
               href={PDF_PATH}
               download
-              className="group flex items-center gap-4 rounded-[18px] border border-white/[0.08] p-4 transition-all duration-200 hover:border-violet-500/25 hover:bg-violet-500/[0.06] active:scale-[0.98]"
-              style={{ background: "rgba(255,255,255,0.025)" }}
+              className="group flex items-center gap-3 rounded-[14px] border border-white/[0.07] bg-white/[0.03] p-3.5 transition-all duration-200 hover:border-violet-500/25 hover:bg-violet-500/[0.06] active:scale-[0.98]"
             >
-              <div
-                className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-[12px] transition-colors duration-200 group-hover:bg-violet-500/20"
-                style={{ background: "rgba(139,92,246,0.15)" }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px] bg-violet-500/15 transition-colors duration-200 group-hover:bg-violet-500/25">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="7 10 12 15 17 10" />
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[13px] font-semibold text-white/80 group-hover:text-white transition-colors duration-150">
+                <p className="text-[12px] font-semibold text-white/75 transition-colors duration-150 group-hover:text-white">
                   {t("closing.download")}
                 </p>
-                <p className="text-[11px] text-white/35 mt-0.5">{t("closing.downloadTitle")}</p>
+                <p className="mt-0.5 text-[10px] text-white/30">{t("closing.downloadTitle")}</p>
               </div>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-colors duration-200 group-hover:stroke-violet-400">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 transition-colors duration-200 group-hover:stroke-violet-400">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </a>

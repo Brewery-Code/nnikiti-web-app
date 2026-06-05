@@ -1,12 +1,11 @@
-﻿import { useRef } from "react";
-import { useScrollDownAnimation } from "@/shared/hooks";
+import { useRef } from "react";
+import { useScrollDownAnimation, useLoadNamespace } from "@/shared/hooks";
+import { useTranslation } from "react-i18next";
+import { loadTranslations } from "../hero-section/locales";
 
-const stats = [
-  { value: "20+", label: "Років IT-освіти",                 accent: "#3b82f6" },
-  { value: "3500+", label: "Випускників за 20 років",       accent: "#a855f7" },
-  { value: "8+", label: "Спеціальностей у IT",              accent: "#ec4899" },
-  { value: "95%", label: "Тривіальність трудевлаштування",  accent: "#10b981" },
-];
+const ACCENTS = ["#3b82f6", "#a855f7", "#ec4899", "#10b981"];
+
+type StatItem = { value: string; label: string; accent: string };
 
 function StatCard({ value, label, accent, delay }: { value: string; label: string; accent: string; delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,6 +32,14 @@ function StatCard({ value, label, accent, delay }: { value: string; label: strin
 }
 
 export default function StatsSection({ className }: { className?: string }) {
+  useLoadNamespace("history", loadTranslations);
+  const { t } = useTranslation("history");
+
+  const rawStats = t("stats.items", { returnObjects: true });
+  const stats = (Array.isArray(rawStats) ? rawStats as Omit<StatItem, "accent">[] : []).map(
+    (item, i) => ({ ...item, accent: ACCENTS[i] })
+  );
+
   return (
     <section className={className}>
       <div className="container-base">
@@ -45,4 +52,3 @@ export default function StatsSection({ className }: { className?: string }) {
     </section>
   );
 }
-

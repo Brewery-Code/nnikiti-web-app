@@ -124,6 +124,32 @@
       }
     ]
   },
+  "chronicle": {
+    "eyebrow": "Full chronicle",
+    "title": "Read the full",
+    "titleAccent": "history",
+    "lead": "From a single department to an institute shaping Ukraine's digital future. Twenty-five years, five directors, thousands of graduates.",
+    "chapters": [
+      {
+        "num": "01",
+        "label": "Origins",
+        "title": "How it all began",
+        "body": "The idea of uniting mathematics and computer technologies into a single educational and research space emerged long before the institute's official founding. In 1966, the university established the Department of Computational Mathematics — the first seed of what would later grow into NNI KITI. In 1997, the Department of Information Systems and Mathematical Modelling opened under the leadership of Anatoly Pavlovych Vlasiuk, laying the foundation of the modern CSAM department.\n\nAugust 25, 2000 marks the date of birth: the Faculty of Applied Mathematics and Computer-Integrated Systems united the Department of Applied Mathematics and the Department of Electrical Engineering and Automation. The first dean was Anatoly Pavlovych Vlasiuk — a person who defined the spirit of the future institute by combining analytical rigour with openness to innovation.\n\nOn January 23, 2013, the faculty received institute status, and on April 12 of the same year it was renamed the Institute of Automation, Cybernetics and Computer Engineering. Petro Oleksandrovych Tadeyev became its first director."
+      },
+      {
+        "num": "02",
+        "label": "Growth",
+        "title": "Years of formation",
+        "body": "From 2013 to 2020 the institute actively built its educational ecosystem. In 2013 the Department of Economic Cybernetics was created, focusing on the intersection of IT and business. In 2016, the Department of Computer Sciences opened under the leadership of Yurii Yosypovych Tulashvili — along with it came the programmes 'Information Systems and Technologies' and 'Professional Education'.\n\n2019 was marked by a structural merger: the Department of Computer Sciences joined the Department of Economic Cybernetics, forming CTEC — Computer Technologies and Economic Cybernetics. This allowed resources to be concentrated and gave students a wider range of applied competencies.\n\nDuring these years the culture of the institute was shaped: scientific seminars, student project teams, and the first academic exchange agreements. The institute ceased to be merely a structural division of the university — it became a place where ideas are born."
+      },
+      {
+        "num": "03",
+        "label": "Present",
+        "title": "NNI KITI: a new chapter",
+        "body": "In 2020 Petro Mykolayovych Martyniuk, Doctor of Technical Sciences and Professor, took the helm — and a new stage began. The direction: openness to international partnerships, investment in laboratory infrastructure, and the launch of new educational programmes.\n\nJanuary 15, 2024 — official renaming. The Institute of Cybernetics, Information Technologies and Engineering — NNI KITI. The new name reflects reality: cybersecurity, artificial intelligence, data engineering and IoT became key training directions.\n\nIn 2024–2025, new programmes were launched: 'Information Security' (CECE Department) and 'Data Engineering' (CSAM Department). Negotiations for partnerships with ETH Zurich and Warsaw University of Life Sciences are underway. 25 years is not a final full stop, but the starting point of the next chapter."
+      }
+    ]
+  },
   "closing": {
     "title1": "The next",
     "title2": "chapter",
@@ -132,6 +158,27 @@
     "depts": "Our departments",
     "alumni": "Alumni",
     "download": "Download PDF",
-    "downloadTitle": "NNI KITI 25th Anniversary Book"
+    "downloadTitle": "NNI KITI 25th Anniversary Brochure"
+  },
+  "programs": {
+    "eyebrow": "Areas of study",
+    "heading": "Specialties of",
+    "headingAccent": "NNI KITI",
+    "items": [
+      { "title": "Computer Sciences", "description": "Fundamentals of programming, algorithms, data structures, computer architecture" },
+      { "title": "Cybersecurity", "description": "Threat protection, cryptography, vulnerability analysis, ethical hacking" },
+      { "title": "AI & Machine Learning", "description": "Artificial intelligence, neural networks, data processing, pattern recognition" },
+      { "title": "Cloud & DevOps", "description": "Cloud platforms, containerisation, CI/CD, infrastructure as code" },
+      { "title": "Web & Mobile", "description": "Web application development, mobile platforms, frontend, backend technologies" },
+      { "title": "Computer Economics", "description": "Digital business, startups, entrepreneurship, IT project management" }
+    ]
+  },
+  "stats": {
+    "items": [
+      { "value": "20+", "label": "Years of IT education" },
+      { "value": "3500+", "label": "Graduates over 20 years" },
+      { "value": "8+", "label": "IT specialties" },
+      { "value": "95%", "label": "Graduate employment rate" }
+    ]
   }
 }

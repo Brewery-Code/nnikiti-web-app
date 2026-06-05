@@ -1,0 +1,478 @@
+{
+  "common": {
+    "prevProgram": "Previous program",
+    "nextProgram": "Next program",
+    "code": "Code:",
+    "budget": "budget",
+    "contract": "contract",
+    "yearsStudy": "years of study"
+  },
+  "ui": {
+    "badge": "NNIKITI",
+    "ctaPrimaryLabel": "Apply now",
+    "ctaSecondaryLabel": "Ask a question",
+    "arrow": "→"
+  },
+  "bachelor": {
+    "eyebrow": "Applicants · Bachelor's",
+    "title": "Four years to",
+    "gradientWord": "your IT career",
+    "description": "8 specialties in software development, cybersecurity, AI and mathematics. State-funded places, modern labs and industry-practitioner teachers.",
+    "stats": [
+      { "value": "4", "label": "years of study" },
+      { "value": "8", "label": "specialties" },
+      { "value": "NMT", "label": "entrance exam" }
+    ],
+    "programs": [
+      {
+        "code": "121",
+        "name": "Software Engineering",
+        "tags": ["Backend", "Frontend", "AI", "DevOps"]
+      },
+      {
+        "code": "122",
+        "name": "Computer Science",
+        "tags": ["Algorithms", "ML", "Networks"]
+      },
+      {
+        "code": "123",
+        "name": "Computer Engineering",
+        "tags": ["Hardware", "IoT", "Networks"]
+      },
+      {
+        "code": "125",
+        "name": "Cybersecurity",
+        "tags": ["Pentest", "SOC", "Crypto"]
+      },
+      {
+        "code": "126",
+        "name": "Information Systems and Technologies",
+        "tags": ["ERP", "Cloud", "BI"]
+      },
+      {
+        "code": "051",
+        "name": "Economic Cybernetics",
+        "tags": ["Fintech", "Analytics", "AI"]
+      },
+      {
+        "code": "113",
+        "name": "Applied Mathematics",
+        "tags": ["Modelling", "ML", "Optimisation"]
+      },
+      {
+        "code": "111",
+        "name": "Mathematics",
+        "tags": ["Algebra", "Analysis", "Logic"]
+      }
+    ],
+    "sliderTitle": "Find your",
+    "sliderGradient": "direction",
+    "sliderSubtitle": "From development to mathematics — choose a program that matches your goals and passions.",
+    "admissionEyebrow": "Admission Campaign",
+    "admissionTitle": "How to apply",
+    "admissionGradientTitle": "for bachelor's",
+    "admissionSubtitle": "The entire process is online via EDBO. No queues or paperwork until enrollment.",
+    "nmtSubjectsLabel": "NMT subjects for admission",
+    "nmtSubjects": [
+      { "subject": "Ukrainian language", "required": true },
+      { "subject": "Mathematics", "required": true },
+      { "subject": "History of Ukraine", "required": true },
+      { "subject": "Elective subject (foreign language, physics, chemistry, etc.)", "required": false }
+    ],
+    "required": "required",
+    "steps": [
+      {
+        "title": "Register for NMT",
+        "text": "Registration: March 5 – April 2 at my.testportal.gov.ua or through the Diia app. NMT results from 2023–2025 are also accepted.",
+        "linkText": "my.testportal.gov.ua",
+        "linkHref": "https://my.testportal.gov.ua"
+      },
+      {
+        "title": "Take the NMT",
+        "text": "Mandatory subjects in 2026: Ukrainian language, mathematics, history of Ukraine. Additionally — one elective subject (foreign language, physics, chemistry, biology, etc.)."
+      },
+      {
+        "title": "Register in EDBO",
+        "text": "From July 1, the applicant's portal opens at vstup.edbo.gov.ua. Applications are submitted there, statuses are tracked, and enrollment choices are confirmed.",
+        "linkText": "vstup.edbo.gov.ua",
+        "linkHref": "https://vstup.edbo.gov.ua"
+      },
+      {
+        "title": "Submit applications",
+        "text": "July 19 – August 1 (18:00). Maximum 10 applications total, no more than 5 — for state-funded places. Motivation letters are not required in 2026."
+      },
+      {
+        "title": "Confirm your choice and receive enrollment",
+        "text": "By August 11 at 18:00 confirm your priority application in the EDBO portal. Enrollment order — August 13. State-funded — free, contract — based on agreement.",
+        "linkText": "EDBO",
+        "linkHref": "https://vstup.edbo.gov.ua"
+      }
+    ],
+    "dates": [
+      {
+        "period": "March 5 – April 2",
+        "label": "NMT Registration",
+        "note": "my.testportal.gov.ua or through the Diia app"
+      },
+      {
+        "period": "May 20 – June 25",
+        "label": "NMT Examination",
+        "note": "Ukrainian language, mathematics, history of Ukraine — mandatory"
+      },
+      {
+        "period": "July 1",
+        "label": "EDBO Portal Opens",
+        "note": "vstup.edbo.gov.ua — registration and application submission"
+      },
+      {
+        "period": "July 19 – August 1",
+        "label": "Application Submission",
+        "note": "Up to 10 applications, no more than 5 — for state-funded"
+      },
+      {
+        "period": "August 13",
+        "label": "Enrollment",
+        "note": "Confirm your choice by August 11 at 18:00"
+      }
+    ],
+    "ctaTitle": "Ready to apply?",
+    "ctaSubtitle": "The NNIKITI admissions committee will advise on choosing a specialty, documents and study conditions.",
+    "ctaPrimaryLabel": "Contact the committee"
+  },
+  "master": {
+    "eyebrow": "Applicants · Master's",
+    "title": "The next level",
+    "gradientWord": "of your career",
+    "description": "1.5 years of advanced training in IT, AI and cybersecurity. Academic and professional master's programs with state-funded places available.",
+    "stats": [
+      { "value": "1.5", "label": "years of study" },
+      { "value": "5", "label": "specialties" },
+      { "value": "EVI+EFVV", "label": "entrance exams" }
+    ],
+    "programs": [
+      {
+        "code": "121",
+        "name": "Software Engineering",
+        "tags": ["Architecture", "Cloud", "Tech Lead"],
+        "seats": "Budget + contract"
+      },
+      {
+        "code": "122",
+        "name": "Computer Science",
+        "tags": ["AI", "ML", "Scopus"],
+        "seats": "Budget + contract"
+      },
+      {
+        "code": "123",
+        "name": "Computer Engineering",
+        "tags": ["IoT", "FPGA", "Embedded"],
+        "seats": "Budget"
+      },
+      {
+        "code": "125",
+        "name": "Cybersecurity",
+        "tags": ["SOC", "Forensics", "GDPR"],
+        "seats": "Budget + contract"
+      },
+      {
+        "code": "126",
+        "name": "Information Systems and Technologies",
+        "tags": ["BI", "ERP", "PMBok"],
+        "seats": "Contract"
+      }
+    ],
+    "sliderTitle": "Find your",
+    "sliderGradient": "direction",
+    "sliderSubtitle": "5 master's programs — from AI to cybersecurity and enterprise systems.",
+    "admissionEyebrow": "Admission Campaign",
+    "admissionTitle": "Applying for",
+    "admissionGradientTitle": "master's",
+    "admissionSubtitle": "The entire process takes no more than a month from registration to enrollment.",
+    "steps": [
+      {
+        "title": "Obtain a bachelor's degree",
+        "text": "A bachelor's or specialist diploma from any university is required. A junior bachelor's diploma does not entitle admission to a master's program."
+      },
+      {
+        "title": "Register and take EVI and EFVV",
+        "text": "Registration: April 23 – May 14 at testportal.gov.ua. The unified entrance exam (EVI) = general academic competency test + foreign language. EFVV — professional exam in the chosen specialty.",
+        "linkText": "testportal.gov.ua",
+        "linkHref": "https://testportal.gov.ua"
+      },
+      {
+        "title": "Wait for results",
+        "text": "Testing: June 26 – July 14. Results are published by July 23 in the portal at testportal.gov.ua.",
+        "linkText": "testportal.gov.ua",
+        "linkHref": "https://testportal.gov.ua"
+      },
+      {
+        "title": "Submit applications via EDBO",
+        "text": "The applicant portal opens July 1 at vstup.edbo.gov.ua. Up to 5 applications for state-funded places. Motivation letters are not required in 2026.",
+        "linkText": "vstup.edbo.gov.ua",
+        "linkHref": "https://vstup.edbo.gov.ua"
+      },
+      {
+        "title": "Competitive selection and enrollment",
+        "text": "Ranking: EVI score + EFVV score + diploma GPA. After the recommendation, confirm your choice in the portal and sign the agreement."
+      }
+    ],
+    "dates": [
+      {
+        "period": "April 23 – May 14",
+        "label": "EVI and EFVV Registration",
+        "note": "testportal.gov.ua — the single registration portal"
+      },
+      {
+        "period": "June 26 – July 14",
+        "label": "EVI and EFVV Examinations",
+        "note": "General academic competency test + professional exam"
+      },
+      {
+        "period": "By July 23",
+        "label": "Exam Results",
+        "note": "Published in the personal portal at testportal.gov.ua"
+      },
+      {
+        "period": "August",
+        "label": "Application Submission to EDBO",
+        "note": "vstup.edbo.gov.ua — up to 5 applications for state-funded places"
+      },
+      {
+        "period": "Late August",
+        "label": "Master's Enrollment",
+        "note": "Rector's order; signing of the study agreement"
+      }
+    ],
+    "tracksEyebrow": "Study Forms",
+    "tracksTitle": "Two",
+    "tracksGradientTitle": "tracks",
+    "tracksSubtitle": "Choose your trajectory based on your goals — academic career or top position in an IT company.",
+    "tracks": [
+      {
+        "icon": "◈",
+        "title": "Academic Master's",
+        "text": "Publications in Scopus, participation in grant projects and preparation for PhD admission. Ideal for those aiming for a doctorate."
+      },
+      {
+        "icon": "◎",
+        "title": "Professional Master's",
+        "text": "Practical skills, corporate projects and mentorship from leading IT companies. For those who want to become industry leaders."
+      }
+    ],
+    "ctaTitle": "Time to move forward",
+    "ctaSubtitle": "NNIKITI Master's is not just a degree — it's a new level of thinking and opportunities. Contact the admissions committee.",
+    "ctaPrimaryLabel": "Schedule a consultation"
+  },
+  "postgraduate": {
+    "eyebrow": "Applicants · Postgraduate",
+    "title": "The path to",
+    "gradientWord": "science",
+    "description": "A four-year research training program for those who aspire to become researchers, inventors or scientific leaders in IT and mathematics.",
+    "stats": [
+      { "value": "4–5", "label": "years of study" },
+      { "value": "4", "label": "specialties" }
+    ],
+    "benefitsEyebrow": "Postgraduate Opportunities",
+    "benefitsTitle": "What you",
+    "benefitsGradientTitle": "receive",
+    "benefitsSubtitle": "Postgraduate study is not just education. It's a scientific community, resources and international connections.",
+    "benefits": [
+      {
+        "title": "Scientific Publications",
+        "text": "Support for publications in Scopus and Web of Science journals, participation in international conferences."
+      },
+      {
+        "title": "Academic Mobility",
+        "text": "Internships at partner universities in Poland, Lithuania and the Czech Republic through Erasmus+."
+      },
+      {
+        "title": "Grant Programs",
+        "text": "Support in finding funding through the Ministry of Education of Ukraine, Horizon Europe and bilateral programs."
+      },
+      {
+        "title": "Teaching Practice",
+        "text": "Postgraduate students conduct practical classes and gain teaching experience under the guidance of mentors."
+      }
+    ],
+    "programsEyebrow": "Scientific Specialties",
+    "programsTitle": "Choose your",
+    "programsGradientTitle": "research direction",
+    "programs": [
+      {
+        "code": "01 – Education/Pedagogy",
+        "name": "Theory and Methods of Teaching",
+        "description": "Research in teaching methods for computer science and computing disciplines in higher education. Training of academic teaching staff.",
+        "duration": "4 years",
+        "seats": "Budget"
+      },
+      {
+        "code": "12 – Information Technologies",
+        "name": "Computer Science (122)",
+        "description": "Algorithms, artificial intelligence, machine learning, big data and theoretical computer science. Publications in Scopus and WoS.",
+        "duration": "4 years",
+        "seats": "Budget + contract"
+      },
+      {
+        "code": "12 – Information Technologies",
+        "name": "Computer Engineering (123)",
+        "description": "Embedded systems, hardware security, FPGA and industrial automation. Collaboration with industrial partners.",
+        "duration": "4 years",
+        "seats": "Budget"
+      },
+      {
+        "code": "11 – Mathematics and Statistics",
+        "name": "Applied Mathematics (113)",
+        "description": "Mathematical modeling, computational mathematics, optimization theory and statistical analysis of complex systems.",
+        "duration": "4 years",
+        "seats": "Budget"
+      }
+    ],
+    "admissionEyebrow": "Admission Campaign",
+    "admissionTitle": "Applying for",
+    "admissionGradientTitle": "postgraduate",
+    "admissionSubtitle": "Admission — annually in autumn. Contact with your future academic supervisor is recommended in advance.",
+    "steps": [
+      {
+        "title": "Choose an academic supervisor",
+        "text": "Contact the department to choose a research direction and agree on a dissertation topic with a potential academic supervisor."
+      },
+      {
+        "title": "Prepare documents",
+        "text": "Master's diploma (or specialist diploma), list of publications (if any), essay on the chosen research topic and motivation letter."
+      },
+      {
+        "title": "Take the entrance exam",
+        "text": "Centralized exam in research methodology — registration April 23 – May 14 at testportal.gov.ua, testing July 14–29. Results — by August 7.",
+        "linkText": "testportal.gov.ua",
+        "linkHref": "https://testportal.gov.ua"
+      },
+      {
+        "title": "Competitive selection",
+        "text": "The ranking is formed from exam scores, master's diploma GPA and academic achievements (publications, patents, conferences)."
+      },
+      {
+        "title": "Enrollment and start of work",
+        "text": "After enrollment, development of an individual plan begins, the dissertation topic is approved and the first year of study starts."
+      }
+    ],
+    "datesEyebrow": "Important Dates",
+    "datesTitle": "Postgraduate",
+    "datesGradientTitle": "calendar",
+    "dates": [
+      {
+        "period": "April 23 – May 14",
+        "label": "Exam Registration",
+        "note": "testportal.gov.ua — research methodology exam"
+      },
+      {
+        "period": "July 14 – 29",
+        "label": "Exam Period",
+        "note": "Centralized exam at UCEQA testing centers"
+      },
+      {
+        "period": "By August 7",
+        "label": "Exam Results",
+        "note": "Published in the personal portal at testportal.gov.ua"
+      },
+      {
+        "period": "August – September",
+        "label": "Application and Document Submission",
+        "note": "Master's diploma, list of publications, research topic essay"
+      }
+    ],
+    "ctaTitle": "Ready for the academic path?",
+    "ctaSubtitle": "Contact the NUWEE postgraduate office or directly the department to choose an academic supervisor and agree on a topic.",
+    "ctaPrimaryLabel": "Contact the department"
+  },
+  "undergraduate": {
+    "eyebrow": "Applicants · Pre-degree Education",
+    "title": "Professional junior",
+    "gradientWord": "bachelor",
+    "description": "First step into IT — after grade 9 or 11. Get a junior specialist diploma in 2–3 years and continue bachelor's studies with a shortened term.",
+    "stats": [
+      { "value": "2–3", "label": "years of study" },
+      { "value": "3", "label": "specialties" },
+      { "value": "9/11", "label": "grade for admission" }
+    ],
+    "programsEyebrow": "Specialties",
+    "programsTitle": "Choose your",
+    "programsGradientTitle": "direction",
+    "programsSubtitle": "Three training programs — practical IT education valued by employers.",
+    "programs": [
+      {
+        "code": "122",
+        "name": "Computer Science",
+        "description": "Programming fundamentals, algorithms, databases and web technologies. Ideal start for a future developer after grade 9 or 11.",
+        "duration": "2–3 years",
+        "seats": "Budget + contract"
+      },
+      {
+        "code": "123",
+        "name": "Computer Engineering",
+        "description": "Computer architecture, networks, embedded systems and hardware. We train engineers who understand computers from the inside.",
+        "duration": "2–3 years",
+        "seats": "Budget + contract"
+      },
+      {
+        "code": "126",
+        "name": "Information Systems and Technologies",
+        "description": "Design of corporate systems, 1C, ERP, digital document flow. A sought-after specialty in business and the public sector.",
+        "duration": "2–3 years",
+        "seats": "Contract"
+      }
+    ],
+    "admissionEyebrow": "Admission Campaign",
+    "admissionTitle": "How to apply",
+    "admissionGradientTitle": "step by step",
+    "steps": [
+      {
+        "title": "Obtain your certificate",
+        "text": "Complete grade 9 or 11 and receive your basic secondary education certificate or general secondary education certificate."
+      },
+      {
+        "title": "Register in EDBO",
+        "text": "Create an account in the Unified State Electronic Database on Education and submit your application online."
+      },
+      {
+        "title": "Submit documents",
+        "text": "Upload scanned copies of your certificate, ID, medical form and photo. Originals are required after enrollment."
+      },
+      {
+        "title": "Competitive selection",
+        "text": "Applicants are ranked by certificate GPA. For certain specialties an entrance test is required."
+      },
+      {
+        "title": "Receive enrollment order",
+        "text": "After the enrollment order is issued, sign the agreement with the university and begin your studies."
+      }
+    ],
+    "datesEyebrow": "Important Dates",
+    "datesTitle": "Applicant",
+    "datesGradientTitle": "calendar",
+    "datesSubtitle": "Note the key dates so you don't miss anything.",
+    "dates": [
+      {
+        "period": "May 1 – 31",
+        "label": "EDBO Registration",
+        "note": "For applicants after grade 9 — separate competition"
+      },
+      {
+        "period": "August 1 – 15",
+        "label": "Document Submission",
+        "note": "Online through the applicant portal at vstup.osvita.ua"
+      },
+      {
+        "period": "August 25",
+        "label": "Ranked Lists",
+        "note": "Published on the university website and in EDBO"
+      },
+      {
+        "period": "August 30",
+        "label": "Enrollment Order",
+        "note": "Agreement must be signed within 3 business days"
+      }
+    ],
+    "ctaTitle": "Ready to take the first step?",
+    "ctaSubtitle": "The NNIKITI admissions committee will answer all your questions. Leave an application — we will contact you."
+  }
+}

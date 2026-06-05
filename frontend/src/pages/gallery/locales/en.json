@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "badge": "NNI KITI",
+    "badgeSub": "Media archive",
+    "title": "Gallery of",
+    "titleAccent": "events",
+    "stats": "{{photos}} photos · {{events}} events · {{years}} years"
+  },
+  "allPhotos": {
+    "eyebrow": "Media archive",
+    "title": "All",
+    "highlight": "photos",
+    "linkLabel": "View all {{count}} photos"
+  },
+  "byYear": {
+    "eyebrow": "Archive",
+    "title": "By",
+    "highlight": "year",
+    "linkLabel": "All photos of {{year}}",
+    "showAll": "All photos of {{year}}"
+  },
+  "events": {
+    "eyebrow": "Albums",
+    "title": "Event",
+    "highlight": "albums",
+    "linkLabel": "All events",
+    "viewAlbum": "View album",
+    "photoCount": "{{count}} photos"
+  },
+  "allPage": {
+    "eyebrow": "NNI KITI Media archive",
+    "title": "All photos",
+    "back": "Gallery"
+  },
+  "eventPage": {
+    "back": "Gallery",
+    "eyebrow": "Event · {{year}}",
+    "notFound": "Event not found."
+  },
+  "yearPage": {
+    "back": "Gallery",
+    "eyebrow": "NNI KITI Archive",
+    "title": "{{year}}",
+    "notFound": "No photos for {{year}} found."
+  }
+}

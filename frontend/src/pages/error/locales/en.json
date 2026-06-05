@@ -1,0 +1,8 @@
+{
+  "badge": "ERROR",
+  "badgeSub": "Server error",
+  "heading": "Oops!",
+  "description": "Something went wrong on our side. Try refreshing the page or go back to the main page.",
+  "refresh": "Refresh page",
+  "home": "Go home"
+}

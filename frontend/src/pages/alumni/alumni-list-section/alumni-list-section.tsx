@@ -113,7 +113,7 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
               letterSpacing: "-0.04em",
             }}
           >
-            Наші <span className="text-grad-animated">випускники</span>
+            {t("alumniList.sectionTitle")} <span className="text-grad-animated">{t("alumniList.sectionHighlight")}</span>
           </h2>
         </Reveal>
 

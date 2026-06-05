@@ -1,0 +1,17 @@
+{
+  "badge": "FAQ",
+  "badgeSub": "Frequently asked questions",
+  "heading": "Answers to",
+  "headingAccent": "your questions",
+  "description": "We gathered the most popular questions from applicants, students and parents. If you don't find an answer here — ask it directly.",
+  "fallback": [
+    { "id": 1, "question": "What specialties does NNI KITI offer?", "answer": "NNI KITI offers studies in specialties: 121 — Software Engineering, 122 — Computer Sciences, 123 — Computer Engineering, 124 — Systems Analysis, 125 — Cybersecurity, 126 — Information Systems and Technologies, and 113 — Applied Mathematics." },
+    { "id": 2, "question": "How do I apply for a bachelor's degree?", "answer": "To apply for a bachelor's degree, you must take the NMT (National Multidisciplinary Test). Applications are submitted via the applicant's electronic cabinet at vstup.osvita.ua. Preferential admission conditions are available for certain categories of applicants." },
+    { "id": 3, "question": "Are there state-funded places?", "answer": "Yes, most bachelor's and master's places are state-funded. The number of state places is approved annually by the Ministry of Education and Science of Ukraine. The ranking is based on NMT or EFVV scores." },
+    { "id": 4, "question": "What is EFVV and when to take it?", "answer": "EFVV (Unified Professional Entrance Examination) is an exam for admission to a master's programme. Registration takes place in June via testportal.gov.ua, the exam is in July. Alternatively, you can take an internal professional exam at NNI KITI." },
+    { "id": 5, "question": "Is it possible to study abroad?", "answer": "Yes, NNI KITI actively participates in the Erasmus+ programme, which allows students to study a semester or complete an internship at partner universities in Poland, Lithuania, Czech Republic and other EU countries. A dual degree is also possible." },
+    { "id": 6, "question": "How to apply for postgraduate studies?", "answer": "Postgraduate applications are accepted every autumn. Required: choose a scientific supervisor, prepare documents (master's diploma, abstract, motivation letter), pass entrance exams in a foreign language and in the field. Duration: 4 years, upon completion the PhD degree is awarded." },
+    { "id": 7, "question": "What IT-company partners does NNI KITI have?", "answer": "NNI KITI cooperates with leading IT companies: SoftServe, EPAM Systems, Intellias, GlobalLogic, Ciklum, Sigma Software, Luxoft, Eleks and others. Partnership includes internships, practice, hackathons, workshops and employment assistance." },
+    { "id": 8, "question": "How to contact the admissions office?", "answer": "NNI KITI admissions office: email — nni-akot@nuwm.edu.ua, phone — listed on the contacts page. You can also visit in person or use the question form on the website." }
+  ]
+}

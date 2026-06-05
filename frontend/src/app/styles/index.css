@@ -1,5 +1,6 @@
 @import url("./fonts.css");
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant hover {
   @media (hover: hover) {
@@ -208,6 +209,18 @@ html.lenis body {
     text-decoration: none;
   }
 
+  a:not([class]) {
+    color: #a684ff;
+    text-decoration: underline;
+    text-decoration-color: rgba(166, 132, 255, 0.35);
+    text-underline-offset: 3px;
+    transition: color 150ms, text-decoration-color 150ms;
+  }
+  a:not([class]):hover {
+    color: #c4a8ff;
+    text-decoration-color: rgba(196, 168, 255, 0.7);
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -279,6 +292,7 @@ html.lenis body {
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     pointer-events: none;
+    z-index: 2;
   }
 
   /* ── Cards / hover lift ── */
@@ -560,6 +574,43 @@ html.lenis body {
 .sheen:hover::after {
   animation: sheen-sweep 0.85s ease;
 }
+
+/* ── Swiper performance ──────────────────────────────────────────────────── */
+.specialties-swiper .swiper-wrapper {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ── Dot grid drift (global background) ─────────────────────────────────── */
+@keyframes grid-drift {
+  from { background-position: 0px 0px; }
+  to   { background-position: 32px 32px; }
+}
+
+/* ── Story rich-text editor ─────────────────────────────────────────────── */
+.story-editor:empty::before {
+  content: attr(data-placeholder);
+  color: rgba(240, 238, 255, 0.25);
+  pointer-events: none;
+}
+.story-editor blockquote {
+  border-left: 2px solid rgba(166, 132, 255, 0.45);
+  padding-left: 12px;
+  color: rgba(240, 238, 255, 0.45);
+  font-style: italic;
+  margin: 4px 0;
+}
+.story-editor ul { padding-left: 18px; list-style: disc; }
+.story-editor ol { padding-left: 18px; list-style: decimal; }
+.story-editor b, .story-editor strong { color: #ffffff; font-weight: 900; }
+.news-body del, .news-body s { text-decoration: line-through; color: rgba(240,238,255,0.45); }
+.story-editor a { color: #a684ff; text-decoration: underline; text-decoration-color: rgba(166, 132, 255, 0.4); text-underline-offset: 3px; transition: color 150ms, text-decoration-color 150ms; }
+.story-editor a:hover { color: #c4a8ff; text-decoration-color: rgba(196, 168, 255, 0.75); }
+.story-editor h1 { font-size: 1.5rem; font-weight: 900; color: #f0eeff; margin: 6px 0 2px; line-height: 1.2; }
+.story-editor h2 { font-size: 1.25rem; font-weight: 800; color: #f0eeff; margin: 6px 0 2px; line-height: 1.2; }
+.story-editor h3 { font-size: 1.05rem; font-weight: 700; color: #f0eeff; margin: 4px 0 2px; line-height: 1.2; }
+.story-editor h4 { font-size: 0.9rem; font-weight: 700; color: #f0eeff; margin: 4px 0 2px; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* ── Reduced motion ─────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

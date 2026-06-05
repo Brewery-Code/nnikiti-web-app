@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
 import { ROUTES } from "@/shared/model/routes";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
+import { loadTranslations } from "./locales";
 
 export interface Program {
   code: string;
@@ -12,7 +15,7 @@ export interface Program {
 
 export interface Step {
   title: string;
-  text: string;
+  text: React.ReactNode;
 }
 
 export interface KeyDate {
@@ -37,8 +40,11 @@ export function EntrantHero({
   imageSeed: string;
   stats: { value: string; label: string }[];
 }) {
+  useLoadNamespace("entrant", loadTranslations);
+  const { t } = useTranslation("entrant");
+
   return (
-    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -48,22 +54,13 @@ export function EntrantHero({
           filter: "blur(80px)",
         }}
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[500px] w-[500px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(81,162,255,0.16) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
-      />
 
       <div className="container-v2 relative z-[1]">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Stagger stagger={0.08} delay={0.35} inView={false}>
             <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
               <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
-                ННІКІТІ
+                {t("ui.badge")}
               </span>
               <span className="text-[12px] text-primary/70">{eyebrow}</span>
             </StaggerItem>
@@ -113,20 +110,12 @@ export function EntrantHero({
               alt=""
               className="h-[420px] w-full object-cover"
             />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(166,132,255,0.30) 0%, transparent 60%), linear-gradient(to top, #08090f 0%, transparent 50%)",
-              }}
-            />
             <div className="font-display absolute bottom-6 left-6 rounded-full border border-violet-500/30 bg-violet-500/15 px-4 py-2 text-[11px] font-bold text-violet-100 backdrop-blur-md">
               {eyebrow}
             </div>
           </Reveal>
         </div>
       </div>
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
     </section>
   );
 }
@@ -189,7 +178,7 @@ export function StepItem({
   const isLast = total !== undefined && index === total - 1;
   return (
     <div className="flex gap-5">
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center">
         <div className="font-display flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[15px] font-extrabold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.4)]">
           {number}
         </div>
@@ -266,9 +255,9 @@ export function SectionHead({
 export function EntrantCta({
   title,
   subtitle,
-  primaryLabel = "Подати заявку",
+  primaryLabel,
   primaryTo = ROUTES.CONTACTS,
-  secondaryLabel = "Задати питання",
+  secondaryLabel,
   secondaryTo = ROUTES.ASK_QUESTION,
 }: {
   accent?: string;
@@ -279,6 +268,9 @@ export function EntrantCta({
   secondaryLabel?: string;
   secondaryTo?: string;
 }) {
+  useLoadNamespace("entrant", loadTranslations);
+  const { t } = useTranslation("entrant");
+
   return (
     <section className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div
@@ -315,13 +307,13 @@ export function EntrantCta({
             to={primaryTo}
             className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[17px]"
           >
-            {primaryLabel} <span aria-hidden>→</span>
+            {primaryLabel ?? t("ui.ctaPrimaryLabel")} <span aria-hidden>{t("ui.arrow")}</span>
           </Link>
           <Link
             to={secondaryTo}
             className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-surface-md px-7 py-3.5 text-[15px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:text-[17px]"
           >
-            {secondaryLabel} <span aria-hidden>→</span>
+            {secondaryLabel ?? t("ui.ctaSecondaryLabel")} <span aria-hidden>{t("ui.arrow")}</span>
           </Link>
         </StaggerItem>
       </Stagger>

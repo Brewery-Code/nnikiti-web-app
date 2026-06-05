@@ -37,10 +37,8 @@ export function Header() {
       title: t("navigationMenu.forEntrant"),
       link: ROUTES.BACHELOR,
       list: [
-        { title: t("navigationMenu.undergraduateStudies"), link: ROUTES.UNDERGRADUATE },
         { title: t("navigationMenu.bachelorDegree"), link: ROUTES.BACHELOR },
         { title: t("navigationMenu.masterDegree"), link: ROUTES.MASTER },
-        { title: t("navigationMenu.postgraduateStudies"), link: ROUTES.POSTGRADUATE },
       ],
     },
     {
@@ -67,14 +65,6 @@ export function Header() {
         { title: t("navigationMenu.research"), link: ROUTES.SCIENCE_RESEARCH },
         { title: t("navigationMenu.conferences"), link: ROUTES.SCIENCE_CONFERENCES },
         { title: t("navigationMenu.grants"), link: ROUTES.SCIENCE_GRANTS },
-      ],
-    },
-    {
-      title: t("navigationMenu.partners"),
-      link: ROUTES.PARTNERS_BUSINESS,
-      list: [
-        { title: t("navigationMenu.academicMobility"), link: ROUTES.PARTNERS_ACADEMIC_MOBILITY },
-        { title: t("navigationMenu.businessPartners"), link: ROUTES.PARTNERS_BUSINESS },
       ],
     },
     {

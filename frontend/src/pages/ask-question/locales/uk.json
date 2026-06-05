@@ -1,0 +1,30 @@
+{
+  "badge": "КОНТАКТ",
+  "badgeSub": "Ми завжди на зв'язку",
+  "heading": "Задайте",
+  "headingAccent": "ваше питання",
+  "description": "Маєте питання про ННІКІТІ, вступ або навчальні програми? Ми відповімо якнайшвидше.",
+  "nameLabel": "Ваше ім'я",
+  "emailLabel": "Email адреса",
+  "phoneLabel": "Номер телефону",
+  "questionLabel": "Ваше питання",
+  "optional": "(необов'язково)",
+  "namePlaceholder": "Іван Петренко",
+  "emailPlaceholder": "vam@example.com",
+  "phonePlaceholder": "+38 (067) 123-45-67",
+  "questionPlaceholder": "Напишіть ваше питання тут...",
+  "submit": "Надіслати питання",
+  "submitting": "Надсилаємо…",
+  "footerNote": "Ми переглядаємо звернення протягом 24 годин",
+  "successHeading": "Дякуємо за",
+  "successHeadingAccent": "ваше питання",
+  "successText": "Ми отримали вашу заявку та обов'язково відповімо якнайшвидше.",
+  "contactsHeading": "Інші",
+  "contactsHeadingAccent": "канали зв'язку",
+  "contactsSectionLabel": "— Контакти",
+  "errors": {
+    "name": "Ім'я повинно містити принаймні 2 символи",
+    "email": "Некорректна email адреса",
+    "question": "Питання повинно містити принаймні 10 символів"
+  }
+}

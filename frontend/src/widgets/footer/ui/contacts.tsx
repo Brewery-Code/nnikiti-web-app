@@ -31,14 +31,27 @@ export function Contacts({ className }: ContactsProps) {
           <li key={index} className="flex flex-col gap-1.5">
             <span className="text-fluid-sm text-slate-500">{item.label}</span>
             <div className="flex flex-wrap gap-x-2 gap-y-0.5 leading-tight">
-              {item.values.filter(Boolean).map((val, i) => (
-                <span
-                  key={i}
-                  className="cursor-default text-fluid-sm font-bold text-primary transition-colors duration-200 hover:text-slate-200"
-                >
-                  {val}
-                </span>
-              ))}
+              {item.values.filter(Boolean).map((val, i) => {
+                const isEmail = typeof val === "string" && val.includes("@");
+                const isPhone = typeof val === "string" && /^[\d\s+()–-]{7,}$/.test(val.trim());
+                const href = isEmail ? `mailto:${val}` : isPhone ? `tel:${val.replace(/\D/g, "")}` : undefined;
+                return href ? (
+                  <a
+                    key={i}
+                    href={href}
+                    className="text-fluid-sm font-bold text-violet-400 transition-colors duration-200 hover:text-violet-300"
+                  >
+                    {val}
+                  </a>
+                ) : (
+                  <span
+                    key={i}
+                    className="text-fluid-sm font-bold text-primary"
+                  >
+                    {val}
+                  </span>
+                );
+              })}
             </div>
           </li>
         ))}

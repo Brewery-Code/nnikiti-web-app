@@ -1,11 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
 import { ALL_PHOTOS, GALLERY_YEARS } from "@/shared/model/gallery-data";
 import { ROUTES } from "@/shared/model/routes";
+import { BackButton } from "@/shared/ui";
+import { useLoadNamespace } from "@/shared/hooks";
 import { PhotoGrid, InnerPageLayout } from "./ui";
+import { loadTranslations } from "./locales";
 
 function GalleryYearPage() {
+  useLoadNamespace("gallery", loadTranslations);
+  const { t } = useTranslation("gallery");
   const { year } = useParams<{ year: string }>();
   const numYear = Number(year);
   const photos = ALL_PHOTOS.filter((p) => p.year === numYear);
@@ -16,16 +22,11 @@ function GalleryYearPage() {
   ) {
     return (
       <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-        <div className="bg-base pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
+        <div className="pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
           <div className="container-v2">
-            <Link
-              to={ROUTES.GALLERY}
-              className="text-[14px] text-muted hover:text-primary"
-            >
-              ← Галерея
-            </Link>
+            <BackButton to={ROUTES.GALLERY} label={t("yearPage.back")} />
             <p className="font-display mt-10 text-[18px] text-subtle">
-              Фото за {year} рік не знайдено.
+              {t("yearPage.notFound", { year })}
             </p>
           </div>
         </div>
@@ -37,9 +38,9 @@ function GalleryYearPage() {
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <InnerPageLayout
         backTo={ROUTES.GALLERY}
-        backLabel="Галерея"
-        eyebrow="Архів ННІКІТІ"
-        title={`${numYear} рік`}
+        backLabel={t("yearPage.back")}
+        eyebrow={t("yearPage.eyebrow")}
+        title={t("yearPage.title", { year: numYear })}
         count={photos.length}
       >
         <div className="mb-10 flex flex-wrap gap-2">

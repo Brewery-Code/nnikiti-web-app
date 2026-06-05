@@ -41,12 +41,12 @@ export function AlumniList({
       </Reveal>
 
       <Stagger
-        className="grid grid-cols-1 place-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         stagger={0.08}
         amount={0.1}
       >
         {alumniList.map((alumni, i) => (
-          <StaggerItem key={i} mode="up" className="w-full max-w-[320px]">
+          <StaggerItem key={i} mode="up" className="h-full w-full">
             <AlumniCard alumni={alumni} />
           </StaggerItem>
         ))}

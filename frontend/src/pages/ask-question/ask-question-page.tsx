@@ -2,23 +2,26 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PageTransition } from "@/widgets";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
+import { useTranslation } from "react-i18next";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 
-const AskQuestionSchema = z.object({
-  full_name: z.string().min(2, "Ім'я повинно містити принаймні 2 символи"),
-  email: z.string().email("Некорректна email адреса"),
-  phone: z.string().optional(),
-  question: z.string().min(10, "Питання повинно містити принаймні 10 символів"),
-});
-
-type AskQuestionSchemaType = z.infer<typeof AskQuestionSchema>;
+type AskQuestionSchemaType = {
+  full_name: string;
+  email: string;
+  phone?: string;
+  question: string;
+};
 
 function HeroSection() {
+  const { t } = useTranslation("ask-question");
+
   return (
-    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -46,9 +49,9 @@ function HeroSection() {
         <StaggerItem mode="scale">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
             <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
-              КОНТАКТ
+              {t("badge")}
             </span>
-            <span className="text-[12px] text-primary/70">Ми завжди на зв'язку</span>
+            <span className="text-[12px] text-primary/70">{t("badgeSub")}</span>
           </div>
         </StaggerItem>
 
@@ -62,7 +65,7 @@ function HeroSection() {
             lineHeight: 0.95,
           }}
         >
-          Задайте <span className="text-grad-animated">ваше питання</span>
+          {t("heading")} <span className="text-grad-animated">{t("headingAccent")}</span>
         </StaggerItem>
 
         <StaggerItem
@@ -71,11 +74,9 @@ function HeroSection() {
           className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
           style={{ lineHeight: 1.7, maxWidth: 560 }}
         >
-          Маєте питання про ННІКІТІ, навчальні програми або вступ? Напишіть нам —
-          ми обов'язково відповімо протягом 24 годин.
+          {t("description")}
         </StaggerItem>
       </Stagger>
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
     </section>
   );
 }
@@ -88,6 +89,7 @@ function InputField({
   register,
   textarea = false,
   optional = false,
+  optionalLabel,
 }: {
   label: string;
   error?: string;
@@ -96,6 +98,7 @@ function InputField({
   register: ReturnType<ReturnType<typeof useForm<AskQuestionSchemaType>>["register"]>;
   textarea?: boolean;
   optional?: boolean;
+  optionalLabel?: string;
 }) {
   const baseClass =
     "w-full rounded-[14px] border bg-surface-md px-5 py-3.5 text-[15px] text-primary placeholder-muted backdrop-blur-md transition-all duration-200 focus:outline-none";
@@ -109,7 +112,7 @@ function InputField({
         {label}
         {optional && (
           <span className="text-[10px] font-normal text-subtle">
-            (необов'язково)
+            {optionalLabel}
           </span>
         )}
       </label>
@@ -136,8 +139,20 @@ function InputField({
 }
 
 function FormSection() {
+  const { t } = useTranslation("ask-question");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const AskQuestionSchema = useMemo(
+    () =>
+      z.object({
+        full_name: z.string().min(2, t("errors.name")),
+        email: z.string().email(t("errors.email")),
+        phone: z.string().optional(),
+        question: z.string().min(10, t("errors.question")),
+      }),
+    [t]
+  );
 
   const {
     register,
@@ -176,26 +191,25 @@ function FormSection() {
               className="font-display font-black"
               style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", letterSpacing: "-0.03em" }}
             >
-              Дякуємо за <span className="text-grad">ваше питання</span>
+              {t("successHeading")} <span className="text-grad">{t("successHeadingAccent")}</span>
             </h3>
             <p className="mx-auto mt-3 max-w-md text-[15px] text-primary/60">
-              Ми отримали вашу заявку та обов'язково відповімо найближчим часом
-              на вказану email адресу.
+              {t("successText")}
             </p>
           </div>
         ) : (
           <Reveal as="form" mode="up" onSubmit={handleSubmit(onSubmit)} className="grad-border-animated relative overflow-hidden rounded-[24px] bg-surface p-6 backdrop-blur-xl sm:p-10" amount={0.1}>
             <div className="grid gap-5 sm:grid-cols-2">
               <InputField
-                label="Ваше ім'я"
-                placeholder="Іван Петренко"
+                label={t("nameLabel")}
+                placeholder={t("namePlaceholder")}
                 register={register("full_name")}
                 error={errors.full_name?.message}
               />
               <InputField
-                label="Email адреса"
+                label={t("emailLabel")}
                 type="email"
-                placeholder="vam@example.com"
+                placeholder={t("emailPlaceholder")}
                 register={register("email")}
                 error={errors.email?.message}
               />
@@ -203,18 +217,19 @@ function FormSection() {
 
             <div className="mt-5">
               <InputField
-                label="Номер телефону"
+                label={t("phoneLabel")}
                 type="tel"
-                placeholder="+38 (067) 123-45-67"
+                placeholder={t("phonePlaceholder")}
                 register={register("phone")}
                 optional
+                optionalLabel={t("optional")}
               />
             </div>
 
             <div className="mt-5">
               <InputField
-                label="Ваше питання"
-                placeholder="Напишіть ваше питання тут. Чим більше деталей, тим краще ми вам допоможемо…"
+                label={t("questionLabel")}
+                placeholder={t("questionPlaceholder")}
                 register={register("question")}
                 error={errors.question?.message}
                 textarea
@@ -232,11 +247,11 @@ function FormSection() {
                     : "hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)]"
                 )}
               >
-                {isSubmitting ? "Надсилаємо…" : "Надіслати питання"}
+                {isSubmitting ? t("submitting") : t("submit")}
                 {!isSubmitting && <span aria-hidden>→</span>}
               </button>
               <p className="text-center text-[11px] text-subtle">
-                Ми переглядаємо звернення протягом 24 годин
+                {t("footerNote")}
               </p>
             </div>
           </Reveal>
@@ -247,6 +262,8 @@ function FormSection() {
 }
 
 function ContactInfoSection() {
+  const { t } = useTranslation("ask-question");
+
   const contacts = [
     {
       title: "Email",
@@ -273,7 +290,7 @@ function ContactInfoSection() {
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 text-center lg:mb-14">
           <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-            — Контакти
+            {t("contactsSectionLabel")}
           </div>
           <h2
             className="font-display font-black"
@@ -282,7 +299,7 @@ function ContactInfoSection() {
               letterSpacing: "-0.04em",
             }}
           >
-            Інші <span className="text-grad-animated">канали зв'язку</span>
+            {t("contactsHeading")} <span className="text-grad-animated">{t("contactsHeadingAccent")}</span>
           </h2>
         </Reveal>
 
@@ -311,10 +328,12 @@ function ContactInfoSection() {
 }
 
 export function AskQuestionPage() {
+  useLoadNamespace("ask-question", loadTranslations);
+
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <HeroSection />
-      <div className="bg-base">
+      <div>
         <FormSection />
         <ContactInfoSection />
       </div>

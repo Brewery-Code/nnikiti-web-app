@@ -121,14 +121,14 @@ function PersonCard({
           </span>
         )}
 
-        <div className="absolute bottom-0 left-0 right-0 p-3.5">
-          <p className="font-display text-[13px] font-bold leading-tight text-white">
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <p className="font-display text-[16px] font-bold leading-tight text-white">
             {name}
           </p>
-          <p className="mt-0.5 text-[10px] leading-snug text-white/50">{role}</p>
-          {sub && <p className="mt-0.5 text-[10px] text-white/30">{sub}</p>}
+          <p className="mt-1 text-[13px] leading-snug text-white/55">{role}</p>
+          {sub && <p className="mt-0.5 text-[12px] text-white/35">{sub}</p>}
           {email && (
-            <a href={`mailto:${email}`} className="mt-1 inline-block max-w-full truncate text-[10px] text-violet-300/80">
+            <a href={`mailto:${email}`} className="mt-1.5 inline-block max-w-full truncate text-[12px] text-violet-300/80">
               {email}
             </a>
           )}
@@ -218,29 +218,10 @@ function SectionHeading({ sectionKey }: { sectionKey: "leadership" | "deptHeads"
 function HeroSection() {
   const { t } = useTranslation("team");
   return (
-    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
-      <div className="absolute inset-0 grid grid-cols-4 gap-0 opacity-[0.12] sm:grid-cols-8">
-        {[...LEADERSHIP, ...DEPT_HEADS, ...STAFF.slice(0, 5)].slice(0, 8).map((p, i) => (
-          <div key={i} className="overflow-hidden grayscale">
-            <img src={avatar(p.img)} alt="" className="h-full w-full object-cover object-top" />
-          </div>
-        ))}
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#08090f] via-[#08090f]/85 to-[#08090f]/60" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(166,132,255,0.18) 0%, transparent 70%)", filter: "blur(80px)" }}
-      />
+    <section className="relative pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
 
-      <Stagger className="container-v2 relative z-[1] text-center" stagger={0.1} delay={0.35} inView={false}>
-        <StaggerItem mode="scale" className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4 backdrop-blur-md">
-          <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-primary">
-            {t("hero.badge")}
-          </span>
-          <span className="text-[12px] text-primary/70">{t("hero.badgeSub")}</span>
-        </StaggerItem>
-        <StaggerItem
+<Stagger className="container-v2 relative z-[1] text-center" stagger={0.1} delay={0.35} inView={false}>
+<StaggerItem
           as="h1"
           mode="up"
           className="font-display font-black leading-none text-primary"
@@ -257,7 +238,6 @@ function HeroSection() {
           {t("hero.description")}
         </StaggerItem>
       </Stagger>
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
     </section>
   );
 }
@@ -268,7 +248,7 @@ function TeamPage() {
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
       <HeroSection />
-      <div className="bg-base py-12 sm:py-16 lg:py-24">
+      <div className="py-12 sm:py-16 lg:py-24">
         <div className="container-v2 flex flex-col gap-16 lg:gap-24">
 
           {/* Leadership */}

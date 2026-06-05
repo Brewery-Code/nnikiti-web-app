@@ -29,7 +29,7 @@ function PersonCard({ item }: { item: PersonItem }) {
       <div className="mt-4 flex flex-col gap-2">
         <a
           href={`mailto:${item.email}`}
-          className="flex items-center gap-2.5 text-[12px] text-muted transition-colors hover:text-primary"
+          className="flex items-center gap-2.5 text-[12px] text-violet-400 transition-colors hover:text-violet-300"
         >
           <span aria-hidden className="text-violet-400">✉</span>
           {item.email}
@@ -37,7 +37,7 @@ function PersonCard({ item }: { item: PersonItem }) {
         {item.phone && (
           <a
             href={`tel:${item.phone.replace(/\D/g, "")}`}
-            className="flex items-center gap-2.5 text-[12px] text-muted transition-colors hover:text-primary"
+            className="flex items-center gap-2.5 text-[12px] text-violet-400 transition-colors hover:text-violet-300"
           >
             <span aria-hidden className="text-blue-400">☎</span>
             {item.phone}
@@ -86,22 +86,13 @@ function SectionBlock({
 function HeroSection() {
   const { deaneryData } = useContactsData();
   return (
-    <section className="relative overflow-hidden bg-base pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
         style={{
           background:
             "radial-gradient(circle, rgba(166,132,255,0.18) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[500px] w-[500px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(81,162,255,0.16) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -157,7 +148,6 @@ function HeroSection() {
           </Reveal>
         </div>
       </div>
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#08090f]" />
     </section>
   );
 }
@@ -191,7 +181,7 @@ export function ContactsSection() {
   return (
     <>
       <HeroSection />
-      <div className="bg-base pb-16 sm:pb-24 lg:pb-32">
+      <div className="pb-16 sm:pb-24 lg:pb-32">
         <div className="container-v2 flex flex-col gap-fluid-2xl pt-10">
           {/* Quick contact chips */}
           <Stagger className="grid gap-4 sm:grid-cols-3" stagger={0.1} inView={false}>

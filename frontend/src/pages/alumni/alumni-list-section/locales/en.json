@@ -1,5 +1,16 @@
 {
   "alumniList": {
-    "title": "Graduation"
+    "title": "Graduation",
+    "sectionTitle": "Our",
+    "sectionHighlight": "alumni"
+  },
+  "alumniCard": {
+    "graduation": "Graduation",
+    "learnMore": "Learn more"
+  },
+  "alumniModal": {
+    "graduation": "Graduation",
+    "major": "Major",
+    "degree": "Degree"
   }
 }

@@ -1,3 +1,4 @@
+export { BackButton } from "./back-button/back-button";
 export { Title } from "./title";
 export { SpecialtiesCard } from "./specialties-card";
 export { default as OvalLabel } from "./oval-label";

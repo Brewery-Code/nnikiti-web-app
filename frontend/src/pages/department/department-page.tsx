@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { type DepartmentData, type SubjectType } from "@/shared/model/departments-data";
 import { ROUTES } from "@/shared/model/routes";
 import clsx from "clsx";
@@ -13,6 +14,8 @@ import { profilePlaceholder } from "@/shared/icons";
 import { publicRqClient } from "@/shared/api/instance";
 import { resolveMediaUrl } from "@/shared/model/config";
 import type { components } from "@/shared/api/schema/generated";
+import { useLoadNamespace } from "@/shared/hooks";
+import { loadTranslations } from "./locales";
 
 type ApiDeptDetail = components["schemas"]["DepartmentDetail"];
 
@@ -101,18 +104,13 @@ function cover(url?: string | null, seed = 0) {
   return url ?? DEPT_PHOTOS[seed % DEPT_PHOTOS.length];
 }
 
-const sections = [
-  { id: "curriculum", label: "Навчальний план" },
-  { id: "team",       label: "Команда" },
-  { id: "history",    label: "Історія" },
-  { id: "contacts",   label: "Контакти" },
-];
+const SECTION_IDS = ["curriculum", "team", "history", "contacts"] as const;
 
 function useSectionSpy() {
   const [active, setActive] = useState("overview");
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
-    sections.forEach(({ id }) => {
+    SECTION_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) { return; }
       const obs = new IntersectionObserver(
@@ -146,13 +144,19 @@ function Sidebar({
   currentId: string;
 }) {
   const activeSection = useSectionSpy();
+  const { t } = useTranslation("department");
+
+  const sections = SECTION_IDS.map((id) => ({
+    id,
+    label: t(`sections.${id}`),
+  }));
 
   return (
     <aside className="hidden flex-shrink-0 self-start lg:sticky lg:top-24 lg:flex lg:w-64 xl:w-72">
       <div className="flex w-full flex-col gap-4">
         <div className="grad-border rounded-[18px] bg-surface p-4 backdrop-blur-xl">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-500">
-            — Кафедри
+            {t("sidebar.heading_depts")}
           </p>
           <ul className="flex flex-col gap-0.5">
             {departments.map((dept) => {
@@ -189,7 +193,7 @@ function Sidebar({
 
         <div className="grad-border rounded-[18px] bg-surface p-4 backdrop-blur-xl">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-500">
-            — Розділи
+            {t("sidebar.heading_sections")}
           </p>
           <ul className="flex flex-col gap-0.5">
             {sections.map((s) => {
@@ -239,21 +243,29 @@ function SectionTitle({
   );
 }
 
-const DEGREE_OPTIONS = ["Бакалавр", "Магістр", "Аспірантура"] as const;
+const DEGREE_KEYS = ["bachelor", "master", "postgraduate"] as const;
 
 function CurriculumSection({ dept }: { dept: DepartmentData }) {
+  const { t } = useTranslation("department");
   const [searchParams] = useSearchParams();
   const programCode = searchParams.get("program");
+  const programIdParam = searchParams.get("program_id");
+
+  const DEGREE_OPTIONS = DEGREE_KEYS.map((key) => t(`degrees.${key}`));
 
   const availableDegrees = DEGREE_OPTIONS.filter((d) =>
     dept.programs.some((p) => p.degree === d)
   );
 
+  const findProgram = () => {
+    if (programIdParam) return dept.programs.find((p) => p.id === parseInt(programIdParam));
+    if (programCode) return dept.programs.find((p) => p.code === programCode);
+    return undefined;
+  };
+
   const initialDegree = (() => {
-    if (programCode) {
-      const p = dept.programs.find((p) => p.code === programCode);
-      if (p?.degree && (DEGREE_OPTIONS as readonly string[]).includes(p.degree)) return p.degree;
-    }
+    const p = findProgram();
+    if (p?.degree && (DEGREE_OPTIONS as string[]).includes(p.degree)) return p.degree;
     return availableDegrees[0] ?? "";
   })();
 
@@ -262,7 +274,8 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
   const degreePrograms = dept.programs.filter((p) => p.degree === activeDegree);
 
   const initialProgramIdx = (() => {
-    if (programCode) return Math.max(0, degreePrograms.findIndex((p) => p.code === programCode));
+    const p = findProgram();
+    if (p) return Math.max(0, degreePrograms.findIndex((dp) => dp.id === p.id));
     return 0;
   })();
 
@@ -273,15 +286,17 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
     setActiveProgramIdx(0);
   };
 
+  const hasDeepLink = !!(programCode || programIdParam);
+
   useEffect(() => {
-    if (!programCode) { return; }
+    if (!hasDeepLink) { return; }
     const el = document.getElementById("curriculum");
     if (!el) { return; }
     const timeout = setTimeout(() => {
       window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: "smooth" });
     }, 400);
     return () => clearTimeout(timeout);
-  }, [programCode]);
+  }, [hasDeepLink]);
 
   const prog = degreePrograms[activeProgramIdx] ?? degreePrograms[0];
 
@@ -294,9 +309,14 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
     }))
     .filter((y) => y.subjects.length > 0);
 
+  const metaItems = [
+    { label: t("curriculum.meta_duration"), value: prog?.duration },
+    { label: t("curriculum.meta_form"),     value: prog?.form },
+  ];
+
   return (
     <section id="curriculum">
-      <SectionTitle title="Програма" highlight="навчання" />
+      <SectionTitle title={t("curriculum.section_title")} highlight={t("curriculum.section_highlight")} />
 
       {/* Degree selector */}
       <Reveal mode="up" className="mb-4 flex flex-wrap gap-2">
@@ -353,10 +373,7 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
           transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <div className="mb-8 grid grid-cols-2 gap-2 pb-px sm:flex sm:flex-wrap sm:gap-3">
-            {[
-              { label: "Тривалість", value: prog.duration },
-              { label: "Форма",      value: prog.form },
-            ].map((meta, i) => (
+            {metaItems.map((meta, i) => (
               <motion.div
                 key={meta.label}
                 initial={{ opacity: 0, y: 10 }}
@@ -388,7 +405,7 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
                     {year}
                   </span>
                   <span className="font-display text-[14px] font-bold text-primary">
-                    {year} курс — {year * 2 - 1} та {year * 2} семестри
+                    {t("curriculum.year_label", { year, sem1: year * 2 - 1, sem2: year * 2 })}
                   </span>
                 </div>
                 <div className="divide-y divide-white/[0.04]">
@@ -401,12 +418,14 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
                         <span
                           className={clsx(
                             "rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.06em]",
-                            subject.type === "Нормативна"
+                            subject.type === t("subjects.mandatory")
                               ? "border border-violet-500/30 bg-violet-500/[0.12] text-violet-300"
                               : "border border-ui bg-surface-md text-subtle"
                           )}
                         >
-                          {subject.type === "Нормативна" ? "Норм." : "Вибір."}
+                          {subject.type === t("subjects.mandatory")
+                            ? t("subjects.mandatory_abbr")
+                            : t("subjects.elective_abbr")}
                         </span>
                       </div>
                     </div>
@@ -428,7 +447,7 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
                 {prog.subjects.length}
               </p>
               <p className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-subtle">
-                Дисциплін
+                {t("curriculum.disciplines_label")}
               </p>
             </div>
           </motion.div>
@@ -439,6 +458,7 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
 }
 
 function TeamMemberCard({ member, large = false }: { member: DepartmentData["team"][number]; large?: boolean }) {
+  const { t } = useTranslation("department");
   return (
     <div className="group overflow-hidden rounded-[20px] border border-white/[0.07] bg-[#0a0b12] shadow-[0_4px_20px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.04)]">
       <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
@@ -450,7 +470,7 @@ function TeamMemberCard({ member, large = false }: { member: DepartmentData["tea
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0b12] to-transparent" />
         {member.audience && (
           <span className="absolute right-3 top-3 rounded-[8px] border border-white/10 bg-[#08090f]/75 px-2.5 py-1 text-[10px] text-subtle backdrop-blur-sm">
-            Ауд. <span className="font-display font-bold text-primary">{member.audience}</span>
+            {t("team.audience_prefix")} <span className="font-display font-bold text-primary">{member.audience}</span>
           </span>
         )}
         <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -473,9 +493,10 @@ function TeamMemberCard({ member, large = false }: { member: DepartmentData["tea
 }
 
 function TeamSection({ dept }: { dept: DepartmentData }) {
+  const { t } = useTranslation("department");
   return (
     <section id="team" className="m-section">
-      <SectionTitle title="Команда" highlight="кафедри" />
+      <SectionTitle title={t("team.section_title")} highlight={t("team.section_highlight")} />
 
       {/* Mobile swiper */}
       <div className="-mx-4 sm:hidden">
@@ -509,9 +530,10 @@ function TeamSection({ dept }: { dept: DepartmentData }) {
 }
 
 function HistorySection({ dept }: { dept: DepartmentData }) {
+  const { t } = useTranslation("department");
   return (
     <section id="history" className="m-section">
-      <SectionTitle title="Історія" highlight="кафедри" />
+      <SectionTitle title={t("history.section_title")} highlight={t("history.section_highlight")} />
 
       <div className="relative mb-10 overflow-hidden rounded-[20px]">
         <img
@@ -522,10 +544,10 @@ function HistorySection({ dept }: { dept: DepartmentData }) {
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#08090f]/95 to-transparent" />
         <div className="absolute bottom-0 left-0 p-6 sm:p-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-300">
-            З {dept.history[0]?.year?.split("–")[0] ?? "1959"} року
+            {t("history.since", { year: dept.history[0]?.year?.split("–")[0] ?? "1959" })}
           </p>
           <p className="font-display mt-1.5 text-[20px] font-bold leading-tight text-primary sm:text-[26px]">
-            Кафедра {dept.name.toLowerCase()}
+            {t("history.dept_name", { name: dept.name.toLowerCase() })}
           </p>
         </div>
       </div>
@@ -553,10 +575,11 @@ function HistorySection({ dept }: { dept: DepartmentData }) {
 }
 
 function ContactsSection({ dept }: { dept: DepartmentData }) {
+  const { t } = useTranslation("department");
   const { head } = dept;
   return (
     <section id="contacts" className="m-section">
-      <SectionTitle title="Контакти" highlight="кафедри" />
+      <SectionTitle title={t("contacts.section_title")} highlight={t("contacts.section_highlight")} />
 
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:grid-rows-[230px]">
         <Reveal mode="left" delay={0.05} className="lg:col-span-2">
@@ -576,7 +599,7 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
             <div className="flex flex-1 flex-col justify-between p-4 sm:p-8">
               <div>
                 <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-violet-400">
-                  Завідувач кафедри
+                  {t("contacts.head_label")}
                 </p>
                 <p className="mt-2 font-display text-[16px] font-bold leading-[1.15] text-primary sm:mt-3 sm:text-[26px]">
                   {head.full_name}
@@ -588,7 +611,7 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
                 )}
                 {head.audience && (
                   <p className="mt-1 text-[11px] text-subtle sm:text-[13px]">
-                    Ауд. {head.audience}
+                    {t("contacts.audience_prefix")} {head.audience}
                   </p>
                 )}
               </div>
@@ -615,7 +638,7 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
                 </svg>
               </div>
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-subtle">Email кафедри</p>
+                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-subtle">{t("contacts.email_label")}</p>
                 <span className="relative mt-0.5 inline-block text-[13px] font-semibold text-primary/80">
                   {dept.email}
                   <span className="absolute bottom-0 left-0 h-px w-0 bg-white/50 transition-[width] duration-300 ease-out group-hover:w-full" />
@@ -637,7 +660,7 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
                 </svg>
               </div>
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-subtle">Адреса</p>
+                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-subtle">{t("contacts.address_label")}</p>
                 <span className="relative mt-0.5 inline-block text-[13px] font-semibold text-primary/80">
                   {dept.address}
                   <span className="absolute bottom-0 left-0 h-px w-0 bg-white/50 transition-[width] duration-300 ease-out group-hover:w-full" />
@@ -804,6 +827,7 @@ function MobileDeptSelector({
   deptList: { id: number; name: string }[];
   departmentId: string;
 }) {
+  const { t } = useTranslation("department");
   const [open, setOpen] = useState(false);
   const current = deptList.find((d) => String(d.id) === departmentId);
 
@@ -817,10 +841,10 @@ function MobileDeptSelector({
       >
         <div>
           <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-violet-400">
-            Кафедра
+            {t("mobile_selector.label")}
           </p>
           <p className="mt-1 font-display text-[15px] font-bold leading-tight text-white">
-            {current?.name ?? "Оберіть кафедру"}
+            {current?.name ?? t("mobile_selector.placeholder")}
           </p>
         </div>
         <motion.svg
@@ -880,6 +904,8 @@ function MobileDeptSelector({
 }
 
 function DepartmentPage() {
+  useLoadNamespace("department", loadTranslations);
+  const { t } = useTranslation("department");
   const { departmentId } = useParams<{ departmentId: string }>();
   const numId = Number(departmentId);
 
@@ -914,9 +940,9 @@ function DepartmentPage() {
                 <StaggerItem mode="up">
                   <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4">
                     <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-                      ННІКІТІ
+                      {t("hero.badge_institute")}
                     </span>
-                    <span className="text-[12px] text-white/55">Кафедра</span>
+                    <span className="text-[12px] text-white/55">{t("hero.badge_dept")}</span>
                   </div>
                 </StaggerItem>
                 <StaggerItem mode="up">
@@ -954,9 +980,9 @@ function DepartmentPage() {
               <StaggerItem mode="up">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 py-1.5 pl-2 pr-4">
                   <span className="rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
-                    ННІКІТІ
+                    {t("hero.badge_institute")}
                   </span>
-                  <span className="text-[12px] text-white/55">Кафедра</span>
+                  <span className="text-[12px] text-white/55">{t("hero.badge_dept")}</span>
                 </div>
               </StaggerItem>
               <StaggerItem mode="up">
