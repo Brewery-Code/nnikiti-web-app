@@ -79,6 +79,8 @@ class EventsAdmin(UnfoldTranslatableAdmin):
         album = Album()
         album.date = date
         album.status = Album.Status.PUBLISHED
+        if event.cover:
+            album.cover = event.cover.name
         album.save()
         album.set_current_language('uk')
         album.title = title
