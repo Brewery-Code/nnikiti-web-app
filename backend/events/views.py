@@ -8,12 +8,12 @@ from .serializers import EventsSerializer
 @extend_schema(tags=['Events'])
 class EventsListView(ListAPIView):
     """API view to retrieve a list of published events."""
-    queryset = Event.published.all()
+    queryset = Event.published.prefetch_related('images').all()
     serializer_class = EventsSerializer
 
 
 @extend_schema(tags=['Events'])
 class EventsDetailView(RetrieveAPIView):
     """API view to retrieve a single published event by its ID."""
-    queryset = Event.published.all()
+    queryset = Event.published.prefetch_related('images').all()
     serializer_class = EventsSerializer

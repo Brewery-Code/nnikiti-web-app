@@ -743,6 +743,16 @@ components:
           type: string
           format: uri
           readOnly: true
+    EventImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          type: string
+          format: uri
+
     Events:
       type: object
       properties:
@@ -768,6 +778,11 @@ components:
           format: uri
           nullable: true
           description: Cover image URL
+        images:
+          type: array
+          description: All additional images of the event
+          items:
+            $ref: "#/components/schemas/EventImage"
         event_date:
           type: string
           format: date
