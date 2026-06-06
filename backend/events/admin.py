@@ -39,6 +39,14 @@ class EventAdminForm(TranslatableModelForm):
             "body": MDEditorWidget(),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.pk and self.instance.album_id:
+            self.fields['create_gallery'].initial = True
+            self.fields['create_gallery'].help_text = (
+                "Альбом вже створено. Зняття галочки не видалить альбом."
+            )
+
 
 @admin.register(Event)
 class EventsAdmin(UnfoldTranslatableAdmin):
@@ -51,13 +59,15 @@ class EventsAdmin(UnfoldTranslatableAdmin):
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
-        self._pending_create_gallery = form.cleaned_data.get('create_gallery', False)
+        request._create_gallery_for_event = form.cleaned_data.get('create_gallery', False)
 
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
-        if getattr(self, '_pending_create_gallery', False):
-            self._pending_create_gallery = False
-            self._create_gallery_from_event(form.instance)
+        if getattr(request, '_create_gallery_for_event', False):
+            del request._create_gallery_for_event
+            event = form.instance
+            if not event.album_id:
+                self._create_gallery_from_event(event)
 
     def _create_gallery_from_event(self, event):
         from gallery.models import Album, AlbumPhoto
@@ -75,10 +85,24 @@ class EventsAdmin(UnfoldTranslatableAdmin):
         album.description = ''
         album.save()
 
-        for i, event_image in enumerate(event.images.all()):
+        order = 0
+        if event.cover:
+            AlbumPhoto.objects.create(
+                album=album,
+                image=event.cover.name,
+                published_at=date,
+                order=order,
+            )
+            order += 1
+
+        for event_image in event.images.all():
             AlbumPhoto.objects.create(
                 album=album,
                 image=event_image.image.name,
                 published_at=date,
-                order=i,
+                order=order,
             )
+            order += 1
+
+        event.album = album
+        event.save(update_fields=['album'])

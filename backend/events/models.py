@@ -80,6 +80,14 @@ class Event(TranslatableModel):
         default=Status.DRAFT,
         verbose_name=_("Status"),
     )
+    album = models.OneToOneField(
+        "gallery.Album",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="event",
+        verbose_name=_("Gallery album"),
+    )
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name=_("Creation date")
     )
