@@ -98,7 +98,7 @@ class ProgramSubjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProgramSubject
-        fields = ["id", "name", "semester", "credits", "type"]
+        fields = ["id", "name"]
 
     def get_name(self, obj):
         return obj.safe_translation_getter("name", any_language=True)

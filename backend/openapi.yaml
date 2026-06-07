@@ -894,17 +894,6 @@ components:
         name:
           type: string
           description: Subject name (translated)
-        semester:
-          type: integer
-          minimum: 1
-          maximum: 8
-        credits:
-          type: number
-          format: float
-        type:
-          type: string
-          enum: [MN, EL]
-          description: "MN = Mandatory, EL = Elective"
 
     FacultyMember:
       type: object
