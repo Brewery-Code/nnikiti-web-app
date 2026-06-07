@@ -65,7 +65,7 @@ class EventsAdmin(UnfoldTranslatableAdmin):
         super().save_related(request, form, formsets, change)
         if getattr(request, '_create_gallery_for_event', False):
             del request._create_gallery_for_event
-            event = form.instance
+            event = Event.objects.get(pk=form.instance.pk)
             if not event.album_id:
                 self._create_gallery_from_event(event)
 
