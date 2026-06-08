@@ -1,34 +1,39 @@
-import { useParams, Link } from "react-router-dom";
-import clsx from "clsx";
+import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
-import { ALL_PHOTOS, GALLERY_YEARS } from "@/shared/model/gallery-data";
 import { ROUTES } from "@/shared/model/routes";
-import { BackButton } from "@/shared/ui";
+import { publicRqClient } from "@/shared/api/instance";
 import { useLoadNamespace } from "@/shared/hooks";
-import { PhotoGrid, InnerPageLayout } from "./ui";
+import { InnerPageLayout } from "./ui";
 import { loadTranslations } from "./locales";
+import { AlbumPhotos } from "./gallery-page";
+import type { components } from "@/shared/api/schema/generated";
+
+type Album = components["schemas"]["Album"];
+
+function getYear(dateStr?: string | null): number | null {
+  if (!dateStr) return null;
+  const y = Number(dateStr.slice(0, 4));
+  return isNaN(y) ? null : y;
+}
 
 function GalleryYearPage() {
   useLoadNamespace("gallery", loadTranslations);
   const { t } = useTranslation("gallery");
   const { year } = useParams<{ year: string }>();
   const numYear = Number(year);
-  const photos = ALL_PHOTOS.filter((p) => p.year === numYear);
 
-  if (
-    !GALLERY_YEARS.includes(numYear as (typeof GALLERY_YEARS)[number]) ||
-    photos.length === 0
-  ) {
+  const { data, isPending } = publicRqClient.useQuery("get", "/gallery/" as any, {});
+  const allAlbums = ((data ?? []) as Album[]).filter((a) => a.status === "PB" || !a.status);
+  const yearAlbums = allAlbums.filter((a) => getYear(a.date) === numYear);
+
+  if (isPending) {
     return (
       <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
-        <div className="pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24">
-          <div className="container-v2">
-            <BackButton to={ROUTES.GALLERY} label={t("yearPage.back")} />
-            <p className="font-display mt-10 text-[18px] text-subtle">
-              {t("yearPage.notFound", { year })}
-            </p>
-          </div>
+        <div className="container-v2 pt-32 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4">
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+            <div key={i} className="aspect-square animate-pulse rounded-[14px] bg-surface" />
+          ))}
         </div>
       </PageTransition>
     );
@@ -41,26 +46,30 @@ function GalleryYearPage() {
         backLabel={t("yearPage.back")}
         eyebrow={t("yearPage.eyebrow")}
         title={t("yearPage.title", { year: numYear })}
-        count={photos.length}
+        count={yearAlbums.length}
       >
-        <div className="mb-10 flex flex-wrap gap-2">
-          {GALLERY_YEARS.map((y) => (
-            <Link
-              key={y}
-              to={`/gallery/year/${y}`}
-              className={clsx(
-                "rounded-full px-5 py-2 text-[14px] font-bold transition-all duration-200",
-                y === numYear
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                  : "grad-border bg-surface-md text-muted backdrop-blur-md hover:bg-surface-xl hover:text-primary"
-              )}
-            >
-              {y}
-            </Link>
-          ))}
-        </div>
-
-        <PhotoGrid photos={photos} />
+        {yearAlbums.length === 0 ? (
+          <p className="font-display text-[18px] text-subtle">
+            {t("yearPage.notFound", { year })}
+          </p>
+        ) : (
+          <>
+            {/* Mobile: masonry via CSS columns */}
+            <div className="columns-2 gap-2 sm:hidden">
+              {yearAlbums.map((album) => (
+                <div key={album.id} className="mb-2 break-inside-avoid">
+                  <AlbumPhotos albumId={album.id!} square={false} />
+                </div>
+              ))}
+            </div>
+            {/* sm+: grid */}
+            <div className="hidden grid-cols-3 gap-3 sm:grid lg:grid-cols-4">
+              {yearAlbums.map((album) => (
+                <AlbumPhotos key={album.id} albumId={album.id!} />
+              ))}
+            </div>
+          </>
+        )}
       </InnerPageLayout>
     </PageTransition>
   );

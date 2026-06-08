@@ -132,10 +132,7 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
                 src={photo.src}
                 alt={photo.alt}
                 loading="lazy"
-                className={clsx(
-                  "w-full object-cover transition-transform duration-500 group-hover:scale-105",
-                  photo.wide ? "aspect-[3/2]" : "aspect-[2/3]"
-                )}
+                className="h-auto w-full transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-violet-500/30 to-blue-500/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-gradient-to-t from-[#08090f]/95 to-transparent p-3 transition-transform duration-300 group-hover:translate-y-0">

@@ -90,7 +90,7 @@ function EventCard({
       >
         {event.title}
       </h3>
-      <p className="text-[13px] leading-relaxed text-white/40">{event.description}</p>
+      <p className="text-[13px] leading-snug text-white/40">{event.description}</p>
     </div>
   );
 }

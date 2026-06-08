@@ -9,30 +9,31 @@
     "description": "The Educational and Research Institute of Cybernetics, Information Technologies and Engineering — 25 years of building a digital future together, day by day, step by step, through education, research and the development of a scientific and educational ecosystem.",
     "stats": {
       "yearsLabel": "Years of NNI KITI",
-      "foundedLabel": "Year of founding",
+      "alumniLabel": "Graduates",
       "departmentsLabel": "Departments",
-      "directorsLabel": "Directors in 25 years"
+      "programsLabel": "Educational programs"
     }
   },
   "about": {
-    "sectionTitle": "Who we",
-    "sectionTitleAccent": "really are",
+    "sectionTitle": "Our",
+    "sectionTitleAccent": "story",
     "chapters": [
       {
         "label": "Origins",
-        "title": "From faculty to institute",
+        "title": "How it all began",
         "paragraphs": [
-          "August 25, 2000 — the Faculty of Applied Mathematics and Computer-Integrated Systems was established on the basis of the Department of Applied Mathematics and the Department of Electrical Engineering and Automation. The faculty was headed by Dr. of Technical Sciences, Prof. Anatoliy Pavlovych Vlasiuk (2000–2012).",
-          "January 23, 2013 — the Faculty of Applied Mathematics and Computer-Integrated Systems was reorganised into the Educational and Research Institute of Automation, Electrical Engineering and Information Technologies.",
-          "April 12, 2013 — renamed to the Educational and Research Institute of Automation, Cybernetics and Computing."
+          "The year 2000. A small department, a handful of enthusiasts, and one firm belief: information technology is the future, and Rivne would have its own specialists in the field. That is when the faculty was born — the one that would become NNI KITI.",
+          "Over more than a decade, student numbers grew, new specialisations appeared, and the faculty outgrew itself. In 2013 that progress was formally recognised — we became an educational and research institute.",
+          "With every passing year we changed, yet never betrayed our core mission: to train professionals who solve real-world problems. From applied mathematics — to artificial intelligence and cybersecurity."
         ]
       },
       {
-        "label": "Leadership",
-        "title": "Institute directors",
+        "label": "Achievements",
+        "title": "Our accomplishments",
         "paragraphs": [
-          "Petro Oleksandrovych Tadeyev, Dr. of Pedagogical Sciences, Cand. of Physical and Mathematical Sciences, Professor — Director of the Educational and Research Institute of Automation, Cybernetics and Computing (2013–2020).",
-          "Petro Mykolayovych Martyniuk, Dr. of Technical Sciences, Professor — Director of the Educational and Research Institute of Cybernetics, Information Technologies and Engineering (from 2020)."
+          "NNI KITI students represented Ukraine at the ACM/ICPC World Finals (2003) and international semi-finals in competitive programming (2011, 2012), winning prizes at KPI-Open and the All-Ukrainian Programming Olympiad.",
+          "Young scientists of the institute are laureates of the President of Ukraine Award and recipients of Cabinet of Ministers scholarships. Students completed semester exchanges in the UK, Germany and Poland through academic mobility programs.",
+          "Institute teams won the university startup competition Cool Idea, and graduates build successful careers at leading IT companies in Ukraine and worldwide. Over the past 5 years, faculty published more than 32 articles indexed in SCOPUS."
         ]
       },
       {
@@ -151,8 +152,8 @@
     ]
   },
   "closing": {
-    "title1": "The next",
-    "title2": "chapter",
+    "title1": "Join",
+    "title2": "us",
     "description": "Over 25 years, NNI KITI has built an environment where ideas matured, initiatives were born and personalities were shaped. This publication is not a conclusion, but a step forward.",
     "quote": "\"Dreams become plans. Plans become actions. And actions become the history we write together.\"",
     "depts": "Our departments",

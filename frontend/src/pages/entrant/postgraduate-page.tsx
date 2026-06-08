@@ -22,7 +22,7 @@ function BenefitCard({ b }: { b: { title: string; text: string } }) {
       >
         {b.title}
       </h3>
-      <p className="text-[14px] leading-relaxed text-muted">{b.text}</p>
+      <p className="text-[14px] leading-snug text-muted">{b.text}</p>
       <div className="mt-5 h-px w-full bg-gradient-to-r from-violet-500/40 via-blue-500/20 to-transparent" />
     </div>
   );
@@ -45,7 +45,7 @@ function PostgraduatePage() {
 
   const stepsWithJsx: Step[] = steps.map((s) => {
     if (s.linkText && s.linkHref) {
-      const parts = s.text.toString().split(s.linkText);
+      const parts = (s.text ?? "").toString().split(s.linkText);
       return {
         title: s.title,
         text: (

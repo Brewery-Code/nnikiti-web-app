@@ -63,7 +63,7 @@ export function NotFoundPage() {
           <Reveal mode="up" delay={0.65} inView={false}>
             <p
               className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
-              style={{ lineHeight: 1.7, maxWidth: 480 }}
+              style={{ lineHeight: 1.55, maxWidth: 480 }}
             >
               {t("notExist")}.
             </p>

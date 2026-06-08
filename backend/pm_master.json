@@ -1,0 +1,85 @@
+[
+  {
+    "model": "departments.educationalprogram",
+    "pk": 19,
+    "fields": {
+      "department": 1,
+      "code": "F1",
+      "duration": 2,
+      "total_credits": 90,
+      "budget_seats": null,
+      "contract_seats": null
+    }
+  },
+  {
+    "model": "departments.educationalprogramtranslation",
+    "pk": 37,
+    "fields": {
+      "language_code": "uk",
+      "name": "Прикладна математика",
+      "description": "Освітньо-професійна програма підготовки магістрів зі спеціальності 113 «Прикладна математика».",
+      "degree": "Магістр",
+      "form": "Денна",
+      "bachelor": null,
+      "magistracy": null,
+      "postgraduate": null,
+      "master": 19
+    }
+  },
+  {
+    "model": "departments.educationalprogramtranslation",
+    "pk": 38,
+    "fields": {
+      "language_code": "en",
+      "name": "Applied Mathematics",
+      "description": "Master's degree program in specialty 113 «Applied Mathematics».",
+      "degree": "Master",
+      "form": "Full-time",
+      "bachelor": null,
+      "magistracy": null,
+      "postgraduate": null,
+      "master": 19
+    }
+  },
+
+  { "model": "departments.programsubject", "pk": 7,  "fields": { "program": 19, "semester": 1, "credits": "3.0", "type": "MN", "order": 1 } },
+  { "model": "departments.programsubject", "pk": 8,  "fields": { "program": 19, "semester": 1, "credits": "3.0", "type": "MN", "order": 2 } },
+  { "model": "departments.programsubject", "pk": 9,  "fields": { "program": 19, "semester": 1, "credits": "4.0", "type": "MN", "order": 3 } },
+  { "model": "departments.programsubject", "pk": 10, "fields": { "program": 19, "semester": 1, "credits": "4.0", "type": "MN", "order": 4 } },
+  { "model": "departments.programsubject", "pk": 11, "fields": { "program": 19, "semester": 2, "credits": "3.0", "type": "MN", "order": 1 } },
+  { "model": "departments.programsubject", "pk": 12, "fields": { "program": 19, "semester": 2, "credits": "5.0", "type": "MN", "order": 2 } },
+  { "model": "departments.programsubject", "pk": 13, "fields": { "program": 19, "semester": 2, "credits": "4.5", "type": "MN", "order": 3 } },
+  { "model": "departments.programsubject", "pk": 14, "fields": { "program": 19, "semester": 2, "credits": "4.5", "type": "MN", "order": 4 } },
+  { "model": "departments.programsubject", "pk": 15, "fields": { "program": 19, "semester": 2, "credits": "6.0", "type": "MN", "order": 5 } },
+  { "model": "departments.programsubject", "pk": 16, "fields": { "program": 19, "semester": 2, "credits": "6.0", "type": "EL", "order": 1 } },
+  { "model": "departments.programsubject", "pk": 17, "fields": { "program": 19, "semester": 3, "credits": "17.0","type": "EL", "order": 2 } },
+  { "model": "departments.programsubject", "pk": 18, "fields": { "program": 19, "semester": 3, "credits": "6.0", "type": "MN", "order": 1 } },
+  { "model": "departments.programsubject", "pk": 19, "fields": { "program": 19, "semester": 4, "credits": "24.0","type": "MN", "order": 1 } },
+
+  { "model": "departments.programsubjecttranslation", "pk": 13, "fields": { "language_code": "uk", "name": "Іноземна мова професійного спілкування", "master": 7 } },
+  { "model": "departments.programsubjecttranslation", "pk": 14, "fields": { "language_code": "en", "name": "Foreign Language for Professional Communication", "master": 7 } },
+  { "model": "departments.programsubjecttranslation", "pk": 15, "fields": { "language_code": "uk", "name": "Методологія наукових досліджень", "master": 8 } },
+  { "model": "departments.programsubjecttranslation", "pk": 16, "fields": { "language_code": "en", "name": "Research Methodology", "master": 8 } },
+  { "model": "departments.programsubjecttranslation", "pk": 17, "fields": { "language_code": "uk", "name": "Технології проектування та розробки інформаційних систем", "master": 9 } },
+  { "model": "departments.programsubjecttranslation", "pk": 18, "fields": { "language_code": "en", "name": "Information Systems Design and Development Technologies", "master": 9 } },
+  { "model": "departments.programsubjecttranslation", "pk": 19, "fields": { "language_code": "uk", "name": "Математичне та комп'ютерне моделювання складних систем", "master": 10 } },
+  { "model": "departments.programsubjecttranslation", "pk": 20, "fields": { "language_code": "en", "name": "Mathematical and Computer Modelling of Complex Systems", "master": 10 } },
+  { "model": "departments.programsubjecttranslation", "pk": 21, "fields": { "language_code": "uk", "name": "Машинне навчання та інтелектуальний аналіз даних (укр./англ.)", "master": 11 } },
+  { "model": "departments.programsubjecttranslation", "pk": 22, "fields": { "language_code": "en", "name": "Machine Learning and Intelligent Data Analysis", "master": 11 } },
+  { "model": "departments.programsubjecttranslation", "pk": 23, "fields": { "language_code": "uk", "name": "Математичне та комп'ютерне прогнозування природних і техногенних процесів", "master": 12 } },
+  { "model": "departments.programsubjecttranslation", "pk": 24, "fields": { "language_code": "en", "name": "Mathematical and Computer Prediction of Natural and Technogenic Processes", "master": 12 } },
+  { "model": "departments.programsubjecttranslation", "pk": 25, "fields": { "language_code": "uk", "name": "Некласичні динамічні системи", "master": 13 } },
+  { "model": "departments.programsubjecttranslation", "pk": 26, "fields": { "language_code": "en", "name": "Non-classical Dynamical Systems", "master": 13 } },
+  { "model": "departments.programsubjecttranslation", "pk": 27, "fields": { "language_code": "uk", "name": "Методи та технології обчислювального інтелекту", "master": 14 } },
+  { "model": "departments.programsubjecttranslation", "pk": 28, "fields": { "language_code": "en", "name": "Methods and Technologies of Computational Intelligence", "master": 14 } },
+  { "model": "departments.programsubjecttranslation", "pk": 29, "fields": { "language_code": "uk", "name": "Виробнича практика", "master": 15 } },
+  { "model": "departments.programsubjecttranslation", "pk": 30, "fields": { "language_code": "en", "name": "Industrial Practice", "master": 15 } },
+  { "model": "departments.programsubjecttranslation", "pk": 31, "fields": { "language_code": "uk", "name": "Спецкурс за вибором", "master": 16 } },
+  { "model": "departments.programsubjecttranslation", "pk": 32, "fields": { "language_code": "en", "name": "Elective Special Course", "master": 16 } },
+  { "model": "departments.programsubjecttranslation", "pk": 33, "fields": { "language_code": "uk", "name": "Мейджор", "master": 17 } },
+  { "model": "departments.programsubjecttranslation", "pk": 34, "fields": { "language_code": "en", "name": "Major", "master": 17 } },
+  { "model": "departments.programsubjecttranslation", "pk": 35, "fields": { "language_code": "uk", "name": "Передкваліфікаційна практика", "master": 18 } },
+  { "model": "departments.programsubjecttranslation", "pk": 36, "fields": { "language_code": "en", "name": "Pre-qualification Practice", "master": 18 } },
+  { "model": "departments.programsubjecttranslation", "pk": 37, "fields": { "language_code": "uk", "name": "Кваліфікаційна (магістерська) робота", "master": 19 } },
+  { "model": "departments.programsubjecttranslation", "pk": 38, "fields": { "language_code": "en", "name": "Qualification (Master's) Thesis", "master": 19 } }
+]

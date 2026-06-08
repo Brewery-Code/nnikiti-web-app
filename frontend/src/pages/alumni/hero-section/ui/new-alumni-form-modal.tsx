@@ -184,7 +184,7 @@ function StoryEditor() {
           onInput={handleInput}
           onBlur={field.onBlur}
           data-placeholder={t("form.storyPlaceholder")}
-          className="story-editor min-h-[140px] px-4 py-3 text-[14px] leading-relaxed text-primary outline-none bg-surface-md"
+          className="story-editor min-h-[140px] px-4 py-3 text-[14px] leading-snug text-primary outline-none bg-surface-md"
         />
       </div>
 

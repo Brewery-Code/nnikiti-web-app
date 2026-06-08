@@ -56,6 +56,7 @@ function mapApiToDept(api: ApiDeptDetail): DepartmentData {
         semester: s.semester ?? 1,
         type: SUBJECT_TYPE_MAP[s.type ?? "EL"],
       })) ?? [],
+      learnMoreUrl: prog.bachelor?.program ?? prog.magistracy?.program ?? (prog.postgraduate as { program?: string } | null)?.program ?? undefined,
     })) ?? [],
     team: [
       ...(head ? [{
@@ -232,10 +233,10 @@ function SectionTitle({
   highlight: string;
 }) {
   return (
-    <Reveal mode="up" className="mb-8 text-left sm:text-center">
+    <Reveal mode="up" className="mb-6 text-left sm:mb-8 sm:text-center">
       <h2
         className="font-display font-black text-primary"
-        style={{ fontSize: "clamp(1.9rem, 2.8vw, 2.4rem)", letterSpacing: "-0.04em" }}
+        style={{ fontSize: "clamp(1.7rem, 2.8vw, 2.4rem)", letterSpacing: "-0.04em", lineHeight: 1.05 }}
       >
         {title} <span className="text-grad">{highlight}</span>
       </h2>
@@ -300,14 +301,7 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
 
   const prog = degreePrograms[activeProgramIdx] ?? degreePrograms[0];
 
-  const years = [1, 2, 3, 4]
-    .map((year) => ({
-      year,
-      subjects: (prog?.subjects ?? []).filter(
-        (s) => s.semester === year * 2 - 1 || s.semester === year * 2
-      ),
-    }))
-    .filter((y) => y.subjects.length > 0);
+  const allSubjects = prog?.subjects ?? [];
 
   const metaItems = [
     { label: t("curriculum.meta_duration"), value: prog?.duration },
@@ -390,50 +384,30 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
             ))}
           </div>
 
-          <div className="flex flex-col gap-4">
-            {years.map(({ year, subjects }, yi) => (
-              <motion.div
-                key={year}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.05 }}
-                transition={{ duration: 0.3, delay: yi * 0.08, ease: "easeOut" }}
-                className="grad-border rounded-[20px] bg-white/[0.02] backdrop-blur-xl"
-              >
-                <div className="flex items-center gap-3 border-b border-ui-sm px-5 py-4">
-                  <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-[11px] font-extrabold text-primary">
-                    {year}
-                  </span>
-                  <span className="font-display text-[14px] font-bold text-primary">
-                    {t("curriculum.year_label", { year, sem1: year * 2 - 1, sem2: year * 2 })}
-                  </span>
-                </div>
-                <div className="divide-y divide-white/[0.04]">
-                  {subjects.map((subject, i) => (
-                    <div key={i} className="flex items-center gap-4 px-5 py-3.5">
-                      <span className="min-w-0 flex-1 text-[14px] text-primary/80">
-                        {subject.name}
-                      </span>
-                      <div className="flex shrink-0 items-center gap-2">
-                        <span
-                          className={clsx(
-                            "rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.06em]",
-                            subject.type === t("subjects.mandatory")
-                              ? "border border-violet-500/30 bg-violet-500/[0.12] text-violet-300"
-                              : "border border-ui bg-surface-md text-subtle"
-                          )}
-                        >
-                          {subject.type === t("subjects.mandatory")
-                            ? t("subjects.mandatory_abbr")
-                            : t("subjects.elective_abbr")}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {allSubjects.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="grad-border rounded-[20px] bg-white/[0.02] backdrop-blur-xl"
+            >
+              <div className="flex items-center gap-3 border-b border-ui-sm px-4 py-3 sm:px-5 sm:py-4">
+                <span className="font-display text-[13px] font-bold text-primary sm:text-[14px]">
+                  {t("curriculum.subjects_label")}
+                </span>
+              </div>
+              <div className="divide-y divide-white/[0.04]">
+                {allSubjects.map((subject, i) => (
+                  <div key={i} className="px-4 py-3 sm:px-5 sm:py-3.5">
+                    <span className="text-[13px] leading-snug text-primary/80 sm:text-[14px]">
+                      {subject.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           <motion.div
             className="mt-6 pb-px"
@@ -451,6 +425,28 @@ function CurriculumSection({ dept }: { dept: DepartmentData }) {
               </p>
             </div>
           </motion.div>
+
+          {prog.learnMoreUrl && (
+            <motion.div
+              className="mt-4 flex justify-center"
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+            >
+              <a
+                href={prog.learnMoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3 text-[13px] font-semibold text-white shadow-[0_4px_20px_rgba(166,132,255,0.35)] transition-all duration-200 hover:shadow-[0_6px_28px_rgba(166,132,255,0.5)] hover:brightness-110 active:scale-95"
+              >
+                {t("curriculum.learn_more")}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
+                  <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </motion.div>
+          )}
         </motion.div>
       </AnimatePresence>}
     </section>
@@ -495,7 +491,7 @@ function TeamMemberCard({ member, large = false }: { member: DepartmentData["tea
 function TeamSection({ dept }: { dept: DepartmentData }) {
   const { t } = useTranslation("department");
   return (
-    <section id="team" className="m-section">
+    <section id="team" className="mt-24 sm:mt-32 lg:m-section">
       <SectionTitle title={t("team.section_title")} highlight={t("team.section_highlight")} />
 
       {/* Mobile swiper */}
@@ -532,14 +528,14 @@ function TeamSection({ dept }: { dept: DepartmentData }) {
 function HistorySection({ dept }: { dept: DepartmentData }) {
   const { t } = useTranslation("department");
   return (
-    <section id="history" className="m-section">
+    <section id="history" className="mt-24 sm:mt-32 lg:m-section">
       <SectionTitle title={t("history.section_title")} highlight={t("history.section_highlight")} />
 
-      <div className="relative mb-10 overflow-hidden rounded-[20px]">
+      <div className="relative mb-6 overflow-hidden rounded-[16px] sm:mb-10 sm:rounded-[20px]">
         <img
           src={cover(dept.historyImageUrl ?? dept.imageUrl, dept.id + 10)}
           alt=""
-          className="h-[340px] w-full object-cover object-top sm:h-[420px]"
+          className="h-[200px] w-full object-cover object-top sm:h-[340px] lg:h-[420px]"
         />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#08090f]/95 to-transparent" />
         <div className="absolute bottom-0 left-0 p-6 sm:p-8">
@@ -578,16 +574,16 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
   const { t } = useTranslation("department");
   const { head } = dept;
   return (
-    <section id="contacts" className="m-section">
+    <section id="contacts" className="mt-24 sm:mt-32 lg:m-section">
       <SectionTitle title={t("contacts.section_title")} highlight={t("contacts.section_highlight")} />
 
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:grid-rows-[230px]">
         <Reveal mode="left" delay={0.05} className="lg:col-span-2">
           <a
             href={head.email ? `mailto:${head.email}` : undefined}
-            className="group flex h-full overflow-hidden rounded-[22px] border border-white/[0.08] bg-[#0c0d18] transition-colors hover:border-white/[0.18]"
+            className="group flex h-full overflow-hidden rounded-[18px] border border-white/[0.08] bg-[#0c0d18] transition-colors hover:border-white/[0.18] sm:rounded-[22px]"
           >
-            <div className="relative w-[120px] flex-shrink-0 overflow-hidden sm:w-[200px]">
+            <div className="relative w-[100px] flex-shrink-0 overflow-hidden sm:w-[160px] lg:w-[200px]">
               <img
                 src={avatar(head.imageUrl)}
                 alt={head.full_name}
@@ -596,16 +592,16 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
               <div className="absolute inset-y-0 right-0 w-px bg-white/[0.08]" />
             </div>
 
-            <div className="flex flex-1 flex-col justify-between p-4 sm:p-8">
+            <div className="flex flex-1 flex-col justify-between p-4 sm:p-6 lg:p-8">
               <div>
                 <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-violet-400">
                   {t("contacts.head_label")}
                 </p>
-                <p className="mt-2 font-display text-[16px] font-bold leading-[1.15] text-primary sm:mt-3 sm:text-[26px]">
+                <p className="mt-1.5 font-display text-[15px] font-bold leading-[1.15] text-primary sm:mt-2 sm:text-[20px] lg:text-[26px]">
                   {head.full_name}
                 </p>
                 {head.regalia && (
-                  <p className="mt-1.5 text-[11px] leading-snug text-subtle sm:text-[13px]">
+                  <p className="mt-1 text-[11px] leading-snug text-subtle sm:text-[13px]">
                     {head.regalia}
                   </p>
                 )}
@@ -617,7 +613,7 @@ function ContactsSection({ dept }: { dept: DepartmentData }) {
               </div>
 
               {head.email && (
-                <span className="relative mt-3 inline-block self-start overflow-hidden text-ellipsis text-[11px] text-violet-300 sm:text-[13px]">
+                <span className="relative mt-3 inline-block max-w-full overflow-hidden text-ellipsis text-[10px] text-violet-300 sm:text-[13px]">
                   {head.email}
                   <span className="absolute bottom-0 left-0 h-px w-0 bg-violet-300 transition-[width] duration-300 ease-out group-hover:w-full" />
                 </span>
@@ -828,77 +824,37 @@ function MobileDeptSelector({
   departmentId: string;
 }) {
   const { t } = useTranslation("department");
-  const [open, setOpen] = useState(false);
-  const current = deptList.find((d) => String(d.id) === departmentId);
 
   return (
-    <div className="relative mb-8 lg:hidden">
-      {/* Trigger */}
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full select-none items-center justify-between rounded-[16px] border border-white/[0.09] bg-white/[0.04] px-5 py-4 text-left outline-none backdrop-blur-sm transition-colors duration-200"
-      >
-        <div>
-          <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-violet-400">
-            {t("mobile_selector.label")}
-          </p>
-          <p className="mt-1 font-display text-[15px] font-bold leading-tight text-white">
-            {current?.name ?? t("mobile_selector.placeholder")}
-          </p>
-        </div>
-        <motion.svg
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-          className="flex-shrink-0 text-white/30"
-        >
-          <path d="m6 9 6 6 6-6" />
-        </motion.svg>
-      </button>
-
-      {/* Dropdown list */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
-            animate={{ opacity: 1, y: 0, scaleY: 1 }}
-            exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{ originY: 0 }}
-            className="absolute inset-x-0 top-[calc(100%+6px)] z-50 overflow-hidden rounded-[16px] border border-white/[0.09] bg-[#0d0e1a] shadow-[0_16px_48px_rgba(0,0,0,0.6)] backdrop-blur-xl"
-          >
-            {deptList.map((d, i) => {
-              const isActive = String(d.id) === departmentId;
-              return (
-                <Link
-                  key={d.id}
-                  to={`/department/${d.id}`}
-                  onClick={() => setOpen(false)}
-                  className={clsx(
-                    "flex items-center gap-3 px-5 py-3.5 text-[14px] font-medium transition-colors duration-150",
-                    i < deptList.length - 1 && "border-b border-white/[0.05]",
-                    isActive
-                      ? "text-violet-300"
-                      : "text-white/50 active:text-white/80"
-                  )}
-                >
-                  {isActive && (
-                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-violet-400" />
-                  )}
-                  <span className={clsx(!isActive && "pl-[18px]")}>{d.name}</span>
-                  {isActive && (
-                    <svg className="ml-auto flex-shrink-0 text-violet-400" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                  )}
-                </Link>
-              );
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="mb-14 lg:hidden">
+      <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.22em] text-violet-400">
+        {t("mobile_selector.label")}
+      </p>
+      <div className="flex flex-col gap-1.5">
+        {deptList.map((d) => {
+          const isActive = String(d.id) === departmentId;
+          return (
+            <Link
+              key={d.id}
+              to={`/department/${d.id}`}
+              className={clsx(
+                "flex items-center gap-3 rounded-[12px] px-4 py-3 text-[14px] font-medium transition-all duration-200",
+                isActive
+                  ? "bg-gradient-to-r from-violet-500/20 to-blue-500/10 text-white border border-violet-500/25"
+                  : "border border-white/[0.06] bg-white/[0.03] text-white/50 active:bg-white/[0.06] active:text-white/80"
+              )}
+            >
+              <span
+                className={clsx(
+                  "h-2 w-2 flex-shrink-0 rounded-full transition-all",
+                  isActive ? "bg-violet-400" : "bg-white/15"
+                )}
+              />
+              <span className="leading-snug">{d.name}</span>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -1017,7 +973,7 @@ function DepartmentPage() {
         </div>
       </div>
 
-      <div className="pb-12 sm:pb-16 lg:pb-20">
+      <div className="pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pb-20">
         <div className="container-v2">
           {/* Mobile department selector */}
           <MobileDeptSelector

@@ -16,7 +16,7 @@ interface PersonItem {
 
 function PersonCard({ item }: { item: PersonItem }) {
   return (
-    <div className="grad-border card-hover sheen rounded-[18px] bg-surface p-5 backdrop-blur-xl">
+    <div className="grad-border rounded-[18px] bg-surface p-5 backdrop-blur-xl">
       <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
         {item.label}
       </p>
@@ -29,22 +29,26 @@ function PersonCard({ item }: { item: PersonItem }) {
       <div className="mt-4 flex flex-col gap-2">
         <a
           href={`mailto:${item.email}`}
-          className="flex items-center gap-2.5 text-[12px] text-violet-400 transition-colors hover:text-violet-300"
+          className="group flex items-center gap-2.5 text-[12px] text-violet-400 transition-colors hover:text-white"
         >
-          <span aria-hidden className="text-violet-400">✉</span>
-          {item.email}
+          <span aria-hidden className="text-violet-400 transition-colors group-hover:text-white">✉</span>
+          <span className="underline-offset-2 group-hover:underline">{item.email}</span>
         </a>
         {item.phone && (
           <a
             href={`tel:${item.phone.replace(/\D/g, "")}`}
-            className="flex items-center gap-2.5 text-[12px] text-violet-400 transition-colors hover:text-violet-300"
+            className="group flex items-center gap-2.5 text-[12px] text-violet-400 transition-colors hover:text-white"
           >
-            <span aria-hidden className="text-blue-400">☎</span>
-            {item.phone}
+            <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5 text-blue-400 transition-colors group-hover:text-white">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span className="underline-offset-2 group-hover:underline">{item.phone}</span>
           </a>
         )}
         <div className="flex items-center gap-2.5 text-[12px] text-subtle">
-          <span aria-hidden className="text-subtle">◎</span>
+          <svg aria-hidden className="h-3.5 w-3.5 flex-shrink-0 text-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 10c0 6-8 13-8 13S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
           Аудиторія {item.audience}
         </div>
       </div>
@@ -114,7 +118,7 @@ function HeroSection() {
               mode="up"
               className="font-display font-black text-primary"
               style={{
-                fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+                fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
                 letterSpacing: "-0.05em",
                 lineHeight: 0.95,
               }}
@@ -126,7 +130,7 @@ function HeroSection() {
               as="p"
               mode="up"
               className="mt-6 max-w-xl text-[15px] text-muted sm:text-[17px]"
-              style={{ lineHeight: 1.7 }}
+              style={{ lineHeight: 1.55 }}
             >
               Маєте питання? Деканат, адміністрація та ми — готові вам допомогти.
             </StaggerItem>
@@ -143,7 +147,7 @@ function HeroSection() {
               to={ROUTES.ASK_QUESTION}
               className="sheen inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95"
             >
-              Задати питання <span aria-hidden>→</span>
+              Задати питання
             </Link>
           </Reveal>
         </div>
@@ -165,13 +169,21 @@ export function ContactsSection() {
       href: `mailto:${deaneryData.dailyEducation.email}`,
     },
     {
-      icon: "☎",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      ),
       label: "Телефон",
       value: "+38 (063) 919-11-04",
       href: "tel:+380639191104",
     },
     {
-      icon: "◎",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+          <path d="M20 10c0 6-8 13-8 13S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+      ),
       label: "Адреса",
       value: locationData.address,
       href: "#map",
@@ -255,8 +267,10 @@ export function ContactsSection() {
 
               <Reveal mode="up" delay={0.1} inView={false} className="grad-border-animated relative overflow-hidden rounded-[20px] bg-gradient-to-br from-violet-500/[0.08] to-blue-500/[0.04] p-6 backdrop-blur-xl">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[12px] bg-gradient-to-br from-violet-500/30 to-blue-500/30 text-lg text-violet-200">
-                    ◎
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[12px] bg-gradient-to-br from-violet-500/30 to-blue-500/30 text-violet-200">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                      <path d="M20 10c0 6-8 13-8 13S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>
+                    </svg>
                   </div>
                   <div>
                     <h3

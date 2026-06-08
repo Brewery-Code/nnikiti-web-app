@@ -24,7 +24,9 @@
     "meta_duration": "Duration",
     "meta_form": "Form",
     "disciplines_label": "Disciplines",
-    "year_label": "Year {{year}} — semesters {{sem1}} and {{sem2}}"
+    "learn_more": "Learn more",
+    "year_label": "Year {{year}} — semesters {{sem1}} and {{sem2}}",
+    "subjects_label": "Academic Disciplines"
   },
   "subjects": {
     "mandatory": "Mandatory",

@@ -1,14 +1,73 @@
 import clsx from "clsx";
+import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "@/shared/model/routes";
 import { logoCat } from "@/shared/icons";
 import { useLoadNamespace } from "@/shared/hooks";
+import { useContactsData } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
+
+const FOOTER_ICONS: Record<string, ReactNode> = {
+  instagram: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+    </svg>
+  ),
+  facebook: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  ),
+  youtube: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path fillRule="evenodd" clipRule="evenodd" d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02l5.75-3.02-5.75-3.04v6.06z" />
+    </svg>
+  ),
+  telegram: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z" />
+    </svg>
+  ),
+};
+
+function FooterSocialLink({ icon, label, href }: { icon: string; label: string; href: string }) {
+  const [h, setH] = useState(false);
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setH(true)}
+      onMouseLeave={() => setH(false)}
+      className="flex items-center"
+      style={{
+        gap: 8,
+        padding: "8px 16px",
+        borderRadius: 10,
+        background: h ? "rgba(166,132,255,0.1)" : "rgba(255,255,255,0.04)",
+        border: `1px solid ${h ? "rgba(166,132,255,0.25)" : "rgba(255,255,255,0.07)"}`,
+        fontSize: 13,
+        fontWeight: 500,
+        color: h ? "#fff" : "rgba(255,255,255,0.65)",
+        transition: "all 180ms",
+        textDecoration: "none",
+      }}
+    >
+      <span style={{ color: h ? "#a684ff" : "rgba(255,255,255,0.55)" }}>
+        {FOOTER_ICONS[icon]}
+      </span>
+      {label}
+    </a>
+  );
+}
 
 export function Footer({ className }: { className?: string }) {
   useLoadNamespace("footer", loadTranslations);
   const { t } = useTranslation("footer");
+  const { socialMediaLinks } = useContactsData();
 
   const NAV_COLS = [
     {
@@ -41,26 +100,31 @@ export function Footer({ className }: { className?: string }) {
   ];
 
   return (
-    <footer
-      className={clsx("relative bg-[#07080e]", className)}
-      style={{ zIndex: 2 }}
-    >
-      {/* Main grid */}
-      <div className="container-v2 pt-16 pb-10 sm:pt-20">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-14">
+    <footer className={clsx("relative bg-[#07080e]", className)} style={{ zIndex: 2 }}>
+      {/* Top gradient line */}
+      <div className="h-px w-full" style={{ background: "linear-gradient(90deg, transparent, rgba(139,92,246,0.5) 30%, rgba(96,165,250,0.5) 70%, transparent)" }} />
 
-          {/* Brand */}
-          <div>
-            <Link to={ROUTES.HOME} className="inline-flex items-center mb-5">
-              <img src={logoCat} alt="ННІКІТІ" style={{ height: 40, width: "auto" }} />
+      <div className="container-v2 pt-14 pb-10 sm:pt-16">
+        {/* Main grid */}
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-14">
+
+          {/* Brand — full width on mobile */}
+          <div className="col-span-2 lg:col-span-1">
+            <Link to={ROUTES.HOME} className="inline-flex items-center mb-4">
+              <img src={logoCat} alt="ННІКІТІ" style={{ height: 36, width: "auto" }} />
             </Link>
-            <p className="text-[13px] leading-[1.75] text-white/35 max-w-[280px]">
-              {t("address")}
+            <p className="text-[13px] leading-[1.75] text-white/30 max-w-[300px] mb-6">
+              {t("universityName")}
             </p>
-            <p className="mt-4 text-[12px] text-white/20">nni-akot@nuwm.edu.ua</p>
+            {/* <div className="flex flex-wrap gap-2">
+              {socialMediaLinks.instagram && <FooterSocialLink icon="instagram" label="Instagram" href={socialMediaLinks.instagram} />}
+              {socialMediaLinks.facebook  && <FooterSocialLink icon="facebook"  label="Facebook"  href={socialMediaLinks.facebook} />}
+              {socialMediaLinks.youtube   && <FooterSocialLink icon="youtube"   label="YouTube"   href={socialMediaLinks.youtube} />}
+              {socialMediaLinks.telegram  && <FooterSocialLink icon="telegram"  label="Telegram"  href={socialMediaLinks.telegram} />}
+            </div> */}
           </div>
 
-          {/* Nav columns */}
+          {/* Nav columns — 2-col on mobile, each col on desktop */}
           {NAV_COLS.map((col) => (
             <div key={col.heading}>
               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white/25">
@@ -80,14 +144,13 @@ export function Footer({ className }: { className?: string }) {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div>
-        <div className="container-v2 py-5 flex justify-center">
-          <span className="text-[12px] text-white/20">
-            {t("copyright")}
-          </span>
+        {/* Divider */}
+        <div className="mt-12 h-px bg-white/[0.05]" />
+
+        {/* Bottom */}
+        <div className="mt-5 flex justify-center">
+          <span className="text-[12px] text-white/20">{t("copyright")}</span>
         </div>
       </div>
     </footer>

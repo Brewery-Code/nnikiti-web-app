@@ -32,6 +32,7 @@ export interface DepartmentData {
     form: string;
     totalCredits: number;
     subjects: ProgramSubject[];
+    learnMoreUrl?: string;
   }[];
   team: {
     name: string;

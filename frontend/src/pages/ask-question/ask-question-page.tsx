@@ -60,7 +60,7 @@ function HeroSection() {
           mode="up"
           className="font-display font-black text-primary"
           style={{
-            fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+            fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
             letterSpacing: "-0.05em",
             lineHeight: 0.95,
           }}
@@ -72,7 +72,7 @@ function HeroSection() {
           as="p"
           mode="up"
           className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
-          style={{ lineHeight: 1.7, maxWidth: 560 }}
+          style={{ lineHeight: 1.55, maxWidth: 560 }}
         >
           {t("description")}
         </StaggerItem>
@@ -275,7 +275,11 @@ function ContactInfoSection() {
       title: "Телефон",
       value: "+38 (360) 41-32-11",
       href: "tel:+380364132111",
-      icon: "☎",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      ),
     },
     {
       title: "Адреса",
@@ -289,13 +293,10 @@ function ContactInfoSection() {
     <section className="pb-16 sm:pb-24 lg:pb-32">
       <div className="container-v2">
         <Reveal mode="up" className="mb-10 text-center lg:mb-14">
-          <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-500">
-            {t("contactsSectionLabel")}
-          </div>
           <h2
             className="font-display font-black"
             style={{
-              fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+              fontSize: "clamp(2.2rem, 3.5vw, 3rem)",
               letterSpacing: "-0.04em",
             }}
           >
@@ -303,7 +304,7 @@ function ContactInfoSection() {
           </h2>
         </Reveal>
 
-        <Stagger className="grid gap-4 sm:grid-cols-3" stagger={0.12}>
+        <Stagger className="grid gap-4 py-3 sm:grid-cols-3" stagger={0.12}>
           {contacts.map((c) => (
             <StaggerItem
               as="a"

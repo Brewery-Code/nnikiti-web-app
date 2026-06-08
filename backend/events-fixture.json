@@ -1,0 +1,1095 @@
+[
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "name": "Новини",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "name": "News",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "Публікації",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "Publications",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Події",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Events",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventcategory",
+  "pk": 1,
+  "fields": {
+    "rgb_color": "(59,130,246,0.15)",
+    "created_at": "2026-05-31T09:35:18.707Z"
+  }
+},
+{
+  "model": "events.eventcategory",
+  "pk": 2,
+  "fields": {
+    "rgb_color": "(168,85,247,0.15)",
+    "created_at": "2026-05-31T09:35:18.730Z"
+  }
+},
+{
+  "model": "events.eventcategory",
+  "pk": 3,
+  "fields": {
+    "rgb_color": "(34,197,94,0.15)",
+    "created_at": "2026-05-31T09:35:18.742Z"
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "title": "ННКІТІ отримав грант на розвиток цифрової інфраструктури",
+    "body": "Інститут комп'ютерних та інноваційних технологій отримав фінансування у розмірі 2 мільйони гривень на оновлення комп'ютерних лабораторій та впровадження сучасного програмного забезпечення.",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "title": "NNKITI Receives Grant for Digital Infrastructure Development",
+    "body": "The Institute of Computer and Innovative Technologies has received funding of 2 million hryvnias for upgrading computer laboratories and implementing modern software.",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "title": "Підписано угоду про співпрацю з провідними IT-компаніями України",
+    "body": "ННКІТІ підписав угоди про академічне партнерство з компаніями SoftServe, EPAM та Intellias. Студенти матимуть можливість проходити стажування та отримувати практичний досвід.",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "title": "Cooperation Agreement Signed with Leading Ukrainian IT Companies",
+    "body": "NNKITI has signed academic partnership agreements with SoftServe, EPAM and Intellias. Students will have the opportunity to complete internships and gain practical experience.",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "title": "Студенти ННКІТІ здобули перемогу на Всеукраїнській олімпіаді з програмування",
+    "body": "Команда студентів нашого інституту посіла перше місце на Всеукраїнській студентській олімпіаді з програмування. Змагання відбулись у Харківському національному університеті.",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "title": "NNKITI Students Win All-Ukrainian Programming Olympiad",
+    "body": "A team of students from our institute took first place at the All-Ukrainian Student Programming Olympiad. The competition was held at Kharkiv National University.",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "title": "Методи машинного навчання у задачах прикладної математики",
+    "body": "## Анотація\n\nУ статті розглянуто застосування методів машинного навчання для розв'язання задач математичного моделювання. Проведено порівняльний аналіз класичних та сучасних підходів.\n\n**Автори:** Тадеєв П.О., Іващук Я.Г.\n\n**Журнал:** Вісник НУВГП, 2025",
+    "master": 4
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "title": "Machine Learning Methods in Applied Mathematics Problems",
+    "body": "## Abstract\n\nThis paper examines the application of machine learning methods for solving mathematical modeling problems. A comparative analysis of classical and modern approaches is conducted.\n\n**Authors:** Tadeyev P.O., Ivashchuk Y.H.\n\n**Journal:** Bulletin of NUWM, 2025",
+    "master": 4
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "title": "Чисельні методи розв'язання диференціальних рівнянь з частинними похідними",
+    "body": "## Анотація\n\nДосліджено ефективність різних чисельних схем для розв'язання диференціальних рівнянь з частинними похідними. Запропоновано новий підхід на основі адаптивних сіток.\n\n**Автори:** Дейнека О.Ю., Самолюк І.В.\n\n**Журнал:** Математичне моделювання, 2025",
+    "master": 5
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "title": "Numerical Methods for Solving Partial Differential Equations",
+    "body": "## Abstract\n\nThe efficiency of various numerical schemes for solving partial differential equations is investigated. A new approach based on adaptive grids is proposed.\n\n**Authors:** Deineka O.Y., Samoliuk I.V.\n\n**Journal:** Mathematical Modeling, 2025",
+    "master": 5
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "title": "Оптимізаційні алгоритми в задачах комп'ютерного моделювання",
+    "body": "## Анотація\n\nРозглянуто сучасні оптимізаційні алгоритми та їх застосування у задачах комп'ютерного моделювання фізичних процесів. Проведено чисельні експерименти.\n\n**Автори:** Цецик С.П., Чухрай З.Б.\n\n**Журнал:** Прикладна математика, 2025",
+    "master": 6
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "title": "Optimization Algorithms in Computer Simulation Problems",
+    "body": "## Abstract\n\nModern optimization algorithms and their application in computer simulation of physical processes are considered. Numerical experiments were conducted.\n\n**Authors:** Tsetsyk S.P., Chukhrai Z.B.\n\n**Journal:** Applied Mathematics, 2025",
+    "master": 6
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "uk",
+    "title": "Міжнародна конференція з прикладної математики та комп'ютерних наук",
+    "body": "## Про подію\n\nЗапрошуємо студентів та викладачів взяти участь у щорічній міжнародній конференції. До програми входять пленарні доповіді, секційні засідання та воркшопи.\n\n**Реєстрація:** до 1 жовтня 2025 року\n\n**Мова:** українська, англійська",
+    "master": 7
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "en",
+    "title": "International Conference on Applied Mathematics and Computer Science",
+    "body": "## About the Event\n\nWe invite students and faculty to participate in the annual international conference. The program includes plenary lectures, section sessions and workshops.\n\n**Registration:** until October 1, 2025\n\n**Language:** Ukrainian, English",
+    "master": 7
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 15,
+  "fields": {
+    "language_code": "uk",
+    "title": "День відкритих дверей ННКІТІ",
+    "body": "## Запрошуємо абітурієнтів!\n\nДень відкритих дверей — чудова можливість познайомитись з інститутом, поспілкуватись з викладачами та дізнатись про умови вступу.\n\n**Програма:**\n- Презентація спеціальностей\n- Екскурсія лабораторіями\n- Зустріч зі студентами\n- Q&A сесія",
+    "master": 8
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 16,
+  "fields": {
+    "language_code": "en",
+    "title": "NNKITI Open Day",
+    "body": "## Welcome, Applicants!\n\nOpen Day is a great opportunity to get acquainted with the institute, talk with faculty and learn about admission requirements.\n\n**Program:**\n- Specialties presentation\n- Laboratory tour\n- Meeting with students\n- Q&A session",
+    "master": 8
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 17,
+  "fields": {
+    "language_code": "uk",
+    "title": "Олімпіада з математики серед студентів першого курсу",
+    "body": "## Умови участі\r\n\r\nДо участі запрошуються всі студенти першого курсу інституту. Завдання складатимуться з розділів вищої математики, теорії ймовірностей та математичної статистики.\r\n\r\n**Призи:** грамоти та цінні подарунки\r\n![](/media/editor/wot1_20260531093924476066.jpg)\r\n**Реєстрація:** у деканаті до 20 листопада\r\n![](/media/editor/wot2_20260531093947300802.jpg)",
+    "master": 9
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 18,
+  "fields": {
+    "language_code": "en",
+    "title": "Mathematics Olympiad for First-Year Students",
+    "body": "## Participation Requirements\n\nAll first-year students of the institute are invited to participate. Tasks will cover higher mathematics, probability theory and mathematical statistics.\n\n**Prizes:** certificates and valuable gifts\n\n**Registration:** at the dean's office until November 20",
+    "master": 9
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 79,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Розпочато прийом заяв на вступ 2025 року",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nШановні абітурієнти! Інститут оголошує про відкриття прийому заяв на навчання за освітніми програмами бакалаврського рівня. Цього року інститут пропонує понад 10 спеціальностей у галузі комп'ютерних наук, математики та інформаційних технологій.\n\n**Терміни подачі:** з 1 по 31 липня 2025 року.\n\nДетальну інформацію щодо вступних іспитів, необхідних документів та порядку зарахування можна знайти на офіційному сайті інституту.",
+    "master": 40
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 80,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Applications for 2025 Admission Have Opened",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nDear applicants! The institute announces the opening of applications for bachelor's degree programs. This year the institute offers over 10 specialties in computer science, mathematics, and information technology.\n\n**Deadline:** July 1–31, 2025.\n\nDetailed information about entrance exams, required documents and enrollment procedures can be found on the institute's official website.",
+    "master": 40
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 81,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Наш інститут отримав грант від Microsoft Research",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nРаді повідомити, що інститут отримав дослідницький грант від Microsoft Research у розмірі 150 000 доларів США на розробку системи автоматичного аналізу великих даних для потреб охорони здоров'я.\n\nПроект триватиме 2 роки і залучить 5 науково-педагогічних працівників та 12 студентів магістерського рівня.\n\nМи пишаємося визнанням нашої наукової діяльності на міжнародному рівні!",
+    "master": 41
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 82,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Our Institute Received a Grant from Microsoft Research",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nWe are pleased to announce that the institute received a research grant from Microsoft Research worth $150,000 for developing an automatic big data analysis system for healthcare needs.\n\nThe project will last 2 years and involve 5 faculty members and 12 master's students.\n\nWe are proud of the international recognition of our research activities!",
+    "master": 41
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 83,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Інститут увійшов до ТОП-5 рейтингу IT-освіти в Україні",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nЗа результатами щорічного рейтингу «Найкращі IT-факультети України 2025», наш інститут посів почесне 4-е місце. Оцінювання проводилося за критеріями якості освіти, працевлаштування випускників, наукової активності та партнерства з індустрією.\n\nСередній показник працевлаштування наших випускників за фахом складає 94% протягом першого року після закінчення навчання.\n\nДякуємо всім викладачам, студентам та партнерам за спільну роботу!",
+    "master": 42
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 84,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Institute Entered TOP-5 IT Education Ranking in Ukraine",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nAccording to the annual 'Best IT Faculties of Ukraine 2025' ranking, our institute ranked an honorable 4th place. The evaluation was based on education quality, graduate employment, research activity, and industry partnerships.\n\nThe average employment rate of our graduates in their field is 94% within the first year after graduation.\n\nThank you to all faculty, students, and partners for working together!",
+    "master": 42
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 85,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Відкриття нової лабораторії штучного інтелекту",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nВ інституті відкрито сучасну лабораторію штучного інтелекту та машинного навчання, обладнану 30 потужними робочими станціями з GPU-прискорювачами NVIDIA RTX 4090 та сервером для навчання нейронних мереж.\n\nЛабораторія стане базою для проведення наукових досліджень і практичних занять студентів спеціальностей «Комп'ютерні науки», «Інженерія даних» та «Інформаційні системи».\n\nОфіційне відкриття відбудеться 15 квітня о 14:00.",
+    "master": 43
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 86,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Opening of the New Artificial Intelligence Laboratory",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nA modern artificial intelligence and machine learning laboratory has opened at the institute, equipped with 30 powerful workstations with NVIDIA RTX 4090 GPU accelerators and a server for training neural networks.\n\nThe laboratory will serve as a base for scientific research and practical classes for students in Computer Science, Data Engineering, and Information Systems programs.\n\nThe official opening will take place on April 15 at 14:00.",
+    "master": 43
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 87,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Студенти інституту отримали стипендії Верховної Ради України",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nЦього семестру 8 студентів нашого інституту отримали престижні стипендії Верховної Ради України за видатні успіхи у навчанні та науковій діяльності.\n\nСеред лауреатів — студенти спеціальностей «Прикладна математика», «Комп'ютерні науки» та «Інженерія програмного забезпечення».\n\nВітаємо наших студентів із заслуженим визнанням!",
+    "master": 44
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 88,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Institute Students Received Verkhovna Rada of Ukraine Scholarships",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nThis semester, 8 students of our institute received prestigious Verkhovna Rada of Ukraine scholarships for outstanding achievements in academic studies and research activities.\n\nAmong the laureates are students from Applied Mathematics, Computer Science, and Software Engineering programs.\n\nWe congratulate our students on their well-deserved recognition!",
+    "master": 44
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 89,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Підписано меморандум про співпрацю з Варшавським університетом технологій",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nІнститут підписав меморандум про наукову та освітню співпрацю з Варшавським університетом технологій (Польща). Документ передбачає спільне проведення досліджень, обмін студентами та науковцями, а також організацію спільних онлайн-курсів.\n\nПерша група студентів зможе пройти навчання за програмою обміну вже у весняному семестрі 2026 року.",
+    "master": 45
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 90,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Memorandum of Cooperation Signed with Warsaw University of Technology",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nThe institute signed a memorandum of scientific and educational cooperation with Warsaw University of Technology (Poland). The document provides for joint research, student and researcher exchanges, and organization of joint online courses.\n\nThe first group of students will be able to study under the exchange program in the spring semester of 2026.",
+    "master": 45
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 91,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Перемога на Всеукраїнській студентській олімпіаді з програмування",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nКоманда нашого інституту здобула перше місце на Всеукраїнській студентській олімпіаді з програмування, що відбулась у Харківському національному університеті радіоелектроніки.\n\nКоманда у складі трьох студентів 3-го курсу спеціальності «Комп'ютерні науки» впоралась із усіма завданнями і набрала максимальну кількість балів.\n\nВітаємо переможців та їхніх наставників!",
+    "master": 46
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 92,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Victory at the All-Ukrainian Student Programming Olympiad",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nOur institute's team won first place at the All-Ukrainian Student Programming Olympiad, held at Kharkiv National University of Radio Electronics.\n\nThe team of three 3rd-year Computer Science students completed all tasks and scored the maximum number of points.\n\nCongratulations to the winners and their mentors!",
+    "master": 46
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 93,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Партнери інституту оголошують літні стажування для студентів",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\n15 компаній-партнерів інституту — серед яких провідні IT-компанії України та міжнародні корпорації — оголосили про набір студентів на літні оплачувані стажування 2025 року.\n\n**Доступні напрями:** розробка ПЗ, аналіз даних, кібербезпека, DevOps, машинне навчання.\n\nЗаявки приймаються до 15 червня. Деталі — на корпоративному порталі інституту.",
+    "master": 47
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 94,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Institute Partners Announce Summer Internships for Students",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\n15 institute partner companies — including leading Ukrainian IT companies and international corporations — announced recruitment of students for paid summer internships in 2025.\n\n**Available tracks:** software development, data analysis, cybersecurity, DevOps, machine learning.\n\nApplications are accepted until June 15. Details are on the institute's corporate portal.",
+    "master": 47
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 95,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Наукова стаття дослідників інституту опублікована в IEEE Transactions",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nКолектив науковців нашого інституту опублікував статтю «Efficient Transformer-Based Architectures for Ukrainian NLP Tasks» у престижному журналі IEEE Transactions on Neural Networks and Learning Systems (Q1, IF=10.4).\n\nСтаття присвячена розробці ефективних трансформерних моделей для задач обробки природної мови на основі українських текстових корпусів.\n\nЦе вагомий внесок у розвиток українського мовного AI-простору.",
+    "master": 48
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 96,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Research Paper by Institute Scientists Published in IEEE Transactions",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nA team of researchers from our institute published an article 'Efficient Transformer-Based Architectures for Ukrainian NLP Tasks' in the prestigious IEEE Transactions on Neural Networks and Learning Systems (Q1, IF=10.4).\n\nThe paper focuses on developing efficient transformer models for natural language processing tasks based on Ukrainian text corpora.\n\nThis is a significant contribution to the development of the Ukrainian AI language space.",
+    "master": 48
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 97,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Оновлені навчальні плани 2025–2026 навчального року",
+    "body": "> **Це демонстраційний варіант новини. Дані є вигаданими.**\n\nВчена рада інституту затвердила оновлені навчальні плани для всіх освітніх програм на 2025–2026 навчальний рік.\n\nКлючові зміни:\n- Введено нові курси з великих мовних моделей (LLM) та генеративного AI\n- Розширено практичну складову: більше проєктної роботи та взаємодії з індустрією\n- Оновлено програму з кібербезпеки відповідно до міжнародних стандартів ISO 27001\n\nПовний текст навчальних планів доступний на сторінках відповідних кафедр.",
+    "master": 49
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 98,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Updated Curricula for the 2025–2026 Academic Year",
+    "body": "> **This is a demo news article. Data is fictitious.**\n\nThe Academic Council of the institute approved updated curricula for all educational programs for the 2025–2026 academic year.\n\nKey changes:\n- New courses in large language models (LLM) and generative AI introduced\n- Expanded practical component: more project work and industry interaction\n- Updated cybersecurity program in accordance with ISO 27001 international standards\n\nFull curricula texts are available on the respective department pages.",
+    "master": 49
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 99,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: День знань 2024 — урочиста лінійка",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n1 вересня 2024 року в інституті відбулася урочиста лінійка з нагоди Дня знань. Першокурсників привітали декан інституту, представники студентського самоврядування та випускники.\n\nЦього року до лав студентів інституту влилися понад 400 першокурсників за 10 освітніми програмами.",
+    "master": 50
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 100,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Day of Knowledge 2024 — Ceremonial Lineup",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn September 1, 2024, the institute held a ceremonial lineup for the Day of Knowledge. First-year students were welcomed by the dean, student government representatives, and alumni.\n\nThis year, more than 400 first-year students joined the institute across 10 educational programs.",
+    "master": 50
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 101,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Осінній хакатон «Код для Перемоги 2024»",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n12–13 жовтня 2024 року в інституті відбувся 48-годинний хакатон «Код для Перемоги». У змаганні взяли участь 23 команди з 5 університетів України.\n\nПереможці розробили систему автоматичного розпізнавання об'єктів на аерознімках за допомогою YOLOv10.",
+    "master": 51
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 102,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Autumn Hackathon 'Code for Victory 2024'",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn October 12–13, 2024, the institute hosted a 48-hour hackathon 'Code for Victory'. 23 teams from 5 Ukrainian universities participated.\n\nThe winners developed an automatic object recognition system for aerial imagery using YOLOv10.",
+    "master": 51
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 103,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Міжнародна наукова конференція «DataSciUA 2024»",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n7–8 листопада 2024 р. відбулася IV Міжнародна науково-практична конференція «DataSciUA». До участі доєдналися 180 науковців з 12 країн. Розглядалися теми: LLM у прикладних задачах, федеративне навчання, генеративні моделі та privacy-preserving ML.",
+    "master": 52
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 104,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: International Scientific Conference 'DataSciUA 2024'",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn November 7–8, 2024, the IV International Scientific-Practical Conference 'DataSciUA' was held. 180 scientists from 12 countries participated. Topics included: LLMs in applied tasks, federated learning, generative models, and privacy-preserving ML.",
+    "master": 52
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 105,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Ярмарок кар'єри IT 2024",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n21 листопада 2024 року відбувся щорічний ярмарок кар'єри для студентів IT-спеціальностей. Участь взяли 40 компаній, серед яких EPAM, Luxoft, GlobalLogic, N-iX та інші. Понад 600 студентів відвідали захід та провели попередні інтерв'ю на місці.",
+    "master": 53
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 106,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: IT Career Fair 2024",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn November 21, 2024, the annual career fair for IT specialty students was held. 40 companies participated, including EPAM, Luxoft, GlobalLogic, N-iX, and others. More than 600 students attended the event and conducted preliminary on-site interviews.",
+    "master": 53
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 107,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Зимова церемонія вручення дипломів 2024",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n20 грудня 2024 року відбулась урочиста зимова церемонія вручення дипломів. Дипломи магістра та бакалавра отримали 215 випускників інституту.\n\nКращим випускникам вручено дипломи з відзнакою та іменні нагороди від партнерів інституту.",
+    "master": 54
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 108,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Winter Graduation Ceremony 2024",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn December 20, 2024, a ceremonial winter graduation ceremony was held. 215 institute graduates received master's and bachelor's degrees.\n\nOutstanding graduates received diplomas with honors and named awards from institute partners.",
+    "master": 54
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 109,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: День відкритих дверей 2025",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n22 лютого 2025 року відбувся традиційний День відкритих дверей інституту. Більше 350 абітурієнтів разом із батьками відвідали виставку лабораторій, поспілкувалися з викладачами та студентами-амбасадорами.\n\nТакож відбулися майстер-класи з програмування та комп'ютерного зору.",
+    "master": 55
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 110,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Open Day 2025",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn February 22, 2025, the institute's traditional Open Day was held. More than 350 applicants along with their parents visited the laboratory exhibition, talked with faculty and student ambassadors.\n\nMaster classes on programming and computer vision were also held.",
+    "master": 55
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 111,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Спортивні змагання кафедр інституту 2025",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n15 березня 2025 року відбулися щорічні спортивні змагання між студентами кафедр інституту. Команди змагались у футзалі, волейболі, настільному тенісі та перетягуванні канату.\n\nУ загальному заліку перемогла команда кафедри математичних методів системного аналізу.",
+    "master": 56
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 112,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Institute Department Sports Games 2025",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn March 15, 2025, the annual sports competition between institute department students was held. Teams competed in futsal, volleyball, table tennis, and tug of war.\n\nThe team from the Department of Mathematical Methods of System Analysis won the overall standings.",
+    "master": 56
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 113,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: X Студентська наукова конференція інституту",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n3 квітня 2025 року відбулась X ювілейна Студентська наукова конференція. 86 студентів представили свої наукові роботи у 7 секціях: від теоретичної математики до прикладного ML.\n\nПереможцям вручено дипломи та грошові нагороди від партнерів інституту.",
+    "master": 57
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 114,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: X Student Scientific Conference of the Institute",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn April 3, 2025, the X Anniversary Student Scientific Conference was held. 86 students presented their research in 7 sections: from theoretical mathematics to applied ML.\n\nWinners received diplomas and monetary awards from institute partners.",
+    "master": 57
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 115,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Благодійний забіг студентів «КПІ Біжить 2025»",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n26 квітня 2025 року студенти та викладачі інституту взяли участь у благодійному забігу «КПІ Біжить». Загалом вдалося зібрати 85 000 гривень на потреби ЗСУ.\n\nІнститут виставив 4 команди — понад 60 учасників подолали дистанції від 5 до 21 кілометра.",
+    "master": 58
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 116,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Charity Run 'KPI Runs 2025'",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn April 26, 2025, students and faculty of the institute participated in the charity run 'KPI Runs'. In total, 85,000 UAH was raised for the needs of the Armed Forces of Ukraine.\n\nThe institute fielded 4 teams — over 60 participants completed distances from 5 to 21 kilometers.",
+    "master": 58
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 117,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Літня школа з Data Science та AI 2025",
+    "body": "> **Це демонстраційний варіант події. Дані є вигаданими.**\n\n23–27 червня 2025 року в інституті відбулась інтенсивна п'ятиденна Літня школа з Data Science та AI. 80 студентів з різних університетів України пройшли навчання за напрямами: Python для ML, нейронні мережі, обробка NLP та комп'ютерний зір.\n\nУсі учасники отримали сертифікати та доступ до хмарних ресурсів для власних проєктів.",
+    "master": 59
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 118,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Summer School on Data Science and AI 2025",
+    "body": "> **This is a demo event. Data is fictitious.**\n\nOn June 23–27, 2025, an intensive five-day Summer School on Data Science and AI was held at the institute. 80 students from various Ukrainian universities studied Python for ML, neural networks, NLP processing, and computer vision.\n\nAll participants received certificates and access to cloud resources for their own projects.",
+    "master": 59
+  }
+},
+{
+  "model": "events.event",
+  "pk": 1,
+  "fields": {
+    "slug": "nnkiti-otrimav-grant-na-rozvitok-tsifrovoyi-infrastrukturi-1",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.913Z",
+    "updated_at": "2026-05-31T09:36:06.935Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 2,
+  "fields": {
+    "slug": "pidpisano-ugodu-pro-spivpratsiu-z-providnimi-it-kompaniiami-ukrayini-2",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.940Z",
+    "updated_at": "2026-05-31T09:36:06.951Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 3,
+  "fields": {
+    "slug": "studenti-nnkiti-zdobuli-peremogu-na-vseukrayinskii-olimpiadi-z-programuvannia-3",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.956Z",
+    "updated_at": "2026-05-31T09:36:06.966Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 4,
+  "fields": {
+    "slug": "metodi-mashinnogo-navchannia-u-zadachakh-prikladnoyi-matematiki-4",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 2,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.971Z",
+    "updated_at": "2026-05-31T09:36:06.983Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 5,
+  "fields": {
+    "slug": "chiselni-metodi-rozviazannia-diferentsialnikh-rivnian-z-chastinnimi-pokhidnimi-5",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 2,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.987Z",
+    "updated_at": "2026-05-31T09:36:06.998Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 6,
+  "fields": {
+    "slug": "optimizatsiini-algoritmi-v-zadachakh-kompiuternogo-modeliuvannia-6",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 2,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.002Z",
+    "updated_at": "2026-05-31T09:36:07.013Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 7,
+  "fields": {
+    "slug": "mizhnarodna-konferentsiia-z-prikladnoyi-matematiki-ta-kompiuternikh-nauk-7",
+    "cover": "",
+    "event_date": "2025-10-15",
+    "location": "НУВГП, корп. №1, ауд. 201",
+    "category": 3,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.017Z",
+    "updated_at": "2026-05-31T09:36:07.029Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 8,
+  "fields": {
+    "slug": "den-vidkritikh-dverei-nnkiti-8",
+    "cover": "",
+    "event_date": "2025-11-08",
+    "location": "НУВГП, корп. №1",
+    "category": 3,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.033Z",
+    "updated_at": "2026-05-31T09:36:07.044Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 9,
+  "fields": {
+    "slug": "olimpiada-z-matematiki-sered-studentiv-pershogo-kursu-9",
+    "cover": "",
+    "event_date": "2025-11-25",
+    "location": "НУВГП, корп. №1, ауд. 134",
+    "category": 3,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.049Z",
+    "updated_at": "2026-05-31T09:42:32.746Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 40,
+  "fields": {
+    "slug": "demo-vstup-2025",
+    "cover": "events/26.06.07/demo-vstup-2025-cover_N0Ztbi2.jpg",
+    "event_date": "2025-02-10",
+    "location": "Інститут прикладного системного аналізу, КПІ",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.332Z",
+    "updated_at": "2026-06-07T23:05:53.444Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 41,
+  "fields": {
+    "slug": "demo-grant-microsoft-2025",
+    "cover": "events/26.06.07/demo-grant-microsoft-2025-cover_MnxbGYz.jpg",
+    "event_date": "2025-03-05",
+    "location": "Онлайн",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.447Z",
+    "updated_at": "2026-06-07T23:05:53.492Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 42,
+  "fields": {
+    "slug": "demo-rating-2025",
+    "cover": "events/26.06.07/demo-rating-2025-cover_P1yrGTE.jpg",
+    "event_date": "2025-03-20",
+    "location": "КПІ ім. Ігоря Сікорського",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.495Z",
+    "updated_at": "2026-06-07T23:05:53.539Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 43,
+  "fields": {
+    "slug": "demo-new-lab-2025",
+    "cover": "events/26.06.07/demo-new-lab-2025-cover_3QFOQSY.jpg",
+    "event_date": "2025-04-08",
+    "location": "Корпус 35, ауд. 405",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.542Z",
+    "updated_at": "2026-06-07T23:05:53.587Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 44,
+  "fields": {
+    "slug": "demo-scholarship-winners-2025",
+    "cover": "events/26.06.07/demo-scholarship-winners-2025-cover_OPp44VG.jpg",
+    "event_date": "2025-04-22",
+    "location": "КПІ ім. Ігоря Сікорського",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.590Z",
+    "updated_at": "2026-06-07T23:05:53.634Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 45,
+  "fields": {
+    "slug": "demo-international-collab-2025",
+    "cover": "events/26.06.07/demo-international-collab-2025-cover_ivxvGh5.jpg",
+    "event_date": "2025-05-03",
+    "location": "Онлайн / Варшавський університет технологій",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.638Z",
+    "updated_at": "2026-06-07T23:05:53.683Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 46,
+  "fields": {
+    "slug": "demo-olympiad-winners-2025",
+    "cover": "events/26.06.07/demo-olympiad-winners-2025-cover_WzV3Pmh.jpg",
+    "event_date": "2025-05-17",
+    "location": "Харківський національний університет радіоелектроніки",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.686Z",
+    "updated_at": "2026-06-07T23:05:53.730Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 47,
+  "fields": {
+    "slug": "demo-summer-internship-2025",
+    "cover": "events/26.06.07/demo-summer-internship-2025-cover_bprlZpw.jpg",
+    "event_date": "2025-05-28",
+    "location": "Онлайн / офіс партнерів",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.733Z",
+    "updated_at": "2026-06-07T23:05:53.777Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 48,
+  "fields": {
+    "slug": "demo-science-paper-2025",
+    "cover": "events/26.06.07/demo-science-paper-2025-cover_t4c7hit.jpg",
+    "event_date": "2025-06-04",
+    "location": "IEEE — міжнародна конференція",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.780Z",
+    "updated_at": "2026-06-07T23:05:53.824Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 49,
+  "fields": {
+    "slug": "demo-new-curriculum-2025",
+    "cover": "events/26.06.07/demo-new-curriculum-2025-cover_a97NMla.jpg",
+    "event_date": "2025-06-15",
+    "location": "Інститут прикладного системного аналізу",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-06-07T23:05:53.827Z",
+    "updated_at": "2026-06-07T23:05:53.871Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 50,
+  "fields": {
+    "slug": "demo-day-of-knowledge-2024",
+    "cover": "events/26.06.07/demo-day-of-knowledge-2024-cover_kygwTk4.jpg",
+    "event_date": "2024-09-01",
+    "location": "Головний корпус КПІ",
+    "category": 3,
+    "status": "PB",
+    "album": 12,
+    "created_at": "2026-06-07T23:05:54.270Z",
+    "updated_at": "2026-06-07T23:05:54.315Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 51,
+  "fields": {
+    "slug": "demo-hackathon-autumn-2024",
+    "cover": "events/26.06.07/demo-hackathon-autumn-2024-cover_BqRg2vr.jpg",
+    "event_date": "2024-10-12",
+    "location": "Корпус 35, 4-й поверх",
+    "category": 3,
+    "status": "PB",
+    "album": 13,
+    "created_at": "2026-06-07T23:05:54.660Z",
+    "updated_at": "2026-06-07T23:05:54.703Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 52,
+  "fields": {
+    "slug": "demo-conference-2024",
+    "cover": "events/26.06.07/demo-conference-2024-cover_2eji3Q2.jpg",
+    "event_date": "2024-11-07",
+    "location": "Актова зала КПІ",
+    "category": 3,
+    "status": "PB",
+    "album": 14,
+    "created_at": "2026-06-07T23:05:55.088Z",
+    "updated_at": "2026-06-07T23:05:55.135Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 53,
+  "fields": {
+    "slug": "demo-career-fair-2024",
+    "cover": "events/26.06.07/demo-career-fair-2024-cover_b76LfvO.jpg",
+    "event_date": "2024-11-21",
+    "location": "Спортивна зала КПІ",
+    "category": 3,
+    "status": "PB",
+    "album": 15,
+    "created_at": "2026-06-07T23:05:55.541Z",
+    "updated_at": "2026-06-07T23:05:55.592Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 54,
+  "fields": {
+    "slug": "demo-winter-graduation-2024",
+    "cover": "events/26.06.07/demo-winter-graduation-2024-cover_GAwcr2s.jpg",
+    "event_date": "2024-12-20",
+    "location": "Актова зала КПІ",
+    "category": 3,
+    "status": "PB",
+    "album": 16,
+    "created_at": "2026-06-07T23:05:55.958Z",
+    "updated_at": "2026-06-07T23:05:56.006Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 55,
+  "fields": {
+    "slug": "demo-open-doors-2025",
+    "cover": "events/26.06.07/demo-open-doors-2025-cover_X6uPpjl.jpg",
+    "event_date": "2025-02-22",
+    "location": "Корпус 35",
+    "category": 3,
+    "status": "PB",
+    "album": 17,
+    "created_at": "2026-06-07T23:05:56.418Z",
+    "updated_at": "2026-06-07T23:05:56.461Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 56,
+  "fields": {
+    "slug": "demo-sport-games-2025",
+    "cover": "events/26.06.07/demo-sport-games-2025-cover_AGVDhHj.jpg",
+    "event_date": "2025-03-15",
+    "location": "Спорткомплекс КПІ",
+    "category": 3,
+    "status": "PB",
+    "album": 18,
+    "created_at": "2026-06-07T23:05:56.812Z",
+    "updated_at": "2026-06-07T23:05:56.856Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 57,
+  "fields": {
+    "slug": "demo-student-conf-2025",
+    "cover": "events/26.06.07/demo-student-conf-2025-cover_kWhRj33.jpg",
+    "event_date": "2025-04-03",
+    "location": "Актова зала інституту",
+    "category": 3,
+    "status": "PB",
+    "album": 19,
+    "created_at": "2026-06-07T23:05:57.198Z",
+    "updated_at": "2026-06-07T23:05:57.241Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 58,
+  "fields": {
+    "slug": "demo-charity-run-2025",
+    "cover": "events/26.06.07/demo-charity-run-2025-cover_lyGdAOl.jpg",
+    "event_date": "2025-04-26",
+    "location": "Парк «Нивки», Київ",
+    "category": 3,
+    "status": "PB",
+    "album": 20,
+    "created_at": "2026-06-07T23:05:57.597Z",
+    "updated_at": "2026-06-07T23:05:57.641Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 59,
+  "fields": {
+    "slug": "demo-summer-school-2025",
+    "cover": "events/26.06.07/demo-summer-school-2025-cover_kPjNHPv.jpg",
+    "event_date": "2025-06-23",
+    "location": "Корпус 35, лабораторії",
+    "category": 3,
+    "status": "PB",
+    "album": 21,
+    "created_at": "2026-06-07T23:05:57.991Z",
+    "updated_at": "2026-06-07T23:05:58.038Z"
+  }
+}
+]

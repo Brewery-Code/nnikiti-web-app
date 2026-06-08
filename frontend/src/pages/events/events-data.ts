@@ -19,12 +19,14 @@ export const EVENT_TYPE_META: Record<EventType, { label: string; accent: string;
 
 export interface CalendarEvent {
   id: number;
+  slug?: string;
   title: string;
   type: EventType;
   date: string;    // YYYY-MM-DD
   time: string;
   location: string;
   description: string;
+  categoryName?: string;
 }
 
 export const CALENDAR_EVENTS: CalendarEvent[] = [

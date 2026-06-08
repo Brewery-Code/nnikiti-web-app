@@ -26,7 +26,7 @@ export function AlumniList({
 
   return (
     <div id={year.toString()} className="mt-fluid-2xl">
-      <Reveal mode="up" className="mb-10 flex items-center gap-4">
+      <Reveal mode="up" className="mb-6 flex items-center gap-4 sm:mb-10">
         <div className="h-px flex-1 bg-gradient-to-r from-transparent via-violet-500/40 to-blue-500/40" />
         <h3
           className="font-display whitespace-nowrap font-black"

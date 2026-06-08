@@ -8,15 +8,14 @@ type Chapter = { label: string; title: string; paragraphs: string[] };
 
 function Chapter({ chapter, index }: { chapter: Chapter; index: number }) {
   return (
-    <div className="grid grid-cols-[64px_1fr] gap-8 py-12 md:grid-cols-[120px_1fr] md:gap-12 lg:py-16">
-      <div className="flex flex-col items-start pt-1">
+    <div className="group flex gap-6 border-t border-white/[0.06] py-12 last-of-type:border-b md:gap-12 lg:py-16">
+      <div className="flex-shrink-0 pt-1" style={{ minWidth: "2.8rem" }}>
         <span
-          className="font-display text-grad"
+          className="font-display font-black leading-none transition-colors duration-200 group-hover:text-violet-500/40"
           style={{
-            fontWeight: 900,
-            fontSize: "clamp(28px, 2.5vw, 48px)",
-            letterSpacing: "-0.04em",
-            opacity: 0.45,
+            fontSize: "2rem",
+            letterSpacing: "-0.05em",
+            color: "rgba(255,255,255,0.18)",
           }}
         >
           {String(index + 1).padStart(2, "0")}

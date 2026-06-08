@@ -837,7 +837,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/gallery/": {
+    "/gallery/albums/": {
         parameters: {
             query?: never;
             header?: never;
@@ -883,7 +883,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/gallery/{id}/": {
+    "/gallery/albums/{id}/": {
         parameters: {
             query?: never;
             header?: never;
@@ -1146,6 +1146,11 @@ export interface components {
              */
             readonly avatar?: string;
         };
+        EventImage: {
+            readonly id?: number;
+            /** Format: uri */
+            image?: string;
+        };
         Events: {
             /** ID */
             readonly id?: number;
@@ -1161,6 +1166,8 @@ export interface components {
              * @description Cover image URL
              */
             cover?: string | null;
+            /** @description All additional images of the event */
+            images?: components["schemas"]["EventImage"][];
             /**
              * Format: date
              * @description Date when the event takes place (null for news/publications)

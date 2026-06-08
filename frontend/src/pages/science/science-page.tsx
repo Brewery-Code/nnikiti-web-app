@@ -166,7 +166,7 @@ function ScienceHero({
           mode="up"
           className="font-display max-w-5xl font-black text-primary"
           style={{
-            fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+            fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
             letterSpacing: "-0.05em",
             lineHeight: 0.95,
           }}
@@ -177,7 +177,7 @@ function ScienceHero({
           as="p"
           mode="up"
           className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-[17px]"
-          style={{ lineHeight: 1.7 }}
+          style={{ lineHeight: 1.55 }}
         >
           {data.intro}
         </StaggerItem>
@@ -240,7 +240,7 @@ function ActivityCard({
       </h3>
 
       {/* Subtitle */}
-      <p className="text-[14px] leading-relaxed text-subtle sm:text-[15px]">
+      <p className="text-[14px] leading-snug text-subtle sm:text-[15px]">
         {activity.description}
       </p>
     </article>
@@ -571,7 +571,7 @@ function ActivitiesSection({
           <h2
             className="font-display font-black text-primary"
             style={{
-              fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+              fontSize: "clamp(2.2rem, 3.5vw, 3rem)",
               letterSpacing: "-0.04em",
             }}
           >

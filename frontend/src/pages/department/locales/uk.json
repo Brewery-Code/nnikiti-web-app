@@ -24,7 +24,9 @@
     "meta_duration": "Тривалість",
     "meta_form": "Форма",
     "disciplines_label": "Дисциплін",
-    "year_label": "{{year}} курс — {{sem1}} та {{sem2}} семестри"
+    "learn_more": "Дізнатись більше",
+    "year_label": "{{year}} курс — {{sem1}} та {{sem2}} семестри",
+    "subjects_label": "Навчальні дисципліни"
   },
   "subjects": {
     "mandatory": "Нормативна",

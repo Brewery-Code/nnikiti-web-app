@@ -5,7 +5,7 @@ import { Reveal } from "@/shared/ui";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "../hero-section/locales";
 
-const PDF_PATH = "/nnikiti-25-rokiv.pdf";
+const PDF_PATH = "/brochure.pdf";
 
 export default function ClosingSection({ className }: { className?: string }) {
   useLoadNamespace("history", loadTranslations);

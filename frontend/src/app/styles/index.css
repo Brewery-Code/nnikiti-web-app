@@ -24,7 +24,7 @@
   --title-gap:         min(32px,   8.53vw);
   --container-size:    min(24px,   3.125vw);
   --container-max-w:   1280px;
-  --container-pad:     16px;
+  --container-pad:     20px;
 }
 
 @media (width >= 640px) {
@@ -106,6 +106,10 @@
 
 
 /* ── Global / Base ───────────────────────────────────────────────────────── */
+html {
+  scrollbar-gutter: stable;
+}
+
 *,
 *::before,
 *::after {
@@ -191,8 +195,24 @@ html.lenis body {
     scrollbar-gutter: stable both-edges;
   }
 
-  button:not(:disabled):active {
+  button:not(:disabled),
+  a[href],
+  [role="button"],
+  select,
+  label[for],
+  summary {
+    cursor: pointer;
+  }
+
+  button:not(:disabled):active,
+  [role="button"]:active {
     transform: scale(0.95);
+  }
+
+  .no-active-scale button:not(:disabled):active,
+  .no-active-scale [role="button"]:active,
+  .no-active-scale a:active {
+    transform: none;
   }
 
   body {
@@ -295,13 +315,14 @@ html.lenis body {
     z-index: 2;
   }
 
-  /* ── Cards / hover lift ── */
+  /* ── Cards / hover glow ── */
   .card-hover {
-    transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 250ms;
+    transition: box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+                background 400ms;
   }
   .card-hover:hover {
-    transform: translateY(-4px);
+    box-shadow: 0 0 0 1px rgba(166, 132, 255, 0.15),
+                0 4px 24px rgba(139, 92, 246, 0.08);
   }
 
   .spec-card {
@@ -611,6 +632,21 @@ html.lenis body {
 .story-editor h2 { font-size: 1.25rem; font-weight: 800; color: #f0eeff; margin: 6px 0 2px; line-height: 1.2; }
 .story-editor h3 { font-size: 1.05rem; font-weight: 700; color: #f0eeff; margin: 4px 0 2px; line-height: 1.2; }
 .story-editor h4 { font-size: 0.9rem; font-weight: 700; color: #f0eeff; margin: 4px 0 2px; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ── News photo slider ──────────────────────────────────────────────────── */
+.news-photo-slider { position: relative; }
+.news-photo-slider .swiper-pagination-bullet {
+  background: rgba(255,255,255,0.35);
+  opacity: 1;
+  transition: background 200ms, transform 200ms;
+}
+.news-photo-slider .swiper-pagination-bullet-active {
+  background: #a684ff;
+  transform: scale(1.25);
+}
+.news-photo-slider .swiper-pagination {
+  bottom: 12px;
+}
 
 /* ── Reduced motion ─────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

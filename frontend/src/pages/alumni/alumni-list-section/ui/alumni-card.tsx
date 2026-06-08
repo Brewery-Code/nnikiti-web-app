@@ -27,7 +27,7 @@ export function AlumniCard({ alumni, className }: AlumniCardProps) {
       >
         {/* Header */}
         <div
-          className="relative flex items-center gap-3.5 px-4 py-4"
+          className="relative flex items-center gap-3 px-4 py-3 sm:gap-3.5 sm:py-4"
           style={{
             background:
               "linear-gradient(135deg, rgba(124,58,237,0.13) 0%, rgba(59,130,246,0.07) 100%)",

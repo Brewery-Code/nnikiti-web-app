@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { PageTransition } from "@/widgets";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
@@ -40,11 +41,11 @@ function scrollToId(id: string) {
 
 function SectionTitle({ title, highlight, description }: { eyebrow?: string; title: string; highlight: string; description?: string }) {
   return (
-    <Reveal mode="up" className="mb-10 lg:mb-14">
-      <h2 className="font-display font-black text-primary" style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}>
+    <Reveal mode="up" className="mb-6 sm:mb-10 lg:mb-14">
+      <h2 className="font-display font-black text-primary" style={{ fontSize: "clamp(2.2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em", lineHeight: 1.05 }}>
         {title} <span className="text-grad">{highlight}</span>
       </h2>
-      {description && <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]">{description}</p>}
+      {description && <p className="mt-3 max-w-xl text-[14px] leading-snug text-muted sm:text-[17px] sm:leading-relaxed">{description}</p>}
     </Reveal>
   );
 }
@@ -58,7 +59,7 @@ function Hero() {
   }, [location.hash]);
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden pt-32 pb-10 sm:pt-40 sm:pb-14 lg:pt-48 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -70,7 +71,7 @@ function Hero() {
           <span className="text-[12px] text-primary/70">{t("badgeSub")}</span>
         </StaggerItem>
         <StaggerItem as="h1" mode="up" className="font-display font-black text-primary"
-          style={{ fontSize: "clamp(2rem, 6.5vw, 5.5rem)", letterSpacing: "-0.05em", lineHeight: 0.95 }}>
+          style={{ fontSize: "clamp(2.8rem, 8vw, 6.5rem)", letterSpacing: "-0.05em", lineHeight: 0.95 }}>
           {t("heading")} <span className="text-grad">{t("headingAccent")}</span>
         </StaggerItem>
         <StaggerItem as="p" mode="up" className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-[17px]">
@@ -146,20 +147,20 @@ function MiniCalendar({ year, month, events, selected, onSelect, onPrev, onNext,
 function EventListItem({ event, months }: { event: CalendarEvent; months: string[] }) {
   const meta = EVENT_TYPE_META[event.type];
   return (
-    <div className="grad-border card-hover flex gap-4 rounded-[16px] bg-surface p-4 backdrop-blur-xl">
+    <Link to={`/news/${event.slug ?? event.id}`} className="grad-border card-hover flex gap-4 rounded-[16px] bg-surface p-4 backdrop-blur-xl">
       <div className="flex w-14 flex-shrink-0 flex-col items-center justify-center rounded-[12px] bg-gradient-to-br from-violet-500/20 to-blue-500/20 py-2 text-center">
-        <span className="text-[10px] font-bold uppercase text-subtle">{months[parseInt(event.date.split("-")[1]) - 1].slice(0, 3)}</span>
+        <span className="text-[10px] font-bold uppercase text-subtle">{(months[parseInt(event.date.split("-")[1]) - 1] ?? "").slice(0, 3)}</span>
         <span className="text-grad font-display text-xl font-extrabold leading-none">{parseInt(event.date.split("-")[2])}</span>
       </div>
       <div className="min-w-0 flex-1">
         <div className="mb-1 flex flex-wrap items-center gap-2">
-          <span className="font-display rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.04em] text-violet-200">{meta.label}</span>
+          <span className="font-display rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.04em] text-violet-200">{event.categoryName || meta.label}</span>
           <span className="text-[11px] text-subtle">{[event.time, event.location].filter(Boolean).join(" · ")}</span>
         </div>
         <p className="font-display truncate text-[15px] font-semibold text-primary">{event.title}</p>
-        <p className="mt-0.5 line-clamp-2 text-[12px] leading-relaxed text-primary/50">{event.description}</p>
+        <p className="mt-0.5 line-clamp-2 text-[12px] leading-snug text-primary/50">{event.description}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -183,6 +184,7 @@ function CalendarSection() {
     .filter((e) => !!e.event_date && !!e.title)
     .map((e) => ({
       id: e.id ?? 0,
+      slug: e.slug,
       title: e.title ?? "",
       type: categoryToType(e.category?.name),
       date: (e.event_date as string).slice(0, 10),
@@ -220,10 +222,10 @@ function CalendarSection() {
     .sort((a, b) => a.date.localeCompare(b.date));
 
   return (
-    <section id="calendar" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+    <section id="calendar" className="scroll-mt-24 py-8 sm:py-14 lg:py-20">
       <div className="container-v2">
         <SectionTitle eyebrow={t("calendarTitle")} title={t("calendarTitle")} highlight={t("calendarHighlight")} />
-        <div className="grid gap-6 lg:grid-cols-[340px_1fr]">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-[340px_1fr]">
           <div className="flex flex-col gap-4">
             <MiniCalendar year={year} month={month} events={apiCalendarEvents} selected={selected}
               onSelect={setSelected} onPrev={() => changeMonth(-1)} onNext={() => changeMonth(1)}
@@ -278,8 +280,8 @@ function NewsCard({ item }: { item: ApiEvent }) {
   const tagBg = rgb ? `rgba${rgb}` : "rgba(166,132,255,0.85)";
 
   return (
-    <Link to={`/news/${item.id}`} className="spec-card grad-border group flex h-full flex-col overflow-hidden rounded-[20px] bg-surface backdrop-blur-xl">
-      <div className="relative h-56 overflow-hidden">
+    <Link to={`/news/${item.slug ?? item.id}`} className="spec-card grad-border group flex h-full flex-col overflow-hidden rounded-[16px] bg-surface backdrop-blur-xl sm:rounded-[20px]">
+      <div className="relative h-44 overflow-hidden sm:h-52">
         {image ? (
           <img src={image} alt={item.title ?? ""} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         ) : (
@@ -291,31 +293,39 @@ function NewsCard({ item }: { item: ApiEvent }) {
           </span>
         )}
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-subtle">{formatDate(item.event_date ?? item.created_at)}</p>
-        <h3 className="font-display mb-3 line-clamp-3 flex-1 font-bold leading-snug text-primary" style={{ fontSize: "1rem", letterSpacing: "-0.01em" }}>
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
+        <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-subtle">{formatDate(item.event_date ?? item.created_at)}</p>
+        <h3 className="font-display mb-2 line-clamp-3 flex-1 font-bold leading-snug text-primary" style={{ fontSize: "0.95rem", letterSpacing: "-0.01em" }}>
           {item.title}
         </h3>
-        <p className="line-clamp-3 text-[12px] leading-relaxed text-muted">{stripMarkdown(item.body)}</p>
-        <span className="mt-4 self-start text-[12px] font-semibold text-violet-300 transition group-hover:text-primary">{t("readMore")}</span>
+        <p className="line-clamp-2 text-[12px] leading-snug text-muted">{stripMarkdown(item.body)}</p>
+        <span className="mt-3 self-start text-[12px] font-semibold text-violet-300 transition group-hover:text-primary">{t("readMore")}</span>
       </div>
     </Link>
   );
 }
 
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 function NewsSection() {
   const { t } = useTranslation("events-page");
   const [visibleCount, setVisibleCount] = useState(6);
+  const prevCountRef = useRef(0);
   const { data, isPending } = publicRqClient.useQuery("get", "/events/", {});
   const events = ((data ?? []) as ApiEvent[]).filter((e) => !!e.title);
   const visible = events.slice(0, visibleCount);
   const hasMore = visible.length < events.length;
 
+  const handleLoadMore = () => {
+    prevCountRef.current = visibleCount;
+    setVisibleCount((c) => c + 6);
+  };
+
   if (isPending) {
     return (
-      <section id="news" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+      <section id="news" className="scroll-mt-24 py-8 sm:py-16 lg:py-20">
         <div className="container-v2">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {[0,1,2,3,4,5].map((i) => <div key={i} className="h-80 animate-pulse rounded-[20px] bg-surface" />)}
           </div>
         </div>
@@ -325,7 +335,7 @@ function NewsSection() {
 
   if (!events.length) {
     return (
-      <section id="news" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+      <section id="news" className="scroll-mt-24 py-8 sm:py-16 lg:py-20">
         <div className="container-v2 flex flex-col items-center py-20 text-center">
           <p className="text-[15px] text-subtle">{t("noNews")}</p>
         </div>
@@ -337,16 +347,28 @@ function NewsSection() {
     <section id="news" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
       <div className="container-v2">
         <SectionTitle eyebrow={t("newsTitle")} title={t("newsTitle")} highlight={t("newsHighlight")} />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((item) => (
-            <div key={item.id} className="h-full">
-              <NewsCard item={item} />
-            </div>
-          ))}
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <AnimatePresence initial={false}>
+            {visible.map((item, index) => (
+              <motion.div
+                key={item.id}
+                className="h-full"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.45,
+                  ease: EASE,
+                  delay: Math.max(0, index - prevCountRef.current) * 0.07,
+                }}
+              >
+                <NewsCard item={item} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
         {hasMore && (
           <div className="mt-10 flex justify-center">
-            <button onClick={() => setVisibleCount((c) => c + 6)}
+            <button onClick={handleLoadMore}
               className="grad-border inline-flex items-center gap-2 rounded-[12px] bg-surface-md px-7 py-3 text-[14px] font-semibold text-primary/70 backdrop-blur-md transition-all duration-200 hover:bg-surface-xl hover:text-primary">
               {t("loadMore")} <span aria-hidden className="text-violet-400">↓</span>
             </button>
@@ -363,7 +385,7 @@ function EventsPage() {
   return (
     <PageTransition className="!pt-0 pb-0" isPaddingOn={false}>
       <Hero />
-      <div className="pb-16 lg:pb-20">
+      <div className="pb-10 sm:pb-16 lg:pb-20">
         <CalendarSection />
         <NewsSection />
       </div>

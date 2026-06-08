@@ -25,6 +25,7 @@
     "highlight": "albums",
     "linkLabel": "All events",
     "viewAlbum": "View album",
+    "showMore": "Show more",
     "photoCount": "{{count}} photos"
   },
   "allPage": {

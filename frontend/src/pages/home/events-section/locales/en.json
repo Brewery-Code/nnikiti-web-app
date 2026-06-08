@@ -29,7 +29,7 @@
   "specialtiesSection": {
     "heading": "Study",
     "headingAccent": "programs",
-    "seeAll": "All programs",
+    "seeAll": "Learn more",
     "prevProgram": "Previous program",
     "nextProgram": "Next program",
     "code": "Code:",
@@ -42,20 +42,20 @@
     "workshopCaption": "Workshop with IT companies",
     "advantages": [
       {
-        "title": "Education aligned with the job market",
-        "desc": "Programs developed together with SoftServe, EPAM and GlobalLogic. Real projects, current tech stack and industry practitioners as lecturers."
+        "title": "Practice-oriented education",
+        "desc": "Study programs combine theoretical foundations with real projects. Current tech stack, industry-grade tasks and practitioner lecturers — from day one."
       },
       {
-        "title": "Study abroad with Erasmus+",
-        "desc": "Partnerships with universities in Poland, Czech Republic, Lithuania and 15 more EU countries. Grants cover accommodation, relocation and tuition."
+        "title": "Specialties of the digital future",
+        "desc": "Cybersecurity, computer science, software engineering, data engineering — fields where demand consistently outpaces supply on the job market."
       },
       {
-        "title": "Internships from year one or two",
-        "desc": "Partner companies invite students to paid internships. Most graduates already have a job offer before their thesis defence."
+        "title": "Academic mobility and international opportunities",
+        "desc": "Exchange programs, international conferences and joint projects with partner universities open doors far beyond a single campus."
       },
       {
-        "title": "University founded in 1922",
-        "desc": "Over 100 years of academic tradition, 29,000 graduates worldwide and a consistent Top-44 ranking among Ukrainian universities."
+        "title": "Experience and tradition",
+        "desc": "Years of training specialists, stable rankings among Ukrainian universities and graduates holding key positions in IT companies and research institutions."
       }
     ]
   }

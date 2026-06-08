@@ -20,8 +20,7 @@
   "successHeadingAccent": "your question",
   "successText": "We received your request and will respond as soon as possible.",
   "contactsHeading": "Other",
-  "contactsHeadingAccent": "channels",
-  "contactsSectionLabel": "— Contacts",
+  "contactsHeadingAccent": "ways to contact",
   "errors": {
     "name": "Name must contain at least 2 characters",
     "email": "Invalid email address",

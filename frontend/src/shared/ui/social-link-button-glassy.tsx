@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { useState } from "react";
 import { FacebookIcon, InstagramIcon, TelegramIcon, TikTokIcon, YouTubeIcon } from "@/shared/icons";
 
 type SocialType = "facebook" | "telegram" | "instagram" | "tiktok" | "youtube";
@@ -13,69 +12,63 @@ interface SocialLinkButtonProps {
 const SOCIAL_STYLES: Record<
   SocialType,
   {
-    bg: string;
+    hoverBorder: string;
+    hoverGlow: string;
     label: string;
     icon: React.ReactNode;
   }
 > = {
   facebook: {
-    bg: "bg-[#0163E0]",
+    hoverBorder: "hover:border-[#0163E0]/60",
+    hoverGlow: "hover:shadow-[0_0_16px_rgba(1,99,224,0.35)]",
     label: "Facebook",
-    icon: <FacebookIcon className="h-8 w-8" />,
+    icon: <FacebookIcon className="h-[22px] w-[22px]" />,
   },
   telegram: {
-    bg: "bg-[#24A1DE]",
+    hoverBorder: "hover:border-[#24A1DE]/60",
+    hoverGlow: "hover:shadow-[0_0_16px_rgba(36,161,222,0.35)]",
     label: "Telegram",
-    icon: <TelegramIcon className="h-8 w-8" />,
+    icon: <TelegramIcon className="h-[22px] w-[22px]" />,
   },
   instagram: {
-    bg: "bg-[linear-gradient(to_right,#833ab4,#fd1d1d,#fcb045)]",
+    hoverBorder: "hover:border-pink-500/60",
+    hoverGlow: "hover:shadow-[0_0_16px_rgba(253,29,29,0.3)]",
     label: "Instagram",
-    icon: <InstagramIcon className="h-8 w-8" />,
+    icon: <InstagramIcon className="h-[22px] w-[22px]" />,
   },
   tiktok: {
-    bg: "bg-[#222111]",
+    hoverBorder: "hover:border-white/40",
+    hoverGlow: "hover:shadow-[0_0_16px_rgba(255,255,255,0.15)]",
     label: "TikTok",
-    icon: <TikTokIcon className="h-8 w-8" />,
+    icon: <TikTokIcon className="h-[22px] w-[22px]" />,
   },
   youtube: {
-    bg: "bg-[#FF0000]",
+    hoverBorder: "hover:border-[#FF0000]/60",
+    hoverGlow: "hover:shadow-[0_0_16px_rgba(255,0,0,0.35)]",
     label: "YouTube",
-    icon: <YouTubeIcon className="h-8 w-8" />,
+    icon: <YouTubeIcon className="h-[22px] w-[22px]" />,
   },
 };
 
 export default function SocialLinkButtonGlassy({ className, type, link }: SocialLinkButtonProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  const { bg, label, icon } = SOCIAL_STYLES[type];
+  const { hoverBorder, hoverGlow, label, icon } = SOCIAL_STYLES[type];
 
   return (
     <a
       href={link}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
       className={clsx(
-        "relative z-10 flex h-[44px] w-[44px] cursor-pointer items-center rounded-[14px] border border-white/20 bg-[rgba(255,255,255,0.2)] p-1.5 shadow-md backdrop-blur-md",
-        "transition-[border-color] duration-300 ease-in hover:border-transparent",
+        "flex h-[44px] w-[44px] items-center justify-center rounded-[14px]",
+        "border border-white/15 bg-white/[0.07] backdrop-blur-md",
+        "text-white/70 transition-all duration-200",
+        "hover:bg-white/[0.12] hover:text-white",
+        hoverBorder,
+        hoverGlow,
         className
       )}
-      style={{}}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
-      <div
-        className={clsx(
-          `absolute inset-0 -z-10 ${bg} rounded-[14px] transition-[opacity,scale] duration-300 ease-in`,
-          isHovered ? "scale-100 opacity-100" : "scale-0 opacity-0"
-        )}
-      />
-      <div
-        className={clsx(
-          `absolute bottom-[calc(100%+10px)] left-1/2 -translate-x-1/2 rounded-xl p-1.5 font-bold ${bg}`,
-          "transition-[opacity,scale] duration-200 ease-in",
-          isHovered ? "scale-100 opacity-100" : "scale-0 opacity-0"
-        )}
-      >
-        {label}
-      </div>
       {icon}
     </a>
   );

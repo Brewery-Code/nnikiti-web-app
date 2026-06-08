@@ -24,17 +24,17 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
 
   return (
     <ModalWrapper isModalOpen={isOpen} toggleModal={toggleModal} maxWidth="max-w-2xl">
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-        <div className="mx-auto flex-shrink-0 sm:mx-0">
+      <div className="flex items-start gap-4">
+        <div className="flex-shrink-0">
           <div
-            className="overflow-hidden rounded-[18px]"
+            className="overflow-hidden rounded-[14px] sm:rounded-[18px]"
             style={{
               background: "linear-gradient(135deg, rgba(166,132,255,0.3) 0%, rgba(81,162,255,0.2) 100%)",
               padding: 2,
             }}
           >
             <img
-              className="h-28 w-28 rounded-[16px] object-cover sm:h-36 sm:w-36"
+              className="h-20 w-20 rounded-[12px] object-cover sm:h-32 sm:w-32 sm:rounded-[16px]"
               src={alumni.image || profilePlaceholder}
               alt={alumni.full_name}
               onError={(e) => { e.currentTarget.src = profilePlaceholder; }}
@@ -42,22 +42,22 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col gap-3 min-w-0">
+        <div className="flex min-w-0 flex-1 flex-col gap-2">
           {alumni.date_of_graduation && (
-            <span className="inline-flex w-fit items-center rounded-full border border-violet-500/25 bg-violet-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-violet-300">
+            <span className="inline-flex w-fit items-center rounded-full border border-violet-500/25 bg-violet-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-violet-300">
               {t("alumniModal.graduation")} {alumni.date_of_graduation.split("-")[0]}
             </span>
           )}
 
           <h2
-            className="font-display font-black text-primary"
-            style={{ fontSize: "clamp(1.3rem, 2.2vw, 1.8rem)", letterSpacing: "-0.03em" }}
+            className="font-display font-black leading-tight text-primary"
+            style={{ fontSize: "clamp(1.15rem, 2.2vw, 1.8rem)", letterSpacing: "-0.03em" }}
           >
             {alumni.full_name}
           </h2>
 
           {(alumni.position || alumni.workplace) && (
-            <p className="text-[14px] text-muted">
+            <p className="text-[13px] text-muted sm:text-[14px]">
               {alumni.position && <span className="font-semibold text-primary/80">{alumni.position}</span>}
               {alumni.position && alumni.workplace && " · "}
               {alumni.workplace}

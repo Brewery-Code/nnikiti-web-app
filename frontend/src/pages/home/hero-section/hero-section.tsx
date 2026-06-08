@@ -134,7 +134,7 @@ export default function HeroSection({ className = "" }: { className?: string }) 
 
           <p
             className="mx-auto px-2 text-[13px] text-muted sm:px-0 sm:text-[17px]"
-            style={{ lineHeight: 1.7, maxWidth: 560, marginBottom: 28 }}
+            style={{ lineHeight: 1.55, maxWidth: 560, marginBottom: 28 }}
           >
             {t("heroSection.subtitle")}
           </p>
@@ -149,8 +149,12 @@ export default function HeroSection({ className = "" }: { className?: string }) 
             <span aria-hidden>→</span>
           </Link>
           <Link
-            to={ROUTES.BACHELOR}
+            to="/#programs"
             className="inline-flex items-center gap-2 rounded-[12px] border border-ui bg-surface-lg px-5 py-3 text-[14px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:rounded-[14px] sm:px-9 sm:py-4 sm:text-[17px]"
+            onClick={(e) => {
+              const el = document.getElementById("programs");
+              if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+            }}
           >
             {t("heroSection.ctaPrograms")}
           </Link>

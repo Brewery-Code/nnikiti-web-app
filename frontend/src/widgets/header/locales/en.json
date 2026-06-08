@@ -45,6 +45,7 @@
     "logout": "Logout"
   },
   "burgerMenu": {
-    "home": "To home"
+    "home": "To home",
+    "enroll": "Apply now"
   }
 }

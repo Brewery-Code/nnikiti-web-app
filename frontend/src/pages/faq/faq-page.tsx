@@ -43,7 +43,7 @@ function HeroSection() {
           mode="up"
           className="font-display font-black text-primary"
           style={{
-            fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+            fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
             letterSpacing: "-0.05em",
             lineHeight: 0.95,
           }}
@@ -55,7 +55,7 @@ function HeroSection() {
           as="p"
           mode="up"
           className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
-          style={{ lineHeight: 1.7, maxWidth: 560 }}
+          style={{ lineHeight: 1.55, maxWidth: 560 }}
         >
           {t("description")}
         </StaggerItem>

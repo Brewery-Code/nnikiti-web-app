@@ -18,7 +18,7 @@ function formatDate(iso: string | undefined): string {
 }
 
 function newsItemRoute(item: ApiEvent) {
-  return ROUTES.NEWS_ITEM.replace(":id", String(item.id ?? ""));
+  return ROUTES.NEWS_ITEM.replace(":slug", String(item.slug ?? ""));
 }
 
 function Pill({ category }: { category: ApiEvent["category"] }) {
@@ -165,19 +165,15 @@ export default function EventsSection({ className = "" }: { className?: string }
   return (
     <section className={clsx("bg-[#0a0b12] py-16 lg:py-24", className)}>
       <div className="container-v2">
-        <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
-          <div>
-            <h2
-              className="font-display font-black leading-none text-white"
-              style={{
-                fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
-                letterSpacing: "-0.04em",
-              }}
-            >
-              {t("eventsSection.heading")} <span className="text-grad">{t("eventsSection.headingAccent")}</span>
-            </h2>
-          </div>
-          <SeeAll />
+        <Reveal mode="up" className="mb-10 flex items-center justify-between lg:mb-14">
+          <h2
+            className="font-display font-black leading-none text-white"
+            style={{ fontSize: "clamp(2.2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
+          >
+            {t("eventsSection.heading")} <span className="text-grad">{t("eventsSection.headingAccent")}</span>
+          </h2>
+          {/* Desktop only */}
+          <span className="hidden sm:block"><SeeAll /></span>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.4fr_1fr]">
@@ -192,6 +188,16 @@ export default function EventsSection({ className = "" }: { className?: string }
               </StaggerItem>
             ))}
           </Stagger>
+        </div>
+
+        {/* Mobile: button below list */}
+        <div className="mt-8 flex justify-center sm:hidden">
+          <Link
+            to={`${ROUTES.EVENTS}#news`}
+            className="inline-flex items-center justify-center rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-10 py-3 text-[14px] font-semibold text-white shadow-[0_4px_20px_rgba(139,92,246,0.4)] transition-all duration-200 hover:brightness-110 active:scale-95"
+          >
+            {t("eventsSection.seeAll")}
+          </Link>
         </div>
       </div>
     </section>

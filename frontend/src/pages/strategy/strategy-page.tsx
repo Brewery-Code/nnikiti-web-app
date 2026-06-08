@@ -71,7 +71,7 @@ function CrossThemes() {
         <Reveal mode="up" className="mb-10 text-center lg:mb-14">
           <h2
             className="font-display font-black text-primary"
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
+            style={{ fontSize: "clamp(2.2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
           >
             {t("themes.title")} <span className="text-grad">{t("themes.titleAccent")}</span>
           </h2>
@@ -93,7 +93,7 @@ function CrossThemes() {
               >
                 {item.title}
               </h3>
-              <p className="text-[13px] leading-relaxed text-muted">{item.text}</p>
+              <p className="text-[13px] leading-snug text-muted">{item.text}</p>
             </StaggerItem>
           ))}
         </Stagger>
@@ -133,7 +133,7 @@ function DeptCard({ dept, index }: { dept: DeptItem; index: number }) {
               className="mt-[6px] h-1.5 w-1.5 flex-shrink-0 rounded-full"
               style={{ background: c.accent, boxShadow: `0 0 6px ${c.bg}` }}
             />
-            <p className="text-[13px] leading-relaxed text-white/50">{point}</p>
+            <p className="text-[13px] leading-snug text-white/50">{point}</p>
           </li>
         ))}
       </ul>
@@ -151,7 +151,7 @@ function Departments() {
         <Reveal mode="up" className="mb-4 text-center">
           <h2
             className="font-display font-black text-primary"
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
+            style={{ fontSize: "clamp(2.2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
           >
             {t("depts.title")} <span className="text-grad">{t("depts.titleAccent")}</span>
           </h2>

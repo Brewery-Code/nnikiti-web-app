@@ -35,19 +35,19 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.SCIENCE_PUBLICATIONS,
-        lazy: () => import("@/pages/science/publications-page"),
+        lazy: () => import("@/pages/under-construction/under-construction-page"),
       },
       {
         path: ROUTES.SCIENCE_RESEARCH,
-        lazy: () => import("@/pages/science/research-page"),
+        lazy: () => import("@/pages/under-construction/under-construction-page"),
       },
       {
         path: ROUTES.SCIENCE_CONFERENCES,
-        lazy: () => import("@/pages/science/conferences-page"),
+        lazy: () => import("@/pages/under-construction/under-construction-page"),
       },
       {
         path: ROUTES.SCIENCE_GRANTS,
-        lazy: () => import("@/pages/science/grants-page"),
+        lazy: () => import("@/pages/under-construction/under-construction-page"),
       },
       {
         path: ROUTES.PARTNERS_ACADEMIC_MOBILITY,

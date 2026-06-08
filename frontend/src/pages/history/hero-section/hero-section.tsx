@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
+import { publicRqClient } from "@/shared/api/instance";
 import { loadTranslations } from "./locales";
 
 export default function HeroSection() {
@@ -10,28 +11,36 @@ export default function HeroSection() {
 
   const [entered, setEntered] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setEntered(true), 80);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setEntered(true), 80);
+    return () => clearTimeout(timer);
   }, []);
+
+  const { data: programs = [] } = publicRqClient.useQuery("get", "/core/educational-programs/", {});
+  const specialtyCount = new Set(
+    (programs as { code?: string }[]).map((p) => p.code).filter(Boolean)
+  ).size || "—";
+
+  const { data: alumni = [] } = publicRqClient.useQuery("get", "/core/alumni/", {});
+  const alumniCount = (alumni as unknown[]).length || "3500+";
 
   const STATS = [
     { value: "25", label: t("hero.stats.yearsLabel") },
-    { value: "2000", label: t("hero.stats.foundedLabel") },
+    { value: String(alumniCount), label: t("hero.stats.alumniLabel") },
     { value: "5", label: t("hero.stats.departmentsLabel") },
-    { value: "3", label: t("hero.stats.directorsLabel") },
+    { value: String(specialtyCount), label: t("hero.stats.programsLabel") },
   ];
 
   return (
     <section className="relative flex min-h-svh flex-col overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 flex select-none items-end justify-end overflow-hidden pr-10 pb-10"
+        className="pointer-events-none absolute inset-0 flex select-none items-end justify-end overflow-hidden pb-60 sm:pb-10 sm:pr-10"
       >
         <span
-          className="font-display leading-none"
+          className="font-display leading-none block w-full text-left sm:w-auto sm:text-right"
           style={{
             fontWeight: 900,
-            fontSize: "clamp(180px, 30vw, 480px)",
+            fontSize: "clamp(10px, 30vw, 480px)",
             color: "rgba(255,255,255,0.025)",
             letterSpacing: "-0.06em",
           }}
@@ -41,14 +50,11 @@ export default function HeroSection() {
       </div>
 
 
-<div className="container-v2 relative z-[1] flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] py-4 pt-24 sm:pt-28 lg:pt-32">
-        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-subtle">
-          {t("hero.institute")}
-        </span>
-        <span className="text-[10px] font-bold tracking-[0.15em] text-subtle">
-          {t("hero.years")}
-        </span>
-      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-[10%] -top-[20%] h-[700px] w-[700px] rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(166,132,255,0.15) 0%, transparent 70%)", filter: "blur(80px)" }}
+      />
 
       <div className="container-v2 relative z-[1] flex flex-1 flex-col justify-center py-16">
         <div

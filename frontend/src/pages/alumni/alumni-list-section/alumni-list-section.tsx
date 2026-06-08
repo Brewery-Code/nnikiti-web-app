@@ -96,7 +96,7 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
       onClick={(e) => scrollToYear(e, year)}
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.97 }}
-      className="grad-border rounded-full bg-surface px-5 py-2 text-[14px] font-bold text-primary/70 transition-colors duration-200 hover:bg-surface-lg hover:text-primary"
+      className="grad-border rounded-full bg-surface px-4 py-1.5 text-[13px] font-bold text-primary/70 transition-colors duration-200 hover:bg-surface-lg hover:text-primary sm:px-5 sm:py-2 sm:text-[14px]"
     >
       {year}
     </motion.a>
@@ -109,7 +109,7 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
           <h2
             className="font-display font-black"
             style={{
-              fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+              fontSize: "clamp(2.2rem, 3.5vw, 3rem)",
               letterSpacing: "-0.04em",
             }}
           >
@@ -130,8 +130,10 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
               showFixed && hasScrolled && !footerVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
             )}
           >
-            <div className="flex flex-wrap justify-center gap-2 rounded-2xl border border-ui bg-base/90 px-4 py-3 shadow-[0_8px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl">
-              {yearButtons}
+            <div className="max-w-full overflow-x-auto rounded-2xl border border-ui bg-base/90 shadow-[0_8px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+              <div className="flex gap-2 px-4 py-3">
+                {yearButtons}
+              </div>
             </div>
           </div>,
           document.body

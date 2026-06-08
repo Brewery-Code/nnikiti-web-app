@@ -4,7 +4,8 @@
     "badgeSub": "Institute team",
     "title": "Our",
     "titleAccent": "team",
-    "description": "The academic staff that brings together experienced scientists, industry practitioners and young researchers."
+    "description": "The academic staff that brings together experienced scientists, industry practitioners and young researchers.",
+    "staffLabel": "team members"
   },
   "sections": {
     "leadership": { "title": "Leadership", "accent": "team" },

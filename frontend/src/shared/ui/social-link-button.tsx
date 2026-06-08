@@ -7,6 +7,7 @@ type SocialType = "facebook" | "telegram" | "instagram" | "tiktok" | "youtube";
 interface SocialLinkButtonProps {
   className?: string;
   type: SocialType;
+  link?: string;
 }
 
 const SOCIAL_STYLES: Record<
@@ -38,44 +39,51 @@ const SOCIAL_STYLES: Record<
     icon: <TikTokIcon className="h-8 w-8" />,
   },
   youtube: {
-    bg: "#FF0000",
+    bg: "#1a1a1a",
     label: "YouTube",
     icon: <YouTubeIcon className="h-8 w-8" />,
   },
 };
 
-export default function SocialLinkButton({ className, type }: SocialLinkButtonProps) {
+export default function SocialLinkButton({ className, type, link }: SocialLinkButtonProps) {
   const [hovered, setHovered] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const getButtonWidth = () => buttonRef.current?.scrollWidth ?? 42;
+  const ref = useRef<HTMLElement>(null);
+  const getWidth = () => (ref.current?.scrollWidth ?? 42);
 
   const { bg, label, icon } = SOCIAL_STYLES[type];
 
-  return (
-    <button
-      className={clsx(
-        "flex h-[44px] w-[44px] cursor-pointer items-center gap-2 overflow-hidden rounded-full p-1.5",
-        "transition-[width] duration-300 ease-in",
-        className
-      )}
-      style={{
-        width: hovered ? getButtonWidth() - 14 : 44,
-        background: bg,
-      }}
-      ref={buttonRef}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+  const sharedProps = {
+    className: clsx(
+      "flex h-[44px] w-[44px] cursor-pointer items-center gap-2 overflow-hidden rounded-full p-1.5",
+      "transition-[width] duration-300 ease-in",
+      className
+    ),
+    style: { width: hovered ? getWidth() - 14 : 44, background: bg } as React.CSSProperties,
+    onMouseEnter: () => setHovered(true),
+    onMouseLeave: () => setHovered(false),
+  };
+
+  const inner = (
+    <>
       <div className="flex items-center justify-center">{icon}</div>
-      <span
-        className={clsx(
-          "text-[1.2em] font-semibold",
-          "transition-transform duration-300 ease-in",
-          hovered ? "translate-x-0" : "translate-x-5"
-        )}
-      >
+      <span className={clsx("text-[1.2em] font-semibold transition-transform duration-300 ease-in", hovered ? "translate-x-0" : "translate-x-5")}>
         {label}
       </span>
+    </>
+  );
+
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" aria-label={label}
+        ref={ref as React.Ref<HTMLAnchorElement>} {...sharedProps}>
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <button ref={ref as React.Ref<HTMLButtonElement>} {...sharedProps}>
+      {inner}
     </button>
   );
 }

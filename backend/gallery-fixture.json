@@ -1,0 +1,1812 @@
+[
+{
+  "model": "gallery.albumtranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: День знань 2024",
+    "description": "Фотозвіт з урочистої лінійки до Дня знань 2024 року в інституті.",
+    "master": 2
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Day of Knowledge 2024",
+    "description": "Photo report from the ceremonial lineup for the Day of Knowledge 2024 at the institute.",
+    "master": 2
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Хакатон «Код для Перемоги» 2024",
+    "description": "Фотозвіт з 48-годинного хакатону в стінах інституту.",
+    "master": 3
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Hackathon 'Code for Victory' 2024",
+    "description": "Photo report from the 48-hour hackathon at the institute.",
+    "master": 3
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Конференція DataSciUA 2024",
+    "description": "Фотозвіт з міжнародної наукової конференції DataSciUA 2024.",
+    "master": 4
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: DataSciUA 2024 Conference",
+    "description": "Photo report from the DataSciUA 2024 international scientific conference.",
+    "master": 4
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Ярмарок кар'єри IT 2024",
+    "description": "Фотозвіт з щорічного ярмарку кар'єри для студентів IT-спеціальностей.",
+    "master": 5
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: IT Career Fair 2024",
+    "description": "Photo report from the annual career fair for IT specialty students.",
+    "master": 5
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Зимовий випуск 2024",
+    "description": "Урочиста церемонія вручення дипломів зимового випуску 2024 року.",
+    "master": 6
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Winter Graduation 2024",
+    "description": "Ceremonial diploma awarding ceremony of the winter 2024 graduation.",
+    "master": 6
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: День відкритих дверей 2025",
+    "description": "Фотозвіт з Дня відкритих дверей інституту 2025 року.",
+    "master": 7
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Open Day 2025",
+    "description": "Photo report from the institute's Open Day 2025.",
+    "master": 7
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Спортивні змагання 2025",
+    "description": "Фотозвіт зі щорічних спортивних змагань між кафедрами інституту.",
+    "master": 8
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Sports Games 2025",
+    "description": "Photo report from the annual sports competition between institute departments.",
+    "master": 8
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 15,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: X Студентська конференція 2025",
+    "description": "Фотозвіт з X ювілейної студентської наукової конференції.",
+    "master": 9
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 16,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: X Student Conference 2025",
+    "description": "Photo report from the X Anniversary Student Scientific Conference.",
+    "master": 9
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 17,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Забіг «КПІ Біжить» 2025",
+    "description": "Фотозвіт з благодійного студентського забігу «КПІ Біжить» 2025.",
+    "master": 10
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 18,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: 'KPI Runs' 2025 Charity Run",
+    "description": "Photo report from the 'KPI Runs' 2025 student charity run.",
+    "master": 10
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 19,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Літня школа Data Science 2025",
+    "description": "Фотозвіт з п'ятиденної Літньої школи з Data Science та AI.",
+    "master": 11
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 20,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Data Science Summer School 2025",
+    "description": "Photo report from the five-day Summer School on Data Science and AI.",
+    "master": 11
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 21,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: День знань 2024",
+    "description": "Фотозвіт з урочистої лінійки до Дня знань 2024 року в інституті.",
+    "master": 12
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 22,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Day of Knowledge 2024",
+    "description": "Photo report from the ceremonial lineup for the Day of Knowledge 2024 at the institute.",
+    "master": 12
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 23,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Хакатон «Код для Перемоги» 2024",
+    "description": "Фотозвіт з 48-годинного хакатону в стінах інституту.",
+    "master": 13
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 24,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Hackathon 'Code for Victory' 2024",
+    "description": "Photo report from the 48-hour hackathon at the institute.",
+    "master": 13
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 25,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Конференція DataSciUA 2024",
+    "description": "Фотозвіт з міжнародної наукової конференції DataSciUA 2024.",
+    "master": 14
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 26,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: DataSciUA 2024 Conference",
+    "description": "Photo report from the DataSciUA 2024 international scientific conference.",
+    "master": 14
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 27,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Ярмарок кар'єри IT 2024",
+    "description": "Фотозвіт з щорічного ярмарку кар'єри для студентів IT-спеціальностей.",
+    "master": 15
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 28,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: IT Career Fair 2024",
+    "description": "Photo report from the annual career fair for IT specialty students.",
+    "master": 15
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 29,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Зимовий випуск 2024",
+    "description": "Урочиста церемонія вручення дипломів зимового випуску 2024 року.",
+    "master": 16
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 30,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Winter Graduation 2024",
+    "description": "Ceremonial diploma awarding ceremony of the winter 2024 graduation.",
+    "master": 16
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 31,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: День відкритих дверей 2025",
+    "description": "Фотозвіт з Дня відкритих дверей інституту 2025 року.",
+    "master": 17
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 32,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Open Day 2025",
+    "description": "Photo report from the institute's Open Day 2025.",
+    "master": 17
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 33,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Спортивні змагання 2025",
+    "description": "Фотозвіт зі щорічних спортивних змагань між кафедрами інституту.",
+    "master": 18
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 34,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Sports Games 2025",
+    "description": "Photo report from the annual sports competition between institute departments.",
+    "master": 18
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 35,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: X Студентська конференція 2025",
+    "description": "Фотозвіт з X ювілейної студентської наукової конференції.",
+    "master": 19
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 36,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: X Student Conference 2025",
+    "description": "Photo report from the X Anniversary Student Scientific Conference.",
+    "master": 19
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 37,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Забіг «КПІ Біжить» 2025",
+    "description": "Фотозвіт з благодійного студентського забігу «КПІ Біжить» 2025.",
+    "master": 20
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 38,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: 'KPI Runs' 2025 Charity Run",
+    "description": "Photo report from the 'KPI Runs' 2025 student charity run.",
+    "master": 20
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 39,
+  "fields": {
+    "language_code": "uk",
+    "title": "ДЕМО: Літня школа Data Science 2025",
+    "description": "Фотозвіт з п'ятиденної Літньої школи з Data Science та AI.",
+    "master": 21
+  }
+},
+{
+  "model": "gallery.albumtranslation",
+  "pk": 40,
+  "fields": {
+    "language_code": "en",
+    "title": "DEMO: Data Science Summer School 2025",
+    "description": "Photo report from the five-day Summer School on Data Science and AI.",
+    "master": 21
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 1,
+  "fields": {
+    "cover": "",
+    "date": "2024-09-01",
+    "status": "PB",
+    "created_at": "2026-06-07T22:59:19.995Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 2,
+  "fields": {
+    "cover": "gallery/covers/demo-day-of-knowledge-2024-album-cover.jpg",
+    "date": "2024-09-01",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:13.690Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 3,
+  "fields": {
+    "cover": "gallery/covers/demo-hackathon-autumn-2024-album-cover.jpg",
+    "date": "2024-10-12",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:13.899Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 4,
+  "fields": {
+    "cover": "gallery/covers/demo-conference-2024-album-cover.jpg",
+    "date": "2024-11-07",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:14.087Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 5,
+  "fields": {
+    "cover": "gallery/covers/demo-career-fair-2024-album-cover.jpg",
+    "date": "2024-11-21",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:14.278Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 6,
+  "fields": {
+    "cover": "gallery/covers/demo-winter-graduation-2024-album-cover.jpg",
+    "date": "2024-12-20",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:14.464Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 7,
+  "fields": {
+    "cover": "gallery/covers/demo-open-doors-2025-album-cover.jpg",
+    "date": "2025-02-22",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:14.651Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 8,
+  "fields": {
+    "cover": "gallery/covers/demo-sport-games-2025-album-cover.jpg",
+    "date": "2025-03-15",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:14.839Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 9,
+  "fields": {
+    "cover": "gallery/covers/demo-student-conf-2025-album-cover.jpg",
+    "date": "2025-04-03",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:15.055Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 10,
+  "fields": {
+    "cover": "gallery/covers/demo-charity-run-2025-album-cover.jpg",
+    "date": "2025-04-26",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:15.248Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 11,
+  "fields": {
+    "cover": "gallery/covers/demo-summer-school-2025-album-cover.jpg",
+    "date": "2025-06-23",
+    "status": "PB",
+    "created_at": "2026-06-07T23:00:15.433Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 12,
+  "fields": {
+    "cover": "gallery/covers/demo-day-of-knowledge-2024-album-cover_cL9s8YS.jpg",
+    "date": "2024-09-01",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:53.874Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 13,
+  "fields": {
+    "cover": "gallery/covers/demo-hackathon-autumn-2024-album-cover_EpG6DsO.jpg",
+    "date": "2024-10-12",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:54.317Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 14,
+  "fields": {
+    "cover": "gallery/covers/demo-conference-2024-album-cover_YNsBman.jpg",
+    "date": "2024-11-07",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:54.706Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 15,
+  "fields": {
+    "cover": "gallery/covers/demo-career-fair-2024-album-cover_blvoxB9.jpg",
+    "date": "2024-11-21",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:55.138Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 16,
+  "fields": {
+    "cover": "gallery/covers/demo-winter-graduation-2024-album-cover_btL0MYf.jpg",
+    "date": "2024-12-20",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:55.595Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 17,
+  "fields": {
+    "cover": "gallery/covers/demo-open-doors-2025-album-cover_cu42aIe.jpg",
+    "date": "2025-02-22",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:56.009Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 18,
+  "fields": {
+    "cover": "gallery/covers/demo-sport-games-2025-album-cover_hSuWAgv.jpg",
+    "date": "2025-03-15",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:56.463Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 19,
+  "fields": {
+    "cover": "gallery/covers/demo-student-conf-2025-album-cover_QtFppHA.jpg",
+    "date": "2025-04-03",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:56.859Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 20,
+  "fields": {
+    "cover": "gallery/covers/demo-charity-run-2025-album-cover_5WC2SXf.jpg",
+    "date": "2025-04-26",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:57.244Z"
+  }
+},
+{
+  "model": "gallery.album",
+  "pk": 21,
+  "fields": {
+    "cover": "gallery/covers/demo-summer-school-2025-album-cover_pxVYrS7.jpg",
+    "date": "2025-06-23",
+    "status": "PB",
+    "created_at": "2026-06-07T23:05:57.644Z"
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 1,
+  "fields": {
+    "album": 2,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-1.jpg",
+    "published_at": "2024-09-01",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 2,
+  "fields": {
+    "album": 2,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-2.jpg",
+    "published_at": "2024-09-01",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 3,
+  "fields": {
+    "album": 2,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-3.jpg",
+    "published_at": "2024-09-01",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 4,
+  "fields": {
+    "album": 2,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-4.jpg",
+    "published_at": "2024-09-01",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 5,
+  "fields": {
+    "album": 2,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-5.jpg",
+    "published_at": "2024-09-01",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 6,
+  "fields": {
+    "album": 2,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-6.jpg",
+    "published_at": "2024-09-01",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 7,
+  "fields": {
+    "album": 3,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-1.jpg",
+    "published_at": "2024-10-12",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 8,
+  "fields": {
+    "album": 3,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-2.jpg",
+    "published_at": "2024-10-12",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 9,
+  "fields": {
+    "album": 3,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-3.jpg",
+    "published_at": "2024-10-12",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 10,
+  "fields": {
+    "album": 3,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-4.jpg",
+    "published_at": "2024-10-12",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 11,
+  "fields": {
+    "album": 3,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-5.jpg",
+    "published_at": "2024-10-12",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 12,
+  "fields": {
+    "album": 3,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-6.jpg",
+    "published_at": "2024-10-12",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 13,
+  "fields": {
+    "album": 4,
+    "image": "gallery/photos/demo-conference-2024-photo-1.jpg",
+    "published_at": "2024-11-07",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 14,
+  "fields": {
+    "album": 4,
+    "image": "gallery/photos/demo-conference-2024-photo-2.jpg",
+    "published_at": "2024-11-07",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 15,
+  "fields": {
+    "album": 4,
+    "image": "gallery/photos/demo-conference-2024-photo-3.jpg",
+    "published_at": "2024-11-07",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 16,
+  "fields": {
+    "album": 4,
+    "image": "gallery/photos/demo-conference-2024-photo-4.jpg",
+    "published_at": "2024-11-07",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 17,
+  "fields": {
+    "album": 4,
+    "image": "gallery/photos/demo-conference-2024-photo-5.jpg",
+    "published_at": "2024-11-07",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 18,
+  "fields": {
+    "album": 4,
+    "image": "gallery/photos/demo-conference-2024-photo-6.jpg",
+    "published_at": "2024-11-07",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 19,
+  "fields": {
+    "album": 5,
+    "image": "gallery/photos/demo-career-fair-2024-photo-1.jpg",
+    "published_at": "2024-11-21",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 20,
+  "fields": {
+    "album": 5,
+    "image": "gallery/photos/demo-career-fair-2024-photo-2.jpg",
+    "published_at": "2024-11-21",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 21,
+  "fields": {
+    "album": 5,
+    "image": "gallery/photos/demo-career-fair-2024-photo-3.jpg",
+    "published_at": "2024-11-21",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 22,
+  "fields": {
+    "album": 5,
+    "image": "gallery/photos/demo-career-fair-2024-photo-4.jpg",
+    "published_at": "2024-11-21",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 23,
+  "fields": {
+    "album": 5,
+    "image": "gallery/photos/demo-career-fair-2024-photo-5.jpg",
+    "published_at": "2024-11-21",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 24,
+  "fields": {
+    "album": 5,
+    "image": "gallery/photos/demo-career-fair-2024-photo-6.jpg",
+    "published_at": "2024-11-21",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 25,
+  "fields": {
+    "album": 6,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-1.jpg",
+    "published_at": "2024-12-20",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 26,
+  "fields": {
+    "album": 6,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-2.jpg",
+    "published_at": "2024-12-20",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 27,
+  "fields": {
+    "album": 6,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-3.jpg",
+    "published_at": "2024-12-20",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 28,
+  "fields": {
+    "album": 6,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-4.jpg",
+    "published_at": "2024-12-20",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 29,
+  "fields": {
+    "album": 6,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-5.jpg",
+    "published_at": "2024-12-20",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 30,
+  "fields": {
+    "album": 6,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-6.jpg",
+    "published_at": "2024-12-20",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 31,
+  "fields": {
+    "album": 7,
+    "image": "gallery/photos/demo-open-doors-2025-photo-1.jpg",
+    "published_at": "2025-02-22",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 32,
+  "fields": {
+    "album": 7,
+    "image": "gallery/photos/demo-open-doors-2025-photo-2.jpg",
+    "published_at": "2025-02-22",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 33,
+  "fields": {
+    "album": 7,
+    "image": "gallery/photos/demo-open-doors-2025-photo-3.jpg",
+    "published_at": "2025-02-22",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 34,
+  "fields": {
+    "album": 7,
+    "image": "gallery/photos/demo-open-doors-2025-photo-4.jpg",
+    "published_at": "2025-02-22",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 35,
+  "fields": {
+    "album": 7,
+    "image": "gallery/photos/demo-open-doors-2025-photo-5.jpg",
+    "published_at": "2025-02-22",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 36,
+  "fields": {
+    "album": 7,
+    "image": "gallery/photos/demo-open-doors-2025-photo-6.jpg",
+    "published_at": "2025-02-22",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 37,
+  "fields": {
+    "album": 8,
+    "image": "gallery/photos/demo-sport-games-2025-photo-1.jpg",
+    "published_at": "2025-03-15",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 38,
+  "fields": {
+    "album": 8,
+    "image": "gallery/photos/demo-sport-games-2025-photo-2.jpg",
+    "published_at": "2025-03-15",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 39,
+  "fields": {
+    "album": 8,
+    "image": "gallery/photos/demo-sport-games-2025-photo-3.jpg",
+    "published_at": "2025-03-15",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 40,
+  "fields": {
+    "album": 8,
+    "image": "gallery/photos/demo-sport-games-2025-photo-4.jpg",
+    "published_at": "2025-03-15",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 41,
+  "fields": {
+    "album": 8,
+    "image": "gallery/photos/demo-sport-games-2025-photo-5.jpg",
+    "published_at": "2025-03-15",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 42,
+  "fields": {
+    "album": 8,
+    "image": "gallery/photos/demo-sport-games-2025-photo-6.jpg",
+    "published_at": "2025-03-15",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 43,
+  "fields": {
+    "album": 9,
+    "image": "gallery/photos/demo-student-conf-2025-photo-1.jpg",
+    "published_at": "2025-04-03",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 44,
+  "fields": {
+    "album": 9,
+    "image": "gallery/photos/demo-student-conf-2025-photo-2.jpg",
+    "published_at": "2025-04-03",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 45,
+  "fields": {
+    "album": 9,
+    "image": "gallery/photos/demo-student-conf-2025-photo-3.jpg",
+    "published_at": "2025-04-03",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 46,
+  "fields": {
+    "album": 9,
+    "image": "gallery/photos/demo-student-conf-2025-photo-4.jpg",
+    "published_at": "2025-04-03",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 47,
+  "fields": {
+    "album": 9,
+    "image": "gallery/photos/demo-student-conf-2025-photo-5.jpg",
+    "published_at": "2025-04-03",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 48,
+  "fields": {
+    "album": 9,
+    "image": "gallery/photos/demo-student-conf-2025-photo-6.jpg",
+    "published_at": "2025-04-03",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 49,
+  "fields": {
+    "album": 10,
+    "image": "gallery/photos/demo-charity-run-2025-photo-1.jpg",
+    "published_at": "2025-04-26",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 50,
+  "fields": {
+    "album": 10,
+    "image": "gallery/photos/demo-charity-run-2025-photo-2.jpg",
+    "published_at": "2025-04-26",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 51,
+  "fields": {
+    "album": 10,
+    "image": "gallery/photos/demo-charity-run-2025-photo-3.jpg",
+    "published_at": "2025-04-26",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 52,
+  "fields": {
+    "album": 10,
+    "image": "gallery/photos/demo-charity-run-2025-photo-4.jpg",
+    "published_at": "2025-04-26",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 53,
+  "fields": {
+    "album": 10,
+    "image": "gallery/photos/demo-charity-run-2025-photo-5.jpg",
+    "published_at": "2025-04-26",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 54,
+  "fields": {
+    "album": 10,
+    "image": "gallery/photos/demo-charity-run-2025-photo-6.jpg",
+    "published_at": "2025-04-26",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 55,
+  "fields": {
+    "album": 11,
+    "image": "gallery/photos/demo-summer-school-2025-photo-1.jpg",
+    "published_at": "2025-06-23",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 56,
+  "fields": {
+    "album": 11,
+    "image": "gallery/photos/demo-summer-school-2025-photo-2.jpg",
+    "published_at": "2025-06-23",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 57,
+  "fields": {
+    "album": 11,
+    "image": "gallery/photos/demo-summer-school-2025-photo-3.jpg",
+    "published_at": "2025-06-23",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 58,
+  "fields": {
+    "album": 11,
+    "image": "gallery/photos/demo-summer-school-2025-photo-4.jpg",
+    "published_at": "2025-06-23",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 59,
+  "fields": {
+    "album": 11,
+    "image": "gallery/photos/demo-summer-school-2025-photo-5.jpg",
+    "published_at": "2025-06-23",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 60,
+  "fields": {
+    "album": 11,
+    "image": "gallery/photos/demo-summer-school-2025-photo-6.jpg",
+    "published_at": "2025-06-23",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 61,
+  "fields": {
+    "album": 12,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-1_SHQVpky.jpg",
+    "published_at": "2024-09-01",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 62,
+  "fields": {
+    "album": 12,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-2_Ngsz9w2.jpg",
+    "published_at": "2024-09-01",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 63,
+  "fields": {
+    "album": 12,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-3_bO9D8PI.jpg",
+    "published_at": "2024-09-01",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 64,
+  "fields": {
+    "album": 12,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-4_zwgovk2.jpg",
+    "published_at": "2024-09-01",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 65,
+  "fields": {
+    "album": 12,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-5_5G1Juru.jpg",
+    "published_at": "2024-09-01",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 66,
+  "fields": {
+    "album": 12,
+    "image": "gallery/photos/demo-day-of-knowledge-2024-photo-6_6loLJbf.jpg",
+    "published_at": "2024-09-01",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 67,
+  "fields": {
+    "album": 13,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-1_A4Rpn5H.jpg",
+    "published_at": "2024-10-12",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 68,
+  "fields": {
+    "album": 13,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-2_kzLCiBP.jpg",
+    "published_at": "2024-10-12",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 69,
+  "fields": {
+    "album": 13,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-3_QWwdL2y.jpg",
+    "published_at": "2024-10-12",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 70,
+  "fields": {
+    "album": 13,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-4_9qinS3p.jpg",
+    "published_at": "2024-10-12",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 71,
+  "fields": {
+    "album": 13,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-5_5JmzmbI.jpg",
+    "published_at": "2024-10-12",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 72,
+  "fields": {
+    "album": 13,
+    "image": "gallery/photos/demo-hackathon-autumn-2024-photo-6_GMDKtOp.jpg",
+    "published_at": "2024-10-12",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 73,
+  "fields": {
+    "album": 14,
+    "image": "gallery/photos/demo-conference-2024-photo-1_u99Abj9.jpg",
+    "published_at": "2024-11-07",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 74,
+  "fields": {
+    "album": 14,
+    "image": "gallery/photos/demo-conference-2024-photo-2_4PObeT2.jpg",
+    "published_at": "2024-11-07",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 75,
+  "fields": {
+    "album": 14,
+    "image": "gallery/photos/demo-conference-2024-photo-3_vuA4t6c.jpg",
+    "published_at": "2024-11-07",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 76,
+  "fields": {
+    "album": 14,
+    "image": "gallery/photos/demo-conference-2024-photo-4_KOrGCpB.jpg",
+    "published_at": "2024-11-07",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 77,
+  "fields": {
+    "album": 14,
+    "image": "gallery/photos/demo-conference-2024-photo-5_WTZPJPE.jpg",
+    "published_at": "2024-11-07",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 78,
+  "fields": {
+    "album": 14,
+    "image": "gallery/photos/demo-conference-2024-photo-6_KMZwZ8m.jpg",
+    "published_at": "2024-11-07",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 79,
+  "fields": {
+    "album": 15,
+    "image": "gallery/photos/demo-career-fair-2024-photo-1_dFQFt0m.jpg",
+    "published_at": "2024-11-21",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 80,
+  "fields": {
+    "album": 15,
+    "image": "gallery/photos/demo-career-fair-2024-photo-2_2V09M7E.jpg",
+    "published_at": "2024-11-21",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 81,
+  "fields": {
+    "album": 15,
+    "image": "gallery/photos/demo-career-fair-2024-photo-3_TTEjS5p.jpg",
+    "published_at": "2024-11-21",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 82,
+  "fields": {
+    "album": 15,
+    "image": "gallery/photos/demo-career-fair-2024-photo-4_u9YTAK8.jpg",
+    "published_at": "2024-11-21",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 83,
+  "fields": {
+    "album": 15,
+    "image": "gallery/photos/demo-career-fair-2024-photo-5_6SczkNt.jpg",
+    "published_at": "2024-11-21",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 84,
+  "fields": {
+    "album": 15,
+    "image": "gallery/photos/demo-career-fair-2024-photo-6_h8Ade5N.jpg",
+    "published_at": "2024-11-21",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 85,
+  "fields": {
+    "album": 16,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-1_PcSinOY.jpg",
+    "published_at": "2024-12-20",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 86,
+  "fields": {
+    "album": 16,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-2_PnTKhHv.jpg",
+    "published_at": "2024-12-20",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 87,
+  "fields": {
+    "album": 16,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-3_jZ8yO7P.jpg",
+    "published_at": "2024-12-20",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 88,
+  "fields": {
+    "album": 16,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-4_dDHXOEV.jpg",
+    "published_at": "2024-12-20",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 89,
+  "fields": {
+    "album": 16,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-5_fG2ecOp.jpg",
+    "published_at": "2024-12-20",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 90,
+  "fields": {
+    "album": 16,
+    "image": "gallery/photos/demo-winter-graduation-2024-photo-6_S1CzJ7D.jpg",
+    "published_at": "2024-12-20",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 91,
+  "fields": {
+    "album": 17,
+    "image": "gallery/photos/demo-open-doors-2025-photo-1_2IT5Y3N.jpg",
+    "published_at": "2025-02-22",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 92,
+  "fields": {
+    "album": 17,
+    "image": "gallery/photos/demo-open-doors-2025-photo-2_SBvl427.jpg",
+    "published_at": "2025-02-22",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 93,
+  "fields": {
+    "album": 17,
+    "image": "gallery/photos/demo-open-doors-2025-photo-3_irI6Re8.jpg",
+    "published_at": "2025-02-22",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 94,
+  "fields": {
+    "album": 17,
+    "image": "gallery/photos/demo-open-doors-2025-photo-4_HeyQRLE.jpg",
+    "published_at": "2025-02-22",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 95,
+  "fields": {
+    "album": 17,
+    "image": "gallery/photos/demo-open-doors-2025-photo-5_TGwlsyV.jpg",
+    "published_at": "2025-02-22",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 96,
+  "fields": {
+    "album": 17,
+    "image": "gallery/photos/demo-open-doors-2025-photo-6_kEMgcVr.jpg",
+    "published_at": "2025-02-22",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 97,
+  "fields": {
+    "album": 18,
+    "image": "gallery/photos/demo-sport-games-2025-photo-1_qsJFcDA.jpg",
+    "published_at": "2025-03-15",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 98,
+  "fields": {
+    "album": 18,
+    "image": "gallery/photos/demo-sport-games-2025-photo-2_elaANOo.jpg",
+    "published_at": "2025-03-15",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 99,
+  "fields": {
+    "album": 18,
+    "image": "gallery/photos/demo-sport-games-2025-photo-3_UJHKrsA.jpg",
+    "published_at": "2025-03-15",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 100,
+  "fields": {
+    "album": 18,
+    "image": "gallery/photos/demo-sport-games-2025-photo-4_pvQM2wG.jpg",
+    "published_at": "2025-03-15",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 101,
+  "fields": {
+    "album": 18,
+    "image": "gallery/photos/demo-sport-games-2025-photo-5_vTxB19C.jpg",
+    "published_at": "2025-03-15",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 102,
+  "fields": {
+    "album": 18,
+    "image": "gallery/photos/demo-sport-games-2025-photo-6_ko8l9Bc.jpg",
+    "published_at": "2025-03-15",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 103,
+  "fields": {
+    "album": 19,
+    "image": "gallery/photos/demo-student-conf-2025-photo-1_CXofPCP.jpg",
+    "published_at": "2025-04-03",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 104,
+  "fields": {
+    "album": 19,
+    "image": "gallery/photos/demo-student-conf-2025-photo-2_tgawwN9.jpg",
+    "published_at": "2025-04-03",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 105,
+  "fields": {
+    "album": 19,
+    "image": "gallery/photos/demo-student-conf-2025-photo-3_SpyAe2u.jpg",
+    "published_at": "2025-04-03",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 106,
+  "fields": {
+    "album": 19,
+    "image": "gallery/photos/demo-student-conf-2025-photo-4_ZBM3byl.jpg",
+    "published_at": "2025-04-03",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 107,
+  "fields": {
+    "album": 19,
+    "image": "gallery/photos/demo-student-conf-2025-photo-5_4yaOBuQ.jpg",
+    "published_at": "2025-04-03",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 108,
+  "fields": {
+    "album": 19,
+    "image": "gallery/photos/demo-student-conf-2025-photo-6_V0uGgan.jpg",
+    "published_at": "2025-04-03",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 109,
+  "fields": {
+    "album": 20,
+    "image": "gallery/photos/demo-charity-run-2025-photo-1_PUZHK2t.jpg",
+    "published_at": "2025-04-26",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 110,
+  "fields": {
+    "album": 20,
+    "image": "gallery/photos/demo-charity-run-2025-photo-2_jXb7SyR.jpg",
+    "published_at": "2025-04-26",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 111,
+  "fields": {
+    "album": 20,
+    "image": "gallery/photos/demo-charity-run-2025-photo-3_6oYwOla.jpg",
+    "published_at": "2025-04-26",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 112,
+  "fields": {
+    "album": 20,
+    "image": "gallery/photos/demo-charity-run-2025-photo-4_uThWfLA.jpg",
+    "published_at": "2025-04-26",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 113,
+  "fields": {
+    "album": 20,
+    "image": "gallery/photos/demo-charity-run-2025-photo-5_DSUJLKC.jpg",
+    "published_at": "2025-04-26",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 114,
+  "fields": {
+    "album": 20,
+    "image": "gallery/photos/demo-charity-run-2025-photo-6_ZoHGNQZ.jpg",
+    "published_at": "2025-04-26",
+    "order": 6
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 115,
+  "fields": {
+    "album": 21,
+    "image": "gallery/photos/demo-summer-school-2025-photo-1_3p9bHQu.jpg",
+    "published_at": "2025-06-23",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 116,
+  "fields": {
+    "album": 21,
+    "image": "gallery/photos/demo-summer-school-2025-photo-2_N76pOLv.jpg",
+    "published_at": "2025-06-23",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 117,
+  "fields": {
+    "album": 21,
+    "image": "gallery/photos/demo-summer-school-2025-photo-3_WAgUImj.jpg",
+    "published_at": "2025-06-23",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 118,
+  "fields": {
+    "album": 21,
+    "image": "gallery/photos/demo-summer-school-2025-photo-4_T69HBzO.jpg",
+    "published_at": "2025-06-23",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 119,
+  "fields": {
+    "album": 21,
+    "image": "gallery/photos/demo-summer-school-2025-photo-5_g2laZtK.jpg",
+    "published_at": "2025-06-23",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.albumphoto",
+  "pk": 120,
+  "fields": {
+    "album": 21,
+    "image": "gallery/photos/demo-summer-school-2025-photo-6_p4oMHrt.jpg",
+    "published_at": "2025-06-23",
+    "order": 6
+  }
+}
+]

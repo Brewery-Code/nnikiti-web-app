@@ -4,7 +4,7 @@ export const ROUTES = {
   HISTORY: "/history",
   STRATEGY: "/strategy",
   EVENTS: "/events",
-  NEWS_ITEM: "/news/:id",
+  NEWS_ITEM: "/news/:slug",
   SCIENCE_PUBLICATIONS: "/science/publications",
   SCIENCE_RESEARCH: "/science/research",
   SCIENCE_CONFERENCES: "/science/conferences",
@@ -32,7 +32,7 @@ export const ROUTES = {
 
 export type PathParams = {
   [ROUTES.DEPARTMENT]: { departmentId: string };
-  [ROUTES.NEWS_ITEM]:  { id: string };
+  [ROUTES.NEWS_ITEM]:  { slug: string };
 };
 
 declare module "react-router-dom" {

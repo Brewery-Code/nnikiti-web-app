@@ -58,36 +58,10 @@ export default function EntrantCtaSection({
           />
 
           <div className="relative z-[1]">
-            <span
-              className="inline-flex items-center gap-1.5"
-              style={{
-                fontSize: 10,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                padding: "4px 12px",
-                borderRadius: 999,
-                background:
-                  "linear-gradient(90deg,rgba(166,132,255,0.2),rgba(81,162,255,0.2))",
-                border: "1px solid rgba(166,132,255,0.35)",
-                color: "#c4a8ff",
-                marginBottom: 20,
-              }}
-            >
-              <svg
-                aria-hidden
-                viewBox="0 0 16 16"
-                fill="none"
-                style={{ width: 11, height: 11, flexShrink: 0 }}
-              >
-                <path d="M8 1L9.6 6H15L10.7 9.3L12.3 14.3L8 11L3.7 14.3L5.3 9.3L1 6H6.4L8 1Z" fill="currentColor" />
-              </svg>
-              {t("entrantCta.badge")}
-            </span>
             <h2
               className="font-display font-black text-primary"
               style={{
-                fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+                fontSize: "clamp(2.2rem, 3.5vw, 3rem)",
                 letterSpacing: "-0.04em",
                 lineHeight: 1.1,
                 marginBottom: 16,

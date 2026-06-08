@@ -25,6 +25,7 @@
     "highlight": "подій",
     "linkLabel": "Усі події",
     "viewAlbum": "Переглянути альбом",
+    "showMore": "Показати ще",
     "photoCount": "{{count}} фото"
   },
   "allPage": {

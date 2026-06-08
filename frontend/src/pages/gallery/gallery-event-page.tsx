@@ -2,7 +2,6 @@ import { useParams, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
 import { ROUTES } from "@/shared/model/routes";
-import { BackButton } from "@/shared/ui";
 import { useLoadNamespace } from "@/shared/hooks";
 import { PhotoGrid, InnerPageLayout } from "./ui";
 import { loadTranslations } from "./locales";
@@ -21,7 +20,7 @@ function GalleryEventPage() {
 
   const { data, isPending, isError } = publicRqClient.useQuery(
     "get",
-    "/gallery/{id}/",
+    "/gallery/{id}/" as any,
     { params: { path: { id: numId } } },
   );
 
@@ -41,42 +40,18 @@ function GalleryEventPage() {
   }
 
   const album = data as AlbumDetail;
-  const cover = resolveMediaUrl(album.cover);
 
   const photos: Photo[] = (album.photos ?? []).map((p, i) => ({
-    id: String(p.id ?? i),
+    id: p.id ?? i,
     src: resolveMediaUrl(p.image) ?? "",
     alt: album.title ?? "",
     year: album.date ? new Date(album.date).getFullYear() : 0,
     eventId: String(album.id ?? ""),
+    wide: false,
   }));
 
   return (
     <PageTransition isPaddingOn={false} className="!pt-0 pb-0">
-      <div className="relative h-[260px] overflow-hidden sm:h-[340px]">
-        {cover ? (
-          <img src={cover} alt={album.title ?? ""} className="h-full w-full object-cover opacity-50" />
-        ) : (
-          <div className="h-full w-full bg-gradient-to-br from-violet-500/20 to-blue-900/30" />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#08090f]/60 via-[#08090f]/40 to-[#08090f]" />
-        <div className="container-v2 absolute inset-0 flex items-end pt-24 pb-8">
-          <div>
-            {album.date && (
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-violet-300">
-                {new Date(album.date).toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" })}
-              </p>
-            )}
-            <h1
-              className="font-display mt-2 font-black text-primary"
-              style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)", letterSpacing: "-0.04em", lineHeight: 1 }}
-            >
-              {album.title}
-            </h1>
-          </div>
-        </div>
-      </div>
-
       <InnerPageLayout
         backTo={ROUTES.GALLERY}
         backLabel={t("eventPage.back")}

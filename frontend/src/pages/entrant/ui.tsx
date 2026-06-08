@@ -44,7 +44,7 @@ export function EntrantHero({
   const { t } = useTranslation("entrant");
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+    <section className="relative overflow-hidden pt-24 pb-8 sm:pt-32 sm:pb-14 lg:pt-40 lg:pb-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -70,7 +70,7 @@ export function EntrantHero({
               mode="up"
               className="font-display font-black text-primary"
               style={{
-                fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+                fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
                 letterSpacing: "-0.05em",
                 lineHeight: 0.95,
               }}
@@ -82,21 +82,21 @@ export function EntrantHero({
               as="p"
               mode="up"
               className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted sm:text-[17px]"
-              style={{ lineHeight: 1.7 }}
+              style={{ lineHeight: 1.55 }}
             >
               {description}
             </StaggerItem>
 
-            <StaggerItem mode="up" className="mt-10 flex flex-wrap gap-3">
+            <StaggerItem mode="up" className="mt-6 grid grid-cols-3 gap-2 sm:mt-10 sm:flex sm:flex-wrap sm:gap-3">
               {stats.map((s, i) => (
                 <div
                   key={i}
-                  className="grad-border flex flex-col rounded-[14px] bg-surface-md px-5 py-3 backdrop-blur-md"
+                  className="grad-border flex flex-col rounded-[12px] bg-surface-md px-3 py-2.5 backdrop-blur-md sm:rounded-[14px] sm:px-5 sm:py-3"
                 >
-                  <span className="font-display text-[20px] font-extrabold text-primary">
+                  <span className="font-display text-[17px] font-extrabold text-primary sm:text-[20px]">
                     <span className="text-grad">{s.value}</span>
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.14em] text-subtle">
+                  <span className="text-[8px] uppercase tracking-[0.12em] text-subtle sm:text-[10px] sm:tracking-[0.14em]">
                     {s.label}
                   </span>
                 </div>
@@ -145,7 +145,7 @@ export function ProgramCard({
       >
         {program.name}
       </h3>
-      <p className="flex-1 text-[14px] leading-relaxed text-muted">
+      <p className="flex-1 text-[14px] leading-snug text-muted">
         {program.description}
       </p>
 
@@ -192,7 +192,7 @@ export function StepItem({
         >
           {step.title}
         </h3>
-        <p className="mt-2 text-[14px] leading-relaxed text-muted">
+        <p className="mt-2 text-[14px] leading-snug text-muted">
           {step.text}
         </p>
       </div>
@@ -234,16 +234,16 @@ export function SectionHead({
   subtitle?: string;
 }) {
   return (
-    <Reveal mode="up" className="mb-10 lg:mb-14">
+    <Reveal mode="up" className="mb-6 sm:mb-10 lg:mb-14">
       <h2
         className="font-display font-black text-primary"
-        style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
+        style={{ fontSize: "clamp(2.2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em", lineHeight: 1.05 }}
       >
         {title} <span className="text-grad">{gradientTitle}</span>
       </h2>
       {subtitle && (
         <p
-          className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted sm:text-[17px]"
+          className="mt-4 max-w-xl text-[15px] leading-snug text-muted sm:text-[17px]"
         >
           {subtitle}
         </p>

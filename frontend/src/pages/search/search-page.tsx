@@ -37,7 +37,7 @@ function ResultCard({ entry }: { entry: SearchEntry }) {
         >
           {entry.title}
         </h3>
-        <p className="mt-1.5 text-[14px] leading-relaxed text-primary/50">
+        <p className="mt-1.5 text-[14px] leading-snug text-primary/50">
           {entry.description}
         </p>
       </div>

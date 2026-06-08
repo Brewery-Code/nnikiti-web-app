@@ -46,22 +46,32 @@ export function ModalWrapper({
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
           <motion.div
-            className={`grad-border relative w-full ${maxWidth} max-h-[90vh] overflow-y-auto rounded-[24px] bg-[#0d0e17] p-6 sm:p-8`}
+            className={`grad-border relative w-full ${maxWidth} rounded-[24px] bg-[#0d0e17]`}
             initial={{ opacity: 0, scale: 0.96, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 20 }}
             transition={{ duration: 0.35, ease: EASE }}
             onMouseDown={(e) => { e.stopPropagation(); mouseDownOnOverlay.current = false; }}
           >
+            {/* Close button — outside scroll area, always visible */}
             <button
               onClick={toggleModal}
               aria-label="Закрити"
-              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-ui bg-surface-md text-[16px] text-primary/50 transition hover:bg-surface-xl hover:text-primary"
+              className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-ui bg-surface-md text-[16px] text-primary/50 transition hover:bg-surface-xl hover:text-primary"
             >
               ✕
             </button>
 
-            {children}
+            {/* Scrollable content */}
+            <div
+              className="max-h-[88vh] overflow-y-scroll overscroll-contain rounded-[24px] p-5 pt-12 pb-8 sm:p-8 sm:pt-14"
+              data-lenis-prevent
+              style={{ WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+              onTouchMove={(e) => e.stopPropagation()}
+              onMouseDown={(e) => e.stopPropagation()}
+            >
+              {children}
+            </div>
           </motion.div>
         </motion.div>
       )}

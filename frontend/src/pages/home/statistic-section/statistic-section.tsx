@@ -109,7 +109,7 @@ export default function StatisticSection({ className = "" }: { className?: strin
           <h2
             className="font-display font-black"
             style={{
-              fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+              fontSize: "clamp(2.2rem, 3.5vw, 3rem)",
               letterSpacing: "-0.04em",
             }}
           >

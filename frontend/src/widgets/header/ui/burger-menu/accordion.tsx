@@ -18,34 +18,23 @@ export default function Accordion({
   handleBurgerClick: () => void;
 }) {
   return (
-    <li className="border-b border-white/[0.06] last:border-b-0">
+    <li className="border-b border-white/[0.05] last:border-b-0">
       <button
         type="button"
         onClick={toggleAccordion}
-        className="flex w-full select-none items-center justify-between py-5 text-left outline-none"
+        className="group flex w-full select-none items-center py-[1.1rem] text-left outline-none active:scale-100"
       >
         <span
           className={clsx(
-            "font-display text-[1.45rem] font-black leading-none",
+            "font-display text-[1.9rem] font-black leading-none transition-all duration-500",
             isAccordionOpen
               ? "bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent"
               : "text-primary"
           )}
-          style={{ letterSpacing: "-0.03em" }}
+          style={{ letterSpacing: "-0.035em" }}
         >
           {data.title}
         </span>
-
-        <motion.span
-          animate={{ rotate: isAccordionOpen ? 45 : 0 }}
-          transition={{ duration: 0.3, ease: EASE }}
-          className={clsx(
-            "flex-shrink-0 text-[22px] font-thin leading-none transition-colors duration-300",
-            isAccordionOpen ? "text-violet-400" : "text-white/25"
-          )}
-        >
-          +
-        </motion.span>
       </button>
 
       <AnimatePresence initial={false}>
@@ -55,33 +44,35 @@ export default function Accordion({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.32, ease: EASE }}
-            className="flex flex-col overflow-hidden"
+            transition={{ duration: 0.45, ease: EASE }}
+            className="overflow-hidden"
           >
-            <div className="pb-4 pl-2">
+            <div className="mb-4 ml-1 flex flex-col gap-0.5 border-l-2 border-violet-500/30 pl-4">
               {data.list?.map((item, index) => (
                 <motion.li
                   key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2, delay: index * 0.04, ease: "easeOut" }}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.06 + index * 0.06, ease: EASE }}
                 >
                   {item.onClick ? (
                     <button
-                      className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13.5px] font-medium text-white/40 transition-all duration-200 hover:bg-white/[0.05] hover:text-white/80"
+                      className="flex w-full items-center rounded-xl px-3 py-2.5 text-left transition-colors duration-200 active:scale-100 hover:text-white"
                       onClick={() => { item.onClick!(); handleBurgerClick(); toggleAccordion(); }}
                     >
-                      <span className="h-[3px] w-[3px] flex-shrink-0 rounded-full bg-violet-400/60" />
-                      {item.title}
+                      <span className="text-[15px] font-medium text-white/65">
+                        {item.title}
+                      </span>
                     </button>
                   ) : (
                     <Link
                       to={item.link}
-                      className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13.5px] font-medium text-white/40 transition-all duration-200 hover:bg-white/[0.05] hover:text-white/80"
+                      className="flex items-center rounded-xl px-3 py-2.5 transition-colors duration-200 active:scale-100 hover:text-white"
                       onClick={() => { handleBurgerClick(); toggleAccordion(); }}
                     >
-                      <span className="h-[3px] w-[3px] flex-shrink-0 rounded-full bg-violet-400/60" />
-                      {item.title}
+                      <span className="text-[15px] font-medium text-white/65">
+                        {item.title}
+                      </span>
                     </Link>
                   )}
                 </motion.li>

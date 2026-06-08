@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
@@ -53,12 +54,8 @@ function SpecCard({ spec }: { spec: ProgramData }) {
       to={`/department/${spec.departmentId}?program=${spec.code}#curriculum`}
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
-      className="spec-card grad-border flex h-full cursor-pointer flex-col rounded-2xl px-6 py-6 sm:rounded-[20px] sm:px-7 sm:py-7"
-      style={{
-        background: h
-          ? "linear-gradient(135deg, rgba(166,132,255,0.10) 0%, rgba(81,162,255,0.08) 100%)"
-          : "var(--bg-surface)",
-      }}
+      className="spec-card grad-border flex h-full cursor-pointer flex-col rounded-2xl px-4 py-5 sm:rounded-[20px] sm:px-7 sm:py-7"
+      style={{ background: h ? "linear-gradient(135deg, rgba(166,132,255,0.10) 0%, rgba(81,162,255,0.08) 100%)" : "var(--bg-surface)" }}
     >
       <div style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.02em", marginBottom: 14, color: "var(--text-subtle)", transition: "color 200ms" }}>
         {t("common.code")}{" "}
@@ -67,21 +64,29 @@ function SpecCard({ spec }: { spec: ProgramData }) {
 
       <h3
         className="font-display font-extrabold uppercase"
-        style={{ fontSize: "clamp(1.15rem, 1.4vw, 1.4rem)", letterSpacing: "-0.01em", lineHeight: 1.2, marginBottom: 22, minHeight: "2.4em", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", color: h ? "#fff" : "var(--text-primary)", transition: "color 200ms" }}
+        style={{ fontSize: "clamp(1rem, 1.4vw, 1.4rem)", letterSpacing: "-0.01em", lineHeight: 1.25, marginBottom: 18, minHeight: "2.5em", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden", color: h ? "#fff" : "var(--text-primary)", transition: "color 200ms" }}
       >
         {spec.name}
       </h3>
 
-      <div className="mb-6 flex flex-wrap gap-2">
-        {spec.tags.map((tag) => (
+      <div className="mb-6 flex flex-col gap-2">
+        <div className="flex flex-wrap gap-2">
           <span
-            key={tag}
             className="font-display inline-block uppercase"
-            style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.05em", padding: "6px 16px", borderRadius: 999, color: "#fff", background: "linear-gradient(135deg, #a684ff 0%, #51a2ff 100%)", boxShadow: "0 4px 14px rgba(166,132,255,0.25)" }}
+            style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.05em", padding: "5px 14px", borderRadius: 999, color: h ? "#c4b5fd" : "#a78bfa", border: "1px solid", borderColor: h ? "rgba(196,181,253,0.4)" : "rgba(167,139,250,0.3)", background: "transparent", transition: "color 200ms, border-color 200ms" }}
           >
-            {tag}
+            Бакалаврат
           </span>
-        ))}
+        </div>
+        {spec.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {spec.tags.map((tag) => (
+              <span key={tag} className="font-display inline-block uppercase" style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.05em", padding: "6px 16px", borderRadius: 999, color: "#fff", background: "linear-gradient(135deg, #a684ff 0%, #51a2ff 100%)", boxShadow: "0 4px 14px rgba(166,132,255,0.25)" }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="mt-auto flex items-end justify-between gap-4 pt-4">
@@ -99,10 +104,7 @@ function SpecCard({ spec }: { spec: ProgramData }) {
             </div>
           )}
         </div>
-        <div
-          className="flex flex-shrink-0 items-center justify-center"
-          style={{ width: 36, height: 36, borderRadius: 10, background: h ? "linear-gradient(135deg, #a684ff, #51a2ff)" : "rgba(255,255,255,0.06)", color: h ? "#fff" : "var(--text-muted)", transition: "all 200ms", fontSize: 16 }}
-        >
+        <div className="flex flex-shrink-0 items-center justify-center" style={{ width: 36, height: 36, borderRadius: 10, background: h ? "linear-gradient(135deg, #a684ff, #51a2ff)" : "rgba(255,255,255,0.06)", color: h ? "#fff" : "var(--text-muted)", transition: "all 200ms", fontSize: 16 }}>
           ↗
         </div>
       </div>
@@ -133,11 +135,11 @@ function ProgramsSlider() {
   return (
     <section className="py-12 sm:py-16 lg:py-20">
       <div className="container-v2">
-        <Reveal mode="up" className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end lg:mb-14">
+        <Reveal mode="up" className="mb-6 flex items-end justify-between sm:mb-10 lg:mb-14">
           <div>
             <h2
               className="font-display font-black leading-none text-primary"
-              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
+              style={{ fontSize: "clamp(2.2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
             >
               {t("bachelor.sliderTitle")} <span className="text-grad">{t("bachelor.sliderGradient")}</span>
             </h2>
@@ -145,10 +147,10 @@ function ProgramsSlider() {
               {t("bachelor.sliderSubtitle")}
             </p>
           </div>
-          <div className="flex items-center gap-2.5 flex-shrink-0">
+          <div className="hidden flex-shrink-0 items-center gap-2.5 lg:flex">
             <button
               type="button"
-              onClick={() => swiperRef.current?.slidePrev()}
+              onClick={() => swiperRef.current?.slidePrev(600)}
               aria-label={t("common.prevProgram")}
               className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-surface-md text-primary/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-primary active:scale-95"
             >
@@ -156,7 +158,7 @@ function ProgramsSlider() {
             </button>
             <button
               type="button"
-              onClick={() => swiperRef.current?.slideNext()}
+              onClick={() => swiperRef.current?.slideNext(600)}
               aria-label={t("common.nextProgram")}
               className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/[0.12] bg-surface-md text-primary/70 transition-all duration-200 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-primary active:scale-95"
             >
@@ -166,20 +168,27 @@ function ProgramsSlider() {
         </Reveal>
       </div>
 
-      <div className="overflow-hidden" style={{ transform: "translateZ(0)" }}>
+      <div className="overflow-hidden py-3">
         <Swiper
           onSwiper={(s) => { swiperRef.current = s; }}
-          speed={400}
+          modules={[Autoplay]}
+          loop
+          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          speed={600}
           slidesPerView="auto"
+          slidesPerGroup={1}
           spaceBetween={20}
+          slidesOffsetBefore={20}
+          slidesOffsetAfter={20}
           allowTouchMove={isTouchDevice}
+          grabCursor={isTouchDevice}
           touchStartPreventDefault={false}
           className="specialties-swiper !overflow-visible py-2 [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:!h-auto"
         >
           {programs.map((p) => (
             <SwiperSlide
               key={p.code}
-              className="!w-[260px] sm:!w-[300px] lg:!w-[340px] xl:!w-[380px] 2xl:!w-[420px]"
+              className="!w-[72vw] sm:!w-[300px] lg:!w-[340px] xl:!w-[380px] 2xl:!w-[420px]"
               style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
             >
               <SpecCard spec={p} />
@@ -279,7 +288,7 @@ function BachelorPage() {
 
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-v2">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+            <div className="grid gap-12 sm:gap-14 lg:grid-cols-2 lg:items-start">
               <Reveal mode="left" amount={0.1}>
                 <SectionHead
                   eyebrow={t("bachelor.admissionEyebrow")}
@@ -288,7 +297,7 @@ function BachelorPage() {
                   subtitle={t("bachelor.admissionSubtitle")}
                 />
 
-                <div className="grad-border mt-8 rounded-[20px] bg-surface p-6 backdrop-blur-xl">
+                <div className="grad-border mt-6 rounded-[20px] bg-surface p-6 backdrop-blur-xl sm:mt-8">
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-400">
                     {t("bachelor.nmtSubjectsLabel")}
                   </p>

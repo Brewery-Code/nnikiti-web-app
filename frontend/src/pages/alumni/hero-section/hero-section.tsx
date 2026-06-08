@@ -17,7 +17,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative overflow-hidden pt-24 sm:pt-32 lg:pt-40">
+    <section className="relative overflow-hidden pt-32 sm:pt-40 lg:pt-48">
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -left-[10%] -top-[20%] h-[600px] w-[600px] rounded-full"
@@ -36,7 +36,7 @@ export function HeroSection() {
           mode="up"
           className="font-display font-black text-primary"
           style={{
-            fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+            fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
             letterSpacing: "-0.05em",
             lineHeight: 0.95,
           }}
@@ -49,7 +49,7 @@ export function HeroSection() {
           as="p"
           mode="up"
           className="mx-auto mt-6 text-[15px] text-muted sm:text-[17px]"
-          style={{ lineHeight: 1.7, maxWidth: 580 }}
+          style={{ lineHeight: 1.55, maxWidth: 580 }}
         >
           {t("heroSection.formTitle")}
         </StaggerItem>

@@ -131,7 +131,7 @@ function PartnersHero({
           mode="up"
           className="font-display max-w-5xl font-black text-primary"
           style={{
-            fontSize: "clamp(2rem, 6.5vw, 5.5rem)",
+            fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
             letterSpacing: "-0.05em",
             lineHeight: 0.95,
           }}
@@ -142,7 +142,7 @@ function PartnersHero({
           as="p"
           mode="up"
           className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-[17px]"
-          style={{ lineHeight: 1.7 }}
+          style={{ lineHeight: 1.55 }}
         >
           {data.intro}
         </StaggerItem>
@@ -216,7 +216,7 @@ function PropositionCard({
         >
           {proposition.name}
         </h3>
-        <p className="mt-3 text-[14px] leading-relaxed text-muted">
+        <p className="mt-3 text-[14px] leading-snug text-muted">
           {proposition.description}
         </p>
 
@@ -404,7 +404,7 @@ function PropositionsSection({
             <h2
               className="font-display font-black text-primary"
               style={{
-                fontSize: "clamp(1.8rem, 3.5vw, 3rem)",
+                fontSize: "clamp(2.2rem, 3.5vw, 3rem)",
                 letterSpacing: "-0.04em",
               }}
             >
