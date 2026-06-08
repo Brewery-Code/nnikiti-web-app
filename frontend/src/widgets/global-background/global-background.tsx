@@ -1,6 +1,6 @@
 export function SideOrbs() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-[1] overflow-hidden opacity-40 md:opacity-100">
+    <div className="pointer-events-none fixed top-0 left-0 right-0 h-lvh -z-[1] overflow-hidden opacity-40 md:opacity-100">
       <div
         className="orb-1 absolute rounded-full"
         style={{
@@ -27,7 +27,7 @@ export function SideOrbs() {
 
 export function GlobalBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#07080e]">
+    <div className="pointer-events-none fixed top-0 left-0 right-0 h-lvh -z-10 overflow-hidden bg-[#07080e]">
       <div
         className="orb-bg-1 absolute rounded-full"
         style={{

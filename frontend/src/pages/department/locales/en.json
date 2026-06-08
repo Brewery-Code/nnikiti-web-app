@@ -4,8 +4,8 @@
     "badge_dept": "Department"
   },
   "sidebar": {
-    "heading_depts": "— Departments",
-    "heading_sections": "— Sections"
+    "heading_depts": "Departments",
+    "heading_sections": "Sections"
   },
   "sections": {
     "curriculum": "Curriculum",
