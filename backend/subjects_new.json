@@ -143,1854 +143,6 @@
     }
   },
   {
-    "model": "departments.programsubject",
-    "pk": 60,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 61,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 62,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 63,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 64,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 65,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 66,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 67,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 68,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 69,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 70,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 11
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 71,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 12
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 72,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 13
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 73,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 14
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 74,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 15
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 75,
-    "fields": {
-      "program": 2,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 16
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 76,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "8.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 77,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 78,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 79,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 80,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 81,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 82,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 83,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 84,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "6.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 85,
-    "fields": {
-      "program": 6,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 86,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "8.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 87,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 88,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 89,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 90,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 91,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 92,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 93,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 94,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 95,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 96,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 11
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 97,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 12
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 98,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 13
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 99,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 14
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 100,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 15
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 101,
-    "fields": {
-      "program": 7,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 16
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 102,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 103,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 104,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 105,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 106,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 107,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 108,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 109,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 110,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 111,
-    "fields": {
-      "program": 8,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 112,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 113,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 114,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "12.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 115,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 116,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 117,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 118,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 119,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "13.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 120,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "9.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 121,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "14.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 122,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 11
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 123,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 12
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 124,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 13
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 125,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 14
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 126,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 15
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 127,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 16
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 128,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 17
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 129,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 18
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 130,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 19
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 131,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 20
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 132,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 21
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 133,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 22
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 134,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 23
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 135,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 24
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 136,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "6.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 25
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 137,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 26
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 138,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 27
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 139,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 28
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 140,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 29
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 141,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "6.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 30
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 142,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 31
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 143,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "6.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 32
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 144,
-    "fields": {
-      "program": 10,
-      "semester": 1,
-      "credits": "9.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 33
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 145,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 146,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 147,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "8.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 148,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 149,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 150,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 151,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 152,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 153,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 154,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 155,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 11
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 156,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 12
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 157,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 13
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 158,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 14
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 159,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 15
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 160,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 16
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 161,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 17
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 162,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 18
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 163,
-    "fields": {
-      "program": 11,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 19
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 164,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 165,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 166,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 167,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 168,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 169,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 170,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 171,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 172,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 173,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 174,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 11
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 175,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 12
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 176,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 13
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 177,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 14
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 178,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 15
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 179,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 16
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 180,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 17
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 181,
-    "fields": {
-      "program": 13,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 18
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 182,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 183,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 184,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 185,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 186,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 187,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 188,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 189,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 190,
-    "fields": {
-      "program": 17,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 191,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 192,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 193,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 194,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 195,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 196,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 197,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 198,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 199,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 200,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 201,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 11
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 202,
-    "fields": {
-      "program": 18,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 12
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 203,
-    "fields": {
-      "program": 3,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 1
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 204,
-    "fields": {
-      "program": 3,
-      "semester": 1,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 2
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 205,
-    "fields": {
-      "program": 3,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 3
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 206,
-    "fields": {
-      "program": 3,
-      "semester": 1,
-      "credits": "4.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 4
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 207,
-    "fields": {
-      "program": 3,
-      "semester": 2,
-      "credits": "3.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 5
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 208,
-    "fields": {
-      "program": 3,
-      "semester": 2,
-      "credits": "5.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 6
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 209,
-    "fields": {
-      "program": 3,
-      "semester": 2,
-      "credits": "4.5",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 7
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 210,
-    "fields": {
-      "program": 3,
-      "semester": 2,
-      "credits": "4.5",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 8
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 211,
-    "fields": {
-      "program": 3,
-      "semester": 3,
-      "credits": "6.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 9
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 212,
-    "fields": {
-      "program": 3,
-      "semester": 4,
-      "credits": "6.0",
-      "type": "MN",
-      "control_form": "credit",
-      "order": 10
-    }
-  },
-  {
-    "model": "departments.programsubject",
-    "pk": 213,
-    "fields": {
-      "program": 3,
-      "semester": 4,
-      "credits": "24.0",
-      "type": "MN",
-      "control_form": "exam",
-      "order": 11
-    }
-  },
-  {
     "model": "departments.programsubjecttranslation",
     "pk": 119,
     "fields": {
@@ -2225,6 +377,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 60,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 145,
     "fields": {
@@ -2240,6 +404,18 @@
       "language_code": "en",
       "name": "Programming",
       "master": 60
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 61,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
     }
   },
   {
@@ -2261,6 +437,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 62,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 149,
     "fields": {
@@ -2276,6 +464,18 @@
       "language_code": "en",
       "name": "Operating Systems",
       "master": 62
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 63,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
     }
   },
   {
@@ -2297,6 +497,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 64,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 153,
     "fields": {
@@ -2312,6 +524,18 @@
       "language_code": "en",
       "name": "Databases and Information Systems",
       "master": 64
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 65,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
     }
   },
   {
@@ -2333,6 +557,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 66,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 157,
     "fields": {
@@ -2348,6 +584,18 @@
       "language_code": "en",
       "name": "Mathematical Statistics and Data Analysis",
       "master": 66
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 67,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
     }
   },
   {
@@ -2369,6 +617,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 68,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 161,
     "fields": {
@@ -2384,6 +644,18 @@
       "language_code": "en",
       "name": "Computational Methods and Specialized Programming Languages",
       "master": 68
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 69,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
     }
   },
   {
@@ -2405,6 +677,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 70,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 165,
     "fields": {
@@ -2420,6 +704,18 @@
       "language_code": "en",
       "name": "Numerical Methods of Mathematical Physics",
       "master": 70
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 71,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 12
     }
   },
   {
@@ -2441,6 +737,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 72,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 169,
     "fields": {
@@ -2456,6 +764,18 @@
       "language_code": "en",
       "name": "Methods and Models of Decision Theory",
       "master": 72
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 73,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
     }
   },
   {
@@ -2477,6 +797,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 74,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 173,
     "fields": {
@@ -2492,6 +824,18 @@
       "language_code": "en",
       "name": "Control Theory",
       "master": 74
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 75,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
     }
   },
   {
@@ -2513,183 +857,15 @@
     }
   },
   {
-    "model": "departments.programsubjecttranslation",
-    "pk": 177,
+    "model": "departments.programsubject",
+    "pk": 86,
     "fields": {
-      "language_code": "uk",
-      "name": "Програмування та алгоритми",
-      "master": 76
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 178,
-    "fields": {
-      "language_code": "en",
-      "name": "Programming and Algorithms",
-      "master": 76
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 179,
-    "fields": {
-      "language_code": "uk",
-      "name": "Бази даних і робота з даними",
-      "master": 77
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 180,
-    "fields": {
-      "language_code": "en",
-      "name": "Databases and Data Processing",
-      "master": 77
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 181,
-    "fields": {
-      "language_code": "uk",
-      "name": "Об'єктно-орієнтоване програмування та патерни проєктування",
-      "master": 78
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 182,
-    "fields": {
-      "language_code": "en",
-      "name": "OOP and Design Patterns",
-      "master": 78
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 183,
-    "fields": {
-      "language_code": "uk",
-      "name": "Конструювання, тестування та забезпечення якості ПЗ",
-      "master": 79
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 184,
-    "fields": {
-      "language_code": "en",
-      "name": "Software Construction, Testing and Quality Assurance",
-      "master": 79
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 185,
-    "fields": {
-      "language_code": "uk",
-      "name": "Веброзробка та хмарні технології",
-      "master": 80
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 186,
-    "fields": {
-      "language_code": "en",
-      "name": "Web Development and Cloud Technologies",
-      "master": 80
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 187,
-    "fields": {
-      "language_code": "uk",
-      "name": "Комп'ютерні мережі, інтерфейси й протоколи передавання даних",
-      "master": 81
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 188,
-    "fields": {
-      "language_code": "en",
-      "name": "Computer Networks, Interfaces and Data Transmission Protocols",
-      "master": 81
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 189,
-    "fields": {
-      "language_code": "uk",
-      "name": "Інформаційна безпека та захист даних",
-      "master": 82
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 190,
-    "fields": {
-      "language_code": "en",
-      "name": "Information Security and Data Protection",
-      "master": 82
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 191,
-    "fields": {
-      "language_code": "uk",
-      "name": "Людино-машинна взаємодія та основи дизайну інтерфейсів",
-      "master": 83
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 192,
-    "fields": {
-      "language_code": "en",
-      "name": "Human-Computer Interaction and Interface Design",
-      "master": 83
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 193,
-    "fields": {
-      "language_code": "uk",
-      "name": "Мікроконтролери, системне програмування та компоненти IoT",
-      "master": 84
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 194,
-    "fields": {
-      "language_code": "en",
-      "name": "Microcontrollers, System Programming and IoT Components",
-      "master": 84
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 195,
-    "fields": {
-      "language_code": "uk",
-      "name": "Основи машинного навчання та обчислювального інтелекту",
-      "master": 85
-    }
-  },
-  {
-    "model": "departments.programsubjecttranslation",
-    "pk": 196,
-    "fields": {
-      "language_code": "en",
-      "name": "Fundamentals of Machine Learning and Computational Intelligence",
-      "master": 85
+      "program": 7,
+      "semester": 1,
+      "credits": "8.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
     }
   },
   {
@@ -2711,6 +887,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 87,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 199,
     "fields": {
@@ -2726,6 +914,18 @@
       "language_code": "en",
       "name": "Computer Networks and Network Software Development",
       "master": 87
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 88,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
     }
   },
   {
@@ -2747,6 +947,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 89,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 203,
     "fields": {
@@ -2762,6 +974,18 @@
       "language_code": "en",
       "name": "Operating Systems",
       "master": 89
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 90,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
     }
   },
   {
@@ -2783,6 +1007,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 91,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 6
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 207,
     "fields": {
@@ -2798,6 +1034,18 @@
       "language_code": "en",
       "name": "Computer Graphics",
       "master": 91
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 92,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
     }
   },
   {
@@ -2819,6 +1067,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 93,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 211,
     "fields": {
@@ -2834,6 +1094,18 @@
       "language_code": "en",
       "name": "Databases",
       "master": 93
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 94,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
     }
   },
   {
@@ -2855,6 +1127,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 95,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 215,
     "fields": {
@@ -2870,6 +1154,18 @@
       "language_code": "en",
       "name": "Web Programming and Cloud Technologies",
       "master": 95
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 96,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
     }
   },
   {
@@ -2891,6 +1187,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 97,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 219,
     "fields": {
@@ -2906,6 +1214,18 @@
       "language_code": "en",
       "name": "System Analysis, Design and Development of Information Systems",
       "master": 97
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 98,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
     }
   },
   {
@@ -2927,6 +1247,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 99,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 223,
     "fields": {
@@ -2942,6 +1274,18 @@
       "language_code": "en",
       "name": "Computational Methods and Specialized Programming Languages",
       "master": 99
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 100,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
     }
   },
   {
@@ -2963,6 +1307,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 101,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 227,
     "fields": {
@@ -2978,6 +1334,18 @@
       "language_code": "en",
       "name": "Big Data Fundamentals",
       "master": 101
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 102,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
     }
   },
   {
@@ -2999,6 +1367,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 103,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 231,
     "fields": {
@@ -3014,6 +1394,18 @@
       "language_code": "en",
       "name": "IT Project Management and Evaluation Technologies",
       "master": 103
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 104,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
     }
   },
   {
@@ -3035,6 +1427,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 105,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 4
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 235,
     "fields": {
@@ -3050,6 +1454,18 @@
       "language_code": "en",
       "name": "Game Development",
       "master": 105
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 106,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
     }
   },
   {
@@ -3071,6 +1487,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 107,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 239,
     "fields": {
@@ -3086,6 +1514,18 @@
       "language_code": "en",
       "name": "Programming with C#.NET",
       "master": 107
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 108,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
     }
   },
   {
@@ -3107,6 +1547,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 109,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 243,
     "fields": {
@@ -3122,6 +1574,18 @@
       "language_code": "en",
       "name": "Artificial Intelligence System Design",
       "master": 109
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 110,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
     }
   },
   {
@@ -3143,6 +1607,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 111,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 247,
     "fields": {
@@ -3158,6 +1634,18 @@
       "language_code": "en",
       "name": "Identification Problems",
       "master": 111
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 112,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
     }
   },
   {
@@ -3179,6 +1667,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 113,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 2
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 251,
     "fields": {
@@ -3194,6 +1694,18 @@
       "language_code": "en",
       "name": "Ukrainian Statehood and Culture",
       "master": 113
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 114,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "12.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 3
     }
   },
   {
@@ -3215,6 +1727,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 115,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 4
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 255,
     "fields": {
@@ -3230,6 +1754,18 @@
       "language_code": "en",
       "name": "Ecology",
       "master": 115
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 116,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
     }
   },
   {
@@ -3251,6 +1787,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 117,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 6
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 259,
     "fields": {
@@ -3266,6 +1814,18 @@
       "language_code": "en",
       "name": "Entrepreneurial Activity",
       "master": 117
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 118,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 7
     }
   },
   {
@@ -3287,6 +1847,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 119,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "13.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 263,
     "fields": {
@@ -3302,6 +1874,18 @@
       "language_code": "en",
       "name": "Mathematical and Functional Analysis",
       "master": 119
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 120,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "9.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
     }
   },
   {
@@ -3323,6 +1907,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 121,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "14.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 267,
     "fields": {
@@ -3338,6 +1934,18 @@
       "language_code": "en",
       "name": "Programming",
       "master": 121
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 122,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
     }
   },
   {
@@ -3359,6 +1967,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 123,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 271,
     "fields": {
@@ -3374,6 +1994,18 @@
       "language_code": "en",
       "name": "Specialized Programming Languages for Data Processing",
       "master": 123
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 124,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 13
     }
   },
   {
@@ -3395,6 +2027,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 125,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 14
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 275,
     "fields": {
@@ -3410,6 +2054,18 @@
       "language_code": "en",
       "name": "Numerical Methods",
       "master": 125
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 126,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
     }
   },
   {
@@ -3431,6 +2087,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 127,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 279,
     "fields": {
@@ -3446,6 +2114,18 @@
       "language_code": "en",
       "name": "Probability Theory",
       "master": 127
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 128,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 17
     }
   },
   {
@@ -3467,6 +2147,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 129,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 18
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 283,
     "fields": {
@@ -3482,6 +2174,18 @@
       "language_code": "en",
       "name": "Applied Statistical Data Analysis",
       "master": 129
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 130,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 19
     }
   },
   {
@@ -3503,6 +2207,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 131,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 20
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 287,
     "fields": {
@@ -3518,6 +2234,18 @@
       "language_code": "en",
       "name": "System Optimization",
       "master": 131
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 132,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 21
     }
   },
   {
@@ -3539,6 +2267,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 133,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 22
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 291,
     "fields": {
@@ -3554,6 +2294,18 @@
       "language_code": "en",
       "name": "Computer Networks and Cloud Technologies",
       "master": 133
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 134,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 23
     }
   },
   {
@@ -3575,6 +2327,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 135,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 24
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 295,
     "fields": {
@@ -3590,6 +2354,18 @@
       "language_code": "en",
       "name": "High-Performance Computing",
       "master": 135
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 136,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 25
     }
   },
   {
@@ -3611,6 +2387,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 137,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 26
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 299,
     "fields": {
@@ -3626,6 +2414,18 @@
       "language_code": "en",
       "name": "Intelligent Data Analysis",
       "master": 137
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 138,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 27
     }
   },
   {
@@ -3647,6 +2447,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 139,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 28
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 303,
     "fields": {
@@ -3662,6 +2474,18 @@
       "language_code": "en",
       "name": "Stochastic Modelling",
       "master": 139
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 140,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 29
     }
   },
   {
@@ -3683,6 +2507,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 141,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 30
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 307,
     "fields": {
@@ -3698,6 +2534,18 @@
       "language_code": "en",
       "name": "Methods of Optimal Control and Decision-Making",
       "master": 141
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 142,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 31
     }
   },
   {
@@ -3719,6 +2567,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 143,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 32
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 311,
     "fields": {
@@ -3734,6 +2594,18 @@
       "language_code": "en",
       "name": "Industrial Practice",
       "master": 143
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 144,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "9.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 33
     }
   },
   {
@@ -3755,6 +2627,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 145,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 315,
     "fields": {
@@ -3770,6 +2654,18 @@
       "language_code": "en",
       "name": "Computer Architecture",
       "master": 145
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 146,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
     }
   },
   {
@@ -3791,6 +2687,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 147,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "8.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 319,
     "fields": {
@@ -3806,6 +2714,18 @@
       "language_code": "en",
       "name": "Programming",
       "master": 147
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 148,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
     }
   },
   {
@@ -3827,6 +2747,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 149,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 323,
     "fields": {
@@ -3842,6 +2774,18 @@
       "language_code": "en",
       "name": "Modern and Specialized Programming Languages",
       "master": 149
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 150,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
     }
   },
   {
@@ -3863,6 +2807,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 151,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 327,
     "fields": {
@@ -3878,6 +2834,18 @@
       "language_code": "en",
       "name": "Software Testing Technologies",
       "master": 151
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 152,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
     }
   },
   {
@@ -3899,6 +2867,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 153,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 331,
     "fields": {
@@ -3914,6 +2894,18 @@
       "language_code": "en",
       "name": "Information System Security and Data Protection",
       "master": 153
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 154,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
     }
   },
   {
@@ -3935,6 +2927,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 155,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 335,
     "fields": {
@@ -3950,6 +2954,18 @@
       "language_code": "en",
       "name": "Database and Knowledge Organization",
       "master": 155
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 156,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
     }
   },
   {
@@ -3971,6 +2987,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 157,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 339,
     "fields": {
@@ -3986,6 +3014,18 @@
       "language_code": "en",
       "name": "Computer Graphics and Image Processing",
       "master": 157
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 158,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
     }
   },
   {
@@ -4007,6 +3047,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 159,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 343,
     "fields": {
@@ -4022,6 +3074,18 @@
       "language_code": "en",
       "name": "IT Project Management",
       "master": 159
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 160,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
     }
   },
   {
@@ -4043,6 +3107,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 161,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 17
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 347,
     "fields": {
@@ -4058,6 +3134,18 @@
       "language_code": "en",
       "name": "Internet of Things Fundamentals",
       "master": 161
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 162,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 18
     }
   },
   {
@@ -4079,6 +3167,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 163,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 19
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 351,
     "fields": {
@@ -4094,6 +3194,18 @@
       "language_code": "en",
       "name": "Internet Marketing",
       "master": 163
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 164,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 1
     }
   },
   {
@@ -4115,6 +3227,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 165,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 2
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 355,
     "fields": {
@@ -4130,6 +3254,18 @@
       "language_code": "en",
       "name": "Pedagogy",
       "master": 165
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 166,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 3
     }
   },
   {
@@ -4151,6 +3287,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 167,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 359,
     "fields": {
@@ -4166,6 +3314,18 @@
       "language_code": "en",
       "name": "Professional Teaching Methodology",
       "master": 167
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 168,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
     }
   },
   {
@@ -4187,6 +3347,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 169,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 363,
     "fields": {
@@ -4202,6 +3374,18 @@
       "language_code": "en",
       "name": "Computer Technologies in Educational Process",
       "master": 169
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 170,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
     }
   },
   {
@@ -4223,6 +3407,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 171,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 367,
     "fields": {
@@ -4238,6 +3434,18 @@
       "language_code": "en",
       "name": "Basic Computer Science Course",
       "master": 171
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 172,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
     }
   },
   {
@@ -4259,6 +3467,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 173,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 371,
     "fields": {
@@ -4274,6 +3494,18 @@
       "language_code": "en",
       "name": "Database and Knowledge Organization",
       "master": 173
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 174,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 11
     }
   },
   {
@@ -4295,6 +3527,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 175,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 375,
     "fields": {
@@ -4310,6 +3554,18 @@
       "language_code": "en",
       "name": "Web Technologies and Web Design",
       "master": 175
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 176,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
     }
   },
   {
@@ -4331,6 +3587,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 177,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 379,
     "fields": {
@@ -4346,6 +3614,18 @@
       "language_code": "en",
       "name": "Electronics and Microprocessor Systems",
       "master": 177
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 178,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
     }
   },
   {
@@ -4367,6 +3647,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 179,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 383,
     "fields": {
@@ -4382,6 +3674,18 @@
       "language_code": "en",
       "name": "IT Project Management",
       "master": 179
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 180,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 17
     }
   },
   {
@@ -4403,6 +3707,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 181,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 18
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 387,
     "fields": {
@@ -4418,6 +3734,18 @@
       "language_code": "en",
       "name": "Information System Security and Data Protection",
       "master": 181
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 182,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
     }
   },
   {
@@ -4439,6 +3767,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 183,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 391,
     "fields": {
@@ -4454,6 +3794,18 @@
       "language_code": "en",
       "name": "Network Information Technologies",
       "master": 183
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 184,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
     }
   },
   {
@@ -4475,6 +3827,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 185,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 395,
     "fields": {
@@ -4490,6 +3854,18 @@
       "language_code": "en",
       "name": "Programming with C#.NET",
       "master": 185
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 186,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
     }
   },
   {
@@ -4511,6 +3887,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 187,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 399,
     "fields": {
@@ -4526,6 +3914,18 @@
       "language_code": "en",
       "name": "Artificial Intelligence Computer Systems",
       "master": 187
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 188,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
     }
   },
   {
@@ -4547,6 +3947,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 189,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 8
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 403,
     "fields": {
@@ -4562,6 +3974,18 @@
       "language_code": "en",
       "name": "Information Security Management",
       "master": 189
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 190,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
     }
   },
   {
@@ -4583,6 +4007,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 191,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 407,
     "fields": {
@@ -4598,6 +4034,18 @@
       "language_code": "en",
       "name": "Comprehensive Information Security Systems",
       "master": 191
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 192,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
     }
   },
   {
@@ -4619,6 +4067,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 193,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 411,
     "fields": {
@@ -4634,6 +4094,18 @@
       "language_code": "en",
       "name": "Security in Information and Communication Systems",
       "master": 193
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 194,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
     }
   },
   {
@@ -4655,6 +4127,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 195,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 415,
     "fields": {
@@ -4670,6 +4154,18 @@
       "language_code": "en",
       "name": "Information Security Management",
       "master": 195
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 196,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
     }
   },
   {
@@ -4691,6 +4187,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 197,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 419,
     "fields": {
@@ -4706,6 +4214,18 @@
       "language_code": "en",
       "name": "Wireless Data Transmission Security",
       "master": 197
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 198,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
     }
   },
   {
@@ -4727,6 +4247,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 199,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 423,
     "fields": {
@@ -4742,6 +4274,18 @@
       "language_code": "en",
       "name": "Information Theory and Coding",
       "master": 199
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 200,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 10
     }
   },
   {
@@ -4763,6 +4307,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 201,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 427,
     "fields": {
@@ -4778,6 +4334,18 @@
       "language_code": "en",
       "name": "Information Security Risk Assessment and Management",
       "master": 201
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 202,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
     }
   },
   {
@@ -4799,6 +4367,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 203,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 431,
     "fields": {
@@ -4814,6 +4394,18 @@
       "language_code": "en",
       "name": "Professional Foreign Language",
       "master": 203
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 204,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 2
     }
   },
   {
@@ -4835,6 +4427,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 205,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 435,
     "fields": {
@@ -4850,6 +4454,18 @@
       "language_code": "en",
       "name": "Information Systems Design and Development Technologies",
       "master": 205
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 206,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
     }
   },
   {
@@ -4871,6 +4487,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 207,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 439,
     "fields": {
@@ -4886,6 +4514,18 @@
       "language_code": "en",
       "name": "Machine Learning and Data Mining",
       "master": 207
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 208,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
     }
   },
   {
@@ -4907,6 +4547,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 209,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 443,
     "fields": {
@@ -4922,6 +4574,18 @@
       "language_code": "en",
       "name": "Non-Classical Dynamical Systems",
       "master": 209
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 210,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
     }
   },
   {
@@ -4943,6 +4607,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 211,
+    "fields": {
+      "program": 3,
+      "semester": 3,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 9
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 447,
     "fields": {
@@ -4958,6 +4634,18 @@
       "language_code": "en",
       "name": "Production Practice",
       "master": 211
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 212,
+    "fields": {
+      "program": 3,
+      "semester": 4,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 10
     }
   },
   {
@@ -4979,6 +4667,18 @@
     }
   },
   {
+    "model": "departments.programsubject",
+    "pk": 213,
+    "fields": {
+      "program": 3,
+      "semester": 4,
+      "credits": "24.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
     "model": "departments.programsubjecttranslation",
     "pk": 451,
     "fields": {
@@ -4994,6 +4694,1116 @@
       "language_code": "en",
       "name": "Qualification (Master's) Thesis",
       "master": 213
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 214,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 453,
+    "fields": {
+      "language_code": "uk",
+      "name": "Українська мова (за професійним спрямуванням)",
+      "master": 214
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 454,
+    "fields": {
+      "language_code": "en",
+      "name": "Ukrainian Language for Professional Purposes",
+      "master": 214
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 215,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 455,
+    "fields": {
+      "language_code": "uk",
+      "name": "Українська державність і культура",
+      "master": 215
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 456,
+    "fields": {
+      "language_code": "en",
+      "name": "Ukrainian Statehood and Culture",
+      "master": 215
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 216,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "12.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 457,
+    "fields": {
+      "language_code": "uk",
+      "name": "Іноземна мова",
+      "master": 216
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 458,
+    "fields": {
+      "language_code": "en",
+      "name": "Foreign Language",
+      "master": 216
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 217,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 459,
+    "fields": {
+      "language_code": "uk",
+      "name": "Екологія",
+      "master": 217
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 460,
+    "fields": {
+      "language_code": "en",
+      "name": "Ecology",
+      "master": 217
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 218,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 461,
+    "fields": {
+      "language_code": "uk",
+      "name": "Філософія",
+      "master": 218
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 462,
+    "fields": {
+      "language_code": "en",
+      "name": "Philosophy",
+      "master": 218
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 219,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 463,
+    "fields": {
+      "language_code": "uk",
+      "name": "Підприємницька діяльність",
+      "master": 219
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 464,
+    "fields": {
+      "language_code": "en",
+      "name": "Entrepreneurship",
+      "master": 219
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 220,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "10.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 465,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математичний аналіз",
+      "master": 220
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 466,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical Analysis",
+      "master": 220
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 221,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "8.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 467,
+    "fields": {
+      "language_code": "uk",
+      "name": "Алгебра та геометрія",
+      "master": 221
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 468,
+    "fields": {
+      "language_code": "en",
+      "name": "Algebra and Geometry",
+      "master": 221
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 222,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 469,
+    "fields": {
+      "language_code": "uk",
+      "name": "Диференціальні рівняння",
+      "master": 222
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 470,
+    "fields": {
+      "language_code": "en",
+      "name": "Differential Equations",
+      "master": 222
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 223,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 471,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерна дискретна математика",
+      "master": 223
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 472,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Discrete Mathematics",
+      "master": 223
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 224,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 473,
+    "fields": {
+      "language_code": "uk",
+      "name": "Теорія ймовірностей і математична статистика",
+      "master": 224
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 474,
+    "fields": {
+      "language_code": "en",
+      "name": "Probability Theory and Mathematical Statistics",
+      "master": 224
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 225,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 12
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 475,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математична логіка, теорія алгоритмів та програмування",
+      "master": 225
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 476,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical Logic, Theory of Algorithms and Programming",
+      "master": 225
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 226,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 477,
+    "fields": {
+      "language_code": "uk",
+      "name": "Фізика",
+      "master": 226
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 478,
+    "fields": {
+      "language_code": "en",
+      "name": "Physics",
+      "master": 226
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 227,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 14
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 479,
+    "fields": {
+      "language_code": "uk",
+      "name": "Практикум з програмної інженерії",
+      "master": 227
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 480,
+    "fields": {
+      "language_code": "en",
+      "name": "Software Engineering Practicum",
+      "master": 227
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 228,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 481,
+    "fields": {
+      "language_code": "uk",
+      "name": "Операційні системи",
+      "master": 228
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 482,
+    "fields": {
+      "language_code": "en",
+      "name": "Operating Systems",
+      "master": 228
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 229,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 483,
+    "fields": {
+      "language_code": "uk",
+      "name": "Бази даних",
+      "master": 229
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 484,
+    "fields": {
+      "language_code": "en",
+      "name": "Databases",
+      "master": 229
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 230,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 17
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 485,
+    "fields": {
+      "language_code": "uk",
+      "name": "Розробка пристроїв на базі Arduino",
+      "master": 230
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 486,
+    "fields": {
+      "language_code": "en",
+      "name": "Arduino-based Device Development",
+      "master": 230
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 231,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 18
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 487,
+    "fields": {
+      "language_code": "uk",
+      "name": "Об'єктно-орієнтоване програмування та патерни проектування",
+      "master": 231
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 488,
+    "fields": {
+      "language_code": "en",
+      "name": "Object-Oriented Programming and Design Patterns",
+      "master": 231
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 232,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "10.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 19
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 489,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування",
+      "master": 232
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 490,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming",
+      "master": 232
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 233,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 20
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 491,
+    "fields": {
+      "language_code": "uk",
+      "name": "Курсова робота з програмування",
+      "master": 233
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 492,
+    "fields": {
+      "language_code": "en",
+      "name": "Course Work in Programming",
+      "master": 233
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 234,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 21
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 493,
+    "fields": {
+      "language_code": "uk",
+      "name": "Конструювання програмного забезпечення",
+      "master": 234
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 494,
+    "fields": {
+      "language_code": "en",
+      "name": "Software Construction",
+      "master": 234
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 235,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 22
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 495,
+    "fields": {
+      "language_code": "uk",
+      "name": "Веб-програмування та хмарні технології",
+      "master": 235
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 496,
+    "fields": {
+      "language_code": "en",
+      "name": "Web Programming and Cloud Technologies",
+      "master": 235
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 236,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 23
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 497,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерні мережі, інтерфейси та протоколи передачі даних",
+      "master": 236
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 498,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Networks, Interfaces and Data Transfer Protocols",
+      "master": 236
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 237,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 24
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 499,
+    "fields": {
+      "language_code": "uk",
+      "name": "Безпека інформаційних систем та захист інформації",
+      "master": 237
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 500,
+    "fields": {
+      "language_code": "en",
+      "name": "Information Systems Security and Data Protection",
+      "master": 237
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 238,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 25
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 501,
+    "fields": {
+      "language_code": "uk",
+      "name": "Бізнес-аналітика та командна робота в ІТ",
+      "master": 238
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 502,
+    "fields": {
+      "language_code": "en",
+      "name": "Business Analytics and Teamwork in IT",
+      "master": 238
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 239,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 26
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 503,
+    "fields": {
+      "language_code": "uk",
+      "name": "Електротехніка та комп'ютерна електроніка",
+      "master": 239
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 504,
+    "fields": {
+      "language_code": "en",
+      "name": "Electrical Engineering and Computer Electronics",
+      "master": 239
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 240,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 27
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 505,
+    "fields": {
+      "language_code": "uk",
+      "name": "Людино-машинна взаємодія та основи комп'ютерного дизайну",
+      "master": 240
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 506,
+    "fields": {
+      "language_code": "en",
+      "name": "Human-Computer Interaction and Computer Design Basics",
+      "master": 240
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 241,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 28
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 507,
+    "fields": {
+      "language_code": "uk",
+      "name": "Сенсори і виконавчі елементи",
+      "master": 241
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 508,
+    "fields": {
+      "language_code": "en",
+      "name": "Sensors and Actuators",
+      "master": 241
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 242,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 29
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 509,
+    "fields": {
+      "language_code": "uk",
+      "name": "Проектування, конструювання та надійність інтернет речей",
+      "master": 242
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 510,
+    "fields": {
+      "language_code": "en",
+      "name": "Design, Construction and Reliability of Internet of Things",
+      "master": 242
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 243,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 30
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 511,
+    "fields": {
+      "language_code": "uk",
+      "name": "Мікроконтролери та системне програмування",
+      "master": 243
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 512,
+    "fields": {
+      "language_code": "en",
+      "name": "Microcontrollers and System Programming",
+      "master": 243
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 244,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 31
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 513,
+    "fields": {
+      "language_code": "uk",
+      "name": "Курсова робота з системного програмування",
+      "master": 244
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 514,
+    "fields": {
+      "language_code": "en",
+      "name": "Course Work in System Programming",
+      "master": 244
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 245,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 32
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 515,
+    "fields": {
+      "language_code": "uk",
+      "name": "Менеджмент якості програмного забезпечення",
+      "master": 245
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 516,
+    "fields": {
+      "language_code": "en",
+      "name": "Software Quality Management",
+      "master": 245
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 246,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 33
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 517,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи машинного навчання та обчислювального інтелекту",
+      "master": 246
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 518,
+    "fields": {
+      "language_code": "en",
+      "name": "Machine Learning and Computational Intelligence Methods",
+      "master": 246
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 247,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 34
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 519,
+    "fields": {
+      "language_code": "uk",
+      "name": "Алгоритми та обчислювальні методи математичної фізики",
+      "master": 247
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 520,
+    "fields": {
+      "language_code": "en",
+      "name": "Algorithms and Computational Methods of Mathematical Physics",
+      "master": 247
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 248,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 35
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 521,
+    "fields": {
+      "language_code": "uk",
+      "name": "Курсова робота з програмування інтернет речей",
+      "master": 248
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 522,
+    "fields": {
+      "language_code": "en",
+      "name": "Course Work in IoT Programming",
+      "master": 248
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 249,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "9.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 36
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 523,
+    "fields": {
+      "language_code": "uk",
+      "name": "Кваліфікаційна бакалаврська робота",
+      "master": 249
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 524,
+    "fields": {
+      "language_code": "en",
+      "name": "Bachelor's Qualification Thesis",
+      "master": 249
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 250,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 37
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 525,
+    "fields": {
+      "language_code": "uk",
+      "name": "Виробнича практика",
+      "master": 250
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 526,
+    "fields": {
+      "language_code": "en",
+      "name": "Production Practice",
+      "master": 250
     }
   }
 ]
