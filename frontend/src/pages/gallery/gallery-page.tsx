@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
-import { ROUTES } from "@/shared/model/routes";
 import { Reveal, Stagger, StaggerItem } from "@/shared/ui";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";

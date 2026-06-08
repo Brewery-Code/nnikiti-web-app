@@ -1,73 +1,14 @@
 import clsx from "clsx";
-import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ROUTES } from "@/shared/model/routes";
 import { logoCat } from "@/shared/icons";
 import { useLoadNamespace } from "@/shared/hooks";
-import { useContactsData } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
-
-const FOOTER_ICONS: Record<string, ReactNode> = {
-  instagram: (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-    </svg>
-  ),
-  facebook: (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  ),
-  youtube: (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-      <path fillRule="evenodd" clipRule="evenodd" d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02l5.75-3.02-5.75-3.04v6.06z" />
-    </svg>
-  ),
-  telegram: (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z" />
-    </svg>
-  ),
-};
-
-function FooterSocialLink({ icon, label, href }: { icon: string; label: string; href: string }) {
-  const [h, setH] = useState(false);
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseEnter={() => setH(true)}
-      onMouseLeave={() => setH(false)}
-      className="flex items-center"
-      style={{
-        gap: 8,
-        padding: "8px 16px",
-        borderRadius: 10,
-        background: h ? "rgba(166,132,255,0.1)" : "rgba(255,255,255,0.04)",
-        border: `1px solid ${h ? "rgba(166,132,255,0.25)" : "rgba(255,255,255,0.07)"}`,
-        fontSize: 13,
-        fontWeight: 500,
-        color: h ? "#fff" : "rgba(255,255,255,0.65)",
-        transition: "all 180ms",
-        textDecoration: "none",
-      }}
-    >
-      <span style={{ color: h ? "#a684ff" : "rgba(255,255,255,0.55)" }}>
-        {FOOTER_ICONS[icon]}
-      </span>
-      {label}
-    </a>
-  );
-}
 
 export function Footer({ className }: { className?: string }) {
   useLoadNamespace("footer", loadTranslations);
   const { t } = useTranslation("footer");
-  const { socialMediaLinks } = useContactsData();
 
   const NAV_COLS = [
     {

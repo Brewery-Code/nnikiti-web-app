@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { BackButton } from "@/shared/ui";
 import { setScrollLocked } from "@/shared/hooks";
