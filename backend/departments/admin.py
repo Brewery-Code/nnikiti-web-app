@@ -157,7 +157,7 @@ class EducationalProgramInline(TabularInline):
     extra = 0
     verbose_name = "Освітня програма"
     verbose_name_plural = "Освітні програми"
-    fields = ('code', 'duration', 'total_credits', 'budget_seats', 'contract_seats')
+    fields = ('code', 'url', 'duration', 'total_credits', 'budget_seats', 'contract_seats')
     show_change_link = True
 
 #########################

@@ -157,6 +157,7 @@ class EducationalProgram(TranslatableModel):
         related_name="edu_program_levels"
     )
 
+    url = models.URLField(blank=True, verbose_name=_("Program URL"))
     duration = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Duration (years)"))
     total_credits = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Total ECTS credits"))
     budget_seats = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Budget seats"))

@@ -31,6 +31,7 @@ class EducationalProgramSerializer(serializers.ModelSerializer):
             'id',
             'code',
             'name',
+            'url',
             'subject',
             'education_forms',
             'education_levels',
@@ -141,7 +142,7 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = EducationalProgram
         fields = [
-            'id', 'code', 'name', 'description',
+            'id', 'code', 'name', 'description', 'url',
             'degree', 'form', 'duration', 'total_credits',
             'bachelor', 'magistracy', 'postgraduate',
             'subject', 'education_forms', 'education_levels',
