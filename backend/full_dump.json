@@ -4808,5 +4808,4625 @@
       "email": "",
       "audience": ""
     }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 60,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 145,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування",
+      "master": 60
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 146,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming",
+      "master": 60
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 61,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 147,
+    "fields": {
+      "language_code": "uk",
+      "name": "Алгоритми та структури даних",
+      "master": 61
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 148,
+    "fields": {
+      "language_code": "en",
+      "name": "Algorithms and Data Structures",
+      "master": 61
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 62,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 149,
+    "fields": {
+      "language_code": "uk",
+      "name": "Операційні системи",
+      "master": 62
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 150,
+    "fields": {
+      "language_code": "en",
+      "name": "Operating Systems",
+      "master": 62
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 63,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 151,
+    "fields": {
+      "language_code": "uk",
+      "name": "Об'єктно-орієнтоване програмування",
+      "master": 63
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 152,
+    "fields": {
+      "language_code": "en",
+      "name": "Object-Oriented Programming",
+      "master": 63
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 64,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 153,
+    "fields": {
+      "language_code": "uk",
+      "name": "Бази даних та інформаційні системи",
+      "master": 64
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 154,
+    "fields": {
+      "language_code": "en",
+      "name": "Databases and Information Systems",
+      "master": 64
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 65,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 155,
+    "fields": {
+      "language_code": "uk",
+      "name": "Теорія ймовірностей та випадкові процеси",
+      "master": 65
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 156,
+    "fields": {
+      "language_code": "en",
+      "name": "Probability Theory and Random Processes",
+      "master": 65
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 66,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 157,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математична статистика та аналіз даних",
+      "master": 66
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 158,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical Statistics and Data Analysis",
+      "master": 66
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 67,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 159,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи оптимізації та дослідження операцій",
+      "master": 67
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 160,
+    "fields": {
+      "language_code": "en",
+      "name": "Optimization Methods and Operations Research",
+      "master": 67
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 68,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 161,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи обчислень та спеціалізовані мови програмування",
+      "master": 68
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 162,
+    "fields": {
+      "language_code": "en",
+      "name": "Computational Methods and Specialized Programming Languages",
+      "master": 68
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 69,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 163,
+    "fields": {
+      "language_code": "uk",
+      "name": "Рівняння математичної фізики",
+      "master": 69
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 164,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical Physics Equations",
+      "master": 69
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 70,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 165,
+    "fields": {
+      "language_code": "uk",
+      "name": "Чисельні методи математичної фізики",
+      "master": 70
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 166,
+    "fields": {
+      "language_code": "en",
+      "name": "Numerical Methods of Mathematical Physics",
+      "master": 70
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 71,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 12
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 167,
+    "fields": {
+      "language_code": "uk",
+      "name": "Тестування програмних систем",
+      "master": 71
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 168,
+    "fields": {
+      "language_code": "en",
+      "name": "Software System Testing",
+      "master": 71
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 72,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 169,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи та моделі теорії прийняття рішень",
+      "master": 72
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 170,
+    "fields": {
+      "language_code": "en",
+      "name": "Methods and Models of Decision Theory",
+      "master": 72
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 73,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 171,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математичне та комп'ютерне моделювання",
+      "master": 73
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 172,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical and Computer Modelling",
+      "master": 73
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 74,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 173,
+    "fields": {
+      "language_code": "uk",
+      "name": "Теорія керування",
+      "master": 74
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 174,
+    "fields": {
+      "language_code": "en",
+      "name": "Control Theory",
+      "master": 74
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 75,
+    "fields": {
+      "program": 2,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 175,
+    "fields": {
+      "language_code": "uk",
+      "name": "Некоректні задачі у природокористуванні",
+      "master": 75
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 176,
+    "fields": {
+      "language_code": "en",
+      "name": "Ill-Posed Problems in Environmental Management",
+      "master": 75
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 76,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "8.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 177,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування та алгоритми",
+      "master": 76
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 178,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming and Algorithms",
+      "master": 76
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 77,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 179,
+    "fields": {
+      "language_code": "uk",
+      "name": "Бази даних і робота з даними",
+      "master": 77
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 180,
+    "fields": {
+      "language_code": "en",
+      "name": "Databases and Data Processing",
+      "master": 77
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 78,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 181,
+    "fields": {
+      "language_code": "uk",
+      "name": "Об'єктно-орієнтоване програмування та патерни проєктування",
+      "master": 78
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 182,
+    "fields": {
+      "language_code": "en",
+      "name": "OOP and Design Patterns",
+      "master": 78
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 79,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 183,
+    "fields": {
+      "language_code": "uk",
+      "name": "Конструювання, тестування та забезпечення якості ПЗ",
+      "master": 79
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 184,
+    "fields": {
+      "language_code": "en",
+      "name": "Software Construction, Testing and Quality Assurance",
+      "master": 79
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 80,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 185,
+    "fields": {
+      "language_code": "uk",
+      "name": "Веброзробка та хмарні технології",
+      "master": 80
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 186,
+    "fields": {
+      "language_code": "en",
+      "name": "Web Development and Cloud Technologies",
+      "master": 80
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 81,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 187,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерні мережі, інтерфейси й протоколи передавання даних",
+      "master": 81
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 188,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Networks, Interfaces and Data Transmission Protocols",
+      "master": 81
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 82,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 189,
+    "fields": {
+      "language_code": "uk",
+      "name": "Інформаційна безпека та захист даних",
+      "master": 82
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 190,
+    "fields": {
+      "language_code": "en",
+      "name": "Information Security and Data Protection",
+      "master": 82
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 83,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 191,
+    "fields": {
+      "language_code": "uk",
+      "name": "Людино-машинна взаємодія та основи дизайну інтерфейсів",
+      "master": 83
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 192,
+    "fields": {
+      "language_code": "en",
+      "name": "Human-Computer Interaction and Interface Design",
+      "master": 83
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 84,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 193,
+    "fields": {
+      "language_code": "uk",
+      "name": "Мікроконтролери, системне програмування та компоненти IoT",
+      "master": 84
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 194,
+    "fields": {
+      "language_code": "en",
+      "name": "Microcontrollers, System Programming and IoT Components",
+      "master": 84
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 85,
+    "fields": {
+      "program": 6,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 195,
+    "fields": {
+      "language_code": "uk",
+      "name": "Основи машинного навчання та обчислювального інтелекту",
+      "master": 85
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 196,
+    "fields": {
+      "language_code": "en",
+      "name": "Fundamentals of Machine Learning and Computational Intelligence",
+      "master": 85
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 86,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "8.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 197,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування",
+      "master": 86
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 198,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming",
+      "master": 86
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 87,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 199,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерні мережі та розробка мережевого ПЗ",
+      "master": 87
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 200,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Networks and Network Software Development",
+      "master": 87
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 88,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 201,
+    "fields": {
+      "language_code": "uk",
+      "name": "Тестування програмних систем",
+      "master": 88
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 202,
+    "fields": {
+      "language_code": "en",
+      "name": "Software System Testing",
+      "master": 88
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 89,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 203,
+    "fields": {
+      "language_code": "uk",
+      "name": "Операційні системи",
+      "master": 89
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 204,
+    "fields": {
+      "language_code": "en",
+      "name": "Operating Systems",
+      "master": 89
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 90,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 205,
+    "fields": {
+      "language_code": "uk",
+      "name": "Безпека інформаційних систем та захист інформації",
+      "master": 90
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 206,
+    "fields": {
+      "language_code": "en",
+      "name": "Information System Security and Data Protection",
+      "master": 90
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 91,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 207,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерна графіка",
+      "master": 91
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 208,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Graphics",
+      "master": 91
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 92,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 209,
+    "fields": {
+      "language_code": "uk",
+      "name": "Бізнес-аналітика та командна розробка програмних проєктів",
+      "master": 92
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 210,
+    "fields": {
+      "language_code": "en",
+      "name": "Business Analytics and Team Software Development",
+      "master": 92
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 93,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 211,
+    "fields": {
+      "language_code": "uk",
+      "name": "Бази даних",
+      "master": 93
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 212,
+    "fields": {
+      "language_code": "en",
+      "name": "Databases",
+      "master": 93
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 94,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 213,
+    "fields": {
+      "language_code": "uk",
+      "name": "Архітектура обчислювальних систем та системне програмування",
+      "master": 94
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 214,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer System Architecture and System Programming",
+      "master": 94
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 95,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 215,
+    "fields": {
+      "language_code": "uk",
+      "name": "Веб-програмування та хмарні технології",
+      "master": 95
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 216,
+    "fields": {
+      "language_code": "en",
+      "name": "Web Programming and Cloud Technologies",
+      "master": 95
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 96,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 217,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математична логіка та логічне програмування",
+      "master": 96
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 218,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical Logic and Logic Programming",
+      "master": 96
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 97,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 219,
+    "fields": {
+      "language_code": "uk",
+      "name": "Системний аналіз, проєктування та розробка ІС",
+      "master": 97
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 220,
+    "fields": {
+      "language_code": "en",
+      "name": "System Analysis, Design and Development of Information Systems",
+      "master": 97
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 98,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 221,
+    "fields": {
+      "language_code": "uk",
+      "name": "Алгоритми та структури даних",
+      "master": 98
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 222,
+    "fields": {
+      "language_code": "en",
+      "name": "Algorithms and Data Structures",
+      "master": 98
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 99,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 223,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи обчислень та спеціалізовані мови програмування",
+      "master": 99
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 224,
+    "fields": {
+      "language_code": "en",
+      "name": "Computational Methods and Specialized Programming Languages",
+      "master": 99
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 100,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 225,
+    "fields": {
+      "language_code": "uk",
+      "name": "Об'єктно-орієнтоване програмування",
+      "master": 100
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 226,
+    "fields": {
+      "language_code": "en",
+      "name": "Object-Oriented Programming",
+      "master": 100
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 101,
+    "fields": {
+      "program": 7,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 227,
+    "fields": {
+      "language_code": "uk",
+      "name": "Основи Big Data",
+      "master": 101
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 228,
+    "fields": {
+      "language_code": "en",
+      "name": "Big Data Fundamentals",
+      "master": 101
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 102,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 229,
+    "fields": {
+      "language_code": "uk",
+      "name": "Автоматизоване тестування програмного забезпечення",
+      "master": 102
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 230,
+    "fields": {
+      "language_code": "en",
+      "name": "Automated Software Testing",
+      "master": 102
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 103,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 231,
+    "fields": {
+      "language_code": "uk",
+      "name": "Технології управління та оцінювання ІТ-проєктів",
+      "master": 103
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 232,
+    "fields": {
+      "language_code": "en",
+      "name": "IT Project Management and Evaluation Technologies",
+      "master": 103
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 104,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 233,
+    "fields": {
+      "language_code": "uk",
+      "name": "Дослідження еко-інформаційних систем методами моделювання",
+      "master": 104
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 234,
+    "fields": {
+      "language_code": "en",
+      "name": "Research of Eco-Information Systems by Modelling Methods",
+      "master": 104
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 105,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 235,
+    "fields": {
+      "language_code": "uk",
+      "name": "Розробка ігор",
+      "master": 105
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 236,
+    "fields": {
+      "language_code": "en",
+      "name": "Game Development",
+      "master": 105
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 106,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 237,
+    "fields": {
+      "language_code": "uk",
+      "name": "Іноземна мова професійного спілкування",
+      "master": 106
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 238,
+    "fields": {
+      "language_code": "en",
+      "name": "Foreign Language for Professional Communication",
+      "master": 106
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 107,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 239,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування засобами C#.NET",
+      "master": 107
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 240,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming with C#.NET",
+      "master": 107
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 108,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 241,
+    "fields": {
+      "language_code": "uk",
+      "name": "Сучасні методи та технології захисту інформації",
+      "master": 108
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 242,
+    "fields": {
+      "language_code": "en",
+      "name": "Modern Methods and Technologies of Information Protection",
+      "master": 108
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 109,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 243,
+    "fields": {
+      "language_code": "uk",
+      "name": "Проєктування систем штучного інтелекту",
+      "master": 109
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 244,
+    "fields": {
+      "language_code": "en",
+      "name": "Artificial Intelligence System Design",
+      "master": 109
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 110,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 245,
+    "fields": {
+      "language_code": "uk",
+      "name": "Актуальні проблеми Data Mining",
+      "master": 110
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 246,
+    "fields": {
+      "language_code": "en",
+      "name": "Relevant Problems of Data Mining",
+      "master": 110
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 111,
+    "fields": {
+      "program": 8,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 247,
+    "fields": {
+      "language_code": "uk",
+      "name": "Проблеми ідентифікації",
+      "master": 111
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 248,
+    "fields": {
+      "language_code": "en",
+      "name": "Identification Problems",
+      "master": 111
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 112,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 249,
+    "fields": {
+      "language_code": "uk",
+      "name": "Українська мова (за професійним спрямуванням)",
+      "master": 112
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 250,
+    "fields": {
+      "language_code": "en",
+      "name": "Ukrainian Language (Professional)",
+      "master": 112
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 113,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 251,
+    "fields": {
+      "language_code": "uk",
+      "name": "Українська державність і культура",
+      "master": 113
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 252,
+    "fields": {
+      "language_code": "en",
+      "name": "Ukrainian Statehood and Culture",
+      "master": 113
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 114,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "12.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 253,
+    "fields": {
+      "language_code": "uk",
+      "name": "Іноземна мова",
+      "master": 114
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 254,
+    "fields": {
+      "language_code": "en",
+      "name": "Foreign Language",
+      "master": 114
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 115,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 255,
+    "fields": {
+      "language_code": "uk",
+      "name": "Екологія",
+      "master": 115
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 256,
+    "fields": {
+      "language_code": "en",
+      "name": "Ecology",
+      "master": 115
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 116,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 257,
+    "fields": {
+      "language_code": "uk",
+      "name": "Філософія",
+      "master": 116
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 258,
+    "fields": {
+      "language_code": "en",
+      "name": "Philosophy",
+      "master": 116
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 117,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 259,
+    "fields": {
+      "language_code": "uk",
+      "name": "Підприємницька діяльність",
+      "master": 117
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 260,
+    "fields": {
+      "language_code": "en",
+      "name": "Entrepreneurial Activity",
+      "master": 117
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 118,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 261,
+    "fields": {
+      "language_code": "uk",
+      "name": "Вступ до спеціальності та академічна адаптація",
+      "master": 118
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 262,
+    "fields": {
+      "language_code": "en",
+      "name": "Introduction to Specialty and Academic Adaptation",
+      "master": 118
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 119,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "13.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 263,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математичний та функціональний аналіз",
+      "master": 119
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 264,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical and Functional Analysis",
+      "master": 119
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 120,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "9.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 265,
+    "fields": {
+      "language_code": "uk",
+      "name": "Алгебра та геометрія",
+      "master": 120
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 266,
+    "fields": {
+      "language_code": "en",
+      "name": "Algebra and Geometry",
+      "master": 120
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 121,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "14.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 267,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування",
+      "master": 121
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 268,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming",
+      "master": 121
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 122,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 269,
+    "fields": {
+      "language_code": "uk",
+      "name": "Прикладні дискретні структури",
+      "master": 122
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 270,
+    "fields": {
+      "language_code": "en",
+      "name": "Applied Discrete Structures",
+      "master": 122
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 123,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 271,
+    "fields": {
+      "language_code": "uk",
+      "name": "Спеціалізовані мови програмування для обробки даних",
+      "master": 123
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 272,
+    "fields": {
+      "language_code": "en",
+      "name": "Specialized Programming Languages for Data Processing",
+      "master": 123
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 124,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 13
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 273,
+    "fields": {
+      "language_code": "uk",
+      "name": "Диференціальні рівняння",
+      "master": 124
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 274,
+    "fields": {
+      "language_code": "en",
+      "name": "Differential Equations",
+      "master": 124
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 125,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 14
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 275,
+    "fields": {
+      "language_code": "uk",
+      "name": "Чисельні методи",
+      "master": 125
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 276,
+    "fields": {
+      "language_code": "en",
+      "name": "Numerical Methods",
+      "master": 125
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 126,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 277,
+    "fields": {
+      "language_code": "uk",
+      "name": "Об'єктно-орієнтоване програмування",
+      "master": 126
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 278,
+    "fields": {
+      "language_code": "en",
+      "name": "Object-Oriented Programming",
+      "master": 126
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 127,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 279,
+    "fields": {
+      "language_code": "uk",
+      "name": "Теорія ймовірностей",
+      "master": 127
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 280,
+    "fields": {
+      "language_code": "en",
+      "name": "Probability Theory",
+      "master": 127
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 128,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 17
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 281,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмні системи для аналізу та обробки даних",
+      "master": 128
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 282,
+    "fields": {
+      "language_code": "en",
+      "name": "Software Systems for Data Analysis and Processing",
+      "master": 128
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 129,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 18
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 283,
+    "fields": {
+      "language_code": "uk",
+      "name": "Прикладний статистичний аналіз даних",
+      "master": 129
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 284,
+    "fields": {
+      "language_code": "en",
+      "name": "Applied Statistical Data Analysis",
+      "master": 129
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 130,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 19
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 285,
+    "fields": {
+      "language_code": "uk",
+      "name": "Основи проєктування баз даних та знань",
+      "master": 130
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 286,
+    "fields": {
+      "language_code": "en",
+      "name": "Fundamentals of Database and Knowledge Design",
+      "master": 130
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 131,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 20
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 287,
+    "fields": {
+      "language_code": "uk",
+      "name": "Системна оптимізація",
+      "master": 131
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 288,
+    "fields": {
+      "language_code": "en",
+      "name": "System Optimization",
+      "master": 131
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 132,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 21
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 289,
+    "fields": {
+      "language_code": "uk",
+      "name": "Курсова робота з інженерії даних",
+      "master": 132
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 290,
+    "fields": {
+      "language_code": "en",
+      "name": "Course Work in Data Engineering",
+      "master": 132
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 133,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 22
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 291,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерні мережі та хмарні технології",
+      "master": 133
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 292,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Networks and Cloud Technologies",
+      "master": 133
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 134,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 23
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 293,
+    "fields": {
+      "language_code": "uk",
+      "name": "Технології створення програмних продуктів",
+      "master": 134
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 294,
+    "fields": {
+      "language_code": "en",
+      "name": "Software Product Development Technologies",
+      "master": 134
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 135,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 24
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 295,
+    "fields": {
+      "language_code": "uk",
+      "name": "Високопродуктивні обчислення",
+      "master": 135
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 296,
+    "fields": {
+      "language_code": "en",
+      "name": "High-Performance Computing",
+      "master": 135
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 136,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 25
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 297,
+    "fields": {
+      "language_code": "uk",
+      "name": "Системний аналіз та проєктування ІС",
+      "master": 136
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 298,
+    "fields": {
+      "language_code": "en",
+      "name": "System Analysis and IS Design",
+      "master": 136
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 137,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 26
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 299,
+    "fields": {
+      "language_code": "uk",
+      "name": "Інтелектуальний аналіз даних",
+      "master": 137
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 300,
+    "fields": {
+      "language_code": "en",
+      "name": "Intelligent Data Analysis",
+      "master": 137
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 138,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 27
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 301,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математичне та комп'ютерне моделювання процесів та систем",
+      "master": 138
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 302,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical and Computer Modelling of Processes and Systems",
+      "master": 138
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 139,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 28
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 303,
+    "fields": {
+      "language_code": "uk",
+      "name": "Стохастичне моделювання",
+      "master": 139
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 304,
+    "fields": {
+      "language_code": "en",
+      "name": "Stochastic Modelling",
+      "master": 139
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 140,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 29
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 305,
+    "fields": {
+      "language_code": "uk",
+      "name": "Штучний інтелект та машинне навчання",
+      "master": 140
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 306,
+    "fields": {
+      "language_code": "en",
+      "name": "Artificial Intelligence and Machine Learning",
+      "master": 140
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 141,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 30
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 307,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи оптимального керування та прийняття рішень",
+      "master": 141
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 308,
+    "fields": {
+      "language_code": "en",
+      "name": "Methods of Optimal Control and Decision-Making",
+      "master": 141
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 142,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 31
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 309,
+    "fields": {
+      "language_code": "uk",
+      "name": "Цифрові трансформації в управлінні ІС та даними",
+      "master": 142
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 310,
+    "fields": {
+      "language_code": "en",
+      "name": "Digital Transformations in IS and Data Management",
+      "master": 142
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 143,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 32
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 311,
+    "fields": {
+      "language_code": "uk",
+      "name": "Виробнича практика",
+      "master": 143
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 312,
+    "fields": {
+      "language_code": "en",
+      "name": "Industrial Practice",
+      "master": 143
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 144,
+    "fields": {
+      "program": 10,
+      "semester": 1,
+      "credits": "9.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 33
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 313,
+    "fields": {
+      "language_code": "uk",
+      "name": "Кваліфікаційна робота",
+      "master": 144
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 314,
+    "fields": {
+      "language_code": "en",
+      "name": "Qualification Thesis",
+      "master": 144
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 145,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 315,
+    "fields": {
+      "language_code": "uk",
+      "name": "Архітектура комп'ютерів",
+      "master": 145
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 316,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Architecture",
+      "master": 145
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 146,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 317,
+    "fields": {
+      "language_code": "uk",
+      "name": "Операційні системи",
+      "master": 146
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 318,
+    "fields": {
+      "language_code": "en",
+      "name": "Operating Systems",
+      "master": 146
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 147,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "8.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 319,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування",
+      "master": 147
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 320,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming",
+      "master": 147
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 148,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 321,
+    "fields": {
+      "language_code": "uk",
+      "name": "Крос-платформне програмування",
+      "master": 148
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 322,
+    "fields": {
+      "language_code": "en",
+      "name": "Cross-Platform Programming",
+      "master": 148
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 149,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 323,
+    "fields": {
+      "language_code": "uk",
+      "name": "Сучасні та спеціалізовані мови програмування",
+      "master": 149
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 324,
+    "fields": {
+      "language_code": "en",
+      "name": "Modern and Specialized Programming Languages",
+      "master": 149
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 150,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 325,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування мовою Java",
+      "master": 150
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 326,
+    "fields": {
+      "language_code": "en",
+      "name": "Java Programming",
+      "master": 150
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 151,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 327,
+    "fields": {
+      "language_code": "uk",
+      "name": "Технології тестування програмних продуктів",
+      "master": 151
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 328,
+    "fields": {
+      "language_code": "en",
+      "name": "Software Testing Technologies",
+      "master": 151
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 152,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 329,
+    "fields": {
+      "language_code": "uk",
+      "name": "Проєктування та розробка інформаційних систем",
+      "master": 152
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 330,
+    "fields": {
+      "language_code": "en",
+      "name": "Information System Design and Development",
+      "master": 152
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 153,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 331,
+    "fields": {
+      "language_code": "uk",
+      "name": "Безпека інформаційних систем та захист інформації",
+      "master": 153
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 332,
+    "fields": {
+      "language_code": "en",
+      "name": "Information System Security and Data Protection",
+      "master": 153
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 154,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 333,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерні мережі",
+      "master": 154
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 334,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Networks",
+      "master": 154
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 155,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 335,
+    "fields": {
+      "language_code": "uk",
+      "name": "Організація баз даних та знань",
+      "master": 155
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 336,
+    "fields": {
+      "language_code": "en",
+      "name": "Database and Knowledge Organization",
+      "master": 155
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 156,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 337,
+    "fields": {
+      "language_code": "uk",
+      "name": "Вебтехнології та вебдизайн",
+      "master": 156
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 338,
+    "fields": {
+      "language_code": "en",
+      "name": "Web Technologies and Web Design",
+      "master": 156
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 157,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 339,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерна графіка та обробка зображень",
+      "master": 157
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 340,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Graphics and Image Processing",
+      "master": 157
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 158,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 341,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи та системи штучного інтелекту",
+      "master": 158
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 342,
+    "fields": {
+      "language_code": "en",
+      "name": "Artificial Intelligence Methods and Systems",
+      "master": 158
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 159,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 343,
+    "fields": {
+      "language_code": "uk",
+      "name": "Управління ІТ-проєктами",
+      "master": 159
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 344,
+    "fields": {
+      "language_code": "en",
+      "name": "IT Project Management",
+      "master": 159
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 160,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 345,
+    "fields": {
+      "language_code": "uk",
+      "name": "Теорія прийняття рішень",
+      "master": 160
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 346,
+    "fields": {
+      "language_code": "en",
+      "name": "Decision Theory",
+      "master": 160
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 161,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 17
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 347,
+    "fields": {
+      "language_code": "uk",
+      "name": "Основи інтернету речей",
+      "master": 161
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 348,
+    "fields": {
+      "language_code": "en",
+      "name": "Internet of Things Fundamentals",
+      "master": 161
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 162,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 18
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 349,
+    "fields": {
+      "language_code": "uk",
+      "name": "Хмарні сервіси і технології",
+      "master": 162
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 350,
+    "fields": {
+      "language_code": "en",
+      "name": "Cloud Services and Technologies",
+      "master": 162
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 163,
+    "fields": {
+      "program": 11,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 19
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 351,
+    "fields": {
+      "language_code": "uk",
+      "name": "Інтернет-маркетинг",
+      "master": 163
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 352,
+    "fields": {
+      "language_code": "en",
+      "name": "Internet Marketing",
+      "master": 163
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 164,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 353,
+    "fields": {
+      "language_code": "uk",
+      "name": "Психологія",
+      "master": 164
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 354,
+    "fields": {
+      "language_code": "en",
+      "name": "Psychology",
+      "master": 164
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 165,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 355,
+    "fields": {
+      "language_code": "uk",
+      "name": "Педагогіка",
+      "master": 165
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 356,
+    "fields": {
+      "language_code": "en",
+      "name": "Pedagogy",
+      "master": 165
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 166,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 357,
+    "fields": {
+      "language_code": "uk",
+      "name": "Професійна педагогіка",
+      "master": 166
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 358,
+    "fields": {
+      "language_code": "en",
+      "name": "Professional Pedagogy",
+      "master": 166
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 167,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 359,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методика професійного навчання",
+      "master": 167
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 360,
+    "fields": {
+      "language_code": "en",
+      "name": "Professional Teaching Methodology",
+      "master": 167
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 168,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 361,
+    "fields": {
+      "language_code": "uk",
+      "name": "Технічні засоби навчання",
+      "master": 168
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 362,
+    "fields": {
+      "language_code": "en",
+      "name": "Educational Technical Means",
+      "master": 168
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 169,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 363,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерні технології в навчальному процесі",
+      "master": 169
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 364,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer Technologies in Educational Process",
+      "master": 169
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 170,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 365,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмні засоби та платформи дистанційної освіти",
+      "master": 170
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 366,
+    "fields": {
+      "language_code": "en",
+      "name": "Distance Education Software and Platforms",
+      "master": 170
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 171,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 367,
+    "fields": {
+      "language_code": "uk",
+      "name": "Базовий курс інформатики",
+      "master": 171
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 368,
+    "fields": {
+      "language_code": "en",
+      "name": "Basic Computer Science Course",
+      "master": 171
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 172,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 369,
+    "fields": {
+      "language_code": "uk",
+      "name": "Алгоритмізація та програмування",
+      "master": 172
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 370,
+    "fields": {
+      "language_code": "en",
+      "name": "Algorithmization and Programming",
+      "master": 172
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 173,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 371,
+    "fields": {
+      "language_code": "uk",
+      "name": "Організація баз даних та знань",
+      "master": 173
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 372,
+    "fields": {
+      "language_code": "en",
+      "name": "Database and Knowledge Organization",
+      "master": 173
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 174,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 373,
+    "fields": {
+      "language_code": "uk",
+      "name": "Обробка зображень та мультимедіа",
+      "master": 174
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 374,
+    "fields": {
+      "language_code": "en",
+      "name": "Image Processing and Multimedia",
+      "master": 174
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 175,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 375,
+    "fields": {
+      "language_code": "uk",
+      "name": "Вебтехнології та вебдизайн",
+      "master": 175
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 376,
+    "fields": {
+      "language_code": "en",
+      "name": "Web Technologies and Web Design",
+      "master": 175
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 176,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 13
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 377,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування на мові Java",
+      "master": 176
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 378,
+    "fields": {
+      "language_code": "en",
+      "name": "Java Programming",
+      "master": 176
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 177,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 14
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 379,
+    "fields": {
+      "language_code": "uk",
+      "name": "Електроніка та мікропроцесорні системи",
+      "master": 177
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 380,
+    "fields": {
+      "language_code": "en",
+      "name": "Electronics and Microprocessor Systems",
+      "master": 177
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 178,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 15
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 381,
+    "fields": {
+      "language_code": "uk",
+      "name": "Архітектура обчислювальних систем та системне програмування",
+      "master": 178
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 382,
+    "fields": {
+      "language_code": "en",
+      "name": "Computer System Architecture and System Programming",
+      "master": 178
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 179,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 16
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 383,
+    "fields": {
+      "language_code": "uk",
+      "name": "Управління ІТ-проєктами",
+      "master": 179
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 384,
+    "fields": {
+      "language_code": "en",
+      "name": "IT Project Management",
+      "master": 179
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 180,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 17
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 385,
+    "fields": {
+      "language_code": "uk",
+      "name": "Крос-платформне програмування мобільних пристроїв",
+      "master": 180
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 386,
+    "fields": {
+      "language_code": "en",
+      "name": "Cross-Platform Mobile Device Programming",
+      "master": 180
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 181,
+    "fields": {
+      "program": 13,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 18
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 387,
+    "fields": {
+      "language_code": "uk",
+      "name": "Безпека інформаційних систем та захист інформації",
+      "master": 181
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 388,
+    "fields": {
+      "language_code": "en",
+      "name": "Information System Security and Data Protection",
+      "master": 181
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 182,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 389,
+    "fields": {
+      "language_code": "uk",
+      "name": "Дослідження та оптимізація комп'ютерних систем",
+      "master": 182
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 390,
+    "fields": {
+      "language_code": "en",
+      "name": "Research and Optimization of Computer Systems",
+      "master": 182
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 183,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 391,
+    "fields": {
+      "language_code": "uk",
+      "name": "Мережеві інформаційні технології",
+      "master": 183
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 392,
+    "fields": {
+      "language_code": "en",
+      "name": "Network Information Technologies",
+      "master": 183
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 184,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 393,
+    "fields": {
+      "language_code": "uk",
+      "name": "Основи теорії захисту інформації",
+      "master": 184
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 394,
+    "fields": {
+      "language_code": "en",
+      "name": "Fundamentals of Information Protection Theory",
+      "master": 184
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 185,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 395,
+    "fields": {
+      "language_code": "uk",
+      "name": "Програмування засобами C#.NET",
+      "master": 185
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 396,
+    "fields": {
+      "language_code": "en",
+      "name": "Programming with C#.NET",
+      "master": 185
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 186,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 397,
+    "fields": {
+      "language_code": "uk",
+      "name": "Управління інноваційними проектами",
+      "master": 186
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 398,
+    "fields": {
+      "language_code": "en",
+      "name": "Innovative Project Management",
+      "master": 186
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 187,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 399,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комп'ютерні системи штучного інтелекту",
+      "master": 187
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 400,
+    "fields": {
+      "language_code": "en",
+      "name": "Artificial Intelligence Computer Systems",
+      "master": 187
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 188,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 401,
+    "fields": {
+      "language_code": "uk",
+      "name": "Логічне і функціональне програмування",
+      "master": 188
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 402,
+    "fields": {
+      "language_code": "en",
+      "name": "Logic and Functional Programming",
+      "master": 188
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 189,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 403,
+    "fields": {
+      "language_code": "uk",
+      "name": "Менеджмент інформаційної безпеки",
+      "master": 189
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 404,
+    "fields": {
+      "language_code": "en",
+      "name": "Information Security Management",
+      "master": 189
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 190,
+    "fields": {
+      "program": 17,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 405,
+    "fields": {
+      "language_code": "uk",
+      "name": "Проєктування комп'ютерно-інтегрованих інформаційних систем",
+      "master": 190
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 406,
+    "fields": {
+      "language_code": "en",
+      "name": "Design of Computer-Integrated Information Systems",
+      "master": 190
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 191,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 407,
+    "fields": {
+      "language_code": "uk",
+      "name": "Комплексні системи захисту інформації",
+      "master": 191
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 408,
+    "fields": {
+      "language_code": "en",
+      "name": "Comprehensive Information Security Systems",
+      "master": 191
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 192,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 409,
+    "fields": {
+      "language_code": "uk",
+      "name": "Операційні системи та технології їх захисту",
+      "master": 192
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 410,
+    "fields": {
+      "language_code": "en",
+      "name": "Operating Systems and Their Protection Technologies",
+      "master": 192
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 193,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 411,
+    "fields": {
+      "language_code": "uk",
+      "name": "Безпека в інформаційно-комунікаційних системах",
+      "master": 193
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 412,
+    "fields": {
+      "language_code": "en",
+      "name": "Security in Information and Communication Systems",
+      "master": 193
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 194,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 413,
+    "fields": {
+      "language_code": "uk",
+      "name": "Технічні засоби захисту інформації",
+      "master": 194
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 414,
+    "fields": {
+      "language_code": "en",
+      "name": "Technical Information Protection Means",
+      "master": 194
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 195,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 415,
+    "fields": {
+      "language_code": "uk",
+      "name": "Управління інформаційною безпекою",
+      "master": 195
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 416,
+    "fields": {
+      "language_code": "en",
+      "name": "Information Security Management",
+      "master": 195
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 196,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 417,
+    "fields": {
+      "language_code": "uk",
+      "name": "Основи криптографії та криптоаналізу",
+      "master": 196
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 418,
+    "fields": {
+      "language_code": "en",
+      "name": "Fundamentals of Cryptography and Cryptanalysis",
+      "master": 196
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 197,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 419,
+    "fields": {
+      "language_code": "uk",
+      "name": "Безпека бездротових технологій передачі даних",
+      "master": 197
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 420,
+    "fields": {
+      "language_code": "en",
+      "name": "Wireless Data Transmission Security",
+      "master": 197
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 198,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 421,
+    "fields": {
+      "language_code": "uk",
+      "name": "Інформаційна безпека держави",
+      "master": 198
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 422,
+    "fields": {
+      "language_code": "en",
+      "name": "National Information Security",
+      "master": 198
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 199,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 423,
+    "fields": {
+      "language_code": "uk",
+      "name": "Теорія інформації та кодування",
+      "master": 199
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 424,
+    "fields": {
+      "language_code": "en",
+      "name": "Information Theory and Coding",
+      "master": 199
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 200,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 425,
+    "fields": {
+      "language_code": "uk",
+      "name": "Нормативно-правове забезпечення інформаційної безпеки",
+      "master": 200
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 426,
+    "fields": {
+      "language_code": "en",
+      "name": "Regulatory and Legal Support of Information Security",
+      "master": 200
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 201,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 427,
+    "fields": {
+      "language_code": "uk",
+      "name": "Оцінювання та управління ризиками інформаційної безпеки",
+      "master": 201
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 428,
+    "fields": {
+      "language_code": "en",
+      "name": "Information Security Risk Assessment and Management",
+      "master": 201
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 202,
+    "fields": {
+      "program": 18,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 12
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 429,
+    "fields": {
+      "language_code": "uk",
+      "name": "Організація баз даних",
+      "master": 202
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 430,
+    "fields": {
+      "language_code": "en",
+      "name": "Database Organization",
+      "master": 202
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 203,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 1
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 431,
+    "fields": {
+      "language_code": "uk",
+      "name": "Іноземна мова професійного спілкування",
+      "master": 203
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 432,
+    "fields": {
+      "language_code": "en",
+      "name": "Professional Foreign Language",
+      "master": 203
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 204,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 2
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 433,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методологія наукових досліджень",
+      "master": 204
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 434,
+    "fields": {
+      "language_code": "en",
+      "name": "Research Methodology",
+      "master": 204
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 205,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 3
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 435,
+    "fields": {
+      "language_code": "uk",
+      "name": "Технології проектування та розробки інформаційних систем",
+      "master": 205
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 436,
+    "fields": {
+      "language_code": "en",
+      "name": "Information Systems Design and Development Technologies",
+      "master": 205
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 206,
+    "fields": {
+      "program": 3,
+      "semester": 1,
+      "credits": "4.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 4
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 437,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математичне та комп'ютерне моделювання складних систем",
+      "master": 206
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 438,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical and Computer Modelling of Complex Systems",
+      "master": 206
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 207,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "3.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 5
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 439,
+    "fields": {
+      "language_code": "uk",
+      "name": "Машинне навчання та інтелектуальний аналіз даних",
+      "master": 207
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 440,
+    "fields": {
+      "language_code": "en",
+      "name": "Machine Learning and Data Mining",
+      "master": 207
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 208,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "5.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 6
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 441,
+    "fields": {
+      "language_code": "uk",
+      "name": "Математичне та комп'ютерне прогнозування природних і техногенних процесів",
+      "master": 208
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 442,
+    "fields": {
+      "language_code": "en",
+      "name": "Mathematical and Computer Forecasting of Natural and Technogenic Processes",
+      "master": 208
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 209,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 7
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 443,
+    "fields": {
+      "language_code": "uk",
+      "name": "Некласичні динамічні системи",
+      "master": 209
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 444,
+    "fields": {
+      "language_code": "en",
+      "name": "Non-Classical Dynamical Systems",
+      "master": 209
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 210,
+    "fields": {
+      "program": 3,
+      "semester": 2,
+      "credits": "4.5",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 8
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 445,
+    "fields": {
+      "language_code": "uk",
+      "name": "Методи та технології обчислювального інтелекту",
+      "master": 210
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 446,
+    "fields": {
+      "language_code": "en",
+      "name": "Methods and Technologies of Computational Intelligence",
+      "master": 210
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 211,
+    "fields": {
+      "program": 3,
+      "semester": 3,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 9
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 447,
+    "fields": {
+      "language_code": "uk",
+      "name": "Виробнича практика",
+      "master": 211
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 448,
+    "fields": {
+      "language_code": "en",
+      "name": "Production Practice",
+      "master": 211
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 212,
+    "fields": {
+      "program": 3,
+      "semester": 4,
+      "credits": "6.0",
+      "type": "MN",
+      "control_form": "credit",
+      "order": 10
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 449,
+    "fields": {
+      "language_code": "uk",
+      "name": "Передкваліфікаційна практика",
+      "master": 212
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 450,
+    "fields": {
+      "language_code": "en",
+      "name": "Pre-Qualification Practice",
+      "master": 212
+    }
+  },
+  {
+    "model": "departments.programsubject",
+    "pk": 213,
+    "fields": {
+      "program": 3,
+      "semester": 4,
+      "credits": "24.0",
+      "type": "MN",
+      "control_form": "exam",
+      "order": 11
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 451,
+    "fields": {
+      "language_code": "uk",
+      "name": "Кваліфікаційна (магістерська) робота",
+      "master": 213
+    }
+  },
+  {
+    "model": "departments.programsubjecttranslation",
+    "pk": 452,
+    "fields": {
+      "language_code": "en",
+      "name": "Qualification (Master's) Thesis",
+      "master": 213
+    }
   }
 ]
