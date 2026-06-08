@@ -132,7 +132,7 @@ class ProgramSubjectInline(TabularInline):
     extra = 0
     verbose_name = "Дисципліна"
     verbose_name_plural = "Навчальний план (дисципліни)"
-    fields = ('semester', 'credits', 'type', 'order')
+    fields = ('semester', 'credits', 'type', 'control_form', 'order')
     show_change_link = True
 
 class FacultyMemberInline(TabularInline):
@@ -235,7 +235,7 @@ class DepartmentHistoryAdmin(DepartmentScopedMixin, ModelAdmin):
 class ProgramSubjectAdmin(UnfoldTranslatableAdmin):
     """Custom admin for program subjects."""
     list_display = ("id", "name", "program", "semester", "credits", "type", "order")
-    list_filter = ("program", "semester", "type")
+    list_filter = ("program", "semester", "type", "control_form")
     search_fields = ("translations__name",)
     ordering = ("program", "semester", "order")
 

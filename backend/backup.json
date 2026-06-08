@@ -1,9 +1,16 @@
 [
 {
-  "model": "users.user",
-  "pk": 2,
+  "model": "sessions.session",
+  "pk": "s2ehtq5mmj39beptv2qgee9l9hg3zw7b",
   "fields": {
-    "password": "pbkdf2_sha256$1000000$Sqbod3BSOWDn3UsFfygqVY$gnNwPMpms0Lu8fnccDfrxEQo/k+tm8i+gajbx1GxOWk=",
+    "session_data": ".eJxVjDsOwjAQBe_iGlnrbyxKes5grb1eHECOFCdVxN1JpBTQzsx7m4i4LjWuvcxxJHEVWlx-WcL8Ku0Q9MT2mGSe2jKPSR6JPG2X94nK-3a2fwcVe93XAxc_oCvO2JCzsp61JgiE1hKboMzOHbCyiRhTguLAcQIwXrEGp8TnC-HQN4g:1wWdIY:SguPbICm3Z1zivZM2wRZOtJ4sFtlnJBlwDIV09FzNPs",
+    "expire_date": "2026-06-22T16:58:02.110Z"
+  }
+},
+{
+  "model": "users.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$w3MyXuvshGivF5qQauWblB$sBIktohQMGIDiRQpfBr8X16tipNcrYIX9ZdWDQ/xhmE=",
     "email": "admin@admin.com",
     "first_name": "Admin",
     "last_name": "Admin",
@@ -12,8 +19,9 @@
     "is_staff": true,
     "is_active": true,
     "is_superuser": true,
+    "department": null,
     "date_joined": "2025-08-17T07:34:26.611Z",
-    "last_login": "2025-08-17T07:34:51.390Z",
+    "last_login": "2026-05-31T06:56:57.264Z",
     "updated_at": "2025-08-17T07:34:26.612Z",
     "groups": [],
     "user_permissions": []
@@ -251,6 +259,162 @@
   }
 },
 {
+  "model": "core.partnertranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "name": "SoftServe",
+    "master": 1
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "name": "SoftServe",
+    "master": 1
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "ETH Zurich",
+    "master": 2
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "ETH Zurich",
+    "master": 2
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Варшавський університет природничих наук",
+    "master": 3
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Warsaw University of Life Sciences",
+    "master": 3
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "name": "Університет Ньюкасла",
+    "master": 4
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "name": "Newcastle University",
+    "master": 4
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "name": "Люблінська політехніка",
+    "master": 5
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "name": "Lublin University of Technology",
+    "master": 5
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "name": "Університет Weihenstephan-Triesdorf",
+    "master": 6
+  }
+},
+{
+  "model": "core.partnertranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "name": "Weihenstephan-Triesdorf University",
+    "master": 6
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 1,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.softserveinc.com"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 2,
+  "fields": {
+    "image": "",
+    "site_link": "https://ethz.ch"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 3,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.sggw.edu.pl"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 4,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.ncl.ac.uk"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 5,
+  "fields": {
+    "image": "",
+    "site_link": "https://pollub.pl"
+  }
+},
+{
+  "model": "core.partner",
+  "pk": 6,
+  "fields": {
+    "image": "",
+    "site_link": "https://www.hswt.de"
+  }
+},
+{
   "model": "core.faqtranslation",
   "pk": 1,
   "fields": {
@@ -431,11 +595,11 @@
   "fields": {
     "language_code": "uk",
     "full_name": "Пархомчук Віталій Сергійович",
-    "text": "Молодий перспективний ass пенетратор. Працює tslint рабом в ноунейм компанії. Заробляю грижу.",
+    "text": "Молодий перспективний челік.",
     "major": "Інженерія програмного забезпечення",
     "degree": "Бакалавр",
-    "workplace": "Здолбунівський полупокер",
-    "position": "Зам голови відділу кадрів",
+    "workplace": "CEO в google",
+    "position": "CEO",
     "master": 1
   }
 },
@@ -468,6 +632,230 @@
   }
 },
 {
+  "model": "core.alumnustranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Дмитро Бабич",
+    "text": "Я пишаюся тим, що здобув спеціальність 113 Прикладна математика\" – поділився своїми успіхами у професійній діяльності Дмитро Бабич.\r\n\"Моя кар'єра розробника програмного забезпечення почалася 10 років тому – в 2011 році.\r\nСпочатку я набирався досвіду у невеликих компаніях, стартапах, де займався розробкою програм для страхування, агрегатором знижкових карток, програм для готелів. З 2014 року влаштувався на великий проєкт в українську компанію Інфопульс, в якій пропрацював 7.5 років.\r\nЗа цей час я прийняв участь в розробці програмного забезпечення для однієї з чотирьох найбільших аудиторських компаній. Отримав сертифікат розробника Xamarin. Освоїв багато технологій, основні з яких .Net, T-SQL, Azure.\r\nПопрацювавши з різними технологіями від бекенду, фронтенду до мобільної розробки, я все ж вирішив сфокусуватися на бекенді, ближче до даних.\r\nОстанній рік я працюю в компанії Люксофт у команді за участі програмістів, менеджерів, архітекторів компанії Microsoft, в проєкті для альянсу компаній Renault і Nissan. Ми працюємо над бекендом для автомобілів.\r\nКористувач може за допомогою мобільного телефону керувати своїм автомобілем і слідкувати за всією телеметрією. Це домен автомотів та Інтернет речей.\r\nНайбільшим досягненням останнього року є функціонал, який обробляє частину запитів всієї системи – 600 тисяч за хвилину.\r\nПри такому навантаженні потрібно врахувати безліч факторів і все, що може піти не так – піде не так. Об'єм логів всієї системи – 30 гігабайтів за хвилину, і це тільки для європейського регіону. Всі логи зберігаються в Kusto і їх можна легко аналізувати за допомогою запитів.\r\nНовий функціонал допомагає заощаджувати значні кошти на хостингу і в планах компанії використовувати це архітектурне рішення за основу для подальшої оптимізації коштів.\r\nЧи стала мені в пригоді математична вишка? Безумовно.\r\nЦінність досвіду в матаналізі чи диференціальних рівняннях я зрозумів, коли задачі змістилися з верстки форм в сторону роботи з великими об'ємами даних.\r\nМатематичні дисципліни розвивають ємність пам'яті для роботи з алгоритмами, великими об'ємами інформації і коду.\r\nРозібратися в мільйонах рядків чужого коду або створити новий функціонал – це як розв'язати математичну проблему.\r\nКожна нова проблема може бути незнайомою, досвід роботи з алгоритмами і математичними задачами допоможе її вирішити.\r\nФах програміста вимагає постійної самоосвіти, включеності, скрупульозності і роботи з великими об'ємами даних.\r\nТому навчання на 113 Прикладній математиці дасть вам досвід роботи з математичними проблемами, алгоритмами і старт вашої кар'єри в цілому.",
+    "major": "113 Прикладна математика",
+    "degree": "Магістр",
+    "workplace": "Luxoft",
+    "position": "Backend розробник",
+    "master": 10
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Dmytro Babych",
+    "text": "I am proud to have earned a degree in 113 Applied Mathematics,\" shared Dmytro Babych about his professional achievements.\r\n\"My career as a software developer started 10 years ago – back in 2011.\r\nAt first, I gained experience in small companies and startups, working on software for insurance, discount card aggregators, and hotel management. In 2014, I joined a major project at the Ukrainian company Infopulse, where I worked for 7.5 years.\r\nDuring this time, I contributed to the development of software for one of the Big Four auditing firms. I earned a Xamarin Developer Certificate and mastered many technologies, the main ones being .Net, T-SQL, and Azure.\r\nAfter working with various technologies, from backend and frontend to mobile development, I decided to focus on backend – closer to the data.\r\nFor the past year, I’ve been working at Luxoft in a team with programmers, managers, and architects from Microsoft, on a project for the Renault-Nissan alliance. We are developing backend systems for cars.\r\nUsers can control their car and monitor all telemetry via their mobile phones. This is the automotive domain and the Internet of Things.\r\nMy greatest achievement in the past year has been developing functionality that processes a portion of the system’s load – 600,000 requests per minute.\r\nAt such scale, countless factors must be considered, and anything that can go wrong – will go wrong. The system’s log volume is 30 gigabytes per minute, and that’s only for the European region. All logs are stored in Kusto and can be easily analyzed through queries.\r\nThis new functionality helps save significant hosting costs, and the company plans to use this architectural solution as the basis for further cost optimization.\r\nDid my math degree help me? Absolutely.\r\nI realized the value of experience in mathematical analysis and differential equations when my tasks shifted from form layouts to working with large volumes of data.\r\nMathematical disciplines train the brain to handle algorithms, massive amounts of information, and code.\r\nUnderstanding millions of lines of someone else’s code or creating new functionality is like solving a math problem.\r\nEach new problem may be unfamiliar, but experience with algorithms and mathematical tasks helps solve it.\r\nBeing a programmer requires constant self-education, dedication, meticulousness, and the ability to handle large volumes of data.\r\nThat is why studying Applied Mathematics (specialty 113) provides valuable experience with mathematical problems, algorithms, and a solid starting point for your entire career.",
+    "major": "113 Applied Mathematics",
+    "degree": "Master",
+    "workplace": "Luxoft",
+    "position": "Backend Engineer",
+    "master": 10
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Олена Кравченко",
+    "text": "Отримавши спеціальність 121 Інженерія програмного забезпечення, я зрозуміла, що це не просто диплом, а справжня точка відліку,\" – говорить випускниця Олена Кравченко.\r\n\"Мій перший комерційний досвід почався у 2016 році. Спочатку працювала у продуктовому стартапі, де розробляла веб-застосунки на Django та React. Потім були міжнародні компанії: брала участь у створенні сервісів для фінансового сектору та e-commerce. Зараз я Senior Software Engineer у компанії EPAM, де відповідаю за архітектуру мікросервісів і інтеграцію з AWS.\r\nНайбільшим досягненням вважаю участь у проєкті для глобального банку, де ми оптимізували час обробки транзакцій з 2 секунд до 200 мілісекунд.\r\nМоя спеціальність навчила мене системно мислити, писати ефективний код і розуміти, що якість продукту залежить від уваги до деталей. Це ті речі, які супроводжують мене впродовж усієї кар’єри.",
+    "major": "121 Інженерія програмного забезпечення",
+    "degree": "Магістр",
+    "workplace": "EPAM",
+    "position": "Senior software Engineer",
+    "master": 11
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Olena Kravchenko",
+    "text": "Having graduated with a degree in 121 Software Engineering, I realized it was not just a diploma but a true starting point,\" says alumna Olena Kravchenko.\r\n\"My first commercial experience began in 2016. At first, I worked in a product startup, developing web apps using Django and React. Later, I joined international companies, building services for finance and e-commerce. Today, I am a Senior Software Engineer at EPAM, responsible for microservices architecture and AWS integration.\r\nMy biggest achievement so far is contributing to a project for a global bank, where we optimized transaction processing time from 2 seconds down to 200 milliseconds.\r\nThis specialty taught me how to think systematically, write efficient code, and understand that product quality depends on attention to detail. These are the things that continue to guide me throughout my career.",
+    "major": "121 Software Engineering",
+    "degree": "Master",
+    "workplace": "EPAM",
+    "position": "Senior software Engineer",
+    "master": 11
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Андрій Стеценко",
+    "text": "Спеціальність 122 Комп’ютерні науки дала мені інструменти для роботи з великими даними\", – розповідає Андрій Стеценко.\r\nЙого шлях почався з аналітики у невеликих проєктах, а зараз він займається побудовою моделей машинного навчання у SoftServe.\r\n\"Найціннішим для мене є те, що університет сформував здатність швидко вчитися новому. Адже технології змінюються щороку, і саме гнучкість дозволяє залишатися у грі.",
+    "major": "122 Комп'ютерні науки",
+    "degree": "Магістр",
+    "workplace": "SoftServe",
+    "position": "Data Scientist",
+    "master": 12
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Andrii Stetsenko",
+    "text": "The 122 Computer Science program gave me the tools to work with big data,\" says Andrii Stetsenko.\r\nHe started with analytics in small projects and now builds machine learning models at SoftServe.\r\n\"The most valuable thing for me is that university taught me how to learn quickly. Technologies change every year, and flexibility is what allows you to stay in the game.",
+    "major": "122 Computer Science",
+    "degree": "Master",
+    "workplace": "SoftServe",
+    "position": "Data Scientist",
+    "master": 12
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Марія Литвиненко",
+    "text": "126 Інформаційні системи та технології – це спеціальність, яка поєднує технічні знання та бізнес-орієнтоване мислення\", – каже Марія Литвиненко.\r\nВона розпочинала як бізнес-аналітик, а нині керує продуктовими командами у Genesis.\r\n\"Моя головна гордість – запуск мобільного застосунку, який отримав понад 1 мільйон завантажень. Університет навчив мене шукати баланс між технологіями й потребами користувачів.",
+    "major": "126 Інформаційні системи і технології",
+    "degree": "Магістр",
+    "workplace": "Genesis",
+    "position": "Product manager",
+    "master": 13
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Mariia Lytvynenko",
+    "text": "126 Information Systems and Technologies is a specialty that combines technical knowledge with business-oriented thinking,\" says Mariia Lytvynenko.\r\nShe began as a business analyst and now leads product teams at Genesis.\r\n\"My greatest pride is launching a mobile app that received over 1 million downloads. University taught me to find the balance between technology and user needs.",
+    "major": "26 Information Systems and Technologies",
+    "degree": "Master",
+    "workplace": "Genesis",
+    "position": "Product manager",
+    "master": 13
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Сергій Коваленко",
+    "text": "Моя спеціальність дала мені міцну математичну базу, без якої DevOps виглядав би хаотичним набором технологій\", – згадує Сергій Коваленко.\r\nВін відповідає за побудову CI/CD процесів і оптимізацію хмарних інфраструктур.\r\n\"Моє найбільше досягнення – це автоматизація деплойменту, яка скоротила час релізу з кількох годин до 15 хвилин. Саме такі речі роблять команду більш ефективною.",
+    "major": "113 Прикладна математика",
+    "degree": "Магістр",
+    "workplace": "GlobalLogic",
+    "position": "DevOps інженер",
+    "master": 14
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 15,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Serhii Kovalenko",
+    "text": "My specialty gave me a strong mathematical foundation, without which DevOps would seem like a chaotic mix of technologies,\" recalls Serhii Kovalenko.\r\nHe is responsible for building CI/CD processes and optimizing cloud infrastructures.\r\n\"My biggest achievement was automating deployment, reducing release time from several hours to just 15 minutes. Things like that make the team much more efficient.",
+    "major": "113 Applied Mathematics",
+    "degree": "Master",
+    "workplace": "GlobalLogic",
+    "position": "DevOps Engineer",
+    "master": 14
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 16,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Катерина Сидоренко",
+    "text": "121 Інженерія програмного забезпечення – це моя пристрасть,\" – каже Катерина Сидоренко.\r\nЇї шлях почався з верстки сайтів, а нині вона створює масштабовані інтерфейси у компанії Wix.\r\n\"Найбільша радість для мене – бачити, як мільйони користувачів щодня взаємодіють із тим, що я створюю. Університет навчив не боятися складних задач.",
+    "major": "121 Інженерія програмного забезпечення",
+    "degree": "Магістр",
+    "workplace": "Wix",
+    "position": "Frontend розробник",
+    "master": 15
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 17,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Kateryna Sydorenko",
+    "text": "121 Software Engineering is my passion,\" says Kateryna Sydorenko.\r\nShe started with website markup and now builds scalable interfaces at Wix.\r\n\"My greatest joy is seeing millions of users interact daily with what I create. University taught me not to fear complex tasks.",
+    "major": "121 Software Engineering",
+    "degree": "Master",
+    "workplace": "Wix",
+    "position": "Frontend developer",
+    "master": 15
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 18,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Іван Гончар",
+    "text": "Спеціальність 122 Комп’ютерні науки відкрила для мене світ штучного інтелекту\", – ділиться Іван Гончар.\r\nВін працює над NLP-моделями у Grammarly.\r\n\"Найскладніше завдання – це зробити штучний інтелект максимально близьким до людського розуміння мови. І саме фундаментальні знання з університету дозволяють вирішувати такі задачі.",
+    "major": "122 Комп'ютерні науки",
+    "degree": "Магістр",
+    "workplace": "Grammarly",
+    "position": "Machine Learning Engineer",
+    "master": 16
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 19,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Ivan Honchar",
+    "text": "The 122 Computer Science program opened the world of artificial intelligence for me,\" shares Ivan Honchar.\r\nHe works on NLP models at Grammarly.\r\n\"The hardest challenge is to make AI as close as possible to human understanding of language. And it’s the fundamental knowledge from university that allows us to tackle such problems.",
+    "major": "122 Computer Science",
+    "degree": "Master",
+    "workplace": "Grammarly",
+    "position": "Machine Learning Engineer",
+    "master": 16
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 20,
+  "fields": {
+    "language_code": "uk",
+    "full_name": "Наталія Петренко",
+    "text": "126 Інформаційні системи та технології допомогли мені побачити зв’язок між бізнесом і технологіями\", – розповідає Наталія Петренко.\r\nСьогодні вона працює бізнес-аналітиком у Monobank.\r\n\"Найбільше задоволення приносить момент, коли твоя аналітика перетворюється на продукт, яким користуються тисячі людей. Університет навчив мене структурованому мисленню й аналітичному підходу.",
+    "major": "126 Інформаційні системи і технології",
+    "degree": "Бакалавр",
+    "workplace": "Monobank",
+    "position": "Buisness Analyst",
+    "master": 17
+  }
+},
+{
+  "model": "core.alumnustranslation",
+  "pk": 21,
+  "fields": {
+    "language_code": "en",
+    "full_name": "Natalia Petrenko",
+    "text": "126 Information Systems and Technologies helped me see the connection between business and technology,\" says Nataliia Petrenko.\r\nToday, she works as a Business Analyst at Monobank.\r\n\"The greatest satisfaction comes when your analysis turns into a product used by thousands of people. University taught me structured thinking and an analytical approach.",
+    "major": "126 Information Systems and Technologies",
+    "degree": "Bachelor",
+    "workplace": "Monobank",
+    "position": "Buisness Analyst",
+    "master": 17
+  }
+},
+{
   "model": "core.alumnus",
   "pk": 1,
   "fields": {
@@ -476,7 +864,8 @@
       "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
     },
     "created_at": "2025-08-08T08:45:01.102Z",
-    "date_of_graduation": "2026-06-04"
+    "date_of_graduation": "2026-06-04",
+    "status": "PB"
   }
 },
 {
@@ -486,7 +875,8 @@
     "image": "alumnus/vitalik_UeynY06.jpg",
     "links": null,
     "created_at": "2025-08-08T08:45:58.394Z",
-    "date_of_graduation": "2025-08-08"
+    "date_of_graduation": "2025-08-08",
+    "status": "DF"
   }
 },
 {
@@ -499,7 +889,102 @@
       "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
     },
     "created_at": "2025-08-08T08:48:01.433Z",
-    "date_of_graduation": "2023-10-12"
+    "date_of_graduation": "2023-10-12",
+    "status": "DF"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 10,
+  "fields": {
+    "image": "alumnus/student_vdy8iyX.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-26T10:54:44.268Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 11,
+  "fields": {
+    "image": "alumnus/vitalii.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-26T10:57:55.483Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 12,
+  "fields": {
+    "image": "alumnus/vitalii_krUGx85.jpg",
+    "links": {
+      "instagram": "https://docs.astral.sh/uv/getting-started/first-steps/"
+    },
+    "created_at": "2025-08-26T11:00:53.771Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 13,
+  "fields": {
+    "image": "alumnus/vitalii_LstfJOs.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:02:47.291Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 14,
+  "fields": {
+    "image": "alumnus/vitalii_biCKBFu.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:04:35.395Z",
+    "date_of_graduation": "2025-08-01",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 15,
+  "fields": {
+    "image": "alumnus/vitalii_N0Xb8xs.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:06:15.789Z",
+    "date_of_graduation": "2024-01-19",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 16,
+  "fields": {
+    "image": "alumnus/vitalii_ZvZ8YeW.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:09:28.280Z",
+    "date_of_graduation": "2023-02-17",
+    "status": "PB"
+  }
+},
+{
+  "model": "core.alumnus",
+  "pk": 17,
+  "fields": {
+    "image": "alumnus/vitalii_GQBlDAh.jpg",
+    "links": null,
+    "created_at": "2025-08-26T11:11:43.582Z",
+    "date_of_graduation": "2021-09-10",
+    "status": "PB"
   }
 },
 {
@@ -825,23 +1310,3533 @@
   }
 },
 {
-  "model": "oauth2_provider.application",
+  "model": "events.eventcategorytranslation",
   "pk": 1,
   "fields": {
-    "client_id": "xPTPp8pcPsg4SbkbpkdyfqBBL3N220X5ATksjwCa",
-    "user": null,
-    "redirect_uris": "http://127.0.0.1:5173/",
-    "post_logout_redirect_uris": "",
-    "client_type": "public",
-    "authorization_grant_type": "authorization-code",
-    "client_secret": "pbkdf2_sha256$1000000$8Jbc3UALAYbI5d7HudEUyK$ZdV1q0FNt4BoRUBCIzQn1Qoa3/ReGJkDWsNr64VWAgg=",
-    "hash_client_secret": true,
-    "name": "React SPA",
-    "skip_authorization": true,
-    "created": "2025-08-17T07:40:20.230Z",
-    "updated": "2025-08-17T07:40:20.230Z",
-    "algorithm": "",
-    "allowed_origins": ""
+    "language_code": "uk",
+    "name": "Новини",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "name": "News",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "Публікації",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "Publications",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Події",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventcategorytranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Events",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventcategory",
+  "pk": 1,
+  "fields": {
+    "rgb_color": "(59,130,246,0.15)",
+    "created_at": "2026-05-31T09:35:18.707Z"
+  }
+},
+{
+  "model": "events.eventcategory",
+  "pk": 2,
+  "fields": {
+    "rgb_color": "(168,85,247,0.15)",
+    "created_at": "2026-05-31T09:35:18.730Z"
+  }
+},
+{
+  "model": "events.eventcategory",
+  "pk": 3,
+  "fields": {
+    "rgb_color": "(34,197,94,0.15)",
+    "created_at": "2026-05-31T09:35:18.742Z"
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "title": "ННКІТІ отримав грант на розвиток цифрової інфраструктури",
+    "body": "Інститут комп'ютерних та інноваційних технологій отримав фінансування у розмірі 2 мільйони гривень на оновлення комп'ютерних лабораторій та впровадження сучасного програмного забезпечення.",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "title": "NNKITI Receives Grant for Digital Infrastructure Development",
+    "body": "The Institute of Computer and Innovative Technologies has received funding of 2 million hryvnias for upgrading computer laboratories and implementing modern software.",
+    "master": 1
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "title": "Підписано угоду про співпрацю з провідними IT-компаніями України",
+    "body": "ННКІТІ підписав угоди про академічне партнерство з компаніями SoftServe, EPAM та Intellias. Студенти матимуть можливість проходити стажування та отримувати практичний досвід.",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "title": "Cooperation Agreement Signed with Leading Ukrainian IT Companies",
+    "body": "NNKITI has signed academic partnership agreements with SoftServe, EPAM and Intellias. Students will have the opportunity to complete internships and gain practical experience.",
+    "master": 2
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "title": "Студенти ННКІТІ здобули перемогу на Всеукраїнській олімпіаді з програмування",
+    "body": "Команда студентів нашого інституту посіла перше місце на Всеукраїнській студентській олімпіаді з програмування. Змагання відбулись у Харківському національному університеті.",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "title": "NNKITI Students Win All-Ukrainian Programming Olympiad",
+    "body": "A team of students from our institute took first place at the All-Ukrainian Student Programming Olympiad. The competition was held at Kharkiv National University.",
+    "master": 3
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "title": "Методи машинного навчання у задачах прикладної математики",
+    "body": "## Анотація\n\nУ статті розглянуто застосування методів машинного навчання для розв'язання задач математичного моделювання. Проведено порівняльний аналіз класичних та сучасних підходів.\n\n**Автори:** Тадеєв П.О., Іващук Я.Г.\n\n**Журнал:** Вісник НУВГП, 2025",
+    "master": 4
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "title": "Machine Learning Methods in Applied Mathematics Problems",
+    "body": "## Abstract\n\nThis paper examines the application of machine learning methods for solving mathematical modeling problems. A comparative analysis of classical and modern approaches is conducted.\n\n**Authors:** Tadeyev P.O., Ivashchuk Y.H.\n\n**Journal:** Bulletin of NUWM, 2025",
+    "master": 4
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "title": "Чисельні методи розв'язання диференціальних рівнянь з частинними похідними",
+    "body": "## Анотація\n\nДосліджено ефективність різних чисельних схем для розв'язання диференціальних рівнянь з частинними похідними. Запропоновано новий підхід на основі адаптивних сіток.\n\n**Автори:** Дейнека О.Ю., Самолюк І.В.\n\n**Журнал:** Математичне моделювання, 2025",
+    "master": 5
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "title": "Numerical Methods for Solving Partial Differential Equations",
+    "body": "## Abstract\n\nThe efficiency of various numerical schemes for solving partial differential equations is investigated. A new approach based on adaptive grids is proposed.\n\n**Authors:** Deineka O.Y., Samoliuk I.V.\n\n**Journal:** Mathematical Modeling, 2025",
+    "master": 5
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "title": "Оптимізаційні алгоритми в задачах комп'ютерного моделювання",
+    "body": "## Анотація\n\nРозглянуто сучасні оптимізаційні алгоритми та їх застосування у задачах комп'ютерного моделювання фізичних процесів. Проведено чисельні експерименти.\n\n**Автори:** Цецик С.П., Чухрай З.Б.\n\n**Журнал:** Прикладна математика, 2025",
+    "master": 6
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "title": "Optimization Algorithms in Computer Simulation Problems",
+    "body": "## Abstract\n\nModern optimization algorithms and their application in computer simulation of physical processes are considered. Numerical experiments were conducted.\n\n**Authors:** Tsetsyk S.P., Chukhrai Z.B.\n\n**Journal:** Applied Mathematics, 2025",
+    "master": 6
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "uk",
+    "title": "Міжнародна конференція з прикладної математики та комп'ютерних наук",
+    "body": "## Про подію\n\nЗапрошуємо студентів та викладачів взяти участь у щорічній міжнародній конференції. До програми входять пленарні доповіді, секційні засідання та воркшопи.\n\n**Реєстрація:** до 1 жовтня 2025 року\n\n**Мова:** українська, англійська",
+    "master": 7
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "en",
+    "title": "International Conference on Applied Mathematics and Computer Science",
+    "body": "## About the Event\n\nWe invite students and faculty to participate in the annual international conference. The program includes plenary lectures, section sessions and workshops.\n\n**Registration:** until October 1, 2025\n\n**Language:** Ukrainian, English",
+    "master": 7
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 15,
+  "fields": {
+    "language_code": "uk",
+    "title": "День відкритих дверей ННКІТІ",
+    "body": "## Запрошуємо абітурієнтів!\n\nДень відкритих дверей — чудова можливість познайомитись з інститутом, поспілкуватись з викладачами та дізнатись про умови вступу.\n\n**Програма:**\n- Презентація спеціальностей\n- Екскурсія лабораторіями\n- Зустріч зі студентами\n- Q&A сесія",
+    "master": 8
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 16,
+  "fields": {
+    "language_code": "en",
+    "title": "NNKITI Open Day",
+    "body": "## Welcome, Applicants!\n\nOpen Day is a great opportunity to get acquainted with the institute, talk with faculty and learn about admission requirements.\n\n**Program:**\n- Specialties presentation\n- Laboratory tour\n- Meeting with students\n- Q&A session",
+    "master": 8
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 17,
+  "fields": {
+    "language_code": "uk",
+    "title": "Олімпіада з математики серед студентів першого курсу",
+    "body": "## Умови участі\r\n\r\nДо участі запрошуються всі студенти першого курсу інституту. Завдання складатимуться з розділів вищої математики, теорії ймовірностей та математичної статистики.\r\n\r\n**Призи:** грамоти та цінні подарунки\r\n![](/media/editor/wot1_20260531093924476066.jpg)\r\n**Реєстрація:** у деканаті до 20 листопада\r\n![](/media/editor/wot2_20260531093947300802.jpg)",
+    "master": 9
+  }
+},
+{
+  "model": "events.eventtranslation",
+  "pk": 18,
+  "fields": {
+    "language_code": "en",
+    "title": "Mathematics Olympiad for First-Year Students",
+    "body": "## Participation Requirements\n\nAll first-year students of the institute are invited to participate. Tasks will cover higher mathematics, probability theory and mathematical statistics.\n\n**Prizes:** certificates and valuable gifts\n\n**Registration:** at the dean's office until November 20",
+    "master": 9
+  }
+},
+{
+  "model": "events.event",
+  "pk": 1,
+  "fields": {
+    "slug": "nnkiti-otrimav-grant-na-rozvitok-tsifrovoyi-infrastrukturi-1",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.913Z",
+    "updated_at": "2026-05-31T09:36:06.935Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 2,
+  "fields": {
+    "slug": "pidpisano-ugodu-pro-spivpratsiu-z-providnimi-it-kompaniiami-ukrayini-2",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.940Z",
+    "updated_at": "2026-05-31T09:36:06.951Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 3,
+  "fields": {
+    "slug": "studenti-nnkiti-zdobuli-peremogu-na-vseukrayinskii-olimpiadi-z-programuvannia-3",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 1,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.956Z",
+    "updated_at": "2026-05-31T09:36:06.966Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 4,
+  "fields": {
+    "slug": "metodi-mashinnogo-navchannia-u-zadachakh-prikladnoyi-matematiki-4",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 2,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.971Z",
+    "updated_at": "2026-05-31T09:36:06.983Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 5,
+  "fields": {
+    "slug": "chiselni-metodi-rozviazannia-diferentsialnikh-rivnian-z-chastinnimi-pokhidnimi-5",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 2,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:06.987Z",
+    "updated_at": "2026-05-31T09:36:06.998Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 6,
+  "fields": {
+    "slug": "optimizatsiini-algoritmi-v-zadachakh-kompiuternogo-modeliuvannia-6",
+    "cover": "",
+    "event_date": null,
+    "location": "",
+    "category": 2,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.002Z",
+    "updated_at": "2026-05-31T09:36:07.013Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 7,
+  "fields": {
+    "slug": "mizhnarodna-konferentsiia-z-prikladnoyi-matematiki-ta-kompiuternikh-nauk-7",
+    "cover": "",
+    "event_date": "2025-10-15",
+    "location": "НУВГП, корп. №1, ауд. 201",
+    "category": 3,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.017Z",
+    "updated_at": "2026-05-31T09:36:07.029Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 8,
+  "fields": {
+    "slug": "den-vidkritikh-dverei-nnkiti-8",
+    "cover": "",
+    "event_date": "2025-11-08",
+    "location": "НУВГП, корп. №1",
+    "category": 3,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.033Z",
+    "updated_at": "2026-05-31T09:36:07.044Z"
+  }
+},
+{
+  "model": "events.event",
+  "pk": 9,
+  "fields": {
+    "slug": "olimpiada-z-matematiki-sered-studentiv-pershogo-kursu-9",
+    "cover": "",
+    "event_date": "2025-11-25",
+    "location": "НУВГП, корп. №1, ауд. 134",
+    "category": 3,
+    "status": "PB",
+    "album": null,
+    "created_at": "2026-05-31T09:36:07.049Z",
+    "updated_at": "2026-05-31T09:42:32.746Z"
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 1,
+  "fields": {
+    "department": 1,
+    "name_uk": "Цецик Світлана Петрівна",
+    "name_en": "Цецик Svetlana Petrivna",
+    "role_uk": "к.пед.н., доцент",
+    "role_en": "Cand. of Ped. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/цецик.jpg",
+    "email": "s.p.tsetsyk@nuwm.edu.ua",
+    "audience": "134"
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 2,
+  "fields": {
+    "department": 1,
+    "name_uk": "Кушнір Валентина Петрівна",
+    "name_en": "Kushnir Valentyna Petrivna",
+    "role_uk": "к.ф.-м.н., доцент",
+    "role_en": "Cand. of Phys.-Math. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/валя_кушнір.jpg",
+    "email": "v.p.kushnir@nuwm.edu.ua",
+    "audience": "134"
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 3,
+  "fields": {
+    "department": 1,
+    "name_uk": "Чухрай Зоряна Борисівна",
+    "name_en": "Chukhrай Zoryana Borysivna",
+    "role_uk": "доцент",
+    "role_en": "Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/чухрай.png",
+    "email": "z.b.chukhrai@nuwm.edu.ua",
+    "audience": "134"
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 4,
+  "fields": {
+    "department": 1,
+    "name_uk": "Дейнека Олег Юрійович",
+    "name_en": "Deineka Oleh Yuriiovych",
+    "role_uk": "к.т.н., доцент",
+    "role_en": "Cand. of Tech. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/денека.jpg",
+    "email": "o.yu.dejneka@nuwm.edu.ua",
+    "audience": "134"
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 5,
+  "fields": {
+    "department": 1,
+    "name_uk": "Іващук Яків Григорович",
+    "name_en": "Ivashchuk Yakiv Hryhorovych",
+    "role_uk": "к.ф.-м.н., доцент",
+    "role_en": "Cand. of Phys.-Math. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/іващук.jpg",
+    "email": "ya.h.ivashchuk@nuwm.edu.ua",
+    "audience": "134"
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 6,
+  "fields": {
+    "department": 1,
+    "name_uk": "Самолюк Ірина Василівна",
+    "name_en": "Samoliuk Iryna Vasylivna",
+    "role_uk": "асистент",
+    "role_en": "Assistant",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/самолюк.jpg",
+    "email": "i.v.samolyuk@nuwm.edu.ua",
+    "audience": "134"
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 7,
+  "fields": {
+    "department": 1,
+    "name_uk": "Кушнір Оксана Олегівна",
+    "name_en": "Kushnir Oksana Olehivna",
+    "role_uk": "к.ф.-м.н., доцент",
+    "role_en": "Cand. of Phys.-Math. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 8,
+  "fields": {
+    "department": 3,
+    "name_uk": "Барановський Сергій Віталійович",
+    "name_en": "Baranovskyi Serhii Vitaliiovych",
+    "role_uk": "д.т.н., доцент",
+    "role_en": "Dr. of Tech. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 9,
+  "fields": {
+    "department": 3,
+    "name_uk": "Бабич Тетяна Юріївна",
+    "name_en": "Babych Tetiana Yuriivna",
+    "role_uk": "к.е.н., доцент",
+    "role_en": "Cand. of Econ. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/babych.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 10,
+  "fields": {
+    "department": 3,
+    "name_uk": "Василів Володимир Богданович",
+    "name_en": "Vasyliv Volodymyr Bohdanovych",
+    "role_uk": "к.т.н., доцент",
+    "role_en": "Cand. of Tech. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/vasyliv.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 11,
+  "fields": {
+    "department": 3,
+    "name_uk": "Волошин Володимир Степанович",
+    "name_en": "Voloshyn Volodymyr Stepanovych",
+    "role_uk": "к.е.н., доцент",
+    "role_en": "Cand. of Econ. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/voloshyn.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 12,
+  "fields": {
+    "department": 3,
+    "name_uk": "Гладка Олена Миколаївна",
+    "name_en": "Hladka Olena Mykolaivna",
+    "role_uk": "к.т.н., доцент",
+    "role_en": "Cand. of Tech. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/hladka.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 13,
+  "fields": {
+    "department": 3,
+    "name_uk": "Джоші Олена Іванівна",
+    "name_en": "Dzhoshi Olena Ivanivna",
+    "role_uk": "к.т.н., доцент",
+    "role_en": "Cand. of Tech. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/dzhoshi.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 14,
+  "fields": {
+    "department": 3,
+    "name_uk": "Кардаш Оксана Любомирівна",
+    "name_en": "Kardash Oksana Liubomyrivna",
+    "role_uk": "к.е.н., доцент",
+    "role_en": "Cand. of Econ. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/kardash.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 15,
+  "fields": {
+    "department": 3,
+    "name_uk": "Карпович Іван Миколайович",
+    "name_en": "Karpovych Ivan Mykolaiovych",
+    "role_uk": "к.ф.-м.н., доцент",
+    "role_en": "Cand. of Phys.-Math. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/karpovych.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 16,
+  "fields": {
+    "department": 3,
+    "name_uk": "Парфенюк Олексій Володимирович",
+    "name_en": "Parfeniuk Oleksii Volodymyrovych",
+    "role_uk": "к.пед.н., доцент",
+    "role_en": "Cand. of Ped. Sci., Associate Professor",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 17,
+  "fields": {
+    "department": 3,
+    "name_uk": "Шевченко Ірина Мавіївна",
+    "name_en": "Shevchenko Iryna Maviiivna",
+    "role_uk": "старший викладач",
+    "role_en": "Senior Lecturer",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/shevchenko.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.facultymember",
+  "pk": 18,
+  "fields": {
+    "department": 3,
+    "name_uk": "Гаврилюк Максим Сергійович",
+    "name_en": "Havryliuk Maksym Serhiiovych",
+    "role_uk": "асистент",
+    "role_en": "Assistant",
+    "specialty_uk": "",
+    "specialty_en": "",
+    "image": "faculty/havryliuk.jpg",
+    "email": "",
+    "audience": ""
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 1,
+  "fields": {
+    "department": 1,
+    "year": "1959–1972",
+    "text_uk": "Становлення кафедри. Першим завідувачем був Подшевкін Ю. В., канд. фіз.-мат. наук, доцент.",
+    "text_en": "Formation of the department. First head: Podshevkin Yu. V., Cand. Sci., associate professor.",
+    "order": 1
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 2,
+  "fields": {
+    "department": 1,
+    "year": "1972–1984",
+    "text_uk": "Розвиток кафедри. Кількість кандидатів наук зросла з трьох до чотирнадцяти. Кафедра активно виконує наукову роботу на замовлення підприємств. Очолював канд. техн. наук, доц. Антонюк Р. А.",
+    "text_en": "Development of the department. Number of PhD holders grew from 3 to 14. Headed by Assoc. Prof. Antonyuk R. A.",
+    "order": 2
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 3,
+  "fields": {
+    "department": 1,
+    "year": "1984–2012",
+    "text_uk": "Активне зростання кафедри в науковому та науково-методичному напрямах. Очолювали: Слюсарчук В. Ю. (член-кореспондент НАН України, д-р фіз.-мат. наук) та Ярмуш Я. І. (канд. фіз.-мат. наук, доц.)",
+    "text_en": "Active growth in scientific directions. Headed by Slyusarchuk V. Yu. (Corresponding member of NAS of Ukraine) and Yarmush Ya. I.",
+    "order": 3
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 4,
+  "fields": {
+    "department": 1,
+    "year": "2012–2025",
+    "text_uk": "Кафедра досягає визначних наукових здобутків, активно веде роботу з обдарованою молоддю. Започатковано ОП «Комп'ютерне та математичне моделювання». Очолює канд. фіз.-мат. наук, д-р пед. наук, проф. Тадеєв П. О.",
+    "text_en": "Department achieves significant scientific results. Launched program 'Computer and Mathematical Modelling'. Headed by Prof. Tadeyev P. O.",
+    "order": 4
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 5,
+  "fields": {
+    "department": 1,
+    "year": "2025–2026",
+    "text_uk": "Ініційовано започаткування нової ОП «Комп'ютерне та математичне моделювання» спеціальності «Прикладна математика».",
+    "text_en": "Initiated launch of new program 'Computer and Mathematical Modelling' in Applied Mathematics specialty.",
+    "order": 5
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 6,
+  "fields": {
+    "department": 2,
+    "year": "1997",
+    "text_uk": "Створення кафедри «Інформаційних систем та математичного моделювання». Очолив д-р техн. наук, проф. Власюк Анатолій Павлович.",
+    "text_en": "Establishment of the department. Headed by Dr. Vlasyuk Anatoliy Pavlovych.",
+    "order": 0
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 7,
+  "fields": {
+    "department": 2,
+    "year": "1999",
+    "text_uk": "Ліцензовано спеціальність «Прикладна математика». Кафедру перейменовано на кафедру прикладної математики.",
+    "text_en": "Licensed specialty Applied Mathematics. Department renamed to Applied Mathematics.",
+    "order": 1
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "year": "2013",
+    "text_uk": "Започатковано спеціальність «Інформатика». Кафедру очолив канд. фіз.-мат. наук, доц. Турбал Юрій Васильович.",
+    "text_en": "Launched Computer Science specialty. Headed by Assoc. Prof. Turbal Yuriy Vasyliovych.",
+    "order": 2
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "year": "2017",
+    "text_uk": "Започатковано ОП «Інтернет речей» та ОП доктора філософії зі спеціальності «Комп'ютерні науки». Завідувачем обрано д-ра техн. наук, доц. Мартинюка Петра Миколайовича.",
+    "text_en": "Launched Internet of Things and PhD in Computer Science programs. Headed by Dr. Martynyuk Petro Mykolayovych.",
+    "order": 3
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 10,
+  "fields": {
+    "department": 2,
+    "year": "2019",
+    "text_uk": "Кафедру перейменовано на кафедру комп'ютерних наук та прикладної математики.",
+    "text_en": "Department renamed to Computer Science and Applied Mathematics.",
+    "order": 4
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 11,
+  "fields": {
+    "department": 2,
+    "year": "2020",
+    "text_uk": "Кафедру знову очолив д-р техн. наук, проф. Турбал Юрій Васильович. Утворено декілька лабораторій.",
+    "text_en": "Headed again by Prof. Turbal Yuriy Vasyliovych. Several labs established.",
+    "order": 5
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 12,
+  "fields": {
+    "department": 2,
+    "year": "2025",
+    "text_uk": "Започатковано ОП «Інженерія даних» в межах спеціальності «Системний аналіз та наука про дані».",
+    "text_en": "Launched Data Engineering program within Systems Analysis and Data Science specialty.",
+    "order": 6
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 13,
+  "fields": {
+    "department": 3,
+    "year": "2013",
+    "text_uk": "Створена кафедра економічної кібернетики. Очолив проф. Грицюк Петро Михайлович.",
+    "text_en": "Department of Economic Cybernetics established. Headed by Prof. Hrytsiuk Petro Mykhaylovych.",
+    "order": 0
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 14,
+  "fields": {
+    "department": 3,
+    "year": "2016",
+    "text_uk": "Створення кафедри комп'ютерних наук. Очолив проф. Тулашвілі Юрій Йосипович. Започатковано ОП «Інформаційні системи і технології».",
+    "text_en": "Department of Computer Science established. Headed by Prof. Tulashvili Yuriy. Launched Information Systems and Technologies program.",
+    "order": 1
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 15,
+  "fields": {
+    "department": 3,
+    "year": "2017",
+    "text_uk": "На кафедрі економічної кібернетики започатковано магістерську ОП «Інформаційні технології в бізнесі».",
+    "text_en": "Master's program Information Technologies in Business launched.",
+    "order": 2
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 16,
+  "fields": {
+    "department": 3,
+    "year": "2019",
+    "text_uk": "Створено кафедру комп'ютерних технологій та економічної кібернетики. Очолив проф. Грицюк Петро Михайлович.",
+    "text_en": "Department of Computer Technologies and Economic Cybernetics formed by merging two departments. Headed by Prof. Hrytsiuk.",
+    "order": 3
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 17,
+  "fields": {
+    "department": 4,
+    "year": "1966",
+    "text_uk": "Створення кафедри обчислювальної математики внаслідок поділу кафедри вищої математики.",
+    "text_en": "Department of Computational Mathematics established by splitting from Higher Mathematics.",
+    "order": 0
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 18,
+  "fields": {
+    "department": 4,
+    "year": "1980",
+    "text_uk": "Відокремлення інформаційно-обчислювального центру від кафедри, який почав функціонувати автономно.",
+    "text_en": "The computing center separated from the department and began operating autonomously.",
+    "order": 1
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 19,
+  "fields": {
+    "department": 4,
+    "year": "1997",
+    "text_uk": "Поділ кафедри обчислювальної математики й утворення кафедри інформаційних систем та математичного моделювання (нині КНПМ).",
+    "text_en": "Department split, forming the Department of Information Systems and Mathematical Modelling (now KNPM).",
+    "order": 2
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 20,
+  "fields": {
+    "department": 4,
+    "year": "2013",
+    "text_uk": "Ліцензування спеціальності «Комп'ютерна інженерія». Кафедру перейменовано на кафедру обчислювальної техніки. Завідувачем призначено доц. Круліковського Бориса Борисовича.",
+    "text_en": "Licensed Computer Engineering specialty. Renamed to Department of Computer Engineering. Headed by Assoc. Prof. Krulikovsky Borys Borysovych.",
+    "order": 3
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 21,
+  "fields": {
+    "department": 4,
+    "year": "2023",
+    "text_uk": "Започатковано нову ОП «Інформаційна безпека» в межах спеціальності «Кібербезпека та захист інформації».",
+    "text_en": "Launched Information Security program within Cybersecurity and Information Protection specialty.",
+    "order": 4
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 22,
+  "fields": {
+    "department": 4,
+    "year": "2024",
+    "text_uk": "Успішна акредитація ОП бакалаврського та магістерського рівня спеціальності «Комп'ютерна інженерія». В. о. завідувача: доц. Сидор Андрій Іванович.",
+    "text_en": "Successful accreditation of Bachelor's and Master's programs in Computer Engineering. Acting Head: Assoc. Prof. Sydor Andriy Ivanovych.",
+    "order": 5
+  }
+},
+{
+  "model": "departments.departmenthistory",
+  "pk": 23,
+  "fields": {
+    "department": 4,
+    "year": "2025",
+    "text_uk": "Завідувачем кафедри обрано канд. техн. наук, доц. Сидора Андрія Івановича.",
+    "text_en": "Assoc. Prof. Sydor Andriy Ivanovych elected as Head of Department.",
+    "order": 6
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "name": "Вищої математики",
+    "description": "Кафедра вищої математики — одна з найстаріших кафедр університету, заснована у 1959 році. Забезпечує математичну підготовку студентів шести навчально-наукових інститутів університету. На кафедрі працює 7 викладачів, серед яких 1 доктор педагогічних наук, 5 кандидатів наук. Наукові дослідження присвячені проблемам диференціальних рівнянь, математичного аналізу, небесної механіки та методиці викладання вищої математики. Кафедра є випусковою за спеціальністю F1 «Прикладна математика» (ОП «Комп'ютерне та математичне моделювання»).",
+    "address": "м. Рівне, вул. Соборна, 11, корпус №1, каб. 134",
+    "master": 1
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "name": "Higher Mathematics",
+    "description": "The Department of Higher Mathematics is one of the oldest departments of the university, founded in 1959. It provides mathematical training for students of six academic institutes. The department has 7 academic staff, including 1 Doctor of Education and 5 Candidates of Science. Research focuses on differential equations, mathematical analysis, celestial mechanics and teaching methodology of higher mathematics. The department is a graduating department in specialty F1 Applied Mathematics (educational programme \"Computer and Mathematical Modelling\").",
+    "address": "Rivne, 11 Soborna St., Building 1, Room 134",
+    "master": 1
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерних наук та прикладної математики",
+    "description": "Кафедра комп'ютерних наук та прикладної математики (КНПМ) заснована у 1997 році. Є випусковою за спеціальностями: F1 «Прикладна математика», F2 «Інженерія програмного забезпечення», F3 «Комп'ютерні науки» (перший та другий освітній рівень). На кафедрі функціонує аспірантура зі спеціальності «Комп'ютерні науки». Матеріально-технічна база включає комп'ютерні класи, науково-дослідні лабораторії «SoftServeLab» та «Internet of Things». Щорічно функціонує хаб Гарвардського курсу CS50.",
+    "address": "м. Рівне, вул. Соборна, 11, корпус №1",
+    "master": 2
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science and Applied Mathematics",
+    "description": "The Department of Computer Science and Applied Mathematics (CSAM) was founded in 1997. It is a graduating department in specialties: F1 Applied Mathematics, F2 Software Engineering, F3 Computer Science (bachelor's and master's levels). The department runs a PhD programme in Computer Science and maintains laboratories SoftServeLab and Internet of Things. An annual CS50 Harvard hub operates at the department.",
+    "address": "Rivne, 11 Soborna St., Building 1",
+    "master": 2
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерних технологій та економічної кібернетики",
+    "description": "Кафедра комп'ютерних технологій та економічної кібернетики (КТЕК) утворена у 2019 році шляхом об'єднання кафедри комп'ютерних наук (2013) та кафедри економічної кібернетики (2013). Є випусковою за спеціальностями F6 «Інформаційні системи та технології» (бакалавр, магістр) та A5.39 «Професійна освіта (Цифрові технології дистанційної освіти)». Основні напрями наукових досліджень: інтелектуальний аналіз та математичне моделювання економічних і соціальних систем, розробка ПЗ для моніторингу та прогнозування процесів.",
+    "address": "м. Рівне, вул. Олекси Новака, 75, корпус №2, ауд. 247",
+    "master": 3
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Technologies and Economic Cybernetics",
+    "description": "The Department of Computer Technologies and Economic Cybernetics (CTEC) was established in 2019 by merging the Department of Computer Science (2013) and the Department of Economic Cybernetics (2013). Graduating department for specialties F6 Information Systems and Technologies (bachelor's, master's) and A5.39 Professional Education (Digital Technologies). Research areas: intelligent analysis and mathematical modelling of economic and social systems, software development for monitoring and forecasting of processes.",
+    "address": "Rivne, 75 Oleksy Novaka St., Building 2, Room 247",
+    "master": 3
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "name": "Обчислювальної техніки",
+    "description": "Кафедра обчислювальної техніки (КОТ) — спадкоємниця кафедри обчислювальної математики, заснованої у 1966 році. Є випусковою за спеціальністю F7 «Комп'ютерна інженерія» (перший та другий освітній рівень). Освітня програма акредитована МОН України (бакалавр — сертифікат №336 від 26.05.2020, магістр — сертифікат №18008388 від 25.02.2019). Наукова робота охоплює математичні методи та алгоритми, моделювання багатофазових процесів у пористих середовищах, апроксимацію спеціальних функцій.",
+    "address": "м. Рівне, вул. Соборна, 11, корпус №1",
+    "master": 4
+  }
+},
+{
+  "model": "departments.departmenttranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Engineering",
+    "description": "The Department of Computer Engineering is a successor of the Department of Computational Mathematics founded in 1966. Graduating department for specialty F7 Computer Engineering (bachelor's and master's). Educational programmes are accredited by the Ministry of Education of Ukraine (bachelor's — certificate No.336 of 26.05.2020, master's — No.18008388 of 25.02.2019). Research covers mathematical methods and algorithms, multiphase process modelling in porous media, approximation of special functions.",
+    "address": "Rivne, 11 Soborna St., Building 1",
+    "master": 4
+  }
+},
+{
+  "model": "departments.department",
+  "pk": 1,
+  "fields": {
+    "email": "kaf-vm@nuwm.edu.ua",
+    "image": "departments/main_кафедра.jpg",
+    "history_image": "departments/history/фото_на_секцію_історія_кафедри.jpg",
+    "room": "134"
+  }
+},
+{
+  "model": "departments.department",
+  "pk": 2,
+  "fields": {
+    "email": "kaf-knpm@nuwm.edu.ua",
+    "image": "",
+    "history_image": "",
+    "room": ""
+  }
+},
+{
+  "model": "departments.department",
+  "pk": 3,
+  "fields": {
+    "email": "kaf-ek@nuwm.edu.ua",
+    "image": "",
+    "history_image": "",
+    "room": "247"
+  }
+},
+{
+  "model": "departments.department",
+  "pk": 4,
+  "fields": {
+    "email": "kaf-ot@nuwm.edu.ua",
+    "image": "",
+    "history_image": "",
+    "room": ""
+  }
+},
+{
+  "model": "departments.headofdepartment",
+  "pk": 1,
+  "fields": {
+    "department": 1,
+    "full_name_uk": "Тадеєв Петро Олександрович",
+    "full_name_en": "Tadeyev Petro Oleksandrovych",
+    "regalia_uk": "д.пед.н., професор, завідувач кафедри, директор ННІ КІТІ",
+    "regalia_en": "Dr. of Pedagogy, Professor, Head of Department, Director of NNKITI",
+    "email": "p.o.tadeyev@nuwm.edu.ua",
+    "audience": "130, 134",
+    "image": "head_of_department/тадеєв.jpg"
+  }
+},
+{
+  "model": "departments.headofdepartment",
+  "pk": 2,
+  "fields": {
+    "department": 3,
+    "full_name_uk": "Грицюк Петро Михайлович",
+    "full_name_en": "Hrytsiuk Petro Mykhailovych",
+    "regalia_uk": "д.е.н., к.ф.-м.н., професор, завідувач кафедри",
+    "regalia_en": "Dr. of Economics, Cand. of Phys.-Math. Sci., Professor, Head of Department",
+    "email": "p.m.hrytsiuk@nuwm.edu.ua",
+    "audience": "247",
+    "image": "head_of_department/hrytsiuk_head.jpg"
+  }
+},
+{
+  "model": "departments.headofdepartment",
+  "pk": 3,
+  "fields": {
+    "department": 2,
+    "full_name_uk": "Мартинюк Петро Миколайович",
+    "full_name_en": "Martyniuk Petro Mykolaiovych",
+    "regalia_uk": "д.т.н., професор, завідувач кафедри",
+    "regalia_en": "Dr. of Tech. Sci., Professor, Head of Department",
+    "email": "",
+    "audience": "",
+    "image": ""
+  }
+},
+{
+  "model": "departments.headofdepartment",
+  "pk": 4,
+  "fields": {
+    "department": 4,
+    "full_name_uk": "Круліковський Борис Борисович",
+    "full_name_en": "Krulikovskyi Borys Borysovych",
+    "regalia_uk": "к.т.н., доцент, завідувач кафедри",
+    "regalia_en": "Cand. of Tech. Sci., Associate Professor, Head of Department",
+    "email": "",
+    "audience": "",
+    "image": ""
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 1,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерне та математичне моделювання",
+    "description": "Освітньо-професійна програма «Комп'ютерне та математичне моделювання» зі спеціальності F1 «Прикладна математика» галузі знань F «Інформаційні технології». Програма орієнтована на підготовку фахівців, здатних формулювати та розв'язувати практичні задачі з використанням фундаментальних та спеціальних методів математичних і комп'ютерних наук, будувати, досліджувати та застосовувати математичні моделі, створювати та експлуатувати програмне забезпечення. Кваліфікація: бакалавр з прикладної математики. Форми навчання: денна, заочна, дуальна. Обсяг програми: 240 кредитів ЄКТС.",
+    "degree": "Бакалавр",
+    "form": "Денна, заочна, дуальна",
+    "bachelor": {
+      "code": "F1",
+      "credits": 240,
+      "program": "Комп'ютерне та математичне моделювання",
+      "duration": "3 роки 10 місяців",
+      "specialty": "Прикладна математика"
+    },
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 1
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 2,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer and Mathematical Modelling",
+    "description": "Educational and professional programme 'Computer and Mathematical Modelling' in specialty F1 'Applied Mathematics', field of knowledge F 'Information Technologies'. The programme trains specialists capable of formulating and solving practical problems using fundamental and special methods of mathematical and computer sciences, building and applying mathematical models, and developing software. Qualification: Bachelor in Applied Mathematics. Study forms: full-time, part-time, dual. Programme volume: 240 ECTS credits.",
+    "degree": "Bachelor",
+    "form": "Full-time, part-time, dual",
+    "bachelor": {
+      "code": "F1",
+      "credits": 240,
+      "program": "Computer and Mathematical Modelling",
+      "duration": "3 years 10 months",
+      "specialty": "Applied Mathematics"
+    },
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 1
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 3,
+  "fields": {
+    "language_code": "uk",
+    "name": "Прикладна математика",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 2
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 4,
+  "fields": {
+    "language_code": "en",
+    "name": "Applied Mathematics",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 2
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 5,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерне та математичне моделювання",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 3
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 6,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer and Mathematical Modelling",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 3
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 7,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інженерія програмного забезпечення",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 4
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 8,
+  "fields": {
+    "language_code": "en",
+    "name": "Software Engineering",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 4
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 9,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інженерія програмного забезпечення (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 5
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 10,
+  "fields": {
+    "language_code": "en",
+    "name": "Software Engineering (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 5
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 11,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інтернет речей",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 6
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 12,
+  "fields": {
+    "language_code": "en",
+    "name": "Internet of Things",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 6
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 13,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерні науки",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 7
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 14,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 7
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 15,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерні науки (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 8
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 16,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 8
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 17,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерні науки (PhD)",
+    "description": "",
+    "degree": "Доктор філософії",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 9
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 18,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Science (PhD)",
+    "description": "",
+    "degree": "Doctor of Philosophy",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 9
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 19,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інженерія даних",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 10
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 20,
+  "fields": {
+    "language_code": "en",
+    "name": "Data Engineering",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 10
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 21,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інформаційні системи і технології",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 11
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 22,
+  "fields": {
+    "language_code": "en",
+    "name": "Information Systems and Technologies",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 11
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 23,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інформаційні технології в бізнесі",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 12
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 24,
+  "fields": {
+    "language_code": "en",
+    "name": "Information Technologies in Business",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 12
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 25,
+  "fields": {
+    "language_code": "uk",
+    "name": "Цифрові технології дистанційної освіти",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 13
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 26,
+  "fields": {
+    "language_code": "en",
+    "name": "Digital Technologies for Distance Education",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 13
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 27,
+  "fields": {
+    "language_code": "uk",
+    "name": "Цифрові технології дистанційної освіти (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 14
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 28,
+  "fields": {
+    "language_code": "en",
+    "name": "Digital Technologies for Distance Education (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 14
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 29,
+  "fields": {
+    "language_code": "uk",
+    "name": "Прикладна інформатика",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 15
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 30,
+  "fields": {
+    "language_code": "en",
+    "name": "Applied Informatics",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 15
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 31,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерна інженерія",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 16
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 32,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Engineering",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 16
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 33,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерна інженерія (магістр)",
+    "description": "",
+    "degree": "Магістр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 17
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 34,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer Engineering (Master)",
+    "description": "",
+    "degree": "Master",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 17
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 35,
+  "fields": {
+    "language_code": "uk",
+    "name": "Інформаційна безпека",
+    "description": "",
+    "degree": "Бакалавр",
+    "form": "Денна",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 18
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 36,
+  "fields": {
+    "language_code": "en",
+    "name": "Information Security",
+    "description": "",
+    "degree": "Bachelor",
+    "form": "Full-time",
+    "bachelor": null,
+    "magistracy": null,
+    "postgraduate": null,
+    "master": 18
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 37,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерне та математичне моделювання",
+    "description": "Освітньо-наукова програма «Комп'ютерне та математичне моделювання» другого рівня вищої освіти зі спеціальності F1 «Прикладна математика». Програма передбачає поглиблену підготовку магістрів у галузі математичного моделювання, наукових досліджень, проектування інформаційних систем та застосування методів ШІ. Кваліфікація: магістр з прикладної математики. Форми навчання: денна, заочна. Обсяг програми: 120 кредитів ЄКТС.",
+    "degree": "Магістр",
+    "form": "Денна, заочна",
+    "bachelor": null,
+    "magistracy": {
+      "code": "F1",
+      "credits": 120,
+      "program": "Комп'ютерне та математичне моделювання",
+      "duration": "1 рік 4 місяці",
+      "specialty": "Прикладна математика"
+    },
+    "postgraduate": null,
+    "master": 19
+  }
+},
+{
+  "model": "departments.educationalprogramtranslation",
+  "pk": 38,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer and Mathematical Modelling",
+    "description": "Educational and scientific programme 'Computer and Mathematical Modelling' (second cycle) in specialty F1 'Applied Mathematics'. Qualification: Master in Applied Mathematics. Volume: 120 ECTS credits.",
+    "degree": "Master",
+    "form": "Full-time, part-time",
+    "bachelor": null,
+    "magistracy": {
+      "code": "F1",
+      "credits": 120,
+      "program": "Computer and Mathematical Modelling",
+      "duration": "1 year 4 months",
+      "specialty": "Applied Mathematics"
+    },
+    "postgraduate": null,
+    "master": 19
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 1,
+  "fields": {
+    "department": 1,
+    "code": "F1",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": 20,
+    "contract_seats": 15
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 2,
+  "fields": {
+    "department": 2,
+    "code": "F1",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 3,
+  "fields": {
+    "department": 2,
+    "code": "F1",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 4,
+  "fields": {
+    "department": 2,
+    "code": "F2",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 5,
+  "fields": {
+    "department": 2,
+    "code": "F2",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 6,
+  "fields": {
+    "department": 2,
+    "code": "F2",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 7,
+  "fields": {
+    "department": 2,
+    "code": "F3",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 8,
+  "fields": {
+    "department": 2,
+    "code": "F3",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 9,
+  "fields": {
+    "department": 2,
+    "code": "F3",
+    "duration": 3,
+    "total_credits": 180,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 10,
+  "fields": {
+    "department": 2,
+    "code": "A5",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 11,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 12,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 13,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 14,
+  "fields": {
+    "department": 3,
+    "code": "F6",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 15,
+  "fields": {
+    "department": 3,
+    "code": "F4",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 16,
+  "fields": {
+    "department": 4,
+    "code": "F7",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 17,
+  "fields": {
+    "department": 4,
+    "code": "F7",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 18,
+  "fields": {
+    "department": 4,
+    "code": "F5",
+    "duration": 4,
+    "total_credits": 240,
+    "budget_seats": null,
+    "contract_seats": null
+  }
+},
+{
+  "model": "departments.educationalprogram",
+  "pk": 19,
+  "fields": {
+    "department": 1,
+    "code": "F1",
+    "duration": 2,
+    "total_credits": 120,
+    "budget_seats": 10,
+    "contract_seats": 5
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 39,
+  "fields": {
+    "language_code": "uk",
+    "name": "Українська мова (за профес. спрямуванням)",
+    "master": 7
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 40,
+  "fields": {
+    "language_code": "en",
+    "name": "Ukrainian Language (for Professional Purposes)",
+    "master": 7
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 41,
+  "fields": {
+    "language_code": "uk",
+    "name": "Українська державність і культура",
+    "master": 8
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 42,
+  "fields": {
+    "language_code": "en",
+    "name": "Ukrainian Statehood and Culture",
+    "master": 8
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 43,
+  "fields": {
+    "language_code": "uk",
+    "name": "Вступ до спеціальності «Прикладна математика»",
+    "master": 9
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 44,
+  "fields": {
+    "language_code": "en",
+    "name": "Introduction to Applied Mathematics",
+    "master": 9
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 45,
+  "fields": {
+    "language_code": "uk",
+    "name": "Дискретна математика",
+    "master": 10
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 46,
+  "fields": {
+    "language_code": "en",
+    "name": "Discrete Mathematics",
+    "master": 10
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 47,
+  "fields": {
+    "language_code": "uk",
+    "name": "Алгебра та геометрія",
+    "master": 11
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 48,
+  "fields": {
+    "language_code": "en",
+    "name": "Algebra and Geometry",
+    "master": 11
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 49,
+  "fields": {
+    "language_code": "uk",
+    "name": "Іноземна мова",
+    "master": 12
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 50,
+  "fields": {
+    "language_code": "en",
+    "name": "Foreign Language",
+    "master": 12
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 51,
+  "fields": {
+    "language_code": "uk",
+    "name": "Екологія",
+    "master": 13
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 52,
+  "fields": {
+    "language_code": "en",
+    "name": "Ecology",
+    "master": 13
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 53,
+  "fields": {
+    "language_code": "uk",
+    "name": "Алгоритми та структури даних",
+    "master": 14
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 54,
+  "fields": {
+    "language_code": "en",
+    "name": "Algorithms and Data Structures",
+    "master": 14
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 55,
+  "fields": {
+    "language_code": "uk",
+    "name": "Основи класичної фізики",
+    "master": 15
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 56,
+  "fields": {
+    "language_code": "en",
+    "name": "Fundamentals of Classical Physics",
+    "master": 15
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 57,
+  "fields": {
+    "language_code": "uk",
+    "name": "Філософія",
+    "master": 16
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 58,
+  "fields": {
+    "language_code": "en",
+    "name": "Philosophy",
+    "master": 16
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 59,
+  "fields": {
+    "language_code": "uk",
+    "name": "Теорія ймовірностей",
+    "master": 17
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 60,
+  "fields": {
+    "language_code": "en",
+    "name": "Probability Theory",
+    "master": 17
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 61,
+  "fields": {
+    "language_code": "uk",
+    "name": "Математична логіка та теорія алгоритмів",
+    "master": 18
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 62,
+  "fields": {
+    "language_code": "en",
+    "name": "Mathematical Logic and Theory of Algorithms",
+    "master": 18
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 63,
+  "fields": {
+    "language_code": "uk",
+    "name": "Диференціальні рівняння",
+    "master": 19
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 64,
+  "fields": {
+    "language_code": "en",
+    "name": "Differential Equations",
+    "master": 19
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 65,
+  "fields": {
+    "language_code": "uk",
+    "name": "Математичний та функціональний аналіз",
+    "master": 20
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 66,
+  "fields": {
+    "language_code": "en",
+    "name": "Mathematical and Functional Analysis",
+    "master": 20
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 67,
+  "fields": {
+    "language_code": "uk",
+    "name": "Підприємницька діяльність",
+    "master": 21
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 68,
+  "fields": {
+    "language_code": "en",
+    "name": "Entrepreneurship",
+    "master": 21
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 69,
+  "fields": {
+    "language_code": "uk",
+    "name": "Прикладний статистичний аналіз даних",
+    "master": 22
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 70,
+  "fields": {
+    "language_code": "en",
+    "name": "Applied Statistical Data Analysis",
+    "master": 22
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 71,
+  "fields": {
+    "language_code": "uk",
+    "name": "Програмування",
+    "master": 23
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 72,
+  "fields": {
+    "language_code": "en",
+    "name": "Programming",
+    "master": 23
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 73,
+  "fields": {
+    "language_code": "uk",
+    "name": "Методи обчислень та математичні пакети",
+    "master": 24
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 74,
+  "fields": {
+    "language_code": "en",
+    "name": "Computational Methods and Mathematical Packages",
+    "master": 24
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 75,
+  "fields": {
+    "language_code": "uk",
+    "name": "Методи оптимізації та дослідження операцій",
+    "master": 25
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 76,
+  "fields": {
+    "language_code": "en",
+    "name": "Optimization Methods and Operations Research",
+    "master": 25
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 77,
+  "fields": {
+    "language_code": "uk",
+    "name": "Бази даних та сховище даних",
+    "master": 26
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 78,
+  "fields": {
+    "language_code": "en",
+    "name": "Databases and Data Warehousing",
+    "master": 26
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 79,
+  "fields": {
+    "language_code": "uk",
+    "name": "Об'єктно-орієнтоване програмування",
+    "master": 27
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 80,
+  "fields": {
+    "language_code": "en",
+    "name": "Object-Oriented Programming",
+    "master": 27
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 81,
+  "fields": {
+    "language_code": "uk",
+    "name": "Основи комп'ютерної алгебри та обчислювальної геометрії",
+    "master": 28
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 82,
+  "fields": {
+    "language_code": "en",
+    "name": "Fundamentals of Computer Algebra and Computational Geometry",
+    "master": 28
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 83,
+  "fields": {
+    "language_code": "uk",
+    "name": "Рівняння математичної фізики",
+    "master": 29
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 84,
+  "fields": {
+    "language_code": "en",
+    "name": "Equations of Mathematical Physics",
+    "master": 29
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 85,
+  "fields": {
+    "language_code": "uk",
+    "name": "Методи та моделі теорії прийняття рішень",
+    "master": 30
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 86,
+  "fields": {
+    "language_code": "en",
+    "name": "Methods and Models of Decision Theory",
+    "master": 30
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 87,
+  "fields": {
+    "language_code": "uk",
+    "name": "Комп'ютерне та математичне моделювання процесів та систем",
+    "master": 31
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 88,
+  "fields": {
+    "language_code": "en",
+    "name": "Computer and Mathematical Modelling of Processes and Systems",
+    "master": 31
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 89,
+  "fields": {
+    "language_code": "uk",
+    "name": "Чисельні методи математичної фізики",
+    "master": 32
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 90,
+  "fields": {
+    "language_code": "en",
+    "name": "Numerical Methods of Mathematical Physics",
+    "master": 32
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 91,
+  "fields": {
+    "language_code": "uk",
+    "name": "Практикум з програмування",
+    "master": 33
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 92,
+  "fields": {
+    "language_code": "en",
+    "name": "Programming Workshop",
+    "master": 33
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 93,
+  "fields": {
+    "language_code": "uk",
+    "name": "Виробнича практика",
+    "master": 34
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 94,
+  "fields": {
+    "language_code": "en",
+    "name": "Industrial Practice",
+    "master": 34
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 95,
+  "fields": {
+    "language_code": "uk",
+    "name": "Теорія та методи комплексного аналізу",
+    "master": 35
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 96,
+  "fields": {
+    "language_code": "en",
+    "name": "Theory and Methods of Complex Analysis",
+    "master": 35
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 97,
+  "fields": {
+    "language_code": "uk",
+    "name": "Методи оптимального керування та прийняття рішень",
+    "master": 36
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 98,
+  "fields": {
+    "language_code": "en",
+    "name": "Optimal Control and Decision Making Methods",
+    "master": 36
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 99,
+  "fields": {
+    "language_code": "uk",
+    "name": "Курсова робота з комп'ютерного та математичного моделювання",
+    "master": 37
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 100,
+  "fields": {
+    "language_code": "en",
+    "name": "Coursework in Computer and Mathematical Modelling",
+    "master": 37
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 101,
+  "fields": {
+    "language_code": "uk",
+    "name": "Некоректні задачі у природокористуванні",
+    "master": 38
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 102,
+  "fields": {
+    "language_code": "en",
+    "name": "Ill-posed Problems in Environmental Management",
+    "master": 38
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 103,
+  "fields": {
+    "language_code": "uk",
+    "name": "Програмні засоби моделювання фізичних процесів",
+    "master": 39
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 104,
+  "fields": {
+    "language_code": "en",
+    "name": "Software Tools for Physical Process Modelling",
+    "master": 39
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 105,
+  "fields": {
+    "language_code": "uk",
+    "name": "Математичні методи штучного інтелекту",
+    "master": 40
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 106,
+  "fields": {
+    "language_code": "en",
+    "name": "Mathematical Methods of Artificial Intelligence",
+    "master": 40
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 107,
+  "fields": {
+    "language_code": "uk",
+    "name": "Штучний інтелект та машинне навчання",
+    "master": 41
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 108,
+  "fields": {
+    "language_code": "en",
+    "name": "Artificial Intelligence and Machine Learning",
+    "master": 41
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 109,
+  "fields": {
+    "language_code": "uk",
+    "name": "Кваліфікаційна робота",
+    "master": 42
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 110,
+  "fields": {
+    "language_code": "en",
+    "name": "Qualification (Bachelor's) Thesis",
+    "master": 42
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 111,
+  "fields": {
+    "language_code": "uk",
+    "name": "Мейджор (дисципліни за вибором)",
+    "master": 43
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 112,
+  "fields": {
+    "language_code": "en",
+    "name": "Major (Elective Courses)",
+    "master": 43
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 113,
+  "fields": {
+    "language_code": "uk",
+    "name": "Базова загальновійськова підготовка",
+    "master": 44
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 114,
+  "fields": {
+    "language_code": "en",
+    "name": "Basic General Military Training",
+    "master": 44
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 115,
+  "fields": {
+    "language_code": "uk",
+    "name": "Спецкурс за вибором",
+    "master": 45
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 116,
+  "fields": {
+    "language_code": "en",
+    "name": "Elective Special Course",
+    "master": 45
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 117,
+  "fields": {
+    "language_code": "uk",
+    "name": "Майнор (міждисциплінарні курси)",
+    "master": 46
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 118,
+  "fields": {
+    "language_code": "en",
+    "name": "Minor (Interdisciplinary Courses)",
+    "master": 46
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 119,
+  "fields": {
+    "language_code": "uk",
+    "name": "Іноземна мова професійного спілкування",
+    "master": 47
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 120,
+  "fields": {
+    "language_code": "en",
+    "name": "Foreign Language for Professional Communication",
+    "master": 47
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 121,
+  "fields": {
+    "language_code": "uk",
+    "name": "Методологія наукових досліджень",
+    "master": 48
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 122,
+  "fields": {
+    "language_code": "en",
+    "name": "Research Methodology",
+    "master": 48
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 123,
+  "fields": {
+    "language_code": "uk",
+    "name": "Технології проектування та розробки інформаційних систем",
+    "master": 49
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 124,
+  "fields": {
+    "language_code": "en",
+    "name": "Information Systems Design and Development Technologies",
+    "master": 49
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 125,
+  "fields": {
+    "language_code": "uk",
+    "name": "Математичне та комп'ютерне моделювання складних систем",
+    "master": 50
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 126,
+  "fields": {
+    "language_code": "en",
+    "name": "Mathematical and Computer Modelling of Complex Systems",
+    "master": 50
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 127,
+  "fields": {
+    "language_code": "uk",
+    "name": "Машинне навчання та інтелектуальний аналіз даних (укр./англ.)",
+    "master": 51
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 128,
+  "fields": {
+    "language_code": "en",
+    "name": "Machine Learning and Intelligent Data Analysis",
+    "master": 51
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 129,
+  "fields": {
+    "language_code": "uk",
+    "name": "Математичне та комп'ютерне прогнозування природних і техногенних процесів",
+    "master": 52
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 130,
+  "fields": {
+    "language_code": "en",
+    "name": "Mathematical and Computer Prediction of Natural and Technogenic Processes",
+    "master": 52
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 131,
+  "fields": {
+    "language_code": "uk",
+    "name": "Некласичні динамічні системи",
+    "master": 53
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 132,
+  "fields": {
+    "language_code": "en",
+    "name": "Non-classical Dynamical Systems",
+    "master": 53
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 133,
+  "fields": {
+    "language_code": "uk",
+    "name": "Методи та технології обчислювального інтелекту",
+    "master": 54
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 134,
+  "fields": {
+    "language_code": "en",
+    "name": "Methods and Technologies of Computational Intelligence",
+    "master": 54
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 135,
+  "fields": {
+    "language_code": "uk",
+    "name": "Виробнича практика",
+    "master": 55
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 136,
+  "fields": {
+    "language_code": "en",
+    "name": "Industrial Practice",
+    "master": 55
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 137,
+  "fields": {
+    "language_code": "uk",
+    "name": "Спецкурс за вибором",
+    "master": 56
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 138,
+  "fields": {
+    "language_code": "en",
+    "name": "Elective Special Course",
+    "master": 56
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 139,
+  "fields": {
+    "language_code": "uk",
+    "name": "Мейджор",
+    "master": 57
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 140,
+  "fields": {
+    "language_code": "en",
+    "name": "Major",
+    "master": 57
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 141,
+  "fields": {
+    "language_code": "uk",
+    "name": "Передкваліфікаційна практика",
+    "master": 58
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 142,
+  "fields": {
+    "language_code": "en",
+    "name": "Pre-qualification Practice",
+    "master": 58
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 143,
+  "fields": {
+    "language_code": "uk",
+    "name": "Кваліфікаційна (магістерська) робота",
+    "master": 59
+  }
+},
+{
+  "model": "departments.programsubjecttranslation",
+  "pk": 144,
+  "fields": {
+    "language_code": "en",
+    "name": "Qualification (Master's) Thesis",
+    "master": 59
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 7,
+  "fields": {
+    "program": 1,
+    "semester": 1,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 1
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 8,
+  "fields": {
+    "program": 1,
+    "semester": 1,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 2
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 9,
+  "fields": {
+    "program": 1,
+    "semester": 1,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 3
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 10,
+  "fields": {
+    "program": 1,
+    "semester": 1,
+    "credits": "5.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 4
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 11,
+  "fields": {
+    "program": 1,
+    "semester": 1,
+    "credits": "10.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 5
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 12,
+  "fields": {
+    "program": 1,
+    "semester": 2,
+    "credits": "12.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 6
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 13,
+  "fields": {
+    "program": 1,
+    "semester": 2,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 7
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 14,
+  "fields": {
+    "program": 1,
+    "semester": 2,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 8
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 15,
+  "fields": {
+    "program": 1,
+    "semester": 2,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 9
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 16,
+  "fields": {
+    "program": 1,
+    "semester": 3,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 10
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 17,
+  "fields": {
+    "program": 1,
+    "semester": 3,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 11
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 18,
+  "fields": {
+    "program": 1,
+    "semester": 3,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 12
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 19,
+  "fields": {
+    "program": 1,
+    "semester": 3,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 13
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 20,
+  "fields": {
+    "program": 1,
+    "semester": 3,
+    "credits": "16.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 14
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 21,
+  "fields": {
+    "program": 1,
+    "semester": 4,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 15
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 22,
+  "fields": {
+    "program": 1,
+    "semester": 4,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 16
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 23,
+  "fields": {
+    "program": 1,
+    "semester": 4,
+    "credits": "8.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 17
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 24,
+  "fields": {
+    "program": 1,
+    "semester": 4,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 18
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 25,
+  "fields": {
+    "program": 1,
+    "semester": 5,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 19
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 26,
+  "fields": {
+    "program": 1,
+    "semester": 5,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 20
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 27,
+  "fields": {
+    "program": 1,
+    "semester": 5,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 21
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 28,
+  "fields": {
+    "program": 1,
+    "semester": 5,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 22
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 29,
+  "fields": {
+    "program": 1,
+    "semester": 5,
+    "credits": "5.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 23
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 30,
+  "fields": {
+    "program": 1,
+    "semester": 6,
+    "credits": "5.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 24
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 31,
+  "fields": {
+    "program": 1,
+    "semester": 6,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 25
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 32,
+  "fields": {
+    "program": 1,
+    "semester": 6,
+    "credits": "5.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 26
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 33,
+  "fields": {
+    "program": 1,
+    "semester": 6,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 27
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 34,
+  "fields": {
+    "program": 1,
+    "semester": 6,
+    "credits": "6.0",
+    "type": "MN",
+    "control_form": "practice",
+    "order": 28
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 35,
+  "fields": {
+    "program": 1,
+    "semester": 7,
+    "credits": "6.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 29
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 36,
+  "fields": {
+    "program": 1,
+    "semester": 7,
+    "credits": "5.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 30
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 37,
+  "fields": {
+    "program": 1,
+    "semester": 7,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "coursework",
+    "order": 31
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 38,
+  "fields": {
+    "program": 1,
+    "semester": 7,
+    "credits": "5.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 32
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 39,
+  "fields": {
+    "program": 1,
+    "semester": 7,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 33
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 40,
+  "fields": {
+    "program": 1,
+    "semester": 8,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "exam",
+    "order": 34
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 41,
+  "fields": {
+    "program": 1,
+    "semester": 8,
+    "credits": "6.0",
+    "type": "MN",
+    "control_form": "credit",
+    "order": 35
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 42,
+  "fields": {
+    "program": 1,
+    "semester": 8,
+    "credits": "9.0",
+    "type": "MN",
+    "control_form": "thesis",
+    "order": 36
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 43,
+  "fields": {
+    "program": 1,
+    "semester": 5,
+    "credits": "36.0",
+    "type": "EL",
+    "control_form": "credit",
+    "order": 37
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 44,
+  "fields": {
+    "program": 1,
+    "semester": 3,
+    "credits": "3.0",
+    "type": "EL",
+    "control_form": "diff_credit",
+    "order": 38
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 45,
+  "fields": {
+    "program": 1,
+    "semester": 6,
+    "credits": "3.0",
+    "type": "EL",
+    "control_form": "credit",
+    "order": 39
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 46,
+  "fields": {
+    "program": 1,
+    "semester": 4,
+    "credits": "18.0",
+    "type": "EL",
+    "control_form": "credit",
+    "order": 40
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 47,
+  "fields": {
+    "program": 19,
+    "semester": 1,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 1
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 48,
+  "fields": {
+    "program": 19,
+    "semester": 1,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 2
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 49,
+  "fields": {
+    "program": 19,
+    "semester": 1,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 3
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 50,
+  "fields": {
+    "program": 19,
+    "semester": 1,
+    "credits": "4.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 4
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 51,
+  "fields": {
+    "program": 19,
+    "semester": 2,
+    "credits": "3.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 1
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 52,
+  "fields": {
+    "program": 19,
+    "semester": 2,
+    "credits": "5.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 2
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 53,
+  "fields": {
+    "program": 19,
+    "semester": 2,
+    "credits": "4.5",
+    "type": "MN",
+    "control_form": "",
+    "order": 3
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 54,
+  "fields": {
+    "program": 19,
+    "semester": 2,
+    "credits": "4.5",
+    "type": "MN",
+    "control_form": "",
+    "order": 4
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 55,
+  "fields": {
+    "program": 19,
+    "semester": 2,
+    "credits": "6.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 5
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 56,
+  "fields": {
+    "program": 19,
+    "semester": 2,
+    "credits": "6.0",
+    "type": "EL",
+    "control_form": "",
+    "order": 1
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 57,
+  "fields": {
+    "program": 19,
+    "semester": 3,
+    "credits": "17.0",
+    "type": "EL",
+    "control_form": "",
+    "order": 2
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 58,
+  "fields": {
+    "program": 19,
+    "semester": 3,
+    "credits": "6.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 1
+  }
+},
+{
+  "model": "departments.programsubject",
+  "pk": 59,
+  "fields": {
+    "program": 19,
+    "semester": 4,
+    "credits": "24.0",
+    "type": "MN",
+    "control_form": "",
+    "order": 1
   }
 }
 ]

@@ -178,6 +178,14 @@ class ProgramSubject(TranslatableModel):
         MANDATORY = "MN", _("Mandatory")
         ELECTIVE = "EL", _("Elective")
 
+    class ControlForm(models.TextChoices):
+        EXAM = "exam", _("Exam")
+        CREDIT = "credit", _("Credit")
+        DIFF_CREDIT = "diff_credit", _("Differentiated credit")
+        COURSEWORK = "coursework", _("Coursework")
+        PRACTICE = "practice", _("Practice")
+        THESIS = "thesis", _("Thesis / Qualification work")
+
     translations = TranslatedFields(
         name=models.CharField(max_length=255, verbose_name=_("Subject name")),
     )
@@ -190,6 +198,10 @@ class ProgramSubject(TranslatableModel):
     type = models.CharField(
         max_length=2, choices=SubjectType.choices, default=SubjectType.MANDATORY,
         verbose_name=_("Subject type")
+    )
+    control_form = models.CharField(
+        max_length=20, choices=ControlForm.choices, blank=True, default="",
+        verbose_name=_("Control form")
     )
     order = models.PositiveIntegerField(default=0, verbose_name=_("Order"))
 
