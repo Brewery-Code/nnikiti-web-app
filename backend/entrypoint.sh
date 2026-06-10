@@ -9,13 +9,11 @@ python manage.py compilemessages --settings=$SETTINGS
 if [ "$DJANGO_SETTINGS_MODULE" = "mysite.settings.prod" ]; then
     python manage.py collectstatic --noinput --settings=$SETTINGS
 
-    # Load initial data if LOAD_FIXTURES=1
     if [ "$LOAD_FIXTURES" = "1" ]; then
         echo "Loading initial data..."
         python manage.py loaddata new_dump.json --settings=$SETTINGS || true
     fi
 
-    # Reset admin password if ADMIN_PASSWORD is set
     if [ -n "$ADMIN_PASSWORD" ]; then
         python manage.py shell --settings=$SETTINGS -c "
 from users.models import User
