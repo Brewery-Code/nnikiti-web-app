@@ -95,6 +95,15 @@ export function Header() {
         const el = document.documentElement;
         const limit = el.scrollHeight - el.clientHeight;
         updateScroll({ scroll: window.scrollY, limit });
+      } else {
+        const onNativeScroll = () => {
+          const el = document.documentElement;
+          const limit = el.scrollHeight - el.clientHeight;
+          updateScroll({ scroll: window.scrollY, limit });
+        };
+        window.addEventListener("scroll", onNativeScroll, { passive: true });
+        onNativeScroll();
+        return () => window.removeEventListener("scroll", onNativeScroll);
       }
     }, 0);
 
