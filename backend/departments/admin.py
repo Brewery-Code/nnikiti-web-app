@@ -198,6 +198,7 @@ class EducationalProgramInline(TabularInline):
 class DepartmentAdmin(DepartmentScopedMixin, UnfoldTranslatableAdmin):
     """Custom admin for departments."""
     list_display = ('id', 'name', 'email', 'room')
+    list_display_links = ('id', 'name')
     search_fields = ('translations__name', 'email')
     department_field = "pk"
     inlines = [
@@ -218,6 +219,7 @@ class DepartmentAdmin(DepartmentScopedMixin, UnfoldTranslatableAdmin):
 class HeadOfDepartmentAdmin(DepartmentScopedMixin, ModelAdmin):
     """Custom admin for heads of departments."""
     list_display = ('id', 'full_name_uk', 'department', 'email', 'audience')
+    list_display_links = ('id', 'full_name_uk')
     search_fields = ('full_name_uk', 'full_name_en', 'email')
     list_filter = ('department',)
 
@@ -226,6 +228,7 @@ class HeadOfDepartmentAdmin(DepartmentScopedMixin, ModelAdmin):
 class EducationalProgramAdmin(DepartmentScopedMixin, UnfoldTranslatableAdmin):
     """Custom admin for educational programs."""
     list_display = ('id', 'code', 'name', 'department')
+    list_display_links = ('id', 'code', 'name')
     search_fields = ('code', 'translations__name', 'department__translations__name')
     list_filter = ('department',)
     inlines = [
@@ -240,6 +243,7 @@ class EducationalProgramAdmin(DepartmentScopedMixin, UnfoldTranslatableAdmin):
 class CategorizedTagAdmin(UnfoldTranslatableAdmin):
     """Custom admin for categorized tags."""
     list_display = ("name", "category")
+    list_display_links = ("name",)
     list_filter = ("category",)
     search_fields = ("translations__name",)
 
@@ -248,6 +252,7 @@ class CategorizedTagAdmin(UnfoldTranslatableAdmin):
 class FacultyMemberAdmin(DepartmentScopedMixin, ModelAdmin):
     """Custom admin for faculty members."""
     list_display = ("id", "name_uk", "role_uk", "department", "email", "audience")
+    list_display_links = ("id", "name_uk")
     list_filter = ("department",)
     search_fields = ("name_uk", "name_en", "email")
     ordering = ("department",)
@@ -257,6 +262,7 @@ class FacultyMemberAdmin(DepartmentScopedMixin, ModelAdmin):
 class DepartmentHistoryAdmin(DepartmentScopedMixin, ModelAdmin):
     """Custom admin for department history entries."""
     list_display = ("id", "year", "department", "order")
+    list_display_links = ("id", "year")
     list_filter = ("department",)
     search_fields = ("year", "text_uk")
     ordering = ("department", "order")
@@ -266,6 +272,7 @@ class DepartmentHistoryAdmin(DepartmentScopedMixin, ModelAdmin):
 class ProgramSubjectAdmin(UnfoldTranslatableAdmin):
     """Custom admin for program subjects."""
     list_display = ("id", "name", "program", "semester", "credits", "type", "order")
+    list_display_links = ("id", "name")
     list_filter = ("program", "semester", "type", "control_form")
     search_fields = ("translations__name",)
     ordering = ("program", "semester", "order")

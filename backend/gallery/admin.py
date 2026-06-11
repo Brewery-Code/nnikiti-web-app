@@ -18,6 +18,7 @@ class AlbumPhotoInline(TabularInline):
 @admin.register(Album)
 class AlbumAdmin(UnfoldTranslatableAdmin):
     list_display = ("id", "title", "date", "status")
+    list_display_links = ("id", "title")
     list_filter = ("status",)
     search_fields = ("translations__title",)
     ordering = ("-date",)
@@ -27,5 +28,6 @@ class AlbumAdmin(UnfoldTranslatableAdmin):
 @admin.register(AlbumPhoto)
 class AlbumPhotoAdmin(ModelAdmin):
     list_display = ("id", "album", "published_at", "order")
+    list_display_links = ("id", "album")
     list_filter = ("album",)
     ordering = ("album", "order")

@@ -20,24 +20,28 @@ class MainSliderItemAdmin(ModelAdmin):
 class StatisticBlockAdmin(UnfoldTranslatableAdmin):
     """Admin configuration for the StatisticBlock model."""
     list_display = ["id", "title", "description"]
+    list_display_links = ["id", "title"]
 
 
 @admin.register(Partner)
 class PartnersAdmin(UnfoldTranslatableAdmin):
     """Admin configuration for the Partners model."""
     list_display = ["id", "name"]
+    list_display_links = ["id", "name"]
 
 
 @admin.register(FAQ)
 class FAQAdmin(UnfoldTranslatableAdmin):
     """Admin configuration for the FAQ model."""
     list_display = ["id", "question", "answer"]
+    list_display_links = ["id", "question"]
 
 
 @admin.register(Alumnus)
 class AlumnusAdmin(UnfoldTranslatableAdmin):
     """Admin configuration for the Alumnus model."""
     list_display = ["id", "full_name"]
+    list_display_links = ["id", "full_name"]
 
 
 @admin.register(AlumniSlider)

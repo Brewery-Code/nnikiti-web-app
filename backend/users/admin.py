@@ -76,6 +76,7 @@ class UserAdmin(ModelAdmin, BaseUserAdmin):
     change_password_form = AdminPasswordChangeForm
 
     list_display = ["id", "get_full_name", "email", "role", "department", "is_staff", "is_active"]
+    list_display_links = ["id", "get_full_name", "email"]
     list_filter = ["role", "department"]
     search_fields = ["email", "first_name", "last_name"]
     ordering = ["email"]

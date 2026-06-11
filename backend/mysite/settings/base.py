@@ -287,6 +287,9 @@ UNFOLD = {
     "SITE_TITLE": "НУВГП Адмін",
     "SITE_HEADER": "НУВГП",
     "SITE_LOGO": lambda request: request.build_absolute_uri("/static/logo/logo-cat.png"),
+    "STYLES": [
+        lambda request: request.build_absolute_uri("/static/admin/css/admin_fix.css"),
+    ],
     "SIDEBAR": {
         "show_search": False,
         "show_all_applications": False,

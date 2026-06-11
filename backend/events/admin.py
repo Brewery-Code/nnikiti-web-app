@@ -16,6 +16,7 @@ class UnfoldTranslatableAdmin(ModelAdmin, TranslatableAdmin):
 class EventCategoryAdmin(UnfoldTranslatableAdmin):
     """Admin configuration for the EventsCategory model."""
     list_display = ["id", "name"]
+    list_display_links = ["id", "name"]
 
 
 class EventImageInline(TabularInline):
@@ -53,6 +54,7 @@ class EventsAdmin(UnfoldTranslatableAdmin):
     """Admin configuration for the Events model."""
     form = EventAdminForm
     list_display = ["id", "title", "slug", "category", "status", "created_at"]
+    list_display_links = ["id", "title"]
     readonly_fields = ["slug"]
     list_filter = ["status"]
     inlines = [EventImageInline]
