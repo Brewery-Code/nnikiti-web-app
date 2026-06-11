@@ -169,6 +169,8 @@ class EducationalProgram(TranslatableModel):
         db_table = "EducationalProgram"
 
     def __str__(self):
+        if not self.pk:
+            return self.code or "EducationalProgram (unsaved)"
         return f"{self.code} – {self.safe_translation_getter('name', any_language=True)}"
 
 
