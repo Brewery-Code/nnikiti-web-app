@@ -53,7 +53,7 @@ class FacultyMemberSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacultyMember
-        fields = ["id", "name", "role", "specialty", "image", "email", "audience"]
+        fields = ["id", "name", "role", "specialty", "image", "email", "audience", "url"]
 
     def _lang(self, obj, field):
         request = self.context.get('request')
@@ -113,7 +113,7 @@ class HeadOfDepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HeadOfDepartment
-        fields = ['id', 'full_name', 'regalia', 'email', 'audience', 'image']
+        fields = ['id', 'full_name', 'regalia', 'email', 'audience', 'image', 'url']
 
     def _lang(self, obj, field):
         request = self.context.get('request')
@@ -172,7 +172,7 @@ class StaffFacultyMemberSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacultyMember
-        fields = ["id", "type", "name", "role", "specialty", "image", "email", "audience", "department_id"]
+        fields = ["id", "type", "name", "role", "specialty", "image", "email", "audience", "url", "department_id"]
 
     def _lang(self, obj, field):
         request = self.context.get('request')
@@ -195,7 +195,7 @@ class StaffHeadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HeadOfDepartment
-        fields = ["id", "type", "full_name", "regalia", "email", "audience", "image", "department_id"]
+        fields = ["id", "type", "full_name", "regalia", "email", "audience", "image", "url", "department_id"]
 
     def _lang(self, obj, field):
         request = self.context.get('request')

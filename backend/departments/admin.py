@@ -141,7 +141,7 @@ class FacultyMemberInline(TabularInline):
     extra = 0
     verbose_name = "Викладач"
     verbose_name_plural = "Колектив кафедри"
-    fields = ('name_uk', 'name_en', 'role_uk', 'role_en', 'email', 'audience', 'image')
+    fields = ('name_uk', 'name_en', 'role_uk', 'role_en', 'email', 'audience', 'url', 'image')
 
 class HeadOfDepartmentInline(TabularInline):
     """Inline editing for head of department."""
@@ -149,7 +149,7 @@ class HeadOfDepartmentInline(TabularInline):
     extra = 0
     verbose_name = "Завідувач кафедри"
     verbose_name_plural = "Завідувач кафедри"
-    fields = ('full_name_uk', 'full_name_en', 'regalia_uk', 'regalia_en', 'email', 'audience', 'image')
+    fields = ('full_name_uk', 'full_name_en', 'regalia_uk', 'regalia_en', 'email', 'audience', 'url', 'image')
 
 class EducationalProgramInlineForm(forms.ModelForm):
     name_uk = forms.CharField(label="Назва (УК)", required=False)

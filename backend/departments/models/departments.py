@@ -21,6 +21,7 @@ class FacultyMember(models.Model):
     image = models.ImageField(upload_to=make_upload_to("faculty"), blank=True, verbose_name=_("Photo"))
     email = models.EmailField(blank=True, verbose_name=_("Email"))
     audience = models.CharField(max_length=64, blank=True, verbose_name=_("Audience"))
+    url = models.URLField(blank=True, verbose_name=_("Wiki URL"))
 
     class Meta:
         verbose_name = _("Faculty Member")
@@ -93,6 +94,7 @@ class HeadOfDepartment(models.Model):
     email = models.EmailField(blank=True, null=True, verbose_name=_("Email"))
     audience = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Audience"))
     image = models.ImageField(upload_to=make_upload_to("head_of_department"), blank=True, verbose_name=_("Photo"))
+    url = models.URLField(blank=True, verbose_name=_("Wiki URL"))
 
     class Meta:
         verbose_name = _("Head of Department")
