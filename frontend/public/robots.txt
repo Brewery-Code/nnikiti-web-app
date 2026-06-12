@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block app-internal / non-content routes
+Disallow: /error
+Disallow: /search
+
+Sitemap: https://nnikiti.duckdns.org/sitemap.xml

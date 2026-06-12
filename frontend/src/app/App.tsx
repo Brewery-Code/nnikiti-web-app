@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { useIsFetching } from "@tanstack/react-query";
 import { Header, Footer, Preloader, GlobalBackground, SideOrbs } from "@/widgets";
 import { useLenis } from "@/shared/hooks";
+import { Seo } from "@/shared/ui";
 
 export function App() {
   useLenis();
@@ -14,6 +15,7 @@ export function App() {
 
   return (
     <div className="relative flex min-h-svh flex-col">
+      <Seo />
       <GlobalBackground />
       <SideOrbs />
       <Preloader forceVisible={isFetching > 0} />

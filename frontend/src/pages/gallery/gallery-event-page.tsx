@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { PageTransition } from "@/widgets";
 import { ROUTES } from "@/shared/model/routes";
 import { useLoadNamespace } from "@/shared/hooks";
+import { useSeo } from "@/shared/ui";
+import { SITE_NAME, clampText, stripMarkup } from "@/shared/model/seo";
 import { PhotoGrid, InnerPageLayout } from "./ui";
 import { loadTranslations } from "./locales";
 import { publicRqClient } from "@/shared/api/instance";
@@ -22,6 +24,19 @@ function GalleryEventPage() {
     "get",
     "/gallery/{id}/" as any,
     { params: { path: { id: numId } } },
+  );
+
+  const albumTitle = (data as AlbumDetail | undefined)?.title;
+  useSeo(
+    albumTitle
+      ? {
+          title: `${albumTitle} — Галерея ${SITE_NAME}`,
+          description: clampText(
+            stripMarkup((data as AlbumDetail).description || "") ||
+              `Фотоальбом «${albumTitle}» — події та заходи ННІКІТІ.`,
+          ),
+        }
+      : null,
   );
 
   if (isError) return <Navigate to={ROUTES.GALLERY} replace />;

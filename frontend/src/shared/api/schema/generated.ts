@@ -1233,14 +1233,6 @@ export interface components {
             readonly id?: number;
             /** @description Subject name (translated) */
             name?: string;
-            semester?: number;
-            /** Format: float */
-            credits?: number;
-            /**
-             * @description MN = Mandatory, EL = Elective
-             * @enum {string}
-             */
-            type?: "MN" | "EL";
         };
         FacultyMember: {
             readonly id?: number;

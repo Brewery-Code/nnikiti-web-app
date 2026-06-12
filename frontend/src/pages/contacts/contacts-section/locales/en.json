@@ -1,5 +1,13 @@
 {
   "title": "Contacts",
+  "hero": {
+    "badge": "Get in touch with us",
+    "titleLead": "Get in touch",
+    "titleAccent": "with us",
+    "description": "Have a question? The dean's office, administration and we are ready to help you.",
+    "writeEmail": "Write an email",
+    "askQuestion": "Ask a question"
+  },
   "administration": {
     "title": "Contact the Administration",
     "description": "Send us a message and we will contact you shortly, or visit us in person."
@@ -10,8 +18,13 @@
   },
   "location": {
     "title": "We Are on the Map",
-    "description": "Always happy to meet you!"
+    "description": "Always happy to meet you!",
+    "openMap": "Open in Google Maps"
   },
+  "quick": {
+    "emailLabel": "Dean's office email"
+  },
+  "socials": "We are on social media",
   "audience": "Room",
   "email": "E-mail",
   "phone": "Phone",

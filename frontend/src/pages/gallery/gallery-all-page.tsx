@@ -3,9 +3,8 @@ import { PageTransition } from "@/widgets";
 import { ROUTES } from "@/shared/model/routes";
 import { publicRqClient } from "@/shared/api/instance";
 import { useLoadNamespace } from "@/shared/hooks";
-import { InnerPageLayout } from "./ui";
+import { AlbumCard, InnerPageLayout } from "./ui";
 import { loadTranslations } from "./locales";
-import { AlbumCard } from "./gallery-page";
 import type { components } from "@/shared/api/schema/generated";
 
 type Album = components["schemas"]["Album"];

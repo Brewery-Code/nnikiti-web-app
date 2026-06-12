@@ -4,9 +4,10 @@ import { PageTransition } from "@/widgets";
 import { ROUTES } from "@/shared/model/routes";
 import { publicRqClient } from "@/shared/api/instance";
 import { useLoadNamespace } from "@/shared/hooks";
-import { InnerPageLayout } from "./ui";
+import { useSeo } from "@/shared/ui";
+import { SITE_NAME } from "@/shared/model/seo";
+import { AlbumPhotos, InnerPageLayout } from "./ui";
 import { loadTranslations } from "./locales";
-import { AlbumPhotos } from "./gallery-page";
 import type { components } from "@/shared/api/schema/generated";
 
 type Album = components["schemas"]["Album"];
@@ -22,6 +23,15 @@ function GalleryYearPage() {
   const { t } = useTranslation("gallery");
   const { year } = useParams<{ year: string }>();
   const numYear = Number(year);
+
+  useSeo(
+    !isNaN(numYear)
+      ? {
+          title: `Галерея ${numYear} — ${SITE_NAME}`,
+          description: `Фотоальбоми подій та заходів ННІКІТІ за ${numYear} рік.`,
+        }
+      : null,
+  );
 
   const { data, isPending } = publicRqClient.useQuery("get", "/gallery/" as any, {});
   const allAlbums = ((data ?? []) as Album[]).filter((a) => a.status === "PB" || !a.status);

@@ -41,6 +41,7 @@ export interface DepartmentData {
     email?: string;
     audience?: string;
     imageUrl?: string;
+    url?: string;
   }[];
   history: {
     year: string;
