@@ -12,6 +12,7 @@ export function PersonCard({
         <img
           src={avatar(imgUrl)}
           alt={name}
+          loading="lazy"
           className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#08090f] via-[#08090f]/70 to-transparent" />

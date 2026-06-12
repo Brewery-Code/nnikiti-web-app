@@ -16,7 +16,7 @@ export function NewsCard({ item }: { item: ApiEvent }) {
     <Link to={`/news/${item.slug ?? item.id}`} className="spec-card grad-border group flex h-full flex-col overflow-hidden rounded-[16px] bg-surface backdrop-blur-xl sm:rounded-[20px]">
       <div className="relative h-44 overflow-hidden sm:h-52">
         {image ? (
-          <img src={image} alt={item.title ?? ""} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src={image} alt={item.title ?? ""} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-violet-500/20 to-blue-500/20" />
         )}

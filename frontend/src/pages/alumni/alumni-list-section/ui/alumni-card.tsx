@@ -37,6 +37,7 @@ export function AlumniCard({ alumni, className }: AlumniCardProps) {
             className="h-12 w-12 flex-shrink-0 rounded-[10px] object-cover ring-1 ring-white/10"
             src={alumni.image || profilePlaceholder}
             alt={alumni.full_name}
+            loading="lazy"
             onError={(e) => { e.currentTarget.src = profilePlaceholder; }}
           />
 

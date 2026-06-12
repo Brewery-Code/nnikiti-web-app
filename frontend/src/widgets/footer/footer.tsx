@@ -52,7 +52,7 @@ export function Footer({ className }: { className?: string }) {
           {/* Brand — full width on mobile */}
           <div className="col-span-2 lg:col-span-1">
             <Link to={ROUTES.HOME} className="inline-flex items-center mb-4">
-              <img src={logoCat} alt="ННІКІТІ" style={{ height: 36, width: "auto" }} />
+              <img src={logoCat} alt="ННІКІТІ" loading="lazy" style={{ height: 36, width: "auto" }} />
             </Link>
             <p className="text-[13px] leading-[1.75] text-white/30 max-w-[300px] mb-6">
               {t("universityName")}

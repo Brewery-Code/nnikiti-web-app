@@ -12,7 +12,7 @@ interface DeptPhotoProps {
  */
 export function DeptPhoto({ src, alt = "", className }: DeptPhotoProps) {
   if (src) {
-    return <img src={src} alt={alt} className={className} />;
+    return <img src={src} alt={alt} loading="lazy" className={className} />;
   }
 
   return (

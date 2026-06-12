@@ -21,6 +21,7 @@ export function ContactsSection({ dept }: { dept: DepartmentData }) {
               <img
                 src={avatar(head.imageUrl)}
                 alt={head.full_name}
+                loading="lazy"
                 className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
               />
               <div className="absolute inset-y-0 right-0 w-px bg-white/[0.08]" />

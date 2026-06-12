@@ -50,16 +50,16 @@ export default function WhySection({ className = "" }: { className?: string }) {
               {/* Mobile: big photo + 2 small below */}
               <div className="flex flex-col gap-2 sm:hidden" style={{ height: "clamp(260px, 72vw, 360px)" }}>
                 <div className="min-h-0 flex-[1.4] overflow-hidden rounded-[18px]">
-                  <img src="/images/students-lecture.jpg" alt=""
+                  <img src="/images/students-lecture.jpg" alt="" loading="lazy"
                     className="block h-full w-full object-cover" />
                 </div>
                 <div className="flex min-h-0 flex-1 gap-2">
                   <div className="flex-1 overflow-hidden rounded-[18px]">
-                    <img src="/images/students-sport.jpg" alt=""
+                    <img src="/images/students-sport.jpg" alt="" loading="lazy"
                       className="block h-full w-full object-cover" />
                   </div>
                   <div className="relative flex-1 overflow-hidden rounded-[18px]">
-                    <img src="/images/noosphere-workshop.jpg" alt=""
+                    <img src="/images/noosphere-workshop.jpg" alt="" loading="lazy"
                       className="block h-full w-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#08090f]/70 to-transparent" />
                   </div>
@@ -76,15 +76,15 @@ export default function WhySection({ className = "" }: { className?: string }) {
                 }}
               >
                 <div className="row-span-2 overflow-hidden rounded-[22px]">
-                  <img src="/images/students-lecture.jpg" alt=""
+                  <img src="/images/students-lecture.jpg" alt="" loading="lazy"
                     className="block h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]" />
                 </div>
                 <div className="overflow-hidden rounded-[22px]">
-                  <img src="/images/students-sport.jpg" alt=""
+                  <img src="/images/students-sport.jpg" alt="" loading="lazy"
                     className="block h-full w-full object-cover transition-transform duration-700 hover:scale-[1.06]" />
                 </div>
                 <div className="relative overflow-hidden rounded-[22px]">
-                  <img src="/images/noosphere-workshop.jpg" alt=""
+                  <img src="/images/noosphere-workshop.jpg" alt="" loading="lazy"
                     className="block h-full w-full object-cover transition-transform duration-700 hover:scale-[1.06]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#08090f]/80 to-transparent" />
                 </div>

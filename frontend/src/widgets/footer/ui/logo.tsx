@@ -12,7 +12,7 @@ export function Logo({ className }: LogoProps) {
   return (
     <div className={clsx("flex max-w-xs flex-col gap-fluid-md", className)}>
       <div className="flex items-center gap-3">
-        <img className="h-16 w-auto flex-shrink-0" src={logoCat} alt="ННІКІТІ логотип" />
+        <img className="h-16 w-auto flex-shrink-0" src={logoCat} alt="ННІКІТІ логотип" loading="lazy" />
       </div>
       <p className="text-fluid-xs leading-relaxed text-gray-500">
         {t("description")}

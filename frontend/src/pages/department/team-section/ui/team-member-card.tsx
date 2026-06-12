@@ -18,6 +18,7 @@ export function TeamMemberCard({ member, large = false }: { member: DepartmentDa
         <img
           src={avatar(member.imageUrl)}
           alt={member.name}
+          loading="lazy"
           className={clsx(
             "h-full w-full object-cover object-top transition-transform duration-500",
             hasUrl && "group-hover:scale-105"

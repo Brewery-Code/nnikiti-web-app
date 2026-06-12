@@ -22,6 +22,7 @@ export function RelatedCard({ item }: { item: ApiEvent }) {
           <img
             src={image}
             alt={item.title ?? ""}
+            loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         ) : (

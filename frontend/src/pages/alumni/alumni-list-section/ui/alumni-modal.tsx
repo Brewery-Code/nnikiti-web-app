@@ -37,6 +37,7 @@ export function AlumniModal({ isOpen, toggleModal, alumni }: AlumniModalProps) {
               className="h-20 w-20 rounded-[12px] object-cover sm:h-32 sm:w-32 sm:rounded-[16px]"
               src={alumni.image || profilePlaceholder}
               alt={alumni.full_name}
+              loading="lazy"
               onError={(e) => { e.currentTarget.src = profilePlaceholder; }}
             />
           </div>

@@ -119,6 +119,7 @@ export function NewsItemPage() {
               <img
                 src={image}
                 alt={event.title ?? ""}
+                loading="lazy"
                 className="h-[260px] w-full object-cover sm:h-[400px] lg:h-[500px]"
               />
             </div>

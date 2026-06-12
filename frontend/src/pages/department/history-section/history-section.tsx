@@ -15,6 +15,7 @@ export function HistorySection({ dept }: { dept: DepartmentData }) {
         <img
           src={cover(dept.historyImageUrl ?? dept.imageUrl, dept.id + 10)}
           alt=""
+          loading="lazy"
           className="h-[200px] w-full object-cover object-top sm:h-[340px] lg:h-[420px]"
         />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#08090f]/95 to-transparent" />
