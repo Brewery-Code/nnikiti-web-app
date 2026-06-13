@@ -287,3 +287,30 @@ msgstr ""
 #: departments/models/tagged.py:69
 msgid "Level Tags"
 msgstr ""
+
+msgid "Institute Leadership"
+msgstr "Institute Leadership"
+
+msgid "Institute Leaderships"
+msgstr "Institute Leaderships"
+
+msgid "Title (UK)"
+msgstr "Title (UK)"
+
+msgid "Title (EN)"
+msgstr "Title (EN)"
+
+msgid "Group photo"
+msgstr "Group photo"
+
+msgid "Institute Leader Member"
+msgstr "Institute Leader Member"
+
+msgid "Institute Leader Members"
+msgstr "Institute Leader Members"
+
+msgid "Leadership group"
+msgstr "Leadership group"
+
+msgid "Position"
+msgstr "Position"

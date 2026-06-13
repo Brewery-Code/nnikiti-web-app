@@ -261,7 +261,7 @@ class InstituteLeaderMemberInline(TabularInline):
     extra = 0
     verbose_name = "Член керівництва"
     verbose_name_plural = "Склад керівництва"
-    fields = ('full_name_uk', 'full_name_en', 'position_uk', 'position_en', 'email', 'url', 'image', 'order')
+    fields = ('full_name_uk', 'full_name_en', 'position_uk', 'position_en', 'email', 'url', 'image')
 
 
 @admin.register(InstituteLeadership)

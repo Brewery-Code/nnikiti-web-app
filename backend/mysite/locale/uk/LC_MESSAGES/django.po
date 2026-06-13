@@ -40,6 +40,9 @@ msgstr "Категорії подій"
 msgid "Department"
 msgstr "Кафедра"
 
+msgid "Institute leadership"
+msgstr "Керівництво інституту"
+
 msgid "Departments"
 msgstr "Кафедри"
 

@@ -289,6 +289,33 @@ msgstr "Тег рівня навчання"
 msgid "Level Tags"
 msgstr "Теги рівнів навчання"
 
+msgid "Institute Leadership"
+msgstr "Керівництво інституту"
+
+msgid "Institute Leaderships"
+msgstr "Керівництво інституту"
+
+msgid "Title (UK)"
+msgstr "Назва (УК)"
+
+msgid "Title (EN)"
+msgstr "Назва (EN)"
+
+msgid "Group photo"
+msgstr "Групове фото"
+
+msgid "Institute Leader Member"
+msgstr "Член керівництва"
+
+msgid "Institute Leader Members"
+msgstr "Члени керівництва"
+
+msgid "Leadership group"
+msgstr "Група керівництва"
+
+msgid "Position"
+msgstr "Посада"
+
 #~ msgid "Year (UK)"
 #~ msgstr "Рік (УКР)"
 

@@ -40,6 +40,9 @@ msgstr "Event categories"
 msgid "Department"
 msgstr "Department"
 
+msgid "Institute leadership"
+msgstr "Institute leadership"
+
 msgid "Departments"
 msgstr "Departments"
 
