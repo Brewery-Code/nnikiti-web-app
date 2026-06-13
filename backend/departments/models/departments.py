@@ -109,7 +109,8 @@ class EducationalProgram(TranslatableModel):
     such as subjects, education forms, and education levels.
     """
     translated_fields = TranslatedFields(
-        name = models.CharField(max_length=255, verbose_name=_("Educational program name")),
+        name = models.CharField(max_length=255, verbose_name=_("Specialty name")),
+        name_op = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Educational program name")),
         description = MDTextField(blank=True, default='', verbose_name=_("Educational program description")),
         degree = models.CharField(max_length=64, blank=True, verbose_name=_("Degree")),
         form = models.CharField(max_length=128, blank=True, verbose_name=_("Study form")),

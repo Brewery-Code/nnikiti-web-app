@@ -103,8 +103,10 @@ class HeadOfDepartmentInline(TabularInline):
     fields = ('full_name_uk', 'full_name_en', 'regalia_uk', 'regalia_en', 'email', 'url', 'image')
 
 class EducationalProgramInlineForm(forms.ModelForm):
-    name_uk = forms.CharField(label="Назва (УК)", required=False)
-    name_en = forms.CharField(label="Назва (EN)", required=False)
+    name_uk = forms.CharField(label="Спеціальність (УК)", required=False)
+    name_en = forms.CharField(label="Спеціальність (EN)", required=False)
+    name_op_uk = forms.CharField(label="Назва ОП (УК)", required=False)
+    name_op_en = forms.CharField(label="Назва ОП (EN)", required=False)
 
     class Meta:
         model = EducationalProgram
@@ -115,14 +117,20 @@ class EducationalProgramInlineForm(forms.ModelForm):
         if self.instance and self.instance.pk:
             self.fields['name_uk'].initial = self.instance.safe_translation_getter('name', language_code='uk')
             self.fields['name_en'].initial = self.instance.safe_translation_getter('name', language_code='en')
+            self.fields['name_op_uk'].initial = self.instance.safe_translation_getter('name_op', language_code='uk')
+            self.fields['name_op_en'].initial = self.instance.safe_translation_getter('name_op', language_code='en')
 
     def save(self, commit=True):
         instance = super().save(commit=False)
         for lang, suffix in (('uk', '_uk'), ('en', '_en')):
             name = self.cleaned_data.get(f'name{suffix}', '')
-            if name:
+            name_op = self.cleaned_data.get(f'name_op{suffix}', '')
+            if name or name_op:
                 instance.set_current_language(lang)
-                instance.name = name
+                if name:
+                    instance.name = name
+                if name_op:
+                    instance.name_op = name_op
         if commit:
             instance.save()
             self.save_m2m()
@@ -136,7 +144,7 @@ class EducationalProgramInline(TabularInline):
     extra = 0
     verbose_name = "Освітня програма"
     verbose_name_plural = "Освітні програми"
-    fields = ('name_uk', 'name_en', 'code', 'url', 'duration', 'total_credits')
+    fields = ('name_uk', 'name_en', 'name_op_uk', 'name_op_en', 'code', 'url', 'duration', 'total_credits')
     show_change_link = True
 
 #########################

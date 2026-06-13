@@ -103,6 +103,7 @@ class HeadOfDepartmentSerializer(serializers.ModelSerializer):
 class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
     """Serializer for DepartmentEducationalProgram."""
     name = serializers.SerializerMethodField()
+    name_op = serializers.SerializerMethodField()
     description = serializers.SerializerMethodField()
     degree = serializers.SerializerMethodField()
     form = serializers.SerializerMethodField()
@@ -111,7 +112,7 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = EducationalProgram
         fields = [
-            'id', 'code', 'name', 'description', 'url',
+            'id', 'code', 'name', 'name_op', 'description', 'url',
             'degree', 'form', 'duration', 'total_credits',
             'bachelor', 'magistracy', 'postgraduate',
             'subjects',
@@ -119,6 +120,9 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
 
     def get_name(self, obj):
         return obj.safe_translation_getter('name', any_language=True)
+
+    def get_name_op(self, obj):
+        return obj.safe_translation_getter('name_op', any_language=True)
 
     def get_description(self, obj):
         return obj.safe_translation_getter('description', any_language=True)
