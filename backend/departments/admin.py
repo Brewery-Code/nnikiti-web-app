@@ -126,13 +126,44 @@ class DepartmentHistoryInline(TabularInline):
     verbose_name_plural = "Історія кафедри"
     fields = ('year', 'text_uk', 'text_en', 'order')
 
+class ProgramSubjectInlineForm(forms.ModelForm):
+    name_uk = forms.CharField(label="Назва (УК)", required=False)
+    name_en = forms.CharField(label="Назва (EN)", required=False)
+
+    class Meta:
+        model = ProgramSubject
+        fields = ('credits', 'type', 'control_form')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.pk:
+            self.fields['name_uk'].initial = self.instance.safe_translation_getter('name', language_code='uk')
+            self.fields['name_en'].initial = self.instance.safe_translation_getter('name', language_code='en')
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        name_uk = self.cleaned_data.get('name_uk', '')
+        name_en = self.cleaned_data.get('name_en', '')
+        if name_uk:
+            instance.set_current_language('uk')
+            instance.name = name_uk
+        if name_en:
+            instance.set_current_language('en')
+            instance.name = name_en
+        if commit:
+            instance.save()
+            self.save_m2m()
+        return instance
+
+
 class ProgramSubjectInline(TabularInline):
     """Inline editing for program subjects."""
     model = ProgramSubject
+    form = ProgramSubjectInlineForm
     extra = 0
     verbose_name = "Дисципліна"
     verbose_name_plural = "Навчальний план (дисципліни)"
-    fields = ('semester', 'credits', 'type', 'control_form', 'order')
+    fields = ('name_uk', 'name_en', 'credits', 'type', 'control_form')
     show_change_link = True
 
 class FacultyMemberInline(TabularInline):
