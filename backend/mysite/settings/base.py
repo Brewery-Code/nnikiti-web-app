@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "rosetta",
     "parler",
     "mdeditor",
-    "taggit",
     # my custom
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",

@@ -4,38 +4,14 @@ from .models.departments import (
     EducationalProgram, Department, HeadOfDepartment,
     FacultyMember, DepartmentHistory, ProgramSubject,
 )
-from .models.tagged import CategorizedTag
-
-
-class CategorizedTagSerializer(serializers.ModelSerializer):
-    """Serializer for CategorizedTag."""
-    name = serializers.SerializerMethodField()
-
-    class Meta:
-        model = CategorizedTag
-        fields = ['id', 'name',]
-
-    def get_name(self, obj):
-        return obj.safe_translation_getter('name', any_language=True)
 
 
 class EducationalProgramSerializer(serializers.ModelSerializer):
     """Serializer for EducationalProgram."""
-    subject = CategorizedTagSerializer(many=True, read_only=True)
-    education_forms = CategorizedTagSerializer(many=True, read_only=True)
-    education_levels = CategorizedTagSerializer(many=True, read_only=True)
 
     class Meta:
         model = EducationalProgram
-        fields = [
-            'id',
-            'code',
-            'name',
-            'url',
-            'subject',
-            'education_forms',
-            'education_levels',
-        ]
+        fields = ['id', 'code', 'name', 'url']
 
 
 class DepartmentListSerializer(serializers.ModelSerializer):
@@ -49,11 +25,10 @@ class FacultyMemberSerializer(serializers.ModelSerializer):
     """Serializer for FacultyMember."""
     name = serializers.SerializerMethodField()
     role = serializers.SerializerMethodField()
-    specialty = serializers.SerializerMethodField()
 
     class Meta:
         model = FacultyMember
-        fields = ["id", "name", "role", "specialty", "image", "email", "audience", "url"]
+        fields = ["id", "name", "role", "image", "email", "url"]
 
     def _lang(self, obj, field):
         request = self.context.get('request')
@@ -66,9 +41,6 @@ class FacultyMemberSerializer(serializers.ModelSerializer):
 
     def get_role(self, obj):
         return self._lang(obj, 'role')
-
-    def get_specialty(self, obj):
-        return self._lang(obj, 'specialty')
 
 
 class DepartmentHistorySerializer(serializers.ModelSerializer):
@@ -113,7 +85,7 @@ class HeadOfDepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HeadOfDepartment
-        fields = ['id', 'full_name', 'regalia', 'email', 'audience', 'image', 'url']
+        fields = ['id', 'full_name', 'regalia', 'email', 'image', 'url']
 
     def _lang(self, obj, field):
         request = self.context.get('request')
@@ -134,9 +106,6 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
     description = serializers.SerializerMethodField()
     degree = serializers.SerializerMethodField()
     form = serializers.SerializerMethodField()
-    subject = CategorizedTagSerializer(many=True, read_only=True)
-    education_forms = CategorizedTagSerializer(many=True, read_only=True)
-    education_levels = CategorizedTagSerializer(many=True, read_only=True)
     subjects = ProgramSubjectSerializer(many=True, read_only=True)
 
     class Meta:
@@ -145,7 +114,6 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
             'id', 'code', 'name', 'description', 'url',
             'degree', 'form', 'duration', 'total_credits',
             'bachelor', 'magistracy', 'postgraduate',
-            'subject', 'education_forms', 'education_levels',
             'subjects',
         ]
 
@@ -166,13 +134,12 @@ class StaffFacultyMemberSerializer(serializers.ModelSerializer):
     """FacultyMember for the staff endpoint — includes department info."""
     name = serializers.SerializerMethodField()
     role = serializers.SerializerMethodField()
-    specialty = serializers.SerializerMethodField()
     department_id = serializers.IntegerField(source="department.pk", read_only=True)
     type = serializers.SerializerMethodField()
 
     class Meta:
         model = FacultyMember
-        fields = ["id", "type", "name", "role", "specialty", "image", "email", "audience", "url", "department_id"]
+        fields = ["id", "type", "name", "role", "image", "email", "url", "department_id"]
 
     def _lang(self, obj, field):
         request = self.context.get('request')
@@ -182,7 +149,6 @@ class StaffFacultyMemberSerializer(serializers.ModelSerializer):
 
     def get_name(self, obj): return self._lang(obj, 'name')
     def get_role(self, obj): return self._lang(obj, 'role')
-    def get_specialty(self, obj): return self._lang(obj, 'specialty')
     def get_type(self, obj): return "faculty"
 
 
@@ -195,7 +161,7 @@ class StaffHeadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HeadOfDepartment
-        fields = ["id", "type", "full_name", "regalia", "email", "audience", "image", "url", "department_id"]
+        fields = ["id", "type", "full_name", "regalia", "email", "image", "url", "department_id"]
 
     def _lang(self, obj, field):
         request = self.context.get('request')

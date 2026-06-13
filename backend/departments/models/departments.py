@@ -1,8 +1,8 @@
+from django.db import models
 from django.utils.translation import gettext_lazy as _
-from taggit.managers import TaggableManager
+from parler.models import TranslatableModel, TranslatedFields
 
 from core.utils import make_upload_to
-from .tagged import *
 
 
 class FacultyMember(models.Model):
@@ -16,11 +16,8 @@ class FacultyMember(models.Model):
     name_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Full name (EN)"))
     role_uk = models.CharField(max_length=255, default='', verbose_name=_("Role (UK)"))
     role_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Role (EN)"))
-    specialty_uk = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Specialty (UK)"))
-    specialty_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Specialty (EN)"))
     image = models.ImageField(upload_to=make_upload_to("faculty"), blank=True, verbose_name=_("Photo"))
     email = models.EmailField(blank=True, verbose_name=_("Email"))
-    audience = models.CharField(max_length=64, blank=True, verbose_name=_("Audience"))
     url = models.URLField(blank=True, verbose_name=_("Wiki URL"))
 
     class Meta:
@@ -92,7 +89,6 @@ class HeadOfDepartment(models.Model):
     regalia_uk = models.CharField(max_length=255, default='', verbose_name=_("Regalia (UK)"))
     regalia_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Regalia (EN)"))
     email = models.EmailField(blank=True, null=True, verbose_name=_("Email"))
-    audience = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Audience"))
     image = models.ImageField(upload_to=make_upload_to("head_of_department"), blank=True, verbose_name=_("Photo"))
     url = models.URLField(blank=True, verbose_name=_("Wiki URL"))
 
@@ -113,7 +109,7 @@ class EducationalProgram(TranslatableModel):
     """
     translated_fields = TranslatedFields(
         name = models.CharField(max_length=255, verbose_name=_("Educational program name")),
-        description = models.TextField(verbose_name=_("Educational program description")),
+        description = models.TextField(blank=True, default='', verbose_name=_("Educational program description")),
         degree = models.CharField(max_length=64, blank=True, verbose_name=_("Degree")),
         form = models.CharField(max_length=128, blank=True, verbose_name=_("Study form")),
         bachelor=models.JSONField(
@@ -136,29 +132,9 @@ class EducationalProgram(TranslatableModel):
             null=True,
             help_text=_("Structure like: {'code': 'F1', 'specialty': '...', 'program': '...'}")
         ),
-
     )
     department = models.ForeignKey(Department, on_delete=models.CASCADE, verbose_name=_("Department"), related_name="educational_program")
     code = models.CharField(max_length=255, verbose_name=_("Program code"))
-    subject = TaggableManager(
-        verbose_name=_("Subjects"),
-        through=SubjectTaggedItem,
-        blank=True,
-        related_name="edu_program_subject"
-    )
-    education_forms = TaggableManager(
-        verbose_name=_("Education Forms"),
-        through=FormTaggedItem,
-        blank=True,
-        related_name="edu_program_forms"
-    )
-    education_levels = TaggableManager(
-        verbose_name=_("Education Levels"),
-        through=LevelTaggedItem,
-        blank=True,
-        related_name="edu_program_levels"
-    )
-
     url = models.URLField(blank=True, verbose_name=_("Program URL"))
     duration = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Duration (years)"))
     total_credits = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Total ECTS credits"))
