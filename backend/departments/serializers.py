@@ -8,10 +8,18 @@ from .models.departments import (
 
 class EducationalProgramSerializer(serializers.ModelSerializer):
     """Serializer for EducationalProgram."""
+    name = serializers.SerializerMethodField()
+    name_op = serializers.SerializerMethodField()
 
     class Meta:
         model = EducationalProgram
-        fields = ['id', 'code', 'name', 'url']
+        fields = ['id', 'code', 'name', 'name_op', 'url', 'duration', 'total_credits']
+
+    def get_name(self, obj):
+        return obj.safe_translation_getter('name', any_language=True)
+
+    def get_name_op(self, obj):
+        return obj.safe_translation_getter('name_op', any_language=True)
 
 
 class DepartmentListSerializer(serializers.ModelSerializer):
@@ -114,6 +122,7 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'code', 'name', 'name_op', 'description', 'url',
             'degree', 'form', 'duration', 'total_credits',
+            'budget_seats', 'contract_seats',
             'bachelor', 'magistracy', 'postgraduate',
             'subjects',
         ]
