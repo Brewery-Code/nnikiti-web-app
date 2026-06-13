@@ -197,3 +197,26 @@ class ProgramSubject(TranslatableModel):
     def __str__(self):
         name = self.safe_translation_getter("name", any_language=True) or "?"
         return f"Sem {self.semester} – {name}"
+
+
+class InstituteLeader(TranslatableModel):
+    """Represents a member of the institute leadership."""
+
+    translated_fields = TranslatedFields(
+        position=models.CharField(max_length=255, verbose_name=_("Position")),
+    )
+    full_name_uk = models.CharField(max_length=255, default='', verbose_name=_("Full name (UK)"))
+    full_name_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Full name (EN)"))
+    email = models.EmailField(blank=True, verbose_name=_("Email"))
+    image = models.ImageField(upload_to=make_upload_to("institute_leaders"), blank=True, verbose_name=_("Photo"))
+    url = models.URLField(blank=True, verbose_name=_("Wiki URL"))
+    order = models.PositiveIntegerField(default=0, verbose_name=_("Order"))
+
+    class Meta:
+        verbose_name = _("Institute Leader")
+        verbose_name_plural = _("Institute Leaders")
+        db_table = "InstituteLeader"
+        ordering = ["order"]
+
+    def __str__(self):
+        return self.full_name_uk or f"InstituteLeader #{self.pk}"

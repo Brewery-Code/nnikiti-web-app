@@ -6,7 +6,7 @@ from unfold.admin import ModelAdmin, TabularInline
 
 from .models.departments import (
     Department, HeadOfDepartment, EducationalProgram,
-    FacultyMember, DepartmentHistory, ProgramSubject,
+    FacultyMember, DepartmentHistory, ProgramSubject, InstituteLeader,
 )
 
 
@@ -224,4 +224,13 @@ class ProgramSubjectAdmin(UnfoldTranslatableAdmin):
     list_filter = ("program", "semester", "type", "control_form")
     search_fields = ("translations__name",)
     ordering = ("program", "semester", "order")
+
+
+@admin.register(InstituteLeader)
+class InstituteLeaderAdmin(UnfoldTranslatableAdmin):
+    """Custom admin for institute leaders."""
+    list_display = ("id", "full_name_uk", "position", "email", "order")
+    list_display_links = ("id", "full_name_uk")
+    search_fields = ("full_name_uk", "full_name_en", "email")
+    ordering = ("order",)
 
