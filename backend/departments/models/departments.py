@@ -198,7 +198,7 @@ class ProgramSubject(TranslatableModel):
         EducationalProgram, on_delete=models.CASCADE, related_name="subjects",
         verbose_name=_("Educational program")
     )
-    semester = models.PositiveSmallIntegerField(verbose_name=_("Semester"))
+    semester = models.PositiveSmallIntegerField(default=0, verbose_name=_("Semester"))
     credits = models.DecimalField(max_digits=4, decimal_places=1, verbose_name=_("ECTS credits"))
     type = models.CharField(
         max_length=2, choices=SubjectType.choices, default=SubjectType.MANDATORY,
