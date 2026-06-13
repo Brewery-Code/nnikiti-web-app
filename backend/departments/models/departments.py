@@ -210,7 +210,7 @@ class InstituteLeadership(models.Model):
         db_table = "InstituteLeadership"
 
     def __str__(self):
-        return self.title_uk or f"InstituteLeadership #{self.pk}"
+        return f"InstituteLeadership #{self.pk}"
 
 
 class InstituteLeaderMember(TranslatableModel):
