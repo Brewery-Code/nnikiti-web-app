@@ -1,6 +1,7 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
 from django import forms
+from mdeditor.widgets import MDEditorWidget
 from unfold.admin import ModelAdmin, TabularInline
 
 from .models.departments import (
@@ -104,8 +105,6 @@ class HeadOfDepartmentInline(TabularInline):
 class EducationalProgramInlineForm(forms.ModelForm):
     name_uk = forms.CharField(label="Назва (УК)", required=False)
     name_en = forms.CharField(label="Назва (EN)", required=False)
-    description_uk = forms.CharField(label="Опис (УК)", required=False, widget=forms.Textarea(attrs={'rows': 3}))
-    description_en = forms.CharField(label="Опис (EN)", required=False, widget=forms.Textarea(attrs={'rows': 3}))
 
     class Meta:
         model = EducationalProgram
@@ -116,20 +115,14 @@ class EducationalProgramInlineForm(forms.ModelForm):
         if self.instance and self.instance.pk:
             self.fields['name_uk'].initial = self.instance.safe_translation_getter('name', language_code='uk')
             self.fields['name_en'].initial = self.instance.safe_translation_getter('name', language_code='en')
-            self.fields['description_uk'].initial = self.instance.safe_translation_getter('description', language_code='uk')
-            self.fields['description_en'].initial = self.instance.safe_translation_getter('description', language_code='en')
 
     def save(self, commit=True):
         instance = super().save(commit=False)
         for lang, suffix in (('uk', '_uk'), ('en', '_en')):
             name = self.cleaned_data.get(f'name{suffix}', '')
-            desc = self.cleaned_data.get(f'description{suffix}', '')
-            if name or desc:
+            if name:
                 instance.set_current_language(lang)
-                if name:
-                    instance.name = name
-                if desc:
-                    instance.description = desc
+                instance.name = name
         if commit:
             instance.save()
             self.save_m2m()
@@ -143,7 +136,7 @@ class EducationalProgramInline(TabularInline):
     extra = 0
     verbose_name = "Освітня програма"
     verbose_name_plural = "Освітні програми"
-    fields = ('name_uk', 'name_en', 'description_uk', 'description_en', 'code', 'url', 'duration', 'total_credits')
+    fields = ('name_uk', 'name_en', 'code', 'url', 'duration', 'total_credits')
     show_change_link = True
 
 #########################
@@ -188,6 +181,12 @@ class EducationalProgramAdmin(DepartmentScopedMixin, UnfoldTranslatableAdmin):
     list_filter = ('department',)
     exclude = ('bachelor', 'magistracy', 'postgraduate', 'budget_seats', 'contract_seats')
     inlines = [ProgramSubjectInline]
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if 'description' in form.base_fields:
+            form.base_fields['description'].widget = MDEditorWidget()
+        return form
 
 @admin.register(FacultyMember)
 class FacultyMemberAdmin(DepartmentScopedMixin, ModelAdmin):

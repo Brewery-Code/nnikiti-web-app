@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from mdeditor.fields import MDTextField
 from parler.models import TranslatableModel, TranslatedFields
 
 from core.utils import make_upload_to
@@ -109,7 +110,7 @@ class EducationalProgram(TranslatableModel):
     """
     translated_fields = TranslatedFields(
         name = models.CharField(max_length=255, verbose_name=_("Educational program name")),
-        description = models.TextField(blank=True, default='', verbose_name=_("Educational program description")),
+        description = MDTextField(blank=True, default='', verbose_name=_("Educational program description")),
         degree = models.CharField(max_length=64, blank=True, verbose_name=_("Degree")),
         form = models.CharField(max_length=128, blank=True, verbose_name=_("Study form")),
         bachelor=models.JSONField(
