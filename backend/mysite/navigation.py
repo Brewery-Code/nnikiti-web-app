@@ -6,13 +6,13 @@ DEPARTMENT_SECTION = {
     "title": _("Department"),
     "separator": True,
     "items": [
+        {"title": _("Institute leadership"), "icon": "star", "link": "/admin/departments/instituteleadership/"},
         {"title": _("Departments"), "icon": "domain", "link": "/admin/departments/department/"},
         {"title": _("Heads of department"), "icon": "person", "link": "/admin/departments/headofdepartment/"},
         {"title": _("Faculty members"), "icon": "people", "link": "/admin/departments/facultymember/"},
         {"title": _("Educational programs"), "icon": "menu_book", "link": "/admin/departments/educationalprogram/"},
         {"title": _("Subjects"), "icon": "library_books", "link": "/admin/departments/programsubject/"},
         {"title": _("Department history"), "icon": "history", "link": "/admin/departments/departmenthistory/"},
-        {"title": _("Tags"), "icon": "sell", "link": "/admin/departments/categorizedtag/"},
     ],
 }
 
