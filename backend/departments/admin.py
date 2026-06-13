@@ -267,7 +267,7 @@ class InstituteLeaderMemberInline(TabularInline):
 @admin.register(InstituteLeadership)
 class InstituteLeadershipAdmin(ModelAdmin):
     """Custom admin for institute leadership."""
-    list_display = ("id", "title_uk")
-    list_display_links = ("id", "title_uk")
+    list_display = ("id", "image")
+    list_display_links = ("id",)
     inlines = [InstituteLeaderMemberInline]
 

@@ -202,8 +202,6 @@ class ProgramSubject(TranslatableModel):
 class InstituteLeadership(models.Model):
     """Represents the institute leadership group (contains a shared photo and members)."""
 
-    title_uk = models.CharField(max_length=255, default='', verbose_name=_("Title (UK)"))
-    title_en = models.CharField(max_length=255, blank=True, default='', verbose_name=_("Title (EN)"))
     image = models.ImageField(upload_to=make_upload_to("institute_leadership"), blank=True, verbose_name=_("Group photo"))
 
     class Meta:

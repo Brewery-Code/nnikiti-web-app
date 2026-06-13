@@ -246,15 +246,8 @@ class InstituteLeaderMemberSerializer(serializers.ModelSerializer):
 
 class InstituteLeadershipSerializer(serializers.ModelSerializer):
     """Serializer for InstituteLeadership."""
-    title = serializers.SerializerMethodField()
     members = InstituteLeaderMemberSerializer(many=True, read_only=True)
 
     class Meta:
         model = InstituteLeadership
-        fields = ['id', 'title', 'image', 'members']
-
-    def get_title(self, obj):
-        request = self.context.get('request')
-        lang = request.LANGUAGE_CODE if request else 'uk'
-        en_val = obj.title_en
-        return en_val if lang == 'en' and en_val else obj.title_uk
+        fields = ['id', 'image', 'members']
