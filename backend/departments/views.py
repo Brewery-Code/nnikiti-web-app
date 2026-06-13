@@ -4,10 +4,10 @@ from rest_framework.views import APIView
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from drf_spectacular.types import OpenApiTypes
 
-from .models.departments import EducationalProgram, Department, FacultyMember, HeadOfDepartment
+from .models.departments import EducationalProgram, Department, FacultyMember, HeadOfDepartment, InstituteLeadership
 from .serializers import (
     EducationalProgramSerializer, DepartmentListSerializer, DepartmentDetailSerializer,
-    StaffFacultyMemberSerializer, StaffHeadSerializer,
+    StaffFacultyMemberSerializer, StaffHeadSerializer, InstituteLeadershipSerializer,
 )
 
 
@@ -66,3 +66,10 @@ class StaffListView(APIView):
         head_data = StaffHeadSerializer(head_qs, many=True, context=ctx).data
 
         return Response(list(head_data) + list(faculty_data))
+
+
+@extend_schema(tags=['Departments'])
+class InstituteLeadershipListView(generics.ListAPIView):
+    """ListAPIView for InstituteLeadership with nested members."""
+    queryset = InstituteLeadership.objects.prefetch_related('members')
+    serializer_class = InstituteLeadershipSerializer

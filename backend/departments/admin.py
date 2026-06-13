@@ -6,7 +6,8 @@ from unfold.admin import ModelAdmin, TabularInline
 
 from .models.departments import (
     Department, HeadOfDepartment, EducationalProgram,
-    FacultyMember, DepartmentHistory, ProgramSubject, InstituteLeader,
+    FacultyMember, DepartmentHistory, ProgramSubject,
+    InstituteLeadership, InstituteLeaderMember,
 )
 
 
@@ -226,11 +227,47 @@ class ProgramSubjectAdmin(UnfoldTranslatableAdmin):
     ordering = ("program", "semester", "order")
 
 
-@admin.register(InstituteLeader)
-class InstituteLeaderAdmin(UnfoldTranslatableAdmin):
-    """Custom admin for institute leaders."""
-    list_display = ("id", "full_name_uk", "position", "email", "order")
-    list_display_links = ("id", "full_name_uk")
-    search_fields = ("full_name_uk", "full_name_en", "email")
-    ordering = ("order",)
+class InstituteLeaderMemberInlineForm(forms.ModelForm):
+    position_uk = forms.CharField(label="Посада (УК)", required=False)
+    position_en = forms.CharField(label="Посада (EN)", required=False)
+
+    class Meta:
+        model = InstituteLeaderMember
+        fields = ('full_name_uk', 'full_name_en', 'email', 'url', 'image', 'order')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.pk:
+            self.fields['position_uk'].initial = self.instance.safe_translation_getter('position', language_code='uk')
+            self.fields['position_en'].initial = self.instance.safe_translation_getter('position', language_code='en')
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        for lang, suffix in (('uk', '_uk'), ('en', '_en')):
+            position = self.cleaned_data.get(f'position{suffix}', '')
+            if position:
+                instance.set_current_language(lang)
+                instance.position = position
+        if commit:
+            instance.save()
+            self.save_m2m()
+        return instance
+
+
+class InstituteLeaderMemberInline(TabularInline):
+    """Inline editing for institute leadership members."""
+    model = InstituteLeaderMember
+    form = InstituteLeaderMemberInlineForm
+    extra = 0
+    verbose_name = "Член керівництва"
+    verbose_name_plural = "Склад керівництва"
+    fields = ('full_name_uk', 'full_name_en', 'position_uk', 'position_en', 'email', 'url', 'image', 'order')
+
+
+@admin.register(InstituteLeadership)
+class InstituteLeadershipAdmin(ModelAdmin):
+    """Custom admin for institute leadership."""
+    list_display = ("id", "title_uk")
+    list_display_links = ("id", "title_uk")
+    inlines = [InstituteLeaderMemberInline]
 

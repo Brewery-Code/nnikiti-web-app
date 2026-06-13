@@ -1,9 +1,10 @@
 from django.urls import path
 
-from departments.views import DepartmentListView, DepartmentDetailView, StaffListView
+from departments.views import DepartmentListView, DepartmentDetailView, StaffListView, InstituteLeadershipListView
 
 urlpatterns = [
     path('', DepartmentListView.as_view(), name='department-list'),
     path('<int:pk>/', DepartmentDetailView.as_view(), name='department-detail'),
     path('staff/', StaffListView.as_view(), name='staff-list'),
+    path('institute-leaders/', InstituteLeadershipListView.as_view(), name='institute-leadership-list'),
 ]

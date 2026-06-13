@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models.departments import (
     EducationalProgram, Department, HeadOfDepartment,
     FacultyMember, DepartmentHistory, ProgramSubject,
+    InstituteLeadership, InstituteLeaderMember,
 )
 
 
@@ -219,3 +220,41 @@ class DepartmentDetailSerializer(serializers.ModelSerializer):
 
     def get_address(self, obj):
         return obj.safe_translation_getter('address', any_language=True)
+
+
+class InstituteLeaderMemberSerializer(serializers.ModelSerializer):
+    """Serializer for InstituteLeaderMember."""
+    full_name = serializers.SerializerMethodField()
+    position = serializers.SerializerMethodField()
+
+    class Meta:
+        model = InstituteLeaderMember
+        fields = ['id', 'full_name', 'position', 'email', 'image', 'url', 'order']
+
+    def _lang(self, obj, field):
+        request = self.context.get('request')
+        lang = request.LANGUAGE_CODE if request else 'uk'
+        en_val = getattr(obj, f"{field}_en", '')
+        return en_val if lang == 'en' and en_val else getattr(obj, f"{field}_uk", '')
+
+    def get_full_name(self, obj):
+        return self._lang(obj, 'full_name')
+
+    def get_position(self, obj):
+        return obj.safe_translation_getter('position', any_language=True)
+
+
+class InstituteLeadershipSerializer(serializers.ModelSerializer):
+    """Serializer for InstituteLeadership."""
+    title = serializers.SerializerMethodField()
+    members = InstituteLeaderMemberSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = InstituteLeadership
+        fields = ['id', 'title', 'image', 'members']
+
+    def get_title(self, obj):
+        request = self.context.get('request')
+        lang = request.LANGUAGE_CODE if request else 'uk'
+        en_val = obj.title_en
+        return en_val if lang == 'en' and en_val else obj.title_uk
