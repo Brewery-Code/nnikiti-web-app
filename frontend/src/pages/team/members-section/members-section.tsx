@@ -44,7 +44,7 @@ export function MembersSection() {
                   <PersonCard
                     name={m.name ?? ""}
                     role={m.role ?? ""}
-                    sub={m.specialty ?? undefined}
+                    sub={(m as { specialty?: string | null }).specialty ?? undefined}
                     email={m.email ?? undefined}
                     imgUrl={resolveMediaUrl(m.image)}
                   />
@@ -62,7 +62,7 @@ export function MembersSection() {
                 <PersonCard
                   name={m.name ?? ""}
                   role={m.role ?? ""}
-                  sub={m.specialty ?? undefined}
+                  sub={(m as { specialty?: string | null }).specialty ?? undefined}
                   email={m.email ?? undefined}
                   imgUrl={resolveMediaUrl(m.image)}
                 />
