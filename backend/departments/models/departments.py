@@ -68,6 +68,7 @@ class Department(TranslatableModel):
     image = models.ImageField(upload_to=make_upload_to("departments"), blank=True, verbose_name=_("Department photo"))
     history_image = models.ImageField(upload_to=make_upload_to("departments/history"), blank=True, verbose_name=_("History photo"))
     room = models.CharField(max_length=64, blank=True, verbose_name=_("Room"))
+    slug = models.SlugField(max_length=255, unique=True, blank=True, verbose_name=_("Slug"))
 
     class Meta:
         verbose_name = _("Department")
