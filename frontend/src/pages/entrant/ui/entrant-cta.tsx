@@ -10,6 +10,7 @@ export function EntrantCta({
   subtitle,
   primaryLabel,
   primaryTo = ROUTES.CONTACTS,
+  primaryHref,
   secondaryLabel,
   secondaryTo = ROUTES.ASK_QUESTION,
 }: {
@@ -18,11 +19,20 @@ export function EntrantCta({
   subtitle: string;
   primaryLabel?: string;
   primaryTo?: string;
+  primaryHref?: string;
   secondaryLabel?: string;
   secondaryTo?: string;
 }) {
   useLoadNamespace("entrant", loadTranslations);
   const { t } = useTranslation("entrant");
+
+  const primaryClassName =
+    "inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[17px]";
+  const primaryContent = (
+    <>
+      {primaryLabel ?? t("ui.ctaPrimaryLabel")} <span aria-hidden>{t("ui.arrow")}</span>
+    </>
+  );
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
@@ -56,12 +66,20 @@ export function EntrantCta({
           {subtitle}
         </StaggerItem>
         <StaggerItem mode="up" className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link
-            to={primaryTo}
-            className="inline-flex items-center gap-2 rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-7 py-3.5 text-[15px] font-semibold text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(166,132,255,0.55)] active:scale-95 sm:text-[17px]"
-          >
-            {primaryLabel ?? t("ui.ctaPrimaryLabel")} <span aria-hidden>{t("ui.arrow")}</span>
-          </Link>
+          {primaryHref ? (
+            <a
+              href={primaryHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={primaryClassName}
+            >
+              {primaryContent}
+            </a>
+          ) : (
+            <Link to={primaryTo} className={primaryClassName}>
+              {primaryContent}
+            </Link>
+          )}
           <Link
             to={secondaryTo}
             className="inline-flex items-center gap-2 rounded-[14px] border border-white/15 bg-surface-md px-7 py-3.5 text-[15px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:text-[17px]"

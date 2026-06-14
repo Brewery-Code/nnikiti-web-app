@@ -2,6 +2,7 @@ export { BackButton } from "./back-button/back-button";
 export { Seo, useSeo } from "./seo";
 export { Title } from "./title";
 export { SpecialtiesCard } from "./specialties-card";
+export { ProgramSpecCard, type ProgramSpecCardData } from "./program-spec-card";
 export { default as OvalLabel } from "./oval-label";
 export { default as SocialLinkButton } from "./social-link-button";
 export { default as SocialLinkButtonGlassy } from "./social-link-button-glassy";

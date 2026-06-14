@@ -25,7 +25,10 @@ export interface DepartmentData {
   programs: {
     id: number;
     code: string;
+    /** Specialty name */
     name: string;
+    /** Educational program name */
+    nameOp: string;
     description: string;
     degree: string;
     duration: string;

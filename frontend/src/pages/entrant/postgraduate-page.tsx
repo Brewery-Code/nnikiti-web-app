@@ -9,6 +9,7 @@ import {
   DateCard,
   SectionHead,
   EntrantCta,
+  AdmissionContacts,
 } from "./ui";
 import type { Program, Step, KeyDate } from "./ui";
 import { loadTranslations } from "./locales";
@@ -156,10 +157,13 @@ function PostgraduatePage() {
           </div>
         </section>
 
+        <AdmissionContacts docsHref="https://nuwm.edu.ua/admission/aspirantura/" />
+
         <EntrantCta
           title={t("postgraduate.ctaTitle")}
           subtitle={t("postgraduate.ctaSubtitle")}
           primaryLabel={t("postgraduate.ctaPrimaryLabel")}
+          primaryHref="https://nuwm.edu.ua/admission/kontakty-pryimalnoi-komisii/"
         />
       </div>
     </PageTransition>

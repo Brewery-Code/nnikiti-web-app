@@ -1,0 +1,10 @@
+{
+  "title": "NNIKITI Assistant",
+  "status": "Usually replies instantly",
+  "greeting": "Hi! 👋 I'm the institute's virtual assistant. Ask me about admission, specialties or the admissions-committee contacts.",
+  "placeholder": "Type a message…",
+  "send": "Send",
+  "open": "Open chat",
+  "close": "Minimize chat",
+  "suggestions": ["How to apply?", "Committee contacts", "What specialties?"]
+}

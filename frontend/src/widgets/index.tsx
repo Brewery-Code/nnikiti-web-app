@@ -5,3 +5,4 @@ export { PageTransition } from "./page-transition";
 export { Preloader } from "./preloader";
 export { SocialMediaLinks } from "./social-media-links";
 export { ModalWrapper } from "./modal-wrapper";
+export { AiChat } from "./ai-chat";

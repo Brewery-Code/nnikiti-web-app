@@ -215,6 +215,12 @@ html.lenis body {
     transform: none;
   }
 
+  .program-selector button:focus,
+  .program-selector button:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
   body {
     color: var(--text-primary);
     font-family: "Outfit", sans-serif;

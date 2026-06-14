@@ -31,6 +31,7 @@ export function mapApiToDept(api: ApiDeptDetail): DepartmentData {
       id: prog.id ?? 0,
       code: prog.code ?? "",
       name: prog.name ?? prog.degree ?? "",
+      nameOp: prog.name_op ?? "",
       description: prog.description ?? "",
       degree: prog.degree ?? "",
       duration: prog.duration !== null && prog.duration !== undefined ? `${prog.duration} р.` : "",

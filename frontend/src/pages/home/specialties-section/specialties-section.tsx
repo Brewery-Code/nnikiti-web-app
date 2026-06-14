@@ -9,8 +9,8 @@ import { useLoadNamespace } from "@/shared/hooks";
 import { Reveal } from "@/shared/ui";
 import { publicRqClient } from "@/shared/api/instance";
 import { loadTranslations } from "../events-section/locales";
-import { PROGRAM_META, SPACE_BETWEEN_PX, detectLevel, type SpecData } from "./model";
-import { getSlideOffset, isTouchDevice } from "./lib";
+import { PROGRAM_DEPARTMENTS, SPACE_BETWEEN_PX, type SpecData } from "./model";
+import { isTouchDevice } from "./lib";
 import { SpecCard } from "./ui";
 
 import "swiper/css";
@@ -25,45 +25,16 @@ export default function SpecialtiesSection({ className = "" }: { className?: str
   const { data: apiDepartments = [] } = publicRqClient.useQuery("get", "/departments/", {});
   const firstDeptId = (apiDepartments as { id?: number }[])[0]?.id ?? 1;
 
-  const groupedByCode = new Map<string, typeof apiPrograms[number][]>();
-  for (const p of apiPrograms ?? []) {
-    if (!p.code || !p.name) continue;
-    const existing = groupedByCode.get(p.code) ?? [];
-    groupedByCode.set(p.code, [...existing, p]);
-  }
-
-  const specialties: SpecData[] = Array.from(groupedByCode.entries()).map(([code, programs]) => {
-    const meta = PROGRAM_META[code] ?? { departmentId: null, budget: 0, contract: 0 };
-
-    const allTags = [...new Set(
-      programs.flatMap((p) => (p.subject ?? []).map((s) => s.name ?? "").filter(Boolean))
-    )];
-
-    const levels = [...new Set(
-      programs.map((p) => {
-        const levelNames = (p.education_levels ?? []).map((l) => l.name ?? "");
-        const detected = detectLevel(p.name!, levelNames);
-        if (!detected) {
-          const lower = p.name!.toLowerCase();
-          if (!lower.includes("магістр") && !lower.includes("аспір")) return "Бакалаврат";
-        }
-        return detected;
-      }).filter(Boolean)
-    )];
-
-    const primary = programs.find((p) => !p.name!.toUpperCase().includes("МАГІСТР")) ?? programs[0];
-
-    return {
-      id: primary.id ?? 0,
-      code,
-      name: primary.name!,
-      tags: allTags,
-      levels,
-      departmentId: meta.departmentId,
-      budget: meta.budget,
-      contract: meta.contract,
-    };
-  });
+  const specialties: SpecData[] = (apiPrograms ?? [])
+    .filter((p) => p.code && p.name)
+    .map((p) => ({
+      id: p.id ?? 0,
+      code: p.code!,
+      specialty: p.name!,
+      program: p.name_op ?? "",
+      degree: p.degree ?? "",
+      departmentId: PROGRAM_DEPARTMENTS[p.code!] ?? null,
+    }));
 
   return (
     <section id="programs" className={clsx("py-16 lg:py-24", className)}>
@@ -76,14 +47,8 @@ export default function SpecialtiesSection({ className = "" }: { className?: str
             >
               {t("specialtiesSection.heading")} <span className="text-grad">{t("specialtiesSection.headingAccent")}</span>
             </h2>
-            {/* Desktop: link + arrows */}
+            {/* Desktop: arrows */}
             <div className="hidden items-center gap-5 lg:flex">
-              <Link
-                to={`/department/${firstDeptId}`}
-                className="inline-flex items-center gap-1.5 text-[13px] font-semibold uppercase tracking-[0.04em] text-subtle transition-colors hover:text-primary"
-              >
-                {t("specialtiesSection.seeAll")} <span className="text-violet-400">↗</span>
-              </Link>
               <div className="flex items-center gap-2.5">
                 <button
                   type="button"
@@ -112,19 +77,18 @@ export default function SpecialtiesSection({ className = "" }: { className?: str
           onSwiper={(s) => { swiperRef.current = s; }}
           modules={[Autoplay]}
           loop
+          loopAdditionalSlides={specialties.length}
           autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
           speed={600}
           slidesPerView="auto"
           spaceBetween={SPACE_BETWEEN_PX}
-          slidesOffsetBefore={getSlideOffset()}
-          slidesOffsetAfter={getSlideOffset()}
           allowTouchMove={isTouchDevice}
           grabCursor={isTouchDevice}
           className="specialties-swiper !overflow-visible py-2 [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:!h-auto"
         >
           {specialties.map((s) => (
             <SwiperSlide
-              key={s.code}
+              key={s.id}
               className="!w-[72vw] xs:!w-[65vw] sm:!w-[300px] lg:!w-[340px] xl:!w-[380px] 2xl:!w-[420px]"
               style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
             >

@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useIsFetching } from "@tanstack/react-query";
-import { Header, Footer, Preloader, GlobalBackground, SideOrbs } from "@/widgets";
+import { Header, Footer, Preloader, GlobalBackground, SideOrbs, AiChat } from "@/widgets";
 import { useLenis } from "@/shared/hooks";
 import { Seo } from "@/shared/ui";
 
@@ -24,6 +24,7 @@ export function App() {
         {element && React.cloneElement(element, { key: location.pathname })}
       </AnimatePresence>
       <Footer className="" />
+      <AiChat />
     </div>
   );
 }

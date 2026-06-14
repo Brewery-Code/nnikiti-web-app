@@ -58,7 +58,7 @@ function DepartmentPage() {
           <MobileDeptSelector deptList={deptList} departmentId={departmentId ?? ""} />
 
           <div className="flex gap-fluid-sm">
-            <Sidebar departments={deptList} currentId={departmentId ?? ""} />
+            <Sidebar />
             <main className="min-w-0 flex-1">
               <CurriculumSection dept={dept} />
               <TeamSection dept={dept} />

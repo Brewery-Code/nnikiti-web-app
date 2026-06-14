@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLoadNamespace } from "@/shared/hooks";
 import { PageTransition } from "@/widgets";
-import { EntrantHero, EntrantCta } from "./ui";
+import { EntrantHero, EntrantCta, AdmissionContacts } from "./ui";
 import { loadTranslations } from "./locales";
 import { ProgramsSlider } from "./bachelor/programs-slider-section";
 import { AdmissionSection } from "./bachelor/admission-section";
@@ -27,10 +27,12 @@ function BachelorPage() {
       <div>
         <ProgramsSlider />
         <AdmissionSection />
+        <AdmissionContacts docsHref="https://nuwm.edu.ua/admission/bakalavrat/" />
         <EntrantCta
           title={t("bachelor.ctaTitle")}
           subtitle={t("bachelor.ctaSubtitle")}
           primaryLabel={t("bachelor.ctaPrimaryLabel")}
+          primaryHref="https://nuwm.edu.ua/admission/kontakty-pryimalnoi-komisii/"
         />
       </div>
     </PageTransition>

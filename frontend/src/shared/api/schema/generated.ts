@@ -1033,6 +1033,45 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/departments/institute-leaders/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Повертає список керівництва інституту
+         * @description Повертає список керівництва інституту, відсортований за полем `order`.
+         */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Список успішно повернуто */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["InstituteLeadership"][];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/departments/{id}/": {
         parameters: {
             query?: never;
@@ -1211,23 +1250,22 @@ export interface components {
             /** Question */
             readonly answer?: string;
         };
-        CategorizedTag: {
-            readonly id?: number;
-            name?: string;
-        };
         EducationalProgram: {
-            /** ID */
             readonly id?: number;
-            /** Program code */
+            /** @description Program code (e.g. "122") */
             code?: string;
-            /** Educational program name */
+            /** @description Specialty name (translated) */
             name?: string;
-            /** Subjects */
-            readonly subject?: components["schemas"]["CategorizedTag"][];
-            /** Education Forms */
-            readonly education_forms?: components["schemas"]["CategorizedTag"][];
-            /** Education Levels */
-            readonly education_levels?: components["schemas"]["CategorizedTag"][];
+            /** @description Educational program name (translated) */
+            name_op?: string | null;
+            /** @description Degree level, e.g. 'Бакалавр', 'Магістр' (translated) */
+            degree?: string | null;
+            /** Format: uri */
+            url?: string | null;
+            /** @description Duration in years */
+            duration?: number | null;
+            /** @description Total ECTS credits */
+            total_credits?: number | null;
         };
         ProgramSubject: {
             readonly id?: number;
@@ -1236,27 +1274,63 @@ export interface components {
         };
         FacultyMember: {
             readonly id?: number;
-            /** @description Full name (language-dependent) */
+            /** @description Full name (translated) */
             name?: string;
-            /** @description Role/position (language-dependent) */
+            /** @description Role/position (translated) */
             role?: string;
-            /** @description Specialty (language-dependent) */
-            specialty?: string;
             /** Format: uri */
             image?: string | null;
             /** Format: email */
-            email?: string;
-            audience?: string;
+            email?: string | null;
+            /**
+             * Format: uri
+             * @description Wiki URL
+             */
+            url?: string | null;
         };
         HeadOfDepartment: {
             readonly id?: number;
-            /** @description Full name (language-dependent) */
+            /** @description Full name (translated) */
             full_name?: string;
-            /** @description Academic title/regalia (language-dependent) */
+            /** @description Academic title/regalia (translated) */
             regalia?: string;
             /** Format: email */
             email?: string | null;
-            audience?: string | null;
+            /** Format: uri */
+            image?: string | null;
+            /**
+             * Format: uri
+             * @description Wiki URL
+             */
+            url?: string | null;
+        };
+        InstituteLeaderMember: {
+            readonly id?: number;
+            /** @description Full name (translated) */
+            full_name?: string;
+            /** @description Position/title (translated) */
+            position?: string;
+            /** Format: email */
+            email?: string | null;
+            /** Format: uri */
+            image?: string | null;
+            /**
+             * Format: uri
+             * @description Wiki URL
+             */
+            url?: string | null;
+            order?: number;
+        };
+        InstituteLeadership: {
+            readonly id?: number;
+            /** @description Leadership group title (translated) */
+            title?: string;
+            /**
+             * Format: uri
+             * @description Group photo
+             */
+            image?: string | null;
+            members?: components["schemas"]["InstituteLeaderMember"][];
         };
         DepartmentHistory: {
             readonly id?: number;
@@ -1265,35 +1339,44 @@ export interface components {
             /** @description Description of the historical event (translated) */
             text?: string;
         };
-        EducationalProgramFull: components["schemas"]["EducationalProgram"] & {
-            /** @description Translated description */
-            description?: string;
-            /** @description e.g. 'Бакалавр', 'Магістр' */
-            degree?: string;
-            /** @description e.g. 'Денна, заочна, дуальна' */
-            form?: string;
-            /** @description Duration in years */
+        EducationalProgramFull: {
+            readonly id?: number;
+            code?: string;
+            /** @description Specialty name (translated) */
+            name?: string;
+            /** @description Educational program name (translated) */
+            name_op?: string | null;
+            /** @description Description in Markdown (translated) */
+            description?: string | null;
+            /** Format: uri */
+            url?: string | null;
+            /** @description e.g. 'Бакалавр', 'Магістр' (translated) */
+            degree?: string | null;
+            /** @description e.g. 'Денна, заочна, дуальна' (translated) */
+            form?: string | null;
             duration?: number | null;
-            /** @description Total ECTS credits */
             total_credits?: number | null;
             budget_seats?: number | null;
             contract_seats?: number | null;
-            subjects?: components["schemas"]["ProgramSubject"][];
+            /** @description Bachelor program structure (translated JSON) */
             bachelor?: {
                 code?: string;
                 specialty?: string;
                 program?: string;
             } | null;
+            /** @description Magistracy program structure (translated JSON) */
             magistracy?: {
                 code?: string;
                 specialty?: string;
                 program?: string;
             } | null;
+            /** @description Postgraduate program structure (translated JSON) */
             postgraduate?: {
                 code?: string;
                 specialty?: string;
                 program?: string;
             } | null;
+            subjects?: components["schemas"]["ProgramSubject"][];
         };
         Departments: {
             /** ID */
@@ -1335,21 +1418,23 @@ export interface components {
              * @enum {string}
              */
             type?: "head" | "faculty";
-            /** @description ПІБ завідувача (тільки для type=head, мовозалежне) */
-            full_name?: string;
-            /** @description ПІБ викладача (тільки для type=faculty, мовозалежне) */
-            name?: string;
-            /** @description Науковий ступінь/звання (тільки для type=head, мовозалежне) */
+            /** @description ПІБ завідувача (тільки для type=head, translated) */
+            full_name?: string | null;
+            /** @description ПІБ викладача (тільки для type=faculty, translated) */
+            name?: string | null;
+            /** @description Науковий ступінь/звання (тільки для type=head, translated) */
             regalia?: string | null;
-            /** @description Посада викладача (тільки для type=faculty, мовозалежне) */
+            /** @description Посада викладача (тільки для type=faculty, translated) */
             role?: string | null;
-            /** @description Спеціальність викладача (тільки для type=faculty, мовозалежне) */
-            specialty?: string | null;
             /** Format: uri */
             image?: string | null;
             /** Format: email */
             email?: string | null;
-            audience?: string | null;
+            /**
+             * Format: uri
+             * @description Wiki URL
+             */
+            url?: string | null;
             /** @description ID кафедри */
             department_id?: number;
         };

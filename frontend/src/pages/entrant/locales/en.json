@@ -3,6 +3,8 @@
     "prevProgram": "Previous program",
     "nextProgram": "Next program",
     "code": "Code:",
+    "program": "Educational program",
+    "seeAll": "Learn more",
     "budget": "budget",
     "contract": "contract",
     "yearsStudy": "years of study"
@@ -12,6 +14,39 @@
     "ctaPrimaryLabel": "Apply now",
     "ctaSecondaryLabel": "Ask a question",
     "arrow": "→"
+  },
+  "contacts": {
+    "eyebrow": "Admissions Committee",
+    "title": "Admissions committee",
+    "gradientTitle": "contacts",
+    "subtitle": "Have questions about admission? Reach out to the admissions committee — we'll help with documents and study conditions.",
+    "docsEyebrow": "Documents",
+    "docsTitle": "Admission documents",
+    "docsText": "The full list of documents, admission rules and deadlines — on the official NUWEE website.",
+    "docsLinkLabel": "Go to documents",
+    "addressLabel": "Address",
+    "address": [
+      "Rivne",
+      "M. Karnaukhova St., 53a (building 7)",
+      "room 729"
+    ],
+    "phoneLabel": "Phone",
+    "phones": [
+      { "number": "+38 (0362) 633-222", "href": "tel:+380362633222" },
+      { "number": "+38 (063) 120-82-47", "href": "tel:+380631208247" },
+      { "number": "+38 (068) 477-83-66", "href": "tel:+380684778366" },
+      { "number": "+38 (0362) 63-65-99", "href": "tel:+380362636599", "note": "for renewal and transfer of studies" }
+    ],
+    "emailLabel": "Email",
+    "email": "rc@nuwm.edu.ua",
+    "scheduleLabel": "Working hours",
+    "workDays": "Monday – Friday",
+    "workHours": "9:00 – 17:00",
+    "instituteLabel": "Institute contact",
+    "instituteName": "Educational and Research Institute of Cybernetics, Information Technologies and Engineering",
+    "institutePhone": "+38 (067) 864-25-51",
+    "institutePhoneHref": "tel:+380678642551",
+    "instituteEmail": "v.a.gerus@nuwm.edu.ua"
   },
   "bachelor": {
     "eyebrow": "Applicants · Bachelor's",

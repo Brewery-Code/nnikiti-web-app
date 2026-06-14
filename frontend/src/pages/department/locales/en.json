@@ -18,11 +18,23 @@
     "master": "Master",
     "postgraduate": "Postgraduate"
   },
+  "degree_labels": {
+    "bachelor": "Bachelor's",
+    "master": "Master's",
+    "postgraduate": "Postgraduate"
+  },
   "curriculum": {
     "section_title": "Study",
     "section_highlight": "programme",
+    "degree_label": "Education level",
+    "program_label": "Educational programme",
+    "card_specialty_label": "Specialty",
+    "card_program_label": "Educational programme",
+    "about_label": "About the programme",
+    "description_placeholder": "The educational programme is designed to train highly qualified specialists capable of solving complex specialized tasks and practical problems in their professional field. It combines a solid theoretical foundation with hands-on work on real projects guided by experienced lecturers.\n\nThroughout their studies, students:\n\n- master modern programming languages, frameworks and development tools;\n- design and build information systems for a wide range of purposes;\n- work with databases, cloud services and artificial intelligence technologies;\n- develop teamwork and IT project management skills.\n\n**Graduates of the programme** go on to work as developers, system analysts, QA engineers, database administrators and IT project managers in both Ukrainian and international companies.",
     "meta_duration": "Duration",
     "meta_form": "Form",
+    "meta_credits": "ECTS credits",
     "disciplines_label": "Disciplines",
     "learn_more": "Learn more",
     "year_label": "Year {{year}} — semesters {{sem1}} and {{sem2}}",

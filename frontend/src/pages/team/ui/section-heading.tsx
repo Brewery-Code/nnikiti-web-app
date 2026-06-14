@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Reveal } from "@/shared/ui";
 
-export function SectionHeading({ sectionKey }: { sectionKey: "deptHeads" | "staff" }) {
+export function SectionHeading({ sectionKey }: { sectionKey: "leadership" | "deptHeads" | "staff" }) {
   const { t } = useTranslation("team");
   return (
     <Reveal mode="up" className="mb-8 lg:mb-10">

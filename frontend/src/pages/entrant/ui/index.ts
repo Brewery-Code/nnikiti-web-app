@@ -5,3 +5,4 @@ export { StepItem } from "./step-item";
 export { DateCard } from "./date-card";
 export { SectionHead } from "./section-head";
 export { EntrantCta } from "./entrant-cta";
+export { AdmissionContacts } from "./admission-contacts";
