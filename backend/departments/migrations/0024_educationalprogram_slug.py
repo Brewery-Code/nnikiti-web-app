@@ -10,32 +10,32 @@ def slugify_uk(text: str) -> str:
     return text
 
 
-def fill_slugs(apps, schema_editor):
-    Department = apps.get_model("departments", "Department")
+def fill_ep_slugs(apps, schema_editor):
+    EducationalProgram = apps.get_model("departments", "EducationalProgram")
 
     from django.db import connection
     with connection.cursor() as cursor:
         cursor.execute(
-            'SELECT master_id, name FROM "Department_translation" WHERE language_code = %s',
+            'SELECT master_id, name FROM "EducationalProgram_translation" WHERE language_code = %s',
             ["uk"],
         )
         uk_names = {row[0]: row[1] for row in cursor.fetchall()}
 
-        cursor.execute('SELECT master_id, name FROM "Department_translation"')
+        cursor.execute('SELECT master_id, name FROM "EducationalProgram_translation"')
         all_names = {row[0]: row[1] for row in cursor.fetchall()}
 
     seen = set()
-    for dept in Department.objects.all():
-        name = uk_names.get(dept.pk) or all_names.get(dept.pk) or ""
-        base = slugify_uk(name) or f"department-{dept.pk}"
+    for ep in EducationalProgram.objects.all():
+        name = uk_names.get(ep.pk) or all_names.get(ep.pk) or ""
+        base = slugify_uk(name) or f"program-{ep.pk}"
         slug = base
         counter = 1
         while slug in seen:
             slug = f"{base}-{counter}"
             counter += 1
         seen.add(slug)
-        dept.slug = slug
-        dept.save(update_fields=["slug"])
+        ep.slug = slug
+        ep.save(update_fields=["slug"])
 
 
 def create_unique_index(apps, schema_editor):
@@ -46,10 +46,10 @@ def create_unique_index(apps, schema_editor):
             BEGIN
                 IF NOT EXISTS (
                     SELECT 1 FROM pg_indexes
-                    WHERE indexname = 'Department_slug_a986eea8_like'
+                    WHERE indexname = 'EducationalProgram_slug_e816d28c_like'
                 ) THEN
-                    CREATE INDEX "Department_slug_a986eea8_like"
-                    ON "Department" ("slug" varchar_pattern_ops);
+                    CREATE INDEX "EducationalProgram_slug_e816d28c_like"
+                    ON "EducationalProgram" ("slug" varchar_pattern_ops);
                 END IF;
             END$$;
         """)
@@ -57,10 +57,11 @@ def create_unique_index(apps, schema_editor):
             DO $$
             BEGIN
                 IF NOT EXISTS (
-                    SELECT 1 FROM pg_indexes
-                    WHERE indexname = 'Department_slug_key'
+                    SELECT 1 FROM pg_constraint
+                    WHERE conname = 'EducationalProgram_slug_key'
                 ) THEN
-                    ALTER TABLE "Department" ADD CONSTRAINT "Department_slug_key" UNIQUE ("slug");
+                    ALTER TABLE "EducationalProgram"
+                    ADD CONSTRAINT "EducationalProgram_slug_key" UNIQUE ("slug");
                 END IF;
             END$$;
         """)
@@ -69,38 +70,35 @@ def create_unique_index(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("departments", "0022_remove_instituteleadership_title_en_and_more"),
+        ("departments", "0023_department_slug"),
     ]
 
     operations = [
-        # Додаємо поле без unique — щоб не створювало індекс одразу
         migrations.SeparateDatabaseAndState(
             database_operations=[
                 migrations.RunSQL(
                     sql="""
-                        ALTER TABLE "Department"
+                        ALTER TABLE "EducationalProgram"
                         ADD COLUMN IF NOT EXISTS "slug" varchar(255) NOT NULL DEFAULT '';
                     """,
-                    reverse_sql='ALTER TABLE "Department" DROP COLUMN IF EXISTS "slug";',
+                    reverse_sql='ALTER TABLE "EducationalProgram" DROP COLUMN IF EXISTS "slug";',
                 ),
             ],
             state_operations=[
                 migrations.AddField(
-                    model_name="department",
+                    model_name="educationalprogram",
                     name="slug",
                     field=models.SlugField(blank=True, max_length=255, verbose_name="Slug"),
                 ),
             ],
         ),
-        migrations.RunPython(fill_slugs, migrations.RunPython.noop),
-        # Створюємо унікальний індекс тільки якщо не існує
+        migrations.RunPython(fill_ep_slugs, migrations.RunPython.noop),
         migrations.RunPython(create_unique_index, migrations.RunPython.noop),
-        # Синхронізуємо state з фінальним станом поля
         migrations.SeparateDatabaseAndState(
             database_operations=[],
             state_operations=[
                 migrations.AlterField(
-                    model_name="department",
+                    model_name="educationalprogram",
                     name="slug",
                     field=models.SlugField(max_length=255, unique=True, verbose_name="Slug"),
                 ),

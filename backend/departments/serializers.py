@@ -12,10 +12,12 @@ class EducationalProgramSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
     name_op = serializers.SerializerMethodField()
     degree = serializers.SerializerMethodField()
+    department_id = serializers.IntegerField(source="department.pk", read_only=True)
+    department_slug = serializers.CharField(source="department.slug", read_only=True)
 
     class Meta:
         model = EducationalProgram
-        fields = ['id', 'code', 'name', 'name_op', 'degree', 'url', 'duration', 'total_credits']
+        fields = ['id', 'slug', 'code', 'name', 'name_op', 'degree', 'url', 'duration', 'total_credits', 'department_id', 'department_slug']
 
     def get_name(self, obj):
         return obj.safe_translation_getter('name', any_language=True)
@@ -31,7 +33,7 @@ class DepartmentListSerializer(serializers.ModelSerializer):
     """Serializer for DepartmentList."""
     class Meta:
         model = Department
-        fields = ['id', 'name']
+        fields = ['id', 'slug', 'name']
 
 
 class FacultyMemberSerializer(serializers.ModelSerializer):
@@ -121,15 +123,18 @@ class DepartmentEducationalProgramSerializer(serializers.ModelSerializer):
     degree = serializers.SerializerMethodField()
     form = serializers.SerializerMethodField()
     subjects = ProgramSubjectSerializer(many=True, read_only=True)
+    department_id = serializers.IntegerField(source="department.pk", read_only=True)
+    department_slug = serializers.CharField(source="department.slug", read_only=True)
 
     class Meta:
         model = EducationalProgram
         fields = [
-            'id', 'code', 'name', 'name_op', 'description', 'url',
+            'id', 'slug', 'code', 'name', 'name_op', 'description', 'url',
             'degree', 'form', 'duration', 'total_credits',
             'budget_seats', 'contract_seats',
             'bachelor', 'magistracy', 'postgraduate',
             'subjects',
+            'department_id', 'department_slug',
         ]
 
     def get_name(self, obj):
@@ -205,7 +210,7 @@ class DepartmentDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
         fields = [
-            'id', 'name', 'description', 'address', 'email', 'image', 'history_image',
+            'id', 'slug', 'name', 'description', 'address', 'email', 'image', 'history_image',
             'head_of_department',
             'educational_program',
             'team',

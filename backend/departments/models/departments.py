@@ -138,6 +138,7 @@ class EducationalProgram(TranslatableModel):
     )
     department = models.ForeignKey(Department, on_delete=models.CASCADE, verbose_name=_("Department"), related_name="educational_program")
     code = models.CharField(max_length=255, verbose_name=_("Program code"))
+    slug = models.SlugField(max_length=255, unique=True, blank=True, verbose_name=_("Slug"))
     url = models.URLField(blank=True, verbose_name=_("Program URL"))
     duration = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Duration (years)"))
     total_credits = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_("Total ECTS credits"))
