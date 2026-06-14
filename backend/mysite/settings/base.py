@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "events.apps.EventsConfig",
     "departments.apps.DepartmentsConfig",
     "gallery.apps.GalleryConfig",
+    "ai_chat.apps.AiChatConfig",
 ]
 
 ###########################
@@ -295,4 +296,10 @@ UNFOLD = {
         "navigation": "mysite.navigation.get_navigation",
     },
 }
+
+###########################
+# OpenAI
+###########################
+OPENAI_API_KEY = config("OPENAI_API_KEY", default="")
+OPENAI_ASSISTANT_ID = config("OPENAI_ASSISTANT_ID", default="")
 
