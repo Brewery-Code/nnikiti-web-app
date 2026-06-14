@@ -79,7 +79,7 @@ export function CurriculumSection({ dept }: { dept: DepartmentData }) {
 
   return (
     <section id="curriculum">
-      <SectionTitle title={t("curriculum.section_title")} highlight={t("curriculum.section_highlight")} />
+      <SectionTitle title={prog?.nameOp || prog?.name || ""} />
 
       {/* Degree selector */}
       <Reveal mode="up" className="mb-6">

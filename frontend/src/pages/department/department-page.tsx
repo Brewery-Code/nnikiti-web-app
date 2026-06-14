@@ -11,7 +11,6 @@ import { HeroSection } from "./hero-section";
 import { Sidebar, MobileDeptSelector } from "./nav";
 import { CurriculumSection } from "./curriculum-section";
 import { TeamSection } from "./team-section";
-import { HistorySection } from "./history-section";
 import { ContactsSection } from "./contacts-section";
 
 function DepartmentPage() {
@@ -62,7 +61,6 @@ function DepartmentPage() {
             <main className="min-w-0 flex-1">
               <CurriculumSection dept={dept} />
               <TeamSection dept={dept} />
-              <HistorySection dept={dept} />
               <ContactsSection dept={dept} />
             </main>
           </div>
