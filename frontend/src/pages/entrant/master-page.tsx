@@ -21,7 +21,7 @@ function MasterPage() {
         title={t("master.title")}
         gradientWord={t("master.gradientWord")}
         description={t("master.description")}
-        imageSeed="/images/students-workshop.jpg"
+        imageSeed="/main/nuwm_1920x900.jpg"
         stats={stats}
       />
 

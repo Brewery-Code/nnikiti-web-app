@@ -4,6 +4,7 @@
     "navResearch": "Research",
     "navConferences": "Conferences",
     "navGrants": "Grants",
+    "navLabs": "Laboratories",
     "heroEyebrow": "Science",
     "activities": "Activities",
     "results": "Results",
@@ -25,6 +26,14 @@
     }
   },
   "pages": {
+    "labs": {
+      "title": "Research",
+      "gradientTitle": "laboratories",
+      "intro": "The institute's research laboratories are centers of applied research, modeling, and innovative development.",
+      "activitiesTitle": "",
+      "activitiesIntro": "",
+      "activities": []
+    },
     "publications": {
       "title": "Scientific",
       "gradientTitle": "publications",

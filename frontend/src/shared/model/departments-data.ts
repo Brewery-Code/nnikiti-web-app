@@ -9,6 +9,7 @@ export interface ProgramSubject {
 
 export interface DepartmentData {
   id: number;
+  slug: string;
   name: string;
   description: string;
   email: string;
@@ -24,6 +25,7 @@ export interface DepartmentData {
   };
   programs: {
     id: number;
+    slug: string;
     code: string;
     /** Specialty name */
     name: string;

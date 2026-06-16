@@ -7,9 +7,13 @@ import { NAV_ITEMS, type SciencePageData, type SciencePageKind } from "../model"
 export function ScienceHero({
   data,
   currentKind,
+  customNav,
+  hideNav,
 }: {
   data: SciencePageData;
   currentKind: SciencePageKind;
+  customNav?: React.ReactNode;
+  hideNav?: boolean;
 }) {
   const { t } = useTranslation("science");
 
@@ -60,22 +64,24 @@ export function ScienceHero({
           {data.intro}
         </StaggerItem>
 
-        <StaggerItem mode="up" className="mt-10 flex flex-wrap gap-2">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.kind}
-              to={item.route}
-              className={clsx(
-                "rounded-[12px] px-5 py-2.5 text-[14px] font-semibold transition-all duration-200",
-                item.kind === currentKind
-                  ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
-                  : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:bg-surface-xl hover:text-primary"
-              )}
-            >
-              {t(item.labelKey)}
-            </Link>
-          ))}
-        </StaggerItem>
+        {!hideNav && (
+          <StaggerItem mode="up" className="mt-10 flex flex-wrap gap-2" style={{ scrollbarWidth: "none" }}>
+            {customNav ?? NAV_ITEMS.map((item) => (
+              <Link
+                key={item.kind}
+                to={item.route}
+                className={clsx(
+                  "rounded-[12px] px-5 py-2.5 text-[14px] font-semibold transition-all duration-200",
+                  item.kind === currentKind
+                    ? "bg-gradient-to-r from-violet-500 to-blue-500 text-primary shadow-[0_4px_16px_rgba(166,132,255,0.3)]"
+                    : "grad-border bg-surface-md text-primary/60 backdrop-blur-md hover:bg-surface-xl hover:text-primary"
+                )}
+              >
+                {t(item.labelKey)}
+              </Link>
+            ))}
+          </StaggerItem>
+        )}
       </Stagger>
     </section>
   );

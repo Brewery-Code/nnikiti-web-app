@@ -4,6 +4,7 @@
     "navResearch": "Дослідження",
     "navConferences": "Конференції",
     "navGrants": "Гранти",
+    "navLabs": "Лабораторії",
     "heroEyebrow": "Наука",
     "activities": "Активності",
     "results": "Результати",
@@ -159,6 +160,14 @@
           "tags": "call|AI|software"
         }
       ]
+    },
+    "labs": {
+      "title": "Наукові",
+      "gradientTitle": "лабораторії",
+      "intro": "Науково-дослідні лабораторії інституту — осередки прикладних досліджень, моделювання та інноваційних розробок.",
+      "activitiesTitle": "",
+      "activitiesIntro": "",
+      "activities": []
     },
     "grants": {
       "title": "Грантові",

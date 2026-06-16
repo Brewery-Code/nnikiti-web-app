@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import { useTranslation } from "react-i18next";
+import { globalLenis } from "@/shared/hooks/use-lenis";
 import { motion } from "framer-motion";
 import { publicRqClient } from "@/shared/api/instance";
 import { AlumniList } from "./ui";
@@ -84,7 +85,11 @@ export function AlumniListSection({ className }: AlumniListSectionProps) {
   function scrollToYear(e: React.MouseEvent<HTMLAnchorElement>, year: number) {
     e.preventDefault();
     const target = document.getElementById(String(year));
-    if (target) {
+    if (!target) return;
+    const offset = target.getBoundingClientRect().top + window.scrollY - 88;
+    if (globalLenis) {
+      globalLenis.scrollTo(offset, { duration: 1.2 });
+    } else {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }

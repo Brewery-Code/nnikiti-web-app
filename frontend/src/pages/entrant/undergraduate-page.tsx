@@ -33,7 +33,7 @@ function UndergraduatePage() {
         title={t("undergraduate.title")}
         gradientWord={t("undergraduate.gradientWord")}
         description={t("undergraduate.description")}
-        imageSeed="/images/students-lecture.jpg"
+        imageSeed="/main/nuwm_1920x900.jpg"
         stats={stats}
       />
 

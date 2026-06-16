@@ -4,7 +4,8 @@ export type SciencePageKind =
   | "publications"
   | "research"
   | "conferences"
-  | "grants";
+  | "grants"
+  | "labs";
 
 export type ActivityStatusKey = "open" | "upcoming" | "completed";
 
@@ -56,10 +57,11 @@ export type ScienceLabels = {
 export type SelectOption = { value: string; label: string };
 
 export const PAGE_HERO_IMAGE: Record<SciencePageKind, string> = {
-  publications: "/images/students-event.jpg",
-  research: "/images/noosphere-workshop.jpg",
-  conferences: "/images/students-stage.jpg",
-  grants: "/images/students-workshop.jpg",
+  publications: "/main/nuwm_1920x900.jpg",
+  research: "/main/nuwm_1920x900.jpg",
+  conferences: "/main/nuwm_1920x900.jpg",
+  grants: "/main/nuwm_1920x900.jpg",
+  labs: "/main/nuwm_1920x900.jpg",
 };
 
 export const ACTIVITY_META: Record<
@@ -90,6 +92,7 @@ export const ACTIVITY_META: Record<
     { date: "2026-04-12", status: "completed" },
     { date: "2026-06-07", status: "open" },
   ],
+  labs: [],
 };
 
 export const NAV_ITEMS = [
@@ -97,6 +100,7 @@ export const NAV_ITEMS = [
   { kind: "research", route: ROUTES.SCIENCE_RESEARCH, labelKey: "common.navResearch" },
   { kind: "conferences", route: ROUTES.SCIENCE_CONFERENCES, labelKey: "common.navConferences" },
   { kind: "grants", route: ROUTES.SCIENCE_GRANTS, labelKey: "common.navGrants" },
+  { kind: "labs", route: ROUTES.SCIENCE_LABS, labelKey: "common.navLabs" },
 ] satisfies Array<{ kind: SciencePageKind; route: string; labelKey: string }>;
 
 export const STATUS_KEYS = ["open", "upcoming", "completed"];

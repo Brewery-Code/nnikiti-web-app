@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { marked } from "marked";
 import { useTranslation } from "react-i18next";
+import { globalLenis } from "@/shared/hooks/use-lenis";
 import clsx from "clsx";
 import { type DepartmentData } from "@/shared/model/departments-data";
 import { Reveal } from "@/shared/ui";
@@ -61,7 +62,12 @@ export function CurriculumSection({ dept }: { dept: DepartmentData }) {
     const el = document.getElementById("curriculum");
     if (!el) { return; }
     const timeout = setTimeout(() => {
-      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: "smooth" });
+      const offset = el.getBoundingClientRect().top + window.scrollY - 88;
+      if (globalLenis) {
+        globalLenis.scrollTo(offset, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: offset, behavior: "smooth" });
+      }
     }, 400);
     return () => clearTimeout(timeout);
   }, [hasDeepLink]);

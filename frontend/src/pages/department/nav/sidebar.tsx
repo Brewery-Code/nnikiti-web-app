@@ -5,10 +5,12 @@ import { useSectionSpy } from "./use-section-spy";
 import { SECTION_IDS, scrollToSection } from "./section-ids";
 
 const ICONS: Record<(typeof SECTION_IDS)[number], ReactNode> = {
-  curriculum: (
+  programs: (
     <>
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
     </>
   ),
   team: (
@@ -17,6 +19,12 @@ const ICONS: Record<(typeof SECTION_IDS)[number], ReactNode> = {
       <circle cx="9" cy="7" r="4" />
       <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </>
+  ),
+  history: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
     </>
   ),
   contacts: (

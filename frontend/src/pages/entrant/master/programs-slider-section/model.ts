@@ -11,6 +11,7 @@ export const PROGRAM_DEPARTMENTS: Record<string, number> = {
 
 export type ProgramData = {
   id: number;
+  slug: string;
   code: string;
   /** Specialty name (name) */
   specialty: string;
@@ -18,7 +19,7 @@ export type ProgramData = {
   program: string;
   /** Degree level, already translated by the backend */
   degree: string;
-  departmentId: number | null;
+  departmentSlug: string | null;
 };
 
 /** Matches the master degree across supported locales */

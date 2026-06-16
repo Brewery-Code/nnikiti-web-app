@@ -33,7 +33,8 @@
     "prevProgram": "Previous program",
     "nextProgram": "Next program",
     "code": "Code:",
-    "program": "Educational program"
+    "program": "Educational program",
+    "specialty": "Specialty"
   },
   "whySection": {
     "heading": "Why choose",

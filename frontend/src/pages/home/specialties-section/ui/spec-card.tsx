@@ -5,8 +5,8 @@ import { type SpecData } from "../model";
 
 export function SpecCard({ spec }: { spec: SpecData }) {
   const { t } = useTranslation("home");
-  const to = spec.departmentId
-    ? `/department/${spec.departmentId}?program_id=${spec.id}#curriculum`
+  const to = spec.departmentSlug && spec.slug
+    ? `/department/${spec.departmentSlug}/program/${spec.slug}`
     : ROUTES.BACHELOR;
 
   return (
@@ -20,7 +20,7 @@ export function SpecCard({ spec }: { spec: SpecData }) {
       }}
       codeLabel={t("specialtiesSection.code")}
       programLabel={t("specialtiesSection.program")}
-      ctaLabel={t("specialtiesSection.seeAll")}
+      specialtyLabel={t("specialtiesSection.specialty")}
     />
   );
 }

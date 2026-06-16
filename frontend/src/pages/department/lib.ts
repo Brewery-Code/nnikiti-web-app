@@ -14,6 +14,7 @@ export function mapApiToDept(api: ApiDeptDetail): DepartmentData {
   const head = api.head_of_department?.[0];
   return {
     id: api.id ?? 0,
+    slug: (api as Record<string, unknown>).slug as string ?? "",
     name: api.name ?? "",
     description: api.description ?? "",
     email: api.email ?? "",
@@ -29,6 +30,7 @@ export function mapApiToDept(api: ApiDeptDetail): DepartmentData {
     },
     programs: api.educational_program?.map((prog) => ({
       id: prog.id ?? 0,
+      slug: (prog as Record<string, unknown>).slug as string ?? "",
       code: prog.code ?? "",
       name: prog.name ?? prog.degree ?? "",
       nameOp: prog.name_op ?? "",

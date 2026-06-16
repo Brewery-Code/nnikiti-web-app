@@ -4,6 +4,7 @@
     "nextProgram": "Next program",
     "code": "Code:",
     "program": "Educational program",
+    "specialty": "Specialty",
     "seeAll": "Learn more",
     "budget": "budget",
     "contract": "contract",
@@ -300,124 +301,76 @@
   },
   "postgraduate": {
     "eyebrow": "Applicants · Postgraduate",
-    "title": "The path to",
-    "gradientWord": "science",
-    "description": "A four-year research training program for those who aspire to become researchers, inventors or scientific leaders in IT and mathematics.",
-    "stats": [
-      { "value": "4–5", "label": "years of study" },
-      { "value": "4", "label": "specialties" }
+    "title": "Applying for",
+    "gradientWord": "postgraduate",
+    "description": "",
+    "requirementsTitle": "Admission",
+    "requirementsGradientTitle": "requirements",
+    "reqCard1Title": "Applicant requirements",
+    "reqPoints": [
+      "Master's or specialist diploma",
+      "Competitive selection based on EVI + EVV scores",
+      "Applications submitted via the EDBO electronic cabinet"
     ],
-    "benefitsEyebrow": "Postgraduate Opportunities",
-    "benefitsTitle": "What you",
-    "benefitsGradientTitle": "receive",
-    "benefitsSubtitle": "Postgraduate study is not just education. It's a scientific community, resources and international connections.",
-    "benefits": [
-      {
-        "title": "Scientific Publications",
-        "text": "Support for publications in Scopus and Web of Science journals, participation in international conferences."
-      },
-      {
-        "title": "Academic Mobility",
-        "text": "Internships at partner universities in Poland, Lithuania and the Czech Republic through Erasmus+."
-      },
-      {
-        "title": "Grant Programs",
-        "text": "Support in finding funding through the Ministry of Education of Ukraine, Horizon Europe and bilateral programs."
-      },
-      {
-        "title": "Teaching Practice",
-        "text": "Postgraduate students conduct practical classes and gain teaching experience under the guidance of mentors."
-      }
+    "scoreCard1Title": "Competitive score",
+    "scoreFormula": ["EVI", "EVV", "Diploma GPA"],
+    "scoreDesc": "The ranked list is formed by adding the scores of two exams and the average GPA of the master's diploma.",
+    "examsTitle": "Entrance",
+    "examsGradientTitle": "exams",
+    "examsSubtitle": "Two mandatory tests — the same for all postgraduate applicants in Ukraine. Administered by UCEQA.",
+    "eviLabel": "EVI",
+    "eviFullName": "Unified Entrance Exam",
+    "eviParts": [
+      { "name": "General Academic Competency Test (GACT)", "desc": "Logic, analytics and critical thinking — assessment of capacity for academic work." },
+      { "name": "Foreign Language Test", "desc": "Proficiency in the foreign language relevant to the chosen specialty." }
     ],
-    "programsEyebrow": "Scientific Specialties",
-    "programsTitle": "Choose your",
-    "programsGradientTitle": "research direction",
-    "programs": [
-      {
-        "code": "01 – Education/Pedagogy",
-        "name": "Theory and Methods of Teaching",
-        "description": "Research in teaching methods for computer science and computing disciplines in higher education. Training of academic teaching staff.",
-        "duration": "4 years",
-        "seats": "Budget"
-      },
-      {
-        "code": "12 – Information Technologies",
-        "name": "Computer Science (122)",
-        "description": "Algorithms, artificial intelligence, machine learning, big data and theoretical computer science. Publications in Scopus and WoS.",
-        "duration": "4 years",
-        "seats": "Budget + contract"
-      },
-      {
-        "code": "12 – Information Technologies",
-        "name": "Computer Engineering (123)",
-        "description": "Embedded systems, hardware security, FPGA and industrial automation. Collaboration with industrial partners.",
-        "duration": "4 years",
-        "seats": "Budget"
-      },
-      {
-        "code": "11 – Mathematics and Statistics",
-        "name": "Applied Mathematics (113)",
-        "description": "Mathematical modeling, computational mathematics, optimization theory and statistical analysis of complex systems.",
-        "duration": "4 years",
-        "seats": "Budget"
-      }
+    "evvLabel": "EVV",
+    "evvFullName": "Unified Entrance Assessment",
+    "evvParts": [
+      { "name": "Research Methodology Test (RMT)", "desc": "Knowledge of principles, methods and forms of scientific research." }
     ],
-    "admissionEyebrow": "Admission Campaign",
-    "admissionTitle": "Applying for",
-    "admissionGradientTitle": "postgraduate",
-    "admissionSubtitle": "Admission — annually in autumn. Contact with your future academic supervisor is recommended in advance.",
+    "examsPortal": "testportal.gov.ua",
+    "examsPortalHref": "https://testportal.gov.ua/vstupni-do-aspirantury-2/",
+    "examsContactLabel": "UCEQA contact:",
+    "examsPhone": "(095) 903-95-10",
+    "examsPhoneHref": "tel:+380959039510",
+    "examsEmail": "zno_info@testportal.gov.ua",
+    "stepsTitle": "Admission",
+    "stepsGradientTitle": "steps",
+    "stepsSubtitle": "The entire process — from exams to enrollment — takes place online.",
     "steps": [
       {
-        "title": "Choose an academic supervisor",
-        "text": "Contact the department to choose a research direction and agree on a dissertation topic with a potential academic supervisor."
+        "title": "Obtain a master's diploma",
+        "text": "A mandatory requirement — a master's or specialist degree. A bachelor's or junior bachelor's degree does not entitle admission to postgraduate studies."
       },
       {
-        "title": "Prepare documents",
-        "text": "Master's diploma (or specialist diploma), list of publications (if any), essay on the chosen research topic and motivation letter."
-      },
-      {
-        "title": "Take the entrance exam",
-        "text": "Centralized exam in research methodology — registration April 23 – May 14 at testportal.gov.ua, testing July 14–29. Results — by August 7.",
+        "title": "Register and take EVI and EVV",
+        "text": "Registration and results — at testportal.gov.ua. EVI: general academic competency test + foreign language. EVV: research methodology test.",
         "linkText": "testportal.gov.ua",
-        "linkHref": "https://testportal.gov.ua"
+        "linkHref": "https://testportal.gov.ua/vstupni-do-aspirantury-2/"
       },
       {
-        "title": "Competitive selection",
-        "text": "The ranking is formed from exam scores, master's diploma GPA and academic achievements (publications, patents, conferences)."
+        "title": "Wait for exam results",
+        "text": "Results are published in your personal cabinet at testportal.gov.ua and sent to the email you provided during registration.",
+        "linkText": "testportal.gov.ua",
+        "linkHref": "https://testportal.gov.ua/vstupni-do-aspirantury-2/"
       },
       {
-        "title": "Enrollment and start of work",
-        "text": "After enrollment, development of an individual plan begins, the dissertation topic is approved and the first year of study starts."
+        "title": "Submit applications via e-cabinet",
+        "text": "The applicant's electronic cabinet opens June 25 and runs until October 15, 2026. Application submission and status tracking — at vstup.edbo.gov.ua.",
+        "linkText": "vstup.edbo.gov.ua",
+        "linkHref": "https://vstup.edbo.gov.ua/"
+      },
+      {
+        "title": "Competitive selection and enrollment",
+        "text": "Ranked list: EVI score + EVV score + diploma GPA. After the recommendation, confirm your choice in the cabinet and sign the agreement."
       }
     ],
-    "datesEyebrow": "Important Dates",
-    "datesTitle": "Postgraduate",
-    "datesGradientTitle": "calendar",
-    "dates": [
-      {
-        "period": "April 23 – May 14",
-        "label": "Exam Registration",
-        "note": "testportal.gov.ua — research methodology exam"
-      },
-      {
-        "period": "July 14 – 29",
-        "label": "Exam Period",
-        "note": "Centralized exam at UCEQA testing centers"
-      },
-      {
-        "period": "By August 7",
-        "label": "Exam Results",
-        "note": "Published in the personal portal at testportal.gov.ua"
-      },
-      {
-        "period": "August – September",
-        "label": "Application and Document Submission",
-        "note": "Master's diploma, list of publications, research topic essay"
-      }
-    ],
-    "ctaTitle": "Ready for the academic path?",
-    "ctaSubtitle": "Contact the NUWEE postgraduate office or directly the department to choose an academic supervisor and agree on a topic.",
-    "ctaPrimaryLabel": "Contact the department"
+    "linksTitle": "Useful",
+    "linksGradientTitle": "links",
+    "ctaTitle": "Official postgraduate page",
+    "ctaSubtitle": "Up-to-date information, documents and deadlines — on the NUWEE admissions website.",
+    "ctaLabel": "Go to NUWEE website"
   },
   "undergraduate": {
     "eyebrow": "Applicants · Pre-degree Education",

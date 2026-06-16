@@ -1,4 +1,5 @@
 import { EVENT_TYPE_META, type EventType } from "./events-data";
+import { globalLenis } from "@/shared/hooks/use-lenis";
 
 export function formatDate(iso?: string | null): string {
   if (!iso) return "";
@@ -22,7 +23,13 @@ export function toDateStr(year: number, month: number, day: number): string {
 }
 export function scrollToId(id: string) {
   const el = document.getElementById(id);
-  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: "smooth" });
+  if (!el) return;
+  const offset = el.getBoundingClientRect().top + window.scrollY - 88;
+  if (globalLenis) {
+    globalLenis.scrollTo(offset, { duration: 1.2 });
+  } else {
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  }
 }
 
 export function tagStyle(rgb?: string | null) {

@@ -33,7 +33,8 @@
     "prevProgram": "Попередня програма",
     "nextProgram": "Наступна програма",
     "code": "Code:",
-    "program": "Освітня програма"
+    "program": "Освітня програма",
+    "specialty": "Спеціальність"
   },
   "whySection": {
     "heading": "Чому обирають",

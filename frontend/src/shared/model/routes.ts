@@ -9,6 +9,8 @@ export const ROUTES = {
   SCIENCE_RESEARCH: "/science/research",
   SCIENCE_CONFERENCES: "/science/conferences",
   SCIENCE_GRANTS: "/science/grants",
+  SCIENCE_GRANT_ITEM: "/science/grants/:grantId",
+  SCIENCE_LABS: "/science/labs",
   PARTNERS_ACADEMIC_MOBILITY: "/partners/academic-mobility",
   PARTNERS_BUSINESS: "/partners/business",
   UNDERGRADUATE: "/entrant/undergraduate",
@@ -16,7 +18,8 @@ export const ROUTES = {
   MASTER: "/entrant/master",
   POSTGRADUATE: "/entrant/postgraduate",
   ALUMNI: "/alumni",
-  DEPARTMENT: "/department/:departmentId",
+  DEPARTMENT: "/department/:departmentSlug",
+  PROGRAM: "/department/:departmentSlug/program/:programSlug",
   TEAM: "/team",
   GALLERY: "/gallery",
   GALLERY_ALL: "/gallery/all",
@@ -31,8 +34,10 @@ export const ROUTES = {
 } as const;
 
 export type PathParams = {
-  [ROUTES.DEPARTMENT]: { departmentId: string };
+  [ROUTES.DEPARTMENT]: { departmentSlug: string };
+  [ROUTES.PROGRAM]: { departmentSlug: string; programSlug: string };
   [ROUTES.NEWS_ITEM]:  { slug: string };
+  [ROUTES.SCIENCE_GRANT_ITEM]: { grantId: string };
 };
 
 declare module "react-router-dom" {

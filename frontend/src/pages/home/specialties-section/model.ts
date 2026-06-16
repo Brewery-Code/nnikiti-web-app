@@ -13,6 +13,7 @@ export const SPACE_BETWEEN_PX = 20;
 
 export type SpecData = {
   id: number;
+  slug: string;
   code: string;
   /** Specialty name (name) */
   specialty: string;
@@ -20,5 +21,5 @@ export type SpecData = {
   program: string;
   /** Degree level, already translated by the backend */
   degree: string;
-  departmentId: number | null;
+  departmentSlug: string | null;
 };

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
+import { globalLenis } from "@/shared/hooks/use-lenis";
 import { publicRqClient } from "@/shared/api/instance";
 import { ROUTES } from "@/shared/model/routes";
 import { useLoadNamespace } from "@/shared/hooks";
@@ -153,7 +154,14 @@ export default function HeroSection({ className = "" }: { className?: string }) 
             className="inline-flex items-center gap-2 rounded-[12px] border border-ui bg-surface-lg px-5 py-3 text-[14px] font-semibold text-primary backdrop-blur-md transition-all duration-200 hover:bg-surface-xl active:scale-95 sm:rounded-[14px] sm:px-9 sm:py-4 sm:text-[17px]"
             onClick={(e) => {
               const el = document.getElementById("programs");
-              if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+              if (!el) return;
+              e.preventDefault();
+              const offset = el.getBoundingClientRect().top + window.scrollY - 88;
+              if (globalLenis) {
+                globalLenis.scrollTo(offset, { duration: 1.2 });
+              } else {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
             }}
           >
             {t("heroSection.ctaPrograms")}

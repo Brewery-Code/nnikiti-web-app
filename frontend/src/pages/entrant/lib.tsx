@@ -14,13 +14,12 @@ function cardWidth(viewportWidth: number): number {
 }
 
 /**
- * Measures the available content width and reports whether `count` program
- * cards fit in a single row. When they do, the section renders a static grid
- * instead of a slider.
+ * Returns needsSlider=true when there are more cards than fit in 3 columns.
+ * Below that threshold a static grid looks better than a carousel.
  */
-export function useCardsFit(count: number) {
+export function useNeedsSlider(count: number) {
   const ref = useRef<HTMLDivElement>(null);
-  const [fits, setFits] = useState(false);
+  const [needsSlider, setNeedsSlider] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -28,14 +27,15 @@ export function useCardsFit(count: number) {
 
     const compute = () => {
       const vw = window.innerWidth;
-      // On mobile the cards are full-width, so only a single one fits a row.
       if (vw < 640) {
-        setFits(count > 0 && count <= 1);
+        // On mobile always use a list — horizontal sliders are awkward for many cards
+        setNeedsSlider(false);
         return;
       }
       const card = cardWidth(vw);
       const cols = Math.max(1, Math.floor((el.clientWidth + CARD_GAP) / (card + CARD_GAP)));
-      setFits(count > 0 && count <= cols);
+      // Slider only when we have more cards than fit in 3 columns with room to spare
+      setNeedsSlider(count > Math.max(cols, 3));
     };
 
     compute();
@@ -44,7 +44,7 @@ export function useCardsFit(count: number) {
     return () => ro.disconnect();
   }, [count]);
 
-  return { ref, fits };
+  return { ref, needsSlider };
 }
 
 const ExternalLink = ({ href, children }: { href: string; children: React.ReactNode }) => (

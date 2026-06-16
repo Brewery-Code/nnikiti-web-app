@@ -4,10 +4,10 @@ import clsx from "clsx";
 
 export function MobileDeptSelector({
   deptList,
-  departmentId,
+  departmentSlug,
 }: {
-  deptList: { id: number; name: string }[];
-  departmentId: string;
+  deptList: { id: number; slug: string; name: string }[];
+  departmentSlug: string;
 }) {
   const { t } = useTranslation("department");
 
@@ -18,11 +18,11 @@ export function MobileDeptSelector({
       </p>
       <div className="flex flex-col gap-1.5">
         {deptList.map((d) => {
-          const isActive = String(d.id) === departmentId;
+          const isActive = d.slug === departmentSlug;
           return (
             <Link
               key={d.id}
-              to={`/department/${d.id}`}
+              to={`/department/${d.slug}`}
               className={clsx(
                 "flex items-center gap-3 rounded-[12px] px-4 py-3 text-[14px] font-medium transition-all duration-200",
                 isActive

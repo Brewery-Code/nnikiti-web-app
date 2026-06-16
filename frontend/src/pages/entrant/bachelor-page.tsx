@@ -20,7 +20,7 @@ function BachelorPage() {
         title={t("bachelor.title")}
         gradientWord={t("bachelor.gradientWord")}
         description={t("bachelor.description")}
-        imageSeed="/images/students-stage.jpg"
+        imageSeed="/main/nuwm_1920x900.jpg"
         stats={stats}
       />
 

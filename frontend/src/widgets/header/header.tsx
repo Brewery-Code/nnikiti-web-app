@@ -19,7 +19,7 @@ export function Header() {
   const { t } = useTranslation("header");
   useLoadNamespace("header", loadTranslations);
 
-  const departments = (publicRqClient.useQuery("get", "/departments/", {}).data ?? []) as { id: number; name: string }[];
+  const departments = (publicRqClient.useQuery("get", "/departments/", {}).data ?? []) as { id: number; name: string; slug?: string }[];
 
   const navigationMenuData: NavigationMenuData[] = [
     {
@@ -39,14 +39,15 @@ export function Header() {
       list: [
         { title: t("navigationMenu.bachelorDegree"), link: ROUTES.BACHELOR },
         { title: t("navigationMenu.masterDegree"), link: ROUTES.MASTER },
+        { title: t("navigationMenu.postgraduateStudies"), link: ROUTES.POSTGRADUATE },
       ],
     },
     {
       title: t("navigationMenu.departments"),
-      link: `/department/${departments[0]?.id ?? 1}`,
+      link: `/department/${departments[0]?.slug ?? departments[0]?.id ?? 1}`,
       list: departments.map((dept) => ({
         title: dept.name ?? "",
-        link: `/department/${dept.id}`,
+        link: `/department/${dept.slug ?? dept.id}`,
       })),
     },
     {
@@ -59,12 +60,13 @@ export function Header() {
     },
     {
       title: t("navigationMenu.science"),
-      link: ROUTES.SCIENCE_PUBLICATIONS,
+      link: ROUTES.SCIENCE_RESEARCH,
       list: [
-        { title: t("navigationMenu.publications"), link: ROUTES.SCIENCE_PUBLICATIONS },
         { title: t("navigationMenu.research"), link: ROUTES.SCIENCE_RESEARCH },
         { title: t("navigationMenu.conferences"), link: ROUTES.SCIENCE_CONFERENCES },
+        { title: t("navigationMenu.publications"), link: ROUTES.SCIENCE_PUBLICATIONS },
         { title: t("navigationMenu.grants"), link: ROUTES.SCIENCE_GRANTS },
+        { title: t("navigationMenu.laboratories"), link: ROUTES.SCIENCE_LABS },
       ],
     },
     {

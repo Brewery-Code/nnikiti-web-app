@@ -1,0 +1,23 @@
+{
+  "badge": "NNIKITI",
+  "badgeSub": "Grants & Competitions",
+  "heading": "Grants and",
+  "headingAccent": "competitions",
+  "description": "Current grant opportunities and competitions for students, postgraduates and researchers at NNIKITI.",
+  "sectionTitle": "Current",
+  "sectionHighlight": "opportunities",
+  "grant": "Grant",
+  "competition": "Competition",
+  "deadline": "Deadline",
+  "apply": "Apply →",
+  "loadMore": "Load more",
+  "noItems": "No grants or competitions at the moment",
+  "backButton": "Back",
+  "otherOpportunities": "Other",
+  "otherOpportunitiesHighlight": "opportunities",
+  "allGrants": "All grants →",
+  "organizerLabel": "Organizer",
+  "deadlineLabel": "Deadline",
+  "amountLabel": "Funding amount",
+  "applyExternal": "Apply on organizer's website ↗"
+}

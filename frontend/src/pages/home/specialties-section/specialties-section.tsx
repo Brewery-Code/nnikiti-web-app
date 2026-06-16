@@ -9,7 +9,7 @@ import { useLoadNamespace } from "@/shared/hooks";
 import { Reveal } from "@/shared/ui";
 import { publicRqClient } from "@/shared/api/instance";
 import { loadTranslations } from "../events-section/locales";
-import { PROGRAM_DEPARTMENTS, SPACE_BETWEEN_PX, type SpecData } from "./model";
+import { SPACE_BETWEEN_PX, type SpecData } from "./model";
 import { isTouchDevice } from "./lib";
 import { SpecCard } from "./ui";
 
@@ -21,20 +21,26 @@ export default function SpecialtiesSection({ className = "" }: { className?: str
   const { t } = useTranslation("home");
   const swiperRef = useRef<SwiperType | null>(null);
 
+  type ApiProgramExt = { slug?: string; department_id?: number; department_slug?: string };
   const { data: apiPrograms = [] } = publicRqClient.useQuery("get", "/core/educational-programs/", {});
   const { data: apiDepartments = [] } = publicRqClient.useQuery("get", "/departments/", {});
-  const firstDeptId = (apiDepartments as { id?: number }[])[0]?.id ?? 1;
+  const firstDeptSlug = (apiDepartments as { id?: number; slug?: string }[])[0]?.slug
+    ?? String((apiDepartments as { id?: number }[])[0]?.id ?? 1);
 
   const specialties: SpecData[] = (apiPrograms ?? [])
     .filter((p) => p.code && p.name)
-    .map((p) => ({
-      id: p.id ?? 0,
-      code: p.code!,
-      specialty: p.name!,
-      program: p.name_op ?? "",
-      degree: p.degree ?? "",
-      departmentId: PROGRAM_DEPARTMENTS[p.code!] ?? null,
-    }));
+    .map((p) => {
+      const ext = p as typeof p & ApiProgramExt;
+      return {
+        id: p.id ?? 0,
+        slug: ext.slug ?? "",
+        code: p.code!,
+        specialty: p.name!,
+        program: p.name_op ?? "",
+        degree: p.degree ?? "",
+        departmentSlug: ext.department_slug ?? null,
+      };
+    });
 
   return (
     <section id="programs" className={clsx("py-16 lg:py-24", className)}>
@@ -77,13 +83,16 @@ export default function SpecialtiesSection({ className = "" }: { className?: str
           onSwiper={(s) => { swiperRef.current = s; }}
           modules={[Autoplay]}
           loop
-          loopAdditionalSlides={specialties.length}
+          loopAdditionalSlides={4}
           autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
           speed={600}
           slidesPerView="auto"
           spaceBetween={SPACE_BETWEEN_PX}
           allowTouchMove={isTouchDevice}
           grabCursor={isTouchDevice}
+          observer
+          observeParents
+          resizeObserver
           className="specialties-swiper !overflow-visible py-2 [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:!h-auto"
         >
           {specialties.map((s) => (
@@ -101,7 +110,7 @@ export default function SpecialtiesSection({ className = "" }: { className?: str
       {/* Mobile: "Детальніше" button below slider */}
       <div className="container-v2 mt-8 flex justify-center lg:hidden">
         <Link
-          to={`/department/${firstDeptId}`}
+          to={`/department/${firstDeptSlug}`}
           className="inline-flex items-center justify-center rounded-[14px] bg-gradient-to-r from-violet-500 to-blue-500 px-10 py-3 text-[14px] font-semibold text-white shadow-[0_4px_20px_rgba(139,92,246,0.4)] transition-all duration-200 hover:brightness-110 active:scale-95"
         >
           {t("specialtiesSection.seeAll")}

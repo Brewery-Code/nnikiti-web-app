@@ -8,7 +8,7 @@
     "heading_sections": "Sections"
   },
   "sections": {
-    "curriculum": "Curriculum",
+    "programs": "Specialties",
     "team": "Team",
     "history": "History",
     "contacts": "Contacts"
@@ -22,6 +22,13 @@
     "bachelor": "Bachelor's",
     "master": "Master's",
     "postgraduate": "Postgraduate"
+  },
+  "programs": {
+    "section_title": "Educational",
+    "section_highlight": "programmes",
+    "code_label": "Code",
+    "program_label": "Educational programme",
+    "specialty_label": "Specialty"
   },
   "curriculum": {
     "section_title": "Study",
@@ -68,5 +75,8 @@
   "mobile_selector": {
     "label": "Department",
     "placeholder": "Select a department"
+  },
+  "nav": {
+    "back": "Back"
   }
 }

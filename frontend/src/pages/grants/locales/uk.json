@@ -1,0 +1,23 @@
+{
+  "badge": "ННІКІТІ",
+  "badgeSub": "Гранти та конкурси",
+  "heading": "Гранти та",
+  "headingAccent": "конкурси",
+  "description": "Актуальні грантові можливості та конкурси для студентів, аспірантів і дослідників ННІКІТІ.",
+  "sectionTitle": "Актуальні",
+  "sectionHighlight": "можливості",
+  "grant": "Грант",
+  "competition": "Конкурс",
+  "deadline": "Дедлайн",
+  "apply": "Детальніше →",
+  "loadMore": "Завантажити ще",
+  "noItems": "Наразі немає грантів або конкурсів",
+  "backButton": "Назад",
+  "otherOpportunities": "Інші",
+  "otherOpportunitiesHighlight": "можливості",
+  "allGrants": "Усі гранти →",
+  "organizerLabel": "Організатор",
+  "deadlineLabel": "Дедлайн",
+  "amountLabel": "Сума фінансування",
+  "applyExternal": "Подати заявку на сайті організатора ↗"
+}
