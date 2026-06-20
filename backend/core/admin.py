@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from parler.admin import TranslatableAdmin
 from unfold.admin import ModelAdmin, TabularInline
 
@@ -12,8 +13,14 @@ class UnfoldTranslatableAdmin(ModelAdmin, TranslatableAdmin):
 @admin.register(MainSliderItem)
 class MainSliderItemAdmin(ModelAdmin):
     """Admin configuration for the MainSliderItem model."""
-    list_display = ("pk",)
+    list_display = ("pk", "thumbnail")
     list_display_links = ("pk",)
+
+    @admin.display(description="")
+    def thumbnail(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" height="50" style="border-radius:4px;"/>', obj.image.url)
+        return "-"
 
 
 @admin.register(StatisticBlock)
@@ -47,5 +54,11 @@ class AlumnusAdmin(UnfoldTranslatableAdmin):
 @admin.register(AlumniSlider)
 class AlumniSliderAdmin(ModelAdmin):
     """Admin configuration for the AlumniSlider model."""
-    list_display = ["pk"]
+    list_display = ["pk", "thumbnail"]
     list_display_links = ("pk",)
+
+    @admin.display(description="")
+    def thumbnail(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" height="50" style="border-radius:4px;"/>', obj.image.url)
+        return "-"
