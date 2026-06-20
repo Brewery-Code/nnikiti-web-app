@@ -612,9 +612,10 @@ html.lenis body {
 }
 
 /* ── Dot grid drift (global background) ─────────────────────────────────── */
+/* transform замість background-position — GPU-композит, без перемалювання щокадру */
 @keyframes grid-drift {
-  from { background-position: 0px 0px; }
-  to   { background-position: 32px 32px; }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(32px, 32px, 0); }
 }
 
 /* ── Story rich-text editor ─────────────────────────────────────────────── */

@@ -48,13 +48,14 @@ export function GlobalBackground() {
           willChange: "transform",
         }}
       />
-      {/* Dot grid */}
+      {/* Dot grid — шар більший за екран, щоб translate не оголював краї */}
       <div
-        className="absolute inset-0 opacity-[0.18]"
+        className="absolute -inset-8 opacity-[0.18]"
         style={{
           backgroundImage: "radial-gradient(circle, rgba(166, 132, 255, 0.22) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           animation: "grid-drift 90s linear infinite",
+          willChange: "transform",
         }}
       />
       {/* Subtle noise grain */}

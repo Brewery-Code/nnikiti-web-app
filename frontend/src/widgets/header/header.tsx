@@ -87,7 +87,9 @@ export function Header() {
     const updateScroll = ({ scroll, limit }: { scroll: number; limit: number }) => {
       setScrolled(scroll > 50);
       if (progressBarRef.current) {
-        progressBarRef.current.style.width = `${limit > 0 ? (scroll / limit) * 100 : 0}%`;
+        // scaleX замість width — composite на GPU, без layout щокадру
+        const ratio = limit > 0 ? scroll / limit : 0;
+        progressBarRef.current.style.transform = `scaleX(${ratio})`;
       }
     };
 
@@ -133,8 +135,10 @@ export function Header() {
       <div className="absolute inset-x-0 top-0 h-[2px]">
         <div
           ref={progressBarRef}
-          className="h-full w-0"
+          className="h-full w-full origin-left"
           style={{
+            transform: "scaleX(0)",
+            willChange: "transform",
             background: "linear-gradient(90deg, rgba(139,92,246,1) 0%, rgba(96,165,250,1) 100%)",
             boxShadow: "0 0 8px 1px rgba(139,92,246,0.7), 0 0 18px 2px rgba(96,165,250,0.35)",
           }}
