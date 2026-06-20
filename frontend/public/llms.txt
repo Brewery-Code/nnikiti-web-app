@@ -1,0 +1,55 @@
+# ННІ комп'ютерних та інноваційних технологій (ННІКІТІ) НУВГП
+
+> Офіційний сайт Навчально-наукового інституту комп'ютерних та інноваційних технологій Національного університету водного господарства та природокористування. Інформація про кафедри, освітні програми, науку, вступ, події та контакти.
+
+Базовий домен: https://nnikiti.duckdns.org
+
+## Основні сторінки
+
+- [Головна](https://nnikiti.duckdns.org/): hero, статистика, спеціальності, блок «Чому ми», події, партнери, заклик до вступу, соцмережі.
+- [Історія інституту](https://nnikiti.duckdns.org/history): опис, таймлайн розвитку інституту.
+- [Команда](https://nnikiti.duckdns.org/team): керівництво та члени команди інституту.
+- [Контакти](https://nnikiti.duckdns.org/contacts): контактна інформація інституту.
+- [Часті питання (FAQ)](https://nnikiti.duckdns.org/faq): відповіді на поширені питання.
+- [Задати питання](https://nnikiti.duckdns.org/ask-question): форма звернення та контактна інформація.
+
+## Кафедри та освітні програми
+
+- [Сторінка кафедри](https://nnikiti.duckdns.org/department/{departmentSlug}): hero, освітні програми, команда, історія, контакти кафедри. `{departmentSlug}` — slug кафедри.
+- [Освітня програма](https://nnikiti.duckdns.org/department/{departmentSlug}/program/{programSlug}): детальний опис освітньої програми кафедри.
+
+## Вступнику
+
+- [Молодший бакалавр / довузівський рівень](https://nnikiti.duckdns.org/entrant/undergraduate): вступ на рівень молодшого бакалавра.
+- [Бакалавр](https://nnikiti.duckdns.org/entrant/bachelor): умови вступу на бакалаврат.
+- [Магістр](https://nnikiti.duckdns.org/entrant/master): умови вступу та освітні треки магістратури.
+- [Аспірантура](https://nnikiti.duckdns.org/entrant/postgraduate): кроки вступу до аспірантури.
+
+## Наука
+
+- [Наукові дослідження](https://nnikiti.duckdns.org/science/research): дослідження у розрізі кафедр.
+- [Конференції](https://nnikiti.duckdns.org/science/conferences): перелік конференцій та документи.
+- [Лабораторії](https://nnikiti.duckdns.org/science/labs): наукові лабораторії інституту.
+- [Гранти](https://nnikiti.duckdns.org/science/grants): список грантів.
+- [Окремий грант](https://nnikiti.duckdns.org/science/grants/{grantId}): деталі конкретного гранту.
+
+## Партнери
+
+- [Академічна мобільність](https://nnikiti.duckdns.org/partners/academic-mobility): програми академічної мобільності.
+- [Бізнес-партнери](https://nnikiti.duckdns.org/partners/business): пропозиції від бізнес-партнерів.
+
+## Події та новини
+
+- [Події / новини](https://nnikiti.duckdns.org/events): календар подій та список новин.
+- [Окрема новина](https://nnikiti.duckdns.org/news/{slug}): повний текст новини. `{slug}` — slug новини.
+
+## Випускники
+
+- [Випускники](https://nnikiti.duckdns.org/alumni): список випускників інституту.
+
+## Галерея
+
+- [Галерея](https://nnikiti.duckdns.org/gallery): альбоми за роками та перелік альбомів.
+- [Усі альбоми](https://nnikiti.duckdns.org/gallery/all): повний список альбомів.
+- [Альбоми за рік](https://nnikiti.duckdns.org/gallery/year/{year}): альбоми за конкретний рік.
+- [Альбом події](https://nnikiti.duckdns.org/gallery/event/{eventId}): фото окремої події.

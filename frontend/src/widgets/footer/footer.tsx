@@ -54,7 +54,7 @@ export function Footer({ className }: { className?: string }) {
             <Link to={ROUTES.HOME} className="inline-flex items-center mb-4">
               <img src={logoCat} alt="ННІКІТІ" loading="lazy" style={{ height: 36, width: "auto" }} />
             </Link>
-            <p className="text-[13px] leading-[1.75] text-white/30 max-w-[300px] mb-6">
+            <p className="text-[13px] leading-[1.75] text-white/60 max-w-[300px] mb-6">
               {t("universityName")}
             </p>
             {/* <div className="flex flex-wrap gap-2">
@@ -68,7 +68,7 @@ export function Footer({ className }: { className?: string }) {
           {/* Nav columns — 2-col on mobile, each col on desktop */}
           {NAV_COLS.map((col) => (
             <div key={col.heading}>
-              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white/25">
+              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white/60">
                 {col.heading}
               </p>
               <div className="flex flex-col gap-2.5">
@@ -76,7 +76,7 @@ export function Footer({ className }: { className?: string }) {
                   <Link
                     key={lk.to}
                     to={lk.to}
-                    className="text-[13px] text-white/45 transition-colors duration-150 hover:text-white/90 w-fit"
+                    className="text-[13px] text-white/70 transition-colors duration-150 hover:text-white w-fit"
                   >
                     {lk.label}
                   </Link>
@@ -91,7 +91,7 @@ export function Footer({ className }: { className?: string }) {
 
         {/* Bottom */}
         <div className="mt-5 flex justify-center">
-          <span className="text-[12px] text-white/20">{t("copyright")}</span>
+          <span className="text-[12px] text-white/55">{t("copyright")}</span>
         </div>
       </div>
     </footer>
