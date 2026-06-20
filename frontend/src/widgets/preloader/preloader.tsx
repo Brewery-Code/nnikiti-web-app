@@ -7,10 +7,12 @@ import { useCriticalLoading, resetCriticalSession } from "@/shared/model/critica
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 // Скільки чекати на появу критичної (hero) секції; якщо її немає — ховаємось.
 const WAIT_WINDOW_MS = 600;
+// Мінімальний час показу, щоб інтро-анімація (лого + крапки + смуга) встигла програтись.
+const MIN_SHOW_MS = 1100;
 
 export function Preloader() {
   const [pageLoaded, setPageLoaded] = useState(false);
-  const [entranceDone, setEntranceDone] = useState(false);
+  const [minElapsed, setMinElapsed] = useState(false);
   const [windowClosed, setWindowClosed] = useState(false);
   const [settled, setSettled] = useState(false);
   const { pending, everRegistered } = useCriticalLoading();
@@ -30,20 +32,22 @@ export function Preloader() {
     if (!isFirstNav.current) {
       if (globalLenis) { globalLenis.scrollTo(0, { immediate: true }); }
       else { window.scrollTo({ top: 0 }); }
-      setEntranceDone(false);
+      setMinElapsed(false);
       setSettled(false);
     }
     isFirstNav.current = false;
     resetCriticalSession();
     setWindowClosed(false);
-    const id = setTimeout(() => setWindowClosed(true), WAIT_WINDOW_MS);
-    return () => clearTimeout(id);
+    const idWindow = setTimeout(() => setWindowClosed(true), WAIT_WINDOW_MS);
+    const idMin = setTimeout(() => setMinElapsed(true), MIN_SHOW_MS);
+    return () => { clearTimeout(idWindow); clearTimeout(idMin); };
   }, [location.pathname]);
 
   // Дані готові: критичні секції догрузились. Поки вікно очікування відкрите —
   // чекаємо появи hero; після закриття — просто щоб не лишилось активних запитів.
   const criticalDone = windowClosed ? pending === 0 : everRegistered && pending === 0;
-  const rawShow = !pageLoaded || !entranceDone || !criticalDone;
+  // Ховаємось лише коли дані готові І минув мінімальний час (інтро дограло).
+  const rawShow = !pageLoaded || !minElapsed || !criticalDone;
   // Засувка: щойно сховались — не показуємось знову до наступної навігації (без мерехтіння)
   const visible = !settled && rawShow;
 
@@ -92,7 +96,6 @@ export function Preloader() {
               initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.3, ease: EASE }}
-              onAnimationComplete={() => setEntranceDone(true)}
             >
               ННІКІТІ
             </motion.span>

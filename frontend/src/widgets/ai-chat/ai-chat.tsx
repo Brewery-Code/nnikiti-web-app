@@ -1,12 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { marked } from "marked";
 import { i18n } from "@/shared/i18n";
 import { useLoadNamespace } from "@/shared/hooks";
 import { loadTranslations } from "./locales";
 import { createMessage, requestAssistantReply, type ChatMessage } from "./model";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+// GitHub-flavoured markdown with single line breaks honoured (bot replies use them).
+marked.setOptions({ gfm: true, breaks: true });
+
+// Open links from the bot in a new tab.
+marked.use({
+  renderer: {
+    link({ href, title, tokens }) {
+      const text = this.parser.parseInline(tokens);
+      const t = title ? ` title="${title}"` : "";
+      return `<a href="${href}"${t} target="_blank" rel="noopener noreferrer">${text}</a>`;
+    },
+  },
+});
+
+// Tailwind `prose` styling tuned to fit a compact chat bubble on a dark panel.
+const PROSE =
+  "prose prose-invert prose-sm max-w-none break-words " +
+  "[&>:first-child]:mt-0 [&>:last-child]:mb-0 " +
+  "[&_p]:my-1.5 [&_ul]:my-1.5 [&_ol]:my-1.5 [&_li]:my-0.5 [&_li]:marker:text-violet-400 " +
+  "[&_h1]:text-[15px] [&_h2]:text-[14px] [&_h3]:text-[13.5px] [&_h1]:my-2 [&_h2]:my-2 [&_h3]:my-1.5 " +
+  "[&_a]:text-violet-300 [&_a]:underline [&_code]:rounded [&_code]:bg-white/10 [&_code]:px-1 [&_code]:py-0.5";
 
 function BotIcon({ size = 22 }: { size?: number }) {
   return (
@@ -40,7 +63,14 @@ function MessageBubble({ message }: { message: ChatMessage }) {
             : "max-w-[82%] rounded-2xl rounded-bl-md border border-ui-sm bg-surface-lg px-3.5 py-2.5 text-[13.5px] leading-relaxed text-primary/90"
         }
       >
-        {message.text}
+        {isUser ? (
+          message.text
+        ) : (
+          <div
+            className={PROSE}
+            dangerouslySetInnerHTML={{ __html: marked.parse(message.text) as string }}
+          />
+        )}
       </div>
     </motion.div>
   );
