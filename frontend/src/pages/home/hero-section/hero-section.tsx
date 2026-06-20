@@ -7,6 +7,7 @@ import { globalLenis } from "@/shared/hooks/use-lenis";
 import { publicRqClient } from "@/shared/api/instance";
 import { ROUTES } from "@/shared/model/routes";
 import { useLoadNamespace } from "@/shared/hooks";
+import { useReportCritical } from "@/shared/model/critical-loading";
 import { loadTranslations } from "../events-section/locales";
 
 function HeroQuickLink({ q }: { q: { label: string; to: string } }) {
@@ -30,6 +31,8 @@ export default function HeroSection({ className = "" }: { className?: string }) 
   ];
   const sliderQuery = publicRqClient.useQuery("get", "/core/main-slider-items/", {});
   const slides = (sliderQuery.data ?? []) as { image: string }[];
+  // Прелоадер чекає саме на цей (above-the-fold) запит, а не на весь каскад
+  useReportCritical(sliderQuery.isLoading);
 
   const currentRef = useRef(0);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);

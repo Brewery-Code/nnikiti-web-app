@@ -2,34 +2,54 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { globalLenis, setScrollLocked } from "@/shared/hooks/use-lenis";
+import { useCriticalLoading, resetCriticalSession } from "@/shared/model/critical-loading";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
-const MIN_NAV_MS = 700;
+// Скільки чекати на появу критичної (hero) секції; якщо її немає — ховаємось.
+const WAIT_WINDOW_MS = 600;
 
-export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) {
+export function Preloader() {
   const [pageLoaded, setPageLoaded] = useState(false);
-  const [navVisible, setNavVisible] = useState(false);
+  const [entranceDone, setEntranceDone] = useState(false);
+  const [windowClosed, setWindowClosed] = useState(false);
+  const [settled, setSettled] = useState(false);
+  const { pending, everRegistered } = useCriticalLoading();
   const location = useLocation();
   const isFirstNav = useRef(true);
 
   useEffect(() => {
-    let cancelled = false;
-    const done = () => { if (!cancelled) setTimeout(() => setPageLoaded(true), 250); };
-    if (document.readyState === "complete") { done(); }
-    else { window.addEventListener("load", done, { once: true }); }
-    return () => { cancelled = true; window.removeEventListener("load", done); };
+    const done = () => setPageLoaded(true);
+    // Чекаємо лише парсинг DOM, а не всі картинки/шрифти (window.load)
+    if (document.readyState !== "loading") { done(); }
+    else { document.addEventListener("DOMContentLoaded", done, { once: true }); }
+    return () => document.removeEventListener("DOMContentLoaded", done);
   }, []);
 
+  // Нова "сесія" показу — на старті й на кожній навігації
   useLayoutEffect(() => {
-    if (isFirstNav.current) { isFirstNav.current = false; return; }
-    if (globalLenis) { globalLenis.scrollTo(0, { immediate: true }); }
-    else { window.scrollTo({ top: 0 }); }
-    setNavVisible(true);
-    const id = setTimeout(() => setNavVisible(false), MIN_NAV_MS);
+    if (!isFirstNav.current) {
+      if (globalLenis) { globalLenis.scrollTo(0, { immediate: true }); }
+      else { window.scrollTo({ top: 0 }); }
+      setEntranceDone(false);
+      setSettled(false);
+    }
+    isFirstNav.current = false;
+    resetCriticalSession();
+    setWindowClosed(false);
+    const id = setTimeout(() => setWindowClosed(true), WAIT_WINDOW_MS);
     return () => clearTimeout(id);
   }, [location.pathname]);
 
-  const visible = !pageLoaded || navVisible || forceVisible;
+  // Дані готові: критичні секції догрузились. Поки вікно очікування відкрите —
+  // чекаємо появи hero; після закриття — просто щоб не лишилось активних запитів.
+  const criticalDone = windowClosed ? pending === 0 : everRegistered && pending === 0;
+  const rawShow = !pageLoaded || !entranceDone || !criticalDone;
+  // Засувка: щойно сховались — не показуємось знову до наступної навігації (без мерехтіння)
+  const visible = !settled && rawShow;
+
+  useEffect(() => {
+    if (!rawShow) { setSettled(true); }
+  }, [rawShow]);
 
   useEffect(() => {
     setScrollLocked(visible);
@@ -44,7 +64,7 @@ export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) 
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-base"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: EASE }}
+          transition={{ duration: 0.22, ease: EASE }}
         >
           {/* Ambient glow */}
           <div
@@ -71,7 +91,8 @@ export function Preloader({ forceVisible = false }: { forceVisible?: boolean }) 
               style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.05em" }}
               initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.55, ease: EASE }}
+              transition={{ duration: 0.3, ease: EASE }}
+              onAnimationComplete={() => setEntranceDone(true)}
             >
               ННІКІТІ
             </motion.span>

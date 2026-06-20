@@ -7,7 +7,7 @@ export function SideOrbs() {
           width: 700, height: 700,
           left: "-12%", top: "-5%",
           background: "radial-gradient(circle, rgba(124,58,237,0.16) 0%, rgba(124,58,237,0.04) 55%, transparent 72%)",
-          filter: "blur(72px)",
+          filter: "blur(48px)",
           willChange: "transform",
         }}
       />
@@ -17,7 +17,7 @@ export function SideOrbs() {
           width: 620, height: 620,
           right: "-10%", bottom: "3%",
           background: "radial-gradient(circle, rgba(59,130,246,0.14) 0%, rgba(59,130,246,0.03) 55%, transparent 72%)",
-          filter: "blur(72px)",
+          filter: "blur(48px)",
           willChange: "transform",
         }}
       />
@@ -34,7 +34,7 @@ export function GlobalBackground() {
           width: 750, height: 750,
           left: "-15%", top: "-20%",
           background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 65%)",
-          filter: "blur(60px)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
@@ -44,7 +44,7 @@ export function GlobalBackground() {
           width: 600, height: 600,
           right: "-12%", bottom: "-10%",
           background: "radial-gradient(circle, rgba(79,70,229,0.10) 0%, transparent 65%)",
-          filter: "blur(60px)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
