@@ -79,32 +79,37 @@ export default function SpecialtiesSection({ className = "" }: { className?: str
       </div>
 
       <div className="overflow-hidden py-3">
-        <Swiper
-          onSwiper={(s) => { swiperRef.current = s; }}
-          modules={[Autoplay]}
-          loop
-          loopAdditionalSlides={4}
-          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
-          speed={600}
-          slidesPerView="auto"
-          spaceBetween={SPACE_BETWEEN_PX}
-          allowTouchMove={isTouchDevice}
-          grabCursor={isTouchDevice}
-          observer
-          observeParents
-          resizeObserver
-          className="specialties-swiper !overflow-visible py-2 [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:!h-auto"
-        >
-          {specialties.map((s) => (
-            <SwiperSlide
-              key={s.id}
-              className="!w-[72vw] xs:!w-[65vw] sm:!w-[300px] lg:!w-[340px] xl:!w-[380px] 2xl:!w-[420px]"
-              style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
-            >
-              <SpecCard spec={s} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {specialties.length > 0 && (
+          <Swiper
+            // Force a clean re-init once async data arrives so loop clones and
+            // autoplay are built against the real slides (not an empty list).
+            key={specialties.length}
+            onSwiper={(s) => { swiperRef.current = s; }}
+            modules={[Autoplay]}
+            loop
+            loopAdditionalSlides={4}
+            autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            speed={600}
+            slidesPerView="auto"
+            spaceBetween={SPACE_BETWEEN_PX}
+            allowTouchMove={isTouchDevice}
+            grabCursor={isTouchDevice}
+            observer
+            observeParents
+            resizeObserver
+            className="specialties-swiper !overflow-visible py-2 [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:!h-auto"
+          >
+            {specialties.map((s) => (
+              <SwiperSlide
+                key={s.id}
+                className="!w-[72vw] xs:!w-[65vw] sm:!w-[300px] lg:!w-[340px] xl:!w-[380px] 2xl:!w-[420px]"
+                style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+              >
+                <SpecCard spec={s} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </div>
 
       {/* Mobile: "Детальніше" button below slider */}
