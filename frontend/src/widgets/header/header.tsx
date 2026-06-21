@@ -64,7 +64,6 @@ export function Header() {
       list: [
         { title: t("navigationMenu.research"), link: ROUTES.SCIENCE_RESEARCH },
         { title: t("navigationMenu.conferences"), link: ROUTES.SCIENCE_CONFERENCES },
-        { title: t("navigationMenu.publications"), link: ROUTES.SCIENCE_PUBLICATIONS },
         { title: t("navigationMenu.grants"), link: ROUTES.SCIENCE_GRANTS },
         { title: t("navigationMenu.laboratories"), link: ROUTES.SCIENCE_LABS },
       ],

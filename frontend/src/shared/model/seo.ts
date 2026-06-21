@@ -141,16 +141,6 @@ export const SEO_BY_PATH: Record<string, SeoEntry> = {
       description: "Postgraduate programmes and research training at NNIKITI, NUWEE.",
     },
   },
-  [ROUTES.SCIENCE_PUBLICATIONS]: {
-    uk: {
-      title: "Публікації — Наука ННІКІТІ",
-      description: "Наукові публікації викладачів та дослідників ННІКІТІ НУВГП.",
-    },
-    en: {
-      title: "Publications — NNIKITI Science",
-      description: "Scientific publications by researchers of NNIKITI, NUWEE.",
-    },
-  },
   [ROUTES.SCIENCE_RESEARCH]: {
     uk: {
       title: "Дослідження — Наука ННІКІТІ",

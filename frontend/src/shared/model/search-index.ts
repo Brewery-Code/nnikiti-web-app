@@ -87,13 +87,6 @@ const PAGES: SearchEntry[] = [
     keywords: ["PhD", "докторантура", "науковий ступінь", "дисертація"],
   },
   {
-    title: "Публікації",
-    description: "Наукові публікації викладачів та студентів інституту.",
-    link: ROUTES.SCIENCE_PUBLICATIONS,
-    category: "Наука",
-    keywords: ["статті", "журнали", "індексування", "Scopus", "WoS"],
-  },
-  {
     title: "Дослідження",
     description: "Науково-дослідні проєкти та лабораторії ННІКІТІ.",
     link: ROUTES.SCIENCE_RESEARCH,

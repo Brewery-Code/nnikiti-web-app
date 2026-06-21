@@ -13,7 +13,6 @@ export function SciencePage({ kind }: { kind: SciencePageKind }) {
 
   const labels = useMemo(
     () => ({
-      navPublications: t("common.navPublications"),
       navResearch: t("common.navResearch"),
       navConferences: t("common.navConferences"),
       navGrants: t("common.navGrants"),

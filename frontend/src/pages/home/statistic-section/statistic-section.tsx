@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { useLoadNamespace } from "@/shared/hooks";
 import { Reveal } from "@/shared/ui";
+import { publicRqClient } from "@/shared/api/instance";
 import { loadTranslations } from "./locales";
 
 const STATS = [
@@ -22,25 +23,18 @@ function fmt(n: number): string {
 
 function useCountUp(from: number, to: number, duration = 1600) {
   const [count, setCount] = useState(from);
+  const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const done = useRef(false);
 
+  // Trigger once the card scrolls into view.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !done.current) {
-          done.current = true;
+        if (entry.isIntersecting) {
+          setVisible(true);
           observer.disconnect();
-          const t0 = performance.now();
-          function tick(now: number) {
-            const p = Math.min((now - t0) / duration, 1);
-            const ease = 1 - Math.pow(1 - p, 3);
-            setCount(from + (to - from) * ease);
-            if (p < 1) requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
         }
       },
       { threshold: 0.4 }
@@ -48,6 +42,22 @@ function useCountUp(from: number, to: number, duration = 1600) {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  // Animate whenever the card is visible — and re-run if `to` changes (e.g. the
+  // real value arrives from the API after the initial render).
+  useEffect(() => {
+    if (!visible) return;
+    const t0 = performance.now();
+    let raf = 0;
+    function tick(now: number) {
+      const p = Math.min((now - t0) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      setCount(from + (to - from) * ease);
+      if (p < 1) raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [visible, to, from, duration]);
 
   return { count, ref };
 }
@@ -91,6 +101,19 @@ function StatCard({ stat, tall }: { stat: StatItem; tall?: boolean }) {
 export default function StatisticSection({ className = "" }: { className?: string }) {
   useLoadNamespace("home", loadTranslations);
 
+  // Real figures from the API; fall back to the static values until they load.
+  const { data: programs } = publicRqClient.useQuery("get", "/core/educational-programs/", {});
+  const { data: staff } = publicRqClient.useQuery("get", "/departments/staff/", {});
+
+  const programsCount = (programs ?? []).filter((p) => p.code && p.name).length;
+  const teachersCount = (staff ?? []).length;
+
+  const stats = STATS.map((s) => {
+    if (s.description === "Освітніх програм" && programsCount > 0) return { ...s, value: programsCount };
+    if (s.description === "Викладачів" && teachersCount > 0) return { ...s, value: teachersCount };
+    return s;
+  });
+
   return (
     <section
       className={clsx(
@@ -126,13 +149,13 @@ export default function StatisticSection({ className = "" }: { className?: strin
           className="hidden lg:grid gap-4"
           style={{ gridTemplateColumns: "repeat(5, 1fr)", gridAutoRows: "1fr" }}
         >
-          <Reveal mode="scale" delay={0}    amount={0.15} className="h-full" style={{ gridArea: "1 / 1 / 2 / 2" }}><StatCard stat={STATS[2]} /></Reveal>
-          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "1 / 2 / 2 / 4" }}><StatCard stat={STATS[0]} /></Reveal>
-          <Reveal mode="scale" delay={0.12} amount={0.15} className="h-full" style={{ gridArea: "1 / 4 / 2 / 5" }}><StatCard stat={STATS[5]} /></Reveal>
-          <Reveal mode="scale" delay={0.18} amount={0.15} className="h-full" style={{ gridArea: "1 / 5 / 3 / 6" }}><StatCard stat={STATS[4]} /></Reveal>
-          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "2 / 1 / 3 / 2" }}><StatCard stat={STATS[3]} /></Reveal>
-          <Reveal mode="scale" delay={0.12} amount={0.15} className="h-full" style={{ gridArea: "2 / 2 / 3 / 3" }}><StatCard stat={STATS[6]} /></Reveal>
-          <Reveal mode="scale" delay={0.18} amount={0.15} className="h-full" style={{ gridArea: "2 / 3 / 3 / 5" }}><StatCard stat={STATS[1]} /></Reveal>
+          <Reveal mode="scale" delay={0}    amount={0.15} className="h-full" style={{ gridArea: "1 / 1 / 2 / 2" }}><StatCard stat={stats[2]} /></Reveal>
+          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "1 / 2 / 2 / 4" }}><StatCard stat={stats[0]} /></Reveal>
+          <Reveal mode="scale" delay={0.12} amount={0.15} className="h-full" style={{ gridArea: "1 / 4 / 2 / 5" }}><StatCard stat={stats[5]} /></Reveal>
+          <Reveal mode="scale" delay={0.18} amount={0.15} className="h-full" style={{ gridArea: "1 / 5 / 3 / 6" }}><StatCard stat={stats[4]} /></Reveal>
+          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "2 / 1 / 3 / 2" }}><StatCard stat={stats[3]} /></Reveal>
+          <Reveal mode="scale" delay={0.12} amount={0.15} className="h-full" style={{ gridArea: "2 / 2 / 3 / 3" }}><StatCard stat={stats[6]} /></Reveal>
+          <Reveal mode="scale" delay={0.18} amount={0.15} className="h-full" style={{ gridArea: "2 / 3 / 3 / 5" }}><StatCard stat={stats[1]} /></Reveal>
         </div>
 
         {/*
@@ -147,13 +170,13 @@ export default function StatisticSection({ className = "" }: { className?: strin
           className="grid gap-3 sm:gap-4 lg:hidden"
           style={{ gridTemplateColumns: "1fr 1fr" }}
         >
-          <Reveal mode="scale" delay={0}    amount={0.15} className="h-full" style={{ gridArea: "1/1/2/2" }}><StatCard stat={STATS[2]} /></Reveal>
-          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "1/2/2/3" }}><StatCard stat={STATS[3]} /></Reveal>
-          <Reveal mode="scale" delay={0.08} amount={0.15} className="h-full" style={{ gridArea: "2/1/3/3" }}><StatCard stat={STATS[0]} /></Reveal>
-          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "3/1/4/2" }}><StatCard stat={STATS[5]} /></Reveal>
-          <Reveal mode="scale" delay={0.1}  amount={0.15} className="h-full" style={{ gridArea: "3/2/5/3" }}><StatCard stat={STATS[4]} tall /></Reveal>
-          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "4/1/5/2" }}><StatCard stat={STATS[6]} /></Reveal>
-          <Reveal mode="scale" delay={0.1}  amount={0.15} className="h-full" style={{ gridArea: "5/1/6/3" }}><StatCard stat={STATS[1]} /></Reveal>
+          <Reveal mode="scale" delay={0}    amount={0.15} className="h-full" style={{ gridArea: "1/1/2/2" }}><StatCard stat={stats[2]} /></Reveal>
+          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "1/2/2/3" }}><StatCard stat={stats[3]} /></Reveal>
+          <Reveal mode="scale" delay={0.08} amount={0.15} className="h-full" style={{ gridArea: "2/1/3/3" }}><StatCard stat={stats[0]} /></Reveal>
+          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "3/1/4/2" }}><StatCard stat={stats[5]} /></Reveal>
+          <Reveal mode="scale" delay={0.1}  amount={0.15} className="h-full" style={{ gridArea: "3/2/5/3" }}><StatCard stat={stats[4]} tall /></Reveal>
+          <Reveal mode="scale" delay={0.06} amount={0.15} className="h-full" style={{ gridArea: "4/1/5/2" }}><StatCard stat={stats[6]} /></Reveal>
+          <Reveal mode="scale" delay={0.1}  amount={0.15} className="h-full" style={{ gridArea: "5/1/6/3" }}><StatCard stat={stats[1]} /></Reveal>
         </div>
       </div>
     </section>

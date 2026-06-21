@@ -5,7 +5,6 @@ export const ROUTES = {
   STRATEGY: "/strategy",
   EVENTS: "/events",
   NEWS_ITEM: "/news/:slug",
-  SCIENCE_PUBLICATIONS: "/science/publications",
   SCIENCE_RESEARCH: "/science/research",
   SCIENCE_CONFERENCES: "/science/conferences",
   SCIENCE_GRANTS: "/science/grants",

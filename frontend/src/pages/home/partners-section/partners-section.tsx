@@ -17,6 +17,13 @@ const PARTNERS = [
   "Playtika",
 ];
 
+// One copy of PARTNERS (~1760px) is narrower than wide/ultrawide viewports, so
+// a single duplication leaves a gap before the loop resets. We build the track
+// as two identical halves (each = PARTNERS twice ≈ 3500px) so translateX(-50%)
+// always lands exactly on the second half — seamless on any screen width.
+const MARQUEE_HALF = [...PARTNERS, ...PARTNERS];
+const MARQUEE_ITEMS = [...MARQUEE_HALF, ...MARQUEE_HALF];
+
 function PartnerLogo({ name }: { name: string }) {
   const [h, setH] = useState(false);
   return (
@@ -24,7 +31,9 @@ function PartnerLogo({ name }: { name: string }) {
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
       className={clsx(
-        "cursor-pointer flex-shrink-0 rounded-xl px-6 py-3 sm:rounded-[14px]",
+        // mr-3 instead of a track gap so the duplicated set tiles seamlessly
+        // (translateX(-50%) lands exactly on the second copy → no half-step jump)
+        "mr-3 cursor-pointer flex-shrink-0 rounded-xl px-6 py-3 sm:rounded-[14px]",
         h && "grad-border"
       )}
       style={{
@@ -86,8 +95,8 @@ export default function PartnersSection({ className = "" }: { className?: string
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
         }}
       >
-        <div className="marquee-track gap-3 py-1">
-          {[...PARTNERS, ...PARTNERS].map((name, i) => (
+        <div className="marquee-track py-1">
+          {MARQUEE_ITEMS.map((name, i) => (
             <PartnerLogo key={i} name={name} />
           ))}
         </div>

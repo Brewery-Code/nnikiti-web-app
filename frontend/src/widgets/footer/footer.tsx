@@ -32,7 +32,6 @@ export function Footer({ className }: { className?: string }) {
     {
       heading: t("col_science"),
       links: [
-        { label: t("link_publications"), to: ROUTES.SCIENCE_PUBLICATIONS },
         { label: t("link_research"),     to: ROUTES.SCIENCE_RESEARCH },
         { label: t("link_conferences"),  to: ROUTES.SCIENCE_CONFERENCES },
         { label: t("link_partners"),     to: ROUTES.PARTNERS_BUSINESS },

@@ -1,7 +1,6 @@
 import { ROUTES } from "@/shared/model/routes";
 
 export type SciencePageKind =
-  | "publications"
   | "research"
   | "conferences"
   | "grants"
@@ -35,7 +34,6 @@ export type SciencePageData = {
 };
 
 export type ScienceLabels = {
-  navPublications: string;
   navResearch: string;
   navConferences: string;
   navGrants: string;
@@ -57,7 +55,6 @@ export type ScienceLabels = {
 export type SelectOption = { value: string; label: string };
 
 export const PAGE_HERO_IMAGE: Record<SciencePageKind, string> = {
-  publications: "/main/nuwm_1920x900.jpg",
   research: "/main/nuwm_1920x900.jpg",
   conferences: "/main/nuwm_1920x900.jpg",
   grants: "/main/nuwm_1920x900.jpg",
@@ -68,12 +65,6 @@ export const ACTIVITY_META: Record<
   SciencePageKind,
   Array<{ date: string; status: ActivityStatusKey }>
 > = {
-  publications: [
-    { date: "2026-05-12", status: "open" },
-    { date: "2026-06-03", status: "upcoming" },
-    { date: "2026-04-18", status: "completed" },
-    { date: "2026-05-28", status: "open" },
-  ],
   research: [
     { date: "2026-05-07", status: "open" },
     { date: "2026-05-21", status: "upcoming" },
@@ -96,7 +87,6 @@ export const ACTIVITY_META: Record<
 };
 
 export const NAV_ITEMS = [
-  { kind: "publications", route: ROUTES.SCIENCE_PUBLICATIONS, labelKey: "common.navPublications" },
   { kind: "research", route: ROUTES.SCIENCE_RESEARCH, labelKey: "common.navResearch" },
   { kind: "conferences", route: ROUTES.SCIENCE_CONFERENCES, labelKey: "common.navConferences" },
   { kind: "grants", route: ROUTES.SCIENCE_GRANTS, labelKey: "common.navGrants" },
